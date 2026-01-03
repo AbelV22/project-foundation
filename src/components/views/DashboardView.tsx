@@ -13,6 +13,8 @@ export interface Vuelo {
   origen: string;
   hora: string;
   terminal: string;
+  es_puente: boolean;
+  es_t2c: boolean;
   avion: string;
   pax: number;
   estado: string;

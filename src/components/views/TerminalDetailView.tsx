@@ -1,134 +1,54 @@
-import { useState } from "react";
-import { Plane, Clock, Users, ArrowDown, ArrowLeft, BarChart3 } from "lucide-react";
+import { useState, useEffect } from "react";
+import { Plane, Clock, Users, ArrowDown, ArrowLeft } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { 
   AreaChart, Area, XAxis, YAxis, Tooltip, ResponsiveContainer
 } from "recharts";
+import { DashboardData, Vuelo } from "./DashboardView";
 
 interface TerminalDetailViewProps {
   terminalId: string;
   onBack: () => void;
 }
 
-const terminalInfo: Record<string, { name: string; color: string; flights: number; passengers: string }> = {
-  t1: { name: "Terminal 1", color: "#3B82F6", flights: 5, passengers: "1,070" },
-  t2: { name: "Terminal 2", color: "#10B981", flights: 4, passengers: "796" },
-  puente: { name: "Puente Aéreo", color: "#8B5CF6", flights: 6, passengers: "1,175" },
-  t2c: { name: "T2C EasyJet", color: "#F97316", flights: 8, passengers: "1,440" },
-};
-
-const flightsData: Record<string, Array<{ flight: string; origin: string; status: string; time: string; aircraft: string; passengers: number }>> = {
-  t1: [
-    { flight: "IB2341", origin: "Madrid", status: "Aterrizando", time: "08:15", aircraft: "Airbus A321", passengers: 220 },
-    { flight: "VY1234", origin: "París CDG", status: "En hora", time: "08:45", aircraft: "Airbus A320", passengers: 180 },
-    { flight: "BA478", origin: "Londres LHR", status: "En hora", time: "09:00", aircraft: "Boeing 777", passengers: 350 },
-    { flight: "LH1138", origin: "Frankfurt", status: "En hora", time: "09:30", aircraft: "Airbus A319", passengers: 140 },
-  ],
-  t2: [
-    { flight: "FR8921", origin: "Milán BGY", status: "En hora", time: "08:30", aircraft: "Boeing 737", passengers: 189 },
-    { flight: "W64521", origin: "Budapest", status: "En hora", time: "09:15", aircraft: "Airbus A321", passengers: 220 },
-  ],
-  puente: [
-    { flight: "IB3124", origin: "Madrid", status: "Aterrizando", time: "08:00", aircraft: "Airbus A320", passengers: 180 },
-    { flight: "VY1001", origin: "Madrid", status: "En hora", time: "08:30", aircraft: "Airbus A320", passengers: 180 },
-    { flight: "IB3126", origin: "Madrid", status: "En hora", time: "09:00", aircraft: "Airbus A321", passengers: 220 },
-  ],
-  t2c: [
-    { flight: "U28921", origin: "Londres LGW", status: "En hora", time: "08:20", aircraft: "Airbus A320", passengers: 186 },
-    { flight: "U21234", origin: "Berlín", status: "Aterrizando", time: "08:35", aircraft: "Airbus A320", passengers: 180 },
-    { flight: "U28756", origin: "Ámsterdam", status: "En hora", time: "09:10", aircraft: "Airbus A320", passengers: 186 },
-    { flight: "U22345", origin: "París ORY", status: "En hora", time: "09:45", aircraft: "Airbus A321neo", passengers: 235 },
-  ],
-};
-
-const hourlyDataByTerminal: Record<string, Array<{ hour: string; vuelos: number; pasajeros: number }>> = {
-  t1: [
-    { hour: "06:00", vuelos: 2, pasajeros: 350 },
-    { hour: "07:00", vuelos: 3, pasajeros: 520 },
-    { hour: "08:00", vuelos: 5, pasajeros: 890 },
-    { hour: "09:00", vuelos: 6, pasajeros: 1070 },
-    { hour: "10:00", vuelos: 4, pasajeros: 720 },
-    { hour: "11:00", vuelos: 3, pasajeros: 510 },
-    { hour: "12:00", vuelos: 4, pasajeros: 680 },
-    { hour: "13:00", vuelos: 5, pasajeros: 850 },
-    { hour: "14:00", vuelos: 6, pasajeros: 1020 },
-    { hour: "15:00", vuelos: 5, pasajeros: 870 },
-    { hour: "16:00", vuelos: 3, pasajeros: 540 },
-    { hour: "17:00", vuelos: 4, pasajeros: 680 },
-    { hour: "18:00", vuelos: 5, pasajeros: 890 },
-    { hour: "19:00", vuelos: 6, pasajeros: 1050 },
-    { hour: "20:00", vuelos: 4, pasajeros: 720 },
-    { hour: "21:00", vuelos: 3, pasajeros: 510 },
-    { hour: "22:00", vuelos: 2, pasajeros: 360 },
-  ],
-  t2: [
-    { hour: "06:00", vuelos: 1, pasajeros: 180 },
-    { hour: "07:00", vuelos: 2, pasajeros: 360 },
-    { hour: "08:00", vuelos: 3, pasajeros: 540 },
-    { hour: "09:00", vuelos: 4, pasajeros: 796 },
-    { hour: "10:00", vuelos: 2, pasajeros: 380 },
-    { hour: "11:00", vuelos: 2, pasajeros: 340 },
-    { hour: "12:00", vuelos: 3, pasajeros: 510 },
-    { hour: "13:00", vuelos: 3, pasajeros: 540 },
-    { hour: "14:00", vuelos: 4, pasajeros: 720 },
-    { hour: "15:00", vuelos: 3, pasajeros: 560 },
-    { hour: "16:00", vuelos: 2, pasajeros: 380 },
-    { hour: "17:00", vuelos: 3, pasajeros: 510 },
-    { hour: "18:00", vuelos: 4, pasajeros: 680 },
-    { hour: "19:00", vuelos: 4, pasajeros: 720 },
-    { hour: "20:00", vuelos: 3, pasajeros: 540 },
-    { hour: "21:00", vuelos: 2, pasajeros: 360 },
-    { hour: "22:00", vuelos: 1, pasajeros: 180 },
-  ],
-  puente: [
-    { hour: "06:00", vuelos: 2, pasajeros: 360 },
-    { hour: "07:00", vuelos: 4, pasajeros: 720 },
-    { hour: "08:00", vuelos: 6, pasajeros: 1080 },
-    { hour: "09:00", vuelos: 6, pasajeros: 1175 },
-    { hour: "10:00", vuelos: 4, pasajeros: 720 },
-    { hour: "11:00", vuelos: 3, pasajeros: 540 },
-    { hour: "12:00", vuelos: 4, pasajeros: 720 },
-    { hour: "13:00", vuelos: 5, pasajeros: 900 },
-    { hour: "14:00", vuelos: 6, pasajeros: 1080 },
-    { hour: "15:00", vuelos: 5, pasajeros: 900 },
-    { hour: "16:00", vuelos: 4, pasajeros: 720 },
-    { hour: "17:00", vuelos: 4, pasajeros: 720 },
-    { hour: "18:00", vuelos: 5, pasajeros: 900 },
-    { hour: "19:00", vuelos: 6, pasajeros: 1080 },
-    { hour: "20:00", vuelos: 5, pasajeros: 900 },
-    { hour: "21:00", vuelos: 3, pasajeros: 540 },
-    { hour: "22:00", vuelos: 2, pasajeros: 360 },
-  ],
-  t2c: [
-    { hour: "06:00", vuelos: 2, pasajeros: 372 },
-    { hour: "07:00", vuelos: 4, pasajeros: 744 },
-    { hour: "08:00", vuelos: 6, pasajeros: 1116 },
-    { hour: "09:00", vuelos: 8, pasajeros: 1440 },
-    { hour: "10:00", vuelos: 5, pasajeros: 930 },
-    { hour: "11:00", vuelos: 3, pasajeros: 558 },
-    { hour: "12:00", vuelos: 4, pasajeros: 744 },
-    { hour: "13:00", vuelos: 5, pasajeros: 930 },
-    { hour: "14:00", vuelos: 7, pasajeros: 1302 },
-    { hour: "15:00", vuelos: 6, pasajeros: 1116 },
-    { hour: "16:00", vuelos: 4, pasajeros: 744 },
-    { hour: "17:00", vuelos: 5, pasajeros: 930 },
-    { hour: "18:00", vuelos: 6, pasajeros: 1116 },
-    { hour: "19:00", vuelos: 7, pasajeros: 1302 },
-    { hour: "20:00", vuelos: 5, pasajeros: 930 },
-    { hour: "21:00", vuelos: 4, pasajeros: 744 },
-    { hour: "22:00", vuelos: 2, pasajeros: 372 },
-  ],
+const terminalConfig: Record<string, { name: string; color: string }> = {
+  t1: { name: "Terminal 1", color: "#3B82F6" },
+  t2: { name: "Terminal 2", color: "#10B981" },
+  puente: { name: "Puente Aéreo", color: "#8B5CF6" },
+  t2c: { name: "T2C EasyJet", color: "#F97316" },
 };
 
 export function TerminalDetailView({ terminalId, onBack }: TerminalDetailViewProps) {
-  const [chartType, setChartType] = useState<"vuelos" | "pasajeros">("vuelos");
-  const terminal = terminalInfo[terminalId];
-  const flights = flightsData[terminalId] || [];
-  const hourlyData = hourlyDataByTerminal[terminalId] || [];
+  const [data, setData] = useState<DashboardData | null>(null);
+  const [loading, setLoading] = useState(true);
+  const [chartType, setChartType] = useState<"vuelos" | "pasajeros">("pasajeros");
 
-  if (!terminal) {
+  useEffect(() => {
+    fetch("/data.json?t=" + Date.now())
+      .then((res) => res.json())
+      .then((jsonData) => {
+        setData(jsonData);
+        setLoading(false);
+      })
+      .catch((err) => {
+        console.error("Error cargando data.json:", err);
+        setLoading(false);
+      });
+  }, []);
+
+  const terminal = terminalConfig[terminalId];
+
+  if (loading) {
+    return (
+      <div className="flex items-center justify-center h-[60vh]">
+        <div className="text-blue-500 font-bold animate-pulse">Cargando terminal...</div>
+      </div>
+    );
+  }
+
+  if (!terminal || !data) {
     return (
       <div className="p-6">
         <Button variant="ghost" onClick={onBack} className="mb-4">
@@ -139,6 +59,37 @@ export function TerminalDetailView({ terminalId, onBack }: TerminalDetailViewPro
       </div>
     );
   }
+
+  // Get terminal stats
+  const terminalKey = terminalId as keyof typeof data.resumen_cards;
+  const stats = data.resumen_cards[terminalKey] || { vuelos: 0, pax: 0 };
+
+  // Filter flights by terminal
+  const filterFlights = (vuelos: Vuelo[]) => {
+    return vuelos.filter(v => {
+      const term = v.terminal.toLowerCase();
+      if (terminalId === "t1") return term.includes("t1") || term === "tt1";
+      if (terminalId === "t2") return term === "t2" && !v.es_t2c;
+      if (terminalId === "puente") return v.es_puente || term.includes("puente");
+      if (terminalId === "t2c") return v.es_t2c || term.includes("t2c");
+      return false;
+    });
+  };
+
+  const flights = filterFlights(data.vuelos).slice(0, 15);
+
+  // Create hourly data for this terminal
+  const hourlyData = data.grafica.map(item => {
+    // Estimate terminal's portion based on its share of total flights
+    const totalFlights = data.meta.total_vuelos || 1;
+    const terminalShare = stats.vuelos / totalFlights;
+    const pax = Math.round(item.pax * terminalShare);
+    return {
+      hour: `${item.name}:00`,
+      pasajeros: pax,
+      vuelos: Math.max(1, Math.round(pax / 160))
+    };
+  });
 
   return (
     <div className="space-y-6 animate-fade-in">
@@ -156,7 +107,7 @@ export function TerminalDetailView({ terminalId, onBack }: TerminalDetailViewPro
           </div>
           <div>
             <h1 className="font-display text-xl md:text-2xl font-bold text-foreground">{terminal.name}</h1>
-            <p className="text-sm text-muted-foreground">Llegadas próxima hora</p>
+            <p className="text-sm text-muted-foreground">Llegadas de hoy</p>
           </div>
         </div>
       </div>
@@ -169,7 +120,7 @@ export function TerminalDetailView({ terminalId, onBack }: TerminalDetailViewPro
             <span className="text-muted-foreground text-sm">Vuelos</span>
           </div>
           <p className="text-3xl md:text-4xl font-display font-bold" style={{ color: terminal.color }}>
-            {terminal.flights}
+            {stats.vuelos}
           </p>
         </div>
         <div className="card-dashboard p-4 md:p-6 text-center">
@@ -178,7 +129,7 @@ export function TerminalDetailView({ terminalId, onBack }: TerminalDetailViewPro
             <span className="text-muted-foreground text-sm">Pasajeros</span>
           </div>
           <p className="text-3xl md:text-4xl font-display font-bold text-primary">
-            {terminal.passengers}
+            {stats.pax.toLocaleString()}
           </p>
         </div>
       </div>
@@ -222,7 +173,7 @@ export function TerminalDetailView({ terminalId, onBack }: TerminalDetailViewPro
                 axisLine={false} 
                 tickLine={false}
                 tick={{ fontSize: 10, fill: 'hsl(220, 10%, 55%)' }}
-                interval="preserveStartEnd"
+                interval={3}
               />
               <YAxis 
                 axisLine={false} 
@@ -261,54 +212,62 @@ export function TerminalDetailView({ terminalId, onBack }: TerminalDetailViewPro
             Próximos Vuelos
           </h3>
         </div>
-        <div className="divide-y divide-border">
-          {flights.map((flight, idx) => (
-            <div key={idx} className="flex flex-col md:flex-row md:items-center gap-3 md:gap-6 p-4 md:p-6 hover:bg-accent/30 transition-colors">
-              <div className="flex items-center gap-4 md:gap-6 flex-1">
-                <div 
-                  className="flex h-10 w-10 md:h-12 md:w-12 items-center justify-center rounded-full flex-shrink-0"
-                  style={{ backgroundColor: `${terminal.color}15` }}
-                >
-                  <ArrowDown className="h-4 w-4 md:h-5 md:w-5" style={{ color: terminal.color }} />
-                </div>
-
-                <div className="flex-1 min-w-0">
-                  <div className="flex items-center gap-2 md:gap-3 mb-1">
-                    <span className="font-semibold text-foreground">{flight.flight}</span>
-                    <Badge 
-                      className={cn(
-                        "text-xs",
-                        flight.status === "Aterrizando" 
-                          ? "status-landing" 
-                          : "status-ontime"
-                      )}
-                    >
-                      {flight.status}
-                    </Badge>
-                  </div>
-                  <p className="text-sm text-muted-foreground">{flight.origin}</p>
-                </div>
-
-                <div className="flex items-center gap-2 text-muted-foreground">
-                  <Clock className="h-4 w-4 hidden md:block" />
-                  <span className="font-mono text-lg text-foreground">{flight.time}</span>
-                </div>
-              </div>
-
-              <div className="flex items-center gap-4 md:gap-6 ml-14 md:ml-0">
-                <div className="text-left hidden sm:block">
-                  <p className="text-xs text-muted-foreground">Avión</p>
-                  <p className="text-sm font-medium text-primary">{flight.aircraft}</p>
-                </div>
-
-                <div className="flex items-center gap-1 md:gap-2">
-                  <Users className="h-4 w-4 text-primary" />
-                  <span className="text-primary font-bold">{flight.passengers}</span>
-                  <span className="text-xs text-muted-foreground hidden sm:inline">pasajeros</span>
-                </div>
-              </div>
+        <div className="divide-y divide-border max-h-[400px] overflow-y-auto">
+          {flights.length === 0 ? (
+            <div className="p-8 text-center text-muted-foreground">
+              No hay vuelos para esta terminal
             </div>
-          ))}
+          ) : (
+            flights.map((flight, idx) => (
+              <div key={idx} className="flex flex-col md:flex-row md:items-center gap-3 md:gap-6 p-4 md:p-6 hover:bg-accent/30 transition-colors">
+                <div className="flex items-center gap-4 md:gap-6 flex-1">
+                  <div 
+                    className="flex h-10 w-10 md:h-12 md:w-12 items-center justify-center rounded-full flex-shrink-0"
+                    style={{ backgroundColor: `${terminal.color}15` }}
+                  >
+                    <ArrowDown className="h-4 w-4 md:h-5 md:w-5" style={{ color: terminal.color }} />
+                  </div>
+
+                  <div className="flex-1 min-w-0">
+                    <div className="flex items-center gap-2 md:gap-3 mb-1">
+                      <span className="font-semibold text-foreground">{flight.id}</span>
+                      <Badge 
+                        className={cn(
+                          "text-xs",
+                          flight.estado === "Aterrizando" 
+                            ? "status-landing" 
+                            : "status-ontime"
+                        )}
+                      >
+                        {flight.estado}
+                      </Badge>
+                    </div>
+                    <p className="text-sm text-muted-foreground truncate">{flight.aerolinea} • {flight.origen}</p>
+                  </div>
+
+                  <div className="flex items-center gap-2 text-muted-foreground">
+                    <Clock className="h-4 w-4 hidden md:block" />
+                    <span className="font-mono text-lg text-foreground">{flight.hora}</span>
+                  </div>
+                </div>
+
+                <div className="flex items-center gap-4 md:gap-6 ml-14 md:ml-0">
+                  {flight.avion && flight.avion !== "None" && (
+                    <div className="text-left hidden sm:block">
+                      <p className="text-xs text-muted-foreground">Avión</p>
+                      <p className="text-sm font-medium text-primary">{flight.avion}</p>
+                    </div>
+                  )}
+
+                  <div className="flex items-center gap-1 md:gap-2">
+                    <Users className="h-4 w-4 text-primary" />
+                    <span className="text-primary font-bold">{flight.pax}</span>
+                    <span className="text-xs text-muted-foreground hidden sm:inline">pax</span>
+                  </div>
+                </div>
+              </div>
+            ))
+          )}
         </div>
       </div>
     </div>
