@@ -1,5 +1,4 @@
 import { Calendar, MapPin, Users, ChevronRight } from "lucide-react";
-import { cn } from "@/lib/utils";
 import { Badge } from "@/components/ui/badge";
 
 interface Event {
@@ -58,55 +57,55 @@ export function EventsWidget({ expanded = false, limit = 3 }: EventsWidgetProps)
   const displayEvents = expanded ? upcomingEvents : upcomingEvents.slice(0, limit);
 
   return (
-    <div className="card-dashboard p-5">
+    <div className="card-dashboard p-4 md:p-5">
       <div className="flex items-center justify-between mb-4">
-        <div className="flex items-center gap-3">
-          <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-purple-500/10">
-            <Calendar className="h-5 w-5 text-purple-500" />
+        <div className="flex items-center gap-2 md:gap-3">
+          <div className="flex h-9 w-9 md:h-10 md:w-10 items-center justify-center rounded-lg bg-purple-500/10">
+            <Calendar className="h-4 w-4 md:h-5 md:w-5 text-purple-500" />
           </div>
           <div>
-            <h3 className="font-display font-semibold text-foreground">Eventos Barcelona</h3>
-            <p className="text-sm text-muted-foreground">Próximos eventos de alto tráfico</p>
+            <h3 className="font-display font-semibold text-foreground text-sm md:text-base">Eventos Barcelona</h3>
+            <p className="text-xs md:text-sm text-muted-foreground">Próximos eventos</p>
           </div>
         </div>
         {!expanded && (
-          <button className="flex items-center gap-1 text-sm text-primary hover:text-primary/80 transition-colors">
+          <button className="flex items-center gap-1 text-xs md:text-sm text-primary hover:text-primary/80 transition-colors">
             Ver todos
             <ChevronRight className="h-4 w-4" />
           </button>
         )}
       </div>
 
-      <div className="space-y-3">
+      <div className="space-y-2 md:space-y-3">
         {displayEvents.map((event) => (
           <div 
             key={event.id}
-            className="flex items-start justify-between p-4 rounded-xl border border-border hover:border-primary/30 transition-colors"
+            className="flex items-start justify-between p-3 md:p-4 rounded-xl border border-border hover:border-primary/30 transition-colors"
           >
-            <div className="flex-1">
-              <div className="flex items-center gap-2 mb-2">
-                <Badge className={typeColors[event.type]}>
+            <div className="flex-1 min-w-0">
+              <div className="flex items-center gap-2 mb-1 md:mb-2">
+                <Badge className={`${typeColors[event.type]} text-xs`}>
                   {event.type}
                 </Badge>
               </div>
               
-              <h4 className="font-medium text-foreground mb-2">{event.title}</h4>
+              <h4 className="font-medium text-foreground text-sm md:text-base mb-1 md:mb-2 truncate">{event.title}</h4>
               
-              <div className="flex items-center gap-4 text-sm text-muted-foreground">
+              <div className="flex flex-wrap items-center gap-2 md:gap-4 text-xs md:text-sm text-muted-foreground">
                 <span className="flex items-center gap-1">
-                  <MapPin className="h-3.5 w-3.5" />
+                  <MapPin className="h-3 w-3 md:h-3.5 md:w-3.5 flex-shrink-0" />
                   {event.location}
                 </span>
                 <span className="flex items-center gap-1">
-                  <Calendar className="h-3.5 w-3.5" />
+                  <Calendar className="h-3 w-3 md:h-3.5 md:w-3.5 flex-shrink-0" />
                   {event.date}
                 </span>
               </div>
             </div>
             
-            <div className="flex items-center gap-1 text-primary">
-              <Users className="h-4 w-4" />
-              <span className="font-medium">{event.attendees.toLocaleString()}</span>
+            <div className="flex items-center gap-1 text-primary ml-2">
+              <Users className="h-3 w-3 md:h-4 md:w-4" />
+              <span className="font-medium text-xs md:text-sm">{event.attendees.toLocaleString()}</span>
             </div>
           </div>
         ))}

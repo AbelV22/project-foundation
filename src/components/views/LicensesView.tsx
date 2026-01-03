@@ -3,8 +3,7 @@ import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { 
-  AreaChart, Area, XAxis, YAxis, Tooltip, ResponsiveContainer,
-  LineChart, Line
+  AreaChart, Area, XAxis, YAxis, Tooltip, ResponsiveContainer
 } from "recharts";
 
 // Mock historical data - starts from "today"
@@ -90,52 +89,52 @@ export function LicensesView() {
   return (
     <div className="space-y-6 animate-fade-in">
       {/* Stats cards */}
-      <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
-        <div className="card-dashboard p-4">
-          <p className="text-sm text-muted-foreground mb-1">Mediana</p>
-          <p className="stat-value text-primary">{currentStats.median.toLocaleString('es-ES')}€</p>
+      <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-4">
+        <div className="card-dashboard p-3 md:p-4">
+          <p className="text-xs md:text-sm text-muted-foreground mb-1">Mediana</p>
+          <p className="text-xl md:text-3xl font-bold text-primary" style={{ fontFamily: 'Space Grotesk' }}>{currentStats.median.toLocaleString('es-ES')}€</p>
           <div className={cn(
-            "flex items-center gap-1 mt-1 text-sm",
+            "flex items-center gap-1 mt-1 text-xs md:text-sm",
             currentStats.change < 0 ? "text-destructive" : "text-success"
           )}>
-            {currentStats.change < 0 ? <TrendingDown className="h-4 w-4" /> : <TrendingUp className="h-4 w-4" />}
+            {currentStats.change < 0 ? <TrendingDown className="h-3 w-3 md:h-4 md:w-4" /> : <TrendingUp className="h-3 w-3 md:h-4 md:w-4" />}
             <span>{Math.abs(currentStats.change)}% vs ayer</span>
           </div>
         </div>
 
-        <div className="card-dashboard p-4">
-          <p className="text-sm text-muted-foreground mb-1">Precio Mínimo</p>
-          <p className="stat-value text-success">{currentStats.min.toLocaleString('es-ES')}€</p>
-          <p className="text-xs text-muted-foreground mt-1">sin vehículo incluido</p>
+        <div className="card-dashboard p-3 md:p-4">
+          <p className="text-xs md:text-sm text-muted-foreground mb-1">Precio Mínimo</p>
+          <p className="text-xl md:text-3xl font-bold text-success" style={{ fontFamily: 'Space Grotesk' }}>{currentStats.min.toLocaleString('es-ES')}€</p>
+          <p className="text-xs text-muted-foreground mt-1">sin vehículo</p>
         </div>
 
-        <div className="card-dashboard p-4">
-          <p className="text-sm text-muted-foreground mb-1">Precio Máximo</p>
-          <p className="stat-value text-destructive">{currentStats.max.toLocaleString('es-ES')}€</p>
-          <p className="text-xs text-muted-foreground mt-1">con vehículo premium</p>
+        <div className="card-dashboard p-3 md:p-4">
+          <p className="text-xs md:text-sm text-muted-foreground mb-1">Precio Máximo</p>
+          <p className="text-xl md:text-3xl font-bold text-destructive" style={{ fontFamily: 'Space Grotesk' }}>{currentStats.max.toLocaleString('es-ES')}€</p>
+          <p className="text-xs text-muted-foreground mt-1">con vehículo</p>
         </div>
 
-        <div className="card-dashboard p-4">
-          <p className="text-sm text-muted-foreground mb-1">Anuncios Activos</p>
-          <p className="stat-value text-info">{currentStats.totalListings}</p>
+        <div className="card-dashboard p-3 md:p-4">
+          <p className="text-xs md:text-sm text-muted-foreground mb-1">Anuncios</p>
+          <p className="text-xl md:text-3xl font-bold text-info" style={{ fontFamily: 'Space Grotesk' }}>{currentStats.totalListings}</p>
           <p className="text-xs text-muted-foreground mt-1">en 5 portales</p>
         </div>
       </div>
 
       {/* Chart */}
-      <div className="card-dashboard p-5">
-        <div className="flex items-center justify-between mb-4">
+      <div className="card-dashboard p-4 md:p-5">
+        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-4 gap-3">
           <div>
             <h3 className="font-display font-semibold text-foreground">Evolución del Precio</h3>
-            <p className="text-sm text-muted-foreground">Mediana calculada a partir de anuncios web</p>
+            <p className="text-xs md:text-sm text-muted-foreground">Mediana calculada de anuncios web</p>
           </div>
-          <Button variant="outline" size="sm" className="gap-2">
+          <Button variant="outline" size="sm" className="gap-2 w-fit">
             <RefreshCw className="h-4 w-4" />
-            Actualizar datos
+            <span className="hidden sm:inline">Actualizar</span>
           </Button>
         </div>
 
-        <div className="h-64 mb-4">
+        <div className="h-48 md:h-64 mb-4">
           <ResponsiveContainer width="100%" height="100%">
             <AreaChart data={priceHistory}>
               <defs>
@@ -148,20 +147,22 @@ export function LicensesView() {
                 dataKey="date" 
                 axisLine={false} 
                 tickLine={false}
-                tick={{ fontSize: 12, fill: 'hsl(220, 15%, 45%)' }}
+                tick={{ fontSize: 10, fill: 'hsl(220, 15%, 45%)' }}
               />
               <YAxis 
                 axisLine={false} 
                 tickLine={false}
-                tick={{ fontSize: 12, fill: 'hsl(220, 15%, 45%)' }}
+                tick={{ fontSize: 10, fill: 'hsl(220, 15%, 45%)' }}
                 tickFormatter={(value) => `${(value / 1000).toFixed(0)}k€`}
                 domain={['dataMin - 5000', 'dataMax + 5000']}
+                width={50}
               />
               <Tooltip 
                 contentStyle={{
-                  backgroundColor: 'hsl(0, 0%, 100%)',
-                  border: '1px solid hsl(220, 15%, 88%)',
+                  backgroundColor: 'hsl(220, 25%, 10%)',
+                  border: '1px solid hsl(220, 15%, 18%)',
                   borderRadius: '8px',
+                  color: 'white'
                 }}
                 formatter={(value: number) => [`${value.toLocaleString('es-ES')}€`, 'Mediana']}
               />
@@ -176,23 +177,53 @@ export function LicensesView() {
           </ResponsiveContainer>
         </div>
 
-        <div className="flex items-start gap-2 p-3 rounded-lg bg-info/10 text-sm">
+        <div className="flex items-start gap-2 p-3 rounded-lg bg-info/10 text-xs md:text-sm">
           <Info className="h-4 w-4 text-info mt-0.5 flex-shrink-0" />
           <p className="text-muted-foreground">
-            <span className="font-medium text-foreground">Nuevo sistema de seguimiento:</span> Empezamos a recopilar datos el 01/01/2026. 
-            El gráfico se irá enriqueciendo automáticamente con datos diarios.
+            <span className="font-medium text-foreground">Nuevo sistema:</span> Empezamos a recopilar datos el 01/01/2026.
           </p>
         </div>
       </div>
 
-      {/* Listings table */}
-      <div className="card-dashboard p-5">
+      {/* Listings - Mobile-friendly cards on small screens, table on larger */}
+      <div className="card-dashboard p-4 md:p-5">
         <div className="flex items-center justify-between mb-4">
           <h3 className="font-display font-semibold text-foreground">Anuncios Detectados</h3>
           <Badge variant="secondary">{listings.length} anuncios</Badge>
         </div>
 
-        <div className="overflow-x-auto">
+        {/* Mobile cards */}
+        <div className="md:hidden space-y-3">
+          {listings.map((listing) => (
+            <div key={listing.id} className="p-3 rounded-lg bg-accent/30 border border-border">
+              <div className="flex items-center justify-between mb-2">
+                <div className="flex items-center gap-2">
+                  <span className="font-medium text-foreground text-sm">{listing.source}</span>
+                  {listing.verified && (
+                    <Badge variant="outline" className="text-xs bg-success/10 text-success border-success/30">
+                      ✓
+                    </Badge>
+                  )}
+                </div>
+                <span className="text-xs text-muted-foreground">{listing.date}</span>
+              </div>
+              <div className="flex items-center justify-between">
+                <div>
+                  <p className="text-xs text-muted-foreground">Precio total: {listing.price.toLocaleString('es-ES')}€</p>
+                  {listing.includesCar && (
+                    <p className="text-xs text-muted-foreground">{listing.carModel} (-{listing.carValue.toLocaleString('es-ES')}€)</p>
+                  )}
+                </div>
+                <span className="font-bold text-primary text-lg">
+                  {listing.netPrice.toLocaleString('es-ES')}€
+                </span>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* Desktop table */}
+        <div className="hidden md:block overflow-x-auto">
           <table className="w-full">
             <thead>
               <tr className="text-left text-sm text-muted-foreground border-b border-border">
@@ -255,15 +286,14 @@ export function LicensesView() {
       </div>
 
       {/* Methodology note */}
-      <div className="card-dashboard p-5">
+      <div className="card-dashboard p-4 md:p-5">
         <div className="flex items-start gap-3">
           <AlertCircle className="h-5 w-5 text-warning flex-shrink-0 mt-0.5" />
           <div>
-            <h4 className="font-semibold text-foreground mb-1">Metodología de cálculo</h4>
-            <p className="text-sm text-muted-foreground">
+            <h4 className="font-semibold text-foreground mb-1 text-sm md:text-base">Metodología de cálculo</h4>
+            <p className="text-xs md:text-sm text-muted-foreground">
               Escaneamos diariamente portales como Milanuncios, Wallapop, Idealista y otros. 
-              Cuando un anuncio incluye vehículo, estimamos su valor de mercado y lo restamos del precio total. 
-              La mediana se calcula sobre los precios netos de licencia (sin coche).
+              Cuando un anuncio incluye vehículo, estimamos su valor de mercado y lo restamos del precio total.
             </p>
           </div>
         </div>

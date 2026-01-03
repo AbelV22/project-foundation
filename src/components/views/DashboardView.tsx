@@ -6,21 +6,21 @@ import { WeatherWidget } from "@/components/widgets/WeatherWidget";
 
 export function DashboardView() {
   return (
-    <div className="space-y-6 animate-fade-in">
-      {/* Quick Stats */}
+    <div className="space-y-4 md:space-y-6 animate-fade-in">
+      {/* Quick Stats - Most important first */}
       <QuickStats />
 
-      {/* Main widgets grid */}
-      <div className="grid lg:grid-cols-2 gap-6">
-        <FlightsWidget />
+      {/* Flights widget - Full width for prominence */}
+      <FlightsWidget />
+
+      {/* Secondary widgets grid */}
+      <div className="grid lg:grid-cols-2 gap-4 md:gap-6">
         <EventsWidget />
+        <LicensePriceWidget />
       </div>
 
-      {/* Bottom row */}
-      <div className="grid lg:grid-cols-2 gap-6">
-        <LicensePriceWidget />
-        <WeatherWidget />
-      </div>
+      {/* Weather - Less prominent at bottom */}
+      <WeatherWidget />
     </div>
   );
 }

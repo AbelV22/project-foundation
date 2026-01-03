@@ -17,15 +17,21 @@ const titles: Record<string, string> = {
 
 const Index = () => {
   const [activeTab, setActiveTab] = useState("dashboard");
+  const [sidebarOpen, setSidebarOpen] = useState(false);
 
   return (
     <div className="min-h-screen bg-background">
-      <Sidebar activeTab={activeTab} onTabChange={setActiveTab} />
+      <Sidebar 
+        activeTab={activeTab} 
+        onTabChange={setActiveTab} 
+        isOpen={sidebarOpen}
+        onToggle={() => setSidebarOpen(!sidebarOpen)}
+      />
       
-      <main className="pl-64">
-        <Header title={titles[activeTab]} />
+      <main className="lg:pl-64 transition-all duration-300">
+        <Header title={titles[activeTab]} onMenuToggle={() => setSidebarOpen(!sidebarOpen)} />
         
-        <div className="p-6">
+        <div className="p-4 md:p-6">
           {activeTab === "dashboard" && <DashboardView />}
           {activeTab === "vuelos" && <FlightsView />}
           {activeTab === "eventos" && <EventsView />}
