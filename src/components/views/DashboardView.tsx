@@ -4,14 +4,22 @@ import { EventsWidget } from "@/components/widgets/EventsWidget";
 import { LicensePriceWidget } from "@/components/widgets/LicensePriceWidget";
 import { WeatherWidget } from "@/components/widgets/WeatherWidget";
 
-export function DashboardView() {
+interface DashboardViewProps {
+  onTerminalClick?: (terminalId: string) => void;
+  onViewAllFlights?: () => void;
+}
+
+export function DashboardView({ onTerminalClick, onViewAllFlights }: DashboardViewProps) {
   return (
     <div className="space-y-4 md:space-y-6 animate-fade-in">
       {/* Quick Stats - Most important first */}
       <QuickStats />
 
       {/* Flights widget - Full width for prominence */}
-      <FlightsWidget />
+      <FlightsWidget 
+        onTerminalClick={onTerminalClick}
+        onViewAllClick={onViewAllFlights}
+      />
 
       {/* Secondary widgets grid */}
       <div className="grid lg:grid-cols-2 gap-4 md:gap-6">

@@ -2,10 +2,9 @@ import { useState } from "react";
 import { Plane, Clock, Users, ArrowDown } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Badge } from "@/components/ui/badge";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { Button } from "@/components/ui/button";
 import { 
-  AreaChart, Area, XAxis, YAxis, Tooltip, ResponsiveContainer,
-  BarChart, Bar, Legend
+  AreaChart, Area, XAxis, YAxis, Tooltip, ResponsiveContainer
 } from "recharts";
 
 const terminalStats = [
@@ -63,6 +62,7 @@ const hourlyData = [
 
 export function FlightsView() {
   const [selectedTerminal, setSelectedTerminal] = useState("t1");
+  const [chartType, setChartType] = useState<"vuelos" | "pasajeros">("vuelos");
 
   return (
     <div className="space-y-6 animate-fade-in">
@@ -77,9 +77,9 @@ export function FlightsView() {
               <Plane className="h-4 w-4 md:h-5 md:w-5 text-muted-foreground" />
               <span className="text-sm md:text-lg font-medium text-foreground">{terminal.name}</span>
             </div>
-            <p className="text-2xl md:text-4xl font-bold mb-1" style={{ color: terminal.color, fontFamily: 'Space Grotesk' }}>{terminal.flights}</p>
+            <p className="text-2xl md:text-4xl font-display font-bold mb-1" style={{ color: terminal.color }}>{terminal.flights}</p>
             <p className="text-xs md:text-sm text-muted-foreground mb-2">vuelos próxima hora</p>
-            <div className="flex items-center justify-center gap-1 text-muted-foreground">
+            <div className="flex items-center justify-center gap-1 text-primary font-bold">
               <Users className="h-3 w-3 md:h-4 md:w-4" />
               <span className="text-xs md:text-sm">{terminal.passengers} pasajeros</span>
             </div>
@@ -89,18 +89,34 @@ export function FlightsView() {
 
       {/* Hourly Evolution Chart */}
       <div className="card-dashboard p-4 md:p-6">
-        <h3 className="font-display text-lg font-semibold text-foreground mb-4">Evolución por Hora - Hoy</h3>
+        <div className="flex items-center justify-between mb-4">
+          <h3 className="font-display text-lg font-semibold text-foreground">Evolución por Hora - Hoy</h3>
+          <div className="flex gap-1 bg-muted rounded-lg p-1">
+            <Button
+              variant={chartType === "vuelos" ? "secondary" : "ghost"}
+              size="sm"
+              onClick={() => setChartType("vuelos")}
+              className="text-xs h-7 px-3"
+            >
+              Vuelos
+            </Button>
+            <Button
+              variant={chartType === "pasajeros" ? "secondary" : "ghost"}
+              size="sm"
+              onClick={() => setChartType("pasajeros")}
+              className="text-xs h-7 px-3"
+            >
+              Pasajeros
+            </Button>
+          </div>
+        </div>
         <div className="h-64 md:h-80">
           <ResponsiveContainer width="100%" height="100%">
             <AreaChart data={hourlyData}>
               <defs>
-                <linearGradient id="flightsGradient" x1="0" y1="0" x2="0" y2="1">
-                  <stop offset="5%" stopColor="#F97316" stopOpacity={0.3}/>
-                  <stop offset="95%" stopColor="#F97316" stopOpacity={0}/>
-                </linearGradient>
-                <linearGradient id="passengersGradient" x1="0" y1="0" x2="0" y2="1">
-                  <stop offset="5%" stopColor="#3B82F6" stopOpacity={0.3}/>
-                  <stop offset="95%" stopColor="#3B82F6" stopOpacity={0}/>
+                <linearGradient id="chartGradient" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="5%" stopColor={chartType === "vuelos" ? "#F97316" : "#3B82F6"} stopOpacity={0.3}/>
+                  <stop offset="95%" stopColor={chartType === "vuelos" ? "#F97316" : "#3B82F6"} stopOpacity={0}/>
                 </linearGradient>
               </defs>
               <XAxis 
@@ -111,19 +127,10 @@ export function FlightsView() {
                 interval="preserveStartEnd"
               />
               <YAxis 
-                yAxisId="left"
                 axisLine={false} 
                 tickLine={false}
                 tick={{ fontSize: 10, fill: 'hsl(220, 10%, 55%)' }}
-                orientation="left"
-              />
-              <YAxis 
-                yAxisId="right"
-                axisLine={false} 
-                tickLine={false}
-                tick={{ fontSize: 10, fill: 'hsl(220, 10%, 55%)' }}
-                orientation="right"
-                tickFormatter={(value) => `${(value / 1000).toFixed(1)}k`}
+                tickFormatter={chartType === "pasajeros" ? (value) => `${(value / 1000).toFixed(1)}k` : undefined}
               />
               <Tooltip 
                 contentStyle={{
@@ -132,25 +139,18 @@ export function FlightsView() {
                   borderRadius: '8px',
                   color: 'white'
                 }}
-              />
-              <Legend />
-              <Area 
-                yAxisId="left"
-                type="monotone" 
-                dataKey="vuelos" 
-                name="Vuelos"
-                stroke="#F97316" 
-                strokeWidth={2}
-                fill="url(#flightsGradient)"
+                formatter={(value: number) => [
+                  chartType === "vuelos" ? `${value} vuelos` : `${value.toLocaleString()} pasajeros`,
+                  chartType === "vuelos" ? "Vuelos" : "Pasajeros"
+                ]}
               />
               <Area 
-                yAxisId="right"
                 type="monotone" 
-                dataKey="pasajeros" 
-                name="Pasajeros"
-                stroke="#3B82F6" 
+                dataKey={chartType} 
+                name={chartType === "vuelos" ? "Vuelos" : "Pasajeros"}
+                stroke={chartType === "vuelos" ? "#F97316" : "#3B82F6"} 
                 strokeWidth={2}
-                fill="url(#passengersGradient)"
+                fill="url(#chartGradient)"
               />
             </AreaChart>
           </ResponsiveContainer>
@@ -159,92 +159,81 @@ export function FlightsView() {
 
       {/* Flights Table */}
       <div className="card-dashboard overflow-hidden">
-        <Tabs value={selectedTerminal} onValueChange={setSelectedTerminal}>
-          <TabsList className="w-full justify-start rounded-none border-b border-border bg-transparent p-0 overflow-x-auto flex-nowrap">
-            <TabsTrigger 
-              value="t1" 
-              className="rounded-none border-b-2 border-transparent data-[state=active]:border-blue-500 data-[state=active]:bg-transparent px-4 md:px-8 py-3 md:py-4 text-sm whitespace-nowrap"
+        <div className="grid grid-cols-4 border-b border-border">
+          {[
+            { id: "t1", label: "T1", color: "border-blue-500" },
+            { id: "t2", label: "T2", color: "border-emerald-500" },
+            { id: "puente", label: "P. Aéreo", color: "border-purple-500" },
+            { id: "t2c", label: "T2C", color: "border-orange-500" },
+          ].map((tab) => (
+            <button
+              key={tab.id}
+              onClick={() => setSelectedTerminal(tab.id)}
+              className={cn(
+                "py-3 md:py-4 text-xs md:text-sm font-medium transition-colors border-b-2",
+                selectedTerminal === tab.id 
+                  ? `${tab.color} text-foreground bg-accent/30` 
+                  : "border-transparent text-muted-foreground hover:text-foreground hover:bg-accent/20"
+              )}
             >
-              T1
-            </TabsTrigger>
-            <TabsTrigger 
-              value="t2" 
-              className="rounded-none border-b-2 border-transparent data-[state=active]:border-emerald-500 data-[state=active]:bg-transparent px-4 md:px-8 py-3 md:py-4 text-sm whitespace-nowrap"
-            >
-              T2
-            </TabsTrigger>
-            <TabsTrigger 
-              value="puente" 
-              className="rounded-none border-b-2 border-transparent data-[state=active]:border-purple-500 data-[state=active]:bg-transparent px-4 md:px-8 py-3 md:py-4 text-sm whitespace-nowrap"
-            >
-              Puente Aéreo
-            </TabsTrigger>
-            <TabsTrigger 
-              value="t2c" 
-              className="rounded-none border-b-2 border-transparent data-[state=active]:border-orange-500 data-[state=active]:bg-transparent px-4 md:px-8 py-3 md:py-4 text-sm whitespace-nowrap"
-            >
-              T2C EasyJet
-            </TabsTrigger>
-          </TabsList>
-
-          {Object.entries(flightsData).map(([terminal, flights]) => (
-            <TabsContent key={terminal} value={terminal} className="m-0">
-              <div className="divide-y divide-border">
-                {flights.map((flight, idx) => (
-                  <div key={idx} className="flex flex-col md:flex-row md:items-center gap-3 md:gap-6 p-4 md:p-6 hover:bg-accent/30 transition-colors">
-                    {/* Mobile: compact row */}
-                    <div className="flex items-center gap-4 md:gap-6 flex-1">
-                      {/* Arrow Icon */}
-                      <div className="flex h-10 w-10 md:h-12 md:w-12 items-center justify-center rounded-full bg-muted flex-shrink-0">
-                        <ArrowDown className="h-4 w-4 md:h-5 md:w-5 text-muted-foreground" />
-                      </div>
-
-                      {/* Flight Info */}
-                      <div className="flex-1 min-w-0">
-                        <div className="flex items-center gap-2 md:gap-3 mb-1">
-                          <span className="font-semibold text-foreground">{flight.flight}</span>
-                          <Badge 
-                            className={cn(
-                              "text-xs",
-                              flight.status === "Aterrizando" 
-                                ? "status-landing" 
-                                : "status-ontime"
-                            )}
-                          >
-                            {flight.status}
-                          </Badge>
-                        </div>
-                        <p className="text-sm text-muted-foreground">{flight.origin}</p>
-                      </div>
-
-                      {/* Time */}
-                      <div className="flex items-center gap-2 text-muted-foreground">
-                        <Clock className="h-4 w-4 hidden md:block" />
-                        <span className="font-mono text-lg text-foreground">{flight.time}</span>
-                      </div>
-                    </div>
-
-                    {/* Right side info */}
-                    <div className="flex items-center gap-4 md:gap-6 ml-14 md:ml-0">
-                      {/* Aircraft - hidden on small mobile */}
-                      <div className="text-left hidden sm:block">
-                        <p className="text-xs text-muted-foreground">Avión</p>
-                        <p className="text-sm font-medium text-primary">{flight.aircraft}</p>
-                      </div>
-
-                      {/* Passengers */}
-                      <div className="flex items-center gap-1 md:gap-2">
-                        <Users className="h-4 w-4 text-primary" />
-                        <span className="text-primary font-medium">{flight.passengers}</span>
-                        <span className="text-xs text-muted-foreground hidden sm:inline">pasajeros</span>
-                      </div>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </TabsContent>
+              {tab.label}
+            </button>
           ))}
-        </Tabs>
+        </div>
+
+        <div className="divide-y divide-border">
+          {(flightsData[selectedTerminal] || []).map((flight, idx) => (
+            <div key={idx} className="flex flex-col md:flex-row md:items-center gap-3 md:gap-6 p-4 md:p-6 hover:bg-accent/30 transition-colors">
+              {/* Mobile: compact row */}
+              <div className="flex items-center gap-4 md:gap-6 flex-1">
+                {/* Arrow Icon */}
+                <div className="flex h-10 w-10 md:h-12 md:w-12 items-center justify-center rounded-full bg-accent flex-shrink-0">
+                  <ArrowDown className="h-4 w-4 md:h-5 md:w-5 text-muted-foreground" />
+                </div>
+
+                {/* Flight Info */}
+                <div className="flex-1 min-w-0">
+                  <div className="flex items-center gap-2 md:gap-3 mb-1">
+                    <span className="font-semibold text-foreground">{flight.flight}</span>
+                    <Badge 
+                      className={cn(
+                        "text-xs",
+                        flight.status === "Aterrizando" 
+                          ? "status-landing" 
+                          : "status-ontime"
+                      )}
+                    >
+                      {flight.status}
+                    </Badge>
+                  </div>
+                  <p className="text-sm text-muted-foreground">{flight.origin}</p>
+                </div>
+
+                {/* Time */}
+                <div className="flex items-center gap-2 text-muted-foreground">
+                  <Clock className="h-4 w-4 hidden md:block" />
+                  <span className="font-mono text-lg text-foreground">{flight.time}</span>
+                </div>
+              </div>
+
+              {/* Right side info */}
+              <div className="flex items-center gap-4 md:gap-6 ml-14 md:ml-0">
+                {/* Aircraft - hidden on small mobile */}
+                <div className="text-left hidden sm:block">
+                  <p className="text-xs text-muted-foreground">Avión</p>
+                  <p className="text-sm font-medium text-primary">{flight.aircraft}</p>
+                </div>
+
+                {/* Passengers */}
+                <div className="flex items-center gap-1 md:gap-2">
+                  <Users className="h-4 w-4 text-primary" />
+                  <span className="text-primary font-bold">{flight.passengers}</span>
+                  <span className="text-xs text-muted-foreground hidden sm:inline">pasajeros</span>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );

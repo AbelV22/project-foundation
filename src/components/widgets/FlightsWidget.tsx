@@ -17,13 +17,18 @@ const terminals: Terminal[] = [
 
 interface FlightsWidgetProps {
   expanded?: boolean;
+  onTerminalClick?: (terminalId: string) => void;
+  onViewAllClick?: () => void;
 }
 
-export function FlightsWidget({ expanded = false }: FlightsWidgetProps) {
+export function FlightsWidget({ expanded = false, onTerminalClick, onViewAllClick }: FlightsWidgetProps) {
   return (
     <div className="card-dashboard p-4 md:p-5">
       <div className="flex items-center justify-between mb-4">
-        <div className="flex items-center gap-3">
+        <div 
+          className="flex items-center gap-3 cursor-pointer hover:opacity-80 transition-opacity"
+          onClick={onViewAllClick}
+        >
           <div className="flex h-9 w-9 md:h-10 md:w-10 items-center justify-center rounded-lg bg-info/10">
             <Plane className="h-4 w-4 md:h-5 md:w-5 text-info" />
           </div>
@@ -38,7 +43,8 @@ export function FlightsWidget({ expanded = false }: FlightsWidgetProps) {
         {terminals.map((terminal) => (
           <div 
             key={terminal.id}
-            className="text-center p-3 md:p-4 rounded-xl border border-border hover:border-primary/30 transition-colors"
+            onClick={() => onTerminalClick?.(terminal.id)}
+            className="text-center p-3 md:p-4 rounded-xl border border-border hover:border-primary/30 transition-colors cursor-pointer hover:bg-accent/20"
           >
             <div className="flex items-center justify-center gap-1 md:gap-2 mb-2 md:mb-3">
               <Plane className="h-3 w-3 md:h-4 md:w-4 text-muted-foreground" />
@@ -48,7 +54,7 @@ export function FlightsWidget({ expanded = false }: FlightsWidgetProps) {
             <p className="text-2xl md:text-3xl font-display font-bold mb-1" style={{ color: terminal.color }}>{terminal.arrivals}</p>
             <p className="text-xs md:text-sm text-muted-foreground mb-2">vuelos</p>
             
-            <div className="flex items-center justify-center gap-1 text-muted-foreground">
+            <div className="flex items-center justify-center gap-1 text-primary font-bold">
               <Users className="h-3 w-3 md:h-4 md:w-4" />
               <span className="text-xs md:text-sm">{terminal.passengers}</span>
             </div>
