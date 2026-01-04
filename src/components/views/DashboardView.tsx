@@ -5,6 +5,8 @@ import { FlightsWidget } from "@/components/widgets/FlightsWidget";
 import { EventsWidget } from "@/components/widgets/EventsWidget";
 import { LicensePriceWidget } from "@/components/widgets/LicensePriceWidget";
 import { WeatherWidget } from "@/components/widgets/WeatherWidget";
+import { TrainsWidget } from "@/components/widgets/TrainsWidget";
+import { CruisesWidget } from "@/components/widgets/CruisesWidget";
 
 // --- 1. DEFINICIÓN DE TIPOS (El mapa de tu data.json) ---
 export interface Vuelo {
@@ -109,6 +111,12 @@ export function DashboardView({ onTerminalClick, onViewAllFlights, onViewAllEven
         onTerminalClick={onTerminalClick}
         onViewAllClick={onViewAllFlights}
       />
+
+      {/* Transporte Grid - Trenes y Cruceros */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <TrainsWidget />
+        <CruisesWidget />
+      </div>
 
       {/* Secondary widgets grid */}
       <div className="grid lg:grid-cols-2 gap-4 md:gap-6">

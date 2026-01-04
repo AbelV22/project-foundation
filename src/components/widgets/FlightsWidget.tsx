@@ -11,6 +11,7 @@ interface FlightsWidgetProps {
   kpis?: DashboardData['resumen_cards'];
   grafica?: { name: string; pax: number }[];
   vuelos?: Vuelo[];
+  esperaMinutos?: number;
 }
 
 export function FlightsWidget({ 
@@ -19,12 +20,12 @@ export function FlightsWidget({
     onViewAllClick,
     kpis,
     grafica,
-    vuelos 
+    vuelos,
+    esperaMinutos = 25
 }: FlightsWidgetProps) {
 
   // Si aún no han llegado los datos, mostramos un esqueleto o null
   if (!kpis || !grafica) return <div className="card-dashboard p-10 animate-pulse bg-slate-900/50">Cargando Radar...</div>;
-
   // Preparamos los datos para el loop de tarjetas (igual que tu diseño original pero con datos reales)
   const terminals = [
     { id: "t1", name: "T1 General", arrivals: kpis.t1.vuelos, passengers: kpis.t1.pax, color: "#3B82F6" },
@@ -77,6 +78,15 @@ export function FlightsWidget({
             </div>
           </div>
         ))}
+      </div>
+
+      {/* Espera en Reten Aeropuerto */}
+      <div className="flex items-center justify-between p-3 rounded-xl bg-blue-500/5 border border-blue-500/20">
+        <div className="flex items-center gap-2">
+          <Clock className="h-4 w-4 text-blue-400" />
+          <span className="text-xs text-muted-foreground">Espera media en retén aeropuerto</span>
+        </div>
+        <span className="font-display font-bold text-blue-400">~{esperaMinutos} min</span>
       </div>
 
       {/* 2. GRÁFICA DE EVOLUCIÓN (NUEVO) */}
