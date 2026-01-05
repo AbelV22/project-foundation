@@ -79,9 +79,9 @@ const getEsperaReten = (terminalId: string, currentHour: number): number => {
 export function TerminalDetailView({ terminalId, onBack }: TerminalDetailViewProps) {
   const [vuelos, setVuelos] = useState<VueloRaw[]>([]);
   const [loading, setLoading] = useState(true);
-  const [chartType, setChartType] = useState<"vuelos" | "pasajeros">("pasajeros");
+  const [chartType, setChartType] = useState<"vuelos" | "pasajeros">("vuelos");
 
-  useEffect(() => {
+  const fetchData = () => {
     fetch("/vuelos.json?t=" + Date.now())
       .then((res) => res.json())
       .then((data) => {
@@ -93,6 +93,13 @@ export function TerminalDetailView({ terminalId, onBack }: TerminalDetailViewPro
         console.error("Error cargando vuelos.json:", err);
         setLoading(false);
       });
+  };
+
+  useEffect(() => {
+    fetchData();
+    // Auto-refresh cada 2 horas
+    const interval = setInterval(fetchData, 2 * 60 * 60 * 1000);
+    return () => clearInterval(interval);
   }, []);
 
   const terminal = terminalConfig[terminalId];
@@ -141,25 +148,34 @@ export function TerminalDetailView({ terminalId, onBack }: TerminalDetailViewPro
   const totalPax = terminalFlights.length * paxPerFlight;
   const espera = getEsperaReten(terminalId, currentHour);
 
-  // Crear datos horarios para gráfica
+  // Crear datos horarios para gráfica - empezar 1 hora antes de la actual
+  const startHour = (currentHour - 1 + 24) % 24;
   const hourlyGroups: Record<number, { vuelos: number; pax: number }> = {};
-  for (let h = 0; h < 24; h++) {
+  
+  // Crear 24 horas empezando desde startHour
+  for (let i = 0; i < 24; i++) {
+    const h = (startHour + i) % 24;
     hourlyGroups[h] = { vuelos: 0, pax: 0 };
   }
   
   terminalFlights.forEach(v => {
     const hora = parseInt(v.hora?.split(":")[0] || "0", 10);
-    if (hourlyGroups[hora]) {
+    if (hourlyGroups[hora] !== undefined) {
       hourlyGroups[hora].vuelos += 1;
       hourlyGroups[hora].pax += paxPerFlight;
     }
   });
 
-  const hourlyData = Object.entries(hourlyGroups).map(([h, data]) => ({
-    hour: `${h.padStart(2, '0')}:00`,
-    vuelos: data.vuelos,
-    pasajeros: data.pax
-  }));
+  // Ordenar datos desde startHour
+  const hourlyData = [];
+  for (let i = 0; i < 24; i++) {
+    const h = (startHour + i) % 24;
+    hourlyData.push({
+      hour: `${String(h).padStart(2, '0')}:00`,
+      vuelos: hourlyGroups[h].vuelos,
+      pasajeros: hourlyGroups[h].pax
+    });
+  }
 
   // Vuelos no finalizados para mostrar
   const flights = terminalFlights.filter(v => {
@@ -331,7 +347,7 @@ export function TerminalDetailView({ terminalId, onBack }: TerminalDetailViewPro
                           {flight.estado || "Programado"}
                         </Badge>
                       </div>
-                      <p className="text-sm text-muted-foreground truncate">{flight.aerolinea} • {origenCorto}</p>
+                      <p className="text-sm text-muted-foreground truncate">{origenCorto}</p>
                     </div>
 
                     <div className="flex items-center gap-2 text-muted-foreground">

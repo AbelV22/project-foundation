@@ -97,7 +97,7 @@ export function DashboardView({ onTerminalClick, onViewAllFlights, onViewAllEven
   const [loading, setLoading] = useState(true);
   const [updateTime, setUpdateTime] = useState<string>("");
 
-  useEffect(() => {
+  const fetchData = () => {
     Promise.all([
       fetch("/vuelos.json?t=" + Date.now()).then(res => res.json()).catch(() => []),
       fetch("/data.json?t=" + Date.now()).then(res => res.json()).catch(() => null)
@@ -108,6 +108,13 @@ export function DashboardView({ onTerminalClick, onViewAllFlights, onViewAllEven
       if (dataJson?.meta?.update_time) setUpdateTime(dataJson.meta.update_time);
       setLoading(false);
     });
+  };
+
+  useEffect(() => {
+    fetchData();
+    // Auto-refresh cada 2 horas
+    const interval = setInterval(fetchData, 2 * 60 * 60 * 1000);
+    return () => clearInterval(interval);
   }, []);
 
   if (loading) {
@@ -141,30 +148,45 @@ export function DashboardView({ onTerminalClick, onViewAllFlights, onViewAllEven
   });
 
   // Agrupar por terminal
-  const terminalData: Record<string, { vuelos: VueloRaw[]; pax: number }> = {
-    t1: { vuelos: [], pax: 0 },
-    t2: { vuelos: [], pax: 0 },
-    t2c: { vuelos: [], pax: 0 },
-    puente: { vuelos: [], pax: 0 }
+  const terminalData: Record<string, { vuelos: VueloRaw[] }> = {
+    t1: { vuelos: [] },
+    t2: { vuelos: [] },
+    t2c: { vuelos: [] },
+    puente: { vuelos: [] }
   };
 
   vuelosSorted.forEach(vuelo => {
     const type = getTerminalType(vuelo);
     terminalData[type].vuelos.push(vuelo);
-    // Estimar pasajeros según tipo de terminal
-    const paxEstimado = type === 'puente' ? 150 : type === 't2c' ? 180 : 200;
-    terminalData[type].pax += paxEstimado;
   });
 
   // Config visual de terminales
   const terminals = [
-    { id: "t1", name: "Terminal 1", color: "#3B82F6" },
-    { id: "t2", name: "Terminal 2", color: "#10B981" },
-    { id: "puente", name: "Puente Aéreo", color: "#8B5CF6" },
-    { id: "t2c", name: "T2C EasyJet", color: "#F97316" },
+    { id: "t1", name: "Terminal 1", color: "#F59E0B" },
+    { id: "t2", name: "Terminal 2", color: "#F59E0B" },
+    { id: "puente", name: "Puente Aéreo", color: "#F59E0B" },
+    { id: "t2c", name: "T2C EasyJet", color: "#F59E0B" },
   ];
 
   const totalVuelos = vuelosSorted.length;
+
+  // Calcular vuelos por hora para cada terminal
+  const getVuelosPorHora = (vuelosTerminal: VueloRaw[], horaOffset: number) => {
+    const targetHour = (currentHour + horaOffset) % 24;
+    return vuelosTerminal.filter(v => {
+      const estado = v.estado?.toLowerCase() || "";
+      if (estado.includes("finalizado") || estado.includes("cancelado")) return false;
+      const horaVuelo = parseInt(v.hora?.split(":")[0] || "0", 10);
+      // Si es día siguiente y la hora es menor, contar también
+      if (v.dia_relativo === 1 && horaOffset > 0) {
+        return horaVuelo === targetHour;
+      }
+      if (v.dia_relativo === 0) {
+        return horaVuelo === targetHour;
+      }
+      return false;
+    }).length;
+  };
 
   // Obtener próximos vuelos (no finalizados)
   const proximosVuelos = vuelosSorted.filter(v => {
@@ -210,15 +232,17 @@ export function DashboardView({ onTerminalClick, onViewAllFlights, onViewAllEven
             const estado = v.estado?.toLowerCase() || "";
             return !estado.includes("finalizado");
           });
+          const vuelosProximaHora = getVuelosPorHora(data.vuelos, 0);
+          const vuelosSiguienteHora = getVuelosPorHora(data.vuelos, 1);
+          
           return (
             <TerminalCard
               key={term.id}
               id={term.id}
               name={term.name}
-              vuelos={data.vuelos.length}
-              pax={data.pax}
+              vuelosProximaHora={vuelosProximaHora}
+              vuelosSiguienteHora={vuelosSiguienteHora}
               esperaMinutos={getEsperaReten(term.id, currentHour)}
-              color={term.color}
               nextFlight={nextFlight ? {
                 hora: nextFlight.hora,
                 origen: nextFlight.origen?.split("(")[0]?.trim() || nextFlight.origen

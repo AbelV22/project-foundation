@@ -1,13 +1,12 @@
-import { Plane, Users, Clock, ChevronRight } from "lucide-react";
+import { Plane, Clock, ChevronRight } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 interface TerminalCardProps {
   id: string;
   name: string;
-  vuelos: number;
-  pax: number;
+  vuelosProximaHora: number;
+  vuelosSiguienteHora: number;
   esperaMinutos: number;
-  color: string;
   nextFlight?: { hora: string; origen: string };
   onClick?: () => void;
 }
@@ -15,10 +14,9 @@ interface TerminalCardProps {
 export function TerminalCard({ 
   id, 
   name, 
-  vuelos, 
-  pax, 
+  vuelosProximaHora, 
+  vuelosSiguienteHora, 
   esperaMinutos, 
-  color, 
   nextFlight,
   onClick 
 }: TerminalCardProps) {
@@ -30,28 +28,22 @@ export function TerminalCard({
       onClick={onClick}
       className="w-full card-dashboard p-3 hover:border-primary/30 transition-all group text-left"
     >
-      {/* Header con nombre y flecha */}
-      <div className="flex items-center justify-between mb-2">
-        <div className="flex items-center gap-2">
-          <div 
-            className="w-2 h-2 rounded-full" 
-            style={{ backgroundColor: color }}
-          />
-          <span className="font-display font-semibold text-sm text-foreground">{name}</span>
-        </div>
-        <ChevronRight className="h-4 w-4 text-muted-foreground group-hover:text-primary transition-colors" />
+      {/* Header con nombre y flecha - altura fija para alineación */}
+      <div className="flex items-center justify-between mb-2 min-h-[24px]">
+        <span className="font-display font-semibold text-sm text-foreground leading-tight">{name}</span>
+        <ChevronRight className="h-4 w-4 text-muted-foreground group-hover:text-primary transition-colors flex-shrink-0" />
       </div>
       
-      {/* Stats row */}
-      <div className="flex items-center gap-3 mb-2">
-        <div className="flex items-center gap-1">
-          <Plane className="h-3 w-3 text-muted-foreground" />
-          <span className="font-display font-bold text-lg" style={{ color }}>{vuelos}</span>
-          <span className="text-[10px] text-muted-foreground">vuelos</span>
+      {/* Stats - vuelos próxima hora en grande, amarillo */}
+      <div className="mb-2">
+        <div className="flex items-baseline gap-1.5">
+          <Plane className="h-4 w-4 text-amber-400" />
+          <span className="font-display font-bold text-2xl text-amber-400">{vuelosProximaHora}</span>
+          <span className="text-[10px] text-muted-foreground">próx. hora</span>
         </div>
-        <div className="flex items-center gap-1">
-          <Users className="h-3 w-3 text-amber-400" />
-          <span className="font-display font-bold text-amber-400">{(pax / 1000).toFixed(1)}k</span>
+        <div className="flex items-center gap-1 mt-1 ml-5">
+          <span className="font-display font-semibold text-sm text-muted-foreground">+{vuelosSiguienteHora}</span>
+          <span className="text-[10px] text-muted-foreground">sig. hora</span>
         </div>
       </div>
       
@@ -87,7 +79,7 @@ export function TerminalCard({
           <span>Próximo:</span>
           <span className="font-medium text-foreground">{nextFlight.hora}</span>
           <span>desde</span>
-          <span className="font-medium text-foreground">{nextFlight.origen}</span>
+          <span className="font-medium text-foreground truncate max-w-[60px]">{nextFlight.origen}</span>
         </div>
       )}
     </button>
