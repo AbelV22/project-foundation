@@ -41,7 +41,7 @@ jobs:
       # Así tu web siempre leerá el mismo archivo actualizado.
       - name: Mover datos a public/
         run: |
-          # Si tu script genera 'vuelos_bcn_turbo.json', cámbialo aquí abajo:
+          # Si tu script genera 'vuelos.json', cámbialo aquí abajo:
           mv vuelos_turbo.json public/data.json
 
       # 6. GUARDAR CAMBIOS (Commit & Push)
