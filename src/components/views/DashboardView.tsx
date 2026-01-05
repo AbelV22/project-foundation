@@ -231,9 +231,9 @@ export function DashboardView({
         </div>
         {/* Botón día completo + hora + clima */}
         <div className="flex items-center gap-2">
-          <button onClick={onViewFullDay} className="py-1 rounded-lg text-[10px] border border-border transition-colors mx-[190px] px-[20px] text-justify shadow-md bg-slate-200 hover:bg-slate-100">
+          <button onClick={onViewFullDay} className="rounded-lg text-[10px] border border-border transition-colors mx-[190px] text-justify shadow-md py-[9px] px-[30px] bg-secondary-foreground">
             <Calendar className="h-3 w-3 inline mr-1 text-primary" />
-            <span className="text-primary-foreground font-sans">Día Completo </span>
+            <span className="text-primary-foreground font-mono">Día Completo </span>
           </button>
           <div className="text-right">
             <p className="font-display font-bold text-lg text-foreground">{horaActual}</p>
