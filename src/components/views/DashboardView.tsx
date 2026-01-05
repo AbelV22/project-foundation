@@ -213,13 +213,13 @@ export function DashboardView({ onTerminalClick, onViewAllFlights, onViewAllEven
             </div>
           </div>
         </div>
-        {/* Botón día completo centrado */}
+        {/* Botón día completo centrado - Premium style */}
         <button
           onClick={onViewFullDay}
-          className="px-3 py-1.5 rounded-lg text-xs text-muted-foreground hover:text-foreground hover:bg-muted/60 transition-colors"
+          className="px-4 py-2 rounded-xl border border-border bg-card/80 backdrop-blur-sm shadow-lg shadow-black/20 hover:bg-muted hover:border-primary/30 transition-all duration-200"
         >
-          <Calendar className="h-3.5 w-3.5 inline mr-1.5" />
-          <span>Vista día</span>
+          <Calendar className="h-4 w-4 inline mr-2 text-muted-foreground" />
+          <span className="font-display font-bold text-sm text-foreground">Vista día</span>
         </button>
         {/* Hora + clima */}
         <div className="flex items-center gap-2">

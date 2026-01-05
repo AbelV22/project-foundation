@@ -1,6 +1,7 @@
 import { useState, useEffect, useMemo } from "react";
-import { ArrowLeft, Plane, RefreshCw, Flame } from "lucide-react";
+import { ArrowLeft, Plane, RefreshCw, Flame, Clock } from "lucide-react";
 import { cn } from "@/lib/utils";
+
 interface VueloRaw {
   hora: string;
   vuelo: string;
@@ -11,6 +12,14 @@ interface VueloRaw {
   estado: string;
   dia_relativo: number;
 }
+
+interface VuelosJsonMeta {
+  vuelos: VueloRaw[];
+  meta?: {
+    update_time?: string;
+  };
+}
+
 interface FullDayViewProps {
   onBack?: () => void;
 }
@@ -43,11 +52,23 @@ export function FullDayView({
 }: FullDayViewProps) {
   const [vuelos, setVuelos] = useState<VueloRaw[]>([]);
   const [loading, setLoading] = useState(true);
+  const [lastUpdate, setLastUpdate] = useState<string>("");
+
   useEffect(() => {
-    fetch("/vuelos.json?t=" + Date.now()).then(res => res.json()).then(data => {
-      setVuelos(Array.isArray(data) ? data : []);
-      setLoading(false);
-    }).catch(() => setLoading(false));
+    fetch("/vuelos.json?t=" + Date.now())
+      .then(res => res.json())
+      .then(data => {
+        if (Array.isArray(data)) {
+          setVuelos(data);
+        } else if (data?.vuelos) {
+          setVuelos(data.vuelos);
+          if (data.meta?.update_time) {
+            setLastUpdate(data.meta.update_time);
+          }
+        }
+        setLoading(false);
+      })
+      .catch(() => setLoading(false));
   }, []);
   const now = new Date();
   const currentHour = now.getHours();
@@ -122,122 +143,168 @@ export function FullDayView({
   const puenteVuelos = getVuelosHoraExacta('puente');
   const t2cVuelos = getVuelosHoraExacta('t2c');
   if (loading) {
-    return <div className="flex flex-col items-center justify-center h-[60vh] space-y-4">
+    return (
+      <div className="flex flex-col items-center justify-center h-[60vh] space-y-4">
         <RefreshCw className="h-8 w-8 text-primary animate-spin" />
         <p className="text-sm text-muted-foreground">Cargando vuelos...</p>
-      </div>;
+      </div>
+    );
   }
-  return <div className="animate-fade-in pb-20">
-      {/* Header */}
-      <div className="flex items-center gap-3 mb-4">
-        <button onClick={onBack} className="flex items-center justify-center w-8 h-8 rounded-lg bg-muted hover:bg-muted/80 transition-colors">
-          <ArrowLeft className="h-4 w-4" />
+
+  return (
+    <div className="animate-fade-in pb-20">
+      {/* Header - Optimizado móvil */}
+      <div className="flex items-center gap-3 mb-3">
+        <button 
+          onClick={onBack} 
+          className="flex items-center justify-center w-10 h-10 rounded-xl bg-card border border-border shadow-md hover:bg-muted transition-colors"
+        >
+          <ArrowLeft className="h-5 w-5 text-foreground" />
         </button>
-        <div>
-          <h1 className="font-display font-bold text-lg text-foreground">Vista Día Completo</h1>
-          <p className="text-xs text-muted-foreground">Vuelos estimados - pueden variar</p>
+        <div className="flex-1">
+          <h1 className="font-display font-bold text-xl text-foreground">Vista Día</h1>
+          <p className="text-[11px] text-muted-foreground">Previsión de llegadas</p>
+        </div>
+        {/* Última actualización */}
+        {lastUpdate && (
+          <div className="flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg bg-muted/50 border border-border">
+            <Clock className="h-3 w-3 text-muted-foreground" />
+            <span className="text-[10px] text-muted-foreground font-medium">{lastUpdate}</span>
+          </div>
+        )}
+      </div>
+
+      {/* Fecha - Diseño premium */}
+      <div className="flex gap-2 mb-3">
+        <div className="flex-1 bg-card rounded-xl py-2.5 px-4 text-center border border-border shadow-sm">
+          <span className="font-display font-bold text-foreground text-sm">{fechaFormateada}</span>
+        </div>
+        <div className="flex-1 bg-card rounded-xl py-2.5 px-4 text-center border border-border shadow-sm">
+          <span className="font-display font-bold text-foreground text-sm capitalize">{diaSemana}</span>
         </div>
       </div>
 
-      {/* Fecha */}
-      <div className="flex gap-2 mb-4">
-        <div className="flex-1 bg-muted rounded-lg py-2 px-4 text-center border border-border">
-          <span className="font-display font-bold text-foreground">{fechaFormateada}</span>
-        </div>
-        <div className="flex-1 bg-muted rounded-lg py-2 px-4 text-center border border-border">
-          <span className="font-display font-bold text-foreground">{diaSemana}</span>
-        </div>
-      </div>
-
-      {/* Tabla principal */}
-      <div className="grid grid-cols-2 gap-3">
+      {/* Tabla principal - Grid responsive */}
+      <div className="grid grid-cols-2 gap-2">
         {/* Columna izquierda: T1 y T2 por hora */}
-        <div className="space-y-0 overflow-hidden rounded-xl border border-border bg-card">
+        <div className="overflow-hidden rounded-xl border border-border bg-card shadow-lg shadow-black/10">
           {/* Header de la tabla */}
-          <div className="grid grid-cols-3 bg-muted/50 border-b border-border">
-            <div className="p-2 text-center border-r border-border">
-              <span className="text-[10px] font-bold text-muted-foreground uppercase">Hora</span>
+          <div className="grid grid-cols-3 bg-muted border-b border-border">
+            <div className="py-2.5 px-1 text-center border-r border-border">
+              <span className="text-[10px] font-display font-bold text-muted-foreground uppercase tracking-wide">Hora</span>
             </div>
-            <div className="p-2 text-center border-r border-border">
-              <span className="text-[10px] font-bold text-amber-600 dark:text-amber-400 uppercase">T1</span>
+            <div className="py-2.5 px-1 text-center border-r border-border">
+              <span className="text-[10px] font-display font-bold text-amber-500 uppercase tracking-wide">T1</span>
             </div>
-            <div className="p-2 text-center">
-              <span className="text-[10px] font-bold text-blue-600 dark:text-blue-400 uppercase">T2</span>
+            <div className="py-2.5 px-1 text-center">
+              <span className="text-[10px] font-display font-bold text-blue-500 uppercase tracking-wide">T2</span>
             </div>
           </div>
 
-          {/* Filas de datos */}
-          <div className="max-h-[60vh] overflow-y-auto">
+          {/* Filas de datos - Custom scrollbar */}
+          <div className="max-h-[55vh] overflow-y-auto scrollbar-dark">
             {hourSlots.map((slot, idx) => {
-            const hour = (startHour + idx) % 24;
-            const countT1 = countByHourAndTerminal.t1[hour] || 0;
-            const countT2 = countByHourAndTerminal.t2[hour] || 0;
+              const hour = (startHour + idx) % 24;
+              const countT1 = countByHourAndTerminal.t1[hour] || 0;
+              const countT2 = countByHourAndTerminal.t2[hour] || 0;
 
-            // Determinar si es hora caliente
-            const isHotT1 = countT1 >= maxT1 * 0.7 && countT1 > 0;
-            const isHotT2 = countT2 >= maxT2 * 0.7 && countT2 > 0;
-            const isCurrentHour = hour === currentHour;
-            return <div key={slot} className={cn("grid grid-cols-3 border-b border-border/50 last:border-0", isCurrentHour && "bg-primary/10")}>
-                  <div className={cn("p-1.5 text-center border-r border-border/50 flex items-center justify-center", isCurrentHour && "bg-primary/20")}>
-                    <span className={cn("text-[10px] font-mono", isCurrentHour ? "font-bold text-primary" : "text-muted-foreground")}>
+              // Determinar si es hora caliente
+              const isHotT1 = countT1 >= maxT1 * 0.7 && countT1 > 0;
+              const isHotT2 = countT2 >= maxT2 * 0.7 && countT2 > 0;
+              const isCurrentHour = hour === currentHour;
+              
+              return (
+                <div 
+                  key={slot} 
+                  className={cn(
+                    "grid grid-cols-3 border-b border-border/40",
+                    isCurrentHour && "bg-primary/15"
+                  )}
+                >
+                  <div className={cn(
+                    "py-2 px-1 text-center border-r border-border/40 flex items-center justify-center",
+                    isCurrentHour && "bg-primary/10"
+                  )}>
+                    <span className={cn(
+                      "text-[9px] font-mono font-medium",
+                      isCurrentHour ? "font-bold text-primary" : "text-muted-foreground"
+                    )}>
                       {slot}
                     </span>
                   </div>
-                  <div className={cn("p-1.5 text-center border-r border-border/50 flex items-center justify-center gap-0.5", isHotT1 && "bg-amber-500/10")}>
+                  <div className={cn(
+                    "py-2 px-1 text-center border-r border-border/40 flex items-center justify-center gap-0.5",
+                    isHotT1 && "bg-amber-500/15"
+                  )}>
                     {isHotT1 && <Flame className="h-3 w-3 text-amber-500" />}
-                    <span className={cn("font-display font-bold text-sm", isHotT1 ? "text-amber-600 dark:text-amber-400" : "text-foreground", countT1 === 0 && "text-muted-foreground/50")}>
+                    <span className={cn(
+                      "font-display font-bold text-sm",
+                      isHotT1 ? "text-amber-500" : "text-foreground",
+                      countT1 === 0 && "text-muted-foreground/40"
+                    )}>
                       {countT1.toString().padStart(2, '0')}
                     </span>
                   </div>
-                  <div className={cn("p-1.5 text-center flex items-center justify-center gap-0.5", isHotT2 && "bg-blue-500/10")}>
+                  <div className={cn(
+                    "py-2 px-1 text-center flex items-center justify-center gap-0.5",
+                    isHotT2 && "bg-blue-500/15"
+                  )}>
                     {isHotT2 && <Flame className="h-3 w-3 text-blue-500" />}
-                    <span className={cn("font-display font-bold text-sm", isHotT2 ? "text-blue-600 dark:text-blue-400" : "text-foreground", countT2 === 0 && "text-muted-foreground/50")}>
+                    <span className={cn(
+                      "font-display font-bold text-sm",
+                      isHotT2 ? "text-blue-500" : "text-foreground",
+                      countT2 === 0 && "text-muted-foreground/40"
+                    )}>
                       {countT2.toString().padStart(2, '0')}
                     </span>
                   </div>
-                </div>;
-          })}
+                </div>
+              );
+            })}
           </div>
 
           {/* Totales */}
-          <div className="grid grid-cols-3 bg-muted/70 border-t border-border">
-            <div className="p-2 text-center border-r border-border">
-              <span className="text-[10px] font-bold text-muted-foreground uppercase">Total</span>
+          <div className="grid grid-cols-3 bg-muted border-t border-border">
+            <div className="py-2.5 px-1 text-center border-r border-border">
+              <span className="text-[10px] font-display font-bold text-muted-foreground uppercase">Total</span>
             </div>
-            <div className="p-2 text-center border-r border-border">
-              <span className="font-display font-bold text-lg text-amber-600 dark:text-amber-400">{totalT1}</span>
+            <div className="py-2.5 px-1 text-center border-r border-border">
+              <span className="font-display font-bold text-base text-amber-500">{totalT1}</span>
             </div>
-            <div className="p-2 text-center">
-              <span className="font-display font-bold text-lg text-blue-600 dark:text-blue-400">{totalT2}</span>
+            <div className="py-2.5 px-1 text-center">
+              <span className="font-display font-bold text-base text-blue-500">{totalT2}</span>
             </div>
           </div>
         </div>
 
         {/* Columna derecha: Puente Aéreo y T2C juntos verticalmente */}
-        <div className="rounded-xl border border-border bg-card overflow-hidden">
+        <div className="rounded-xl border border-border bg-card overflow-hidden shadow-lg shadow-black/10">
           {/* Headers lado a lado */}
-          <div className="grid grid-cols-2 border-b border-border">
-            <div className="bg-red-500/10 p-2 text-center border-r border-border">
-              <span className="text-[10px] font-bold text-red-600 dark:text-red-400 uppercase leading-tight block">Puente</span>
-              <span className="text-[10px] font-bold text-red-600 dark:text-red-400 uppercase leading-tight block">Aéreo</span>
+          <div className="grid grid-cols-2 border-b border-border bg-muted">
+            <div className="py-2.5 px-2 text-center border-r border-border">
+              <span className="text-[9px] font-display font-bold text-red-500 uppercase leading-tight block">Puente</span>
+              <span className="text-[9px] font-display font-bold text-red-500 uppercase leading-tight block">Aéreo</span>
             </div>
-            <div className="bg-orange-500/10 p-2 text-center">
-              <span className="text-[10px] font-bold text-orange-600 dark:text-orange-400 uppercase leading-tight block">T2C</span>
-              <span className="text-[10px] font-bold text-orange-600 dark:text-orange-400 uppercase leading-tight block">EasyJet</span>
+            <div className="py-2.5 px-2 text-center">
+              <span className="text-[9px] font-display font-bold text-orange-500 uppercase leading-tight block">T2C</span>
+              <span className="text-[9px] font-display font-bold text-orange-500 uppercase leading-tight block">EasyJet</span>
             </div>
           </div>
           
-          {/* Contenido lado a lado */}
-          <div className="grid grid-cols-2 max-h-[52vh] overflow-y-auto">
+          {/* Contenido lado a lado - Custom scrollbar */}
+          <div className="grid grid-cols-2 max-h-[48vh] overflow-y-auto scrollbar-dark">
             {/* Puente Aéreo */}
             <div className="border-r border-border">
               {puenteVuelos.length === 0 ? (
                 <div className="p-4 text-center text-[10px] text-muted-foreground">Sin vuelos</div>
               ) : (
                 puenteVuelos.map((vuelo, idx) => (
-                  <div key={idx} className="flex items-center justify-between p-1.5 border-b border-border/30 last:border-0">
-                    <span className="font-display font-bold text-xs text-red-600 dark:text-red-400">{vuelo.hora}</span>
-                    <Plane className="h-2.5 w-2.5 text-muted-foreground" />
+                  <div 
+                    key={idx} 
+                    className="flex items-center justify-between py-2 px-2.5 border-b border-border/40"
+                  >
+                    <span className="font-display font-bold text-xs text-red-500">{vuelo.hora}</span>
+                    <Plane className="h-3 w-3 text-muted-foreground/60" />
                   </div>
                 ))
               )}
@@ -249,9 +316,12 @@ export function FullDayView({
                 <div className="p-4 text-center text-[10px] text-muted-foreground">Sin vuelos</div>
               ) : (
                 t2cVuelos.map((vuelo, idx) => (
-                  <div key={idx} className="flex items-center justify-between p-1.5 border-b border-border/30 last:border-0">
-                    <span className="font-display font-bold text-xs text-orange-600 dark:text-orange-400">{vuelo.hora}</span>
-                    <Plane className="h-2.5 w-2.5 text-muted-foreground" />
+                  <div 
+                    key={idx} 
+                    className="flex items-center justify-between py-2 px-2.5 border-b border-border/40"
+                  >
+                    <span className="font-display font-bold text-xs text-orange-500">{vuelo.hora}</span>
+                    <Plane className="h-3 w-3 text-muted-foreground/60" />
                   </div>
                 ))
               )}
@@ -259,26 +329,27 @@ export function FullDayView({
           </div>
           
           {/* Totales */}
-          <div className="grid grid-cols-2 bg-muted/50 border-t border-border">
-            <div className="p-2 text-center border-r border-border">
-              <span className="font-display font-bold text-red-600 dark:text-red-400">{totalPuente}</span>
+          <div className="grid grid-cols-2 bg-muted border-t border-border">
+            <div className="py-2.5 px-2 text-center border-r border-border">
+              <span className="font-display font-bold text-base text-red-500">{totalPuente}</span>
             </div>
-            <div className="p-2 text-center">
-              <span className="font-display font-bold text-orange-600 dark:text-orange-400">{totalT2C}</span>
+            <div className="py-2.5 px-2 text-center">
+              <span className="font-display font-bold text-base text-orange-500">{totalT2C}</span>
             </div>
           </div>
         </div>
       </div>
 
       {/* Leyenda */}
-      <div className="mt-4 p-3 rounded-xl bg-muted/30 border border-border">
+      <div className="mt-3 p-3 rounded-xl bg-card border border-border shadow-sm">
         <div className="flex items-center gap-2 text-xs text-muted-foreground">
           <Flame className="h-4 w-4 text-amber-500" />
-          <span>= Hora caliente (alta concentración de vuelos)</span>
+          <span className="font-medium">= Hora caliente (alta concentración)</span>
         </div>
-        <p className="text-[10px] text-muted-foreground mt-1">
-          Los datos empiezan desde 1h antes de tu conexión para ver la tendencia.
+        <p className="text-[10px] text-muted-foreground/80 mt-1.5">
+          Datos desde 1h antes para ver tendencia inmediata.
         </p>
       </div>
-    </div>;
+    </div>
+  );
 }
