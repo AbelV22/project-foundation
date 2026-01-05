@@ -141,10 +141,10 @@ export function FullDayView({
 
       {/* Fecha */}
       <div className="flex gap-2 mb-4">
-        <div className="flex-1 bg-amber-100 dark:bg-amber-900/30 rounded-lg py-2 px-4 text-center border border-primary-foreground">
+        <div className="flex-1 bg-muted rounded-lg py-2 px-4 text-center border border-border">
           <span className="font-display font-bold text-foreground">{fechaFormateada}</span>
         </div>
-        <div className="flex-1 bg-amber-100 dark:bg-amber-900/30 rounded-lg py-2 px-4 text-center border border-destructive-foreground">
+        <div className="flex-1 bg-muted rounded-lg py-2 px-4 text-center border border-border">
           <span className="font-display font-bold text-foreground">{diaSemana}</span>
         </div>
       </div>
@@ -213,36 +213,57 @@ export function FullDayView({
           </div>
         </div>
 
-        {/* Columna derecha: Puente Aéreo y T2C */}
-        <div className="space-y-3">
-          {/* Puente Aéreo */}
-          <div className="rounded-xl border border-border bg-card overflow-hidden">
-            <div className="bg-red-500/10 border-b border-border p-2 text-center">
-              <span className="text-xs font-bold text-red-600 dark:text-red-400 uppercase">Puente Aéreo</span>
+        {/* Columna derecha: Puente Aéreo y T2C juntos verticalmente */}
+        <div className="rounded-xl border border-border bg-card overflow-hidden">
+          {/* Headers lado a lado */}
+          <div className="grid grid-cols-2 border-b border-border">
+            <div className="bg-red-500/10 p-2 text-center border-r border-border">
+              <span className="text-[10px] font-bold text-red-600 dark:text-red-400 uppercase leading-tight block">Puente</span>
+              <span className="text-[10px] font-bold text-red-600 dark:text-red-400 uppercase leading-tight block">Aéreo</span>
             </div>
-            <div className="max-h-[28vh] overflow-y-auto">
-              {puenteVuelos.length === 0 ? <div className="p-4 text-center text-xs text-muted-foreground">Sin vuelos</div> : puenteVuelos.map((vuelo, idx) => <div key={idx} className="flex items-center justify-between p-2 border-b border-border/30 last:border-0">
-                    <span className="font-display font-bold text-sm text-red-600 dark:text-red-400">{vuelo.hora}</span>
-                    <Plane className="h-3 w-3 text-muted-foreground" />
-                  </div>)}
-            </div>
-            <div className="bg-muted/50 border-t border-border p-2 text-center">
-              <span className="font-display font-bold text-red-600 dark:text-red-400">{totalPuente}</span>
+            <div className="bg-orange-500/10 p-2 text-center">
+              <span className="text-[10px] font-bold text-orange-600 dark:text-orange-400 uppercase leading-tight block">T2C</span>
+              <span className="text-[10px] font-bold text-orange-600 dark:text-orange-400 uppercase leading-tight block">EasyJet</span>
             </div>
           </div>
-
-          {/* T2C EasyJet */}
-          <div className="rounded-xl border border-border bg-card overflow-hidden">
-            <div className="bg-orange-500/10 border-b border-border p-2 text-center">
-              <span className="text-xs font-bold text-orange-600 dark:text-orange-400 uppercase">T2C EasyJet</span>
+          
+          {/* Contenido lado a lado */}
+          <div className="grid grid-cols-2 max-h-[52vh] overflow-y-auto">
+            {/* Puente Aéreo */}
+            <div className="border-r border-border">
+              {puenteVuelos.length === 0 ? (
+                <div className="p-4 text-center text-[10px] text-muted-foreground">Sin vuelos</div>
+              ) : (
+                puenteVuelos.map((vuelo, idx) => (
+                  <div key={idx} className="flex items-center justify-between p-1.5 border-b border-border/30 last:border-0">
+                    <span className="font-display font-bold text-xs text-red-600 dark:text-red-400">{vuelo.hora}</span>
+                    <Plane className="h-2.5 w-2.5 text-muted-foreground" />
+                  </div>
+                ))
+              )}
             </div>
-            <div className="max-h-[28vh] overflow-y-auto">
-              {t2cVuelos.length === 0 ? <div className="p-4 text-center text-xs text-muted-foreground">Sin vuelos</div> : t2cVuelos.map((vuelo, idx) => <div key={idx} className="flex items-center justify-between p-2 border-b border-border/30 last:border-0">
-                    <span className="font-display font-bold text-sm text-orange-600 dark:text-orange-400">{vuelo.hora}</span>
-                    <Plane className="h-3 w-3 text-muted-foreground" />
-                  </div>)}
+            
+            {/* T2C EasyJet */}
+            <div>
+              {t2cVuelos.length === 0 ? (
+                <div className="p-4 text-center text-[10px] text-muted-foreground">Sin vuelos</div>
+              ) : (
+                t2cVuelos.map((vuelo, idx) => (
+                  <div key={idx} className="flex items-center justify-between p-1.5 border-b border-border/30 last:border-0">
+                    <span className="font-display font-bold text-xs text-orange-600 dark:text-orange-400">{vuelo.hora}</span>
+                    <Plane className="h-2.5 w-2.5 text-muted-foreground" />
+                  </div>
+                ))
+              )}
             </div>
-            <div className="bg-muted/50 border-t border-border p-2 text-center">
+          </div>
+          
+          {/* Totales */}
+          <div className="grid grid-cols-2 bg-muted/50 border-t border-border">
+            <div className="p-2 text-center border-r border-border">
+              <span className="font-display font-bold text-red-600 dark:text-red-400">{totalPuente}</span>
+            </div>
+            <div className="p-2 text-center">
               <span className="font-display font-bold text-orange-600 dark:text-orange-400">{totalT2C}</span>
             </div>
           </div>

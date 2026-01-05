@@ -13,6 +13,15 @@ interface Event {
 
 const upcomingEvents: Event[] = [
   {
+    id: "3",
+    title: "Mobile World Congress",
+    location: "Fira Gran Via",
+    date: "lunes, 26 de febrero",
+    time: "09:00h",
+    attendees: 100000,
+    type: "Tecnología",
+  },
+  {
     id: "1",
     title: "FC Barcelona vs Real Madrid",
     location: "Camp Nou",
@@ -30,15 +39,6 @@ const upcomingEvents: Event[] = [
     attendees: 65000,
     type: "Música",
   },
-  {
-    id: "3",
-    title: "Mobile World Congress",
-    location: "Fira Gran Via",
-    date: "lunes, 26 de febrero",
-    time: "09:00h",
-    attendees: 100000,
-    type: "Tecnología",
-  },
 ];
 
 const typeColors: Record<string, string> = {
@@ -52,10 +52,55 @@ interface EventsWidgetProps {
   expanded?: boolean;
   limit?: number;
   onViewAllClick?: () => void;
+  compact?: boolean;
 }
 
-export function EventsWidget({ expanded = false, limit = 3, onViewAllClick }: EventsWidgetProps) {
-  const displayEvents = expanded ? upcomingEvents : upcomingEvents.slice(0, limit);
+export function EventsWidget({ expanded = false, limit = 3, onViewAllClick, compact = false }: EventsWidgetProps) {
+  const displayEvents = expanded ? upcomingEvents : upcomingEvents.slice(0, compact ? 2 : limit);
+
+  // Modo compacto para el dashboard
+  if (compact) {
+    return (
+      <div className="card-dashboard p-3 space-y-2">
+        <div className="flex items-center justify-between">
+          <div className="flex items-center gap-2">
+            <div className="flex h-7 w-7 items-center justify-center rounded-lg bg-purple-500/10">
+              <Calendar className="h-3.5 w-3.5 text-purple-500" />
+            </div>
+            <div>
+              <h3 className="font-display font-semibold text-foreground text-xs">Eventos BCN</h3>
+              <p className="text-[10px] text-muted-foreground">Próximos</p>
+            </div>
+          </div>
+          <button 
+            onClick={onViewAllClick}
+            className="text-[10px] text-primary hover:underline"
+          >
+            Ver →
+          </button>
+        </div>
+        <div className="space-y-1">
+          {displayEvents.map((event) => (
+            <div 
+              key={event.id}
+              className="flex items-center justify-between p-1.5 rounded-lg bg-muted/30 text-xs"
+            >
+              <div className="flex items-center gap-2 flex-1 min-w-0">
+                <Badge className={`${typeColors[event.type]} text-[9px] px-1 py-0`}>
+                  {event.type.slice(0, 3)}
+                </Badge>
+                <span className="truncate text-foreground text-[10px]">{event.title}</span>
+              </div>
+              <div className="flex items-center gap-1 text-purple-400 ml-1">
+                <Users className="h-3 w-3" />
+                <span className="font-medium text-[10px]">{(event.attendees / 1000).toFixed(0)}k</span>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="card-dashboard p-4 md:p-5">

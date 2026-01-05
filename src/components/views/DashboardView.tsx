@@ -199,16 +199,7 @@ export function DashboardView({ onTerminalClick, onViewAllFlights, onViewAllEven
 
   return (
     <div className="space-y-3 animate-fade-in pb-20">
-      {/* Botón Vista Día Completo - Arriba del todo */}
-      <button
-        onClick={onViewFullDay}
-        className="w-full flex items-center justify-center gap-2 p-3 rounded-xl bg-gradient-to-r from-amber-500/20 to-orange-500/20 border border-amber-500/30 hover:from-amber-500/30 hover:to-orange-500/30 transition-all"
-      >
-        <Calendar className="h-5 w-5 text-amber-500" />
-        <span className="font-display font-bold text-amber-600 dark:text-amber-400">Vista Día Completo</span>
-      </button>
-
-      {/* Header con hora, clima y botones de retén */}
+      {/* Header con hora, clima y botón día completo */}
       <div className="flex items-center justify-between px-1">
         <div className="flex items-center gap-2">
           <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-primary/10">
@@ -222,8 +213,15 @@ export function DashboardView({ onTerminalClick, onViewAllFlights, onViewAllEven
             </div>
           </div>
         </div>
-        {/* Hora actual y clima mini */}
+        {/* Botón día completo + hora + clima */}
         <div className="flex items-center gap-2">
+          <button
+            onClick={onViewFullDay}
+            className="px-2 py-1 rounded-lg text-[10px] bg-muted/50 border border-border hover:bg-muted transition-colors"
+          >
+            <Calendar className="h-3 w-3 inline mr-1" />
+            <span>Día</span>
+          </button>
           <div className="text-right">
             <p className="font-display font-bold text-lg text-foreground">{horaActual}</p>
           </div>
@@ -279,78 +277,15 @@ export function DashboardView({ onTerminalClick, onViewAllFlights, onViewAllEven
         })}
       </div>
 
-      {/* Próximos vuelos rápido */}
-      <div className="card-dashboard p-3">
-        <div className="flex items-center justify-between mb-2">
-          <span className="text-xs font-semibold text-muted-foreground uppercase">Próximos aterrizajes</span>
-          <button 
-            onClick={onViewAllFlights}
-            className="text-[10px] text-primary hover:underline"
-          >
-            Ver todos →
-          </button>
-        </div>
-        <div className="space-y-1.5">
-          {proximosVuelos.length === 0 ? (
-            <p className="text-xs text-muted-foreground text-center py-4">No hay vuelos pendientes</p>
-          ) : (
-            proximosVuelos.map((vuelo, idx) => {
-              const termType = getTerminalType(vuelo);
-              const termColor = terminals.find(t => t.id === termType)?.color || "#666";
-              const codigoPrincipal = vuelo.vuelo?.split("/")[0]?.trim() || vuelo.vuelo;
-              const origenCorto = vuelo.origen?.split("(")[0]?.trim() || vuelo.origen;
-              
-              return (
-                <div 
-                  key={idx}
-                  className="flex items-center justify-between text-xs p-2 rounded-lg bg-muted/20 hover:bg-muted/40 transition-colors"
-                >
-                  <div className="flex items-center gap-2">
-                    <span className="font-display font-bold text-primary min-w-[40px]">
-                      {vuelo.hora}
-                    </span>
-                    <div className="truncate max-w-[100px]">
-                      <span className="text-foreground">{origenCorto}</span>
-                    </div>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <span className="text-[10px] text-muted-foreground font-mono">{codigoPrincipal}</span>
-                    <span 
-                      className="px-1.5 py-0.5 rounded text-[9px] font-bold"
-                      style={{ 
-                        backgroundColor: `${termColor}15`, 
-                        color: termColor,
-                        border: `1px solid ${termColor}30`
-                      }}
-                    >
-                      {termType === 'puente' ? 'PA' : termType.toUpperCase()}
-                    </span>
-                  </div>
-                </div>
-              );
-            })
-          )}
-        </div>
-      </div>
-
-      {/* Transporte Grid - Trenes y Cruceros */}
+      {/* Transporte Grid - Trenes y Eventos */}
       <div className="grid grid-cols-2 gap-2">
         <TrainsWidget />
+        <EventsWidget onViewAllClick={onViewAllEvents} compact />
+      </div>
+
+      {/* Cruceros y Licencia */}
+      <div className="grid grid-cols-2 gap-2">
         <CruisesWidget />
-      </div>
-
-      {/* Secondary widgets - Solo visible en pantallas grandes */}
-      <div className="hidden md:grid md:grid-cols-2 gap-4">
-        <EventsWidget onViewAllClick={onViewAllEvents} />
-        <LicensePriceWidget 
-          precio={extras?.licencia || 0} 
-          tendencia={extras?.licencia_tendencia || "estable"} 
-        />
-      </div>
-
-      {/* Mobile: Eventos y Licencia compactos */}
-      <div className="md:hidden space-y-2">
-        <EventsWidget onViewAllClick={onViewAllEvents} />
         <LicensePriceWidget 
           precio={extras?.licencia || 0} 
           tendencia={extras?.licencia_tendencia || "estable"} 

@@ -1,4 +1,4 @@
-import { Train, Clock, MapPin } from "lucide-react";
+import { Train, Clock, MapPin, Users } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 interface AVETren {
@@ -60,7 +60,10 @@ export function TrainsWidget({
                 <span>{tren.origen}</span>
               </div>
             </div>
-            <span className="text-amber-400 font-medium">~{tren.paxEstimado} pax</span>
+            <div className="flex items-center gap-1 text-amber-400">
+              <Users className="h-3 w-3" />
+              <span className="font-medium">~{tren.paxEstimado}</span>
+            </div>
           </div>
         ))}
       </div>
