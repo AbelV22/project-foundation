@@ -1,41 +1,54 @@
-name: Actualizar Radar Taxi
+name: Actualizar Vuelos BCN
 
 on:
   schedule:
-    # Horas en UTC. BCN es UTC+1 (Invierno). 
-    # 03:00 UTC = 04:00 BCN
-    # 13:00 UTC = 14:00 BCN
-    # 19:00 UTC = 20:00 BCN
-    - cron: '0 3,13,19 * * *'
-  workflow_dispatch: # Permite pulsar un botón manual para probar
-
-permissions:
-  contents: write # IMPORTANTE: Permiso para guardar el archivo json
+    # Ejecutar cada 4 horas (00:00, 04:00, 08:00...)
+    - cron: '0 */4 * * *'
+  # Botón manual para probarlo cuando quieras
+  workflow_dispatch:
 
 jobs:
-  update-data:
+  run-scraper:
     runs-on: ubuntu-latest
+
+    # Permiso vital para poder guardar el archivo en tu repo
+    permissions:
+      contents: write
+
     steps:
-      - name: Descargar tu código
+      # 1. Descargar tu código
+      - name: Checkout del repositorio
         uses: actions/checkout@v3
 
-      - name: Preparar Python
+      # 2. Instalar Python
+      - name: Configurar Python
         uses: actions/setup-python@v4
         with:
           python-version: '3.9'
 
-      - name: Instalar librerías
-        run: pip install requests
+      # 3. Instalar librerías (Selenium)
+      - name: Instalar dependencias
+        run: |
+          pip install -r requirements.txt
 
-      - name: Ejecutar Script de Radar
-        env:
-          API_KEY: ${{ secrets.AVIATIONSTACK_KEY }} # Tu clave secreta
-        run: python scripts/update_data.py
+      # 4. EJECUTAR EL ROBOT
+      # Nota: Ajusta 'vuelos_turbo.json' si tu script usa otro nombre de salida
+      - name: Correr script de Python
+        run: python scripts/aena_scrap.py
 
+      # 5. MOVER Y RENOMBRAR EL JSON
+      # Movemos el resultado a la carpeta 'public' y lo llamamos 'data.json'
+      # Así tu web siempre leerá el mismo archivo actualizado.
+      - name: Mover datos a public/
+        run: |
+          # Si tu script genera 'vuelos_bcn_turbo.json', cámbialo aquí abajo:
+          mv vuelos_turbo.json public/data.json
+
+      # 6. GUARDAR CAMBIOS (Commit & Push)
       - name: Guardar cambios en el repo
         run: |
-          git config --global user.name 'TaxiBot'
+          git config --global user.name 'TaxiBot BCN'
           git config --global user.email 'bot@taxibcn.app'
           git add public/data.json
-          # Solo hace commit si hay cambios reales
-          git diff --quiet && git diff --staged --quiet || (git commit -m "📡 Actualización Automática" && git push)
+          # Solo hace commit si hay datos nuevos
+          git diff --quiet && git diff --staged --quiet || (git commit -m "Actualización auto: $(date)" && git push)
