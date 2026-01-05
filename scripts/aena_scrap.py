@@ -4,8 +4,10 @@
 import sys
 import os
 import time
+import json
+import re
 
-# Instalación de librerías
+# Instalación automática
 if 'google.colab' in sys.modules:
     print("🛠️ Verificando entorno e instalando librerías...")
     if not os.path.exists("/usr/bin/google-chrome"):
@@ -17,8 +19,6 @@ if 'google.colab' in sys.modules:
     else:
         print("✅ Entorno ya estaba listo.")
 
-import json
-import re
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.chrome.service import Service
@@ -28,12 +28,11 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
 # =============================================================================
-# 2. FUNCIONES DE PARSEO (CORREGIDA: MÉTODO DEL ANCLA)
+# 2. FUNCIONES DE PARSEO (V4 - ANCLA)
 # =============================================================================
 def parsear_fila_aena_v4(texto_fila, hora_detectada):
     """
     V4: Usa el CÓDIGO DE VUELO como ancla para encontrar el ORIGEN.
-    El origen SIEMPRE está justo después del vuelo.
     """
     partes = [p.strip() for p in texto_fila.split(" | ")]
     
@@ -42,17 +41,15 @@ def parsear_fila_aena_v4(texto_fila, hora_detectada):
         "origen": "N/A", "terminal": "N/A", "sala": "", "estado": "Programado"
     }
 
-    # 1. ESTADO (Búsqueda inversa, desde el final hacia atrás)
-    # Añadimos "FINALIZADO" a la lista negra para que no se confunda nunca más
     BLACKLIST_ESTADO = ["EN HORA", "RETRASADO", "ATERRIZADO", "PROGRAMADO", 
                         "CANCELADO", "DESVIADO", "SALA", "CINTA", "LLEGADA", 
                         "FINALIZADO", "OPERANDO", "EMBARCANDO", "ÚLTIMA LLAMADA"]
     
-    # Buscamos el estado al final de la fila
+    # 1. ESTADO
     if len(partes) > 0:
         ultimo = partes[-1].upper()
         if any(x in ultimo for x in BLACKLIST_ESTADO):
-            obj["estado"] = partes[-1] # Guardamos el original con mayus/minus correctas
+            obj["estado"] = partes[-1]
         elif len(partes) > 1:
             penultimo = partes[-2].upper()
             if any(x in penultimo for x in BLACKLIST_ESTADO):
@@ -67,39 +64,28 @@ def parsear_fila_aena_v4(texto_fila, hora_detectada):
             idx_terminal = i
             break
     
-    # Sala (Siguiente a Terminal)
+    # Sala
     if idx_terminal != -1 and len(partes) > idx_terminal + 1:
         posible_sala = partes[idx_terminal + 1]
-        # Las salas suelen ser cortas (T1_G, B, C...). Evitamos cintas (números solos largos)
         if len(posible_sala) < 6: 
             obj["sala"] = posible_sala
-            # Lógica T2C EasyJet
             if obj["terminal"] == "T2" and "C" in posible_sala.upper():
                 obj["terminal"] = "T2C (EasyJet)"
             elif obj["terminal"] == "T2":
                 obj["terminal"] = f"T2{posible_sala}"
 
-    # 3. EL "ANCLA": BUSCAR VUELO Y CAPTURAR ORIGEN (Lo más importante)
+    # 3. EL "ANCLA": BUSCAR VUELO Y CAPTURAR ORIGEN
     for i, p in enumerate(partes):
-        # Regex Vuelo: 2-3 Letras + 3-4 Números (Ej: QTR3614, VLG2114)
         if re.match(r"^[A-Z]{2,3}\d{3,4}$", p):
             obj["vuelo"] = p
-            
-            # --- AQUÍ ESTÁ LA CORRECCIÓN CLAVE ---
-            # El origen es el vecino de la derecha (i + 1)
             if i + 1 < len(partes):
                 candidato_origen = partes[i+1]
-                
-                # Validamos que no sea una Terminal ni una Hora ni el Estado
                 es_hora = ":" in candidato_origen
                 es_terminal = "T1" in candidato_origen or "T2" in candidato_origen
                 es_estado = any(x in candidato_origen.upper() for x in BLACKLIST_ESTADO)
                 
                 if not es_hora and not es_terminal and not es_estado:
                     obj["origen"] = candidato_origen
-            
-            # Una vez encontrado el vuelo y su vecino, TERMINAMOS este bucle.
-            # Así evitamos seguir leyendo y encontrar "Finalizado" por error.
             break 
 
     return obj
@@ -127,7 +113,7 @@ def limpiar_y_deduplicar(datos):
     return lista
 
 # =============================================================================
-# 3. MOTOR TURBO (OPTIMIZADO)
+# 3. MOTOR TURBO CORREGIDO (LEER TODO)
 # =============================================================================
 def obtener_vuelos_turbo():
     options = Options()
@@ -150,7 +136,8 @@ def obtener_vuelos_turbo():
         try: driver.execute_script("var b=document.querySelectorAll('.onetrust-pc-dark-filter, #onetrust-consent-sdk');b.forEach(e=>e.remove());")
         except: pass
         try:
-            driver.find_element(By.XPATH, "//input[contains(@placeholder, 'llegada')]").send_keys("JOSEP TARRADELLAS BARCELONA-EL PRAT")
+            inp = WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.XPATH, "//input[contains(@placeholder, 'llegada')]")))
+            inp.send_keys("JOSEP TARRADELLAS BARCELONA-EL PRAT")
             time.sleep(1)
             driver.execute_script("arguments[0].click();", driver.find_element(By.ID, "btnBuscadorVuelos"))
         except: pass
@@ -164,41 +151,38 @@ def obtener_vuelos_turbo():
         ultimo_minuto_check = -1
         stop_flag = False
         clicks = 0
-        MAX_PAGINAS = 80
+        MAX_PAGINAS = 70
 
         print(f"\n🚀 FASE 1: Carga Rápida (Expandiendo lista)...")
 
         while not stop_flag and clicks < MAX_PAGINAS:
             try:
-                # Chequeo rápido solo del primer y último elemento visible
                 elementos_hora = driver.find_elements(By.XPATH, "//*[contains(text(), ':') and string-length(text()) = 5]")
-                
                 if elementos_hora:
+                    # Capturamos hora inicio real
                     if hora_inicio == -1:
-                        hora_str_ini = elementos_hora[0].text
-                        if re.match(r"^\d{2}:\d{2}$", hora_str_ini):
-                            hora_inicio = int(hora_str_ini.split(':')[0])*60 + int(hora_str_ini.split(':')[1])
+                        h_ini = elementos_hora[0].text
+                        if re.match(r"^\d{2}:\d{2}$", h_ini):
+                            hora_inicio = int(h_ini.split(':')[0])*60 + int(h_ini.split(':')[1])
                             ultimo_minuto_check = hora_inicio
-                            print(f"⏱️ Hora Inicio: {hora_str_ini}")
+                            print(f"⏱️ Hora Inicio detectada: {h_ini}")
 
-                    ultimo_el = elementos_hora[-1]
-                    hora_str_fin = ultimo_el.text
-                    
-                    if re.match(r"^\d{2}:\d{2}$", hora_str_fin):
-                        m_actual = int(hora_str_fin.split(':')[0])*60 + int(hora_str_fin.split(':')[1])
+                    # Miramos solo el final
+                    h_fin = elementos_hora[-1].text
+                    if re.match(r"^\d{2}:\d{2}$", h_fin):
+                        m_act = int(h_fin.split(':')[0])*60 + int(h_fin.split(':')[1])
                         
-                        if m_actual < ultimo_minuto_check and (ultimo_minuto_check - m_actual) > 600:
+                        if m_act < ultimo_minuto_check and (ultimo_minuto_check - m_act) > 600:
                             dia_actual += 1
-                            print(f"🌙 Pasamos a mañana... (Visto: {hora_str_fin})")
+                            print(f"🌙 Pasamos a mañana... (Visto: {h_fin})")
                         
-                        ultimo_minuto_check = m_actual
+                        ultimo_minuto_check = m_act
 
-                        if dia_actual >= 1 and m_actual >= hora_inicio:
-                            print(f"🛑 24h alcanzadas ({hora_str_fin}).")
+                        if dia_actual >= 1 and m_act >= hora_inicio:
+                            print(f"🛑 24h alcanzadas ({h_fin}). Dejamos de cargar.")
                             stop_flag = True
                             break
-            except: 
-                pass
+            except: pass
 
             try:
                 driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
@@ -211,11 +195,13 @@ def obtener_vuelos_turbo():
                 print("✅ Fin de botones.")
                 break
 
-        # === FASE 2: LECTURA MASIVA ===
-        print(f"\n👀 FASE 2: Procesando datos...")
+        # === FASE 2: LECTURA MASIVA SIN FRENO ===
+        print(f"\n👀 FASE 2: Procesando TODOS los datos visibles...")
         
         elementos_hora = driver.find_elements(By.XPATH, "//*[contains(text(), ':') and string-length(text()) = 5]")
+        print(f"📊 Elementos encontrados en el DOM: {len(elementos_hora)}")
         
+        # Reiniciamos lógica de días para el parseo lineal
         dia_parseo = 0
         min_anterior_parseo = hora_inicio 
         
@@ -226,7 +212,7 @@ def obtener_vuelos_turbo():
 
         filas_procesadas_ids = set()
 
-        for el in elementos_hora:
+        for i, el in enumerate(elementos_hora):
             try:
                 hora_str = el.text
                 if not re.match(r"^\d{2}:\d{2}$", hora_str): continue
@@ -238,15 +224,17 @@ def obtener_vuelos_turbo():
                 
                 m_actual = int(hora_str.split(':')[0])*60 + int(hora_str.split(':')[1])
                 
+                # Detectar cambio de día
                 if m_actual < min_anterior_parseo and (min_anterior_parseo - m_actual) > 600:
                     dia_parseo += 1
                 
                 min_anterior_parseo = m_actual 
 
-                if dia_parseo >= 1 and m_actual > hora_inicio + 60:
-                     break 
+                # AQUI ESTABA EL ERROR: QUITAMOS EL FRENO
+                # Antes había un break si > 24h. Lo quitamos.
+                # Guardamos TODO y luego al guardar el JSON ya limpiaremos si hace falta.
+                # Lo importante es no perder datos ahora.
 
-                # USAMOS LA V4 (PARSEO ANCLA)
                 obj = parsear_fila_aena_v4(texto_fila, hora_str)
                 obj["dia_relativo"] = dia_parseo
                 
@@ -254,6 +242,8 @@ def obtener_vuelos_turbo():
                     datos_recolectados.append(obj)
                 
                 filas_procesadas_ids.add(texto_fila)
+                
+                if i % 200 == 0: print(f"   [DEBUG] Procesados {i} vuelos...")
 
             except: continue
 
@@ -271,13 +261,14 @@ if __name__ == "__main__":
     
     if vuelos_raw:
         vuelos_clean = limpiar_y_deduplicar(vuelos_raw)
-        archivo = 'vuelos.json'
+        archivo = 'vuelos.json' # Nombre temporal para tu local
         with open(archivo, 'w', encoding='utf-8') as f:
             json.dump(vuelos_clean, f, indent=4, ensure_ascii=False)
         print(f"\n💾 ¡ÉXITO! {len(vuelos_clean)} vuelos guardados en: {archivo}")
         
-        # Muestra para verificar que 'BOLONIA' sale bien
-        print("\n🔎 Verificación (Primeros 3):")
-        print(json.dumps(vuelos_clean[:3], indent=2, ensure_ascii=False))
+        # Muestra
+        if len(vuelos_clean) > 0:
+            print("\n🔎 Ejemplo (Último vuelo):")
+            print(json.dumps(vuelos_clean[-1], indent=2, ensure_ascii=False))
     else:
         print("⚠️ No se encontraron datos.")
