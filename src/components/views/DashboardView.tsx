@@ -278,11 +278,11 @@ export function DashboardView({ onTerminalClick, onViewAllFlights, onViewAllEven
         })}
       </div>
 
-      {/* Transporte Grid - Trenes y Eventos */}
-      <div className="grid grid-cols-2 gap-2">
-        <TrainsWidget />
-        <EventsWidget onViewAllClick={onViewAllEvents} compact />
-      </div>
+      {/* Trenes - Ancho completo */}
+      <TrainsWidget />
+
+      {/* Eventos */}
+      <EventsWidget onViewAllClick={onViewAllEvents} compact />
 
       {/* Cruceros y Licencia */}
       <div className="grid grid-cols-2 gap-2">
