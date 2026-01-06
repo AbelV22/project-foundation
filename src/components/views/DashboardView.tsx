@@ -32,6 +32,7 @@ interface DashboardViewProps {
   onViewAllEvents?: () => void;
   onViewFullDay?: () => void;
   onViewTrainsFullDay?: () => void;
+  onViewLicenses?: () => void;
 }
 
 // Función para parsear hora "HH:MM" a minutos del día
@@ -92,7 +93,7 @@ const getEsperaReten = (terminalId: string, currentHour: number): number => {
   return isPeakHour ? base + 12 : base;
 };
 
-export function DashboardView({ onTerminalClick, onViewAllFlights, onViewAllEvents, onViewFullDay, onViewTrainsFullDay }: DashboardViewProps) {
+export function DashboardView({ onTerminalClick, onViewAllFlights, onViewAllEvents, onViewFullDay, onViewTrainsFullDay, onViewLicenses }: DashboardViewProps) {
   const [vuelos, setVuelos] = useState<VueloRaw[]>([]);
   const [extras, setExtras] = useState<ExtrasData | null>(null);
   const [loading, setLoading] = useState(true);
@@ -319,10 +320,7 @@ export function DashboardView({ onTerminalClick, onViewAllFlights, onViewAllEven
       {/* Cruceros y Licencia */}
       <div className="grid grid-cols-2 gap-2">
         <CruisesWidget />
-        <LicensePriceWidget 
-          precio={extras?.licencia || 0} 
-          tendencia={extras?.licencia_tendencia || "estable"} 
-        />
+        <LicensePriceWidget onClick={onViewLicenses} />
       </div>
     </div>
   );

@@ -80,6 +80,16 @@ export function LicensesView() {
   const minPrice = Math.min(...preciosNetos);
   const maxPrice = Math.max(...preciosNetos);
 
+  // Mock de evolución temporal (se poblará con histórico real)
+  const evolucionTemporal = [
+    { fecha: "01/01", precio: 165000 },
+    { fecha: "02/01", precio: 166500 },
+    { fecha: "03/01", precio: 167200 },
+    { fecha: "04/01", precio: 168000 },
+    { fecha: "05/01", precio: 167800 },
+    { fecha: "06/01", precio: metadata.precio_mercado_referencia },
+  ];
+
   // Preparar datos para gráfica de barras por día
   const chartDataPorDia = Object.entries(estadisticas.valor_mediano_por_dia)
     .map(([dia, valor]) => ({
@@ -147,6 +157,67 @@ export function LicensesView() {
             {metadata.total_ofertas_validas}
           </p>
           <p className="text-[10px] text-muted-foreground mt-1">ofertas válidas</p>
+        </div>
+      </div>
+
+      {/* Chart evolución temporal */}
+      <div className="card-dashboard p-4">
+        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-4 gap-3">
+          <div>
+            <h3 className="font-display font-semibold text-foreground text-sm">Evolución Temporal</h3>
+            <p className="text-[10px] text-muted-foreground">Histórico del precio mediano de referencia</p>
+          </div>
+        </div>
+
+        <div className="h-40 md:h-48 mb-3">
+          <ResponsiveContainer width="100%" height="100%">
+            <AreaChart data={evolucionTemporal}>
+              <defs>
+                <linearGradient id="evolucionGradient" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="5%" stopColor="hsl(var(--primary))" stopOpacity={0.3} />
+                  <stop offset="95%" stopColor="hsl(var(--primary))" stopOpacity={0} />
+                </linearGradient>
+              </defs>
+              <XAxis 
+                dataKey="fecha" 
+                axisLine={false} 
+                tickLine={false} 
+                tick={{ fontSize: 10, fill: 'hsl(var(--muted-foreground))' }} 
+              />
+              <YAxis 
+                axisLine={false} 
+                tickLine={false} 
+                tick={{ fontSize: 10, fill: 'hsl(var(--muted-foreground))' }} 
+                tickFormatter={value => `${(value / 1000).toFixed(0)}k€`} 
+                domain={['dataMin - 2000', 'dataMax + 2000']} 
+                width={45} 
+              />
+              <Tooltip 
+                contentStyle={{
+                  backgroundColor: 'hsl(var(--card))',
+                  border: '1px solid hsl(var(--border))',
+                  borderRadius: '8px',
+                  color: 'hsl(var(--foreground))',
+                  fontSize: '12px'
+                }} 
+                formatter={(value: number) => [`${value.toLocaleString('es-ES')}€`, 'Mediana']} 
+              />
+              <Area 
+                type="monotone" 
+                dataKey="precio" 
+                stroke="hsl(var(--primary))" 
+                strokeWidth={2} 
+                fill="url(#evolucionGradient)" 
+              />
+            </AreaChart>
+          </ResponsiveContainer>
+        </div>
+
+        <div className="flex items-start gap-2 p-2 rounded-lg bg-info/10 text-[10px]">
+          <Info className="h-3 w-3 text-info mt-0.5 flex-shrink-0" />
+          <p className="text-muted-foreground">
+            <span className="font-medium text-foreground">Sistema nuevo:</span> El histórico crece automáticamente cada día con nuevos datos.
+          </p>
         </div>
       </div>
 

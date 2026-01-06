@@ -87,6 +87,10 @@ const Index = () => {
     setActiveTab("trainsFullDay");
   };
 
+  const handleViewLicenses = () => {
+    setActiveTab("licencias");
+  };
+
   return (
     <div className="min-h-screen bg-background">
       <Sidebar 
@@ -112,6 +116,7 @@ const Index = () => {
               onViewAllEvents={handleViewAllEvents}
               onViewFullDay={handleViewFullDay}
               onViewTrainsFullDay={handleViewTrainsFullDay}
+              onViewLicenses={handleViewLicenses}
             />
           )}
           {activeTab === "vuelos" && <FlightsView />}
