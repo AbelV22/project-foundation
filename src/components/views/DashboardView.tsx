@@ -171,26 +171,25 @@ export function DashboardView({ onTerminalClick, onViewAllFlights, onViewAllEven
 
   const totalVuelos = vuelosSorted.length;
 
-  // Calcular vuelos por hora para cada terminal
-  // horaOffset 0 = hora actual, 1 = próxima hora
-  const getVuelosPorHora = (vuelosTerminal: VueloRaw[], horaOffset: number) => {
+  // Contar vuelos por hora y terminal (misma lógica que FullDayView)
+  const countByHourAndTerminal: Record<string, Record<number, number>> = {
+    t1: {},
+    t2: {},
+    t2c: {},
+    puente: {}
+  };
+  
+  Object.entries(terminalData).forEach(([terminal, data]) => {
+    data.vuelos.forEach(v => {
+      const hour = parseInt(v.hora?.split(":")[0] || "0", 10);
+      countByHourAndTerminal[terminal][hour] = (countByHourAndTerminal[terminal][hour] || 0) + 1;
+    });
+  });
+
+  // Obtener vuelos para hora actual y siguiente
+  const getVuelosPorHora = (terminalId: string, horaOffset: number) => {
     const targetHour = (currentHour + horaOffset) % 24;
-    return vuelosTerminal.filter(v => {
-      const estado = v.estado?.toLowerCase() || "";
-      // Solo excluir cancelados
-      if (estado.includes("cancelado")) return false;
-      const horaVuelo = parseInt(v.hora?.split(":")[0] || "0", 10);
-      
-      // Para la hora actual (horaOffset = 0), mostrar todos los de esta hora
-      // Para horas futuras, verificar día relativo
-      if (v.dia_relativo === 0) {
-        return horaVuelo === targetHour;
-      }
-      if (v.dia_relativo === 1 && horaOffset > 0) {
-        return horaVuelo === targetHour;
-      }
-      return false;
-    }).length;
+    return countByHourAndTerminal[terminalId][targetHour] || 0;
   };
 
   // Obtener próximos vuelos (no finalizados)
@@ -291,9 +290,8 @@ export function DashboardView({ onTerminalClick, onViewAllFlights, onViewAllEven
       {/* Terminal Cards Grid - Optimizado móvil */}
       <div className="grid grid-cols-2 gap-2">
         {terminals.map(term => {
-          const data = terminalData[term.id];
-          const vuelosProximaHora = getVuelosPorHora(data.vuelos, 0);
-          const vuelosSiguienteHora = getVuelosPorHora(data.vuelos, 1);
+          const vuelosEstaHora = getVuelosPorHora(term.id, 0);
+          const vuelosProximaHora = getVuelosPorHora(term.id, 1);
           // Simulamos contribuidores (más adelante vendrán de la BD)
           const contribuidores = Math.floor(Math.random() * 5);
           
@@ -302,8 +300,8 @@ export function DashboardView({ onTerminalClick, onViewAllFlights, onViewAllEven
               key={term.id}
               id={term.id}
               name={term.name}
-              vuelosProximaHora={vuelosProximaHora}
-              vuelosSiguienteHora={vuelosSiguienteHora}
+              vuelosProximaHora={vuelosEstaHora}
+              vuelosSiguienteHora={vuelosProximaHora}
               esperaMinutos={getEsperaReten(term.id, currentHour)}
               contribuidores={contribuidores}
               onClick={() => onTerminalClick?.(term.id)}
