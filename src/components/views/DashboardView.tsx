@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { RefreshCw, Plane, LogIn, LogOut, Sun, CloudRain, Calendar } from "lucide-react";
+import { RefreshCw, Plane, LogIn, LogOut, Sun, CloudRain, Calendar, Train } from "lucide-react";
 import { TerminalCard } from "@/components/widgets/TerminalCard";
 import { TrainsWidget } from "@/components/widgets/TrainsWidget";
 import { CruisesWidget } from "@/components/widgets/CruisesWidget";
@@ -200,7 +200,7 @@ export function DashboardView({ onTerminalClick, onViewAllFlights, onViewAllEven
 
   return (
     <div className="space-y-3 animate-fade-in pb-20">
-      {/* Header con hora, clima y botón día completo */}
+      {/* Header con hora y clima */}
       <div className="flex items-center justify-between px-1">
         <div className="flex items-center gap-2">
           <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-primary/10">
@@ -214,14 +214,6 @@ export function DashboardView({ onTerminalClick, onViewAllFlights, onViewAllEven
             </div>
           </div>
         </div>
-        {/* Botón día completo centrado - Premium style */}
-        <button
-          onClick={onViewFullDay}
-          className="px-4 py-2 rounded-xl border border-border bg-card/80 backdrop-blur-sm shadow-lg shadow-black/20 hover:bg-muted hover:border-primary/30 transition-all duration-200"
-        >
-          <Calendar className="h-4 w-4 inline mr-2 text-muted-foreground" />
-          <span className="font-display font-bold text-sm text-foreground">Vista día</span>
-        </button>
         {/* Hora + clima */}
         <div className="flex items-center gap-2">
           <div className="text-right">
@@ -241,6 +233,43 @@ export function DashboardView({ onTerminalClick, onViewAllFlights, onViewAllEven
             )}
           </button>
         </div>
+      </div>
+
+      {/* Botones Vista Día - Diseño premium unificado */}
+      <div className="grid grid-cols-2 gap-2">
+        <button
+          onClick={onViewFullDay}
+          className="group relative overflow-hidden rounded-xl border border-amber-500/30 bg-gradient-to-br from-amber-500/10 via-orange-500/5 to-transparent p-3 shadow-lg shadow-amber-500/10 hover:shadow-amber-500/20 hover:border-amber-500/50 transition-all duration-300"
+        >
+          <div className="absolute inset-0 bg-gradient-to-br from-amber-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+          <div className="relative flex items-center gap-3">
+            <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-amber-500/20 group-hover:bg-amber-500/30 transition-colors">
+              <Plane className="h-5 w-5 text-amber-500" />
+            </div>
+            <div className="text-left flex-1">
+              <p className="font-display font-bold text-sm text-foreground">Vuelos</p>
+              <p className="text-[10px] text-muted-foreground">Vista día completo</p>
+            </div>
+            <Calendar className="h-4 w-4 text-amber-500/60 group-hover:text-amber-500 transition-colors" />
+          </div>
+        </button>
+
+        <button
+          onClick={onViewTrainsFullDay}
+          className="group relative overflow-hidden rounded-xl border border-emerald-500/30 bg-gradient-to-br from-emerald-500/10 via-teal-500/5 to-transparent p-3 shadow-lg shadow-emerald-500/10 hover:shadow-emerald-500/20 hover:border-emerald-500/50 transition-all duration-300"
+        >
+          <div className="absolute inset-0 bg-gradient-to-br from-emerald-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+          <div className="relative flex items-center gap-3">
+            <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-emerald-500/20 group-hover:bg-emerald-500/30 transition-colors">
+              <Train className="h-5 w-5 text-emerald-500" />
+            </div>
+            <div className="text-left flex-1">
+              <p className="font-display font-bold text-sm text-foreground">Trenes</p>
+              <p className="text-[10px] text-muted-foreground">Vista día completo</p>
+            </div>
+            <Calendar className="h-4 w-4 text-emerald-500/60 group-hover:text-emerald-500 transition-colors" />
+          </div>
+        </button>
       </div>
 
       {/* Botones de Retén */}

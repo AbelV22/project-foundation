@@ -122,20 +122,9 @@ export function TrainsWidget({ onViewFullDay }: TrainsWidgetProps) {
             <p className="text-[10px] text-muted-foreground">AVE · IRYO · OUIGO</p>
           </div>
         </div>
-        <div className="flex items-center gap-3">
-          <div className="text-right">
-            <p className="font-display font-bold text-xl text-emerald-400">{trenesProximaHora}</p>
-            <p className="text-[10px] text-muted-foreground">próx. hora</p>
-          </div>
-          {onViewFullDay && (
-            <button
-              onClick={onViewFullDay}
-              className="p-2 rounded-lg border border-border bg-card/80 hover:bg-muted hover:border-emerald-500/30 transition-all"
-              title="Vista día completo"
-            >
-              <Calendar className="h-4 w-4 text-muted-foreground" />
-            </button>
-          )}
+        <div className="text-right">
+          <p className="font-display font-bold text-xl text-emerald-400">{trenesProximaHora}</p>
+          <p className="text-[10px] text-muted-foreground">próx. hora</p>
         </div>
       </div>
 
