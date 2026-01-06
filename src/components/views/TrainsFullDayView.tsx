@@ -1,5 +1,5 @@
 import { useState, useEffect, useMemo } from "react";
-import { ArrowLeft, Train, RefreshCw, Flame, Clock, MapPin } from "lucide-react";
+import { ArrowLeft, Train, RefreshCw, Flame, Clock, MapPin, ChevronRight } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 interface TrenSants {
@@ -11,6 +11,7 @@ interface TrenSants {
 
 interface TrainsFullDayViewProps {
   onBack?: () => void;
+  onCityClick?: (city: string) => void;
 }
 
 // Extraer primera palabra del origen (ciudad)
@@ -89,7 +90,7 @@ const generateHourSlots = (startHour: number): string[] => {
   return slots;
 };
 
-export function TrainsFullDayView({ onBack }: TrainsFullDayViewProps) {
+export function TrainsFullDayView({ onBack, onCityClick }: TrainsFullDayViewProps) {
   const [trenes, setTrenes] = useState<TrenSants[]>([]);
   const [loading, setLoading] = useState(true);
   const [lastUpdate, setLastUpdate] = useState<string>("");
@@ -302,7 +303,7 @@ export function TrainsFullDayView({ onBack }: TrainsFullDayViewProps) {
             </div>
           </div>
 
-          {/* Top ciudades */}
+          {/* Top ciudades - Clicables */}
           <div className="rounded-xl border border-border bg-card overflow-hidden shadow-lg shadow-black/10">
             <div className="bg-muted py-2 px-3 border-b border-border flex items-center gap-1.5">
               <MapPin className="h-3 w-3 text-muted-foreground" />
@@ -310,9 +311,10 @@ export function TrainsFullDayView({ onBack }: TrainsFullDayViewProps) {
             </div>
             <div className="p-2 space-y-1.5 max-h-[22vh] overflow-y-auto scrollbar-dark">
               {topCiudades.map(([ciudad, count], idx) => (
-                <div 
+                <button 
                   key={ciudad}
-                  className="flex items-center justify-between px-2 py-1.5 rounded-lg bg-muted/30"
+                  onClick={() => onCityClick?.(ciudad)}
+                  className="w-full flex items-center justify-between px-2 py-1.5 rounded-lg bg-muted/30 hover:bg-muted/60 transition-colors group"
                 >
                   <div className="flex items-center gap-2">
                     <span className={cn(
@@ -323,8 +325,11 @@ export function TrainsFullDayView({ onBack }: TrainsFullDayViewProps) {
                     </span>
                     <span className="font-medium text-xs text-foreground">{ciudad}</span>
                   </div>
-                  <span className="font-display font-bold text-sm text-emerald-500">{count}</span>
-                </div>
+                  <div className="flex items-center gap-1">
+                    <span className="font-display font-bold text-sm text-emerald-500">{count}</span>
+                    <ChevronRight className="h-3 w-3 text-muted-foreground opacity-0 group-hover:opacity-100 transition-opacity" />
+                  </div>
+                </button>
               ))}
             </div>
           </div>

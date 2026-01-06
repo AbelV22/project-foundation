@@ -6,12 +6,12 @@ import {
   Bell, 
   Settings,
   LogOut,
-  Car,
   Menu,
   X
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
+import logoItaxiBcn from "@/assets/logo-itaxibcn.png";
 
 interface SidebarProps {
   activeTab: string;
@@ -56,17 +56,12 @@ export function Sidebar({ activeTab, onTabChange, isOpen, onToggle }: SidebarPro
       )}>
         <div className="flex h-full flex-col">
           {/* Logo */}
-          <div className="flex items-center gap-3 px-6 py-6 border-b border-sidebar-border">
-            <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-primary">
-              <Car className="h-6 w-6 text-primary-foreground" />
-            </div>
-            <div>
-              <h1 className="font-display text-xl font-bold">
-                <span className="text-primary">i</span>
-                <span className="text-foreground">TaxiBcn</span>
-              </h1>
-              <p className="text-xs text-muted-foreground">Panel del Taxista</p>
-            </div>
+          <div className="flex items-center justify-center px-4 py-5 border-b border-sidebar-border">
+            <img 
+              src={logoItaxiBcn} 
+              alt="iTaxiBcn" 
+              className="h-12 w-auto object-contain drop-shadow-lg"
+            />
           </div>
 
           {/* Navigation */}

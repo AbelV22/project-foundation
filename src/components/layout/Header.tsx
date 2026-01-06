@@ -1,6 +1,7 @@
 import { Bell, User, Menu } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { WeatherWidget } from "@/components/widgets/WeatherWidget";
+import logoItaxiBcn from "@/assets/logo-itaxibcn.png";
 
 interface HeaderProps {
   title: string;
@@ -17,13 +18,20 @@ export function Header({ title, onMenuToggle }: HeaderProps) {
 
   return (
     <header className="sticky top-0 z-30 flex h-16 items-center justify-between border-b border-border bg-background/95 backdrop-blur px-4 md:px-6">
-      <div className="flex items-center gap-4">
+      <div className="flex items-center gap-3">
         {/* Mobile menu spacer */}
         <div className="w-10 lg:hidden" />
         
-        <div>
+        {/* Logo - Visible solo en móvil y tablet */}
+        <img 
+          src={logoItaxiBcn} 
+          alt="iTaxiBcn" 
+          className="h-8 w-auto object-contain lg:hidden"
+        />
+        
+        <div className="hidden sm:block">
           <h1 className="font-display text-lg md:text-2xl font-bold text-foreground">{title}</h1>
-          <p className="text-xs md:text-sm text-muted-foreground capitalize hidden sm:block">{currentDate}</p>
+          <p className="text-xs md:text-sm text-muted-foreground capitalize hidden md:block">{currentDate}</p>
         </div>
       </div>
 

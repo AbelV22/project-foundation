@@ -9,6 +9,7 @@ import { AlertsView } from "@/components/views/AlertsView";
 import { TerminalDetailView } from "@/components/views/TerminalDetailView";
 import { FullDayView } from "@/components/views/FullDayView";
 import { TrainsFullDayView } from "@/components/views/TrainsFullDayView";
+import { TrainsByCityView } from "@/components/views/TrainsByCityView";
 
 const titles: Record<string, string> = {
   dashboard: "Inicio",
@@ -19,12 +20,14 @@ const titles: Record<string, string> = {
   terminalDetail: "Detalle Terminal",
   fullDay: "Vista Día Completo",
   trainsFullDay: "Trenes Sants",
+  trainsByCity: "Trenes por Ciudad",
 };
 
 const Index = () => {
   const [activeTab, setActiveTab] = useState("dashboard");
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [selectedTerminal, setSelectedTerminal] = useState<string | null>(null);
+  const [selectedTrainCity, setSelectedTrainCity] = useState<string | null>(null);
 
   const handleTerminalClick = (terminalId: string) => {
     setSelectedTerminal(terminalId);
@@ -60,6 +63,16 @@ const Index = () => {
     setActiveTab("dashboard");
   };
 
+  const handleTrainCityClick = (city: string) => {
+    setSelectedTrainCity(city);
+    setActiveTab("trainsByCity");
+  };
+
+  const handleBackFromTrainsByCity = () => {
+    setSelectedTrainCity(null);
+    setActiveTab("trainsFullDay");
+  };
+
   return (
     <div className="min-h-screen bg-background">
       <Sidebar 
@@ -67,6 +80,7 @@ const Index = () => {
         onTabChange={(tab) => {
           setActiveTab(tab);
           setSelectedTerminal(null);
+          setSelectedTrainCity(null);
         }} 
         isOpen={sidebarOpen}
         onToggle={() => setSidebarOpen(!sidebarOpen)}
@@ -99,7 +113,16 @@ const Index = () => {
             <FullDayView onBack={handleBackFromFullDay} />
           )}
           {activeTab === "trainsFullDay" && (
-            <TrainsFullDayView onBack={handleBackFromTrainsFullDay} />
+            <TrainsFullDayView 
+              onBack={handleBackFromTrainsFullDay}
+              onCityClick={handleTrainCityClick}
+            />
+          )}
+          {activeTab === "trainsByCity" && selectedTrainCity && (
+            <TrainsByCityView 
+              city={selectedTrainCity}
+              onBack={handleBackFromTrainsByCity}
+            />
           )}
         </div>
       </main>
