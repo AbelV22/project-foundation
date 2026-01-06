@@ -7,7 +7,7 @@ import time
 import json
 import re
 
-# Instalación automática
+# Instalación automática (Solo Colab)
 if 'google.colab' in sys.modules:
     print("🛠️ Verificando entorno e instalando librerías...")
     if not os.path.exists("/usr/bin/google-chrome"):
@@ -15,7 +15,6 @@ if 'google.colab' in sys.modules:
         os.system('wget -q https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb')
         os.system('apt-get install -y ./google-chrome-stable_current_amd64.deb > /dev/null 2>&1')
         os.system('pip install selenium webdriver-manager -q')
-        print("✅ Instalación completada.")
     else:
         print("✅ Entorno ya estaba listo.")
 
@@ -31,21 +30,15 @@ from selenium.webdriver.support import expected_conditions as EC
 # 2. FUNCIONES DE PARSEO (V4 - ANCLA)
 # =============================================================================
 def parsear_fila_aena_v4(texto_fila, hora_detectada):
-    """
-    V4: Usa el CÓDIGO DE VUELO como ancla para encontrar el ORIGEN.
-    """
     partes = [p.strip() for p in texto_fila.split(" | ")]
-    
     obj = {
         "hora": hora_detectada, "vuelo": "N/A", "aerolinea": "N/A",
         "origen": "N/A", "terminal": "N/A", "sala": "", "estado": "Programado"
     }
-
     BLACKLIST_ESTADO = ["EN HORA", "RETRASADO", "ATERRIZADO", "PROGRAMADO", 
                         "CANCELADO", "DESVIADO", "SALA", "CINTA", "LLEGADA", 
                         "FINALIZADO", "OPERANDO", "EMBARCANDO", "ÚLTIMA LLAMADA"]
-    
-    # 1. ESTADO
+    # Estado
     if len(partes) > 0:
         ultimo = partes[-1].upper()
         if any(x in ultimo for x in BLACKLIST_ESTADO):
@@ -54,8 +47,7 @@ def parsear_fila_aena_v4(texto_fila, hora_detectada):
             penultimo = partes[-2].upper()
             if any(x in penultimo for x in BLACKLIST_ESTADO):
                 obj["estado"] = partes[-2]
-
-    # 2. DETECTAR TERMINAL Y SALA
+    # Terminal
     idx_terminal = -1
     for i, p in enumerate(partes):
         p_upper = p.upper()
@@ -63,7 +55,6 @@ def parsear_fila_aena_v4(texto_fila, hora_detectada):
             obj["terminal"] = "T1" if "T1" in p_upper else "T2"
             idx_terminal = i
             break
-    
     # Sala
     if idx_terminal != -1 and len(partes) > idx_terminal + 1:
         posible_sala = partes[idx_terminal + 1]
@@ -73,8 +64,7 @@ def parsear_fila_aena_v4(texto_fila, hora_detectada):
                 obj["terminal"] = "T2C (EasyJet)"
             elif obj["terminal"] == "T2":
                 obj["terminal"] = f"T2{posible_sala}"
-
-    # 3. EL "ANCLA": BUSCAR VUELO Y CAPTURAR ORIGEN
+    # Vuelo y Origen
     for i, p in enumerate(partes):
         if re.match(r"^[A-Z]{2,3}\d{3,4}$", p):
             obj["vuelo"] = p
@@ -83,11 +73,9 @@ def parsear_fila_aena_v4(texto_fila, hora_detectada):
                 es_hora = ":" in candidato_origen
                 es_terminal = "T1" in candidato_origen or "T2" in candidato_origen
                 es_estado = any(x in candidato_origen.upper() for x in BLACKLIST_ESTADO)
-                
                 if not es_hora and not es_terminal and not es_estado:
                     obj["origen"] = candidato_origen
             break 
-
     return obj
 
 def limpiar_y_deduplicar(datos):
@@ -95,9 +83,7 @@ def limpiar_y_deduplicar(datos):
     unicos = {}
     for v in datos:
         origen_clean = v['origen'].strip().upper()
-        # Clave única: DÍA + HORA + ORIGEN
         clave = (v['dia_relativo'], v['hora'], v['vuelo'] if origen_clean == "N/A" else origen_clean)
-
         if clave in unicos:
             existente = unicos[clave]
             existente['aerolinea'] = "Multicompania"
@@ -107,13 +93,12 @@ def limpiar_y_deduplicar(datos):
                  existente['terminal'] = v['terminal']
         else:
             unicos[clave] = v
-    
     lista = list(unicos.values())
     lista.sort(key=lambda x: (x['dia_relativo'], x['hora']))
     return lista
 
 # =============================================================================
-# 3. MOTOR TURBO CORREGIDO (LEER TODO)
+# 3. MOTOR TURBO (LÓGICA BIDIRECCIONAL + 50 CLICKS)
 # =============================================================================
 def obtener_vuelos_turbo():
     options = Options()
@@ -151,37 +136,55 @@ def obtener_vuelos_turbo():
         ultimo_minuto_check = -1
         stop_flag = False
         clicks = 0
-        MAX_PAGINAS = 70
+        MAX_PAGINAS = 80
+        MIN_CLICKS_OBLIGATORIOS = 50 
 
-        print(f"\n🚀 FASE 1: Carga Rápida (Expandiendo lista)...")
+        print(f"\n🚀 FASE 1: Carga Rápida (Requisito: >{MIN_CLICKS_OBLIGATORIOS} clicks y 24h reales)...")
 
         while not stop_flag and clicks < MAX_PAGINAS:
             try:
                 elementos_hora = driver.find_elements(By.XPATH, "//*[contains(text(), ':') and string-length(text()) = 5]")
                 if elementos_hora:
-                    # Capturamos hora inicio real
+                    # Capturar hora inicio
                     if hora_inicio == -1:
                         h_ini = elementos_hora[0].text
                         if re.match(r"^\d{2}:\d{2}$", h_ini):
                             hora_inicio = int(h_ini.split(':')[0])*60 + int(h_ini.split(':')[1])
                             ultimo_minuto_check = hora_inicio
-                            print(f"⏱️ Hora Inicio detectada: {h_ini}")
+                            print(f"⏱️ Hora Inicio: {h_ini}")
 
-                    # Miramos solo el final
+                    # Mirar el último visible
                     h_fin = elementos_hora[-1].text
                     if re.match(r"^\d{2}:\d{2}$", h_fin):
                         m_act = int(h_fin.split(':')[0])*60 + int(h_fin.split(':')[1])
                         
-                        if m_act < ultimo_minuto_check and (ultimo_minuto_check - m_act) > 600:
-                            dia_actual += 1
-                            print(f"🌙 Pasamos a mañana... (Visto: {h_fin})")
+                        # --- LÓGICA BIDIRECCIONAL (CORRECCIÓN DE ERRORES) ---
+                        diferencia = ultimo_minuto_check - m_act
                         
+                        # 1. Si bajamos drásticamente (23:00 -> 01:00) -> DÍA SIGUIENTE
+                        if diferencia > 600:
+                            dia_actual += 1
+                            if clicks >= MIN_CLICKS_OBLIGATORIOS:
+                                print(f"🌙 Cambio de día DETECTADO ({h_fin}). Día relativo: {dia_actual}")
+                        
+                        # 2. Si subimos drásticamente (01:00 -> 23:00) -> VOLVIMOS ATRÁS (Corregir error AENA)
+                        elif diferencia < -600:
+                            dia_actual -= 1
+                            print(f"🔙 Corrección de día detectada ({h_fin}). Volvemos al día: {dia_actual}")
+
                         ultimo_minuto_check = m_act
 
+                        # --- CONDICIÓN DE PARADA ---
+                        # Solo paramos si ya hemos pasado al día siguiente DE VERDAD y tenemos los clicks
                         if dia_actual >= 1 and m_act >= hora_inicio:
-                            print(f"🛑 24h alcanzadas ({h_fin}). Dejamos de cargar.")
-                            stop_flag = True
-                            break
+                            if clicks >= MIN_CLICKS_OBLIGATORIOS:
+                                print(f"🛑 Círculo 24h cerrado ({h_fin}) y clicks cumplidos. Parando.")
+                                stop_flag = True
+                                break
+                            else:
+                                # Si faltan clicks, IGNORAMOS la señal de parada y seguimos
+                                # La "Corrección de día" arreglará el flag si era un error
+                                pass
             except: pass
 
             try:
@@ -189,19 +192,19 @@ def obtener_vuelos_turbo():
                 btn = WebDriverWait(driver, 1).until(EC.visibility_of_element_located((By.CLASS_NAME, "btn-see-more")))
                 driver.execute_script("arguments[0].click();", btn)
                 clicks += 1
-                if clicks % 5 == 0: print(f" ⬇️ Click {clicks}...")
-                time.sleep(0.8)
+                if clicks % 5 == 0: 
+                    estado = "✅" if clicks >= MIN_CLICKS_OBLIGATORIOS else f"⏳ ({clicks}/{MIN_CLICKS_OBLIGATORIOS})"
+                    print(f" ⬇️ Click {clicks} {estado}")
+                time.sleep(0.6)
             except:
                 print("✅ Fin de botones.")
                 break
 
-        # === FASE 2: LECTURA MASIVA SIN FRENO ===
-        print(f"\n👀 FASE 2: Procesando TODOS los datos visibles...")
+        # === FASE 2: LECTURA MASIVA (Igual, pero aplicando la misma lógica bidireccional) ===
+        print(f"\n👀 FASE 2: Procesando y ordenando...")
         
         elementos_hora = driver.find_elements(By.XPATH, "//*[contains(text(), ':') and string-length(text()) = 5]")
-        print(f"📊 Elementos encontrados en el DOM: {len(elementos_hora)}")
         
-        # Reiniciamos lógica de días para el parseo lineal
         dia_parseo = 0
         min_anterior_parseo = hora_inicio 
         
@@ -224,26 +227,23 @@ def obtener_vuelos_turbo():
                 
                 m_actual = int(hora_str.split(':')[0])*60 + int(hora_str.split(':')[1])
                 
-                # Detectar cambio de día
-                if m_actual < min_anterior_parseo and (min_anterior_parseo - m_actual) > 600:
-                    dia_parseo += 1
+                # LÓGICA BIDIRECCIONAL TAMBIÉN AQUÍ PARA ASIGNAR EL DÍA CORRECTO
+                diferencia = min_anterior_parseo - m_actual
+                if diferencia > 600:
+                    dia_parseo += 1 # Pasamos a mañana
+                elif diferencia < -600:
+                    dia_parseo -= 1 # Oops, volvimos a ayer (desorden)
                 
                 min_anterior_parseo = m_actual 
 
-                # AQUI ESTABA EL ERROR: QUITAMOS EL FRENO
-                # Antes había un break si > 24h. Lo quitamos.
-                # Guardamos TODO y luego al guardar el JSON ya limpiaremos si hace falta.
-                # Lo importante es no perder datos ahora.
-
                 obj = parsear_fila_aena_v4(texto_fila, hora_str)
-                obj["dia_relativo"] = dia_parseo
+                # Si el desorden hace que dia_parseo sea -1, lo forzamos a 0
+                obj["dia_relativo"] = max(0, dia_parseo) 
                 
                 if obj["vuelo"] != "N/A" or obj["origen"] != "N/A":
                     datos_recolectados.append(obj)
                 
                 filas_procesadas_ids.add(texto_fila)
-                
-                if i % 200 == 0: print(f"   [DEBUG] Procesados {i} vuelos...")
 
             except: continue
 
@@ -261,14 +261,9 @@ if __name__ == "__main__":
     
     if vuelos_raw:
         vuelos_clean = limpiar_y_deduplicar(vuelos_raw)
-        archivo = 'vuelos.json' # Nombre temporal para tu local
+        archivo = 'vuelos_bcn_turbo.json'
         with open(archivo, 'w', encoding='utf-8') as f:
             json.dump(vuelos_clean, f, indent=4, ensure_ascii=False)
         print(f"\n💾 ¡ÉXITO! {len(vuelos_clean)} vuelos guardados en: {archivo}")
-        
-        # Muestra
-        if len(vuelos_clean) > 0:
-            print("\n🔎 Ejemplo (Último vuelo):")
-            print(json.dumps(vuelos_clean[-1], indent=2, ensure_ascii=False))
     else:
         print("⚠️ No se encontraron datos.")
