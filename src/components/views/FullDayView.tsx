@@ -113,12 +113,23 @@ export function FullDayView({
   }, [vuelosPorTerminal]);
 
   // Obtener vuelos específicos de Puente Aéreo y T2C con hora exacta
+  // Empezar desde 30 minutos antes de la hora actual
   const getVuelosHoraExacta = (terminal: 't2c' | 'puente'): VueloRaw[] => {
-    return vuelosPorTerminal[terminal].filter(v => !v.estado?.toLowerCase().includes("finalizado")).sort((a, b) => {
-      const [ha, ma] = (a.hora || "00:00").split(":").map(Number);
-      const [hb, mb] = (b.hora || "00:00").split(":").map(Number);
-      return ha * 60 + ma - (hb * 60 + mb);
-    });
+    const nowMinutes = currentHour * 60 + now.getMinutes();
+    const startMinutes = nowMinutes - 30; // 30 minutos antes
+    
+    return vuelosPorTerminal[terminal]
+      .filter(v => {
+        if (v.estado?.toLowerCase().includes("finalizado")) return false;
+        const [h, m] = (v.hora || "00:00").split(":").map(Number);
+        const vueloMinutes = h * 60 + m;
+        return vueloMinutes >= startMinutes;
+      })
+      .sort((a, b) => {
+        const [ha, ma] = (a.hora || "00:00").split(":").map(Number);
+        const [hb, mb] = (b.hora || "00:00").split(":").map(Number);
+        return ha * 60 + ma - (hb * 60 + mb);
+      });
   };
 
   // Calcular máximos para resaltar horas calientes
