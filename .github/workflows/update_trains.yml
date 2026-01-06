@@ -1,0 +1,40 @@
+name: Actualizar Trenes Sants
+
+on:
+  schedule:
+    - cron: '0 * * * *' # Se ejecuta cada hora en punto
+  workflow_dispatch: # Permite ejecutarlo manualmente desde la pestaña Actions
+
+permissions:
+  contents: write # Necesario para poder hacer 'git push' del JSON
+
+jobs:
+  scrape-and-commit:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 🛎️ Checkout del código
+        uses: actions/checkout@v4
+
+      - name: 🐍 Configurar Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.9'
+
+      - name: 🌐 Instalar Chrome
+        uses: browser-actions/setup-chrome@latest
+
+      - name: 📦 Instalar dependencias
+        run: |
+          pip install -r requirements.txt
+
+      - name: 🚄 Ejecutar Scraper Adif
+        run: python scripts/adif_scrap.py
+
+      - name: 💾 Commit y Push si hay cambios
+        run: |
+          git config --global user.name 'GitHub Action Bot'
+          git config --global user.email 'action@github.com'
+          git add public/trenes_sants.json
+          # Solo hace commit si el archivo ha cambiado
+          git diff --quiet && git diff --staged --quiet || (git commit -m "Actualizar horarios trenes Sants" && git push)
