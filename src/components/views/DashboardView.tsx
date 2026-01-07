@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
-import { RefreshCw, Plane, LogIn, LogOut, Train, Users, Clock, ChevronRight, MapPin } from "lucide-react";
+import { RefreshCw, Plane, LogOut, Train, Users, Clock, ChevronRight, MapPin, TrendingUp, TrendingDown, XCircle } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { useEvents } from "@/hooks/useEvents";
 
 // Tipos para vuelos.json (estructura real del scraper)
 interface VueloRaw {
@@ -92,21 +93,29 @@ const getCiudad = (origen: string): string => {
   return origen.split(" ")[0].split("-")[0];
 };
 
+interface LicenciasData {
+  metadata: { precio_mercado_referencia: number };
+}
+
 export function DashboardView({ onTerminalClick, onViewAllFlights, onViewAllEvents, onViewFullDay, onViewTrainsFullDay, onViewLicenses }: DashboardViewProps) {
   const [vuelos, setVuelos] = useState<VueloRaw[]>([]);
   const [trenes, setTrenes] = useState<TrenSants[]>([]);
+  const [licencias, setLicencias] = useState<LicenciasData | null>(null);
   const [loading, setLoading] = useState(true);
+  const { events } = useEvents();
 
   const fetchData = () => {
     Promise.all([
       fetch("/vuelos.json?t=" + Date.now()).then(res => res.json()).catch(() => []),
-      fetch("/trenes_sants.json?t=" + Date.now()).then(res => res.json()).catch(() => [])
-    ]).then(([vuelosData, trenesData]) => {
+      fetch("/trenes_sants.json?t=" + Date.now()).then(res => res.json()).catch(() => []),
+      fetch("/analisis_licencias_taxi.json?t=" + Date.now()).then(res => res.json()).catch(() => null)
+    ]).then(([vuelosData, trenesData, licenciasData]) => {
       setVuelos(Array.isArray(vuelosData) ? vuelosData : []);
       const uniqueTrenes = (trenesData as TrenSants[]).filter((tren, index, self) =>
         index === self.findIndex(t => t.hora === tren.hora && t.tren === tren.tren)
       );
       setTrenes(uniqueTrenes);
+      setLicencias(licenciasData);
       setLoading(false);
     });
   };
@@ -162,12 +171,20 @@ export function DashboardView({ onTerminalClick, onViewAllFlights, onViewAllEven
     return countByHourAndTerminal[terminalId][targetHour] || 0;
   };
 
-  // Terminal config
+  // Terminal config - 2x2 Grid with T2C EasyJet
   const terminals = [
     { id: "t1", name: "T1", vuelosEstaHora: getVuelosPorHora("t1", 0), espera: getEsperaReten("t1", currentHour), contribuidores: 3 },
     { id: "t2", name: "T2", vuelosEstaHora: getVuelosPorHora("t2", 0), espera: getEsperaReten("t2", currentHour), contribuidores: 2 },
     { id: "puente", name: "Puente", vuelosEstaHora: getVuelosPorHora("puente", 0), espera: getEsperaReten("puente", currentHour), contribuidores: 1 },
+    { id: "t2c", name: "T2C Easy", vuelosEstaHora: getVuelosPorHora("t2c", 0), espera: getEsperaReten("t2c", currentHour), contribuidores: 0 },
   ];
+
+  // License price data
+  const precioLicencia = licencias?.metadata?.precio_mercado_referencia || 168212;
+  const precioK = (precioLicencia / 1000).toFixed(0);
+
+  // Today's top event
+  const topEvent = events[0];
 
   // Próximos trenes
   const proximosTrenes = trenes.filter(tren => {
@@ -183,17 +200,17 @@ export function DashboardView({ onTerminalClick, onViewAllFlights, onViewAllEven
   }).length;
 
   return (
-    <div className="space-y-4 animate-fade-in pb-20">
+    <div className="space-y-3 animate-fade-in pb-16">
 
-      {/* === ACTION BUTTONS - SOLID STYLE === */}
-      <div className="grid grid-cols-2 gap-3">
-        <button className="relative flex items-center justify-center gap-2.5 p-4 rounded-xl bg-emerald-600 hover:bg-emerald-500 transition-all text-white font-semibold shadow-[0_0_25px_rgba(16,185,129,0.4)] hover:shadow-[0_0_35px_rgba(16,185,129,0.6)]">
-          <LogIn className="h-5 w-5" />
-          <span>Entro al retén</span>
+      {/* === ACTION BUTTONS - COMPACT h-14 === */}
+      <div className="grid grid-cols-2 gap-2">
+        <button className="relative flex items-center justify-center gap-2 h-14 rounded-xl bg-emerald-600 hover:bg-emerald-500 transition-all text-white font-semibold shadow-[0_0_20px_rgba(16,185,129,0.35)] hover:shadow-[0_0_30px_rgba(16,185,129,0.5)]">
+          <MapPin className="h-5 w-5" />
+          <span className="text-sm">Entro al retén</span>
         </button>
-        <button className="flex items-center justify-center gap-2.5 p-4 rounded-xl bg-amber-500 hover:bg-amber-400 transition-all text-black font-semibold">
-          <LogOut className="h-5 w-5" />
-          <span>Salgo del retén</span>
+        <button className="flex items-center justify-center gap-2 h-14 rounded-xl bg-amber-500 hover:bg-amber-400 transition-all text-black font-semibold">
+          <XCircle className="h-5 w-5" />
+          <span className="text-sm">Salgo del retén</span>
         </button>
       </div>
 
@@ -214,51 +231,44 @@ export function DashboardView({ onTerminalClick, onViewAllFlights, onViewAllEven
           </button>
         </div>
 
-        {/* Terminal Cards - Clean, Big Numbers */}
-        <div className="grid grid-cols-3 gap-2">
+        {/* Terminal Cards - 2x2 Grid, Compact */}
+        <div className="grid grid-cols-2 gap-2">
           {terminals.map(term => {
             const esperaLevel = term.espera <= 10 ? "low" : term.espera <= 25 ? "medium" : "high";
-            const isHighDemand = term.vuelosEstaHora >= 8;
             
             return (
               <button
                 key={term.id}
                 onClick={() => onTerminalClick?.(term.id)}
-                className="relative p-3 rounded-xl bg-white/[0.03] hover:bg-white/[0.06] transition-all group text-left"
+                className="relative p-2.5 rounded-xl bg-white/[0.03] hover:bg-white/[0.06] transition-all group text-left"
               >
-                {/* Terminal Name */}
-                <div className="flex items-center justify-between mb-1">
-                  <span className="text-xs font-medium text-muted-foreground">{term.name}</span>
-                  <ChevronRight className="h-3 w-3 text-muted-foreground/50 group-hover:text-primary transition-colors" />
+                {/* Header Row */}
+                <div className="flex items-center justify-between mb-0.5">
+                  <span className="text-[10px] font-medium text-muted-foreground">{term.name}</span>
+                  <div className={cn(
+                    "inline-flex items-center gap-0.5 px-1.5 py-0.5 rounded-full text-[9px] font-semibold",
+                    esperaLevel === "low" && "bg-emerald-500 text-white",
+                    esperaLevel === "medium" && "bg-amber-400 text-black",
+                    esperaLevel === "high" && "bg-red-500 text-white"
+                  )}>
+                    <Clock className="h-2 w-2" />
+                    {term.espera}'
+                  </div>
                 </div>
                 
-                {/* BIG NUMBER - The hero */}
-                <div className="mb-2">
-                  <span className={cn(
-                    "font-mono font-black text-4xl tabular-nums tracking-tight",
-                    isHighDemand ? "text-white" : "text-muted-foreground/60"
-                  )}>
+                {/* BIG NUMBER - Always White for Glanceability */}
+                <div className="flex items-baseline gap-1">
+                  <span className="font-mono font-black text-3xl tabular-nums tracking-tight text-white">
                     {term.vuelosEstaHora}
                   </span>
-                  <span className="text-[10px] text-muted-foreground ml-1">vuelos/h</span>
+                  <span className="text-[9px] text-muted-foreground">vuelos/h</span>
                 </div>
 
-                {/* Retén Status Badge - High Contrast */}
-                <div className={cn(
-                  "inline-flex items-center gap-1 px-2 py-1 rounded-full text-[10px] font-semibold",
-                  esperaLevel === "low" && "bg-emerald-500 text-white",
-                  esperaLevel === "medium" && "bg-amber-400 text-black",
-                  esperaLevel === "high" && "bg-red-500 text-white"
-                )}>
-                  <Clock className="h-2.5 w-2.5" />
-                  ~{term.espera} min
-                </div>
-
-                {/* Social Proof */}
+                {/* Social Proof - Compact */}
                 {term.contribuidores > 0 && (
-                  <div className="flex items-center gap-1 mt-2 text-[9px] text-muted-foreground">
-                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
-                    <span>{term.contribuidores} taxistas informaron</span>
+                  <div className="flex items-center gap-1 mt-1 text-[8px] text-muted-foreground">
+                    <span className="w-1 h-1 rounded-full bg-emerald-400 animate-pulse" />
+                    <span>{term.contribuidores} taxistas</span>
                   </div>
                 )}
               </button>
@@ -282,18 +292,11 @@ export function DashboardView({ onTerminalClick, onViewAllFlights, onViewAllEven
           </button>
         </div>
 
-        {/* Departure Board Table */}
+        {/* Departure Board Table - Compact */}
         <div className="rounded-xl bg-black/40 border border-white/5 overflow-hidden">
-          {/* Table Header */}
-          <div className="grid grid-cols-[60px_1fr_80px] gap-2 px-3 py-2 bg-white/[0.02] border-b border-white/5 text-[10px] font-semibold text-muted-foreground uppercase tracking-wider">
-            <span>Hora</span>
-            <span>Origen</span>
-            <span className="text-right">Operador</span>
-          </div>
-          
-          {/* Train Rows */}
+          {/* Train Rows - Tighter Padding */}
           <div className="divide-y divide-white/5">
-            {proximosTrenes.length > 0 ? proximosTrenes.map((tren, idx) => {
+            {proximosTrenes.length > 0 ? proximosTrenes.slice(0, 3).map((tren, idx) => {
               const [h, m] = tren.hora.split(":").map(Number);
               const trenMinutes = h * 60 + m;
               const minutosRestantes = trenMinutes - currentMinutes;
@@ -303,44 +306,32 @@ export function DashboardView({ onTerminalClick, onViewAllFlights, onViewAllEven
                 <div 
                   key={idx}
                   className={cn(
-                    "grid grid-cols-[60px_1fr_80px] gap-2 px-3 py-2.5 items-center transition-colors",
+                    "grid grid-cols-[50px_1fr_60px] gap-2 px-2.5 py-1.5 items-center transition-colors",
                     isInminente && "bg-amber-500/10"
                   )}
                 >
-                  {/* Time - Monospace */}
-                  <div className="flex items-center gap-1.5">
-                    <span className={cn(
-                      "font-mono text-sm font-bold tabular-nums",
-                      isInminente ? "text-amber-400" : "text-white"
-                    )}>
-                      {tren.hora}
-                    </span>
-                    {isInminente && (
-                      <span className="text-[9px] text-amber-400 font-medium">
-                        {minutosRestantes > 0 ? `${minutosRestantes}'` : "¡Ya!"}
-                      </span>
-                    )}
-                  </div>
+                  {/* Time */}
+                  <span className={cn(
+                    "font-mono text-xs font-bold tabular-nums",
+                    isInminente ? "text-amber-400" : "text-white"
+                  )}>
+                    {tren.hora}
+                  </span>
                   
                   {/* Origin */}
-                  <div className="flex items-center gap-1.5 text-sm text-white/90 truncate">
-                    <MapPin className="h-3 w-3 text-muted-foreground flex-shrink-0" />
-                    <span className="truncate">{getCiudad(tren.origen)}</span>
-                  </div>
+                  <span className="text-xs text-white/90 truncate">{getCiudad(tren.origen)}</span>
                   
-                  {/* Operator Badge */}
-                  <div className="text-right">
-                    <span className={cn(
-                      "font-mono text-xs font-semibold",
-                      getTrenColorClass(tren.tren)
-                    )}>
-                      {getTipoTren(tren.tren)}
-                    </span>
-                  </div>
+                  {/* Operator */}
+                  <span className={cn(
+                    "font-mono text-[10px] font-semibold text-right",
+                    getTrenColorClass(tren.tren)
+                  )}>
+                    {getTipoTren(tren.tren)}
+                  </span>
                 </div>
               );
             }) : (
-              <div className="px-3 py-4 text-center text-xs text-muted-foreground">
+              <div className="px-2.5 py-2 text-center text-[10px] text-muted-foreground">
                 No hay trenes próximos
               </div>
             )}
@@ -348,32 +339,49 @@ export function DashboardView({ onTerminalClick, onViewAllFlights, onViewAllEven
         </div>
       </section>
 
-      {/* === QUICK NAV BUTTONS === */}
+      {/* === LIVE DATA WIDGETS === */}
       <div className="grid grid-cols-2 gap-2">
+        {/* Eventos Widget - Shows Top Event */}
         <button
           onClick={onViewAllEvents}
-          className="flex items-center gap-3 p-3 rounded-xl bg-white/[0.03] hover:bg-white/[0.06] transition-all group"
+          className="flex flex-col p-2.5 rounded-xl bg-white/[0.03] hover:bg-white/[0.06] transition-all group text-left"
         >
-          <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-purple-500/20">
-            <Users className="h-4 w-4 text-purple-400" />
+          <div className="flex items-center gap-1.5 mb-1">
+            <Users className="h-3.5 w-3.5 text-purple-400" />
+            <span className="text-[10px] font-medium text-muted-foreground">Eventos</span>
+            <ChevronRight className="h-3 w-3 text-muted-foreground/50 ml-auto group-hover:text-primary" />
           </div>
-          <div className="text-left">
-            <p className="font-semibold text-sm text-foreground">Eventos</p>
-            <p className="text-[10px] text-muted-foreground">Congresos y conciertos</p>
-          </div>
+          {topEvent ? (
+            <>
+              <p className="font-semibold text-sm text-white truncate leading-tight">{topEvent.title}</p>
+              <p className="text-[10px] text-purple-400 mt-0.5">{topEvent.time} · {topEvent.location.split(' ')[0]}</p>
+            </>
+          ) : (
+            <>
+              <p className="font-semibold text-sm text-muted-foreground">Sin eventos</p>
+              <p className="text-[10px] text-muted-foreground mt-0.5">Hoy en BCN</p>
+            </>
+          )}
         </button>
 
+        {/* Licencias Widget - Shows Real Price */}
         <button
           onClick={onViewLicenses}
-          className="flex items-center gap-3 p-3 rounded-xl bg-white/[0.03] hover:bg-white/[0.06] transition-all group"
+          className="flex flex-col p-2.5 rounded-xl bg-white/[0.03] hover:bg-white/[0.06] transition-all group text-left"
         >
-          <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-primary/20">
-            <span className="text-lg">🚕</span>
+          <div className="flex items-center gap-1.5 mb-1">
+            <span className="text-sm">🚕</span>
+            <span className="text-[10px] font-medium text-muted-foreground">Licencias</span>
+            <ChevronRight className="h-3 w-3 text-muted-foreground/50 ml-auto group-hover:text-primary" />
           </div>
-          <div className="text-left">
-            <p className="font-semibold text-sm text-foreground">Licencias</p>
-            <p className="text-[10px] text-muted-foreground">Precio actual</p>
+          <div className="flex items-baseline gap-1.5">
+            <span className="font-mono font-black text-2xl text-primary tabular-nums">{precioK}k€</span>
+            <div className="flex items-center gap-0.5 text-emerald-400">
+              <TrendingUp className="h-3 w-3" />
+              <span className="text-[10px] font-medium">+0.1%</span>
+            </div>
           </div>
+          <p className="text-[9px] text-muted-foreground mt-0.5">Precio mercado</p>
         </button>
       </div>
     </div>
