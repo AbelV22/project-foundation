@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { RefreshCw, Plane, LogOut, Train, Users, Clock, ChevronRight, MapPin, TrendingUp, TrendingDown, XCircle } from "lucide-react";
+import { RefreshCw, Plane, Train, Users, Clock, ChevronRight, MapPin, TrendingUp, XCircle, Calendar } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useEvents } from "@/hooks/useEvents";
 
@@ -199,39 +199,70 @@ export function DashboardView({ onTerminalClick, onViewAllFlights, onViewAllEven
     return trenMinutes >= currentMinutes && trenMinutes < currentMinutes + 60;
   }).length;
 
+  // Calculate countdown for trains
+  const getCountdown = (hora: string): { text: string; isUrgent: boolean; isCritical: boolean } => {
+    const [h, m] = hora.split(":").map(Number);
+    const trenMinutes = h * 60 + m;
+    const diff = trenMinutes - currentMinutes;
+    if (diff < 0) return { text: "pasó", isUrgent: false, isCritical: false };
+    if (diff === 0) return { text: "¡AHORA!", isUrgent: true, isCritical: true };
+    if (diff <= 5) return { text: `en ${diff} min`, isUrgent: true, isCritical: true };
+    if (diff <= 10) return { text: `en ${diff} min`, isUrgent: true, isCritical: false };
+    return { text: `en ${diff} min`, isUrgent: false, isCritical: false };
+  };
+
   return (
     <div className="space-y-3 animate-fade-in pb-16">
 
-      {/* === ACTION BUTTONS - COMPACT h-14 === */}
+      {/* === ACTION BUTTONS - GRADIENT PREMIUM === */}
       <div className="grid grid-cols-2 gap-2">
-        <button className="relative flex items-center justify-center gap-2 h-14 rounded-xl bg-emerald-600 hover:bg-emerald-500 transition-all text-white font-semibold shadow-[0_0_20px_rgba(16,185,129,0.35)] hover:shadow-[0_0_30px_rgba(16,185,129,0.5)]">
+        <button className="btn-gradient-emerald flex items-center justify-center gap-2 h-14 rounded-xl text-white font-semibold transition-transform hover:scale-[1.02] active:scale-[0.98]">
           <MapPin className="h-5 w-5" />
           <span className="text-sm">Entro al retén</span>
         </button>
-        <button className="flex items-center justify-center gap-2 h-14 rounded-xl bg-amber-500 hover:bg-amber-400 transition-all text-black font-semibold">
+        <button className="btn-gradient-amber flex items-center justify-center gap-2 h-14 rounded-xl text-black font-semibold transition-transform hover:scale-[1.02] active:scale-[0.98]">
           <XCircle className="h-5 w-5" />
           <span className="text-sm">Salgo del retén</span>
         </button>
       </div>
 
-      {/* === AEROPUERTO SECTION === */}
-      <section className="space-y-3">
-        {/* Section Header */}
-        <div className="flex items-center justify-between px-1">
+      {/* === QUICK NAV BUTTONS === */}
+      <div className="grid grid-cols-2 gap-2">
+        <button 
+          onClick={onViewFullDay}
+          className="btn-nav-glass flex items-center justify-center gap-2 h-11 text-white/80 hover:text-white font-medium text-sm"
+        >
+          <Calendar className="h-4 w-4" />
+          📅 Ver Vuelos
+        </button>
+        <button 
+          onClick={onViewTrainsFullDay}
+          className="btn-nav-glass flex items-center justify-center gap-2 h-11 text-white/80 hover:text-white font-medium text-sm"
+        >
+          <Train className="h-4 w-4" />
+          🚆 Ver Trenes
+        </button>
+      </div>
+
+      {/* === AEROPUERTO SECTION - GLASSMORPHISM === */}
+      <section className="space-y-2">
+        {/* Section Header - Clickable */}
+        <button 
+          onClick={onViewFullDay}
+          className="flex items-center justify-between w-full px-1 group"
+        >
           <div className="flex items-center gap-2">
-            <Plane className="h-4 w-4 text-amber-400" />
-            <span className="text-xs font-semibold text-muted-foreground uppercase tracking-wider">Aeropuerto BCN</span>
+            <Plane className="h-4 w-4 text-primary" />
+            <span className="text-xs font-semibold text-muted-foreground uppercase tracking-wider group-hover:text-white transition-colors">Aeropuerto BCN</span>
             <span className="flex items-center gap-1 text-[10px] text-emerald-400">
-              <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+              <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse-glow" />
               En vivo
             </span>
           </div>
-          <button onClick={onViewFullDay} className="text-xs text-primary hover:underline flex items-center gap-0.5">
-            Ver día <ChevronRight className="h-3 w-3" />
-          </button>
-        </div>
+          <ChevronRight className="h-4 w-4 text-muted-foreground group-hover:text-primary transition-colors" />
+        </button>
 
-        {/* Terminal Cards - 2x2 Grid, Compact */}
+        {/* Terminal Cards - 2x2 Grid Glass */}
         <div className="grid grid-cols-2 gap-2">
           {terminals.map(term => {
             const esperaLevel = term.espera <= 10 ? "low" : term.espera <= 25 ? "medium" : "high";
@@ -240,7 +271,7 @@ export function DashboardView({ onTerminalClick, onViewAllFlights, onViewAllEven
               <button
                 key={term.id}
                 onClick={() => onTerminalClick?.(term.id)}
-                className="relative p-2.5 rounded-xl bg-white/[0.03] hover:bg-white/[0.06] transition-all group text-left"
+                className="card-glass-hover p-2.5 text-left group"
               >
                 {/* Header Row */}
                 <div className="flex items-center justify-between mb-0.5">
@@ -256,7 +287,7 @@ export function DashboardView({ onTerminalClick, onViewAllFlights, onViewAllEven
                   </div>
                 </div>
                 
-                {/* BIG NUMBER - Always White for Glanceability */}
+                {/* BIG NUMBER - Monospace Numeric */}
                 <div className="flex items-baseline gap-1">
                   <span className="font-mono font-black text-3xl tabular-nums tracking-tight text-white">
                     {term.vuelosEstaHora}
@@ -264,10 +295,10 @@ export function DashboardView({ onTerminalClick, onViewAllFlights, onViewAllEven
                   <span className="text-[9px] text-muted-foreground">vuelos/h</span>
                 </div>
 
-                {/* Social Proof - Compact */}
+                {/* Social Proof */}
                 {term.contribuidores > 0 && (
                   <div className="flex items-center gap-1 mt-1 text-[8px] text-muted-foreground">
-                    <span className="w-1 h-1 rounded-full bg-emerald-400 animate-pulse" />
+                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse-glow" />
                     <span>{term.contribuidores} taxistas</span>
                   </div>
                 )}
@@ -277,51 +308,53 @@ export function DashboardView({ onTerminalClick, onViewAllFlights, onViewAllEven
         </div>
       </section>
 
-      {/* === TRENES SANTS - DEPARTURE BOARD STYLE === */}
-      <section className="space-y-3">
-        {/* Section Header */}
-        <div className="flex items-center justify-between px-1">
+      {/* === TRENES SANTS - GLASSMORPHISM DEPARTURE BOARD === */}
+      <section className="space-y-2">
+        {/* Section Header - Clickable */}
+        <button 
+          onClick={onViewTrainsFullDay}
+          className="flex items-center justify-between w-full px-1 group"
+        >
           <div className="flex items-center gap-2">
             <Train className="h-4 w-4 text-emerald-400" />
-            <span className="text-xs font-semibold text-muted-foreground uppercase tracking-wider">Estación Sants</span>
+            <span className="text-xs font-semibold text-muted-foreground uppercase tracking-wider group-hover:text-white transition-colors">Estación Sants</span>
             <span className="font-mono text-lg font-bold text-white tabular-nums">{trenesProximaHora}</span>
             <span className="text-[10px] text-muted-foreground">/hora</span>
           </div>
-          <button onClick={onViewTrainsFullDay} className="text-xs text-primary hover:underline flex items-center gap-0.5">
-            Ver día <ChevronRight className="h-3 w-3" />
-          </button>
-        </div>
+          <ChevronRight className="h-4 w-4 text-muted-foreground group-hover:text-primary transition-colors" />
+        </button>
 
-        {/* Departure Board Table - Compact */}
-        <div className="rounded-xl bg-black/40 border border-white/5 overflow-hidden">
-          {/* Train Rows - Tighter Padding */}
+        {/* Departure Board - Glass */}
+        <div className="card-glass overflow-hidden">
           <div className="divide-y divide-white/5">
-            {proximosTrenes.length > 0 ? proximosTrenes.slice(0, 3).map((tren, idx) => {
-              const [h, m] = tren.hora.split(":").map(Number);
-              const trenMinutes = h * 60 + m;
-              const minutosRestantes = trenMinutes - currentMinutes;
-              const isInminente = minutosRestantes <= 15 && minutosRestantes >= 0;
+            {proximosTrenes.length > 0 ? proximosTrenes.slice(0, 4).map((tren, idx) => {
+              const countdown = getCountdown(tren.hora);
               
               return (
                 <div 
                   key={idx}
                   className={cn(
-                    "grid grid-cols-[50px_1fr_60px] gap-2 px-2.5 py-1.5 items-center transition-colors",
-                    isInminente && "bg-amber-500/10"
+                    "grid grid-cols-[50px_1fr_auto_60px] gap-2 px-3 py-2 items-center transition-colors",
+                    countdown.isCritical && "bg-red-500/10"
                   )}
                 >
-                  {/* Time */}
-                  <span className={cn(
-                    "font-mono text-xs font-bold tabular-nums",
-                    isInminente ? "text-amber-400" : "text-white"
-                  )}>
+                  {/* Time - White */}
+                  <span className="font-mono text-sm font-bold tabular-nums text-white">
                     {tren.hora}
                   </span>
                   
                   {/* Origin */}
-                  <span className="text-xs text-white/90 truncate">{getCiudad(tren.origen)}</span>
+                  <span className="text-xs text-white/80 truncate">{getCiudad(tren.origen)}</span>
                   
-                  {/* Operator */}
+                  {/* Countdown - Colored by Urgency */}
+                  <span className={cn(
+                    "text-[10px] font-semibold tabular-nums",
+                    countdown.isCritical ? "text-red-400" : countdown.isUrgent ? "text-amber-400" : "text-emerald-400"
+                  )}>
+                    {countdown.text}
+                  </span>
+                  
+                  {/* Operator Badge */}
                   <span className={cn(
                     "font-mono text-[10px] font-semibold text-right",
                     getTrenColorClass(tren.tren)
@@ -331,7 +364,7 @@ export function DashboardView({ onTerminalClick, onViewAllFlights, onViewAllEven
                 </div>
               );
             }) : (
-              <div className="px-2.5 py-2 text-center text-[10px] text-muted-foreground">
+              <div className="px-3 py-3 text-center text-[10px] text-muted-foreground">
                 No hay trenes próximos
               </div>
             )}
@@ -339,17 +372,17 @@ export function DashboardView({ onTerminalClick, onViewAllFlights, onViewAllEven
         </div>
       </section>
 
-      {/* === LIVE DATA WIDGETS === */}
+      {/* === LIVE DATA WIDGETS - GLASS === */}
       <div className="grid grid-cols-2 gap-2">
-        {/* Eventos Widget - Shows Top Event */}
+        {/* Eventos Widget */}
         <button
           onClick={onViewAllEvents}
-          className="flex flex-col p-2.5 rounded-xl bg-white/[0.03] hover:bg-white/[0.06] transition-all group text-left"
+          className="card-glass-hover flex flex-col p-2.5 text-left group"
         >
           <div className="flex items-center gap-1.5 mb-1">
             <Users className="h-3.5 w-3.5 text-purple-400" />
             <span className="text-[10px] font-medium text-muted-foreground">Eventos</span>
-            <ChevronRight className="h-3 w-3 text-muted-foreground/50 ml-auto group-hover:text-primary" />
+            <ChevronRight className="h-3 w-3 text-muted-foreground/50 ml-auto group-hover:text-primary transition-colors" />
           </div>
           {topEvent ? (
             <>
@@ -364,24 +397,25 @@ export function DashboardView({ onTerminalClick, onViewAllFlights, onViewAllEven
           )}
         </button>
 
-        {/* Licencias Widget - Shows Real Price */}
+        {/* Licencias Widget - Stock Ticker Style */}
         <button
           onClick={onViewLicenses}
-          className="flex flex-col p-2.5 rounded-xl bg-white/[0.03] hover:bg-white/[0.06] transition-all group text-left"
+          className="card-glass-hover flex flex-col justify-center p-2.5 text-left group"
         >
-          <div className="flex items-center gap-1.5 mb-1">
-            <span className="text-sm">🚕</span>
-            <span className="text-[10px] font-medium text-muted-foreground">Licencias</span>
-            <ChevronRight className="h-3 w-3 text-muted-foreground/50 ml-auto group-hover:text-primary" />
+          <div className="flex items-center justify-between">
+            <div className="flex items-center gap-1">
+              <span className="text-xs">🚕</span>
+              <span className="text-[9px] font-medium text-muted-foreground uppercase tracking-wide">Licencia</span>
+            </div>
+            <ChevronRight className="h-3 w-3 text-muted-foreground/50 group-hover:text-primary transition-colors" />
           </div>
-          <div className="flex items-baseline gap-1.5">
-            <span className="font-mono font-black text-2xl text-primary tabular-nums">{precioK}k€</span>
+          <div className="flex items-baseline gap-1.5 mt-0.5">
+            <span className="font-mono font-black text-xl text-primary tabular-nums">{precioK}k€</span>
             <div className="flex items-center gap-0.5 text-emerald-400">
-              <TrendingUp className="h-3 w-3" />
-              <span className="text-[10px] font-medium">+0.1%</span>
+              <TrendingUp className="h-2.5 w-2.5" />
+              <span className="text-[9px] font-semibold">+0.1%</span>
             </div>
           </div>
-          <p className="text-[9px] text-muted-foreground mt-0.5">Precio mercado</p>
         </button>
       </div>
     </div>
