@@ -38,7 +38,7 @@ export function Header({ title, onMenuToggle }: HeaderProps) {
         <div className="w-8 lg:hidden" />
         
         {/* Logo con glow */}
-        <div className="lg:hidden relative">
+        <div className="lg:hidden relative ml-2">
           <img 
             src={logoItaxiBcn} 
             alt="iTaxiBcn" 
