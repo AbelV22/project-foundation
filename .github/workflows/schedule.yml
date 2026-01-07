@@ -38,9 +38,21 @@ jobs:
           mv vuelos.json public/vuelos.json
 
       - name: Guardar cambios en el repo
-        # CORRECCIÓN AQUÍ: Añadimos 'public/vuelos.json' al commit
         run: |
           git config --global user.name 'TaxiBot BCN'
           git config --global user.email 'bot@taxibcn.app'
           git add public/vuelos.json
-          git diff --quiet && git diff --staged --quiet || (git commit -m "Actualización auto: $(date)" && git push)
+          
+          # Comprobamos si hay cambios reales
+          if git diff --quiet && git diff --staged --quiet; then
+            echo "✅ No hay cambios nuevos en los vuelos. Nada que guardar."
+          else
+            git commit -m "Actualización auto: $(date)"
+            
+            # --- LA SOLUCIÓN AL ERROR ---
+            # Nos bajamos los últimos cambios del servidor antes de empujar
+            git pull --rebase origin main
+            
+            # Ahora sí, empujamos
+            git push
+          fi
