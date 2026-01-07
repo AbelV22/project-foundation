@@ -315,7 +315,7 @@ export function DashboardView({ onTerminalClick, onViewAllFlights, onViewAllEven
       </section>
 
       {/* === TRENES SANTS - GLASSMORPHISM DEPARTURE BOARD === */}
-      <section className="space-y-2 animate-fade-in" style={{ animationDelay: '200ms', animationFillMode: 'backwards' }}>
+      <section className="space-y-2 animate-fade-in" style={{ animationDelay: '400ms', animationFillMode: 'backwards' }}>
         {/* Section Header - Clickable */}
         <button 
           onClick={onViewTrainsFullDay}
