@@ -133,12 +133,15 @@ export function EventsWidget({ expanded = false, limit = 3, onViewAllClick, comp
               
               <div className="flex flex-wrap items-center gap-2 md:gap-4 text-xs md:text-sm text-muted-foreground">
                 <span className="flex items-center gap-1">
-                  <MapPin className="h-3 w-3 md:h-3.5 md:w-3.5 flex-shrink-0" />
-                  {event.location}
+                  <Calendar className="h-3 w-3 md:h-3.5 md:w-3.5 flex-shrink-0" />
+                  {event.date}
                 </span>
                 <span className="flex items-center gap-1">
-                  <Calendar className="h-3 w-3 md:h-3.5 md:w-3.5 flex-shrink-0" />
-                  {event.date} · {event.time}
+                  🕐 {event.time} - {event.endTime}
+                </span>
+                <span className="flex items-center gap-1">
+                  <MapPin className="h-3 w-3 md:h-3.5 md:w-3.5 flex-shrink-0" />
+                  {event.location}
                 </span>
               </div>
             </div>

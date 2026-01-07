@@ -19,6 +19,7 @@ export interface FormattedEvent {
   location: string;
   date: string;
   time: string;
+  endTime: string;
   attendees: number;
   type: "Congress" | "Music" | "Sports" | "Culture" | "Other";
   categoria: string;
@@ -99,6 +100,7 @@ export function useEvents() {
             location: event.recinto,
             date: formatDate(event.fecha),
             time: formatTime(event.hora_inicio),
+            endTime: formatTime(event.hora_fin_estimada),
             attendees: estimateAttendees(event.recinto, event.categoria),
             type: categoryMap[event.categoria] || "Other",
             categoria: event.categoria,
