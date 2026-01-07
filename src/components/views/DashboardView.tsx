@@ -211,16 +211,20 @@ export function DashboardView({ onTerminalClick, onViewAllFlights, onViewAllEven
     return { text: `en ${diff} min`, isUrgent: false, isCritical: false };
   };
 
+  // Get today's date formatted
+  const todayFormatted = now.toLocaleDateString('es-ES', { weekday: 'long', day: 'numeric', month: 'long' });
+  const capitalizedToday = todayFormatted.charAt(0).toUpperCase() + todayFormatted.slice(1);
+
   return (
-    <div className="space-y-3 animate-fade-in pb-16">
+    <div className="space-y-3 pb-16">
 
       {/* === ACTION BUTTONS - GRADIENT PREMIUM === */}
-      <div className="grid grid-cols-2 gap-2">
-        <button className="btn-gradient-emerald flex items-center justify-center gap-2 h-14 rounded-xl text-white font-semibold transition-transform hover:scale-[1.02] active:scale-[0.98]">
+      <div className="grid grid-cols-2 gap-2 animate-fade-in" style={{ animationDelay: '0ms' }}>
+        <button className="btn-gradient-emerald flex items-center justify-center gap-2 h-14 rounded-xl text-white font-semibold transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] hover:shadow-lg hover:shadow-emerald-500/20">
           <MapPin className="h-5 w-5" />
           <span className="text-sm">Entro al retén</span>
         </button>
-        <button className="btn-gradient-amber flex items-center justify-center gap-2 h-14 rounded-xl text-black font-semibold transition-transform hover:scale-[1.02] active:scale-[0.98]">
+        <button className="btn-gradient-amber flex items-center justify-center gap-2 h-14 rounded-xl text-black font-semibold transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] hover:shadow-lg hover:shadow-amber-500/20">
           <XCircle className="h-5 w-5" />
           <span className="text-sm">Salgo del retén</span>
         </button>
@@ -230,22 +234,24 @@ export function DashboardView({ onTerminalClick, onViewAllFlights, onViewAllEven
       <div className="grid grid-cols-2 gap-2">
         <button 
           onClick={onViewFullDay}
-          className="btn-nav-glass flex items-center justify-center gap-2 h-11 text-white/80 hover:text-white font-medium text-sm"
+          className="card-glass-hover flex items-center justify-center gap-2 h-11 text-white/80 hover:text-white font-medium text-sm transition-all duration-200"
         >
-          <Calendar className="h-4 w-4" />
-          📅 Ver Vuelos
+          <Calendar className="h-4 w-4 text-primary" />
+          <Plane className="h-4 w-4" />
+          <span>Ver Vuelos</span>
         </button>
         <button 
           onClick={onViewTrainsFullDay}
-          className="btn-nav-glass flex items-center justify-center gap-2 h-11 text-white/80 hover:text-white font-medium text-sm"
+          className="card-glass-hover flex items-center justify-center gap-2 h-11 text-white/80 hover:text-white font-medium text-sm transition-all duration-200"
         >
+          <Calendar className="h-4 w-4 text-emerald-400" />
           <Train className="h-4 w-4" />
-          🚆 Ver Trenes
+          <span>Ver Trenes</span>
         </button>
       </div>
 
       {/* === AEROPUERTO SECTION - GLASSMORPHISM === */}
-      <section className="space-y-2">
+      <section className="space-y-2 animate-fade-in" style={{ animationDelay: '100ms', animationFillMode: 'backwards' }}>
         {/* Section Header - Clickable */}
         <button 
           onClick={onViewFullDay}
@@ -275,7 +281,7 @@ export function DashboardView({ onTerminalClick, onViewAllFlights, onViewAllEven
               >
                 {/* Header Row */}
                 <div className="flex items-center justify-between mb-0.5">
-                  <span className="text-[10px] font-medium text-muted-foreground">{term.name}</span>
+                  <span className="text-sm font-semibold text-white/90">{term.name}</span>
                   <div className={cn(
                     "inline-flex items-center gap-0.5 px-1.5 py-0.5 rounded-full text-[9px] font-semibold",
                     esperaLevel === "low" && "bg-emerald-500 text-white",
@@ -309,7 +315,7 @@ export function DashboardView({ onTerminalClick, onViewAllFlights, onViewAllEven
       </section>
 
       {/* === TRENES SANTS - GLASSMORPHISM DEPARTURE BOARD === */}
-      <section className="space-y-2">
+      <section className="space-y-2 animate-fade-in" style={{ animationDelay: '200ms', animationFillMode: 'backwards' }}>
         {/* Section Header - Clickable */}
         <button 
           onClick={onViewTrainsFullDay}
@@ -373,27 +379,25 @@ export function DashboardView({ onTerminalClick, onViewAllFlights, onViewAllEven
       </section>
 
       {/* === LIVE DATA WIDGETS - GLASS === */}
-      <div className="grid grid-cols-2 gap-2">
+      <div className="grid grid-cols-2 gap-2 animate-fade-in" style={{ animationDelay: '300ms', animationFillMode: 'backwards' }}>
         {/* Eventos Widget */}
         <button
           onClick={onViewAllEvents}
-          className="card-glass-hover flex flex-col p-2.5 text-left group"
+          className="card-glass-hover flex flex-col p-2.5 text-left group transition-all duration-200"
         >
           <div className="flex items-center gap-1.5 mb-1">
-            <Users className="h-3.5 w-3.5 text-purple-400" />
+            <Calendar className="h-3.5 w-3.5 text-purple-400" />
             <span className="text-[10px] font-medium text-muted-foreground">Eventos</span>
             <ChevronRight className="h-3 w-3 text-muted-foreground/50 ml-auto group-hover:text-primary transition-colors" />
           </div>
+          <p className="text-[9px] text-purple-400 font-medium mb-0.5">{capitalizedToday}</p>
           {topEvent ? (
             <>
               <p className="font-semibold text-sm text-white truncate leading-tight">{topEvent.title}</p>
-              <p className="text-[10px] text-purple-400 mt-0.5">{topEvent.time} · {topEvent.location.split(' ')[0]}</p>
+              <p className="text-[10px] text-muted-foreground mt-0.5">{topEvent.time} · {topEvent.location.split(' ')[0]}</p>
             </>
           ) : (
-            <>
-              <p className="font-semibold text-sm text-muted-foreground">Sin eventos</p>
-              <p className="text-[10px] text-muted-foreground mt-0.5">Hoy en BCN</p>
-            </>
+            <p className="font-semibold text-sm text-muted-foreground">Sin eventos</p>
           )}
         </button>
 
