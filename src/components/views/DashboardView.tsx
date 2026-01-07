@@ -1,12 +1,10 @@
 import { useState, useEffect } from "react";
-import { RefreshCw, Plane, LogIn, LogOut, Sun, CloudRain, Calendar, Train, Cloud, CloudDrizzle, CloudLightning, Snowflake } from "lucide-react";
+import { RefreshCw, Plane, LogIn, LogOut, Calendar, Train } from "lucide-react";
 import { TerminalCard } from "@/components/widgets/TerminalCard";
 import { TrainsWidget } from "@/components/widgets/TrainsWidget";
 import { CruisesWidget } from "@/components/widgets/CruisesWidget";
 import { EventsWidget } from "@/components/widgets/EventsWidget";
 import { LicensePriceWidget } from "@/components/widgets/LicensePriceWidget";
-import { useWeather } from "@/hooks/useWeather";
-import logoItaxi from "@/assets/logo-itaxibcn.png";
 // Tipos para vuelos.json (estructura real del scraper)
 interface VueloRaw {
   hora: string;
@@ -94,18 +92,7 @@ const getEsperaReten = (terminalId: string, currentHour: number): number => {
   return isPeakHour ? base + 12 : base;
 };
 
-// Helper para iconos de clima
-const getWeatherIcon = (code: number, className: string) => {
-  if (code === 0) return <Sun className={className} />;
-  if (code <= 3) return <Cloud className={className} />;
-  if (code <= 57) return <CloudDrizzle className={className} />;
-  if (code <= 77) return <Snowflake className={className} />;
-  if (code <= 86) return <CloudRain className={className} />;
-  return <CloudLightning className={className} />;
-};
-
 export function DashboardView({ onTerminalClick, onViewAllFlights, onViewAllEvents, onViewFullDay, onViewTrainsFullDay, onViewLicenses }: DashboardViewProps) {
-  const { weather, isRainAlert } = useWeather();
   const [vuelos, setVuelos] = useState<VueloRaw[]>([]);
   const [extras, setExtras] = useState<ExtrasData | null>(null);
   const [loading, setLoading] = useState(true);
@@ -211,56 +198,9 @@ export function DashboardView({ onTerminalClick, onViewAllFlights, onViewAllEven
     return !estado.includes("finalizado");
   }).slice(0, 6);
 
-  // Hora actual formateada
-  const horaActual = now.toLocaleTimeString('es-ES', { hour: '2-digit', minute: '2-digit' });
 
   return (
     <div className="space-y-3 animate-fade-in pb-20">
-      {/* Header móvil compacto: Logo + Hora + Clima dinámico */}
-      <div className="flex items-center justify-between px-1">
-        {/* Logo */}
-        <div className="flex items-center gap-2">
-          <img 
-            src={logoItaxi} 
-            alt="iTaxiBCN" 
-            className="h-10 w-auto drop-shadow-[0_0_8px_rgba(234,179,8,0.4)]"
-          />
-        </div>
-        
-        {/* Hora + Clima dinámico (API Open-Meteo) */}
-        <div className="flex items-center gap-2">
-          {/* Hora actual */}
-          <div className="text-right">
-            <p className="font-display font-bold text-xl text-foreground">{horaActual}</p>
-          </div>
-          
-          {/* Clima dinámico con alerta */}
-          <button 
-            onClick={() => window.open("https://www.eltiempo.es/barcelona.html", "_blank")}
-            className={`flex items-center gap-1.5 px-2.5 py-1.5 rounded-full text-xs border transition-all ${
-              isRainAlert 
-                ? "bg-rain/20 border-rain/50 animate-pulse" 
-                : "bg-muted/50 border-border hover:bg-muted"
-            }`}
-          >
-            {weather ? (
-              <>
-                {getWeatherIcon(weather.weatherCode, `h-4 w-4 ${isRainAlert ? "text-rain" : "text-amber-400"}`)}
-                <span className={`font-semibold ${isRainAlert ? "text-rain" : "text-foreground"}`}>
-                  {weather.temp}°
-                </span>
-                {weather.rainProbability > 0 && (
-                  <span className={`text-[10px] ${isRainAlert ? "text-rain" : "text-muted-foreground"}`}>
-                    {weather.rainProbability}%
-                  </span>
-                )}
-              </>
-            ) : (
-              <Sun className="h-4 w-4 text-amber-400 animate-pulse" />
-            )}
-          </button>
-        </div>
-      </div>
 
       {/* Botones Vista Día - Diseño premium unificado */}
       <div className="grid grid-cols-2 gap-2">
