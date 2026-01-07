@@ -1,11 +1,12 @@
 import { useState, useEffect } from "react";
-import { RefreshCw, Plane, LogIn, LogOut, Sun, CloudRain, Calendar, Train } from "lucide-react";
+import { RefreshCw, Plane, LogIn, LogOut, Sun, CloudRain, Calendar, Train, Cloud, CloudDrizzle, CloudLightning, Snowflake } from "lucide-react";
 import { TerminalCard } from "@/components/widgets/TerminalCard";
 import { TrainsWidget } from "@/components/widgets/TrainsWidget";
 import { CruisesWidget } from "@/components/widgets/CruisesWidget";
 import { EventsWidget } from "@/components/widgets/EventsWidget";
 import { LicensePriceWidget } from "@/components/widgets/LicensePriceWidget";
-
+import { useWeather } from "@/hooks/useWeather";
+import logoItaxi from "@/assets/logo-itaxibcn.png";
 // Tipos para vuelos.json (estructura real del scraper)
 interface VueloRaw {
   hora: string;
@@ -93,7 +94,18 @@ const getEsperaReten = (terminalId: string, currentHour: number): number => {
   return isPeakHour ? base + 12 : base;
 };
 
+// Helper para iconos de clima
+const getWeatherIcon = (code: number, className: string) => {
+  if (code === 0) return <Sun className={className} />;
+  if (code <= 3) return <Cloud className={className} />;
+  if (code <= 57) return <CloudDrizzle className={className} />;
+  if (code <= 77) return <Snowflake className={className} />;
+  if (code <= 86) return <CloudRain className={className} />;
+  return <CloudLightning className={className} />;
+};
+
 export function DashboardView({ onTerminalClick, onViewAllFlights, onViewAllEvents, onViewFullDay, onViewTrainsFullDay, onViewLicenses }: DashboardViewProps) {
+  const { weather, isRainAlert } = useWeather();
   const [vuelos, setVuelos] = useState<VueloRaw[]>([]);
   const [extras, setExtras] = useState<ExtrasData | null>(null);
   const [loading, setLoading] = useState(true);
@@ -204,36 +216,47 @@ export function DashboardView({ onTerminalClick, onViewAllFlights, onViewAllEven
 
   return (
     <div className="space-y-3 animate-fade-in pb-20">
-      {/* Header con hora y clima */}
+      {/* Header móvil compacto: Logo + Hora + Clima dinámico */}
       <div className="flex items-center justify-between px-1">
+        {/* Logo */}
         <div className="flex items-center gap-2">
-          <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-primary/10">
-            <Plane className="h-4 w-4 text-primary" />
-          </div>
-          <div>
-            <h2 className="font-display font-bold text-foreground text-sm">Aeropuerto BCN</h2>
-            <div className="flex items-center gap-1 text-[10px] text-muted-foreground">
-              <span className="w-1.5 h-1.5 rounded-full bg-success animate-pulse" />
-              <span>Radar activo</span>
-            </div>
-          </div>
+          <img 
+            src={logoItaxi} 
+            alt="iTaxiBCN" 
+            className="h-10 w-auto drop-shadow-[0_0_8px_rgba(234,179,8,0.4)]"
+          />
         </div>
-        {/* Hora + clima */}
+        
+        {/* Hora + Clima dinámico (API Open-Meteo) */}
         <div className="flex items-center gap-2">
+          {/* Hora actual */}
           <div className="text-right">
-            <p className="font-display font-bold text-lg text-foreground">{horaActual}</p>
+            <p className="font-display font-bold text-xl text-foreground">{horaActual}</p>
           </div>
-          <button className="flex items-center gap-1 px-2 py-1 rounded-full text-[10px] bg-muted/50 border border-border">
-            {extras?.clima_prob && extras.clima_prob >= 50 ? (
+          
+          {/* Clima dinámico con alerta */}
+          <button 
+            onClick={() => window.open("https://www.eltiempo.es/barcelona.html", "_blank")}
+            className={`flex items-center gap-1.5 px-2.5 py-1.5 rounded-full text-xs border transition-all ${
+              isRainAlert 
+                ? "bg-rain/20 border-rain/50 animate-pulse" 
+                : "bg-muted/50 border-border hover:bg-muted"
+            }`}
+          >
+            {weather ? (
               <>
-                <CloudRain className="h-3 w-3 text-rain" />
-                <span className="text-rain">{extras.clima_prob}%</span>
+                {getWeatherIcon(weather.weatherCode, `h-4 w-4 ${isRainAlert ? "text-rain" : "text-amber-400"}`)}
+                <span className={`font-semibold ${isRainAlert ? "text-rain" : "text-foreground"}`}>
+                  {weather.temp}°
+                </span>
+                {weather.rainProbability > 0 && (
+                  <span className={`text-[10px] ${isRainAlert ? "text-rain" : "text-muted-foreground"}`}>
+                    {weather.rainProbability}%
+                  </span>
+                )}
               </>
             ) : (
-              <>
-                <Sun className="h-3 w-3 text-amber-400" />
-                <span>{extras?.clima_prob || 0}%</span>
-              </>
+              <Sun className="h-4 w-4 text-amber-400 animate-pulse" />
             )}
           </button>
         </div>
