@@ -126,6 +126,36 @@
     @apply bg-card rounded-xl border border-border hover:border-primary/40 transition-all duration-300;
   }
 
+  /* Premium Glass Card */
+  .card-glass {
+    @apply rounded-xl border border-white/10 backdrop-blur-md transition-all duration-300;
+    background: rgba(0, 0, 0, 0.6);
+  }
+
+  .card-glass-hover {
+    @apply rounded-xl border border-white/10 backdrop-blur-md transition-all duration-300 hover:border-white/20 hover:bg-black/70;
+    background: rgba(0, 0, 0, 0.6);
+  }
+
+  /* Gradient Buttons */
+  .btn-gradient-emerald {
+    @apply relative overflow-hidden;
+    background: linear-gradient(135deg, hsl(158 64% 52%) 0%, hsl(142 70% 45%) 100%);
+    box-shadow: 0 0 24px rgba(16, 185, 129, 0.4), inset 0 1px 0 rgba(255,255,255,0.15);
+  }
+
+  .btn-gradient-amber {
+    @apply relative overflow-hidden;
+    background: linear-gradient(135deg, hsl(45 93% 58%) 0%, hsl(38 92% 50%) 100%);
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.2);
+  }
+
+  /* Nav Button Glass */
+  .btn-nav-glass {
+    @apply rounded-xl border border-white/10 backdrop-blur-sm transition-all duration-200 hover:border-white/20;
+    background: rgba(255, 255, 255, 0.05);
+  }
+
   .stat-value {
     @apply text-3xl font-bold tracking-tight text-primary;
     font-family: 'Space Grotesk', sans-serif;
@@ -212,6 +242,22 @@
   @keyframes fadeIn {
     from { opacity: 0; }
     to { opacity: 1; }
+  }
+
+  /* Premium Pulse Animation for Live Indicator */
+  .animate-pulse-glow {
+    animation: pulseGlow 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+
+  @keyframes pulseGlow {
+    0%, 100% {
+      opacity: 1;
+      box-shadow: 0 0 0 0 rgba(52, 211, 153, 0.7);
+    }
+    50% {
+      opacity: 0.7;
+      box-shadow: 0 0 0 6px rgba(52, 211, 153, 0);
+    }
   }
 
   /* Dark mode scrollbars */
