@@ -119,6 +119,20 @@ export function FullDayView({ onBack }: FullDayViewProps) {
 
   const vuelosActivos = useMemo(() => vuelos.filter((v) => !v.estado?.toLowerCase().includes("cancelado")), [vuelos]);
 
+  // 1. Primero: Filtrar vuelos activos (esto ya debería estar, pero verifica el orden)
+  const vuelosActivos = useMemo(() => vuelos.filter((v) => !v.estado?.toLowerCase().includes("cancelado")), [vuelos]);
+
+  // 2. Segundo: Definir vuelosPorTerminal (¡ESTE BLOQUE DEBE IR ANTES DE vuelosPorHora!)
+  const vuelosPorTerminal = useMemo(() => {
+    const data: Record<string, VueloRaw[]> = { t1: [], t2: [], t2c: [], puente: [] };
+    vuelosActivos.forEach((v) => {
+      const type = getTerminalType(v);
+      data[type].push(v);
+    });
+    return data;
+  }, [vuelosActivos]);
+
+  // 3. Tercero: Ahora sí, el bloque MODIFICADO que usa vuelosPorTerminal
   const vuelosPorHora = useMemo(() => {
     // Inicializamos la estructura para cada hora
     const groups: Record<number, { t1: VueloRaw[]; t2: VueloRaw[]; puente: VueloRaw[]; t2c: VueloRaw[] }> = {};
@@ -137,7 +151,7 @@ export function FullDayView({ onBack }: FullDayViewProps) {
       groups[hour].t2.push(v);
     });
 
-    // NUEVO: Rellenamos también Puente y T2C
+    // Rellenamos también Puente y T2C
     vuelosPorTerminal.puente.forEach((v) => {
       const hour = parseInt(v.hora?.split(":")[0] || "0", 10);
       groups[hour].puente.push(v);
@@ -149,6 +163,18 @@ export function FullDayView({ onBack }: FullDayViewProps) {
     });
 
     return groups;
+  }, [vuelosPorTerminal]);
+
+  // 4. Cuarto: Conteos (que también usa vuelosPorTerminal)
+  const countByHourAndTerminal = useMemo(() => {
+    const counts: Record<string, Record<number, number>> = { t1: {}, t2: {}, t2c: {}, puente: {} };
+    Object.entries(vuelosPorTerminal).forEach(([terminal, vuelos]) => {
+      vuelos.forEach((v) => {
+        const hour = parseInt(v.hora?.split(":")[0] || "0", 10);
+        counts[terminal][hour] = (counts[terminal][hour] || 0) + 1;
+      });
+    });
+    return counts;
   }, [vuelosPorTerminal]);
 
   const countByHourAndTerminal = useMemo(() => {
