@@ -1,8 +1,9 @@
 import { useState, useEffect } from "react";
-import { RefreshCw, Plane, Train, Users, Clock, ChevronRight, MapPin, TrendingUp, XCircle, Calendar } from "lucide-react";
+import { RefreshCw, Plane, Train, Users, Clock, ChevronRight, MapPin, TrendingUp, XCircle, Calendar, Loader2 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useEvents } from "@/hooks/useEvents";
-
+import { supabase } from "@/integrations/supabase/client";
+import { toast } from "sonner";
 // Tipos para vuelos.json (estructura real del scraper)
 interface VueloRaw {
   hora: string;
@@ -102,7 +103,58 @@ export function DashboardView({ onTerminalClick, onViewAllFlights, onViewAllEven
   const [trenes, setTrenes] = useState<TrenSants[]>([]);
   const [licencias, setLicencias] = useState<LicenciasData | null>(null);
   const [loading, setLoading] = useState(true);
+  const [isEnteringReten, setIsEnteringReten] = useState(false);
+  const [isInReten, setIsInReten] = useState(false);
+  const [currentZona, setCurrentZona] = useState<string | null>(null);
   const { events } = useEvents();
+
+  const handleEntrarReten = async () => {
+    setIsEnteringReten(true);
+    
+    try {
+      // Get GPS position
+      const position = await new Promise<GeolocationPosition>((resolve, reject) => {
+        navigator.geolocation.getCurrentPosition(resolve, reject, {
+          enableHighAccuracy: true,
+          timeout: 10000,
+          maximumAge: 0
+        });
+      });
+
+      const lat = position.coords.latitude;
+      const lng = position.coords.longitude;
+
+      // Call edge function
+      const { data, error } = await supabase.functions.invoke('check-geofence', {
+        body: { lat, lng, action: 'register' }
+      });
+
+      if (error) throw error;
+
+      if (data.success) {
+        setIsInReten(true);
+        setCurrentZona(data.zona);
+        toast.success(data.message);
+      } else {
+        toast.error(data.message);
+      }
+    } catch (error) {
+      console.error('Error registering entry:', error);
+      if (error instanceof GeolocationPositionError) {
+        toast.error('❌ No se pudo obtener tu ubicación. Activa el GPS.');
+      } else {
+        toast.error('❌ Error al registrar entrada. Inténtalo de nuevo.');
+      }
+    } finally {
+      setIsEnteringReten(false);
+    }
+  };
+
+  const handleSalirReten = () => {
+    setIsInReten(false);
+    setCurrentZona(null);
+    toast.success('✅ Has salido del retén');
+  };
 
   const fetchData = () => {
     Promise.all([
@@ -220,11 +272,35 @@ export function DashboardView({ onTerminalClick, onViewAllFlights, onViewAllEven
 
       {/* === ACTION BUTTONS - GRADIENT PREMIUM === */}
       <div className="grid grid-cols-2 gap-2 animate-fade-in" style={{ animationDelay: '100ms' }}>
-        <button className="btn-gradient-emerald flex items-center justify-center gap-2 h-14 rounded-xl text-white font-semibold transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] hover:shadow-lg hover:shadow-emerald-500/20">
-          <MapPin className="h-5 w-5" />
-          <span className="text-sm">Entro al retén</span>
-        </button>
-        <button className="btn-gradient-amber flex items-center justify-center gap-2 h-14 rounded-xl text-black font-semibold transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] hover:shadow-lg hover:shadow-amber-500/20">
+        {!isInReten ? (
+          <button 
+            onClick={handleEntrarReten}
+            disabled={isEnteringReten}
+            className="btn-gradient-emerald flex items-center justify-center gap-2 h-14 rounded-xl text-white font-semibold transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] hover:shadow-lg hover:shadow-emerald-500/20 disabled:opacity-70 disabled:cursor-wait"
+          >
+            {isEnteringReten ? (
+              <Loader2 className="h-5 w-5 animate-spin" />
+            ) : (
+              <MapPin className="h-5 w-5" />
+            )}
+            <span className="text-sm">{isEnteringReten ? 'Localizando...' : 'Entro al retén'}</span>
+          </button>
+        ) : (
+          <div className="flex flex-col items-center justify-center gap-0.5 h-14 rounded-xl bg-emerald-500/20 border border-emerald-500/30 text-emerald-400">
+            <span className="text-xs font-medium">Esperando en</span>
+            <span className="font-bold text-sm">{currentZona}</span>
+          </div>
+        )}
+        <button 
+          onClick={handleSalirReten}
+          disabled={!isInReten}
+          className={cn(
+            "flex items-center justify-center gap-2 h-14 rounded-xl font-semibold transition-all duration-200 hover:scale-[1.02] active:scale-[0.98]",
+            isInReten 
+              ? "btn-gradient-amber text-black hover:shadow-lg hover:shadow-amber-500/20" 
+              : "bg-white/5 text-white/30 cursor-not-allowed"
+          )}
+        >
           <XCircle className="h-5 w-5" />
           <span className="text-sm">Salgo del retén</span>
         </button>

@@ -14,7 +14,36 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      registros_reten: {
+        Row: {
+          created_at: string
+          evento: string
+          id: string
+          lat: number
+          lng: number
+          tipo_zona: string
+          zona: string
+        }
+        Insert: {
+          created_at?: string
+          evento: string
+          id?: string
+          lat: number
+          lng: number
+          tipo_zona?: string
+          zona: string
+        }
+        Update: {
+          created_at?: string
+          evento?: string
+          id?: string
+          lat?: number
+          lng?: number
+          tipo_zona?: string
+          zona?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
