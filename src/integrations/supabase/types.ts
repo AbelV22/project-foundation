@@ -17,6 +17,7 @@ export type Database = {
       registros_reten: {
         Row: {
           created_at: string
+          device_id: string | null
           evento: string
           id: string
           lat: number
@@ -26,6 +27,7 @@ export type Database = {
         }
         Insert: {
           created_at?: string
+          device_id?: string | null
           evento: string
           id?: string
           lat: number
@@ -35,6 +37,7 @@ export type Database = {
         }
         Update: {
           created_at?: string
+          device_id?: string | null
           evento?: string
           id?: string
           lat?: number
