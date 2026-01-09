@@ -4,6 +4,7 @@ import { cn } from "@/lib/utils";
 import { useEvents } from "@/hooks/useEvents";
 import { supabase } from "@/integrations/supabase/client";
 import { toast } from "sonner";
+import { getOrCreateDeviceId } from "@/lib/deviceId";
 // Tipos para vuelos.json (estructura real del scraper)
 interface VueloRaw {
   hora: string;
@@ -124,9 +125,12 @@ export function DashboardView({ onTerminalClick, onViewAllFlights, onViewAllEven
       const lat = position.coords.latitude;
       const lng = position.coords.longitude;
 
+      // Get device ID
+      const deviceId = getOrCreateDeviceId();
+
       // Call edge function
       const { data, error } = await supabase.functions.invoke('check-geofence', {
-        body: { lat, lng, action: 'register' }
+        body: { lat, lng, action: 'register', deviceId }
       });
 
       if (error) throw error;
