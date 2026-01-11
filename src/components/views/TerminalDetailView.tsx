@@ -209,8 +209,12 @@ export function TerminalDetailView({ terminalId, onBack }: TerminalDetailViewPro
           <Plane className="h-5 w-5" style={{ color: terminal.color }} />
           <span className="font-display font-bold text-foreground">{terminal.name}</span>
         </div>
-        <div className="text-right">
-          <span className="text-xs text-muted-foreground">Actualizado</span>
+          <div className="flex items-center gap-2 bg-white/5 px-3 py-1.5 rounded-full border border-white/10 backdrop-blur-md">
+       <div className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse shadow-[0_0_8px_rgba(16,185,129,0.5)]" />
+       <p className="text-sm font-mono font-bold text-white tracking-widest">{timeFormatted}</p>
+     </div>
+  </div>
+            <span className="text-xs text-muted-foreground">Actualizado</span>
           <p className="text-sm font-mono font-semibold text-foreground">{timeFormatted}</p>
         </div>
       </div>
@@ -274,17 +278,32 @@ export function TerminalDetailView({ terminalId, onBack }: TerminalDetailViewPro
                 labelFormatter={(label) => `${label}`}
               />
               <Bar 
+              dataKey="flights" 
+              radius={[6, 6, 0, 0]}
+              animationDuration={1000}
+            >
+              {/* ESTO AÑADE EL NÚMERO ARRIBA */}
+              <LabelList 
                 dataKey="flights" 
-                radius={[6, 6, 0, 0]}
-              >
-                {hourlyData.data.map((entry, index) => (
-                  <Cell 
-                    key={`cell-${index}`} 
-                    fill={entry.isPeak ? 'url(#peakGradient)' : `url(#barGradient-${terminalId})`}
-                    opacity={entry.isCurrent ? 1 : 0.75}
-                  />
-                ))}
-              </Bar>
+                position="top" 
+                fill="white" 
+                fontSize={12} 
+                fontWeight="bold" 
+                formatter={(val: number) => val > 0 ? val : ''} 
+                offset={5}
+              />
+              
+              {hourlyData.data.map((entry, index) => (
+                <Cell 
+                  key={`cell-${index}`} 
+                  /* Aquí cambiamos un poco la lógica de color para que se vea más sólido */
+                  fill={entry.isPeak ? '#ef4444' : terminal.color}
+                  opacity={entry.isCurrent ? 1 : entry.isPeak ? 1 : 0.5}
+                  stroke={entry.isCurrent ? "white" : "none"}
+                  strokeWidth={2}
+                />
+              ))}
+            </Bar>
               {/* Marker for peak */}
               {hourlyData.data.map((entry, index) => 
                 entry.isPeak && entry.flights > 0 ? (
@@ -383,18 +402,26 @@ export function TerminalDetailView({ terminalId, onBack }: TerminalDetailViewPro
                   </span>
                   
                   {/* Flight Info */}
-                  <div className="flex-1 min-w-0">
-                    <div className="flex items-center gap-2">
-                      <span className="font-semibold text-sm text-foreground">{codigoPrincipal}</span>
-                      {isHighTicket && (
-                        <span className="flex items-center gap-1 px-1.5 py-0.5 rounded bg-yellow-500/20 text-yellow-500 text-[10px] font-semibold">
-                          <Globe className="h-3 w-3" />
-                          HIGH TICKET
-                        </span>
-                      )}
-                    </div>
-                    <p className="text-xs text-muted-foreground truncate">{origenCorto}</p>
+                  <div className="flex-1 min-w-0 flex flex-col justify-center">
+                  <div className="flex items-center gap-2">
+                    {/* ORIGEN AHORA VA PRIMERO Y EN GRANDE */}
+                    <span className="font-bold text-base text-foreground truncate tracking-tight">
+                      {origenCorto}
+                    </span>
+                    
+                    {isHighTicket && (
+                      <span className="flex items-center gap-1 px-1.5 py-0.5 rounded bg-yellow-500/20 text-yellow-500 text-[10px] font-semibold border border-yellow-500/30">
+                        <Globe className="h-3 w-3" />
+                        <span className="hidden sm:inline">LARGA DIST.</span>
+                      </span>
+                    )}
                   </div>
+                  
+                  {/* CÓDIGO DE VUELO AHORA VA DEBAJO Y MÁS PEQUEÑO */}
+                  <p className="text-xs font-mono text-muted-foreground/80 mt-0.5">
+                    {codigoPrincipal}
+                  </p>
+                </div>
                   
                   {/* Status */}
                   <div className="text-right">
