@@ -87,70 +87,70 @@ def scrape_milanuncios(driver):
             
             return [] # Cortamos aquí, no tiene sentido seguir
         # ----------------------------------------
-    datos = []
-    print(f"\n🌍 [1/4] MILANUNCIOS (Modo Stealth GitHub)...")
-    try:
-        # 1. Ir directo
-        driver.get("https://www.milanuncios.com/anuncios/?s=Licencia%20taxi%20barcelona")
-        time.sleep(5) # Un segundo extra para GitHub Actions
-
-        # 2. ATAQUE AL POPUP (Visto en tu imagen: "Agree and close")
-        print("   -> Intentando cerrar cookies...")
+        datos = []
+        print(f"\n🌍 [1/4] MILANUNCIOS (Modo Stealth GitHub)...")
         try:
-            # Tu imagen muestra 'Agree and close', buscamos 'Agree' específicamente
-            # Usamos un selector CSS genérico para el botón verde si el texto falla
-            boton = WebDriverWait(driver, 5).until(
-                EC.element_to_be_clickable((By.XPATH, "//button[contains(., 'Agree') or contains(., 'Aceptar') or contains(., 'Consentir')]"))
-            )
-            driver.execute_script("arguments[0].click();", boton) # Click vía JS es más seguro
-            print("   ✅ Cookies cerradas.")
-            time.sleep(3)
-        except:
-            # PLAN B: Si no encuentra el botón por texto, busca por clase común de botones de consentimiento
-            print("   ⚠️ Botón de texto no encontrado, intentando fuerza bruta en el centro...")
+            # 1. Ir directo
+            driver.get("https://www.milanuncios.com/anuncios/?s=Licencia%20taxi%20barcelona")
+            time.sleep(5) # Un segundo extra para GitHub Actions
+    
+            # 2. ATAQUE AL POPUP (Visto en tu imagen: "Agree and close")
+            print("   -> Intentando cerrar cookies...")
             try:
-                # A veces un click en el body cierra modales mal hechos, o enviamos ESCAPE
-                webdriver.ActionChains(driver).send_keys(Keys.ESCAPE).perform()
-            except: pass
-
-        # 3. SCROLL (Igual que antes)
-        print("   -> Bajando para cargar ofertas...")
-        viewport_height = driver.execute_script("return window.innerHeight")
-        for _ in range(40): 
-            driver.execute_script(f"window.scrollBy(0, {viewport_height});")
-            time.sleep(1) 
+                # Tu imagen muestra 'Agree and close', buscamos 'Agree' específicamente
+                # Usamos un selector CSS genérico para el botón verde si el texto falla
+                boton = WebDriverWait(driver, 5).until(
+                    EC.element_to_be_clickable((By.XPATH, "//button[contains(., 'Agree') or contains(., 'Aceptar') or contains(., 'Consentir')]"))
+                )
+                driver.execute_script("arguments[0].click();", boton) # Click vía JS es más seguro
+                print("   ✅ Cookies cerradas.")
+                time.sleep(3)
+            except:
+                # PLAN B: Si no encuentra el botón por texto, busca por clase común de botones de consentimiento
+                print("   ⚠️ Botón de texto no encontrado, intentando fuerza bruta en el centro...")
+                try:
+                    # A veces un click en el body cierra modales mal hechos, o enviamos ESCAPE
+                    webdriver.ActionChains(driver).send_keys(Keys.ESCAPE).perform()
+                except: pass
+    
+            # 3. SCROLL (Igual que antes)
+            print("   -> Bajando para cargar ofertas...")
+            viewport_height = driver.execute_script("return window.innerHeight")
+            for _ in range(40): 
+                driver.execute_script(f"window.scrollBy(0, {viewport_height});")
+                time.sleep(1) 
+                
+                # Chequeo rápido de final
+                new_height = driver.execute_script("return document.body.scrollHeight")
+                current_scroll = driver.execute_script("return window.pageYOffset + window.innerHeight")
+                if current_scroll >= new_height - 100:
+                    break
+    
+            # 4. EXTRACCIÓN
+            anuncios = driver.find_elements(By.TAG_NAME, "article")
+            print(f"   -> Elementos visualizados: {len(anuncios)}")
+    
+            # SI FALLA AQUÍ (0 elementos), IMPRIMIMOS EL HTML PARA VER QUÉ PASA
+            if len(anuncios) == 0:
+                print("   ⚠️ ALERTA: 0 anuncios. Posible bloqueo antibot.")
+                # Opcional: Imprimir título de la página para ver si nos redirigieron
+                print(f"   Título de la página: {driver.title}")
+    
+            for anuncio in anuncios:
+                try:
+                    raw = driver.execute_script("return arguments[0].textContent;", anuncio).strip()
+                    raw = re.sub(r'\s+', ' ', raw)
+    
+                    if len(raw) > 20 and ("TAXI" in raw.upper() or "LICENCIA" in raw.upper()):
+                        datos.append({"fuente": "MILANUNCIOS", "raw": raw})
+                except: continue
+                
+        except Exception as e: 
+            print(f"   ⚠️ Error en Milanuncios: {e}")
+            pass
             
-            # Chequeo rápido de final
-            new_height = driver.execute_script("return document.body.scrollHeight")
-            current_scroll = driver.execute_script("return window.pageYOffset + window.innerHeight")
-            if current_scroll >= new_height - 100:
-                break
-
-        # 4. EXTRACCIÓN
-        anuncios = driver.find_elements(By.TAG_NAME, "article")
-        print(f"   -> Elementos visualizados: {len(anuncios)}")
-
-        # SI FALLA AQUÍ (0 elementos), IMPRIMIMOS EL HTML PARA VER QUÉ PASA
-        if len(anuncios) == 0:
-            print("   ⚠️ ALERTA: 0 anuncios. Posible bloqueo antibot.")
-            # Opcional: Imprimir título de la página para ver si nos redirigieron
-            print(f"   Título de la página: {driver.title}")
-
-        for anuncio in anuncios:
-            try:
-                raw = driver.execute_script("return arguments[0].textContent;", anuncio).strip()
-                raw = re.sub(r'\s+', ' ', raw)
-
-                if len(raw) > 20 and ("TAXI" in raw.upper() or "LICENCIA" in raw.upper()):
-                    datos.append({"fuente": "MILANUNCIOS", "raw": raw})
-            except: continue
-            
-    except Exception as e: 
-        print(f"   ⚠️ Error en Milanuncios: {e}")
-        pass
-        
-    print(f"   -> {len(datos)} ofertas válidas extraídas.")
-    return datos
+        print(f"   -> {len(datos)} ofertas válidas extraídas.")
+        return datos
 # --- B. ASESORÍA SOLANO ---
 def scrape_solano(driver):
     datos = []
