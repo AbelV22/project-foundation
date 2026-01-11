@@ -30,6 +30,8 @@ jobs:
      
 
       - name: 🕵️ Ejecutar Scraper
+        env:  # <--- AÑADE ESTO
+          SCRAPER_API_KEY: ${{ secrets.SCRAPER_API_KEY }}
         run: python scripts/licencia_scrap.py
         # Esto ejecutará tu script de scraping.
         # IMPORTANTE: Asegúrate de que licencia_scrap.py guarde el JSON en la raíz (o que procesado_licen.py sepa dónde buscarlo).
