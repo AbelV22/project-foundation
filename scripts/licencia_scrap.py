@@ -27,14 +27,17 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.keys import Keys
 
-# ELIMINADO: from google.colab import files (Esto causaba el error en GitHub)
-
 def iniciar_driver():
     options = Options()
     options.add_argument('--headless') # Vital para servidores sin pantalla
     options.add_argument('--no-sandbox')
     options.add_argument('--disable-dev-shm-usage')
     options.add_argument('--window-size=1920,1080')
+    
+    # --- NOVEDAD: Forzar Español para evitar popups en inglés ---
+    options.add_argument("--lang=es-ES") 
+    options.add_experimental_option('prefs', {'intl.accept_languages': 'es,es_ES'})
+    
     options.add_argument("user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36")
     
     return webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=options)
@@ -43,40 +46,60 @@ def iniciar_driver():
 # 2. MOTORES DE EXTRACCIÓN
 # =============================================================================
 
-# --- A. MILANUNCIOS ---
+# --- A. MILANUNCIOS (LÓGICA NUEVA: SCROLL PROGRESIVO + JS) ---
 def scrape_milanuncios(driver):
     datos = []
-    print(f"\n🌍 [1/4] MILANUNCIOS...")
+    print(f"\n🌍 [1/4] MILANUNCIOS (Modo Scroll Progresivo)...")
     try:
-        driver.get("https://www.milanuncios.com/")
-        time.sleep(3)
-        # Cookies
-        try: WebDriverWait(driver, 4).until(EC.element_to_be_clickable((By.XPATH, "//button[contains(., 'Aceptar') or contains(., 'Consentir')]"))).click()
+        # 1. Enlace Directo (Evita errores de buscador)
+        driver.get("https://www.milanuncios.com/anuncios/?s=Licencia%20taxi%20barcelona")
+        time.sleep(4)
+
+        # 2. Gestión de Cookies (Multilenguaje)
+        try: 
+            xpath_cookies = "//button[contains(., 'Agree') or contains(., 'Aceptar') or contains(., 'Consentir')]"
+            boton = WebDriverWait(driver, 5).until(EC.element_to_be_clickable((By.XPATH, xpath_cookies)))
+            boton.click()
+            print("   -> Cookies cerradas.")
+            time.sleep(2)
         except: pass
 
-        # Búsqueda
-        try:
-            search_box = WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.XPATH, "//input[contains(@placeholder, 'Estoy buscando')]")))
-            search_box.clear()
-            search_box.send_keys("Licencia taxi barcelona")
-            time.sleep(1)
-            driver.execute_script("arguments[0].click();", driver.find_element(By.CLASS_NAME, "ma-FormHome-submitButton"))
-        except: return []
+        # 3. Scroll Humano (Baja poco a poco para forzar carga de ofertas)
+        print("   -> Bajando para cargar ofertas...")
+        viewport_height = driver.execute_script("return window.innerHeight")
+        
+        for _ in range(50): # Límite de seguridad
+            driver.execute_script(f"window.scrollBy(0, {viewport_height});")
+            time.sleep(1.5) # Espera carga de imágenes
+            
+            # Chequeo de final
+            new_height = driver.execute_script("return document.body.scrollHeight")
+            current_scroll = driver.execute_script("return window.pageYOffset + window.innerHeight")
+            
+            if current_scroll >= new_height - 100:
+                time.sleep(2) # Última oportunidad de carga
+                if driver.execute_script("return document.body.scrollHeight") == new_height:
+                    break # Fin real
 
-        time.sleep(5)
-        # Scroll
-        body = driver.find_element(By.TAG_NAME, "body")
-        for _ in range(3):
-            body.send_keys(Keys.PAGE_DOWN)
-            time.sleep(1)
-
+        # 4. Extracción Blindada (JS textContent)
         anuncios = driver.find_elements(By.TAG_NAME, "article")
+        print(f"   -> Elementos visualizados: {len(anuncios)}")
+
         for anuncio in anuncios:
-            raw = anuncio.text.replace("\n", " | ")
-            if "TAXI" in raw.upper():
-                datos.append({"fuente": "MILANUNCIOS", "raw": raw})
-    except: pass
-    print(f"   -> {len(datos)} ofertas.")
+            try:
+                # Extraemos con JS directo del HTML (bypassea bloqueos visuales de Selenium)
+                raw = driver.execute_script("return arguments[0].textContent;", anuncio).strip()
+                raw = re.sub(r'\s+', ' ', raw) # Limpieza de espacios
+
+                if len(raw) > 20 and ("TAXI" in raw.upper() or "LICENCIA" in raw.upper()):
+                    datos.append({"fuente": "MILANUNCIOS", "raw": raw})
+            except: continue
+            
+    except Exception as e: 
+        print(f"   ⚠️ Error en Milanuncios: {e}")
+        pass
+        
+    print(f"   -> {len(datos)} ofertas válidas extraídas.")
     return datos
 
 # --- B. ASESORÍA SOLANO ---
@@ -169,7 +192,7 @@ if __name__ == "__main__":
 
         driver.quit()
 
-        # Guardamos en la raíz del repositorio para que el siguiente script lo vea
+        # Guardamos en la raíz del repositorio
         nombre_fichero = 'licencias_totales.json'
         
         with open(nombre_fichero, 'w', encoding='utf-8') as f:
@@ -178,11 +201,11 @@ if __name__ == "__main__":
         print(f"\n✅ PROCESO COMPLETADO: {len(resultados)} ofertas guardadas en '{nombre_fichero}'.")
 
         # INTENTO DE DESCARGA SEGURA (Solo funciona si es Colab)
-        try:
-            from google.colab import files
-            files.download(nombre_fichero)
-        except ImportError:
-            print("ℹ️ Ejecución remota/local: Archivo guardado en disco, no se descarga automáticamente.")
+        if 'google.colab' in sys.modules:
+            try:
+                from google.colab import files
+                files.download(nombre_fichero)
+            except: pass
 
     except Exception as e:
         print(f"\n❌ Error fatal en el script: {e}")
