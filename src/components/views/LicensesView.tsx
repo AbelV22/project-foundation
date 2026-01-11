@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { TrendingUp, TrendingDown, RefreshCw, Info, AlertCircle, Car, Tag, BarChart3, Calendar, Activity } from "lucide-react";
+import { TrendingUp, TrendingDown, RefreshCw, Info, AlertCircle, Tag, BarChart3, Calendar, Activity, Car } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Badge } from "@/components/ui/badge";
 import { AreaChart, Area, XAxis, YAxis, Tooltip, ResponsiveContainer, BarChart, Bar, Cell, LabelList } from "recharts";
@@ -26,20 +26,52 @@ interface LicenciasData {
   detalle_ofertas: OfertaDetalle[];
 }
 
+interface HistoryEntry {
+  date: string;
+  avg_price: number;
+  median_price: number;
+  min_price: number;
+  max_price: number;
+  volume: number;
+  volatility_std: number;
+}
+
 // Premium gold color
 const GOLD = "#FACC15";
-const GOLD_MUTED = "#FACC1580";
+
+// Parse CSV to array of objects
+const parseCSV = (text: string): HistoryEntry[] => {
+  const lines = text.trim().split('\n');
+  if (lines.length < 2) return [];
+  
+  return lines.slice(1).map(line => {
+    const [date, avg_price, median_price, min_price, max_price, volume, volatility_std] = line.split(',');
+    return {
+      date,
+      avg_price: parseInt(avg_price, 10),
+      median_price: parseInt(median_price, 10),
+      min_price: parseInt(min_price, 10),
+      max_price: parseInt(max_price, 10),
+      volume: parseInt(volume, 10),
+      volatility_std: parseInt(volatility_std, 10)
+    };
+  });
+};
 
 export function LicensesView() {
   const [data, setData] = useState<LicenciasData | null>(null);
+  const [history, setHistory] = useState<HistoryEntry[]>([]);
   const [loading, setLoading] = useState(true);
   const [hoveredBarIndex, setHoveredBarIndex] = useState<number | null>(null);
 
   useEffect(() => {
-    fetch("/analisis_licencias_taxi.json?t=" + Date.now())
-      .then(res => res.json())
-      .then((json: LicenciasData) => {
-        setData(json);
+    Promise.all([
+      fetch("/analisis_licencias_taxi.json?t=" + Date.now()).then(res => res.json()),
+      fetch("/history_stats.csv?t=" + Date.now()).then(res => res.text())
+    ])
+      .then(([jsonData, csvText]) => {
+        setData(jsonData);
+        setHistory(parseCSV(csvText));
         setLoading(false);
       })
       .catch(() => setLoading(false));
@@ -71,19 +103,21 @@ export function LicensesView() {
   const maxPrice = Math.max(...preciosNetos);
   const avgPrice = preciosNetos.reduce((a, b) => a + b, 0) / preciosNetos.length;
 
-  // Mock trend data (in production, calculate from historical)
-  const trendPercent = ((metadata.precio_mercado_referencia - 165000) / 165000 * 100).toFixed(1);
+  // Calculate real trend from historical data
+  const currentHistoryPrice = history.length > 0 ? history[history.length - 1].median_price : metadata.precio_mercado_referencia;
+  const previousHistoryPrice = history.length > 1 ? history[history.length - 2].median_price : currentHistoryPrice;
+  const trendPercent = previousHistoryPrice > 0 
+    ? ((currentHistoryPrice - previousHistoryPrice) / previousHistoryPrice * 100).toFixed(1) 
+    : "0.0";
   const trendIsUp = parseFloat(trendPercent) > 0;
 
-  // Temporal evolution data
-  const evolucionTemporal = [
-    { fecha: "01/01", precio: 165000 },
-    { fecha: "02/01", precio: 166500 },
-    { fecha: "03/01", precio: 167200 },
-    { fecha: "04/01", precio: 168000 },
-    { fecha: "05/01", precio: 167800 },
-    { fecha: "06/01", precio: metadata.precio_mercado_referencia },
-  ];
+  // Temporal evolution data from CSV
+  const evolucionTemporal = history.length > 0 
+    ? history.map(h => ({
+        fecha: h.date.slice(5).replace('-', '/'), // "2026-01-11" -> "01/11"
+        precio: h.median_price
+      }))
+    : [{ fecha: "hoy", precio: metadata.precio_mercado_referencia }];
 
   // Prepare bar chart data - sorted by value
   const chartDataPorDia = Object.entries(estadisticas.valor_mediano_por_dia)

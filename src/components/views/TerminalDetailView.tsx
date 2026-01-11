@@ -1,5 +1,5 @@
 import { useState, useEffect, useMemo } from "react";
-import { Plane, Clock, Users, ArrowLeft, RefreshCw, Flame, Globe } from "lucide-react";
+import { Plane, Clock, ArrowLeft, RefreshCw, Flame, Globe } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { 
@@ -99,40 +99,42 @@ export function TerminalDetailView({ terminalId, onBack }: TerminalDetailViewPro
       });
   }, [vuelos, terminalId]);
 
-  // Datos para el histograma de barras por hora
+  // Datos para el histograma de barras por hora - ahora con VUELOS, no pasajeros
+  // Reducido a 6 horas para mejor visualización
   const hourlyData = useMemo(() => {
     const startHour = (currentHour - 1 + 24) % 24;
-    const paxPerFlight = terminalId === 'puente' ? 150 : terminalId === 't2c' ? 180 : 200;
     const hourlyGroups: Record<number, number> = {};
     
-    for (let i = 0; i < 12; i++) {
+    // Solo 6 horas: hora actual -1 hasta +4
+    for (let i = 0; i < 6; i++) {
       const h = (startHour + i) % 24;
       hourlyGroups[h] = 0;
     }
     
+    // Contar VUELOS, no pasajeros
     terminalFlights.forEach(v => {
       const hora = parseInt(v.hora?.split(":")[0] || "0", 10);
       if (hourlyGroups[hora] !== undefined) {
-        hourlyGroups[hora] += paxPerFlight;
+        hourlyGroups[hora] += 1; // +1 vuelo
       }
     });
     
     const data = [];
-    let maxPax = 0;
+    let maxFlights = 0;
     let peakHour = startHour;
     
-    for (let i = 0; i < 12; i++) {
+    for (let i = 0; i < 6; i++) {
       const h = (startHour + i) % 24;
-      const pax = hourlyGroups[h];
-      if (pax > maxPax) {
-        maxPax = pax;
+      const flights = hourlyGroups[h];
+      if (flights > maxFlights) {
+        maxFlights = flights;
         peakHour = h;
       }
       data.push({
         hour: h,
         label: `${h}:00`,
-        shortLabel: `${h}`,
-        pax,
+        shortLabel: `${h}h`,
+        flights,
         isPeak: false,
         isCurrent: h === currentHour
       });
@@ -140,18 +142,18 @@ export function TerminalDetailView({ terminalId, onBack }: TerminalDetailViewPro
     
     // Marcar el pico
     data.forEach(d => {
-      if (d.hour === peakHour && d.pax > 0) d.isPeak = true;
+      if (d.hour === peakHour && d.flights > 0) d.isPeak = true;
     });
     
-    return { data, maxPax, peakHour };
-  }, [terminalFlights, currentHour, terminalId]);
+    return { data, maxFlights, peakHour };
+  }, [terminalFlights, currentHour]);
 
-  // Próximo pico
+  // Próximo pico (ahora en vuelos)
   const nextPeakInfo = useMemo(() => {
     const peak = hourlyData.data.find(d => d.isPeak && d.hour >= currentHour);
     if (peak) {
       const peakTime = `${peak.hour}:00`;
-      return { pax: peak.pax, time: peakTime };
+      return { flights: peak.flights, time: peakTime };
     }
     return null;
   }, [hourlyData, currentHour]);
@@ -166,9 +168,7 @@ export function TerminalDetailView({ terminalId, onBack }: TerminalDetailViewPro
     }).slice(0, 20);
   }, [terminalFlights, currentMinutes]);
 
-  // Stats
-  const paxPerFlight = terminalId === 'puente' ? 150 : terminalId === 't2c' ? 180 : 200;
-  const totalPax = terminalFlights.length * paxPerFlight;
+  // Stats (ya no necesitamos paxPerFlight para el gráfico principal)
   const espera = getEsperaReten(terminalId, currentHour);
   const longHaulCount = upcomingFlights.filter(f => isLongHaul(f.origen)).length;
 
@@ -219,22 +219,26 @@ export function TerminalDetailView({ terminalId, onBack }: TerminalDetailViewPro
       {nextPeakInfo && (
         <div className="card-glass p-4">
           <div className="flex items-center gap-2 mb-1">
-            <span className="text-sm text-muted-foreground">Next Peak</span>
+            <span className="text-sm text-muted-foreground">Próximo Pico</span>
             <Flame className="h-4 w-4 text-red-500" />
           </div>
           <div className="flex items-baseline gap-2">
-            <span className="font-display font-black text-3xl text-white">{nextPeakInfo.pax.toLocaleString()}</span>
-            <span className="text-sm text-muted-foreground">passengers</span>
+            <span className="font-display font-black text-3xl text-white">{nextPeakInfo.flights}</span>
+            <span className="text-sm text-muted-foreground">vuelos</span>
           </div>
-          <p className="text-sm text-muted-foreground mt-0.5">arriving <span className="text-white font-semibold">{nextPeakInfo.time}</span></p>
+          <p className="text-sm text-muted-foreground mt-0.5">aterrizan a las <span className="text-white font-semibold">{nextPeakInfo.time}</span></p>
         </div>
       )}
 
-      {/* Histogram Chart - Gridwise Style */}
+      {/* Histogram Chart - Vuelos por hora (6 barras) */}
       <div className="card-glass p-4">
-        <div className="h-52">
+        <div className="flex items-center justify-between mb-3">
+          <h4 className="text-sm font-semibold text-foreground">Vuelos por Hora</h4>
+          <span className="text-[10px] text-muted-foreground font-mono">Próximas 5h</span>
+        </div>
+        <div className="h-44">
           <ResponsiveContainer width="100%" height="100%">
-            <BarChart data={hourlyData.data} barCategoryGap="15%">
+            <BarChart data={hourlyData.data} barCategoryGap="20%">
               <defs>
                 <linearGradient id={`barGradient-${terminalId}`} x1="0" y1="0" x2="0" y2="1">
                   <stop offset="0%" stopColor={terminal.color} stopOpacity={1}/>
@@ -249,14 +253,14 @@ export function TerminalDetailView({ terminalId, onBack }: TerminalDetailViewPro
                 dataKey="shortLabel" 
                 axisLine={false} 
                 tickLine={false}
-                tick={{ fontSize: 10, fill: 'hsl(220, 10%, 55%)' }}
+                tick={{ fontSize: 11, fill: 'hsl(220, 10%, 55%)', fontFamily: 'monospace' }}
               />
               <YAxis 
                 axisLine={false} 
                 tickLine={false}
-                tick={{ fontSize: 10, fill: 'hsl(220, 10%, 55%)' }}
-                tickFormatter={(value) => value >= 1000 ? `${(value / 1000).toFixed(0)}k` : value}
-                width={35}
+                tick={{ fontSize: 11, fill: 'hsl(220, 10%, 55%)', fontFamily: 'monospace' }}
+                width={28}
+                allowDecimals={false}
               />
               <Tooltip 
                 cursor={{ fill: 'rgba(255,255,255,0.05)' }}
@@ -266,24 +270,24 @@ export function TerminalDetailView({ terminalId, onBack }: TerminalDetailViewPro
                   borderRadius: '8px',
                   color: 'white'
                 }}
-                formatter={(value: number) => [`${value.toLocaleString()} pax`, 'Pasajeros']}
-                labelFormatter={(label) => `${label}:00`}
+                formatter={(value: number) => [`${value} vuelos`, 'Llegadas']}
+                labelFormatter={(label) => `${label}`}
               />
               <Bar 
-                dataKey="pax" 
-                radius={[4, 4, 0, 0]}
+                dataKey="flights" 
+                radius={[6, 6, 0, 0]}
               >
                 {hourlyData.data.map((entry, index) => (
                   <Cell 
                     key={`cell-${index}`} 
                     fill={entry.isPeak ? 'url(#peakGradient)' : `url(#barGradient-${terminalId})`}
-                    opacity={entry.isCurrent ? 1 : 0.7}
+                    opacity={entry.isCurrent ? 1 : 0.75}
                   />
                 ))}
               </Bar>
               {/* Marker for peak */}
               {hourlyData.data.map((entry, index) => 
-                entry.isPeak && entry.pax > 0 ? (
+                entry.isPeak && entry.flights > 0 ? (
                   <ReferenceLine 
                     key={`peak-${index}`}
                     x={entry.shortLabel} 
@@ -291,8 +295,8 @@ export function TerminalDetailView({ terminalId, onBack }: TerminalDetailViewPro
                     label={{ 
                       value: '🔥', 
                       position: 'top',
-                      fontSize: 16,
-                      offset: 5
+                      fontSize: 14,
+                      offset: 3
                     }}
                   />
                 ) : null
@@ -302,33 +306,37 @@ export function TerminalDetailView({ terminalId, onBack }: TerminalDetailViewPro
         </div>
         
         {/* Legend */}
-        <div className="flex items-center justify-center gap-6 mt-3 pt-3 border-t border-white/10">
+        <div className="flex items-center justify-center gap-6 mt-2 pt-2 border-t border-white/10">
           <div className="flex items-center gap-2">
             <div className="w-3 h-3 rounded-sm" style={{ backgroundColor: terminal.color }} />
-            <span className="text-xs text-muted-foreground">Llegadas</span>
+            <span className="text-[10px] text-muted-foreground">Vuelos</span>
           </div>
           <div className="flex items-center gap-2">
             <div className="w-3 h-3 rounded-sm bg-red-500" />
             <span className="text-xs text-muted-foreground">Pico</span>
           </div>
+          <div className="flex items-center gap-1.5">
+            <div className="w-2 h-2 rounded-full bg-white animate-pulse" />
+            <span className="text-[10px] text-muted-foreground">Ahora</span>
+          </div>
         </div>
       </div>
 
-      {/* Quick Stats */}
+      {/* Quick Stats - Simplificado, enfocado en vuelos */}
       <div className="grid grid-cols-3 gap-2">
         <div className="card-glass p-3 text-center">
           <Plane className="h-4 w-4 mx-auto mb-1" style={{ color: terminal.color }} />
-          <p className="font-mono font-bold text-xl text-white">{terminalFlights.length}</p>
-          <p className="text-[10px] text-muted-foreground">Vuelos</p>
+          <p className="font-mono font-bold text-2xl text-white">{terminalFlights.length}</p>
+          <p className="text-[10px] text-muted-foreground">Vuelos hoy</p>
         </div>
         <div className="card-glass p-3 text-center">
-          <Users className="h-4 w-4 text-primary mx-auto mb-1" />
-          <p className="font-mono font-bold text-xl text-primary">{totalPax.toLocaleString()}</p>
-          <p className="text-[10px] text-muted-foreground">Pasajeros</p>
+          <Plane className="h-4 w-4 text-primary mx-auto mb-1" />
+          <p className="font-mono font-bold text-2xl text-primary">{upcomingFlights.length}</p>
+          <p className="text-[10px] text-muted-foreground">Pendientes</p>
         </div>
         <div className="card-glass p-3 text-center">
           <Clock className="h-4 w-4 text-amber-500 mx-auto mb-1" />
-          <p className="font-mono font-bold text-xl text-amber-500">~{espera}'</p>
+          <p className="font-mono font-bold text-2xl text-amber-500">~{espera}'</p>
           <p className="text-[10px] text-muted-foreground">Retén</p>
         </div>
       </div>
@@ -400,7 +408,6 @@ export function TerminalDetailView({ terminalId, onBack }: TerminalDetailViewPro
                     )}>
                       {flight.estado || "En hora"}
                     </span>
-                    <p className="text-xs text-muted-foreground mt-1">{paxPerFlight} pax</p>
                   </div>
                 </div>
               );

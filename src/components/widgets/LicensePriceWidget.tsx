@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
-import { TrendingUp, TrendingDown, Info, ChevronRight } from "lucide-react";
-import { AreaChart, Area, XAxis, YAxis, Tooltip, ResponsiveContainer } from "recharts";
+import { TrendingUp, TrendingDown, ChevronRight } from "lucide-react";
+import { AreaChart, Area, XAxis, YAxis, ResponsiveContainer } from "recharts";
 import { cn } from "@/lib/utils";
 
 interface LicenciasData {
@@ -17,19 +17,42 @@ interface LicenciasData {
   }>;
 }
 
+interface HistoryEntry {
+  date: string;
+  median_price: number;
+}
+
 interface LicensePriceWidgetProps {
   onClick?: () => void;
 }
 
+// Parse CSV to array of objects
+const parseCSV = (text: string): HistoryEntry[] => {
+  const lines = text.trim().split('\n');
+  if (lines.length < 2) return [];
+  
+  return lines.slice(1).map(line => {
+    const [date, , median_price] = line.split(',');
+    return {
+      date,
+      median_price: parseInt(median_price, 10)
+    };
+  });
+};
+
 export function LicensePriceWidget({ onClick }: LicensePriceWidgetProps) {
   const [data, setData] = useState<LicenciasData | null>(null);
+  const [history, setHistory] = useState<HistoryEntry[]>([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch("/analisis_licencias_taxi.json?t=" + Date.now())
-      .then(res => res.json())
-      .then((json: LicenciasData) => {
-        setData(json);
+    Promise.all([
+      fetch("/analisis_licencias_taxi.json?t=" + Date.now()).then(res => res.json()),
+      fetch("/history_stats.csv?t=" + Date.now()).then(res => res.text())
+    ])
+      .then(([jsonData, csvText]) => {
+        setData(jsonData);
+        setHistory(parseCSV(csvText));
         setLoading(false);
       })
       .catch(() => setLoading(false));
@@ -44,19 +67,18 @@ export function LicensePriceWidget({ onClick }: LicensePriceWidgetProps) {
   const minPrice = preciosNetos.length > 0 ? Math.min(...preciosNetos) : 160000;
   const maxPrice = preciosNetos.length > 0 ? Math.max(...preciosNetos) : 190000;
 
-  // Mock de evolución temporal (se irá poblando con datos históricos reales)
-  const priceHistory = [
-    { date: "01/01", price: 165000 },
-    { date: "02/01", price: 166500 },
-    { date: "03/01", price: 167000 },
-    { date: "04/01", price: 168000 },
-    { date: "05/01", price: 168212 },
-    { date: "06/01", price: precioRef },
-  ];
+  // Usar datos históricos reales del CSV o fallback
+  const priceHistory = history.length > 0 
+    ? history.slice(-6).map(h => ({
+        date: h.date.slice(5).replace('-', '/'), // "2026-01-11" -> "01/11"
+        price: h.median_price
+      }))
+    : [{ date: "hoy", price: precioRef }];
 
-  // Calcular tendencia
-  const previousPrice = priceHistory[priceHistory.length - 2]?.price || precioRef;
-  const priceChange = ((precioRef - previousPrice) / previousPrice) * 100;
+  // Calcular tendencia real
+  const currentPrice = history.length > 0 ? history[history.length - 1].median_price : precioRef;
+  const previousPrice = history.length > 1 ? history[history.length - 2].median_price : currentPrice;
+  const priceChange = previousPrice > 0 ? ((currentPrice - previousPrice) / previousPrice) * 100 : 0;
   const isUp = priceChange > 0;
 
   return (
