@@ -32,22 +32,22 @@ from selenium.webdriver.common.keys import Keys
 # MODIFICACIÓN: MODO MÓVIL (LA ÚLTIMA ESPERANZA GRATUITA)
 # =============================================================================
 def iniciar_driver():
-    print("📱 Iniciando Chrome en MODO MÓVIL...")
+    print("📱 Iniciando Chrome con CONFIGURACIÓN MANUAL DE MÓVIL...")
     
     options = Options()
-    options.add_argument('--headless=new') # El nuevo headless es vital
+    options.add_argument('--headless=new')
     options.add_argument('--no-sandbox')
     options.add_argument('--disable-dev-shm-usage')
-    options.add_argument('--window-size=375,812') # Tamaño de pantalla de iPhone/Pixel
     options.add_argument("--lang=es-ES")
     
-    # --- TRUCO MAESTRO: EMULACIÓN MÓVIL NATIVA ---
-    # Esto configura Chrome para que actúe internamente como un teléfono
-    # (Touch events, User Agent, Resolución, Pixel Ratio...)
+    # --- CORRECCIÓN: Definimos el móvil manualmente (Sin nombre de dispositivo) ---
+    # Esto simula un Pixel generico sin depender de la base de datos de Chrome
     mobile_emulation = {
-        "deviceName": "Pixel 5" 
+        "deviceMetrics": { "width": 360, "height": 640, "pixelRatio": 3.0 },
+        "userAgent": "Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Mobile Safari/537.36"
     }
     options.add_experimental_option("mobileEmulation", mobile_emulation)
+    # -----------------------------------------------------------------------------
     
     # Ocultar rastro de automatización
     options.add_argument("--disable-blink-features=AutomationControlled")
@@ -57,7 +57,6 @@ def iniciar_driver():
     driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=options)
     
     return driver
-
 def scrape_milanuncios(driver):
     datos = []
     print(f"\n🌍 [1/4] MILANUNCIOS (Vista Móvil)...")
