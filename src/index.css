@@ -6,6 +6,12 @@
 
 @layer base {
   :root {
+    /* Safe Area Insets for Android/iOS notches and navigation */
+    --safe-area-inset-top: env(safe-area-inset-top, 0px);
+    --safe-area-inset-bottom: env(safe-area-inset-bottom, 0px);
+    --safe-area-inset-left: env(safe-area-inset-left, 0px);
+    --safe-area-inset-right: env(safe-area-inset-right, 0px);
+    
     /* iTaxiBcn Dark Theme - Based on reference design */
     --background: 220 25% 6%;
     --foreground: 220 10% 95%;
