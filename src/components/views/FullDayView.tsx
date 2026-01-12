@@ -232,284 +232,269 @@ export function FullDayView({ onBack }: FullDayViewProps) {
         </div>
       </div>
 
-      {/* Unified Flight Table */}
-      <div className="rounded-xl border border-border bg-card shadow-lg shadow-black/10 overflow-hidden">
-        {/* Table Header */}
-        <div className="grid grid-cols-[80px_1fr_1fr_1fr_1fr] bg-gradient-to-r from-muted to-muted/80 border-b border-border">
-          <div className="py-3 px-2 text-center">
-            <span className="text-[10px] font-display font-bold text-muted-foreground uppercase tracking-wider">
-              Hora
-            </span>
+      {/* Two-Table Layout */}
+      <div className="grid grid-cols-2 gap-2">
+        {/* Left Table: T1 & T2 */}
+        <div className="rounded-xl border border-border bg-card shadow-lg shadow-black/10 overflow-hidden flex flex-col">
+          {/* Header - using table for perfect alignment */}
+          <table className="w-full table-fixed border-collapse">
+            <thead>
+              <tr className="bg-gradient-to-r from-muted to-muted/80">
+                <th className="w-[72px] py-2.5 px-1 text-center border-b border-border">
+                  <span className="text-[10px] font-display font-bold text-muted-foreground uppercase tracking-wide">
+                    Hora
+                  </span>
+                </th>
+                <th className="py-2.5 px-1 text-center border-b border-l border-border">
+                  <span className="text-[11px] font-display font-bold text-amber-500 uppercase tracking-wide">T1</span>
+                </th>
+                <th className="py-2.5 px-1 text-center border-b border-l border-border">
+                  <span className="text-[11px] font-display font-bold text-blue-500 uppercase tracking-wide">T2</span>
+                </th>
+              </tr>
+            </thead>
+          </table>
+
+          {/* Body with Accordion */}
+          <div className="flex-1 max-h-[50vh] overflow-y-auto scrollbar-dark">
+            <Accordion type="single" collapsible className="w-full">
+              {hourSlots.map((slot, idx) => {
+                const hour = (startHour + idx) % 24;
+                const countT1 = countByHourAndTerminal.t1[hour] || 0;
+                const countT2 = countByHourAndTerminal.t2[hour] || 0;
+                const isHotT1 = countT1 >= maxT1 * 0.7 && countT1 > 0;
+                const isHotT2 = countT2 >= maxT2 * 0.7 && countT2 > 0;
+                const isCurrentHour = hour === currentHour;
+                const hasFlights = countT1 > 0 || countT2 > 0;
+                const flightsT1 = vuelosPorHora[hour]?.t1 || [];
+                const flightsT2 = vuelosPorHora[hour]?.t2 || [];
+                const longHaulT1 = flightsT1.filter((f) => isLongHaul(f.origen)).length;
+                const longHaulT2 = flightsT2.filter((f) => isLongHaul(f.origen)).length;
+
+                return (
+                  <AccordionItem
+                    key={slot}
+                    value={slot}
+                    className={cn("border-b border-border/30", isCurrentHour && "bg-primary/10")}
+                  >
+                    <AccordionTrigger className="py-0 px-0 hover:no-underline [&[data-state=open]>table]:bg-muted/30">
+                      <table className="w-full table-fixed border-collapse">
+                        <tbody>
+                          <tr>
+                            <td className={cn("w-[72px] py-2 px-1 text-center", isCurrentHour && "bg-primary/15")}>
+                              <div className="flex items-center justify-center gap-0.5">
+                                <span className={cn(
+                                  "text-[9px] font-mono font-semibold",
+                                  isCurrentHour ? "font-bold text-primary" : "text-muted-foreground"
+                                )}>
+                                  {slot}
+                                </span>
+                                {hasFlights && <ChevronDown className="h-2.5 w-2.5 text-muted-foreground/40 shrink-0" />}
+                              </div>
+                            </td>
+                            <td className={cn(
+                              "py-2 px-1 text-center border-l border-border/30",
+                              isHotT1 && "bg-amber-500/10"
+                            )}>
+                              <div className="flex items-center justify-center gap-0.5">
+                                {isHotT1 && <Flame className="h-3 w-3 text-amber-500" />}
+                                <span className={cn(
+                                  "font-display font-bold text-sm tabular-nums",
+                                  isHotT1 ? "text-amber-500" : "text-foreground",
+                                  countT1 === 0 && "text-muted-foreground/30"
+                                )}>
+                                  {countT1.toString().padStart(2, "0")}
+                                </span>
+                              </div>
+                            </td>
+                            <td className={cn(
+                              "py-2 px-1 text-center border-l border-border/30",
+                              isHotT2 && "bg-blue-500/10"
+                            )}>
+                              <div className="flex items-center justify-center gap-0.5">
+                                {isHotT2 && <Flame className="h-3 w-3 text-blue-500" />}
+                                <span className={cn(
+                                  "font-display font-bold text-sm tabular-nums",
+                                  isHotT2 ? "text-blue-500" : "text-foreground",
+                                  countT2 === 0 && "text-muted-foreground/30"
+                                )}>
+                                  {countT2.toString().padStart(2, "0")}
+                                </span>
+                              </div>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </AccordionTrigger>
+
+                    <AccordionContent className="pb-0">
+                      {hasFlights && (
+                        <div className="bg-muted/20 border-t border-border/30 p-2">
+                          <div className="grid grid-cols-2 gap-2">
+                            {/* T1 Flights */}
+                            {flightsT1.length > 0 && (
+                              <div>
+                                <span className="text-[8px] font-bold text-amber-500 uppercase mb-1 block">T1</span>
+                                <div className="space-y-0.5">
+                                  {flightsT1.slice(0, 3).map((f, i) => (
+                                    <div key={i} className={cn(
+                                      "flex items-center gap-1 text-[9px] py-0.5 px-1 rounded",
+                                      isLongHaul(f.origen) && "bg-yellow-500/10"
+                                    )}>
+                                      <span className="font-mono font-semibold text-foreground">{f.hora}</span>
+                                      {isLongHaul(f.origen) && <Globe className="h-2.5 w-2.5 text-yellow-500" />}
+                                      <span className="text-muted-foreground/60 truncate">{f.origen?.split("(")[0]?.trim()?.slice(0, 6)}</span>
+                                    </div>
+                                  ))}
+                                  {flightsT1.length > 3 && (
+                                    <span className="text-[8px] text-muted-foreground">+{flightsT1.length - 3} más</span>
+                                  )}
+                                </div>
+                              </div>
+                            )}
+                            {/* T2 Flights */}
+                            {flightsT2.length > 0 && (
+                              <div>
+                                <span className="text-[8px] font-bold text-blue-500 uppercase mb-1 block">T2</span>
+                                <div className="space-y-0.5">
+                                  {flightsT2.slice(0, 3).map((f, i) => (
+                                    <div key={i} className={cn(
+                                      "flex items-center gap-1 text-[9px] py-0.5 px-1 rounded",
+                                      isLongHaul(f.origen) && "bg-yellow-500/10"
+                                    )}>
+                                      <span className="font-mono font-semibold text-foreground">{f.hora}</span>
+                                      {isLongHaul(f.origen) && <Globe className="h-2.5 w-2.5 text-yellow-500" />}
+                                      <span className="text-muted-foreground/60 truncate">{f.origen?.split("(")[0]?.trim()?.slice(0, 6)}</span>
+                                    </div>
+                                  ))}
+                                  {flightsT2.length > 3 && (
+                                    <span className="text-[8px] text-muted-foreground">+{flightsT2.length - 3} más</span>
+                                  )}
+                                </div>
+                              </div>
+                            )}
+                          </div>
+                        </div>
+                      )}
+                    </AccordionContent>
+                  </AccordionItem>
+                );
+              })}
+            </Accordion>
           </div>
-          <div className="py-3 px-2 text-center border-l border-border/50">
-            <span className="text-[11px] font-display font-bold text-amber-500 uppercase tracking-wide">T1</span>
-          </div>
-          <div className="py-3 px-2 text-center border-l border-border/50">
-            <span className="text-[11px] font-display font-bold text-blue-500 uppercase tracking-wide">T2</span>
-          </div>
-          <div className="py-3 px-2 text-center border-l border-border/50">
-            <div className="flex flex-col items-center">
-              <span className="text-[10px] font-display font-bold text-red-500 uppercase leading-tight">Puente</span>
-              <span className="text-[8px] font-display text-red-500/70 uppercase">Aéreo</span>
-            </div>
-          </div>
-          <div className="py-3 px-2 text-center border-l border-border/50">
-            <div className="flex flex-col items-center">
-              <span className="text-[10px] font-display font-bold text-orange-500 uppercase leading-tight">T2C</span>
-              <span className="text-[8px] font-display text-orange-500/70 uppercase">EasyJet</span>
-            </div>
-          </div>
+
+          {/* Footer */}
+          <table className="w-full table-fixed border-collapse">
+            <tfoot>
+              <tr className="bg-gradient-to-r from-muted to-muted/80">
+                <td className="w-[72px] py-2.5 px-1 text-center border-t border-border">
+                  <span className="text-[9px] font-display font-bold text-muted-foreground uppercase">Total</span>
+                </td>
+                <td className="py-2.5 px-1 text-center border-t border-l border-border">
+                  <span className="font-display font-bold text-base text-amber-500 tabular-nums">{totalT1}</span>
+                </td>
+                <td className="py-2.5 px-1 text-center border-t border-l border-border">
+                  <span className="font-display font-bold text-base text-blue-500 tabular-nums">{totalT2}</span>
+                </td>
+              </tr>
+            </tfoot>
+          </table>
         </div>
 
-        {/* Table Rows with Accordion */}
-        <div className="max-h-[55vh] overflow-y-auto scrollbar-dark">
-          <Accordion type="single" collapsible className="w-full">
-            {hourSlots.map((slot, idx) => {
-              const hour = (startHour + idx) % 24;
-              const countT1 = countByHourAndTerminal.t1[hour] || 0;
-              const countT2 = countByHourAndTerminal.t2[hour] || 0;
-              const isHotT1 = countT1 >= maxT1 * 0.7 && countT1 > 0;
-              const isHotT2 = countT2 >= maxT2 * 0.7 && countT2 > 0;
-              const isCurrentHour = hour === currentHour;
-              const hasFlights = countT1 > 0 || countT2 > 0;
-              const flightsT1 = vuelosPorHora[hour]?.t1 || [];
-              const flightsT2 = vuelosPorHora[hour]?.t2 || [];
-              const longHaulT1 = flightsT1.filter((f) => isLongHaul(f.origen)).length;
-              const longHaulT2 = flightsT2.filter((f) => isLongHaul(f.origen)).length;
+        {/* Right Table: Puente Aéreo & T2C */}
+        <div className="rounded-xl border border-border bg-card shadow-lg shadow-black/10 overflow-hidden flex flex-col">
+          {/* Header */}
+          <table className="w-full table-fixed border-collapse">
+            <thead>
+              <tr className="bg-gradient-to-r from-muted to-muted/80">
+                <th className="py-2.5 px-2 text-center border-b border-border">
+                  <div className="flex flex-col items-center leading-tight">
+                    <span className="text-[10px] font-display font-bold text-red-500 uppercase">Puente</span>
+                    <span className="text-[8px] font-display text-red-500/70 uppercase">Aéreo</span>
+                  </div>
+                </th>
+                <th className="py-2.5 px-2 text-center border-b border-l border-border">
+                  <div className="flex flex-col items-center leading-tight">
+                    <span className="text-[10px] font-display font-bold text-orange-500 uppercase">T2C</span>
+                    <span className="text-[8px] font-display text-orange-500/70 uppercase">EasyJet</span>
+                  </div>
+                </th>
+              </tr>
+            </thead>
+          </table>
 
-              // Get Puente and T2C flights for this hour
-              const puenteForHour = vuelosPorTerminal.puente.filter(v => {
-                const h = parseInt(v.hora?.split(":")[0] || "0", 10);
-                return h === hour;
-              }).sort((a, b) => a.hora.localeCompare(b.hora));
+          {/* Body */}
+          <div className="flex-1 max-h-[50vh] overflow-y-auto scrollbar-dark">
+            <table className="w-full table-fixed border-collapse">
+              <tbody>
+                {hourSlots.map((slot, idx) => {
+                  const hour = (startHour + idx) % 24;
+                  const isCurrentHour = hour === currentHour;
 
-              const t2cForHour = vuelosPorTerminal.t2c.filter(v => {
-                const h = parseInt(v.hora?.split(":")[0] || "0", 10);
-                return h === hour;
-              }).sort((a, b) => a.hora.localeCompare(b.hora));
+                  const puenteForHour = vuelosPorTerminal.puente.filter(v => {
+                    const h = parseInt(v.hora?.split(":")[0] || "0", 10);
+                    return h === hour;
+                  }).sort((a, b) => a.hora.localeCompare(b.hora));
 
-              return (
-                <AccordionItem
-                  key={slot}
-                  value={slot}
-                  className={cn("border-b border-border/30", isCurrentHour && "bg-primary/10")}
-                >
-                  <AccordionTrigger className="py-0 px-0 hover:no-underline [&[data-state=open]>div]:bg-muted/30">
-                    <div className={cn("grid grid-cols-[80px_1fr_1fr_1fr_1fr] w-full", hasFlights && "cursor-pointer")}>
-                      {/* Hour Column */}
-                      <div
-                        className={cn(
-                          "py-2.5 px-2 flex items-center justify-center gap-1",
-                          isCurrentHour && "bg-primary/15",
-                        )}
-                      >
-                        <span
-                          className={cn(
-                            "text-[10px] font-mono font-semibold",
-                            isCurrentHour ? "font-bold text-primary" : "text-muted-foreground",
-                          )}
-                        >
-                          {slot}
-                        </span>
-                        {hasFlights && <ChevronDown className="h-3 w-3 text-muted-foreground/40 shrink-0" />}
-                      </div>
+                  const t2cForHour = vuelosPorTerminal.t2c.filter(v => {
+                    const h = parseInt(v.hora?.split(":")[0] || "0", 10);
+                    return h === hour;
+                  }).sort((a, b) => a.hora.localeCompare(b.hora));
 
-                      {/* T1 Column */}
-                      <div
-                        className={cn(
-                          "py-2.5 px-2 flex items-center justify-center gap-1 border-l border-border/30",
-                          isHotT1 && "bg-amber-500/10",
-                        )}
-                      >
-                        {isHotT1 && <Flame className="h-3 w-3 text-amber-500" />}
-                        <span
-                          className={cn(
-                            "font-display font-bold text-sm tabular-nums",
-                            isHotT1 ? "text-amber-500" : "text-foreground",
-                            countT1 === 0 && "text-muted-foreground/30",
-                          )}
-                        >
-                          {countT1.toString().padStart(2, "0")}
-                        </span>
-                        {longHaulT1 > 0 && (
-                          <span className="text-[8px] text-yellow-500 font-mono">+{longHaulT1}</span>
-                        )}
-                      </div>
-
-                      {/* T2 Column */}
-                      <div
-                        className={cn(
-                          "py-2.5 px-2 flex items-center justify-center gap-1 border-l border-border/30",
-                          isHotT2 && "bg-blue-500/10",
-                        )}
-                      >
-                        {isHotT2 && <Flame className="h-3 w-3 text-blue-500" />}
-                        <span
-                          className={cn(
-                            "font-display font-bold text-sm tabular-nums",
-                            isHotT2 ? "text-blue-500" : "text-foreground",
-                            countT2 === 0 && "text-muted-foreground/30",
-                          )}
-                        >
-                          {countT2.toString().padStart(2, "0")}
-                        </span>
-                        {longHaulT2 > 0 && (
-                          <span className="text-[8px] text-yellow-500 font-mono">+{longHaulT2}</span>
-                        )}
-                      </div>
-
-                      {/* Puente Aéreo Column */}
-                      <div className="py-2.5 px-2 flex items-center justify-center border-l border-border/30">
+                  return (
+                    <tr key={slot} className={cn("border-b border-border/30", isCurrentHour && "bg-primary/10")}>
+                      <td className="py-2 px-2 text-center align-middle h-[36px]">
                         {puenteForHour.length === 0 ? (
                           <span className="text-[9px] text-muted-foreground/25">—</span>
                         ) : (
                           <div className="flex flex-col items-center gap-0.5">
                             {puenteForHour.slice(0, 2).map((vuelo, i) => (
-                              <span key={i} className="font-mono font-bold text-[9px] text-red-500">
+                              <span key={i} className="font-mono font-bold text-[9px] text-red-500 leading-tight">
                                 {vuelo.hora}
                               </span>
                             ))}
                             {puenteForHour.length > 2 && (
-                              <span className="text-[8px] text-red-500/60">+{puenteForHour.length - 2}</span>
+                              <span className="text-[7px] text-red-500/60">+{puenteForHour.length - 2}</span>
                             )}
                           </div>
                         )}
-                      </div>
-
-                      {/* T2C Column */}
-                      <div className="py-2.5 px-2 flex items-center justify-center border-l border-border/30">
+                      </td>
+                      <td className="py-2 px-2 text-center align-middle border-l border-border/30 h-[36px]">
                         {t2cForHour.length === 0 ? (
                           <span className="text-[9px] text-muted-foreground/25">—</span>
                         ) : (
                           <div className="flex flex-col items-center gap-0.5">
                             {t2cForHour.slice(0, 2).map((vuelo, i) => (
-                              <span key={i} className="font-mono font-bold text-[9px] text-orange-500">
+                              <span key={i} className="font-mono font-bold text-[9px] text-orange-500 leading-tight">
                                 {vuelo.hora}
                               </span>
                             ))}
                             {t2cForHour.length > 2 && (
-                              <span className="text-[8px] text-orange-500/60">+{t2cForHour.length - 2}</span>
+                              <span className="text-[7px] text-orange-500/60">+{t2cForHour.length - 2}</span>
                             )}
                           </div>
                         )}
-                      </div>
-                    </div>
-                  </AccordionTrigger>
+                      </td>
+                    </tr>
+                  );
+                })}
+              </tbody>
+            </table>
+          </div>
 
-                  <AccordionContent className="pb-0">
-                    {hasFlights && (
-                      <div className="bg-muted/20 border-t border-border/30">
-                        <div className="grid grid-cols-2 gap-px">
-                          {/* T1 Flights Detail */}
-                          <div className="p-2.5 bg-card/50">
-                            <div className="flex items-center gap-1.5 mb-2">
-                              <div className="w-1.5 h-1.5 rounded-full bg-amber-500" />
-                              <span className="text-[9px] font-bold text-amber-500 uppercase tracking-wide">
-                                Terminal 1 ({flightsT1.length})
-                              </span>
-                            </div>
-                            {flightsT1.length > 0 ? (
-                              <div className="space-y-1">
-                                {flightsT1.slice(0, 4).map((f, i) => {
-                                  const isHighTicket = isLongHaul(f.origen);
-                                  return (
-                                    <div
-                                      key={i}
-                                      className={cn(
-                                        "flex items-center gap-2 text-[10px] py-1 px-2 rounded-md",
-                                        isHighTicket ? "bg-yellow-500/10 border border-yellow-500/20" : "bg-muted/30"
-                                      )}
-                                    >
-                                      <span className="font-mono font-semibold text-foreground w-10">{f.hora}</span>
-                                      <span className="text-muted-foreground truncate flex-1">
-                                        {f.vuelo?.split("/")[0]}
-                                      </span>
-                                      {isHighTicket && <Globe className="h-3 w-3 text-yellow-500 shrink-0" />}
-                                      <span className="text-muted-foreground/60 truncate max-w-[50px] text-[9px]">
-                                        {f.origen?.split("(")[0]?.trim()?.slice(0, 8)}
-                                      </span>
-                                    </div>
-                                  );
-                                })}
-                                {flightsT1.length > 4 && (
-                                  <p className="text-[9px] text-muted-foreground/60 text-center pt-1">
-                                    +{flightsT1.length - 4} más
-                                  </p>
-                                )}
-                              </div>
-                            ) : (
-                              <p className="text-[9px] text-muted-foreground/40 text-center py-2">Sin vuelos</p>
-                            )}
-                          </div>
-
-                          {/* T2 Flights Detail */}
-                          <div className="p-2.5 bg-card/50">
-                            <div className="flex items-center gap-1.5 mb-2">
-                              <div className="w-1.5 h-1.5 rounded-full bg-blue-500" />
-                              <span className="text-[9px] font-bold text-blue-500 uppercase tracking-wide">
-                                Terminal 2 ({flightsT2.length})
-                              </span>
-                            </div>
-                            {flightsT2.length > 0 ? (
-                              <div className="space-y-1">
-                                {flightsT2.slice(0, 4).map((f, i) => {
-                                  const isHighTicket = isLongHaul(f.origen);
-                                  return (
-                                    <div
-                                      key={i}
-                                      className={cn(
-                                        "flex items-center gap-2 text-[10px] py-1 px-2 rounded-md",
-                                        isHighTicket ? "bg-yellow-500/10 border border-yellow-500/20" : "bg-muted/30"
-                                      )}
-                                    >
-                                      <span className="font-mono font-semibold text-foreground w-10">{f.hora}</span>
-                                      <span className="text-muted-foreground truncate flex-1">
-                                        {f.vuelo?.split("/")[0]}
-                                      </span>
-                                      {isHighTicket && <Globe className="h-3 w-3 text-yellow-500 shrink-0" />}
-                                      <span className="text-muted-foreground/60 truncate max-w-[50px] text-[9px]">
-                                        {f.origen?.split("(")[0]?.trim()?.slice(0, 8)}
-                                      </span>
-                                    </div>
-                                  );
-                                })}
-                                {flightsT2.length > 4 && (
-                                  <p className="text-[9px] text-muted-foreground/60 text-center pt-1">
-                                    +{flightsT2.length - 4} más
-                                  </p>
-                                )}
-                              </div>
-                            ) : (
-                              <p className="text-[9px] text-muted-foreground/40 text-center py-2">Sin vuelos</p>
-                            )}
-                          </div>
-                        </div>
-                      </div>
-                    )}
-                  </AccordionContent>
-                </AccordionItem>
-              );
-            })}
-          </Accordion>
-        </div>
-
-        {/* Table Footer - Totals */}
-        <div className="grid grid-cols-[80px_1fr_1fr_1fr_1fr] bg-gradient-to-r from-muted to-muted/80 border-t border-border">
-          <div className="py-3 px-2 text-center">
-            <span className="text-[10px] font-display font-bold text-muted-foreground uppercase tracking-wide">Total</span>
-          </div>
-          <div className="py-3 px-2 text-center border-l border-border/50">
-            <span className="font-display font-bold text-lg text-amber-500 tabular-nums">{totalT1}</span>
-          </div>
-          <div className="py-3 px-2 text-center border-l border-border/50">
-            <span className="font-display font-bold text-lg text-blue-500 tabular-nums">{totalT2}</span>
-          </div>
-          <div className="py-3 px-2 text-center border-l border-border/50">
-            <span className="font-display font-bold text-lg text-red-500 tabular-nums">{totalPuente}</span>
-          </div>
-          <div className="py-3 px-2 text-center border-l border-border/50">
-            <span className="font-display font-bold text-lg text-orange-500 tabular-nums">{totalT2C}</span>
-          </div>
+          {/* Footer */}
+          <table className="w-full table-fixed border-collapse">
+            <tfoot>
+              <tr className="bg-gradient-to-r from-muted to-muted/80">
+                <td className="py-2.5 px-2 text-center border-t border-border">
+                  <span className="font-display font-bold text-base text-red-500 tabular-nums">{totalPuente}</span>
+                </td>
+                <td className="py-2.5 px-2 text-center border-t border-l border-border">
+                  <span className="font-display font-bold text-base text-orange-500 tabular-nums">{totalT2C}</span>
+                </td>
+              </tr>
+            </tfoot>
+          </table>
         </div>
       </div>
 
@@ -522,10 +507,6 @@ export function FullDayView({ onBack }: FullDayViewProps) {
         <div className="flex items-center gap-1.5 text-[11px] text-muted-foreground">
           <Globe className="h-3.5 w-3.5 text-yellow-500" />
           <span>Larga Distancia</span>
-        </div>
-        <div className="flex items-center gap-1.5 text-[11px] text-muted-foreground">
-          <span className="text-[9px] text-yellow-500 font-mono bg-yellow-500/10 px-1 rounded">+2</span>
-          <span>High Ticket en hora</span>
         </div>
       </div>
     </div>
