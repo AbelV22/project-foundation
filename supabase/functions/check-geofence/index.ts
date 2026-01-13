@@ -54,12 +54,12 @@ function puntoEnPoligono(lat: number, lng: number, poligono: number[][]) {
 function puntoCercaDePoligono(lat: number, lng: number, poligono: number[][]): boolean {
   // Check if point is inside polygon
   if (puntoEnPoligono(lat, lng, poligono)) return true;
-  
+
   // Check if point is within tolerance distance of any edge
   for (let i = 0; i < poligono.length - 1; i++) {
     const [lat1, lng1] = poligono[i];
     const [lat2, lng2] = poligono[i + 1];
-    
+
     // Simple distance check to line segment
     const dist = distanciaPuntoALinea(lat, lng, lat1, lng1, lat2, lng2);
     if (dist <= TOLERANCE) return true;
@@ -72,15 +72,15 @@ function distanciaPuntoALinea(px: number, py: number, x1: number, y1: number, x2
   const B = py - y1;
   const C = x2 - x1;
   const D = y2 - y1;
-  
+
   const dot = A * C + B * D;
   const lenSq = C * C + D * D;
   let param = -1;
-  
+
   if (lenSq !== 0) param = dot / lenSq;
-  
+
   let xx, yy;
-  
+
   if (param < 0) {
     xx = x1;
     yy = y1;
@@ -91,7 +91,7 @@ function distanciaPuntoALinea(px: number, py: number, x1: number, y1: number, x2
     xx = x1 + param * C;
     yy = y1 + param * D;
   }
-  
+
   const dx = px - xx;
   const dy = py - yy;
   return Math.sqrt(dx * dx + dy * dy);
@@ -109,23 +109,23 @@ serve(async (req) => {
 
   try {
     const { lat, lng, action, deviceId } = await req.json();
-    
+
     console.log(`[check-geofence] Received: lat=${lat}, lng=${lng}, action=${action}, deviceId=${deviceId}`);
-    
+
     // Validate deviceId
     if (!deviceId || typeof deviceId !== 'string' || deviceId.length < 36) {
-      return new Response(JSON.stringify({ 
-        success: false, 
-        message: "❌ Device ID inválido." 
+      return new Response(JSON.stringify({
+        success: false,
+        message: "❌ Device ID inválido."
       }), { headers: { ...corsHeaders, 'Content-Type': 'application/json' } });
     }
-    
+
     // Validate coordinates
-    if (typeof lat !== 'number' || typeof lng !== 'number' || 
-        lat < 41.0 || lat > 42.0 || lng < 1.5 || lng > 3.0) {
-      return new Response(JSON.stringify({ 
-        success: false, 
-        message: "❌ Coordenadas fuera del área de Barcelona." 
+    if (typeof lat !== 'number' || typeof lng !== 'number' ||
+      lat < 41.0 || lat > 42.0 || lng < 1.5 || lng > 3.0) {
+      return new Response(JSON.stringify({
+        success: false,
+        message: "❌ Coordenadas fuera del área de Barcelona."
       }), { headers: { ...corsHeaders, 'Content-Type': 'application/json' } });
     }
 
@@ -144,21 +144,14 @@ serve(async (req) => {
 
     console.log(`[check-geofence] Zona detectada: ${zonaDetectada || 'ninguna'}`);
 
-    if (!zonaDetectada) {
-      return new Response(JSON.stringify({ 
-        success: false, 
-        message: "❌ No estás en una zona autorizada. Acércate al punto de espera." 
-      }), { headers: { ...corsHeaders, 'Content-Type': 'application/json' } });
-    }
-
-    // REGISTRAR ENTRADA
+    // REGISTRAR ENTRADA (siempre guardar para debug, incluso fuera de zonas)
     if (action === 'register') {
       const supabase = createClient(
         Deno.env.get('SUPABASE_URL') ?? '',
         Deno.env.get('SUPABASE_SERVICE_ROLE_KEY') ?? ''
       );
 
-      // Rate limiting: check last entry from this device
+      // Rate limiting: check last entry from this device (1 min for debug mode)
       const { data: lastEntry } = await supabase
         .from('registros_reten')
         .select('created_at')
@@ -171,18 +164,22 @@ serve(async (req) => {
         const lastTime = new Date(lastEntry.created_at).getTime();
         const now = Date.now();
         const diffMinutes = (now - lastTime) / (1000 * 60);
-        
-        if (diffMinutes < 5) {
-          return new Response(JSON.stringify({ 
-            success: false, 
-            message: `⏳ Espera ${Math.ceil(5 - diffMinutes)} minutos para registrar otra entrada.` 
+
+        // Reduced rate limit to 1 min for debugging
+        if (diffMinutes < 1) {
+          return new Response(JSON.stringify({
+            success: false,
+            message: `⏳ Espera ${Math.ceil(60 - (now - lastTime) / 1000)} segundos.`
           }), { headers: { ...corsHeaders, 'Content-Type': 'application/json' } });
         }
       }
 
+      // Always save location - use "DEBUG" zone if outside all zones
+      const zonaParaGuardar = zonaDetectada || "DEBUG";
+
       const { error } = await supabase.from('registros_reten').insert({
-        zona: zonaDetectada,
-        tipo_zona: "STANDARD",
+        zona: zonaParaGuardar,
+        tipo_zona: zonaDetectada ? "STANDARD" : "DEBUG",
         evento: 'ENTRADA',
         lat: lat,
         lng: lng,
@@ -193,22 +190,31 @@ serve(async (req) => {
         console.error(`[check-geofence] DB Error:`, error);
         throw error;
       }
-      
-      console.log(`[check-geofence] Entrada registrada en ${zonaDetectada} para device ${deviceId}`);
+
+      console.log(`[check-geofence] Ping guardado en ${zonaParaGuardar} para device ${deviceId}`);
     }
 
-    return new Response(JSON.stringify({ 
-      success: true, 
-      zona: zonaDetectada, 
-      message: `✅ Entrada confirmada en ${zonaDetectada}` 
-    }), { headers: { ...corsHeaders, 'Content-Type': 'application/json' } });
+    // Return success with zone info
+    if (zonaDetectada) {
+      return new Response(JSON.stringify({
+        success: true,
+        zona: zonaDetectada,
+        message: `✅ Entrada confirmada en ${zonaDetectada}`
+      }), { headers: { ...corsHeaders, 'Content-Type': 'application/json' } });
+    } else {
+      return new Response(JSON.stringify({
+        success: true,
+        zona: "DEBUG",
+        message: `📍 Ubicación registrada (fuera de zonas)`
+      }), { headers: { ...corsHeaders, 'Content-Type': 'application/json' } });
+    }
 
   } catch (error) {
     console.error(`[check-geofence] Error:`, error);
     const errorMessage = error instanceof Error ? error.message : 'Unknown error';
-    return new Response(JSON.stringify({ error: errorMessage }), { 
-      status: 400, 
-      headers: { ...corsHeaders, 'Content-Type': 'application/json' } 
+    return new Response(JSON.stringify({ error: errorMessage }), {
+      status: 400,
+      headers: { ...corsHeaders, 'Content-Type': 'application/json' }
     });
   }
 });
