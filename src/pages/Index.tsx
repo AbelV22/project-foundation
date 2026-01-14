@@ -1,6 +1,8 @@
 import { useState } from "react";
-import { Sidebar } from "@/components/layout/Sidebar";
-import { Header } from "@/components/layout/Header";
+import { TopNav } from "@/components/layout/TopNav";
+import { BottomNav } from "@/components/layout/BottomNav";
+import { MobileHeader } from "@/components/layout/MobileHeader";
+import { CommandPalette } from "@/components/layout/CommandPalette";
 import { DashboardView } from "@/components/views/DashboardView";
 import { FlightsView } from "@/components/views/FlightsView";
 import { EventsView } from "@/components/views/EventsView";
@@ -28,7 +30,7 @@ const titles: Record<string, string> = {
 
 const Index = () => {
   const [activeTab, setActiveTab] = useState("dashboard");
-  const [sidebarOpen, setSidebarOpen] = useState(false);
+  const [commandPaletteOpen, setCommandPaletteOpen] = useState(false);
   const [selectedTerminal, setSelectedTerminal] = useState<string | null>(null);
   const [selectedTrainCity, setSelectedTrainCity] = useState<string | null>(null);
   const [selectedTrainOperator, setSelectedTrainOperator] = useState<string | null>(null);
@@ -91,23 +93,37 @@ const Index = () => {
     setActiveTab("licencias");
   };
 
+  const handleTabChange = (tab: string) => {
+    setActiveTab(tab);
+    setSelectedTerminal(null);
+    setSelectedTrainCity(null);
+    setSelectedTrainOperator(null);
+  };
+
   return (
     <div className="min-h-screen bg-background">
-      <Sidebar 
+      {/* Desktop Top Navigation */}
+      <TopNav 
         activeTab={activeTab} 
-        onTabChange={(tab) => {
-          setActiveTab(tab);
-          setSelectedTerminal(null);
-          setSelectedTrainCity(null);
-          setSelectedTrainOperator(null);
-        }} 
-        isOpen={sidebarOpen}
-        onToggle={() => setSidebarOpen(!sidebarOpen)}
+        onTabChange={handleTabChange}
+        onOpenCommandPalette={() => setCommandPaletteOpen(true)}
       />
       
-      <main className="lg:pl-56 transition-all duration-300">
-        <Header title={titles[activeTab]} onMenuToggle={() => setSidebarOpen(!sidebarOpen)} />
-        
+      {/* Mobile Header */}
+      <MobileHeader 
+        title={titles[activeTab]} 
+        onOpenCommandPalette={() => setCommandPaletteOpen(true)}
+      />
+      
+      {/* Command Palette */}
+      <CommandPalette
+        open={commandPaletteOpen}
+        onOpenChange={setCommandPaletteOpen}
+        onNavigate={handleTabChange}
+      />
+      
+      {/* Main Content */}
+      <main className="lg:pt-16 pb-20 lg:pb-6">
         <div className="p-4 md:p-6">
           {activeTab === "dashboard" && (
             <DashboardView 
@@ -160,6 +176,12 @@ const Index = () => {
           )}
         </div>
       </main>
+
+      {/* Mobile Bottom Navigation */}
+      <BottomNav 
+        activeTab={activeTab} 
+        onTabChange={handleTabChange}
+      />
     </div>
   );
 };

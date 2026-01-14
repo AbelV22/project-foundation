@@ -283,6 +283,11 @@
     background-color: hsl(var(--muted-foreground) / 0.3);
   }
 }
+/* Safe area for mobile bottom nav */
+.safe-area-bottom {
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+
 /* --- AÑADE ESTO AL FINAL DEL ARCHIVO --- */
 /* Ocultar botón de Lovable */
 a[href*="lovable.dev"],
