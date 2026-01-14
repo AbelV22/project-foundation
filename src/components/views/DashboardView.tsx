@@ -282,47 +282,11 @@ export function DashboardView({ onTerminalClick, onViewAllFlights, onViewAllEven
   return (
     <div className="space-y-3 pb-16">
 
-      {/* === ACTION BUTTONS - GRADIENT PREMIUM === */}
-      <div className="grid grid-cols-2 gap-2 animate-fade-in" style={{ animationDelay: '100ms' }}>
-        {!isInReten ? (
-          <button 
-            onClick={handleEntrarReten}
-            disabled={isEnteringReten}
-            className="btn-gradient-emerald flex items-center justify-center gap-2 h-14 rounded-xl text-white font-semibold transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] hover:shadow-lg hover:shadow-emerald-500/20 disabled:opacity-70 disabled:cursor-wait"
-          >
-            {isEnteringReten ? (
-              <Loader2 className="h-5 w-5 animate-spin" />
-            ) : (
-              <MapPin className="h-5 w-5" />
-            )}
-            <span className="text-sm">{isEnteringReten ? 'Localizando...' : 'Entro al retén'}</span>
-          </button>
-        ) : (
-          <div className="flex flex-col items-center justify-center gap-0.5 h-14 rounded-xl bg-emerald-500/20 border border-emerald-500/30 text-emerald-400">
-            <span className="text-xs font-medium">Esperando en</span>
-            <span className="font-bold text-sm">{currentZona}</span>
-          </div>
-        )}
-        <button 
-          onClick={handleSalirReten}
-          disabled={!isInReten}
-          className={cn(
-            "flex items-center justify-center gap-2 h-14 rounded-xl font-semibold transition-all duration-200 hover:scale-[1.02] active:scale-[0.98]",
-            isInReten 
-              ? "btn-gradient-amber text-black hover:shadow-lg hover:shadow-amber-500/20" 
-              : "bg-white/5 text-white/30 cursor-not-allowed"
-          )}
-        >
-          <XCircle className="h-5 w-5" />
-          <span className="text-sm">Salgo del retén</span>
-        </button>
-      </div>
-
       {/* === QUICK NAV BUTTONS === */}
-      <div className="grid grid-cols-2 gap-2">
+      <div className="grid grid-cols-2 gap-2 animate-fade-in" style={{ animationDelay: '100ms' }}>
         <button 
           onClick={onViewFullDay}
-          className="card-glass-hover flex items-center justify-center gap-2 h-11 text-white/80 hover:text-white font-medium text-sm transition-all duration-200"
+          className="card-glass-hover flex items-center justify-center gap-2 h-11 text-foreground/80 hover:text-foreground font-medium text-sm transition-all duration-200"
         >
           <Calendar className="h-4 w-4 text-primary" />
           <Plane className="h-4 w-4" />
@@ -330,7 +294,7 @@ export function DashboardView({ onTerminalClick, onViewAllFlights, onViewAllEven
         </button>
         <button 
           onClick={onViewTrainsFullDay}
-          className="card-glass-hover flex items-center justify-center gap-2 h-11 text-white/80 hover:text-white font-medium text-sm transition-all duration-200"
+          className="card-glass-hover flex items-center justify-center gap-2 h-11 text-foreground/80 hover:text-foreground font-medium text-sm transition-all duration-200"
         >
           <Calendar className="h-4 w-4 text-emerald-400" />
           <Train className="h-4 w-4" />

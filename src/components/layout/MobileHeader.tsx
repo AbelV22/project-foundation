@@ -1,6 +1,7 @@
 import { Search } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import logoItaxiBcn from "@/assets/logo-itaxibcn.png";
+import { ThemeToggle } from "@/components/layout/ThemeToggle";
 
 interface MobileHeaderProps {
   title: string;
@@ -25,15 +26,18 @@ export function MobileHeader({ title, onOpenCommandPalette }: MobileHeaderProps)
           {title}
         </h1>
 
-        {/* Search Button */}
-        <Button
-          variant="ghost"
-          size="icon"
-          onClick={onOpenCommandPalette}
-          className="h-9 w-9"
-        >
-          <Search className="h-5 w-5 text-muted-foreground" />
-        </Button>
+        {/* Right side controls */}
+        <div className="flex items-center gap-1">
+          <ThemeToggle />
+          <Button
+            variant="ghost"
+            size="icon"
+            onClick={onOpenCommandPalette}
+            className="h-9 w-9"
+          >
+            <Search className="h-5 w-5 text-muted-foreground" />
+          </Button>
+        </div>
       </div>
     </header>
   );

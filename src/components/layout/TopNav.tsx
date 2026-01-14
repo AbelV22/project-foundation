@@ -10,6 +10,7 @@ import {
 import { cn } from "@/lib/utils";
 import logoItaxiBcn from "@/assets/logo-itaxibcn.png";
 import { Button } from "@/components/ui/button";
+import { ThemeToggle } from "@/components/layout/ThemeToggle";
 
 interface TopNavProps {
   activeTab: string;
@@ -18,12 +19,12 @@ interface TopNavProps {
 }
 
 const navItems = [
-  { id: "dashboard", label: "Inicio", icon: LayoutDashboard },
-  { id: "vuelos", label: "Vuelos", icon: Plane },
-  { id: "trenes", label: "Trenes", icon: Train },
-  { id: "eventos", label: "Eventos", icon: Calendar },
-  { id: "licencias", label: "Licencias", icon: TrendingUp },
-  { id: "alertas", label: "Alertas", icon: Bell },
+  { id: "dashboard", label: "Inicio", icon: LayoutDashboard, target: "dashboard" },
+  { id: "vuelos", label: "Vuelos", icon: Plane, target: "fullDay" },
+  { id: "trenes", label: "Trenes", icon: Train, target: "trainsFullDay" },
+  { id: "eventos", label: "Eventos", icon: Calendar, target: "eventos" },
+  { id: "licencias", label: "Licencias", icon: TrendingUp, target: "licencias" },
+  { id: "alertas", label: "Alertas", icon: Bell, target: "alertas" },
 ];
 
 export function TopNav({ activeTab, onTabChange, onOpenCommandPalette }: TopNavProps) {
@@ -41,14 +42,14 @@ export function TopNav({ activeTab, onTabChange, onOpenCommandPalette }: TopNavP
       {/* Navigation Tabs */}
       <nav className="flex items-center gap-1 bg-muted/50 p-1 rounded-xl">
         {navItems.map((item) => {
-          const isActive = activeTab === item.id || 
-            (item.id === "vuelos" && (activeTab === "terminalDetail" || activeTab === "fullDay")) ||
-            (item.id === "trenes" && (activeTab === "trainsFullDay" || activeTab === "trainsByCity" || activeTab === "trainsByOperator"));
+          const isActive = activeTab === item.target || 
+            (item.id === "vuelos" && (activeTab === "terminalDetail" || activeTab === "fullDay" || activeTab === "vuelos")) ||
+            (item.id === "trenes" && (activeTab === "trainsFullDay" || activeTab === "trainsByCity" || activeTab === "trainsByOperator" || activeTab === "trenes"));
           
           return (
             <button
               key={item.id}
-              onClick={() => onTabChange(item.id)}
+              onClick={() => onTabChange(item.target)}
               className={cn(
                 "flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200",
                 isActive 
@@ -63,19 +64,22 @@ export function TopNav({ activeTab, onTabChange, onOpenCommandPalette }: TopNavP
         })}
       </nav>
 
-      {/* Command Palette Trigger */}
-      <Button
-        variant="outline"
-        size="sm"
-        onClick={onOpenCommandPalette}
-        className="gap-2 text-muted-foreground"
-      >
-        <Command className="h-4 w-4" />
-        <span className="text-xs">Buscar</span>
-        <kbd className="pointer-events-none hidden h-5 select-none items-center gap-1 rounded border bg-muted px-1.5 font-mono text-[10px] font-medium opacity-100 sm:flex">
-          <span className="text-xs">⌘</span>K
-        </kbd>
-      </Button>
+      {/* Right side controls */}
+      <div className="flex items-center gap-2">
+        <ThemeToggle />
+        <Button
+          variant="outline"
+          size="sm"
+          onClick={onOpenCommandPalette}
+          className="gap-2 text-muted-foreground"
+        >
+          <Command className="h-4 w-4" />
+          <span className="text-xs">Buscar</span>
+          <kbd className="pointer-events-none hidden h-5 select-none items-center gap-1 rounded border bg-muted px-1.5 font-mono text-[10px] font-medium opacity-100 sm:flex">
+            <span className="text-xs">⌘</span>K
+          </kbd>
+        </Button>
+      </div>
     </header>
   );
 }

@@ -1,8 +1,9 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { TopNav } from "@/components/layout/TopNav";
 import { BottomNav } from "@/components/layout/BottomNav";
 import { MobileHeader } from "@/components/layout/MobileHeader";
 import { CommandPalette } from "@/components/layout/CommandPalette";
+import { AnimatedView } from "@/components/layout/AnimatedView";
 import { DashboardView } from "@/components/views/DashboardView";
 import { FlightsView } from "@/components/views/FlightsView";
 import { EventsView } from "@/components/views/EventsView";
@@ -13,6 +14,7 @@ import { FullDayView } from "@/components/views/FullDayView";
 import { TrainsFullDayView } from "@/components/views/TrainsFullDayView";
 import { TrainsByCityView } from "@/components/views/TrainsByCityView";
 import { TrainsByOperatorView } from "@/components/views/TrainsByOperatorView";
+import { useTheme } from "@/hooks/useTheme";
 
 const titles: Record<string, string> = {
   dashboard: "Inicio",
@@ -22,7 +24,7 @@ const titles: Record<string, string> = {
   licencias: "Precio de Licencias",
   alertas: "Alertas",
   terminalDetail: "Detalle Terminal",
-  fullDay: "Vista Día Completo",
+  fullDay: "Vuelos Día Completo",
   trainsFullDay: "Trenes Sants",
   trainsByCity: "Trenes por Ciudad",
   trainsByOperator: "Trenes por Operador",
@@ -35,6 +37,9 @@ const Index = () => {
   const [selectedTrainCity, setSelectedTrainCity] = useState<string | null>(null);
   const [selectedTrainOperator, setSelectedTrainOperator] = useState<string | null>(null);
 
+  // Initialize theme
+  useTheme();
+
   const handleTerminalClick = (terminalId: string) => {
     setSelectedTerminal(terminalId);
     setActiveTab("terminalDetail");
@@ -46,7 +51,7 @@ const Index = () => {
   };
 
   const handleViewAllFlights = () => {
-    setActiveTab("vuelos");
+    setActiveTab("fullDay");
   };
 
   const handleViewAllEvents = () => {
@@ -100,8 +105,66 @@ const Index = () => {
     setSelectedTrainOperator(null);
   };
 
+  const renderView = () => {
+    switch (activeTab) {
+      case "dashboard":
+        return (
+          <DashboardView 
+            onTerminalClick={handleTerminalClick}
+            onViewAllFlights={handleViewAllFlights}
+            onViewAllEvents={handleViewAllEvents}
+            onViewFullDay={handleViewFullDay}
+            onViewTrainsFullDay={handleViewTrainsFullDay}
+            onViewLicenses={handleViewLicenses}
+          />
+        );
+      case "vuelos":
+        return <FlightsView />;
+      case "trenes":
+      case "trainsFullDay":
+        return (
+          <TrainsFullDayView 
+            onBack={handleBackFromTrainsFullDay}
+            onCityClick={handleTrainCityClick}
+            onOperatorClick={handleTrainOperatorClick}
+          />
+        );
+      case "eventos":
+        return <EventsView />;
+      case "licencias":
+        return <LicensesView />;
+      case "alertas":
+        return <AlertsView />;
+      case "terminalDetail":
+        return selectedTerminal ? (
+          <TerminalDetailView 
+            terminalId={selectedTerminal} 
+            onBack={handleBackFromTerminal} 
+          />
+        ) : null;
+      case "fullDay":
+        return <FullDayView onBack={handleBackFromFullDay} />;
+      case "trainsByCity":
+        return selectedTrainCity ? (
+          <TrainsByCityView 
+            city={selectedTrainCity}
+            onBack={handleBackFromTrainsByCity}
+          />
+        ) : null;
+      case "trainsByOperator":
+        return selectedTrainOperator ? (
+          <TrainsByOperatorView 
+            operator={selectedTrainOperator}
+            onBack={handleBackFromTrainsByOperator}
+          />
+        ) : null;
+      default:
+        return null;
+    }
+  };
+
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background transition-colors duration-300">
       {/* Desktop Top Navigation */}
       <TopNav 
         activeTab={activeTab} 
@@ -122,58 +185,12 @@ const Index = () => {
         onNavigate={handleTabChange}
       />
       
-      {/* Main Content */}
+      {/* Main Content with Animations */}
       <main className="lg:pt-16 pb-20 lg:pb-6">
         <div className="p-4 md:p-6">
-          {activeTab === "dashboard" && (
-            <DashboardView 
-              onTerminalClick={handleTerminalClick}
-              onViewAllFlights={handleViewAllFlights}
-              onViewAllEvents={handleViewAllEvents}
-              onViewFullDay={handleViewFullDay}
-              onViewTrainsFullDay={handleViewTrainsFullDay}
-              onViewLicenses={handleViewLicenses}
-            />
-          )}
-          {activeTab === "vuelos" && <FlightsView />}
-          {activeTab === "trenes" && (
-            <TrainsFullDayView 
-              onBack={() => setActiveTab("dashboard")}
-              onCityClick={handleTrainCityClick}
-              onOperatorClick={handleTrainOperatorClick}
-            />
-          )}
-          {activeTab === "eventos" && <EventsView />}
-          {activeTab === "licencias" && <LicensesView />}
-          {activeTab === "alertas" && <AlertsView />}
-          {activeTab === "terminalDetail" && selectedTerminal && (
-            <TerminalDetailView 
-              terminalId={selectedTerminal} 
-              onBack={handleBackFromTerminal} 
-            />
-          )}
-          {activeTab === "fullDay" && (
-            <FullDayView onBack={handleBackFromFullDay} />
-          )}
-          {activeTab === "trainsFullDay" && (
-            <TrainsFullDayView 
-              onBack={handleBackFromTrainsFullDay}
-              onCityClick={handleTrainCityClick}
-              onOperatorClick={handleTrainOperatorClick}
-            />
-          )}
-          {activeTab === "trainsByCity" && selectedTrainCity && (
-            <TrainsByCityView 
-              city={selectedTrainCity}
-              onBack={handleBackFromTrainsByCity}
-            />
-          )}
-          {activeTab === "trainsByOperator" && selectedTrainOperator && (
-            <TrainsByOperatorView 
-              operator={selectedTrainOperator}
-              onBack={handleBackFromTrainsByOperator}
-            />
-          )}
+          <AnimatedView viewKey={activeTab}>
+            {renderView()}
+          </AnimatedView>
         </div>
       </main>
 

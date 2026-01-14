@@ -6,6 +6,63 @@
 
 @layer base {
   :root {
+    /* iTaxiBcn Light Theme */
+    --background: 220 15% 97%;
+    --foreground: 220 25% 10%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 220 25% 10%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 25% 10%;
+
+    /* Golden Yellow Primary */
+    --primary: 42 100% 45%;
+    --primary-foreground: 0 0% 100%;
+
+    /* Light Secondary */
+    --secondary: 220 15% 92%;
+    --secondary-foreground: 220 25% 30%;
+
+    --muted: 220 15% 94%;
+    --muted-foreground: 220 10% 45%;
+
+    --accent: 220 15% 90%;
+    --accent-foreground: 220 25% 10%;
+
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 100%;
+
+    /* Status Colors */
+    --success: 142 70% 40%;
+    --success-foreground: 0 0% 100%;
+    --warning: 38 92% 50%;
+    --warning-foreground: 220 25% 6%;
+    --info: 199 89% 48%;
+    --info-foreground: 0 0% 100%;
+
+    /* Rain Alert */
+    --rain: 200 80% 50%;
+    --rain-foreground: 0 0% 100%;
+
+    --border: 220 15% 88%;
+    --input: 220 15% 92%;
+    --ring: 42 100% 45%;
+
+    --radius: 0.75rem;
+
+    /* Sidebar - Light theme */
+    --sidebar-background: 220 15% 97%;
+    --sidebar-foreground: 220 25% 30%;
+    --sidebar-primary: 42 100% 45%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 220 15% 92%;
+    --sidebar-accent-foreground: 220 25% 10%;
+    --sidebar-border: 220 15% 88%;
+    --sidebar-ring: 42 100% 45%;
+  }
+
+  .dark {
     /* iTaxiBcn Dark Theme - Based on reference design */
     --background: 220 25% 6%;
     --foreground: 220 10% 95%;
@@ -30,8 +87,8 @@
     --accent: 220 20% 16%;
     --accent-foreground: 220 10% 95%;
 
-    --destructive: 0 72% 51%;
-    --destructive-foreground: 0 0% 100%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
 
     /* Status Colors */
     --success: 142 70% 45%;
@@ -49,48 +106,7 @@
     --input: 220 20% 14%;
     --ring: 42 100% 50%;
 
-    --radius: 0.75rem;
-
     /* Sidebar - Dark theme */
-    --sidebar-background: 220 25% 8%;
-    --sidebar-foreground: 220 10% 70%;
-    --sidebar-primary: 42 100% 50%;
-    --sidebar-primary-foreground: 220 25% 6%;
-    --sidebar-accent: 220 20% 14%;
-    --sidebar-accent-foreground: 220 10% 95%;
-    --sidebar-border: 220 15% 15%;
-    --sidebar-ring: 42 100% 50%;
-  }
-
-  .dark {
-    --background: 220 25% 6%;
-    --foreground: 220 10% 95%;
-
-    --card: 220 25% 10%;
-    --card-foreground: 220 10% 95%;
-
-    --popover: 220 25% 10%;
-    --popover-foreground: 220 10% 95%;
-
-    --primary: 42 100% 50%;
-    --primary-foreground: 220 25% 6%;
-
-    --secondary: 220 20% 14%;
-    --secondary-foreground: 220 10% 70%;
-
-    --muted: 220 20% 12%;
-    --muted-foreground: 220 10% 55%;
-
-    --accent: 220 20% 16%;
-    --accent-foreground: 220 10% 95%;
-
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 220 15% 18%;
-    --input: 220 20% 14%;
-    --ring: 42 100% 50%;
-
     --sidebar-background: 220 25% 8%;
     --sidebar-foreground: 220 10% 70%;
     --sidebar-primary: 42 100% 50%;
@@ -126,15 +142,37 @@
     @apply bg-card rounded-xl border border-border hover:border-primary/40 transition-all duration-300;
   }
 
-  /* Premium Glass Card */
+  /* Premium Glass Card - Light/Dark adaptive */
   .card-glass {
-    @apply rounded-xl border border-white/10 backdrop-blur-md transition-all duration-300;
-    background: rgba(0, 0, 0, 0.6);
+    @apply rounded-xl border backdrop-blur-md transition-all duration-300;
+    background: hsl(var(--card) / 0.8);
+    border-color: hsl(var(--border));
   }
 
   .card-glass-hover {
-    @apply rounded-xl border border-white/10 backdrop-blur-md transition-all duration-300 hover:border-white/20 hover:bg-black/70;
+    @apply rounded-xl border backdrop-blur-md transition-all duration-300;
+    background: hsl(var(--card) / 0.8);
+    border-color: hsl(var(--border));
+  }
+  
+  .card-glass-hover:hover {
+    background: hsl(var(--card));
+    border-color: hsl(var(--primary) / 0.3);
+  }
+  
+  .dark .card-glass {
     background: rgba(0, 0, 0, 0.6);
+    border-color: rgba(255, 255, 255, 0.1);
+  }
+  
+  .dark .card-glass-hover {
+    background: rgba(0, 0, 0, 0.6);
+    border-color: rgba(255, 255, 255, 0.1);
+  }
+  
+  .dark .card-glass-hover:hover {
+    background: rgba(0, 0, 0, 0.7);
+    border-color: rgba(255, 255, 255, 0.2);
   }
 
   /* Gradient Buttons */
