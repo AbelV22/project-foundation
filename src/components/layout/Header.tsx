@@ -1,6 +1,7 @@
 import { Bell, Sun, Cloud, CloudRain, CloudDrizzle, CloudLightning, Snowflake } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useWeather } from "@/hooks/useWeather";
+import { ThemeToggle } from "@/components/ThemeToggle";
 import logoItaxiBcn from "@/assets/logo-itaxibcn.png";
 import { useState, useEffect } from "react";
 
@@ -36,16 +37,16 @@ export function Header({ title, onMenuToggle }: HeaderProps) {
       <div className="flex items-center gap-2">
         {/* Mobile menu spacer */}
         <div className="w-8 lg:hidden" />
-        
+
         {/* Logo con glow */}
         <div className="lg:hidden relative ml-2">
-          <img 
-            src={logoItaxiBcn} 
-            alt="iTaxiBcn" 
+          <img
+            src={logoItaxiBcn}
+            alt="iTaxiBcn"
             className="h-9 w-auto object-contain drop-shadow-[0_0_8px_rgba(250,204,21,0.5)]"
           />
         </div>
-        
+
         {/* Desktop: título y fecha */}
         <div className="hidden lg:block">
           <h1 className="font-display text-lg md:text-2xl font-bold text-foreground">{title}</h1>
@@ -56,15 +57,14 @@ export function Header({ title, onMenuToggle }: HeaderProps) {
       <div className="flex items-center gap-2">
         {/* Hora actual - prominente */}
         <p className="font-display font-bold text-xl text-foreground">{horaActual}</p>
-        
+
         {/* Clima dinámico con alerta */}
-        <button 
+        <button
           onClick={() => window.open("https://www.eltiempo.es/barcelona.html", "_blank")}
-          className={`flex items-center gap-1.5 px-2.5 py-1.5 rounded-full text-xs border transition-all ${
-            isRainAlert 
-              ? "bg-rain/20 border-rain/50 animate-pulse" 
+          className={`flex items-center gap-1.5 px-2.5 py-1.5 rounded-full text-xs border transition-all ${isRainAlert
+              ? "bg-rain/20 border-rain/50 animate-pulse"
               : "bg-muted/50 border-border hover:bg-muted"
-          }`}
+            }`}
         >
           {weather ? (
             <>
@@ -82,6 +82,9 @@ export function Header({ title, onMenuToggle }: HeaderProps) {
             <Sun className="h-4 w-4 text-amber-400 animate-pulse" />
           )}
         </button>
+
+        {/* Theme toggle */}
+        <ThemeToggle />
 
         {/* Notificaciones - solo desktop */}
         <Button variant="ghost" size="icon" className="hidden md:flex relative text-muted-foreground hover:text-foreground h-8 w-8">
