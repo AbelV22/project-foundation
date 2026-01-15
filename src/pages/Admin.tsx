@@ -10,6 +10,8 @@ const ADMIN_PASSWORD = "laraabel22";
 interface RegistroReten {
     id: string;
     zona: string;
+    tipo_zona: string;
+    evento: string;
     created_at: string;
     exited_at: string | null;
     device_id: string | null;
