@@ -250,10 +250,10 @@ export function FlightsView() {
               />
               <Tooltip 
                 contentStyle={{
-                  backgroundColor: 'hsl(220, 25%, 10%)',
-                  border: '1px solid hsl(220, 15%, 18%)',
+                  backgroundColor: 'hsl(var(--popover))',
+                  border: '1px solid hsl(var(--border))',
                   borderRadius: '8px',
-                  color: 'white'
+                  color: 'hsl(var(--popover-foreground))'
                 }}
                 formatter={(value: number) => [
                   chartType === "vuelos" ? `${value} vuelos` : `${value.toLocaleString()} pasajeros`,

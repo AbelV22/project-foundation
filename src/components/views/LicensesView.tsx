@@ -139,7 +139,7 @@ export function LicensesView() {
   const CustomAreaTooltip = ({ active, payload, label }: any) => {
     if (active && payload && payload.length) {
       return (
-        <div className="bg-[#0a0a0f]/95 backdrop-blur-md border border-white/10 rounded-lg px-4 py-3 shadow-2xl">
+        <div className="bg-popover/95 backdrop-blur-md border border-border rounded-lg px-4 py-3 shadow-2xl">
           <p className="text-xs text-muted-foreground mb-1">{label}</p>
           <p className="font-mono text-lg font-bold text-primary tabular-nums">
             {payload[0].value.toLocaleString('es-ES')} €
@@ -155,7 +155,7 @@ export function LicensesView() {
     if (active && payload && payload.length) {
       const data = payload[0].payload;
       return (
-        <div className="bg-[#0a0a0f]/95 backdrop-blur-md border border-white/10 rounded-lg px-4 py-3 shadow-2xl">
+        <div className="bg-popover/95 backdrop-blur-md border border-border rounded-lg px-4 py-3 shadow-2xl">
           <p className="text-xs text-muted-foreground mb-1">{data.diaFull}</p>
           <p className="font-mono text-lg font-bold text-primary tabular-nums">
             {data.valor.toLocaleString('es-ES')} €
@@ -175,7 +175,7 @@ export function LicensesView() {
       {/* KPI Cards */}
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-3">
         {/* Reference Price Card */}
-        <div className="relative overflow-hidden rounded-xl bg-[#0d0d12] border border-white/10 p-4 backdrop-blur-sm">
+        <div className="relative overflow-hidden rounded-xl bg-card border border-border p-4 backdrop-blur-sm">
           <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent" />
           <div className="relative">
             <div className="flex items-center justify-between mb-3">
@@ -203,7 +203,7 @@ export function LicensesView() {
         </div>
 
         {/* Minimum Price Card */}
-        <div className="relative overflow-hidden rounded-xl bg-[#0d0d12] border border-white/10 p-4 backdrop-blur-sm">
+        <div className="relative overflow-hidden rounded-xl bg-card border border-border p-4 backdrop-blur-sm">
           <div className="absolute inset-0 bg-gradient-to-br from-emerald-500/5 to-transparent" />
           <div className="relative">
             <div className="flex items-center justify-between mb-3">
@@ -225,7 +225,7 @@ export function LicensesView() {
         </div>
 
         {/* Maximum Price Card */}
-        <div className="relative overflow-hidden rounded-xl bg-[#0d0d12] border border-white/10 p-4 backdrop-blur-sm">
+        <div className="relative overflow-hidden rounded-xl bg-card border border-border p-4 backdrop-blur-sm">
           <div className="absolute inset-0 bg-gradient-to-br from-red-500/5 to-transparent" />
           <div className="relative">
             <div className="flex items-center justify-between mb-3">
@@ -247,7 +247,7 @@ export function LicensesView() {
         </div>
 
         {/* Total Offers Card */}
-        <div className="relative overflow-hidden rounded-xl bg-[#0d0d12] border border-white/10 p-4 backdrop-blur-sm">
+        <div className="relative overflow-hidden rounded-xl bg-card border border-border p-4 backdrop-blur-sm">
           <div className="absolute inset-0 bg-gradient-to-br from-sky-500/5 to-transparent" />
           <div className="relative">
             <div className="flex items-center justify-between mb-3">
@@ -268,7 +268,7 @@ export function LicensesView() {
       </div>
 
       {/* Temporal Evolution Chart */}
-      <div className="rounded-xl bg-[#0d0d12] border border-white/10 p-5 backdrop-blur-sm">
+      <div className="rounded-xl bg-card border border-border p-5 backdrop-blur-sm">
         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-5 gap-3">
           <div>
             <h3 className="font-display font-semibold text-foreground text-base">Evolución Temporal</h3>
@@ -332,7 +332,7 @@ export function LicensesView() {
       </div>
 
       {/* Bar Chart - Price by Rest Day */}
-      <div className="rounded-xl bg-[#0d0d12] border border-white/10 p-5 backdrop-blur-sm">
+      <div className="rounded-xl bg-card border border-border p-5 backdrop-blur-sm">
         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-5 gap-3">
           <div>
             <h3 className="font-display font-semibold text-foreground text-base">Precio por Día de Descanso</h3>
@@ -416,11 +416,11 @@ export function LicensesView() {
           return { fuente, median };
         });
         return (
-          <div className="rounded-xl bg-[#0d0d12] border border-white/10 p-5 backdrop-blur-sm">
+          <div className="rounded-xl bg-card border border-border p-5 backdrop-blur-sm">
             <h3 className="font-display font-semibold text-foreground text-base mb-4">Mediana por Portal</h3>
             <div className="grid grid-cols-2 gap-3">
               {portalMedians.map(({ fuente, median }) => (
-                <div key={fuente} className="p-4 rounded-xl bg-white/[0.02] border border-white/10 hover:border-primary/30 transition-colors">
+                <div key={fuente} className="p-4 rounded-xl bg-muted/30 border border-border hover:border-primary/30 transition-colors">
                   <p className="text-xs text-muted-foreground mb-2 uppercase tracking-wider font-mono">{fuente}</p>
                   <p className="font-mono font-bold text-xl text-foreground tabular-nums">
                     {median.toLocaleString('es-ES')}
@@ -434,10 +434,10 @@ export function LicensesView() {
       })()}
 
       {/* Listings */}
-      <div className="rounded-xl bg-[#0d0d12] border border-white/10 p-5 backdrop-blur-sm">
+      <div className="rounded-xl bg-card border border-border p-5 backdrop-blur-sm">
         <div className="flex items-center justify-between mb-4">
           <h3 className="font-display font-semibold text-foreground text-base">Ofertas Detectadas</h3>
-          <Badge variant="outline" className="font-mono text-xs px-3 py-1 border-white/10 bg-white/5">
+          <Badge variant="outline" className="font-mono text-xs px-3 py-1 border-border bg-muted/50">
             {market_depth.all_offers.length} anuncios
           </Badge>
         </div>
@@ -445,7 +445,7 @@ export function LicensesView() {
         {/* Mobile cards */}
         <div className="md:hidden space-y-3">
           {ofertasOrdenadas.map((oferta, idx) => (
-            <div key={idx} className="p-4 rounded-xl bg-white/[0.02] border border-white/10 hover:border-primary/30 transition-colors">
+            <div key={idx} className="p-4 rounded-xl bg-muted/30 border border-border hover:border-primary/30 transition-colors">
               <div className="flex items-center justify-between mb-3">
                 <div className="flex items-center gap-2">
                   <span className="font-display font-medium text-foreground text-sm">{oferta.fuente}</span>
@@ -482,16 +482,16 @@ export function LicensesView() {
         <div className="hidden md:block overflow-x-auto scrollbar-dark">
           <table className="w-full">
             <thead>
-              <tr className="text-left text-xs text-muted-foreground border-b border-white/10">
+              <tr className="text-left text-xs text-muted-foreground border-b border-border">
                 <th className="pb-3 font-medium font-mono uppercase tracking-wider">Fuente</th>
                 <th className="pb-3 font-medium font-mono uppercase tracking-wider">Día Descanso</th>
                 <th className="pb-3 font-medium font-mono uppercase tracking-wider">Coche</th>
                 <th className="pb-3 font-medium font-mono uppercase tracking-wider text-right">Precio Neto</th>
               </tr>
             </thead>
-            <tbody className="divide-y divide-white/5">
+            <tbody className="divide-y divide-border/50">
               {ofertasOrdenadas.map((oferta, idx) => (
-                <tr key={idx} className="hover:bg-white/[0.02] transition-colors group">
+                <tr key={idx} className="hover:bg-muted/30 transition-colors group">
                   <td className="py-3">
                     <span className="font-display font-medium text-foreground text-sm">{oferta.fuente}</span>
                   </td>
@@ -526,7 +526,7 @@ export function LicensesView() {
       </div>
 
       {/* Methodology note */}
-      <div className="rounded-xl bg-[#0d0d12] border border-white/10 p-4 backdrop-blur-sm">
+      <div className="rounded-xl bg-card border border-border p-4 backdrop-blur-sm">
         <div className="flex items-start gap-3">
           <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-amber-500/10 border border-amber-500/20 flex-shrink-0">
             <AlertCircle className="h-4 w-4 text-amber-400" />

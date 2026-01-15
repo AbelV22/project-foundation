@@ -7,58 +7,58 @@
 @layer base {
   :root {
     /* iTaxiBcn Light Theme */
-    --background: 220 15% 97%;
-    --foreground: 220 25% 10%;
+    --background: 0 0% 98%;
+    --foreground: 220 20% 12%;
 
     --card: 0 0% 100%;
-    --card-foreground: 220 25% 10%;
+    --card-foreground: 220 20% 12%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 220 25% 10%;
+    --popover-foreground: 220 20% 12%;
 
     /* Golden Yellow Primary */
     --primary: 42 100% 45%;
     --primary-foreground: 0 0% 100%;
 
     /* Light Secondary */
-    --secondary: 220 15% 92%;
-    --secondary-foreground: 220 25% 30%;
+    --secondary: 220 15% 94%;
+    --secondary-foreground: 220 20% 25%;
 
-    --muted: 220 15% 94%;
-    --muted-foreground: 220 10% 45%;
+    --muted: 220 15% 96%;
+    --muted-foreground: 220 10% 40%;
 
-    --accent: 220 15% 90%;
-    --accent-foreground: 220 25% 10%;
+    --accent: 220 15% 92%;
+    --accent-foreground: 220 20% 12%;
 
     --destructive: 0 72% 51%;
     --destructive-foreground: 0 0% 100%;
 
-    /* Status Colors */
-    --success: 142 70% 40%;
+    /* Status Colors - Light theme optimized */
+    --success: 142 70% 35%;
     --success-foreground: 0 0% 100%;
-    --warning: 38 92% 50%;
-    --warning-foreground: 220 25% 6%;
-    --info: 199 89% 48%;
+    --warning: 38 92% 45%;
+    --warning-foreground: 220 25% 10%;
+    --info: 199 89% 40%;
     --info-foreground: 0 0% 100%;
 
     /* Rain Alert */
-    --rain: 200 80% 50%;
+    --rain: 200 80% 45%;
     --rain-foreground: 0 0% 100%;
 
-    --border: 220 15% 88%;
-    --input: 220 15% 92%;
+    --border: 220 15% 85%;
+    --input: 220 15% 90%;
     --ring: 42 100% 45%;
 
     --radius: 0.75rem;
 
     /* Sidebar - Light theme */
-    --sidebar-background: 220 15% 97%;
-    --sidebar-foreground: 220 25% 30%;
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 220 20% 25%;
     --sidebar-primary: 42 100% 45%;
     --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 220 15% 92%;
-    --sidebar-accent-foreground: 220 25% 10%;
-    --sidebar-border: 220 15% 88%;
+    --sidebar-accent: 220 15% 94%;
+    --sidebar-accent-foreground: 220 20% 12%;
+    --sidebar-border: 220 15% 85%;
     --sidebar-ring: 42 100% 45%;
   }
 
@@ -188,10 +188,10 @@
     box-shadow: inset 0 1px 0 rgba(255,255,255,0.2);
   }
 
-  /* Nav Button Glass */
+  /* Nav Button Glass - Theme-aware */
   .btn-nav-glass {
-    @apply rounded-xl border border-white/10 backdrop-blur-sm transition-all duration-200 hover:border-white/20;
-    background: rgba(255, 255, 255, 0.05);
+    @apply rounded-xl border border-border backdrop-blur-sm transition-all duration-200 hover:border-primary/30;
+    background: hsl(var(--muted) / 0.3);
   }
 
   .stat-value {

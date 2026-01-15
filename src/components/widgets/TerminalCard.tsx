@@ -26,7 +26,7 @@ export function TerminalCard({
   return (
     <button 
       onClick={onClick}
-      className="w-full p-3 rounded-xl bg-white/[0.03] hover:bg-white/[0.06] transition-all group text-left"
+      className="w-full p-3 rounded-xl bg-muted/30 hover:bg-muted/50 transition-all group text-left"
     >
       {/* Header */}
       <div className="flex items-center justify-between mb-1">
@@ -38,7 +38,7 @@ export function TerminalCard({
       <div className="mb-2">
         <span className={cn(
           "font-mono font-black text-4xl tabular-nums tracking-tight",
-          isHighDemand ? "text-white" : "text-muted-foreground/60"
+          isHighDemand ? "text-foreground" : "text-muted-foreground/60"
         )}>
           {vuelosProximaHora}
         </span>
@@ -55,9 +55,9 @@ export function TerminalCard({
       {/* Retén Badge - High Contrast */}
       <div className={cn(
         "inline-flex items-center gap-1 px-2 py-1 rounded-full text-[10px] font-semibold",
-        esperaLevel === "low" && "bg-emerald-500 text-white",
-        esperaLevel === "medium" && "bg-amber-400 text-black",
-        esperaLevel === "high" && "bg-red-500 text-white"
+        esperaLevel === "low" && "bg-success text-success-foreground",
+        esperaLevel === "medium" && "bg-warning text-warning-foreground",
+        esperaLevel === "high" && "bg-destructive text-destructive-foreground"
       )}>
         <Clock className="h-2.5 w-2.5" />
         ~{esperaMinutos} min
