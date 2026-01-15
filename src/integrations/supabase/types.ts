@@ -14,6 +14,45 @@ export type Database = {
   }
   public: {
     Tables: {
+      geofence_logs: {
+        Row: {
+          accuracy: number | null
+          created_at: string
+          device_id: string
+          device_name: string | null
+          event_type: string
+          id: string
+          lat: number
+          lng: number
+          previous_zona: string | null
+          zona: string | null
+        }
+        Insert: {
+          accuracy?: number | null
+          created_at?: string
+          device_id: string
+          device_name?: string | null
+          event_type: string
+          id?: string
+          lat: number
+          lng: number
+          previous_zona?: string | null
+          zona?: string | null
+        }
+        Update: {
+          accuracy?: number | null
+          created_at?: string
+          device_id?: string
+          device_name?: string | null
+          event_type?: string
+          id?: string
+          lat?: number
+          lng?: number
+          previous_zona?: string | null
+          zona?: string | null
+        }
+        Relationships: []
+      }
       registros_carreras: {
         Row: {
           created_at: string
