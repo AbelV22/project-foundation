@@ -5,9 +5,16 @@ import sys
 from datetime import datetime
 import time
 
+# --- IMPORTS ROBUSTEZ ---
+from utils import safe_save_json, setup_logger
+from config import URLS, OUTPUT_FILES, LIMITS
+
+# --- LOGGER ---
+logger = setup_logger('Update_Data')
+
 # CONFIGURACIÓN
 API_KEY = os.environ.get("API_KEY") 
-BASE_URL = "http://api.aviationstack.com/v1/flights"
+BASE_URL = URLS.get('aviation_api', "http://api.aviationstack.com/v1/flights")
 
 def obtener_datos():
     print("📡 Escaneando radar iTaxiBcn (Modo Paginación Activado)...")
@@ -201,9 +208,23 @@ def obtener_datos():
 if __name__ == "__main__":
     datos = obtener_datos()
     if datos:
-        os.makedirs('public', exist_ok=True)
-        with open('public/data.json', 'w') as f:
-            json.dump(datos, f)
-        print("✅ Datos iTaxiBcn generados correctamente")
+        # GUARDADO SEGURO
+        output_file = str(OUTPUT_FILES.get('data_api', 'public/data.json'))
+        
+        success, message = safe_save_json(
+            filepath=output_file,
+            data=datos,
+            min_items=1,  # Es un dict, no lista
+            backup=True
+        )
+        
+        if success:
+            logger.info("✅ Datos iTaxiBcn generados correctamente")
+            logger.info(message)
+        else:
+            logger.error(message)
+            logger.error("❌ Validación fallida. Archivo existente NO modificado.")
+            sys.exit(1)
     else:
+        logger.error("❌ No se pudieron obtener datos. Archivo existente NO modificado.")
         sys.exit(1)

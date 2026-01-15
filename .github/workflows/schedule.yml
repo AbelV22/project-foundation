@@ -29,19 +29,14 @@ jobs:
           pip install -r requirements.txt
 
       - name: Ejecutar Scraper
-        # Esto genera el archivo 'vuelos.json' en la raíz
+        # Ahora el script guarda directamente en public/vuelos.json con safe-write
         run: python scripts/aena_scrap.py
-
-      - name: Mover datos a public/
-        # CORRECCIÓN AQUÍ: Usamos 'vuelos.json' que es el nombre real que genera tu script
-        run: |
-          mv vuelos.json public/vuelos.json
 
       - name: Guardar cambios en el repo
         run: |
           git config --global user.name 'TaxiBot BCN'
           git config --global user.email 'bot@taxibcn.app'
-          git add public/vuelos.json
+          git add public/vuelos.json public/backups/ || true
           
           # Comprobamos si hay cambios reales
           if git diff --quiet && git diff --staged --quiet; then

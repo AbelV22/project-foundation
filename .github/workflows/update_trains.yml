@@ -35,6 +35,6 @@ jobs:
         run: |
           git config --global user.name 'GitHub Action Bot'
           git config --global user.email 'action@github.com'
-          git add public/trenes_sants.json
+          git add public/trenes_sants.json public/backups/ || true
           # Solo hace commit si el archivo ha cambiado
           git diff --quiet && git diff --staged --quiet || (git commit -m "Actualizar horarios trenes Sants" && git push)

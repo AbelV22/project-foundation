@@ -3,7 +3,15 @@ import pandas as pd
 import numpy as np
 import re
 import os
+import sys
 from datetime import datetime
+
+# --- IMPORTS ROBUSTEZ ---
+from utils import safe_save_json, setup_logger, load_existing_or_default
+from config import OUTPUT_FILES, LIMITS
+
+# --- LOGGER ---
+logger = setup_logger('Licencia_Procesador')
 
 # =============================================================================
 # CONFIGURACIÓN Y CONSTANTES
@@ -224,11 +232,21 @@ def main():
         "updated_at": datetime.now().strftime("%d/%m/%Y %H:%M")
     }
 
-    os.makedirs(os.path.dirname(FILE_OUTPUT_WEB), exist_ok=True)
-    with open(FILE_OUTPUT_WEB, 'w', encoding='utf-8') as f:
-        json.dump(web_output, f, ensure_ascii=False, indent=4)
+    # GUARDADO SEGURO - Validar antes de sobrescribir
+    success, message = safe_save_json(
+        filepath=FILE_OUTPUT_WEB,
+        data=web_output,
+        data_type='web_feed',
+        backup=True
+    )
     
-    print(f"✅ Proceso completado. Precio actual: {current_median}€ ({delta_pct}%) - Volumen: {len(df)}")
+    if success:
+        logger.info(f"✅ Proceso completado. Precio actual: {current_median}€ ({delta_pct}%) - Volumen: {len(df)}")
+        logger.info(message)
+    else:
+        logger.error(message)
+        logger.error("❌ Validación fallida. Archivo existente NO modificado.")
+        sys.exit(1)
 
 if __name__ == "__main__":
     main()

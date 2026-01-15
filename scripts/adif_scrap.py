@@ -11,9 +11,14 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
+# --- IMPORTS ROBUSTEZ ---
+from utils import safe_save_json, setup_logger, DataValidator
+from config import URLS, OUTPUT_FILES, TIMEOUTS, LIMITS, VALIDATION
+
 # --- CONFIGURACIÓN ---
-URL_ADIF = "https://www.adif.es/w/71801-barcelona-sants?pageFromPlid=335"
-OUTPUT_FILE = os.path.join(os.getcwd(), "public", "trenes_sants.json")
+logger = setup_logger('ADIF_Scraper')
+URL_ADIF = URLS.get('adif', "https://www.adif.es/w/71801-barcelona-sants?pageFromPlid=335")
+OUTPUT_FILE = str(OUTPUT_FILES.get('trenes_sants', os.path.join(os.getcwd(), "public", "trenes_sants.json")))
 
 def click_js(driver, elemento):
     driver.execute_script("arguments[0].click();", elemento)
@@ -152,21 +157,29 @@ def obtener_trenes():
     finally:
         driver.quit()
 
-    # 5. GUARDADO
+    # 5. GUARDADO SEGURO (No sobrescribe si datos son inválidos)
     if datos:
         datos.sort(key=lambda x: x['hora'])
         
-        # Crear directorio si no existe
-        os.makedirs(os.path.dirname(OUTPUT_FILE), exist_ok=True)
+        # Usar safe_save_json para validar antes de sobrescribir
+        success, message = safe_save_json(
+            filepath=OUTPUT_FILE,
+            data=datos,
+            data_type='trains',
+            min_items=LIMITS.get('min_trains_valid', 5),
+            backup=True
+        )
         
-        with open(OUTPUT_FILE, "w", encoding="utf-8") as f:
-            json.dump(datos, f, ensure_ascii=False, indent=4)
-        
-        print(f"💾 ¡ÉXITO! {len(datos)} trenes guardados en: {OUTPUT_FILE}")
-        # Imprimir muestra para verificar en los logs de la Action
-        print(f"   Último tren: {datos[-1]['hora']} - {datos[-1]['tren']}")
+        if success:
+            logger.info(f"💾 {message}")
+            logger.info(f"   Último tren: {datos[-1]['hora']} - {datos[-1]['tren']}")
+        else:
+            logger.error(message)
+            # Salir con código de error pero SIN sobrescribir datos existentes
+            sys.exit(1)
     else:
-        print("⚠️ No se han extraído datos válidos.")
+        logger.warning("⚠️ No se han extraído datos válidos. Archivo existente NO modificado.")
+        sys.exit(1)
 
 if __name__ == "__main__":
     obtener_trenes()

@@ -21,6 +21,13 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
+# --- IMPORTS ROBUSTEZ ---
+from utils import safe_save_json, setup_logger
+from config import OUTPUT_FILES, LIMITS
+
+# --- LOGGER ---
+logger = setup_logger('Licencia_Scraper')
+
 def iniciar_driver():
     # Configuración estándar de Selenium (ya no necesitamos trucos de móvil ni stealth)
     options = Options()
@@ -177,12 +184,23 @@ if __name__ == "__main__":
         resultados.extend(scrape_stac(driver))
         driver.quit()
 
-        # Guardar
-        nombre_fichero = 'licencias_totales.json'
-        with open(nombre_fichero, 'w', encoding='utf-8') as f:
-            json.dump(resultados, f, ensure_ascii=False, indent=4)
-
-        print(f"\n✅ PROCESO COMPLETADO: {len(resultados)} ofertas guardadas en '{nombre_fichero}'.")
+        # 3. GUARDADO SEGURO - Validar antes de sobrescribir
+        nombre_fichero = str(OUTPUT_FILES.get('licencias_raw', 'licencias_totales.json'))
+        
+        success, message = safe_save_json(
+            filepath=nombre_fichero,
+            data=resultados,
+            data_type='licenses',
+            min_items=LIMITS.get('min_licenses_valid', 3),
+            backup=True
+        )
+        
+        if success:
+            logger.info(f"✅ PROCESO COMPLETADO: {message}")
+        else:
+            logger.error(message)
+            logger.error("❌ Scraping fallido. Archivo existente NO modificado.")
+            sys.exit(1)
 
         # Descarga Colab
         if 'google.colab' in sys.modules:
@@ -192,5 +210,5 @@ if __name__ == "__main__":
             except: pass
 
     except Exception as e:
-        print(f"\n❌ Error fatal: {e}")
+        logger.exception(f"❌ Error fatal: {e}")
         exit(1)

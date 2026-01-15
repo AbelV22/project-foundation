@@ -26,6 +26,13 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
+# --- IMPORTS ROBUSTEZ ---
+from utils import safe_save_json, setup_logger
+from config import OUTPUT_FILES, LIMITS
+
+# --- LOGGER ---
+logger = setup_logger('AENA_Scraper')
+
 # =============================================================================
 # 2. FUNCIONES DE PARSEO (V4 - ANCLA)
 # =============================================================================
@@ -261,9 +268,24 @@ if __name__ == "__main__":
     
     if vuelos_raw:
         vuelos_clean = limpiar_y_deduplicar(vuelos_raw)
-        archivo = 'vuelos.json'
-        with open(archivo, 'w', encoding='utf-8') as f:
-            json.dump(vuelos_clean, f, indent=4, ensure_ascii=False)
-        print(f"\n💾 ¡ÉXITO! {len(vuelos_clean)} vuelos guardados en: {archivo}")
+        
+        # Usar safe_save_json para validar antes de sobrescribir
+        archivo = str(OUTPUT_FILES.get('vuelos_aena', 'vuelos.json'))
+        
+        success, message = safe_save_json(
+            filepath=archivo,
+            data=vuelos_clean,
+            data_type='flights',
+            min_items=LIMITS.get('min_flights_valid', 10),
+            backup=True
+        )
+        
+        if success:
+            logger.info(f"💾 {message}")
+        else:
+            logger.error(message)
+            logger.error("❌ Scraping fallido. Archivo existente NO modificado.")
+            sys.exit(1)
     else:
-        print("⚠️ No se encontraron datos.")
+        logger.warning("⚠️ No se encontraron datos. Archivo existente NO modificado.")
+        sys.exit(1)
