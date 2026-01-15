@@ -8,18 +8,21 @@ let isTracking = false;
 let trackingInterval: ReturnType<typeof setInterval> | null = null;
 let lastZona: string | null = null;
 let lastCheckTime = 0;
+let isTestingMode = false;
+let deviceName: string | null = null;
 
 // Callback for UI updates
 type ZoneCallback = (zona: string | null) => void;
 let onZoneChange: ZoneCallback | null = null;
 
 // Configuration
-const CHECK_INTERVAL_MS = 5 * 60 * 1000; // 5 minutes
-const MIN_CHECK_INTERVAL_MS = 30 * 1000; // 30 seconds minimum between checks
+const CHECK_INTERVAL_MS = 5 * 60 * 1000; // 5 minutes (normal mode)
+const TESTING_INTERVAL_MS = 30 * 1000; // 30 seconds (testing mode)
+const MIN_CHECK_INTERVAL_MS = 10 * 1000; // 10 seconds minimum between checks
 
 /**
  * Start automatic location tracking
- * Checks every 5 minutes and auto-registers when entering a zone
+ * Checks every 5 minutes (normal) or 30 seconds (testing mode)
  */
 export const startAutoTracking = (callback?: ZoneCallback): void => {
     if (isTracking) {
@@ -30,7 +33,8 @@ export const startAutoTracking = (callback?: ZoneCallback): void => {
     onZoneChange = callback || null;
     isTracking = true;
 
-    console.log('[AutoLocation] Starting automatic tracking');
+    const interval = isTestingMode ? TESTING_INTERVAL_MS : CHECK_INTERVAL_MS;
+    console.log(`[AutoLocation] Starting tracking (testing=${isTestingMode}, interval=${interval / 1000}s)`);
 
     // Initial check
     checkLocationAndRegister();
@@ -38,7 +42,7 @@ export const startAutoTracking = (callback?: ZoneCallback): void => {
     // Set up interval
     trackingInterval = setInterval(() => {
         checkLocationAndRegister();
-    }, CHECK_INTERVAL_MS);
+    }, interval);
 };
 
 /**
@@ -77,7 +81,9 @@ export const forceLocationCheck = async (): Promise<string | null> => {
  */
 export const getTrackingStatus = () => ({
     isTracking,
+    isTestingMode,
     lastZona,
+    deviceName,
     lastCheckTime: lastCheckTime > 0 ? new Date(lastCheckTime).toISOString() : null,
 });
 
@@ -108,7 +114,10 @@ const checkLocationAndRegister = async (): Promise<string | null> => {
                 lat: position.latitude,
                 lng: position.longitude,
                 action: 'register',
-                deviceId
+                deviceId,
+                previousZona: lastZona,
+                accuracy: position.accuracy,
+                deviceName: deviceName
             }
         });
 
@@ -169,4 +178,66 @@ const registerExit = async (deviceId: string, zona: string): Promise<void> => {
  */
 export const isNative = (): boolean => {
     return Capacitor.isNativePlatform();
+};
+
+/**
+ * Enable testing mode - tracking every 30 seconds
+ * @param name Optional device name for identification (e.g., "Papa's Taxi")
+ */
+export const enableTestingMode = (name?: string): void => {
+    console.log(`[AutoLocation] Enabling testing mode${name ? ` for "${name}"` : ''}`);
+    isTestingMode = true;
+    deviceName = name || null;
+
+    // If already tracking, restart with new interval
+    if (isTracking) {
+        const callback = onZoneChange;
+        stopAutoTracking();
+        startAutoTracking(callback || undefined);
+    }
+
+    // Save to localStorage for persistence
+    localStorage.setItem('geofence_testing_mode', 'true');
+    if (name) localStorage.setItem('geofence_device_name', name);
+};
+
+/**
+ * Disable testing mode - back to 5-minute intervals
+ */
+export const disableTestingMode = (): void => {
+    console.log('[AutoLocation] Disabling testing mode');
+    isTestingMode = false;
+    deviceName = null;
+
+    // If already tracking, restart with new interval
+    if (isTracking) {
+        const callback = onZoneChange;
+        stopAutoTracking();
+        startAutoTracking(callback || undefined);
+    }
+
+    localStorage.removeItem('geofence_testing_mode');
+    localStorage.removeItem('geofence_device_name');
+};
+
+/**
+ * Set device name for logging identification
+ */
+export const setDeviceName = (name: string): void => {
+    deviceName = name;
+    localStorage.setItem('geofence_device_name', name);
+};
+
+/**
+ * Initialize testing mode from localStorage (call on app start)
+ */
+export const initTestingMode = (): void => {
+    const savedMode = localStorage.getItem('geofence_testing_mode');
+    const savedName = localStorage.getItem('geofence_device_name');
+
+    if (savedMode === 'true') {
+        isTestingMode = true;
+        deviceName = savedName;
+        console.log(`[AutoLocation] Restored testing mode${savedName ? ` for "${savedName}"` : ''}`);
+    }
 };

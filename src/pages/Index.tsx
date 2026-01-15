@@ -13,6 +13,7 @@ import { TrainsByCityView } from "@/components/views/TrainsByCityView";
 import { TrainsByOperatorView } from "@/components/views/TrainsByOperatorView";
 import { QuickEarningsSheet } from "@/components/widgets/QuickEarningsSheet";
 import { WhereNextSheet } from "@/components/widgets/WhereNextSheet";
+import { EarningsView } from "@/components/views/EarningsView";
 
 const titles: Record<string, string> = {
   dashboard: "Inicio",
@@ -26,6 +27,7 @@ const titles: Record<string, string> = {
   trainsFullDay: "Trenes Sants",
   trainsByCity: "Trenes por Ciudad",
   trainsByOperator: "Trenes por Operador",
+  earnings: "Registro de Ingresos",
 };
 
 const Index = () => {
@@ -117,6 +119,7 @@ const Index = () => {
               onViewFullDay={handleViewFullDay}
               onViewTrainsFullDay={handleViewTrainsFullDay}
               onViewLicenses={handleViewLicenses}
+              onViewEarnings={() => setActiveTab("earnings")}
             />
           )}
           {activeTab === "vuelos" && <FlightsView />}
@@ -157,6 +160,15 @@ const Index = () => {
               operator={selectedTrainOperator}
               onBack={handleBackFromTrainsByOperator}
             />
+          )}
+          {activeTab === "trainsByOperator" && selectedTrainOperator && (
+            <TrainsByOperatorView
+              operator={selectedTrainOperator}
+              onBack={handleBackFromTrainsByOperator}
+            />
+          )}
+          {activeTab === "earnings" && (
+            <EarningsView onBack={() => setActiveTab("dashboard")} />
           )}
         </div>
       </main>

@@ -108,9 +108,9 @@ serve(async (req) => {
   }
 
   try {
-    const { lat, lng, action, deviceId } = await req.json();
+    const { lat, lng, action, deviceId, previousZona, accuracy, deviceName } = await req.json();
 
-    console.log(`[check-geofence] Received: lat=${lat}, lng=${lng}, action=${action}, deviceId=${deviceId}`);
+    console.log(`[check-geofence] Received: lat=${lat}, lng=${lng}, action=${action}, deviceId=${deviceId}, prevZona=${previousZona}`);
 
     // Validate deviceId
     if (!deviceId || typeof deviceId !== 'string' || deviceId.length < 36) {
@@ -192,6 +192,39 @@ serve(async (req) => {
       }
 
       console.log(`[check-geofence] Ping guardado en ${zonaParaGuardar} para device ${deviceId}`);
+
+      // --- DETAILED LOGGING FOR DEVELOPER TESTING ---
+      // Determine event type based on zone transition
+      let eventType = 'POSITION_UPDATE';
+      if (previousZona !== zonaDetectada) {
+        if (zonaDetectada && (!previousZona || previousZona === 'DEBUG')) {
+          eventType = 'ENTER_ZONE';
+        } else if ((!zonaDetectada || zonaDetectada === 'DEBUG') && previousZona && previousZona !== 'DEBUG') {
+          eventType = 'EXIT_ZONE';
+        } else if (zonaDetectada && previousZona && zonaDetectada !== previousZona) {
+          // Transitioned from one zone to another
+          eventType = 'ENTER_ZONE'; // Log as entry to new zone
+        }
+      }
+
+      // Insert detailed log entry
+      const { error: logError } = await supabase.from('geofence_logs').insert({
+        event_type: eventType,
+        zona: zonaDetectada,
+        previous_zona: previousZona || null,
+        lat: lat,
+        lng: lng,
+        accuracy: accuracy || null,
+        device_id: deviceId,
+        device_name: deviceName || null
+      });
+
+      if (logError) {
+        console.error(`[check-geofence] Log Error (non-fatal):`, logError);
+        // Don't throw - logging failure shouldn't break the main flow
+      } else {
+        console.log(`[check-geofence] Event logged: ${eventType} ${previousZona || 'null'} → ${zonaDetectada || 'null'}`);
+      }
     }
 
     // Return success with zone info

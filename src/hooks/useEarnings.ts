@@ -82,24 +82,37 @@ export const useEarnings = (): UseEarningsResult => {
     ): Promise<boolean> => {
         try {
             const deviceId = getOrCreateDeviceId();
+            console.log('[useEarnings] Adding carrera:', { importe, propina, metodoPago, zona, deviceId });
 
-            const { error: insertError } = await supabase
+            const { data, error: insertError } = await supabase
                 .from('registros_carreras')
                 .insert({
                     device_id: deviceId,
                     importe,
-                    propina,
+                    propina: propina || 0,
                     metodo_pago: metodoPago,
                     zona: zona || null,
-                });
+                })
+                .select()
+                .single();
 
-            if (insertError) throw insertError;
+            if (insertError) {
+                console.error('[useEarnings] Supabase insert error:', insertError);
+                throw insertError;
+            }
+
+            console.log('[useEarnings] Carrera added successfully:', data);
 
             // Refresh data after insert
             await fetchCarreras();
             return true;
         } catch (err) {
             console.error('[useEarnings] Add error:', err);
+            // Log full error object for debugging
+            if (err && typeof err === 'object' && 'message' in err) {
+                console.error('[useEarnings] Error message:', (err as any).message);
+                console.error('[useEarnings] Error details:', (err as any).details);
+            }
             setError(err instanceof Error ? err : new Error('Failed to add carrera'));
             return false;
         }

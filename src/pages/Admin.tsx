@@ -1,8 +1,9 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { supabase } from "@/integrations/supabase/client";
-import { RefreshCw, MapPin, Clock, Users, Lock, LogOut, Eye, EyeOff } from "lucide-react";
+import { RefreshCw, MapPin, Clock, Users, Lock, LogOut, Eye, EyeOff, Play, Square, Activity, ArrowRightLeft } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { enableTestingMode, disableTestingMode, getTrackingStatus } from "@/services/location/AutoLocationService";
 
 // Admin password
 const ADMIN_PASSWORD = "laraabel22";
@@ -26,6 +27,19 @@ interface ZonaStats {
     ultimo_registro: string | null;
 }
 
+interface GeofenceLog {
+    id: string;
+    event_type: string;
+    zona: string | null;
+    previous_zona: string | null;
+    lat: number;
+    lng: number;
+    accuracy: number | null;
+    device_id: string;
+    device_name: string | null;
+    created_at: string;
+}
+
 export default function Admin() {
     const [isAuthenticated, setIsAuthenticated] = useState(false);
     const [password, setPassword] = useState("");
@@ -33,7 +47,11 @@ export default function Admin() {
     const [error, setError] = useState("");
     const [registros, setRegistros] = useState<RegistroReten[]>([]);
     const [zonaStats, setZonaStats] = useState<ZonaStats[]>([]);
+    const [geofenceLogs, setGeofenceLogs] = useState<GeofenceLog[]>([]);
     const [loading, setLoading] = useState(false);
+    const [activeTab, setActiveTab] = useState<'stats' | 'logs'>('stats');
+    const [testingModeActive, setTestingModeActive] = useState(false);
+    const [deviceNameInput, setDeviceNameInput] = useState("");
     const navigate = useNavigate();
 
     // Check if already authenticated (session storage)
@@ -113,11 +131,49 @@ export default function Admin() {
 
     useEffect(() => {
         if (isAuthenticated) {
+            // Check initial testing mode status
+            const status = getTrackingStatus();
+            setTestingModeActive(status.isTestingMode);
+            if (status.deviceName) setDeviceNameInput(status.deviceName);
+
             fetchData();
-            const interval = setInterval(fetchData, 30000); // Refresh every 30s
+            fetchGeofenceLogs();
+            const interval = setInterval(() => {
+                fetchData();
+                fetchGeofenceLogs();
+            }, 15000); // Refresh every 15s for logs
             return () => clearInterval(interval);
         }
     }, [isAuthenticated]);
+
+    const fetchGeofenceLogs = async () => {
+        try {
+            const { data, error } = await supabase
+                .from("geofence_logs")
+                .select("*")
+                .gte("created_at", new Date(Date.now() - 24 * 60 * 60 * 1000).toISOString())
+                .order("created_at", { ascending: false })
+                .limit(200);
+
+            if (error) {
+                console.error("Error fetching geofence logs:", error);
+                return;
+            }
+            setGeofenceLogs((data as GeofenceLog[]) || []);
+        } catch (err) {
+            console.error("Error fetching geofence logs:", err);
+        }
+    };
+
+    const handleToggleTestingMode = () => {
+        if (testingModeActive) {
+            disableTestingMode();
+            setTestingModeActive(false);
+        } else {
+            enableTestingMode(deviceNameInput || "Taxi Testing");
+            setTestingModeActive(true);
+        }
+    };
 
     const getDefaultEspera = (zona: string): number => {
         const defaults: Record<string, number> = { T1: 25, T2: 15, SANTS: 10, PUENTE_AEREO: 8, T2C_EASY: 12 };
@@ -187,14 +243,14 @@ export default function Admin() {
     return (
         <div className="min-h-screen bg-background p-4 pb-20">
             {/* Header */}
-            <div className="flex items-center justify-between mb-6">
+            <div className="flex items-center justify-between mb-4">
                 <div>
                     <h1 className="text-xl font-bold text-white">Panel Admin</h1>
-                    <p className="text-sm text-muted-foreground">Monitoring en tiempo real</p>
+                    <p className="text-sm text-muted-foreground">Developer Testing Dashboard</p>
                 </div>
                 <div className="flex gap-2">
                     <button
-                        onClick={fetchData}
+                        onClick={() => { fetchData(); fetchGeofenceLogs(); }}
                         disabled={loading}
                         className="p-2 rounded-lg bg-white/5 hover:bg-white/10 transition-colors"
                     >
@@ -209,83 +265,254 @@ export default function Admin() {
                 </div>
             </div>
 
-            {/* Stats Grid */}
-            <section className="mb-6">
-                <h2 className="text-sm font-semibold text-muted-foreground uppercase mb-3">Estadísticas en Tiempo Real</h2>
-                <div className="grid grid-cols-2 gap-2">
-                    {zonaStats.map((stat) => (
-                        <div key={stat.zona} className="card-glass p-3">
-                            <div className="flex items-center justify-between mb-2">
-                                <span className="text-sm font-semibold text-white">{stat.zona.replace("_", " ")}</span>
-                                <div className="flex items-center gap-1 text-emerald-400">
-                                    <Users className="h-3 w-3" />
-                                    <span className="text-xs font-bold">{stat.taxistas_activos}</span>
-                                </div>
-                            </div>
-                            <div className="flex items-center gap-2">
-                                <Clock className="h-4 w-4 text-amber-400" />
-                                <span className="text-lg font-mono font-bold text-amber-400">{stat.espera_promedio}'</span>
-                            </div>
-                            {stat.ultimo_registro && (
-                                <p className="text-[10px] text-muted-foreground mt-1">
-                                    Último: {formatTime(stat.ultimo_registro)}
-                                </p>
-                            )}
-                        </div>
-                    ))}
+            {/* Testing Mode Control Panel */}
+            <section className="card-glass p-4 mb-4">
+                <div className="flex items-center justify-between mb-3">
+                    <div className="flex items-center gap-2">
+                        <Activity className={cn("h-5 w-5", testingModeActive ? "text-emerald-400" : "text-muted-foreground")} />
+                        <span className="font-semibold text-white">Modo Testing</span>
+                        <span className={cn(
+                            "text-xs px-2 py-0.5 rounded-full",
+                            testingModeActive
+                                ? "bg-emerald-500/20 text-emerald-400"
+                                : "bg-muted-foreground/20 text-muted-foreground"
+                        )}>
+                            {testingModeActive ? "ACTIVO (30s)" : "INACTIVO (5min)"}
+                        </span>
+                    </div>
+                    <button
+                        onClick={handleToggleTestingMode}
+                        className={cn(
+                            "flex items-center gap-1.5 px-3 py-1.5 rounded-lg font-medium text-sm transition-colors",
+                            testingModeActive
+                                ? "bg-red-500/20 text-red-400 hover:bg-red-500/30"
+                                : "bg-emerald-500/20 text-emerald-400 hover:bg-emerald-500/30"
+                        )}
+                    >
+                        {testingModeActive ? <Square className="h-4 w-4" /> : <Play className="h-4 w-4" />}
+                        {testingModeActive ? "Detener" : "Iniciar"}
+                    </button>
                 </div>
+                <div className="flex gap-2">
+                    <input
+                        type="text"
+                        value={deviceNameInput}
+                        onChange={(e) => setDeviceNameInput(e.target.value)}
+                        placeholder="Nombre del dispositivo (ej: Taxi Papá)"
+                        className="flex-1 bg-black/30 border border-white/10 rounded-lg px-3 py-2 text-sm text-white placeholder:text-muted-foreground focus:outline-none focus:border-primary"
+                    />
+                </div>
+                <p className="text-xs text-muted-foreground mt-2">
+                    💡 Activa modo testing para trackeo cada 30 segundos. Los logs aparecerán abajo.
+                </p>
             </section>
 
-            {/* Recent Activity */}
-            <section>
-                <h2 className="text-sm font-semibold text-muted-foreground uppercase mb-3">
-                    Actividad Reciente ({registros.length} registros)
-                </h2>
-                <div className="card-glass overflow-hidden">
-                    <div className="divide-y divide-white/5 max-h-[400px] overflow-y-auto">
-                        {registros.length === 0 ? (
-                            <p className="p-4 text-center text-muted-foreground text-sm">No hay registros recientes</p>
-                        ) : (
-                            registros.map((reg) => (
-                                <div key={reg.id} className="px-3 py-2.5 border-b border-white/5">
-                                    <div className="flex items-center justify-between mb-1">
-                                        <div className="flex items-center gap-2">
-                                            <MapPin className={cn("h-3 w-3", reg.exited_at ? "text-muted-foreground" : "text-emerald-400")} />
-                                            <span className="text-sm font-medium text-white">{reg.zona}</span>
-                                            <span className={cn(
-                                                "text-[10px] px-2 py-0.5 rounded-full",
-                                                reg.exited_at ? "bg-muted-foreground/20 text-muted-foreground" : "bg-emerald-500/20 text-emerald-400"
-                                            )}>
-                                                {reg.exited_at ? "Salió" : "En cola"}
+            {/* Tab Navigation */}
+            <div className="flex gap-2 mb-4">
+                <button
+                    onClick={() => setActiveTab('stats')}
+                    className={cn(
+                        "flex-1 py-2 px-4 rounded-lg font-medium text-sm transition-colors",
+                        activeTab === 'stats'
+                            ? "bg-primary text-black"
+                            : "bg-white/5 text-muted-foreground hover:bg-white/10"
+                    )}
+                >
+                    📊 Estadísticas
+                </button>
+                <button
+                    onClick={() => setActiveTab('logs')}
+                    className={cn(
+                        "flex-1 py-2 px-4 rounded-lg font-medium text-sm transition-colors",
+                        activeTab === 'logs'
+                            ? "bg-primary text-black"
+                            : "bg-white/5 text-muted-foreground hover:bg-white/10"
+                    )}
+                >
+                    📋 Developer Logs ({geofenceLogs.length})
+                </button>
+            </div>
+
+            {activeTab === 'stats' ? (
+                <>
+                    {/* Stats Grid */}
+                    <section className="mb-6">
+                        <h2 className="text-sm font-semibold text-muted-foreground uppercase mb-3">Estadísticas en Tiempo Real</h2>
+                        <div className="grid grid-cols-2 gap-2">
+                            {zonaStats.map((stat) => (
+                                <div key={stat.zona} className="card-glass p-3">
+                                    <div className="flex items-center justify-between mb-2">
+                                        <span className="text-sm font-semibold text-white">{stat.zona.replace("_", " ")}</span>
+                                        <div className="flex items-center gap-1 text-emerald-400">
+                                            <Users className="h-3 w-3" />
+                                            <span className="text-xs font-bold">{stat.taxistas_activos}</span>
+                                        </div>
+                                    </div>
+                                    <div className="flex items-center gap-2">
+                                        <Clock className="h-4 w-4 text-amber-400" />
+                                        <span className="text-lg font-mono font-bold text-amber-400">{stat.espera_promedio}'</span>
+                                    </div>
+                                    {stat.ultimo_registro && (
+                                        <p className="text-[10px] text-muted-foreground mt-1">
+                                            Último: {formatTime(stat.ultimo_registro)}
+                                        </p>
+                                    )}
+                                </div>
+                            ))}
+                        </div>
+                    </section>
+
+                    {/* Recent Activity */}
+                    <section>
+                        <h2 className="text-sm font-semibold text-muted-foreground uppercase mb-3">
+                            Actividad Reciente ({registros.length} registros)
+                        </h2>
+                        <div className="card-glass overflow-hidden">
+                            <div className="divide-y divide-white/5 max-h-[400px] overflow-y-auto">
+                                {registros.length === 0 ? (
+                                    <p className="p-4 text-center text-muted-foreground text-sm">No hay registros recientes</p>
+                                ) : (
+                                    registros.map((reg) => (
+                                        <div key={reg.id} className="px-3 py-2.5 border-b border-white/5">
+                                            <div className="flex items-center justify-between mb-1">
+                                                <div className="flex items-center gap-2">
+                                                    <MapPin className={cn("h-3 w-3", reg.exited_at ? "text-muted-foreground" : "text-emerald-400")} />
+                                                    <span className="text-sm font-medium text-white">{reg.zona}</span>
+                                                    <span className={cn(
+                                                        "text-[10px] px-2 py-0.5 rounded-full",
+                                                        reg.exited_at ? "bg-muted-foreground/20 text-muted-foreground" : "bg-emerald-500/20 text-emerald-400"
+                                                    )}>
+                                                        {reg.exited_at ? "Salió" : "En cola"}
+                                                    </span>
+                                                </div>
+                                                <span className="text-[10px] text-muted-foreground">{anonymizeDeviceId(reg.device_id)}</span>
+                                            </div>
+                                            <div className="flex items-center gap-4 text-[10px] mt-1">
+                                                <span className="font-mono text-blue-400">
+                                                    📍 {reg.lat.toFixed(6)}, {reg.lng.toFixed(6)}
+                                                </span>
+                                                <span className="text-muted-foreground">
+                                                    {formatTime(reg.created_at)}
+                                                    {reg.exited_at && ` → ${formatTime(reg.exited_at)}`}
+                                                </span>
+                                            </div>
+                                            <a
+                                                href={`https://maps.google.com/?q=${reg.lat},${reg.lng}`}
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                className="text-[9px] text-primary hover:underline mt-1 inline-block"
+                                            >
+                                                Ver en Google Maps ↗
+                                            </a>
+                                        </div>
+                                    ))
+                                )}
+                            </div>
+                        </div>
+                    </section>
+                </>
+            ) : (
+                /* Developer Logs Tab */
+                <section>
+                    <h2 className="text-sm font-semibold text-muted-foreground uppercase mb-3">
+                        Geofence Event Logs ({geofenceLogs.length} eventos)
+                    </h2>
+                    <div className="card-glass overflow-hidden">
+                        <div className="divide-y divide-white/5 max-h-[500px] overflow-y-auto">
+                            {geofenceLogs.length === 0 ? (
+                                <div className="p-6 text-center">
+                                    <Activity className="h-8 w-8 text-muted-foreground mx-auto mb-2" />
+                                    <p className="text-muted-foreground text-sm">No hay logs de geofencing</p>
+                                    <p className="text-xs text-muted-foreground mt-1">
+                                        Activa el modo testing y muévete para generar logs
+                                    </p>
+                                </div>
+                            ) : (
+                                geofenceLogs.map((log) => (
+                                    <div key={log.id} className="px-3 py-2.5">
+                                        <div className="flex items-center justify-between mb-1">
+                                            <div className="flex items-center gap-2">
+                                                {/* Event Type Icon */}
+                                                {log.event_type === 'ENTER_ZONE' && (
+                                                    <span className="text-emerald-400 text-lg">📍</span>
+                                                )}
+                                                {log.event_type === 'EXIT_ZONE' && (
+                                                    <span className="text-red-400 text-lg">🚪</span>
+                                                )}
+                                                {log.event_type === 'POSITION_UPDATE' && (
+                                                    <span className="text-blue-400 text-lg">📡</span>
+                                                )}
+
+                                                {/* Event Type Badge */}
+                                                <span className={cn(
+                                                    "text-xs px-2 py-0.5 rounded-full font-medium",
+                                                    log.event_type === 'ENTER_ZONE' && "bg-emerald-500/20 text-emerald-400",
+                                                    log.event_type === 'EXIT_ZONE' && "bg-red-500/20 text-red-400",
+                                                    log.event_type === 'POSITION_UPDATE' && "bg-blue-500/20 text-blue-400"
+                                                )}>
+                                                    {log.event_type === 'ENTER_ZONE' && "ENTRADA"}
+                                                    {log.event_type === 'EXIT_ZONE' && "SALIDA"}
+                                                    {log.event_type === 'POSITION_UPDATE' && "UPDATE"}
+                                                </span>
+
+                                                {/* Zone Transition */}
+                                                {(log.previous_zona || log.zona) && (
+                                                    <div className="flex items-center gap-1 text-xs text-muted-foreground">
+                                                        <span className={cn(
+                                                            log.previous_zona === 'DEBUG' || !log.previous_zona
+                                                                ? "text-muted-foreground"
+                                                                : "text-white font-medium"
+                                                        )}>
+                                                            {log.previous_zona || "—"}
+                                                        </span>
+                                                        <ArrowRightLeft className="h-3 w-3" />
+                                                        <span className={cn(
+                                                            log.zona === 'DEBUG' || !log.zona
+                                                                ? "text-muted-foreground"
+                                                                : "text-white font-medium"
+                                                        )}>
+                                                            {log.zona || "—"}
+                                                        </span>
+                                                    </div>
+                                                )}
+                                            </div>
+
+                                            {/* Time */}
+                                            <span className="text-[10px] text-muted-foreground font-mono">
+                                                {formatTime(log.created_at)}
                                             </span>
                                         </div>
-                                        <span className="text-[10px] text-muted-foreground">{anonymizeDeviceId(reg.device_id)}</span>
+
+                                        {/* Details Row */}
+                                        <div className="flex items-center gap-3 text-[10px] mt-1 text-muted-foreground">
+                                            <span className="font-mono text-blue-400">
+                                                {log.lat.toFixed(5)}, {log.lng.toFixed(5)}
+                                            </span>
+                                            {log.accuracy && (
+                                                <span>±{log.accuracy.toFixed(0)}m</span>
+                                            )}
+                                            {log.device_name && (
+                                                <span className="text-amber-400">🚕 {log.device_name}</span>
+                                            )}
+                                            <span>{anonymizeDeviceId(log.device_id)}</span>
+                                        </div>
+
+                                        {/* Google Maps Link */}
+                                        <a
+                                            href={`https://maps.google.com/?q=${log.lat},${log.lng}`}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            className="text-[9px] text-primary hover:underline mt-1 inline-block"
+                                        >
+                                            Ver en mapa ↗
+                                        </a>
                                     </div>
-                                    {/* GPS Coordinates for debugging */}
-                                    <div className="flex items-center gap-4 text-[10px] mt-1">
-                                        <span className="font-mono text-blue-400">
-                                            📍 {reg.lat.toFixed(6)}, {reg.lng.toFixed(6)}
-                                        </span>
-                                        <span className="text-muted-foreground">
-                                            {formatTime(reg.created_at)}
-                                            {reg.exited_at && ` → ${formatTime(reg.exited_at)}`}
-                                        </span>
-                                    </div>
-                                    {/* Google Maps link for verification */}
-                                    <a
-                                        href={`https://maps.google.com/?q=${reg.lat},${reg.lng}`}
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        className="text-[9px] text-primary hover:underline mt-1 inline-block"
-                                    >
-                                        Ver en Google Maps ↗
-                                    </a>
-                                </div>
-                            ))
-                        )}
+                                ))
+                            )}
+                        </div>
                     </div>
-                </div>
-            </section>
+                </section>
+            )}
         </div>
     );
 }

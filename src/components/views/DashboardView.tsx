@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { RefreshCw, Plane, Train, Users, Clock, ChevronRight, TrendingUp, Calendar, Settings } from "lucide-react";
+import { RefreshCw, Plane, Train, Users, Clock, ChevronRight, TrendingUp, Calendar, Settings, Euro } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useEvents } from "@/hooks/useEvents";
 import { useWaitingTimes, getZoneWaitingTime, getZoneTaxistasActivos, getZoneHasRealData } from "@/hooks/useWaitingTimes";
@@ -30,6 +30,7 @@ interface DashboardViewProps {
   onViewFullDay?: () => void;
   onViewTrainsFullDay?: () => void;
   onViewLicenses?: () => void;
+  onViewEarnings?: () => void;
 }
 
 // Función para parsear hora "HH:MM" a minutos del día
@@ -98,7 +99,7 @@ interface LicenciasData {
   metadata: { precio_mercado_referencia: number };
 }
 
-export function DashboardView({ onTerminalClick, onViewAllFlights, onViewAllEvents, onViewFullDay, onViewTrainsFullDay, onViewLicenses }: DashboardViewProps) {
+export function DashboardView({ onTerminalClick, onViewAllFlights, onViewAllEvents, onViewFullDay, onViewTrainsFullDay, onViewLicenses, onViewEarnings }: DashboardViewProps) {
   const [vuelos, setVuelos] = useState<VueloRaw[]>([]);
   const [trenes, setTrenes] = useState<TrenSants[]>([]);
   const [licencias, setLicencias] = useState<LicenciasData | null>(null);
@@ -409,6 +410,23 @@ export function DashboardView({ onTerminalClick, onViewAllFlights, onViewAllEven
               <span className="text-[9px] font-semibold">+0.1%</span>
             </div>
           </div>
+        </button>
+
+        {/* Earnings Widget */}
+        <button
+          onClick={onViewEarnings}
+          className="col-span-2 card-glass-hover flex items-center justify-between p-2.5 group"
+        >
+          <div className="flex items-center gap-3">
+            <div className="w-8 h-8 rounded-full bg-emerald-500/10 flex items-center justify-center">
+              <Euro className="h-4 w-4 text-emerald-400" />
+            </div>
+            <div className="text-left">
+              <p className="text-[10px] text-muted-foreground font-medium uppercase tracking-wider">Ingresos Hoy</p>
+              <p className="text-sm font-semibold text-white">Ver Registro</p>
+            </div>
+          </div>
+          <ChevronRight className="h-4 w-4 text-muted-foreground/50 group-hover:text-primary transition-colors" />
         </button>
       </div>
 
