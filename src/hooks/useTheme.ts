@@ -36,16 +36,16 @@ export function useTheme() {
 
   useEffect(() => {
     const root = window.document.documentElement;
-    
+
     const applyTheme = () => {
       let effectiveTheme: 'light' | 'dark';
-      
+
       if (theme === 'auto') {
         effectiveTheme = getSystemTheme();
       } else {
         effectiveTheme = theme;
       }
-      
+
       setResolvedTheme(effectiveTheme);
       root.classList.remove('light', 'dark');
       root.classList.add(effectiveTheme);
@@ -69,10 +69,23 @@ export function useTheme() {
     setTheme(newTheme);
   };
 
+  // Toggle through: auto -> light -> dark -> auto
+  const toggleTheme = () => {
+    const nextTheme: Record<Theme, Theme> = {
+      'auto': 'light',
+      'light': 'dark',
+      'dark': 'auto',
+    };
+    setThemeValue(nextTheme[theme]);
+  };
+
   return {
     theme,
+    themeSetting: theme, // alias for ThemeToggle compatibility
     resolvedTheme,
+    effectiveTheme: resolvedTheme, // alias for ThemeToggle compatibility
     setTheme: setThemeValue,
+    toggleTheme,
     isDark: resolvedTheme === 'dark',
     isLight: resolvedTheme === 'light',
   };
