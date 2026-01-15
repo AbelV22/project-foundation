@@ -63,11 +63,11 @@ export function FlightsWidget({
             onClick={() => onTerminalClick?.(terminal.id)}
             className="text-center p-3 md:p-4 rounded-xl border border-border hover:border-blue-500/30 transition-all cursor-pointer hover:bg-slate-800/50 group"
           >
-            <div className="flex items-center justify-center gap-1 md:gap-2 mb-2 md:mb-3 text-slate-400 group-hover:text-white">
+            <div className="flex items-center justify-center gap-1 md:gap-2 mb-2 md:mb-3 text-muted-foreground group-hover:text-foreground">
               <span className="font-medium text-xs md:text-sm uppercase tracking-wide">{terminal.name}</span>
             </div>
             
-            <p className="text-2xl md:text-3xl font-display font-bold mb-1 text-white group-hover:scale-110 transition-transform">
+            <p className="text-2xl md:text-3xl font-display font-bold mb-1 text-foreground group-hover:scale-110 transition-transform">
                 {terminal.arrivals}
             </p>
             <p className="text-xs md:text-sm text-muted-foreground mb-2">vuelos</p>
@@ -130,7 +130,7 @@ export function FlightsWidget({
                         <div className="flex items-center gap-3">
                             <span className="font-mono text-yellow-500 font-bold">{vuelo.hora}</span>
                             <div>
-                                <div className="text-white font-medium">{vuelo.aerolinea}</div>
+                                <div className="text-foreground font-medium">{vuelo.aerolinea}</div>
                                 <div className="text-xs text-slate-500 flex gap-1">
                                     {vuelo.avion && <span>{vuelo.avion} •</span>} {vuelo.id}
                                 </div>

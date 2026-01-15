@@ -239,9 +239,9 @@ export function TerminalDetailView({ terminalId, onBack }: TerminalDetailViewPro
         </div>
 
         {/* NUEVO RELOJ / INDICADOR */}
-        <div className="flex items-center gap-2 bg-white/5 px-3 py-1.5 rounded-full border border-white/10 backdrop-blur-md">
+        <div className="flex items-center gap-2 bg-muted/50 px-3 py-1.5 rounded-full border border-border backdrop-blur-md">
           <div className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse shadow-[0_0_8px_rgba(16,185,129,0.5)]" />
-          <p className="text-sm font-mono font-bold text-white tracking-widest">{timeFormatted}</p>
+          <p className="text-sm font-mono font-bold text-foreground tracking-widest">{timeFormatted}</p>
         </div>
       </div>
 
@@ -253,11 +253,11 @@ export function TerminalDetailView({ terminalId, onBack }: TerminalDetailViewPro
             <Flame className="h-4 w-4 text-red-500" />
           </div>
           <div className="flex items-baseline gap-2">
-            <span className="font-display font-black text-3xl text-white">{nextPeakInfo.flights}</span>
+            <span className="font-display font-black text-3xl text-foreground">{nextPeakInfo.flights}</span>
             <span className="text-sm text-muted-foreground">vuelos</span>
           </div>
           <p className="text-sm text-muted-foreground mt-0.5">
-            aterrizan a las <span className="text-white font-semibold">{nextPeakInfo.time}</span>
+            aterrizan a las <span className="text-foreground font-semibold">{nextPeakInfo.time}</span>
           </p>
         </div>
       )}
@@ -291,10 +291,10 @@ export function TerminalDetailView({ terminalId, onBack }: TerminalDetailViewPro
               <Tooltip
                 cursor={{ fill: "rgba(255,255,255,0.05)" }}
                 contentStyle={{
-                  backgroundColor: "hsl(220, 25%, 10%)",
-                  border: "1px solid hsl(220, 15%, 18%)",
+                  backgroundColor: "hsl(var(--popover))",
+                  border: "1px solid hsl(var(--border))",
                   borderRadius: "8px",
-                  color: "white",
+                  color: "hsl(var(--popover-foreground))",
                 }}
                 formatter={(value: number) => [`${value} vuelos`, "Llegadas"]}
               />
@@ -304,7 +304,7 @@ export function TerminalDetailView({ terminalId, onBack }: TerminalDetailViewPro
                 <LabelList
                   dataKey="flights"
                   position="top"
-                  fill="white"
+                  className="fill-foreground"
                   fontSize={12}
                   fontWeight="bold"
                   formatter={(val: number) => (val > 0 ? val : "")}
@@ -337,7 +337,7 @@ export function TerminalDetailView({ terminalId, onBack }: TerminalDetailViewPro
       <div className="grid grid-cols-3 gap-2">
         <div className="card-glass p-3 text-center">
           <Plane className="h-4 w-4 mx-auto mb-1" style={{ color: terminal.color }} />
-          <p className="font-mono font-bold text-2xl text-white">{terminalFlights.length}</p>
+          <p className="font-mono font-bold text-2xl text-foreground">{terminalFlights.length}</p>
           <p className="text-[10px] text-muted-foreground">Vuelos hoy</p>
         </div>
         <div className="card-glass p-3 text-center">
@@ -365,11 +365,11 @@ export function TerminalDetailView({ terminalId, onBack }: TerminalDetailViewPro
 
       {/* Flights List */}
       <div className="card-glass overflow-hidden">
-        <div className="p-3 border-b border-white/10 flex items-center justify-between">
+        <div className="p-3 border-b border-border flex items-center justify-between">
           <h3 className="font-display font-semibold text-foreground">Próximos Vuelos</h3>
           <span className="text-xs text-muted-foreground">{upcomingFlights.length} pendientes</span>
         </div>
-        <div className="divide-y divide-white/5 max-h-[50vh] overflow-y-auto">
+        <div className="divide-y divide-border/50 max-h-[50vh] overflow-y-auto">
           {upcomingFlights.length === 0 ? (
             <div className="p-8 text-center text-muted-foreground">No hay vuelos pendientes</div>
           ) : (
@@ -384,7 +384,7 @@ export function TerminalDetailView({ terminalId, onBack }: TerminalDetailViewPro
                   className={cn("flex items-center gap-3 p-3 transition-colors", isHighTicket && "bg-yellow-500/5")}
                 >
                   {/* Time */}
-                  <span className="font-mono font-bold text-lg tabular-nums text-white w-14">{flight.hora}</span>
+                  <span className="font-mono font-bold text-lg tabular-nums text-foreground w-14">{flight.hora}</span>
 
                   {/* Flight Info - CAMBIADO EL ORDEN */}
                   <div className="flex-1 min-w-0 flex flex-col justify-center">

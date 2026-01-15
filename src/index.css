@@ -36,8 +36,8 @@
     --accent: 220 20% 16%;
     --accent-foreground: 220 10% 95%;
 
-    --destructive: 0 72% 51%;
-    --destructive-foreground: 0 0% 100%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
 
     /* Status Colors */
     --success: 142 70% 45%;
@@ -65,106 +65,6 @@
     --sidebar-accent: 220 20% 14%;
     --sidebar-accent-foreground: 220 10% 95%;
     --sidebar-border: 220 15% 15%;
-    --sidebar-ring: 42 100% 50%;
-  }
-
-  .dark {
-    --background: 220 25% 6%;
-    --foreground: 220 10% 95%;
-
-    --card: 220 25% 10%;
-    --card-foreground: 220 10% 95%;
-
-    --popover: 220 25% 10%;
-    --popover-foreground: 220 10% 95%;
-
-    --primary: 42 100% 50%;
-    --primary-foreground: 220 25% 6%;
-
-    --secondary: 220 20% 14%;
-    --secondary-foreground: 220 10% 70%;
-
-    --muted: 220 20% 12%;
-    --muted-foreground: 220 10% 55%;
-
-    --accent: 220 20% 16%;
-    --accent-foreground: 220 10% 95%;
-
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 220 15% 18%;
-    --input: 220 20% 14%;
-    --ring: 42 100% 50%;
-
-    --sidebar-background: 220 25% 8%;
-    --sidebar-foreground: 220 10% 70%;
-    --sidebar-primary: 42 100% 50%;
-    --sidebar-primary-foreground: 220 25% 6%;
-    --sidebar-accent: 220 20% 14%;
-    --sidebar-accent-foreground: 220 10% 95%;
-    --sidebar-border: 220 15% 15%;
-    --sidebar-ring: 42 100% 50%;
-  }
-
-  /* ============================================
-     LIGHT MODE THEME - iTaxiBcn
-     Professional warm light design
-     ============================================ */
-  .light {
-    /* Backgrounds - Warm off-white */
-    --background: 40 20% 98%;
-    --foreground: 220 25% 12%;
-
-    /* Card surfaces - Pure white with subtle warmth */
-    --card: 0 0% 100%;
-    --card-foreground: 220 25% 12%;
-
-    /* Popover/dropdowns */
-    --popover: 0 0% 100%;
-    --popover-foreground: 220 25% 12%;
-
-    /* Primary - Deeper amber for light backgrounds */
-    --primary: 42 100% 45%;
-    --primary-foreground: 0 0% 100%;
-
-    /* Secondary - Light gray-blue */
-    --secondary: 220 15% 92%;
-    --secondary-foreground: 220 25% 30%;
-
-    /* Muted elements */
-    --muted: 220 15% 95%;
-    --muted-foreground: 220 10% 45%;
-
-    /* Accent highlights */
-    --accent: 220 15% 93%;
-    --accent-foreground: 220 25% 15%;
-
-    /* Status colors */
-    --destructive: 0 72% 51%;
-    --destructive-foreground: 0 0% 100%;
-    --success: 142 70% 40%;
-    --success-foreground: 0 0% 100%;
-    --warning: 38 92% 50%;
-    --warning-foreground: 220 25% 6%;
-    --info: 199 89% 48%;
-    --info-foreground: 0 0% 100%;
-    --rain: 200 80% 50%;
-    --rain-foreground: 0 0% 100%;
-
-    /* Borders - Subtle gray */
-    --border: 220 15% 88%;
-    --input: 220 15% 90%;
-    --ring: 42 100% 50%;
-
-    /* Sidebar - Light theme */
-    --sidebar-background: 40 15% 97%;
-    --sidebar-foreground: 220 20% 35%;
-    --sidebar-primary: 42 100% 45%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 220 15% 92%;
-    --sidebar-accent-foreground: 220 25% 15%;
-    --sidebar-border: 220 15% 90%;
     --sidebar-ring: 42 100% 50%;
   }
 }
@@ -198,15 +98,22 @@
     @apply bg-card rounded-xl border border-border hover:border-primary/40 transition-all duration-300;
   }
 
-  /* Premium Glass Card */
+  /* Premium Glass Card - Dark theme optimized */
   .card-glass {
-    @apply rounded-xl border border-white/10 backdrop-blur-md transition-all duration-300;
+    @apply rounded-xl border backdrop-blur-md transition-all duration-300;
     background: rgba(0, 0, 0, 0.6);
+    border-color: rgba(255, 255, 255, 0.1);
   }
 
   .card-glass-hover {
-    @apply rounded-xl border border-white/10 backdrop-blur-md transition-all duration-300 hover:border-white/20 hover:bg-black/70;
+    @apply rounded-xl border backdrop-blur-md transition-all duration-300;
     background: rgba(0, 0, 0, 0.6);
+    border-color: rgba(255, 255, 255, 0.1);
+  }
+
+  .card-glass-hover:hover {
+    background: rgba(0, 0, 0, 0.7);
+    border-color: rgba(255, 255, 255, 0.2);
   }
 
   /* Gradient Buttons */
@@ -224,8 +131,8 @@
 
   /* Nav Button Glass */
   .btn-nav-glass {
-    @apply rounded-xl border border-white/10 backdrop-blur-sm transition-all duration-200 hover:border-white/20;
-    background: rgba(255, 255, 255, 0.05);
+    @apply rounded-xl border border-white/10 backdrop-blur-sm transition-all duration-200 hover:border-primary/30;
+    background: rgba(255, 255, 255, 0.03);
   }
 
   .stat-value {
@@ -351,7 +258,7 @@
   /* Dark mode scrollbars */
   .scrollbar-dark {
     scrollbar-width: thin;
-    scrollbar-color: hsl(var(--border)) transparent;
+    scrollbar-color: rgba(255, 255, 255, 0.15) transparent;
   }
 
   .scrollbar-dark::-webkit-scrollbar {
@@ -363,103 +270,21 @@
   }
 
   .scrollbar-dark::-webkit-scrollbar-thumb {
-    background-color: hsl(var(--border));
+    background-color: rgba(255, 255, 255, 0.15);
     border-radius: 3px;
   }
 
   .scrollbar-dark::-webkit-scrollbar-thumb:hover {
-    background-color: hsl(var(--muted-foreground) / 0.3);
+    background-color: rgba(255, 255, 255, 0.25);
   }
 }
 
-/* ============================================
-   LIGHT MODE COMPONENT OVERRIDES
-   ============================================ */
-
-/* Glass Cards - Inverted for light mode */
-.light .card-glass {
-  background: rgba(255, 255, 255, 0.75);
-  border-color: rgba(0, 0, 0, 0.08);
-  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
+/* Safe area for mobile bottom nav */
+.safe-area-bottom {
+  padding-bottom: env(safe-area-inset-bottom, 0px);
 }
 
-.light .card-glass-hover {
-  background: rgba(255, 255, 255, 0.75);
-  border-color: rgba(0, 0, 0, 0.08);
-  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
-}
-
-.light .card-glass-hover:hover {
-  background: rgba(255, 255, 255, 0.9);
-  border-color: rgba(0, 0, 0, 0.12);
-}
-
-/* Button Gradients - Softer shadows for light mode */
-.light .btn-gradient-emerald {
-  box-shadow: 0 4px 16px rgba(16, 185, 129, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.15);
-}
-
-.light .btn-gradient-amber {
-  box-shadow: 0 4px 16px rgba(245, 158, 11, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.2);
-}
-
-.light .btn-nav-glass {
-  background: rgba(0, 0, 0, 0.03);
-  border-color: rgba(0, 0, 0, 0.08);
-}
-
-.light .btn-nav-glass:hover {
-  background: rgba(0, 0, 0, 0.06);
-  border-color: rgba(0, 0, 0, 0.12);
-}
-
-/* Primary button glow - Softer for light mode */
-.light .btn-primary-glow {
-  box-shadow: 0 4px 20px hsl(42 100% 50% / 0.25);
-}
-
-/* Logo glow - Remove in light mode */
-.light img[alt="iTaxiBcn"] {
-  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
-}
-
-/* Text color overrides for hardcoded white text in glass cards */
-.light .card-glass .text-white,
-.light .card-glass-hover .text-white {
-  color: hsl(220 25% 12%);
-}
-
-.light .card-glass .text-white\/80,
-.light .card-glass-hover .text-white\/80 {
-  color: hsl(220 20% 30%);
-}
-
-.light .card-glass .text-white\/90,
-.light .card-glass-hover .text-white\/90 {
-  color: hsl(220 25% 15%);
-}
-
-/* Scrollbar for light mode */
-.light .scrollbar-dark::-webkit-scrollbar-thumb {
-  background-color: hsl(220 15% 80%);
-}
-
-.light .scrollbar-dark::-webkit-scrollbar-thumb:hover {
-  background-color: hsl(220 15% 70%);
-}
-
-/* Mobile overlay - lighter for light mode */
-.light .bg-black\/50 {
-  background-color: rgba(0, 0, 0, 0.3);
-}
-
-/* Status bar background for native app */
-.light {
-  --status-bar-style: light;
-}
-
-/* --- AÑADE ESTO AL FINAL DEL ARCHIVO --- */
-/* Ocultar botón de Lovable */
+/* --- Ocultar botón de Lovable --- */
 a[href*="lovable.dev"],
 .lovable-badge,
 #lovable-badge-container,

@@ -1,36 +1,49 @@
 {
     "ticker": {
-        "current_price": 165021,
-        "delta_value": -1126,
-        "delta_percent": -0.68,
+        "current_price": 165857,
+        "delta_value": -290,
+        "delta_percent": -0.17,
         "direction": "down",
-        "volume": 17,
-        "volatility": 8717
+        "volume": 22,
+        "volatility": 10077
     },
     "charts": {
         "history_dates": [
             "2026-01-11",
+            "2026-01-12",
             "2026-01-13"
         ],
         "history_prices": [
             166147,
-            165021
+            166147,
+            165857
         ],
         "history_sma_7": [
+            0,
             0,
             0
         ],
         "price_by_day_descanso": {
             "JUEVES IMPAR": 165571,
-            "JUEVES PAR": 165000,
-            "LUNES PAR": 175062,
+            "JUEVES PAR": 165575,
+            "LUNES": 155563,
+            "LUNES IMPAR": 187050,
+            "LUNES PAR": 181157,
             "MARTES PAR": 165021,
             "NO ESPECIFICADO": 162513,
-            "VIERNES IMPAR": 168600
+            "VIERNES IMPAR": 166776
         }
     },
     "market_depth": {
         "cheapest_offers": [
+            {
+                "fuente": "MILANUNCIOS",
+                "dia": "LUNES",
+                "modelo": "DESCONOCIDO",
+                "precio_neto": 155563,
+                "precio_total": 160000,
+                "valor_coche": 4437
+            },
             {
                 "fuente": "STAC",
                 "dia": "NO ESPECIFICADO",
@@ -62,17 +75,44 @@
                 "precio_neto": 160357,
                 "precio_total": 170000,
                 "valor_coche": 9643
-            },
-            {
-                "fuente": "STAC",
-                "dia": "NO ESPECIFICADO",
-                "modelo": "TOYOTA COROLLA",
-                "precio_neto": 162513,
-                "precio_total": 170000,
-                "valor_coche": 7487
             }
         ],
         "all_offers": [
+            {
+                "fuente": "MILANUNCIOS",
+                "precio_neto": 155563,
+                "modelo": "DESCONOCIDO",
+                "dia": "LUNES",
+                "raw": "Compro Licencia Taxi Barcelona Lunes | 160.000 € | Barcelona (Barcelona) | Compro licencia de taxi  ..."
+            },
+            {
+                "fuente": "MILANUNCIOS",
+                "precio_neto": 187050,
+                "modelo": "TOYOTA COROLLA",
+                "dia": "LUNES IMPAR",
+                "raw": "6 | LUNES LICENCIA DE TAXI BARCELONA | 210.000 € | Barcelona (Barcelona) | NO NEGOCIABLE \nFiesta Lun..."
+            },
+            {
+                "fuente": "MILANUNCIOS",
+                "precio_neto": 187252,
+                "modelo": "TOYOTA CAMRY",
+                "dia": "LUNES PAR",
+                "raw": "6 | LUNES LICENCIA DE TAXI BARCELONA | 205.000 € | L' Hospitalet de Llobregat (Barcelona) | NO NEGOC..."
+            },
+            {
+                "fuente": "MILANUNCIOS",
+                "precio_neto": 166776,
+                "modelo": "FORD",
+                "dia": "VIERNES IMPAR",
+                "raw": "Licencia Taxi Barcelona + coche | 170.000 € | Barcelona (Barcelona) | Vendo Licencia Taxi Barcelona ..."
+            },
+            {
+                "fuente": "MILANUNCIOS",
+                "precio_neto": 170802,
+                "modelo": "VOLKSWAGEN CADDY",
+                "dia": "JUEVES PAR",
+                "raw": "3 | Licencia Taxi Barcelona   185.000 € | Sant Quirze del Valles (Barcelona) | Numero de licencia te..."
+            },
             {
                 "fuente": "SOLANO",
                 "precio_neto": 171213,
