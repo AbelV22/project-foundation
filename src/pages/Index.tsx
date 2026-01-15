@@ -12,6 +12,7 @@ import { TrainsFullDayView } from "@/components/views/TrainsFullDayView";
 import { TrainsByCityView } from "@/components/views/TrainsByCityView";
 import { TrainsByOperatorView } from "@/components/views/TrainsByOperatorView";
 import { QuickEarningsSheet } from "@/components/widgets/QuickEarningsSheet";
+import { WhereNextSheet } from "@/components/widgets/WhereNextSheet";
 
 const titles: Record<string, string> = {
   dashboard: "Inicio",
@@ -162,7 +163,8 @@ const Index = () => {
         </div>
       </main>
 
-      {/* Floating Quick Earnings Button (PRO feature) */}
+      {/* Floating PRO Feature Buttons */}
+      <WhereNextSheet />
       <QuickEarningsSheet />
     </div>
   );
