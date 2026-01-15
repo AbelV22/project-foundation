@@ -67,6 +67,36 @@
     --sidebar-border: 220 15% 15%;
     --sidebar-ring: 42 100% 50%;
   }
+
+  .light {
+    --background: 0 0% 100%;
+    --foreground: 220 25% 6%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 220 25% 6%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 25% 6%;
+
+    --primary: 42 100% 50%;
+    --primary-foreground: 220 25% 6%;
+
+    --secondary: 220 14% 96%;
+    --secondary-foreground: 220 10% 40%;
+
+    --muted: 220 14% 96%;
+    --muted-foreground: 220 10% 40%;
+
+    --accent: 220 14% 96%;
+    --accent-foreground: 220 25% 6%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 220 13% 91%;
+    --input: 220 13% 91%;
+    --ring: 42 100% 50%;
+  }
 }
 
 @layer base {
@@ -294,24 +324,17 @@
   right: 0;
   z-index: 50;
   height: 4.5rem;
-  background: linear-gradient(180deg,
-      rgba(0, 0, 0, 0.7) 0%,
-      rgba(0, 0, 0, 0.85) 100%);
+  /* Glass adaptativo: oscuro en dark mode, blanco translúcido en light mode */
+  @apply bg-background/80 border-t border-border/40;
   backdrop-filter: blur(20px) saturate(180%);
   -webkit-backdrop-filter: blur(20px) saturate(180%);
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
   padding-bottom: env(safe-area-inset-bottom, 0px);
 }
 
 /* Active Item Background Pill */
 .nav-pill-active {
-  background: linear-gradient(135deg,
-      rgba(250, 204, 21, 0.15) 0%,
-      rgba(234, 179, 8, 0.08) 100%);
-  border: 1px solid rgba(250, 204, 21, 0.25);
-  box-shadow:
-    0 0 20px rgba(250, 204, 21, 0.15),
-    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  @apply bg-primary/10 border border-primary/25 shadow-[0_0_20px_rgba(250, 204, 21, 0.15)];
+  box-shadow: 0 0 20px rgba(250, 204, 21, 0.15), inset 0 1px 0 rgba(255, 255, 255, 0.1);
 }
 
 /* Glow pulse behind active icon */

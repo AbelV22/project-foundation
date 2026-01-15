@@ -2,7 +2,7 @@ import { Bell, Sun, Cloud, CloudRain, CloudDrizzle, CloudLightning, Snowflake, S
 import { Button } from "@/components/ui/button";
 import { useWeather } from "@/hooks/useWeather";
 import { ThemeToggle } from "@/components/ThemeToggle";
-import logoItaxiBcn from "@/assets/logo-itaxibcn.png";
+import logoItaxiBcn from "@/assets/logo-new.png";
 
 interface HeaderProps {
   title: string;

@@ -65,7 +65,7 @@ export function BottomNav({ activeTab, onTabChange }: BottomNavProps) {
                 "focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/50",
                 isActive
                   ? "nav-item-active"
-                  : "text-white/50 hover:text-white/70 active:scale-95"
+                  : "text-muted-foreground hover:text-foreground active:scale-95"
               )}
             >
               {/* Active Background Pill */}
@@ -90,7 +90,7 @@ export function BottomNav({ activeTab, onTabChange }: BottomNavProps) {
                   "relative z-10 text-[10px] font-semibold leading-none transition-all duration-300",
                   isActive
                     ? "text-primary opacity-100 translate-y-0"
-                    : "text-white/40 opacity-0 -translate-y-1 sm:opacity-100 sm:translate-y-0"
+                    : "text-muted-foreground opacity-0 -translate-y-1 sm:opacity-100 sm:translate-y-0"
                 )}
               >
                 {item.label}
@@ -101,7 +101,7 @@ export function BottomNav({ activeTab, onTabChange }: BottomNavProps) {
       </div>
 
       {/* Subtle top highlight line */}
-      <div className="absolute top-0 left-1/4 right-1/4 h-px bg-gradient-to-r from-transparent via-white/20 to-transparent" />
+      <div className="absolute top-0 left-1/4 right-1/4 h-px bg-gradient-to-r from-transparent via-foreground/20 to-transparent" />
     </nav>
   );
 }
