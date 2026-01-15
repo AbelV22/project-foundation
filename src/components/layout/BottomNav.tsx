@@ -1,10 +1,9 @@
-import { 
-  LayoutDashboard, 
-  Plane, 
+import {
+  LayoutDashboard,
+  Plane,
   Train,
-  Calendar, 
-  TrendingUp, 
-  Bell
+  Calendar,
+  TrendingUp
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 
@@ -19,46 +18,90 @@ const navItems = [
   { id: "trenes", label: "Trenes", icon: Train, target: "trainsFullDay" },
   { id: "eventos", label: "Eventos", icon: Calendar, target: "eventos" },
   { id: "licencias", label: "Licencias", icon: TrendingUp, target: "licencias" },
-  { id: "alertas", label: "Alertas", icon: Bell, target: "alertas" },
 ];
 
 export function BottomNav({ activeTab, onTabChange }: BottomNavProps) {
-  // Only show main navigation items, not detail views
-  const isMainTab = navItems.some(item => item.id === activeTab);
-  
+  // Determine if current tab is a main tab or a sub-view
+  const getActiveItem = () => {
+    for (const item of navItems) {
+      if (activeTab === item.target) return item.id;
+      if (item.id === "vuelos" && (activeTab === "terminalDetail" || activeTab === "fullDay" || activeTab === "vuelos")) return "vuelos";
+      if (item.id === "trenes" && (activeTab === "trainsFullDay" || activeTab === "trainsByCity" || activeTab === "trainsByOperator" || activeTab === "trenes")) return "trenes";
+    }
+    return "dashboard";
+  };
+
+  const activeItemId = getActiveItem();
+
   return (
-    <nav className="fixed bottom-0 left-0 right-0 z-50 bg-card/95 backdrop-blur-xl border-t border-border safe-area-bottom lg:hidden">
-      <div className="flex items-center justify-around h-16 px-2">
+    <nav className="bottom-nav-glass">
+      {/* Glow effect behind active item */}
+      <div className="absolute inset-0 pointer-events-none overflow-hidden">
+        <div className="relative w-full h-full flex items-center justify-around px-2">
+          {navItems.map((item) => (
+            <div
+              key={item.id}
+              className={cn(
+                "w-14 h-10 rounded-xl transition-all duration-500",
+                activeItemId === item.id && "nav-glow-pulse"
+              )}
+            />
+          ))}
+        </div>
+      </div>
+
+      {/* Navigation Items */}
+      <div className="relative flex items-center justify-around h-full px-2 max-w-lg mx-auto">
         {navItems.map((item) => {
-          const isActive = activeTab === item.target || 
-            (item.id === "vuelos" && (activeTab === "terminalDetail" || activeTab === "fullDay" || activeTab === "vuelos")) ||
-            (item.id === "trenes" && (activeTab === "trainsFullDay" || activeTab === "trainsByCity" || activeTab === "trainsByOperator" || activeTab === "trenes"));
-          
+          const isActive = activeItemId === item.id;
+          const Icon = item.icon;
+
           return (
             <button
               key={item.id}
               onClick={() => onTabChange(item.target)}
               className={cn(
-                "flex flex-col items-center justify-center gap-1 px-3 py-2 rounded-xl transition-all duration-200 min-w-[60px]",
-                isActive 
-                  ? "text-primary bg-primary/10" 
-                  : "text-muted-foreground hover:text-foreground hover:bg-muted/50"
+                "relative flex flex-col items-center justify-center gap-0.5 px-3 py-2 rounded-xl transition-all duration-300 min-w-[56px]",
+                "focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/50",
+                isActive
+                  ? "nav-item-active"
+                  : "text-white/50 hover:text-white/70 active:scale-95"
               )}
             >
-              <item.icon className={cn(
-                "h-5 w-5 transition-transform",
-                isActive && "scale-110"
-              )} />
-              <span className={cn(
-                "text-[10px] font-medium leading-none",
-                isActive && "font-semibold"
-              )}>
+              {/* Active Background Pill */}
+              {isActive && (
+                <div className="absolute inset-0 nav-pill-active rounded-xl" />
+              )}
+
+              {/* Icon */}
+              <Icon
+                className={cn(
+                  "relative z-10 transition-all duration-300",
+                  isActive
+                    ? "h-5 w-5 text-primary drop-shadow-[0_0_8px_rgba(250,204,21,0.6)]"
+                    : "h-5 w-5"
+                )}
+                strokeWidth={isActive ? 2.5 : 2}
+              />
+
+              {/* Label - Only show for active item on mobile, all on desktop */}
+              <span
+                className={cn(
+                  "relative z-10 text-[10px] font-semibold leading-none transition-all duration-300",
+                  isActive
+                    ? "text-primary opacity-100 translate-y-0"
+                    : "text-white/40 opacity-0 -translate-y-1 sm:opacity-100 sm:translate-y-0"
+                )}
+              >
                 {item.label}
               </span>
             </button>
           );
         })}
       </div>
+
+      {/* Subtle top highlight line */}
+      <div className="absolute top-0 left-1/4 right-1/4 h-px bg-gradient-to-r from-transparent via-white/20 to-transparent" />
     </nav>
   );
 }

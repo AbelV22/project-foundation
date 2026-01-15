@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Sidebar } from "@/components/layout/Sidebar";
+import { BottomNav } from "@/components/layout/BottomNav";
 import { Header } from "@/components/layout/Header";
 import { DashboardView } from "@/components/views/DashboardView";
 import { FlightsView } from "@/components/views/FlightsView";
@@ -30,7 +30,6 @@ const titles: Record<string, string> = {
 
 const Index = () => {
   const [activeTab, setActiveTab] = useState("dashboard");
-  const [sidebarOpen, setSidebarOpen] = useState(false);
   const [selectedTerminal, setSelectedTerminal] = useState<string | null>(null);
   const [selectedTrainCity, setSelectedTrainCity] = useState<string | null>(null);
   const [selectedTrainOperator, setSelectedTrainOperator] = useState<string | null>(null);
@@ -95,7 +94,8 @@ const Index = () => {
 
   return (
     <div className="min-h-screen bg-background">
-      <Sidebar
+      {/* Bottom Navigation */}
+      <BottomNav
         activeTab={activeTab}
         onTabChange={(tab) => {
           setActiveTab(tab);
@@ -103,14 +103,12 @@ const Index = () => {
           setSelectedTrainCity(null);
           setSelectedTrainOperator(null);
         }}
-        isOpen={sidebarOpen}
-        onToggle={() => setSidebarOpen(!sidebarOpen)}
       />
 
-      <main className="lg:pl-56 transition-all duration-300">
-        <Header title={titles[activeTab]} onMenuToggle={() => setSidebarOpen(!sidebarOpen)} />
+      <main className="transition-all duration-300">
+        <Header title={titles[activeTab]} />
 
-        <div className="p-4 md:p-6">
+        <div className="p-4 md:p-6 pb-bottom-nav">
           {activeTab === "dashboard" && (
             <DashboardView
               onTerminalClick={handleTerminalClick}

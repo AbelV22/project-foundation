@@ -1,4 +1,4 @@
-import { Bell, Sun, Cloud, CloudRain, CloudDrizzle, CloudLightning, Snowflake } from "lucide-react";
+import { Bell, Sun, Cloud, CloudRain, CloudDrizzle, CloudLightning, Snowflake, Settings } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useWeather } from "@/hooks/useWeather";
 import { ThemeToggle } from "@/components/ThemeToggle";
@@ -7,7 +7,6 @@ import { useState, useEffect } from "react";
 
 interface HeaderProps {
   title: string;
-  onMenuToggle?: () => void;
 }
 
 // Helper para iconos de clima
@@ -20,7 +19,7 @@ const getWeatherIcon = (code: number, className: string) => {
   return <CloudLightning className={className} />;
 };
 
-export function Header({ title, onMenuToggle }: HeaderProps) {
+export function Header({ title }: HeaderProps) {
   const { weather, isRainAlert } = useWeather();
   const [currentTime, setCurrentTime] = useState(new Date());
 
@@ -34,26 +33,39 @@ export function Header({ title, onMenuToggle }: HeaderProps) {
 
   return (
     <header className="sticky top-0 z-30 flex h-14 items-center justify-between border-b border-border bg-background/95 backdrop-blur px-3 md:px-6">
-      <div className="flex items-center gap-2">
-        {/* Mobile menu spacer */}
-        <div className="w-8 lg:hidden" />
+      {/* LEFT SIDE: Settings, Notifications, Logo */}
+      <div className="flex items-center gap-1.5">
+        {/* Configuración - Glass button */}
+        <Button
+          variant="ghost"
+          size="icon"
+          className="relative text-muted-foreground hover:text-primary hover:bg-primary/10 h-9 w-9 rounded-xl transition-all"
+        >
+          <Settings className="h-4.5 w-4.5" />
+        </Button>
 
-        {/* Logo con glow */}
-        <div className="lg:hidden relative ml-2">
+        {/* Notificaciones - Glass button with badge */}
+        <Button
+          variant="ghost"
+          size="icon"
+          className="relative text-muted-foreground hover:text-primary hover:bg-primary/10 h-9 w-9 rounded-xl transition-all"
+        >
+          <Bell className="h-4.5 w-4.5" />
+          {/* Notification badge */}
+          <span className="absolute top-1.5 right-1.5 h-2 w-2 rounded-full bg-primary shadow-[0_0_8px_rgba(250,204,21,0.6)]" />
+        </Button>
+
+        {/* Logo con glow - siempre visible */}
+        <div className="relative ml-1">
           <img
             src={logoItaxiBcn}
             alt="iTaxiBcn"
             className="h-9 w-auto object-contain drop-shadow-[0_0_8px_rgba(250,204,21,0.5)]"
           />
         </div>
-
-        {/* Desktop: título y fecha */}
-        <div className="hidden lg:block">
-          <h1 className="font-display text-lg md:text-2xl font-bold text-foreground">{title}</h1>
-        </div>
       </div>
 
-      {/* Hora + Clima dinámico (API Open-Meteo Barcelona) */}
+      {/* RIGHT SIDE: Time, Weather, Theme */}
       <div className="flex items-center gap-2">
         {/* Hora actual - prominente */}
         <p className="font-display font-bold text-xl text-foreground">{horaActual}</p>
@@ -62,8 +74,8 @@ export function Header({ title, onMenuToggle }: HeaderProps) {
         <button
           onClick={() => window.open("https://www.eltiempo.es/barcelona.html", "_blank")}
           className={`flex items-center gap-1.5 px-2.5 py-1.5 rounded-full text-xs border transition-all ${isRainAlert
-              ? "bg-rain/20 border-rain/50 animate-pulse"
-              : "bg-muted/50 border-border hover:bg-muted"
+            ? "bg-rain/20 border-rain/50 animate-pulse"
+            : "bg-muted/50 border-border hover:bg-muted"
             }`}
         >
           {weather ? (
@@ -85,11 +97,6 @@ export function Header({ title, onMenuToggle }: HeaderProps) {
 
         {/* Theme toggle */}
         <ThemeToggle />
-
-        {/* Notificaciones - solo desktop */}
-        <Button variant="ghost" size="icon" className="hidden md:flex relative text-muted-foreground hover:text-foreground h-8 w-8">
-          <Bell className="h-4 w-4" />
-        </Button>
       </div>
     </header>
   );
