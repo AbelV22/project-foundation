@@ -1,6 +1,5 @@
 import { serve } from "https://deno.land/std@0.168.0/http/server.ts"
 import { createClient } from 'https://esm.sh/@supabase/supabase-js@2'
-
 // --- CONFIGURACIÓN DE ZONAS ---
 const ZONAS: Record<string, { tipo: string; poligonos: number[][][] }> = {
   "T1": {
@@ -36,10 +35,8 @@ const ZONAS: Record<string, { tipo: string; poligonos: number[][][] }> = {
     ]
   }
 };
-
 // Tolerancia de 100m en grados (~0.0009 para latitud)
 const TOLERANCE = 0.001;
-
 function puntoEnPoligono(lat: number, lng: number, poligono: number[][]) {
   let dentro = false;
   for (let i = 0, j = poligono.length - 1; i < poligono.length; j = i++) {
@@ -50,77 +47,50 @@ function puntoEnPoligono(lat: number, lng: number, poligono: number[][]) {
   }
   return dentro;
 }
-
 function puntoCercaDePoligono(lat: number, lng: number, poligono: number[][]): boolean {
-  // Check if point is inside polygon
   if (puntoEnPoligono(lat, lng, poligono)) return true;
-
-  // Check if point is within tolerance distance of any edge
   for (let i = 0; i < poligono.length - 1; i++) {
     const [lat1, lng1] = poligono[i];
     const [lat2, lng2] = poligono[i + 1];
-
-    // Simple distance check to line segment
     const dist = distanciaPuntoALinea(lat, lng, lat1, lng1, lat2, lng2);
     if (dist <= TOLERANCE) return true;
   }
   return false;
 }
-
 function distanciaPuntoALinea(px: number, py: number, x1: number, y1: number, x2: number, y2: number): number {
   const A = px - x1;
   const B = py - y1;
   const C = x2 - x1;
   const D = y2 - y1;
-
   const dot = A * C + B * D;
   const lenSq = C * C + D * D;
   let param = -1;
-
   if (lenSq !== 0) param = dot / lenSq;
-
   let xx, yy;
-
-  if (param < 0) {
-    xx = x1;
-    yy = y1;
-  } else if (param > 1) {
-    xx = x2;
-    yy = y2;
-  } else {
-    xx = x1 + param * C;
-    yy = y1 + param * D;
-  }
-
+  if (param < 0) { xx = x1; yy = y1; }
+  else if (param > 1) { xx = x2; yy = y2; }
+  else { xx = x1 + param * C; yy = y1 + param * D; }
   const dx = px - xx;
   const dy = py - yy;
   return Math.sqrt(dx * dx + dy * dy);
 }
-
 const corsHeaders = {
   'Access-Control-Allow-Origin': '*',
   'Access-Control-Allow-Headers': 'authorization, x-client-info, apikey, content-type',
 };
-
 serve(async (req) => {
   if (req.method === 'OPTIONS') {
     return new Response('ok', { headers: corsHeaders });
   }
-
   try {
     const { lat, lng, action, deviceId, previousZona, accuracy, deviceName } = await req.json();
-
     console.log(`[check-geofence] Received: lat=${lat}, lng=${lng}, action=${action}, deviceId=${deviceId}, prevZona=${previousZona}`);
-
-    // Validate deviceId
     if (!deviceId || typeof deviceId !== 'string' || deviceId.length < 36) {
       return new Response(JSON.stringify({
         success: false,
         message: "❌ Device ID inválido."
       }), { headers: { ...corsHeaders, 'Content-Type': 'application/json' } });
     }
-
-    // Validate coordinates
     if (typeof lat !== 'number' || typeof lng !== 'number' ||
       lat < 41.0 || lat > 42.0 || lng < 1.5 || lng > 3.0) {
       return new Response(JSON.stringify({
@@ -128,10 +98,7 @@ serve(async (req) => {
         message: "❌ Coordenadas fuera del área de Barcelona."
       }), { headers: { ...corsHeaders, 'Content-Type': 'application/json' } });
     }
-
     let zonaDetectada: string | null = null;
-
-    // Buscar zona con tolerancia de 100m
     for (const [nombre, datos] of Object.entries(ZONAS)) {
       for (const poligono of datos.poligonos) {
         if (puntoCercaDePoligono(lat, lng, poligono)) {
@@ -141,17 +108,12 @@ serve(async (req) => {
       }
       if (zonaDetectada) break;
     }
-
     console.log(`[check-geofence] Zona detectada: ${zonaDetectada || 'ninguna'}`);
-
-    // REGISTRAR ENTRADA (siempre guardar para debug, incluso fuera de zonas)
     if (action === 'register') {
       const supabase = createClient(
         Deno.env.get('SUPABASE_URL') ?? '',
         Deno.env.get('SUPABASE_SERVICE_ROLE_KEY') ?? ''
       );
-
-      // Rate limiting: check last entry from this device (1 min for debug mode)
       const { data: lastEntry } = await supabase
         .from('registros_reten')
         .select('created_at')
@@ -159,13 +121,10 @@ serve(async (req) => {
         .order('created_at', { ascending: false })
         .limit(1)
         .maybeSingle();
-
       if (lastEntry) {
         const lastTime = new Date(lastEntry.created_at).getTime();
         const now = Date.now();
         const diffMinutes = (now - lastTime) / (1000 * 60);
-
-        // Reduced rate limit to 1 min for debugging
         if (diffMinutes < 1) {
           return new Response(JSON.stringify({
             success: false,
@@ -173,10 +132,7 @@ serve(async (req) => {
           }), { headers: { ...corsHeaders, 'Content-Type': 'application/json' } });
         }
       }
-
-      // Always save location - use "DEBUG" zone if outside all zones
       const zonaParaGuardar = zonaDetectada || "DEBUG";
-
       const { error } = await supabase.from('registros_reten').insert({
         zona: zonaParaGuardar,
         tipo_zona: zonaDetectada ? "STANDARD" : "DEBUG",
@@ -185,16 +141,12 @@ serve(async (req) => {
         lng: lng,
         device_id: deviceId
       });
-
       if (error) {
         console.error(`[check-geofence] DB Error:`, error);
         throw error;
       }
-
       console.log(`[check-geofence] Ping guardado en ${zonaParaGuardar} para device ${deviceId}`);
-
-      // --- DETAILED LOGGING FOR DEVELOPER TESTING ---
-      // Determine event type based on zone transition
+      // --- LOGGING DETALLADO PARA TESTING ---
       let eventType = 'POSITION_UPDATE';
       if (previousZona !== zonaDetectada) {
         if (zonaDetectada && (!previousZona || previousZona === 'DEBUG')) {
@@ -202,12 +154,9 @@ serve(async (req) => {
         } else if ((!zonaDetectada || zonaDetectada === 'DEBUG') && previousZona && previousZona !== 'DEBUG') {
           eventType = 'EXIT_ZONE';
         } else if (zonaDetectada && previousZona && zonaDetectada !== previousZona) {
-          // Transitioned from one zone to another
-          eventType = 'ENTER_ZONE'; // Log as entry to new zone
+          eventType = 'ENTER_ZONE';
         }
       }
-
-      // Insert detailed log entry
       const { error: logError } = await supabase.from('geofence_logs').insert({
         event_type: eventType,
         zona: zonaDetectada,
@@ -218,16 +167,12 @@ serve(async (req) => {
         device_id: deviceId,
         device_name: deviceName || null
       });
-
       if (logError) {
         console.error(`[check-geofence] Log Error (non-fatal):`, logError);
-        // Don't throw - logging failure shouldn't break the main flow
       } else {
-        console.log(`[check-geofence] Event logged: ${eventType} ${previousZona || 'null'} → ${zonaDetectada || 'null'}`);
+        console.log(`[check-geofence] Event logged: ${eventType}`);
       }
     }
-
-    // Return success with zone info
     if (zonaDetectada) {
       return new Response(JSON.stringify({
         success: true,
@@ -241,7 +186,6 @@ serve(async (req) => {
         message: `📍 Ubicación registrada (fuera de zonas)`
       }), { headers: { ...corsHeaders, 'Content-Type': 'application/json' } });
     }
-
   } catch (error) {
     console.error(`[check-geofence] Error:`, error);
     const errorMessage = error instanceof Error ? error.message : 'Unknown error';
