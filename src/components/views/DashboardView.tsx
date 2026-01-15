@@ -229,26 +229,6 @@ export function DashboardView({ onTerminalClick, onViewAllFlights, onViewAllEven
   return (
     <div className="space-y-3 pb-16">
 
-      {/* === QUICK NAV BUTTONS === */}
-      <div className="grid grid-cols-2 gap-2 animate-fade-in" style={{ animationDelay: '100ms' }}>
-        <button
-          onClick={onViewFullDay}
-          className="card-glass-hover flex items-center justify-center gap-2 h-11 text-white/80 hover:text-white font-medium text-sm transition-all duration-200"
-        >
-          <Calendar className="h-4 w-4 text-primary" />
-          <Plane className="h-4 w-4" />
-          <span>Ver Vuelos</span>
-        </button>
-        <button
-          onClick={onViewTrainsFullDay}
-          className="card-glass-hover flex items-center justify-center gap-2 h-11 text-white/80 hover:text-white font-medium text-sm transition-all duration-200"
-        >
-          <Calendar className="h-4 w-4 text-emerald-400" />
-          <Train className="h-4 w-4" />
-          <span>Ver Trenes</span>
-        </button>
-      </div>
-
       {/* === AEROPUERTO SECTION - GLASSMORPHISM === */}
       <section className="space-y-2 animate-fade-in" style={{ animationDelay: '300ms', animationFillMode: 'backwards' }}>
         {/* Section Header - Clickable */}

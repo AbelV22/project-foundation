@@ -3,7 +3,6 @@ import { Button } from "@/components/ui/button";
 import { useWeather } from "@/hooks/useWeather";
 import { ThemeToggle } from "@/components/ThemeToggle";
 import logoItaxiBcn from "@/assets/logo-itaxibcn.png";
-import { useState, useEffect } from "react";
 
 interface HeaderProps {
   title: string;
@@ -21,15 +20,6 @@ const getWeatherIcon = (code: number, className: string) => {
 
 export function Header({ title }: HeaderProps) {
   const { weather, isRainAlert } = useWeather();
-  const [currentTime, setCurrentTime] = useState(new Date());
-
-  // Actualizar hora cada minuto
-  useEffect(() => {
-    const interval = setInterval(() => setCurrentTime(new Date()), 60000);
-    return () => clearInterval(interval);
-  }, []);
-
-  const horaActual = currentTime.toLocaleTimeString('es-ES', { hour: '2-digit', minute: '2-digit' });
 
   return (
     <header className="sticky top-0 z-30 flex h-14 items-center justify-between border-b border-border bg-background/95 backdrop-blur px-3 md:px-6">
@@ -65,10 +55,8 @@ export function Header({ title }: HeaderProps) {
         </div>
       </div>
 
-      {/* RIGHT SIDE: Time, Weather, Theme */}
+      {/* RIGHT SIDE: Weather, Theme */}
       <div className="flex items-center gap-2">
-        {/* Hora actual - prominente */}
-        <p className="font-display font-bold text-xl text-foreground">{horaActual}</p>
 
         {/* Clima dinámico con alerta */}
         <button
