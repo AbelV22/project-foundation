@@ -69,7 +69,8 @@
   }
 
   .light {
-    --background: 0 0% 100%;
+    --background: 210 40% 98%;
+    /* Alice Blue muy suave para contraste con tarjetas blancas */
     --foreground: 220 25% 6%;
 
     --card: 0 0% 100%;
@@ -131,19 +132,16 @@
   /* Premium Glass Card - Dark theme optimized */
   .card-glass {
     @apply rounded-xl border backdrop-blur-md transition-all duration-300;
-    background: rgba(0, 0, 0, 0.6);
-    border-color: rgba(255, 255, 255, 0.1);
+    @apply bg-card/70 border-border/50 shadow-sm;
   }
 
   .card-glass-hover {
     @apply rounded-xl border backdrop-blur-md transition-all duration-300;
-    background: rgba(0, 0, 0, 0.6);
-    border-color: rgba(255, 255, 255, 0.1);
+    @apply bg-card/70 border-border/50 shadow-sm;
   }
 
   .card-glass-hover:hover {
-    background: rgba(0, 0, 0, 0.7);
-    border-color: rgba(255, 255, 255, 0.2);
+    @apply bg-card/90 border-primary/30 shadow-md;
   }
 
   /* Gradient Buttons */
@@ -162,7 +160,8 @@
   /* Nav Button Glass */
   .btn-nav-glass {
     @apply rounded-xl border border-white/10 backdrop-blur-sm transition-all duration-200 hover:border-primary/30;
-    background: rgba(255, 255, 255, 0.03);
+    @apply bg-white/5 dark:bg-white/5;
+    /* Adaptativo */
   }
 
   .stat-value {

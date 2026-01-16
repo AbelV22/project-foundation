@@ -239,7 +239,7 @@ export function DashboardView({ onTerminalClick, onViewAllFlights, onViewAllEven
         >
           <div className="flex items-center gap-2">
             <Plane className="h-4 w-4 text-primary" />
-            <span className="text-xs font-semibold text-muted-foreground uppercase tracking-wider group-hover:text-white transition-colors">Aeropuerto BCN</span>
+            <span className="text-xs font-semibold text-muted-foreground uppercase tracking-wider group-hover:text-foreground transition-colors">Aeropuerto BCN</span>
             <span className="flex items-center gap-1 text-[10px] text-emerald-400">
               <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse-glow" />
               En vivo
@@ -264,7 +264,7 @@ export function DashboardView({ onTerminalClick, onViewAllFlights, onViewAllEven
               >
                 {/* Header Row */}
                 <div className="flex items-center justify-between mb-0.5">
-                  <span className="text-sm font-semibold text-white/90">{term.name}</span>
+                  <span className="text-sm font-semibold text-foreground/90">{term.name}</span>
                   {term.hasRealData && term.espera !== null ? (
                     <div className={cn(
                       "inline-flex items-center gap-0.5 px-1.5 py-0.5 rounded-full text-[9px] font-semibold",
@@ -276,7 +276,7 @@ export function DashboardView({ onTerminalClick, onViewAllFlights, onViewAllEven
                       {term.espera}'
                     </div>
                   ) : (
-                    <div className="inline-flex items-center gap-0.5 px-1.5 py-0.5 rounded-full text-[9px] font-medium bg-white/10 text-white/50">
+                    <div className="inline-flex items-center gap-0.5 px-1.5 py-0.5 rounded-full text-[9px] font-medium bg-muted text-muted-foreground">
                       <Clock className="h-2 w-2" />
                       Sin datos
                     </div>
@@ -285,7 +285,7 @@ export function DashboardView({ onTerminalClick, onViewAllFlights, onViewAllEven
 
                 {/* BIG NUMBER - Monospace Numeric */}
                 <div className="flex flex-col">
-                  <span className="font-mono font-black text-3xl tabular-nums tracking-tight text-white">
+                  <span className="font-mono font-black text-3xl tabular-nums tracking-tight text-foreground">
                     {term.vuelosEstaHora}
                   </span>
                   <span className="text-[8px] text-primary font-medium">Próximos 60m</span>
@@ -313,8 +313,8 @@ export function DashboardView({ onTerminalClick, onViewAllFlights, onViewAllEven
         >
           <div className="flex items-center gap-2">
             <Train className="h-4 w-4 text-emerald-400" />
-            <span className="text-xs font-semibold text-muted-foreground uppercase tracking-wider group-hover:text-white transition-colors">Estación Sants</span>
-            <span className="font-mono text-lg font-bold text-white tabular-nums">{trenesProximaHora}</span>
+            <span className="text-xs font-semibold text-muted-foreground uppercase tracking-wider group-hover:text-foreground transition-colors">Estación Sants</span>
+            <span className="font-mono text-lg font-bold text-foreground tabular-nums">{trenesProximaHora}</span>
             <span className="text-[10px] text-muted-foreground">/hora</span>
           </div>
           <ChevronRight className="h-4 w-4 text-muted-foreground group-hover:text-primary transition-colors" />
@@ -322,7 +322,7 @@ export function DashboardView({ onTerminalClick, onViewAllFlights, onViewAllEven
 
         {/* Departure Board - Glass */}
         <div className="card-glass overflow-hidden">
-          <div className="divide-y divide-white/5">
+          <div className="divide-y divide-border/40">
             {proximosTrenes.length > 0 ? proximosTrenes.slice(0, 4).map((tren, idx) => {
               const countdown = getCountdown(tren.hora);
 
@@ -335,12 +335,12 @@ export function DashboardView({ onTerminalClick, onViewAllFlights, onViewAllEven
                   )}
                 >
                   {/* Time - White */}
-                  <span className="font-mono text-sm font-bold tabular-nums text-white">
+                  <span className="font-mono text-sm font-bold tabular-nums text-foreground">
                     {tren.hora}
                   </span>
 
                   {/* Origin */}
-                  <span className="text-xs text-white/80 truncate">{getCiudad(tren.origen)}</span>
+                  <span className="text-xs text-muted-foreground truncate">{getCiudad(tren.origen)}</span>
 
                   {/* Countdown - Colored by Urgency */}
                   <span className={cn(
@@ -383,7 +383,7 @@ export function DashboardView({ onTerminalClick, onViewAllFlights, onViewAllEven
           <p className="text-[9px] text-purple-400 font-medium mb-0.5">{capitalizedToday}</p>
           {topEvent ? (
             <>
-              <p className="font-semibold text-sm text-white truncate leading-tight">{topEvent.title}</p>
+              <p className="font-semibold text-sm text-foreground truncate leading-tight">{topEvent.title}</p>
               <p className="text-[10px] text-muted-foreground mt-0.5">{topEvent.time} · {topEvent.location.split(' ')[0]}</p>
             </>
           ) : (
@@ -423,7 +423,7 @@ export function DashboardView({ onTerminalClick, onViewAllFlights, onViewAllEven
             </div>
             <div className="text-left">
               <p className="text-[10px] text-muted-foreground font-medium uppercase tracking-wider">Ingresos Hoy</p>
-              <p className="text-sm font-semibold text-white">Ver Registro</p>
+              <p className="text-sm font-semibold text-foreground">Ver Registro</p>
             </div>
           </div>
           <ChevronRight className="h-4 w-4 text-muted-foreground/50 group-hover:text-primary transition-colors" />
