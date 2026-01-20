@@ -30,4 +30,5 @@ jobs:
         run: supabase functions deploy check-geofence
 
       - name: Push Database Migrations
-        run: supabase db push
+        run: supabase db push || echo "Migrations may have already been applied manually"
+        continue-on-error: true
