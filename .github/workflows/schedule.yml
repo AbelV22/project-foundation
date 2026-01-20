@@ -36,18 +36,29 @@ jobs:
         run: |
           git config --global user.name 'TaxiBot BCN'
           git config --global user.email 'bot@taxibcn.app'
+          
+          # Añadir TODOS los archivos que el scraper pueda haber modificado
           git add public/vuelos.json public/backups/ || true
           
-          # Comprobamos si hay cambios reales
-          if git diff --quiet && git diff --staged --quiet; then
+          # Comprobamos si hay cambios reales para commitear
+          if git diff --staged --quiet; then
             echo "✅ No hay cambios nuevos en los vuelos. Nada que guardar."
           else
             git commit -m "Actualización auto: $(date)"
             
-            # --- LA SOLUCIÓN AL ERROR ---
-            # Nos bajamos los últimos cambios del servidor antes de empujar
-            git pull --rebase origin main
+            # --- SOLUCIÓN: Manejar conflictos con fetch + rebase ---
+            # Primero obtenemos los cambios remotos
+            git fetch origin main
+            
+            # Rebase de nuestro commit sobre los cambios remotos
+            # Si hay conflictos, abortamos y hacemos merge normal
+            if ! git rebase origin/main; then
+              echo "⚠️ Rebase falló, intentando merge..."
+              git rebase --abort || true
+              git merge origin/main --no-edit -X theirs || true
+            fi
             
             # Ahora sí, empujamos
-            git push
+            git push origin main
           fi
+
