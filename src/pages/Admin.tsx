@@ -1,12 +1,22 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { supabase } from "@/integrations/supabase/client";
-import { RefreshCw, MapPin, Clock, Users, Lock, LogOut, Eye, EyeOff, Play, Square, Activity, ArrowRightLeft } from "lucide-react";
+import { RefreshCw, MapPin, Clock, Users, Lock, LogOut, Eye, EyeOff, Play, Square, Activity, ArrowRightLeft, Navigation, TestTube } from "lucide-react";
 import { cn } from "@/lib/utils";
-import { enableTestingMode, disableTestingMode, getTrackingStatus } from "@/services/location/AutoLocationService";
+import { enableTestingMode, disableTestingMode, getTrackingStatus, forceLocationCheck, setTestCoordinates, clearTestCoordinates } from "@/services/location/AutoLocationService";
 
 // Admin password
 const ADMIN_PASSWORD = "laraabel22";
+
+// Preset test locations
+const TEST_LOCATIONS = [
+    { name: "T1 Aeropuerto", lat: 41.2925, lng: 2.0540 },
+    { name: "T2 Aeropuerto", lat: 41.3035, lng: 2.0680 },
+    { name: "Sants Estación", lat: 41.3795, lng: 2.1400 },
+    { name: "Puente Aéreo", lat: 41.2897, lng: 2.0710 },
+    { name: "T2C EasyJet", lat: 41.3050, lng: 2.0815 },
+    { name: "Fuera zonas (BCN)", lat: 41.3870, lng: 2.1700 },
+];
 
 interface RegistroReten {
     id: string;
@@ -52,6 +62,10 @@ export default function Admin() {
     const [activeTab, setActiveTab] = useState<'stats' | 'logs'>('stats');
     const [testingModeActive, setTestingModeActive] = useState(false);
     const [deviceNameInput, setDeviceNameInput] = useState("");
+    const [trackingStatus, setTrackingStatus] = useState<ReturnType<typeof getTrackingStatus> | null>(null);
+    const [customLat, setCustomLat] = useState("");
+    const [customLng, setCustomLng] = useState("");
+    const [useCustomCoords, setUseCustomCoords] = useState(false);
     const navigate = useNavigate();
 
     // Check if already authenticated (session storage)
@@ -134,14 +148,19 @@ export default function Admin() {
             // Check initial testing mode status
             const status = getTrackingStatus();
             setTestingModeActive(status.isTestingMode);
+            setTrackingStatus(status);
             if (status.deviceName) setDeviceNameInput(status.deviceName);
 
             fetchData();
             fetchGeofenceLogs();
+            
+            // Refresh data and status periodically
             const interval = setInterval(() => {
                 fetchData();
                 fetchGeofenceLogs();
-            }, 15000); // Refresh every 15s for logs
+                setTrackingStatus(getTrackingStatus());
+            }, 5000); // Refresh every 5s for real-time status
+            
             return () => clearInterval(interval);
         }
     }, [isAuthenticated]);
@@ -168,11 +187,36 @@ export default function Admin() {
     const handleToggleTestingMode = () => {
         if (testingModeActive) {
             disableTestingMode();
+            clearTestCoordinates();
             setTestingModeActive(false);
+            setUseCustomCoords(false);
         } else {
+            // Set custom coordinates if enabled
+            if (useCustomCoords && customLat && customLng) {
+                setTestCoordinates(parseFloat(customLat), parseFloat(customLng));
+            }
             enableTestingMode(deviceNameInput || "Taxi Testing");
             setTestingModeActive(true);
         }
+        setTimeout(() => setTrackingStatus(getTrackingStatus()), 500);
+    };
+
+    const handleForceCheck = async () => {
+        if (useCustomCoords && customLat && customLng) {
+            setTestCoordinates(parseFloat(customLat), parseFloat(customLng));
+        }
+        await forceLocationCheck();
+        setTimeout(() => {
+            setTrackingStatus(getTrackingStatus());
+            fetchGeofenceLogs();
+        }, 1000);
+    };
+
+    const handlePresetLocation = (lat: number, lng: number) => {
+        setCustomLat(lat.toString());
+        setCustomLng(lng.toString());
+        setUseCustomCoords(true);
+        setTestCoordinates(lat, lng);
     };
 
     const getDefaultEspera = (zona: string): number => {
@@ -277,33 +321,152 @@ export default function Admin() {
                                 ? "bg-emerald-500/20 text-emerald-400"
                                 : "bg-muted-foreground/20 text-muted-foreground"
                         )}>
-                            {testingModeActive ? "ACTIVO (30s)" : "INACTIVO (5min)"}
+                            {testingModeActive ? "ACTIVO (30s)" : "INACTIVO"}
                         </span>
                     </div>
-                    <button
-                        onClick={handleToggleTestingMode}
-                        className={cn(
-                            "flex items-center gap-1.5 px-3 py-1.5 rounded-lg font-medium text-sm transition-colors",
-                            testingModeActive
-                                ? "bg-red-500/20 text-red-400 hover:bg-red-500/30"
-                                : "bg-emerald-500/20 text-emerald-400 hover:bg-emerald-500/30"
-                        )}
-                    >
-                        {testingModeActive ? <Square className="h-4 w-4" /> : <Play className="h-4 w-4" />}
-                        {testingModeActive ? "Detener" : "Iniciar"}
-                    </button>
+                    <div className="flex gap-2">
+                        <button
+                            onClick={handleForceCheck}
+                            className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg font-medium text-sm bg-blue-500/20 text-blue-400 hover:bg-blue-500/30 transition-colors"
+                        >
+                            <Navigation className="h-4 w-4" />
+                            Forzar
+                        </button>
+                        <button
+                            onClick={handleToggleTestingMode}
+                            className={cn(
+                                "flex items-center gap-1.5 px-3 py-1.5 rounded-lg font-medium text-sm transition-colors",
+                                testingModeActive
+                                    ? "bg-red-500/20 text-red-400 hover:bg-red-500/30"
+                                    : "bg-emerald-500/20 text-emerald-400 hover:bg-emerald-500/30"
+                            )}
+                        >
+                            {testingModeActive ? <Square className="h-4 w-4" /> : <Play className="h-4 w-4" />}
+                            {testingModeActive ? "Detener" : "Iniciar"}
+                        </button>
+                    </div>
                 </div>
-                <div className="flex gap-2">
+
+                {/* Device Name */}
+                <div className="mb-3">
                     <input
                         type="text"
                         value={deviceNameInput}
                         onChange={(e) => setDeviceNameInput(e.target.value)}
                         placeholder="Nombre del dispositivo (ej: Taxi Papá)"
-                        className="flex-1 bg-black/30 border border-white/10 rounded-lg px-3 py-2 text-sm text-white placeholder:text-muted-foreground focus:outline-none focus:border-primary"
+                        className="w-full bg-black/30 border border-white/10 rounded-lg px-3 py-2 text-sm text-white placeholder:text-muted-foreground focus:outline-none focus:border-primary"
                     />
                 </div>
+
+                {/* Custom Coordinates Toggle */}
+                <div className="mb-3">
+                    <label className="flex items-center gap-2 cursor-pointer">
+                        <input
+                            type="checkbox"
+                            checked={useCustomCoords}
+                            onChange={(e) => {
+                                setUseCustomCoords(e.target.checked);
+                                if (!e.target.checked) clearTestCoordinates();
+                            }}
+                            className="w-4 h-4 accent-primary"
+                        />
+                        <span className="text-sm text-white flex items-center gap-1">
+                            <TestTube className="h-4 w-4 text-amber-400" />
+                            Usar coordenadas de prueba (simular ubicación)
+                        </span>
+                    </label>
+                </div>
+
+                {useCustomCoords && (
+                    <>
+                        {/* Preset Locations */}
+                        <div className="flex flex-wrap gap-1 mb-2">
+                            {TEST_LOCATIONS.map((loc) => (
+                                <button
+                                    key={loc.name}
+                                    onClick={() => handlePresetLocation(loc.lat, loc.lng)}
+                                    className={cn(
+                                        "text-xs px-2 py-1 rounded-lg transition-colors",
+                                        customLat === loc.lat.toString() && customLng === loc.lng.toString()
+                                            ? "bg-primary text-black"
+                                            : "bg-white/5 text-muted-foreground hover:bg-white/10"
+                                    )}
+                                >
+                                    {loc.name}
+                                </button>
+                            ))}
+                        </div>
+
+                        {/* Manual Coordinates */}
+                        <div className="flex gap-2">
+                            <input
+                                type="number"
+                                step="0.0001"
+                                value={customLat}
+                                onChange={(e) => setCustomLat(e.target.value)}
+                                placeholder="Latitud (ej: 41.2925)"
+                                className="flex-1 bg-black/30 border border-white/10 rounded-lg px-3 py-2 text-sm text-white placeholder:text-muted-foreground focus:outline-none focus:border-primary font-mono"
+                            />
+                            <input
+                                type="number"
+                                step="0.0001"
+                                value={customLng}
+                                onChange={(e) => setCustomLng(e.target.value)}
+                                placeholder="Longitud (ej: 2.0540)"
+                                className="flex-1 bg-black/30 border border-white/10 rounded-lg px-3 py-2 text-sm text-white placeholder:text-muted-foreground focus:outline-none focus:border-primary font-mono"
+                            />
+                        </div>
+                    </>
+                )}
+
+                {/* Real-time Status */}
+                {trackingStatus && (
+                    <div className="mt-3 p-3 bg-black/20 rounded-lg text-xs space-y-1">
+                        <div className="flex justify-between">
+                            <span className="text-muted-foreground">Estado:</span>
+                            <span className={cn(
+                                trackingStatus.isTracking ? "text-emerald-400" : "text-muted-foreground"
+                            )}>
+                                {trackingStatus.isTracking ? "Trackeando" : "Detenido"}
+                            </span>
+                        </div>
+                        <div className="flex justify-between">
+                            <span className="text-muted-foreground">Zona actual:</span>
+                            <span className={cn(
+                                trackingStatus.lastZona && trackingStatus.lastZona !== 'DEBUG'
+                                    ? "text-primary font-medium"
+                                    : "text-muted-foreground"
+                            )}>
+                                {trackingStatus.lastZona || "—"}
+                            </span>
+                        </div>
+                        {trackingStatus.lastPosition && (
+                            <div className="flex justify-between">
+                                <span className="text-muted-foreground">Última posición:</span>
+                                <span className="text-blue-400 font-mono">
+                                    {trackingStatus.lastPosition.lat.toFixed(5)}, {trackingStatus.lastPosition.lng.toFixed(5)}
+                                </span>
+                            </div>
+                        )}
+                        {trackingStatus.lastCheckTime && (
+                            <div className="flex justify-between">
+                                <span className="text-muted-foreground">Último check:</span>
+                                <span className="text-white">
+                                    {new Date(trackingStatus.lastCheckTime).toLocaleTimeString('es-ES')}
+                                </span>
+                            </div>
+                        )}
+                        {trackingStatus.lastError && (
+                            <div className="flex justify-between">
+                                <span className="text-muted-foreground">Error:</span>
+                                <span className="text-red-400">{trackingStatus.lastError}</span>
+                            </div>
+                        )}
+                    </div>
+                )}
+
                 <p className="text-xs text-muted-foreground mt-2">
-                    💡 Activa modo testing para trackeo cada 30 segundos. Los logs aparecerán abajo.
+                    💡 Activa modo testing para trackeo cada 30 segundos. Usa coordenadas de prueba si la ubicación real no funciona.
                 </p>
             </section>
 
