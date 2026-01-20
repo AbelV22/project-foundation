@@ -1,18 +1,23 @@
-import { getCurrentPosition, type LocationResult } from '@/services/native/geolocation';
+import { getCurrentPosition, setTestCoordinates, clearTestCoordinates } from '@/services/native/geolocation';
 import { supabase } from '@/integrations/supabase/client';
 import { getOrCreateDeviceId } from '@/lib/deviceId';
 import { Capacitor } from '@capacitor/core';
+
+// Re-export test coordinate functions
+export { setTestCoordinates, clearTestCoordinates };
 
 // Tracking state
 let isTracking = false;
 let trackingInterval: ReturnType<typeof setInterval> | null = null;
 let lastZona: string | null = null;
 let lastCheckTime = 0;
+let lastPosition: { lat: number; lng: number } | null = null;
+let lastError: string | null = null;
 let isTestingMode = false;
 let deviceName: string | null = null;
 
 // Callback for UI updates
-type ZoneCallback = (zona: string | null) => void;
+type ZoneCallback = (zona: string | null, error?: string) => void;
 let onZoneChange: ZoneCallback | null = null;
 
 // Configuration
@@ -83,6 +88,8 @@ export const getTrackingStatus = () => ({
     isTracking,
     isTestingMode,
     lastZona,
+    lastPosition,
+    lastError,
     deviceName,
     lastCheckTime: lastCheckTime > 0 ? new Date(lastCheckTime).toISOString() : null,
 });
@@ -93,6 +100,7 @@ export const getTrackingStatus = () => ({
 const checkLocationAndRegister = async (): Promise<string | null> => {
     try {
         lastCheckTime = Date.now();
+        lastError = null;
 
         console.log('[AutoLocation] Checking location...');
 
@@ -100,11 +108,14 @@ const checkLocationAndRegister = async (): Promise<string | null> => {
         const position = await getCurrentPosition();
 
         if (!position) {
-            console.warn('[AutoLocation] Could not get position');
+            lastError = 'No se pudo obtener la ubicación';
+            console.warn('[AutoLocation] ❌ Could not get position');
+            onZoneChange?.(null, lastError);
             return null;
         }
 
-        console.log(`[AutoLocation] Position: ${position.latitude.toFixed(5)}, ${position.longitude.toFixed(5)}`);
+        lastPosition = { lat: position.latitude, lng: position.longitude };
+        console.log(`[AutoLocation] 📍 Position: ${position.latitude.toFixed(5)}, ${position.longitude.toFixed(5)} (accuracy: ${position.accuracy?.toFixed(0)}m)`);
 
         const deviceId = getOrCreateDeviceId();
 
@@ -122,15 +133,25 @@ const checkLocationAndRegister = async (): Promise<string | null> => {
         });
 
         if (error) {
-            console.error('[AutoLocation] Geofence check error:', error);
+            lastError = `Error de geofence: ${error.message}`;
+            console.error('[AutoLocation] ❌ Geofence check error:', error);
+            onZoneChange?.(lastZona, lastError);
             return lastZona;
         }
 
-        const newZona = data?.success ? data.zona : null;
+        if (!data?.success) {
+            lastError = data?.message || 'Error desconocido';
+            console.warn('[AutoLocation] ⚠️ Geofence response:', data?.message);
+            onZoneChange?.(lastZona, lastError);
+            return lastZona;
+        }
+
+        const newZona = data.zona || null;
+        console.log(`[AutoLocation] ✅ Zone: ${newZona || 'none'} - ${data.message}`);
 
         // Detect zone changes
         if (newZona !== lastZona) {
-            console.log(`[AutoLocation] Zone changed: ${lastZona || 'none'} → ${newZona || 'none'}`);
+            console.log(`[AutoLocation] 🔄 Zone changed: ${lastZona || 'none'} → ${newZona || 'none'}`);
 
             // If we left a zone, register exit
             if (lastZona && !newZona) {
@@ -138,12 +159,15 @@ const checkLocationAndRegister = async (): Promise<string | null> => {
             }
 
             lastZona = newZona;
-            onZoneChange?.(newZona);
         }
-
+        
+        onZoneChange?.(newZona);
         return newZona;
     } catch (error) {
-        console.error('[AutoLocation] Error:', error);
+        const errorMsg = error instanceof Error ? error.message : 'Error desconocido';
+        lastError = errorMsg;
+        console.error('[AutoLocation] ❌ Error:', error);
+        onZoneChange?.(null, lastError);
         return null;
     }
 };
