@@ -93,6 +93,63 @@ export const clearTestCoordinates = (): void => {
 };
 
 /**
+ * Get human-readable error message for geolocation errors
+ */
+const getGeolocationErrorMessage = (error: GeolocationPositionError): string => {
+    switch (error.code) {
+        case 1: // PERMISSION_DENIED
+            return 'Permiso denegado. Habilita la ubicación en tu navegador.';
+        case 2: // POSITION_UNAVAILABLE
+            return 'Ubicación no disponible. El navegador no puede acceder a GPS/WiFi.';
+        case 3: // TIMEOUT
+            return 'Tiempo agotado. Intenta de nuevo.';
+        default:
+            return error.message || 'Error desconocido';
+    }
+};
+
+/**
+ * Request browser location permission explicitly
+ */
+export const requestBrowserPermission = async (): Promise<{ granted: boolean; error?: string }> => {
+    try {
+        // Check if we can use the Permissions API
+        if ('permissions' in navigator) {
+            const permission = await navigator.permissions.query({ name: 'geolocation' });
+            console.log('[Geolocation] Permission status:', permission.state);
+            
+            if (permission.state === 'denied') {
+                return { 
+                    granted: false, 
+                    error: 'Ubicación bloqueada. Ve a configuración del navegador para habilitarla.' 
+                };
+            }
+        }
+        
+        // Try to get position to trigger permission prompt
+        return new Promise((resolve) => {
+            navigator.geolocation.getCurrentPosition(
+                () => {
+                    console.log('[Geolocation] ✅ Permission granted');
+                    resolve({ granted: true });
+                },
+                (error) => {
+                    console.warn('[Geolocation] Permission request failed:', error.code, error.message);
+                    resolve({ 
+                        granted: false, 
+                        error: getGeolocationErrorMessage(error) 
+                    });
+                },
+                { timeout: 10000 }
+            );
+        });
+    } catch (error) {
+        console.error('[Geolocation] Permission request error:', error);
+        return { granted: false, error: 'Error al solicitar permisos' };
+    }
+};
+
+/**
  * Get current position
  * Uses Capacitor on native platforms, falls back to browser geolocation on web
  * In testing mode, returns mock coordinates if real location fails
@@ -106,7 +163,9 @@ export const getCurrentPosition = async (): Promise<LocationResult | null> => {
             return new Promise((resolve) => {
                 navigator.geolocation.getCurrentPosition(
                     (position) => {
-                        console.log('[Geolocation] ✅ Position obtained:', position.coords.latitude.toFixed(5), position.coords.longitude.toFixed(5));
+                        console.log('[Geolocation] ✅ Real position obtained:', position.coords.latitude.toFixed(5), position.coords.longitude.toFixed(5));
+                        // Store that we got real position
+                        localStorage.setItem('geolocation_last_success', Date.now().toString());
                         resolve({
                             latitude: position.coords.latitude,
                             longitude: position.coords.longitude,
@@ -115,7 +174,11 @@ export const getCurrentPosition = async (): Promise<LocationResult | null> => {
                         });
                     },
                     (error) => {
-                        console.warn('[Geolocation] Browser error:', error.code, error.message);
+                        const errorMsg = getGeolocationErrorMessage(error);
+                        console.warn('[Geolocation] ❌ Browser error:', error.code, '-', errorMsg);
+                        
+                        // Store the error for UI display
+                        localStorage.setItem('geolocation_last_error', errorMsg);
                         
                         // In testing mode, use mock coordinates as fallback
                         if (isTestingModeEnabled()) {
@@ -141,6 +204,7 @@ export const getCurrentPosition = async (): Promise<LocationResult | null> => {
         const hasPermission = await requestLocationPermission();
         if (!hasPermission) {
             console.warn('[Geolocation] Permission not granted');
+            localStorage.setItem('geolocation_last_error', 'Permiso de ubicación no concedido');
             
             // In testing mode, use mock coordinates as fallback
             if (isTestingModeEnabled()) {
@@ -157,6 +221,7 @@ export const getCurrentPosition = async (): Promise<LocationResult | null> => {
         });
 
         console.log('[Geolocation] ✅ Capacitor position:', position.coords.latitude.toFixed(5), position.coords.longitude.toFixed(5));
+        localStorage.setItem('geolocation_last_success', Date.now().toString());
         return {
             latitude: position.coords.latitude,
             longitude: position.coords.longitude,
@@ -165,6 +230,7 @@ export const getCurrentPosition = async (): Promise<LocationResult | null> => {
         };
     } catch (error) {
         console.error('[Geolocation] Error:', error);
+        localStorage.setItem('geolocation_last_error', error instanceof Error ? error.message : 'Error desconocido');
         
         // In testing mode, use mock coordinates as fallback
         if (isTestingModeEnabled()) {
@@ -174,6 +240,23 @@ export const getCurrentPosition = async (): Promise<LocationResult | null> => {
         }
         return null;
     }
+};
+
+/**
+ * Get last geolocation error message (for UI display)
+ */
+export const getLastGeolocationError = (): string | null => {
+    return localStorage.getItem('geolocation_last_error');
+};
+
+/**
+ * Check if geolocation has worked recently
+ */
+export const hasRecentGeolocationSuccess = (): boolean => {
+    const lastSuccess = localStorage.getItem('geolocation_last_success');
+    if (!lastSuccess) return false;
+    const elapsed = Date.now() - parseInt(lastSuccess, 10);
+    return elapsed < 5 * 60 * 1000; // Within last 5 minutes
 };
 
 /**

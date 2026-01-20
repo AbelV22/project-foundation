@@ -4,6 +4,7 @@ import { supabase } from "@/integrations/supabase/client";
 import { RefreshCw, MapPin, Clock, Users, Lock, LogOut, Eye, EyeOff, Play, Square, Activity, ArrowRightLeft, Navigation, TestTube } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { enableTestingMode, disableTestingMode, getTrackingStatus, forceLocationCheck, setTestCoordinates, clearTestCoordinates } from "@/services/location/AutoLocationService";
+import { requestBrowserPermission, getLastGeolocationError, hasRecentGeolocationSuccess } from "@/services/native/geolocation";
 
 // Admin password
 const ADMIN_PASSWORD = "laraabel22";
@@ -66,6 +67,8 @@ export default function Admin() {
     const [customLat, setCustomLat] = useState("");
     const [customLng, setCustomLng] = useState("");
     const [useCustomCoords, setUseCustomCoords] = useState(false);
+    const [permissionStatus, setPermissionStatus] = useState<'unknown' | 'granted' | 'denied' | 'requesting'>('unknown');
+    const [geoError, setGeoError] = useState<string | null>(null);
     const navigate = useNavigate();
 
     // Check if already authenticated (session storage)
@@ -150,6 +153,12 @@ export default function Admin() {
             setTestingModeActive(status.isTestingMode);
             setTrackingStatus(status);
             if (status.deviceName) setDeviceNameInput(status.deviceName);
+            
+            // Check geolocation status
+            setGeoError(getLastGeolocationError());
+            if (hasRecentGeolocationSuccess()) {
+                setPermissionStatus('granted');
+            }
 
             fetchData();
             fetchGeofenceLogs();
@@ -159,6 +168,7 @@ export default function Admin() {
                 fetchData();
                 fetchGeofenceLogs();
                 setTrackingStatus(getTrackingStatus());
+                setGeoError(getLastGeolocationError());
             }, 5000); // Refresh every 5s for real-time status
             
             return () => clearInterval(interval);
@@ -217,6 +227,20 @@ export default function Admin() {
         setCustomLng(lng.toString());
         setUseCustomCoords(true);
         setTestCoordinates(lat, lng);
+    };
+
+    const handleRequestPermission = async () => {
+        setPermissionStatus('requesting');
+        const result = await requestBrowserPermission();
+        if (result.granted) {
+            setPermissionStatus('granted');
+            setGeoError(null);
+            // Try to get position immediately
+            await handleForceCheck();
+        } else {
+            setPermissionStatus('denied');
+            setGeoError(result.error || 'Permiso denegado');
+        }
     };
 
     const getDefaultEspera = (zona: string): number => {
@@ -345,6 +369,46 @@ export default function Admin() {
                             {testingModeActive ? "Detener" : "Iniciar"}
                         </button>
                     </div>
+                </div>
+
+                {/* Geolocation Permission Status */}
+                <div className="mb-3 p-3 rounded-lg bg-black/20 border border-white/5">
+                    <div className="flex items-center justify-between mb-2">
+                        <span className="text-sm text-white flex items-center gap-2">
+                            <MapPin className="h-4 w-4" />
+                            Ubicación Real
+                        </span>
+                        <span className={cn(
+                            "text-xs px-2 py-0.5 rounded-full",
+                            permissionStatus === 'granted' ? "bg-emerald-500/20 text-emerald-400" :
+                            permissionStatus === 'denied' ? "bg-red-500/20 text-red-400" :
+                            permissionStatus === 'requesting' ? "bg-amber-500/20 text-amber-400" :
+                            "bg-muted-foreground/20 text-muted-foreground"
+                        )}>
+                            {permissionStatus === 'granted' ? '✅ Activo' :
+                             permissionStatus === 'denied' ? '❌ Bloqueado' :
+                             permissionStatus === 'requesting' ? '⏳ Solicitando...' :
+                             '❓ Desconocido'}
+                        </span>
+                    </div>
+                    
+                    {geoError && (
+                        <p className="text-xs text-red-400 mb-2 p-2 bg-red-500/10 rounded">
+                            ⚠️ {geoError}
+                        </p>
+                    )}
+                    
+                    <button
+                        onClick={handleRequestPermission}
+                        disabled={permissionStatus === 'requesting'}
+                        className="w-full flex items-center justify-center gap-2 px-3 py-2 rounded-lg font-medium text-sm bg-primary/20 text-primary hover:bg-primary/30 transition-colors disabled:opacity-50"
+                    >
+                        <MapPin className="h-4 w-4" />
+                        {permissionStatus === 'requesting' ? 'Solicitando permiso...' : 'Solicitar ubicación real'}
+                    </button>
+                    <p className="text-[10px] text-muted-foreground mt-2 text-center">
+                        ⚠️ En iframes/previews la ubicación suele estar bloqueada. Usa la app publicada o coordenadas de prueba.
+                    </p>
                 </div>
 
                 {/* Device Name */}
