@@ -189,16 +189,20 @@ export const enableTestingMode = (name?: string): void => {
     isTestingMode = true;
     deviceName = name || null;
 
+    // Save to localStorage for persistence
+    localStorage.setItem('geofence_testing_mode', 'true');
+    if (name) localStorage.setItem('geofence_device_name', name);
+
     // If already tracking, restart with new interval
     if (isTracking) {
         const callback = onZoneChange;
         stopAutoTracking();
         startAutoTracking(callback || undefined);
+    } else {
+        // If NOT tracking yet, start it now!
+        console.log('[AutoLocation] Starting tracking from enableTestingMode...');
+        startAutoTracking();
     }
-
-    // Save to localStorage for persistence
-    localStorage.setItem('geofence_testing_mode', 'true');
-    if (name) localStorage.setItem('geofence_device_name', name);
 };
 
 /**
