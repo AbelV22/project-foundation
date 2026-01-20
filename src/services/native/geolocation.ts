@@ -53,9 +53,39 @@ export const checkLocationPermission = async (): Promise<boolean> => {
 
 /**
  * Get current position
+ * Uses Capacitor on native platforms, falls back to browser geolocation on web
  */
 export const getCurrentPosition = async (): Promise<LocationResult | null> => {
     try {
+        // For web browser testing, use navigator.geolocation directly
+        if (!isNative() && typeof navigator !== 'undefined' && navigator.geolocation) {
+            console.log('[Geolocation] Using browser geolocation API');
+
+            return new Promise((resolve) => {
+                navigator.geolocation.getCurrentPosition(
+                    (position) => {
+                        console.log('[Geolocation] Browser position obtained:', position.coords.latitude, position.coords.longitude);
+                        resolve({
+                            latitude: position.coords.latitude,
+                            longitude: position.coords.longitude,
+                            accuracy: position.coords.accuracy,
+                            timestamp: position.timestamp,
+                        });
+                    },
+                    (error) => {
+                        console.error('[Geolocation] Browser geolocation error:', error.message);
+                        resolve(null);
+                    },
+                    {
+                        enableHighAccuracy: true,
+                        timeout: 10000,
+                        maximumAge: 60000, // Cache for 1 minute
+                    }
+                );
+            });
+        }
+
+        // Native platform: use Capacitor
         const hasPermission = await requestLocationPermission();
         if (!hasPermission) {
             console.warn('Location permission not granted');

@@ -1,9 +1,10 @@
 import { useState, useEffect } from "react";
-import { RefreshCw, Plane, Train, Users, Clock, ChevronRight, TrendingUp, Calendar, Settings, Euro } from "lucide-react";
+import { RefreshCw, Plane, Train, Users, Clock, ChevronRight, TrendingUp, Calendar, Settings, Euro, MapPin, Navigation } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useEvents } from "@/hooks/useEvents";
 import { useWaitingTimes, getZoneWaitingTime, getZoneTaxistasActivos, getZoneHasRealData } from "@/hooks/useWaitingTimes";
 import { useNavigate } from "react-router-dom";
+import { getTrackingStatus, forceLocationCheck } from "@/services/location/AutoLocationService";
 // Tipos para vuelos.json (estructura real del scraper)
 interface VueloRaw {
   hora: string;
@@ -104,9 +105,26 @@ export function DashboardView({ onTerminalClick, onViewAllFlights, onViewAllEven
   const [trenes, setTrenes] = useState<TrenSants[]>([]);
   const [licencias, setLicencias] = useState<LicenciasData | null>(null);
   const [loading, setLoading] = useState(true);
+  const [locationStatus, setLocationStatus] = useState<{
+    isTracking: boolean;
+    isTestingMode: boolean;
+    lastZona: string | null;
+    lastCheckTime: string | null;
+  } | null>(null);
   const { events } = useEvents();
   const { waitingTimes } = useWaitingTimes();
   const navigate = useNavigate();
+
+  // Poll tracking status every 10 seconds
+  useEffect(() => {
+    const updateStatus = () => {
+      const status = getTrackingStatus();
+      setLocationStatus(status);
+    };
+    updateStatus();
+    const interval = setInterval(updateStatus, 10000);
+    return () => clearInterval(interval);
+  }, []);
 
   const fetchData = () => {
     Promise.all([
@@ -227,8 +245,55 @@ export function DashboardView({ onTerminalClick, onViewAllFlights, onViewAllEven
   const todayFormatted = now.toLocaleDateString('es-ES', { weekday: 'long', day: 'numeric', month: 'long' });
   const capitalizedToday = todayFormatted.charAt(0).toUpperCase() + todayFormatted.slice(1);
 
+  const handleLocationTap = async () => {
+    // Force a location check when tapped
+    await forceLocationCheck();
+    const status = getTrackingStatus();
+    setLocationStatus(status);
+  };
+
   return (
     <div className="space-y-3 pb-16">
+
+      {/* === LOCATION STATUS WIDGET (visible when testing mode is on) === */}
+      {locationStatus?.isTestingMode && (
+        <button
+          onClick={handleLocationTap}
+          className="w-full card-glass p-2.5 flex items-center justify-between animate-fade-in group"
+        >
+          <div className="flex items-center gap-2">
+            <div className={cn(
+              "w-8 h-8 rounded-full flex items-center justify-center",
+              locationStatus.isTracking ? "bg-emerald-500/20" : "bg-amber-500/20"
+            )}>
+              <Navigation className={cn(
+                "h-4 w-4",
+                locationStatus.isTracking ? "text-emerald-400" : "text-amber-400"
+              )} />
+            </div>
+            <div className="text-left">
+              <div className="flex items-center gap-1.5">
+                <span className="text-xs font-medium text-foreground">
+                  {locationStatus.lastZona && locationStatus.lastZona !== "DEBUG"
+                    ? `📍 ${locationStatus.lastZona.replace("_", " ")}`
+                    : locationStatus.isTracking
+                      ? "🔍 Detectando zona..."
+                      : "📍 Tracking desactivado"}
+                </span>
+                {locationStatus.isTracking && (
+                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+                )}
+              </div>
+              <p className="text-[10px] text-muted-foreground">
+                {locationStatus.isTestingMode ? "Modo testing (30s)" : ""}
+                {locationStatus.lastCheckTime && ` · Último: ${new Date(locationStatus.lastCheckTime).toLocaleTimeString('es-ES', { hour: '2-digit', minute: '2-digit' })}`}
+              </p>
+            </div>
+          </div>
+          <ChevronRight className="h-4 w-4 text-muted-foreground group-hover:text-primary transition-colors" />
+        </button>
+      )}
+
 
       {/* === AEROPUERTO SECTION - GLASSMORPHISM === */}
       <section className="space-y-2 animate-fade-in" style={{ animationDelay: '300ms', animationFillMode: 'backwards' }}>

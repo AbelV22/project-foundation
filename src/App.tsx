@@ -17,8 +17,24 @@ import NotFound from "./pages/NotFound";
 const queryClient = new QueryClient();
 
 // Initialize native features when running on Android/iOS
+// Also enables web tracking if testing mode was previously activated
 const initializeNative = async (setPermissionDenied: (denied: boolean) => void) => {
-  if (!Capacitor.isNativePlatform()) return;
+  // Initialize testing mode from localStorage (works on all platforms)
+  initTestingMode();
+
+  // Check if testing mode is enabled (for web tracking)
+  const isTestingMode = localStorage.getItem('geofence_testing_mode') === 'true';
+
+  if (!Capacitor.isNativePlatform()) {
+    // On web, only start tracking if testing mode is enabled
+    if (isTestingMode) {
+      console.log('[App] Web platform with testing mode - starting tracking');
+      startAutoTracking((zona) => {
+        console.log('[App] Zone changed to:', zona);
+      });
+    }
+    return;
+  }
 
   try {
     // Configure status bar
@@ -27,9 +43,6 @@ const initializeNative = async (setPermissionDenied: (denied: boolean) => void) 
 
     // Hide splash screen after app is ready
     await SplashScreen.hide();
-
-    // Initialize testing mode from localStorage
-    initTestingMode();
 
     // Request location permission explicitly
     console.log('[App] Requesting location permission...');
