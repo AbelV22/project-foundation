@@ -91,13 +91,13 @@ serve(async (req) => {
         message: "❌ Device ID inválido."
       }), { headers: { ...corsHeaders, 'Content-Type': 'application/json' } });
     }
-    // Expanded range: All of Spain (not just Barcelona) for testing
-    // Spain roughly: lat 36.0-43.8, lng -9.3 to 4.3
+    // Expanded range: All of Europe for testing (Munich, Barcelona, etc.)
+    // Europe roughly: lat 35-72, lng -25 to 45
     if (typeof lat !== 'number' || typeof lng !== 'number' ||
-      lat < 36.0 || lat > 44.0 || lng < -10.0 || lng > 5.0) {
+      lat < 35.0 || lat > 72.0 || lng < -25.0 || lng > 45.0) {
       return new Response(JSON.stringify({
         success: false,
-        message: "❌ Coordenadas fuera del área de España."
+        message: "❌ Coordenadas fuera de Europa."
       }), { headers: { ...corsHeaders, 'Content-Type': 'application/json' } });
     }
     let zonaDetectada: string | null = null;
