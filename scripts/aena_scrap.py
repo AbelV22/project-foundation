@@ -144,7 +144,7 @@ def obtener_vuelos_turbo():
         stop_flag = False
         clicks = 0
         MAX_PAGINAS = 80
-        MIN_CLICKS_OBLIGATORIOS = 50 
+        MIN_CLICKS_OBLIGATORIOS = 70 
 
         print(f"\n🚀 FASE 1: Carga Rápida (Requisito: >{MIN_CLICKS_OBLIGATORIOS} clicks y 24h reales)...")
 
