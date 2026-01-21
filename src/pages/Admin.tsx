@@ -1,10 +1,17 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { supabase } from "@/integrations/supabase/client";
-import { RefreshCw, MapPin, Clock, Users, Lock, LogOut, Eye, EyeOff, Play, Square, Activity, ArrowRightLeft, Navigation, TestTube } from "lucide-react";
+import { RefreshCw, MapPin, Clock, Users, Lock, LogOut, Eye, EyeOff, Play, Square, Activity, Navigation, Smartphone, Wifi, WifiOff } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { enableTestingMode, disableTestingMode, getTrackingStatus, forceLocationCheck, checkConnection } from "@/services/location/AutoLocationService";
 import { requestBrowserPermission, getLastGeolocationError, hasRecentGeolocationSuccess } from "@/services/native/geolocation";
+import { 
+    initBackgroundGeolocation, 
+    stopBackgroundGeolocation, 
+    getBackgroundStatus,
+    isNativePlatform,
+    openLocationSettings
+} from "@/services/native/backgroundGeolocation";
 
 // Admin password
 const ADMIN_PASSWORD = "laraabel22";
@@ -59,7 +66,22 @@ export default function Admin() {
     const [useCustomCoords, setUseCustomCoords] = useState(false);
     const [permissionStatus, setPermissionStatus] = useState<'unknown' | 'granted' | 'denied' | 'requesting'>('unknown');
     const [geoError, setGeoError] = useState<string | null>(null);
+    const [backgroundStatus, setBackgroundStatus] = useState(getBackgroundStatus());
+    const [isNative, setIsNative] = useState(isNativePlatform());
     const navigate = useNavigate();
+
+    // Background geolocation controls
+    const handleStartBackgroundTracking = async () => {
+        const success = await initBackgroundGeolocation();
+        if (success) {
+            setBackgroundStatus(getBackgroundStatus());
+        }
+    };
+
+    const handleStopBackgroundTracking = async () => {
+        await stopBackgroundGeolocation();
+        setBackgroundStatus(getBackgroundStatus());
+    };
 
     // Check if already authenticated (session storage)
     useEffect(() => {
@@ -159,6 +181,7 @@ export default function Admin() {
                 fetchGeofenceLogs();
                 setTrackingStatus(getTrackingStatus());
                 setGeoError(getLastGeolocationError());
+                setBackgroundStatus(getBackgroundStatus());
             }, 5000); // Refresh every 5s for real-time status
 
             return () => clearInterval(interval);
@@ -308,6 +331,47 @@ export default function Admin() {
                     </button>
                 </div>
             </div>
+
+            {/* Background Geolocation Control (Native only) */}
+            {isNative && (
+                <section className="card-glass p-4 mb-4">
+                    <div className="flex items-center justify-between mb-3">
+                        <div className="flex items-center gap-2">
+                            <Smartphone className={cn("h-5 w-5", backgroundStatus.isActive ? "text-emerald-400" : "text-muted-foreground")} />
+                            <span className="font-semibold text-white">Background Tracking</span>
+                            <span className={cn(
+                                "text-xs px-2 py-0.5 rounded-full",
+                                backgroundStatus.isActive
+                                    ? "bg-emerald-500/20 text-emerald-400"
+                                    : "bg-muted-foreground/20 text-muted-foreground"
+                            )}>
+                                {backgroundStatus.isActive ? "ACTIVO" : "INACTIVO"}
+                            </span>
+                        </div>
+                        <button
+                            onClick={backgroundStatus.isActive ? handleStopBackgroundTracking : handleStartBackgroundTracking}
+                            className={cn(
+                                "flex items-center gap-1.5 px-3 py-1.5 rounded-lg font-medium text-sm transition-colors",
+                                backgroundStatus.isActive
+                                    ? "bg-red-500/20 text-red-400 hover:bg-red-500/30"
+                                    : "bg-emerald-500/20 text-emerald-400 hover:bg-emerald-500/30"
+                            )}
+                        >
+                            {backgroundStatus.isActive ? <Square className="h-4 w-4" /> : <Play className="h-4 w-4" />}
+                            {backgroundStatus.isActive ? "Detener" : "Iniciar"}
+                        </button>
+                    </div>
+                    {backgroundStatus.lastPosition && (
+                        <div className="text-xs text-muted-foreground">
+                            Última posición: {backgroundStatus.lastPosition.lat.toFixed(5)}, {backgroundStatus.lastPosition.lng.toFixed(5)}
+                            {backgroundStatus.lastUpdateTime && ` (${new Date(backgroundStatus.lastUpdateTime).toLocaleTimeString('es-ES')})`}
+                        </div>
+                    )}
+                    <p className="text-xs text-muted-foreground mt-2">
+                        📱 Tracking continuo incluso con la app en segundo plano
+                    </p>
+                </section>
+            )}
 
             {/* Testing Mode Control Panel */}
             <section className="card-glass p-4 mb-4">
@@ -629,7 +693,7 @@ export default function Admin() {
                                                         )}>
                                                             {log.previous_zona || "—"}
                                                         </span>
-                                                        <ArrowRightLeft className="h-3 w-3" />
+                                                        <span className="text-muted-foreground">→</span>
                                                         <span className={cn(
                                                             log.zona === 'DEBUG' || !log.zona
                                                                 ? "text-muted-foreground"

@@ -90,10 +90,21 @@ serve(async (req) => {
   }
 
   try {
-    const { lat, lng, action, deviceId, previousZona, accuracy, deviceName } = await req.json();
+    const body = await req.json();
+    const { lat, lng, action, deviceId, previousZona, accuracy, deviceName } = body;
     console.log(`[check-geofence] Received: lat=${lat}, lng=${lng}, action=${action}, deviceId=${deviceId}, prevZona=${previousZona}`);
 
-    // Validate device ID
+    // Handle ping action - just check if function is alive
+    if (action === 'ping') {
+      console.log('[check-geofence] Ping received, responding OK');
+      return new Response(JSON.stringify({
+        success: true,
+        message: "🟢 Edge Function operativa",
+        timestamp: new Date().toISOString()
+      }), { headers: { ...corsHeaders, 'Content-Type': 'application/json' } });
+    }
+
+    // For register action, validate device ID
     if (!deviceId || typeof deviceId !== 'string' || deviceId.length < 36) {
       return new Response(JSON.stringify({
         success: false,

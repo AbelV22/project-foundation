@@ -49,22 +49,30 @@ jobs:
       - name: Add Android platform
         run: npx cap add android
       
-      - name: Ensure location permissions in AndroidManifest
+      - name: Ensure location and foreground service permissions in AndroidManifest
         run: |
           MANIFEST="android/app/src/main/AndroidManifest.xml"
           
+          # Add tools namespace if not present
+          if ! grep -q "xmlns:tools" "$MANIFEST"; then
+            sed -i 's/<manifest /<manifest xmlns:tools="http:\/\/schemas.android.com\/tools" /' "$MANIFEST"
+          fi
+          
           # Add location permissions if not present
           if ! grep -q "ACCESS_FINE_LOCATION" "$MANIFEST"; then
-            sed -i 's/<manifest /<manifest xmlns:tools="http:\/\/schemas.android.com\/tools" /' "$MANIFEST"
-            sed -i '/<uses-permission android:name="android.permission.INTERNET"/a \    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />\n    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />\n    <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION" />\n    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />\n    <uses-permission android:name="android.permission.WAKE_LOCK" />\n    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_LOCATION" />' "$MANIFEST"
-            echo "✅ Location permissions added to AndroidManifest.xml"
-          else
-            echo "✓ Location permissions already present"
+            sed -i '/<uses-permission android:name="android.permission.INTERNET"/a \    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />\n    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />\n    <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION" />' "$MANIFEST"
+            echo "✅ Location permissions added"
+          fi
+          
+          # Add foreground service permissions for Android 14+ (required for background location)
+          if ! grep -q "FOREGROUND_SERVICE" "$MANIFEST"; then
+            sed -i '/<uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION"/a \    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />\n    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_LOCATION" />\n    <uses-permission android:name="android.permission.WAKE_LOCK" />' "$MANIFEST"
+            echo "✅ Foreground service permissions added"
           fi
           
           # Show the permissions section for verification
           echo "=== AndroidManifest permissions ==="
-          grep -A 5 "uses-permission" "$MANIFEST" || true
+          grep "uses-permission" "$MANIFEST" || true
       
       - name: Generate native assets
         run: npx capacitor-assets generate --android
