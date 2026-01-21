@@ -25,9 +25,45 @@ let lastUpdateTime = 0;
 let deviceName: string | null = null;
 let hasWakeLock = false;
 let hasWifiLock = false;
+let locationCount = 0;
 
 // Configuration
 const MIN_UPDATE_INTERVAL_MS = 30 * 1000; // Minimum 30 seconds between geofence checks
+
+/**
+ * Log debug event to Supabase for troubleshooting background issues
+ */
+const logDebugEvent = async (
+    eventType: string,
+    message: string,
+    location?: { lat: number; lng: number; accuracy?: number }
+): Promise<void> => {
+    const deviceId = getOrCreateDeviceId();
+    const isBackground = typeof document !== 'undefined' ? document.hidden : false;
+
+    console.log(`[DEBUG] ${eventType}: ${message}`, location || '');
+
+    try {
+        supabase
+            .from('location_debug_logs')
+            .insert({
+                device_id: deviceId,
+                device_name: deviceName,
+                event_type: eventType,
+                message: message,
+                latitude: location?.lat,
+                longitude: location?.lng,
+                accuracy: location?.accuracy,
+                is_background: isBackground,
+                app_state: isBackground ? 'background' : 'foreground'
+            })
+            .then(({ error }) => {
+                if (error) console.error('[DEBUG] Log error:', error.message);
+            });
+    } catch (e) {
+        console.error('[DEBUG] Failed to log:', e);
+    }
+};
 
 /**
  * Check if running on native platform
@@ -82,15 +118,20 @@ export const initBackgroundGeolocation = async (): Promise<boolean> => {
     try {
         // Load saved settings
         deviceName = localStorage.getItem('geofence_device_name');
+        locationCount = 0;
+
+        await logDebugEvent('service_start', `Starting background tracking. Device: ${deviceName || 'unknown'}`);
 
         // Request all necessary permissions first
         const permissions = await requestBackgroundPermissions();
         console.log('[BackgroundGeo] Permissions status:', permissions);
+        await logDebugEvent('permissions_check', `Notifications: ${permissions.notifications}, Battery: ${permissions.batteryOptimization}`);
 
         // Acquire WakeLock to prevent CPU sleep
         if (!hasWakeLock) {
             hasWakeLock = await acquireWakeLock();
             console.log('[BackgroundGeo] WakeLock acquired:', hasWakeLock);
+            await logDebugEvent('wakelock', `WakeLock acquired: ${hasWakeLock}`);
         }
 
         // Acquire WifiLock to maintain network connection
@@ -98,6 +139,8 @@ export const initBackgroundGeolocation = async (): Promise<boolean> => {
             hasWifiLock = await acquireWifiLock();
             console.log('[BackgroundGeo] WifiLock acquired:', hasWifiLock);
         }
+
+        await logDebugEvent('watcher_adding', 'About to add BackgroundGeolocation watcher...');
 
         // Add watcher for background location updates
         watcherId = await BackgroundGeolocation.addWatcher(
@@ -111,11 +154,22 @@ export const initBackgroundGeolocation = async (): Promise<boolean> => {
             async (location?: Location, error?: CallbackError) => {
                 if (error) {
                     console.error('[BackgroundGeo] Error:', error);
+                    await logDebugEvent('watcher_error', `Error code: ${error.code}, message: ${error.message}`);
                     return;
                 }
 
                 if (location) {
+                    locationCount++;
+                    const timeSinceLastUpdate = Date.now() - lastUpdateTime;
+
                     console.log(`[BackgroundGeo] 📍 Location update: ${location.latitude.toFixed(5)}, ${location.longitude.toFixed(5)}`);
+
+                    // Log every location to debug table
+                    await logDebugEvent(
+                        'location_received',
+                        `Location #${locationCount} (${timeSinceLastUpdate}ms since last geofence check)`,
+                        { lat: location.latitude, lng: location.longitude, accuracy: location.accuracy }
+                    );
 
                     lastPosition = {
                         lat: location.latitude,
@@ -127,6 +181,7 @@ export const initBackgroundGeolocation = async (): Promise<boolean> => {
                     const now = Date.now();
                     if (now - lastUpdateTime >= MIN_UPDATE_INTERVAL_MS) {
                         lastUpdateTime = now;
+                        await logDebugEvent('geofence_calling', `Calling check-geofence...`);
                         await checkGeofenceAndRegister(location.latitude, location.longitude, location.accuracy);
                     }
                 }
@@ -135,6 +190,7 @@ export const initBackgroundGeolocation = async (): Promise<boolean> => {
 
         isBackgroundTrackingActive = true;
         console.log('[BackgroundGeo] ✅ Background tracking initialized, watcherId:', watcherId);
+        await logDebugEvent('watcher_added', `Watcher created with ID: ${watcherId}`);
 
         // Save state
         localStorage.setItem('background_geo_active', 'true');
@@ -142,6 +198,7 @@ export const initBackgroundGeolocation = async (): Promise<boolean> => {
         return true;
     } catch (error) {
         console.error('[BackgroundGeo] ❌ Failed to initialize:', error);
+        await logDebugEvent('error', `Failed to initialize: ${error instanceof Error ? error.message : String(error)}`);
         return false;
     }
 };
