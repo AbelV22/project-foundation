@@ -49,6 +49,51 @@ jobs:
       - name: Add Android platform
         run: npx cap add android
       
+      - name: Add Google Play Services Location dependency
+        run: |
+          BUILD_GRADLE="android/app/build.gradle"
+          
+          # Add play-services-location dependency if not present
+          if ! grep -q "play-services-location" "$BUILD_GRADLE"; then
+            # Find the dependencies block and add our dependency
+            python3 << 'EOF'
+          with open("android/app/build.gradle", "r") as f:
+              content = f.read()
+          
+          if "play-services-location" in content:
+              print("✅ play-services-location already present")
+              exit(0)
+          
+          # Add the dependency in the dependencies block
+          # Find the line with "implementation project(':capacitor-android')" and add after it
+          dependency_line = "    implementation 'com.google.android.gms:play-services-location:21.0.1'"
+          
+          if "implementation project(':capacitor-android')" in content:
+              content = content.replace(
+                  "implementation project(':capacitor-android')",
+                  "implementation project(':capacitor-android')\n" + dependency_line
+              )
+          else:
+              # Alternative: find dependencies block and add at the end
+              import re
+              pattern = r'(dependencies\s*\{[^}]*)'
+              match = re.search(pattern, content, re.DOTALL)
+              if match:
+                  deps_content = match.group(1)
+                  new_deps = deps_content + "\n" + dependency_line + "\n"
+                  content = content.replace(deps_content, new_deps)
+          
+          with open("android/app/build.gradle", "w") as f:
+              f.write(content)
+          
+          print("✅ play-services-location dependency added")
+          EOF
+          fi
+          
+          # Show dependencies for verification
+          echo "=== build.gradle dependencies ==="
+          grep -A 20 "dependencies {" "$BUILD_GRADLE" | head -25
+      
       - name: Ensure location and foreground service permissions in AndroidManifest
         run: |
           MANIFEST="android/app/src/main/AndroidManifest.xml"
