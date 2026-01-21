@@ -10,19 +10,25 @@ import { StatusBar, Style } from "@capacitor/status-bar";
 import { SplashScreen } from "@capacitor/splash-screen";
 import { startAutoTracking, initTestingMode } from "./services/location/AutoLocationService";
 import { requestLocationPermission, checkLocationPermission } from "./services/native/geolocation";
-import { 
-  initBackgroundGeolocation, 
+import { getOrCreateDeviceId } from "@/lib/deviceId";
+import {
+  initBackgroundGeolocation,
   shouldRestoreBackgroundTracking,
-  isNativePlatform 
+  isNativePlatform
 } from "./services/native/backgroundGeolocation";
+import { configureProTracking, startProTracking, isProTrackingActive } from "./services/native/proTracking";
 import Index from "./pages/Index";
 import Admin from "./pages/Admin";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
 
+// Supabase config from environment
+const SUPABASE_URL = import.meta.env.VITE_SUPABASE_URL || "";
+const SUPABASE_KEY = import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY || "";
+
 // Initialize native features when running on Android/iOS
-// Uses background geolocation on native, foreground on web
+// Uses PRO tracking (ForegroundService + AlarmManager) on native
 const initializeNative = async (setPermissionDenied: (denied: boolean) => void) => {
   // Initialize testing mode from localStorage (works on all platforms)
   initTestingMode();
@@ -67,20 +73,39 @@ const initializeNative = async (setPermissionDenied: (denied: boolean) => void) 
 
     // Check if background tracking should be restored
     const shouldRestoreBackground = shouldRestoreBackgroundTracking();
-    
+
     if (shouldRestoreBackground || isTestingMode) {
-      // Use background geolocation for continuous tracking
-      console.log('[App] Initializing background geolocation...');
-      const bgSuccess = await initBackgroundGeolocation();
-      
-      if (bgSuccess) {
-        console.log('[App] ✅ Background geolocation active');
+      // === USE PRO TRACKING (ForegroundService + AlarmManager) ===
+      console.log('[App] Initializing PRO tracking system...');
+
+      // Get device info
+      const deviceId = getOrCreateDeviceId();
+      const deviceName = localStorage.getItem('geofence_device_name') || 'iTaxiBcn Device';
+
+      // Configure the native service with Supabase credentials
+      console.log('[App] Configuring ProTracking with Supabase...');
+      const configured = await configureProTracking(
+        SUPABASE_URL,
+        SUPABASE_KEY,
+        deviceId,
+        deviceName
+      );
+
+      if (configured) {
+        console.log('[App] ✅ ProTracking configured');
+
+        // Start the native ForegroundService
+        const started = await startProTracking();
+
+        if (started) {
+          console.log('[App] ✅ PRO tracking active (ForegroundService + AlarmManager)');
+        } else {
+          console.log('[App] ⚠️ PRO tracking failed to start, falling back to old method');
+          await initBackgroundGeolocation();
+        }
       } else {
-        // Fallback to foreground tracking
-        console.log('[App] Falling back to foreground tracking...');
-        startAutoTracking((zona) => {
-          console.log('[App] Zone changed to:', zona);
-        });
+        console.log('[App] ⚠️ ProTracking config failed, falling back to old method');
+        await initBackgroundGeolocation();
       }
     } else {
       // Start foreground tracking by default
