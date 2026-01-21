@@ -1,11 +1,11 @@
 {
     "ticker": {
-        "current_price": 165621,
-        "delta_value": 4186,
-        "delta_percent": 2.59,
-        "direction": "up",
-        "volume": 18,
-        "volatility": 10096
+        "current_price": 161435,
+        "delta_value": -8313,
+        "delta_percent": -4.9,
+        "direction": "down",
+        "volume": 8,
+        "volatility": 13087
     },
     "charts": {
         "history_dates": [
@@ -16,8 +16,7 @@
             "2026-01-17",
             "2026-01-18",
             "2026-01-19",
-            "2026-01-20",
-            "2026-01-21"
+            "2026-01-20"
         ],
         "history_prices": [
             166147,
@@ -27,8 +26,7 @@
             169748,
             169748,
             169748,
-            161435,
-            165621
+            161435
         ],
         "history_sma_7": [
             0,
@@ -38,27 +36,14 @@
             0,
             0,
             167648,
-            166975,
-            166900
+            166975
         ],
         "price_by_day_descanso": {
-            "JUEVES IMPAR": 177830,
-            "JUEVES PAR": 169777,
-            "LUNES PAR": 169719,
-            "NO ESPECIFICADO": 161435,
-            "VIERNES IMPAR": 164516
+            "NO ESPECIFICADO": 161435
         }
     },
     "market_depth": {
         "cheapest_offers": [
-            {
-                "fuente": "SOLANO",
-                "dia": "VIERNES IMPAR",
-                "modelo": "TOYOTA PRIUS",
-                "precio_neto": 153264,
-                "precio_total": 176000,
-                "valor_coche": 22736
-            },
             {
                 "fuente": "STAC",
                 "dia": "NO ESPECIFICADO",
@@ -90,79 +75,17 @@
                 "precio_neto": 160357,
                 "precio_total": 170000,
                 "valor_coche": 9643
+            },
+            {
+                "fuente": "STAC",
+                "dia": "NO ESPECIFICADO",
+                "modelo": "TOYOTA COROLLA",
+                "precio_neto": 162513,
+                "precio_total": 170000,
+                "valor_coche": 7487
             }
         ],
         "all_offers": [
-            {
-                "fuente": "SOLANO",
-                "precio_neto": 166243,
-                "modelo": "TOYOTA COROLLA",
-                "dia": "JUEVES IMPAR",
-                "raw": "Ref:  | 38563 | DIA DE FIESTA:  | JUEVES IMPAR | LICENCIA TAXI EN VENTA BARCELONA-JUEVES IMPAR-TOYOT..."
-            },
-            {
-                "fuente": "SOLANO",
-                "precio_neto": 153264,
-                "modelo": "TOYOTA PRIUS",
-                "dia": "VIERNES IMPAR",
-                "raw": "Ref:  | 38561 | DIA DE FIESTA:  | VIERNES IMPAR | JUBILACIÓN FINAL ABRIL 2026 | LICENCIA TAXI EN VEN..."
-            },
-            {
-                "fuente": "SOLANO",
-                "precio_neto": 169719,
-                "modelo": "DACIA",
-                "dia": "LUNES PAR",
-                "raw": "Ref:  | 38558 | DIA DE FIESTA:  | LUNES PAR | LICENCIA TAXI EN VENTA BARCELONA | LICENCIA TAXI EN VE..."
-            },
-            {
-                "fuente": "SOLANO",
-                "precio_neto": 178896,
-                "modelo": "TOYOTA COROLLA",
-                "dia": "JUEVES IMPAR",
-                "raw": "Ref:  | 38553 | DIA DE FIESTA:  | JUEVES IMPAR | LICENCIA TAXI EN VENTA BARCELONA | LICENCIA TAXI EN..."
-            },
-            {
-                "fuente": "SOLANO",
-                "precio_neto": 169777,
-                "modelo": "TOYOTA COROLLA",
-                "dia": "JUEVES PAR",
-                "raw": "Ref:  | 38538 | DIA DE FIESTA:  | JUEVES PAR | LICENCIA DE TAXI EN VENTA BARCELONA | LICENCIA TAXI E..."
-            },
-            {
-                "fuente": "SOLANO",
-                "precio_neto": 177830,
-                "modelo": "VOLKSWAGEN CADDY",
-                "dia": "JUEVES IMPAR",
-                "raw": "Ref:  | 38525 | DIA DE FIESTA:  | JUEVES IMPAR | licencia taxi en venta barcelona | LICENCIA TAXI EN..."
-            },
-            {
-                "fuente": "SOLANO",
-                "precio_neto": 164516,
-                "modelo": "TOYOTA PRIUS",
-                "dia": "VIERNES IMPAR",
-                "raw": "Ref:  | 38523 | DIA DE FIESTA:  | VIERNES IMPAR | LICENCI TAXI EN VENTA VBARCELONA | LICENCIA TAXI E..."
-            },
-            {
-                "fuente": "SOLANO",
-                "precio_neto": 171213,
-                "modelo": "DESCONOCIDO",
-                "dia": "JUEVES PAR",
-                "raw": "Ref:  | 38502 | DIA DE FIESTA:  | JUEVES PAR | LICENCIA TAXI EN VENTA BARCELONA | LICENCIA DE TAXI E..."
-            },
-            {
-                "fuente": "SOLANO",
-                "precio_neto": 171058,
-                "modelo": "DACIA JOGGER",
-                "dia": "VIERNES IMPAR",
-                "raw": "Ref:  | 38500 | DIA DE FIESTA:  | VIERNES IMPAR | LICENCIA TAXI EN VENTA BARCELONA | LICENCIA TAXI E..."
-            },
-            {
-                "fuente": "SOLANO",
-                "precio_neto": 165000,
-                "modelo": "SIN COCHE",
-                "dia": "JUEVES PAR",
-                "raw": "Ref:  | 38495 | DIA DE FIESTA:  | JUEVES PAR | LICENCIA TAXI EN VENTA BARCELONA | LICENCIA TAXI EN V..."
-            },
             {
                 "fuente": "STAC",
                 "precio_neto": 153563,
@@ -221,5 +144,5 @@
             }
         ]
     },
-    "updated_at": "21/01/2026 07:20"
+    "updated_at": "20/01/2026 07:20"
 }
