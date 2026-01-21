@@ -1,10 +1,7 @@
-import { getCurrentPosition, setTestCoordinates, clearTestCoordinates } from '@/services/native/geolocation';
+import { getCurrentPosition } from '@/services/native/geolocation';
 import { supabase } from '@/integrations/supabase/client';
 import { getOrCreateDeviceId } from '@/lib/deviceId';
 import { Capacitor } from '@capacitor/core';
-
-// Re-export test coordinate functions
-export { setTestCoordinates, clearTestCoordinates };
 
 // Tracking state
 let isTracking = false;
@@ -160,7 +157,7 @@ const checkLocationAndRegister = async (): Promise<string | null> => {
 
             lastZona = newZona;
         }
-        
+
         onZoneChange?.(newZona);
         return newZona;
     } catch (error) {

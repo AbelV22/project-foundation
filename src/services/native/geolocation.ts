@@ -52,47 +52,6 @@ export const checkLocationPermission = async (): Promise<boolean> => {
 };
 
 /**
- * Check if testing mode is enabled (allows mock locations)
- */
-const isTestingModeEnabled = (): boolean => {
-    return localStorage.getItem('geofence_testing_mode') === 'true';
-};
-
-/**
- * Get mock position for testing (Barcelona area by default)
- */
-const getMockPosition = (): LocationResult => {
-    // Check for custom test coordinates
-    const customLat = localStorage.getItem('test_latitude');
-    const customLng = localStorage.getItem('test_longitude');
-    
-    return {
-        latitude: customLat ? parseFloat(customLat) : 41.2925, // Near T1 by default
-        longitude: customLng ? parseFloat(customLng) : 2.0540,
-        accuracy: 10,
-        timestamp: Date.now(),
-    };
-};
-
-/**
- * Set custom test coordinates
- */
-export const setTestCoordinates = (lat: number, lng: number): void => {
-    localStorage.setItem('test_latitude', lat.toString());
-    localStorage.setItem('test_longitude', lng.toString());
-    console.log(`[Geolocation] Test coordinates set to: ${lat}, ${lng}`);
-};
-
-/**
- * Clear test coordinates
- */
-export const clearTestCoordinates = (): void => {
-    localStorage.removeItem('test_latitude');
-    localStorage.removeItem('test_longitude');
-    console.log('[Geolocation] Test coordinates cleared');
-};
-
-/**
  * Get human-readable error message for geolocation errors
  */
 const getGeolocationErrorMessage = (error: GeolocationPositionError): string => {
@@ -117,15 +76,15 @@ export const requestBrowserPermission = async (): Promise<{ granted: boolean; er
         if ('permissions' in navigator) {
             const permission = await navigator.permissions.query({ name: 'geolocation' });
             console.log('[Geolocation] Permission status:', permission.state);
-            
+
             if (permission.state === 'denied') {
-                return { 
-                    granted: false, 
-                    error: 'Ubicación bloqueada. Ve a configuración del navegador para habilitarla.' 
+                return {
+                    granted: false,
+                    error: 'Ubicación bloqueada. Ve a configuración del navegador para habilitarla.'
                 };
             }
         }
-        
+
         // Try to get position to trigger permission prompt
         return new Promise((resolve) => {
             navigator.geolocation.getCurrentPosition(
@@ -135,9 +94,9 @@ export const requestBrowserPermission = async (): Promise<{ granted: boolean; er
                 },
                 (error) => {
                     console.warn('[Geolocation] Permission request failed:', error.code, error.message);
-                    resolve({ 
-                        granted: false, 
-                        error: getGeolocationErrorMessage(error) 
+                    resolve({
+                        granted: false,
+                        error: getGeolocationErrorMessage(error)
                     });
                 },
                 { timeout: 10000 }
@@ -150,13 +109,12 @@ export const requestBrowserPermission = async (): Promise<{ granted: boolean; er
 };
 
 /**
- * Get current position
+ * Get current position - ONLY REAL GPS, no mock locations
  * Uses Capacitor on native platforms, falls back to browser geolocation on web
- * In testing mode, returns mock coordinates if real location fails
  */
 export const getCurrentPosition = async (): Promise<LocationResult | null> => {
     try {
-        // For web browser testing, use navigator.geolocation directly
+        // For web browser, use navigator.geolocation directly
         if (!isNative() && typeof navigator !== 'undefined' && navigator.geolocation) {
             console.log('[Geolocation] Using browser geolocation API');
 
@@ -164,7 +122,6 @@ export const getCurrentPosition = async (): Promise<LocationResult | null> => {
                 navigator.geolocation.getCurrentPosition(
                     (position) => {
                         console.log('[Geolocation] ✅ Real position obtained:', position.coords.latitude.toFixed(5), position.coords.longitude.toFixed(5));
-                        // Store that we got real position
                         localStorage.setItem('geolocation_last_success', Date.now().toString());
                         resolve({
                             latitude: position.coords.latitude,
@@ -176,24 +133,13 @@ export const getCurrentPosition = async (): Promise<LocationResult | null> => {
                     (error) => {
                         const errorMsg = getGeolocationErrorMessage(error);
                         console.warn('[Geolocation] ❌ Browser error:', error.code, '-', errorMsg);
-                        
-                        // Store the error for UI display
                         localStorage.setItem('geolocation_last_error', errorMsg);
-                        
-                        // In testing mode, use mock coordinates as fallback
-                        if (isTestingModeEnabled()) {
-                            const mockPos = getMockPosition();
-                            console.log('[Geolocation] 🧪 Using mock position for testing:', mockPos.latitude.toFixed(5), mockPos.longitude.toFixed(5));
-                            resolve(mockPos);
-                        } else {
-                            console.error('[Geolocation] ❌ Location failed. Enable testing mode to use mock coordinates.');
-                            resolve(null);
-                        }
+                        resolve(null);
                     },
                     {
-                        enableHighAccuracy: false, // Less strict for better compatibility
-                        timeout: 15000, // Longer timeout
-                        maximumAge: 300000, // Cache for 5 minutes
+                        enableHighAccuracy: true,
+                        timeout: 15000,
+                        maximumAge: 60000, // Cache for 1 minute
                     }
                 );
             });
@@ -205,13 +151,6 @@ export const getCurrentPosition = async (): Promise<LocationResult | null> => {
         if (!hasPermission) {
             console.warn('[Geolocation] Permission not granted');
             localStorage.setItem('geolocation_last_error', 'Permiso de ubicación no concedido');
-            
-            // In testing mode, use mock coordinates as fallback
-            if (isTestingModeEnabled()) {
-                const mockPos = getMockPosition();
-                console.log('[Geolocation] 🧪 Using mock position (no permission):', mockPos.latitude.toFixed(5), mockPos.longitude.toFixed(5));
-                return mockPos;
-            }
             return null;
         }
 
@@ -231,13 +170,6 @@ export const getCurrentPosition = async (): Promise<LocationResult | null> => {
     } catch (error) {
         console.error('[Geolocation] Error:', error);
         localStorage.setItem('geolocation_last_error', error instanceof Error ? error.message : 'Error desconocido');
-        
-        // In testing mode, use mock coordinates as fallback
-        if (isTestingModeEnabled()) {
-            const mockPos = getMockPosition();
-            console.log('[Geolocation] 🧪 Using mock position (error fallback):', mockPos.latitude.toFixed(5), mockPos.longitude.toFixed(5));
-            return mockPos;
-        }
         return null;
     }
 };
