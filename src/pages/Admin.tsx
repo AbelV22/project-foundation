@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { supabase } from "@/integrations/supabase/client";
 import { RefreshCw, MapPin, Clock, Users, Lock, LogOut, Eye, EyeOff, Play, Square, Activity, ArrowRightLeft, Navigation, TestTube } from "lucide-react";
 import { cn } from "@/lib/utils";
-import { enableTestingMode, disableTestingMode, getTrackingStatus, forceLocationCheck } from "@/services/location/AutoLocationService";
+import { enableTestingMode, disableTestingMode, getTrackingStatus, forceLocationCheck, checkConnection } from "@/services/location/AutoLocationService";
 import { requestBrowserPermission, getLastGeolocationError, hasRecentGeolocationSuccess } from "@/services/native/geolocation";
 
 // Admin password
@@ -558,9 +558,29 @@ export default function Admin() {
             ) : (
                 /* Developer Logs Tab */
                 <section>
-                    <h2 className="text-sm font-semibold text-muted-foreground uppercase mb-3">
-                        Geofence Event Logs ({geofenceLogs.length} eventos)
-                    </h2>
+                    <div className="flex items-center justify-between mb-3">
+                        <h2 className="text-sm font-semibold text-muted-foreground uppercase">
+                            Geofence Logs ({geofenceLogs.length})
+                        </h2>
+                        <button
+                            onClick={async () => {
+                                const toast = document.createElement('div');
+                                toast.className = "fixed bottom-4 right-4 bg-primary text-black px-4 py-2 rounded-lg shadow-lg z-50 animate-bounce";
+                                toast.innerText = "Probando conexión...";
+                                document.body.appendChild(toast);
+
+                                const result = await checkConnection();
+
+                                toast.className = `fixed bottom-4 right-4 text-white px-4 py-2 rounded-lg shadow-lg z-50 ${result.success ? 'bg-emerald-600' : 'bg-red-600'}`;
+                                toast.innerText = result.message;
+
+                                setTimeout(() => document.body.removeChild(toast), 5000);
+                            }}
+                            className="text-xs bg-white/10 hover:bg-white/20 text-white px-2 py-1 rounded transition-colors flex items-center gap-1"
+                        >
+                            <Activity className="h-3 w-3" /> Probar Conexión
+                        </button>
+                    </div>
                     <div className="card-glass overflow-hidden">
                         <div className="divide-y divide-white/5 max-h-[500px] overflow-y-auto">
                             {geofenceLogs.length === 0 ? (

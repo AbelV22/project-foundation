@@ -259,10 +259,15 @@ serve(async (req) => {
       }), { headers: { ...corsHeaders, 'Content-Type': 'application/json' } });
     }
   } catch (error) {
-    console.error(`[check-geofence] Error:`, error);
+    console.error(`[check-geofence] Fatal Error:`, error);
     const errorMessage = error instanceof Error ? error.message : 'Unknown error';
-    return new Response(JSON.stringify({ error: errorMessage }), {
-      status: 400,
+    // Ensure we ALWAYS return JSON, never plain text or empty 200
+    return new Response(JSON.stringify({
+      success: false,
+      error: errorMessage,
+      message: `Critial Error: ${errorMessage}`
+    }), {
+      status: 200, // Return 200 so request doesn't throw, but with success: false
       headers: { ...corsHeaders, 'Content-Type': 'application/json' }
     });
   }

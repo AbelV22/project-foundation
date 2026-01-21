@@ -235,3 +235,36 @@ export const initTestingMode = (): void => {
         console.log(`[AutoLocation] Restored testing mode${savedName ? ` for "${savedName}"` : ''}`);
     }
 };
+
+/**
+ * Test connection to Edge Function
+ */
+export const checkConnection = async (): Promise<{ success: boolean; message: string }> => {
+    try {
+        console.log('[AutoLocation] Pinging Edge Function...');
+        const start = Date.now();
+
+        const { data, error } = await supabase.functions.invoke('check-geofence', {
+            body: { action: 'ping' }
+        });
+
+        const duration = Date.now() - start;
+
+        if (error) {
+            console.error('[AutoLocation] Ping error:', error);
+            return { success: false, message: `Error conexión: ${error.message}` };
+        }
+
+        if (!data?.success) {
+            console.warn('[AutoLocation] Ping failed response:', data);
+            return { success: false, message: `Error respuesta: ${data?.message || 'Desconocido'}` };
+        }
+
+        console.log(`[AutoLocation] Ping success (${duration}ms):`, data);
+        return { success: true, message: `✅ Conectado (${duration}ms): ${data.message}` };
+
+    } catch (error) {
+        console.error('[AutoLocation] Ping exception:', error);
+        return { success: false, message: `Excepción: ${error instanceof Error ? error.message : 'Unknown'}` };
+    }
+};
