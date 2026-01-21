@@ -1,5 +1,6 @@
 import { serve } from "https://deno.land/std@0.168.0/http/server.ts"
 import { createClient } from 'https://esm.sh/@supabase/supabase-js@2'
+
 // --- CONFIGURACIÓN DE ZONAS ---
 const ZONAS: Record<string, { tipo: string; poligonos: number[][][] }> = {
   "T1": {
@@ -35,8 +36,9 @@ const ZONAS: Record<string, { tipo: string; poligonos: number[][][] }> = {
     ]
   }
 };
-// Tolerancia de 100m en grados (~0.0009 para latitud)
-const TOLERANCE = 0.001;
+
+const TOLERANCE = 0.001; // ~100m tolerance
+
 function puntoEnPoligono(lat: number, lng: number, poligono: number[][]) {
   let dentro = false;
   for (let i = 0, j = poligono.length - 1; i < poligono.length; j = i++) {
@@ -47,6 +49,7 @@ function puntoEnPoligono(lat: number, lng: number, poligono: number[][]) {
   }
   return dentro;
 }
+
 function puntoCercaDePoligono(lat: number, lng: number, poligono: number[][]): boolean {
   if (puntoEnPoligono(lat, lng, poligono)) return true;
   for (let i = 0; i < poligono.length - 1; i++) {
@@ -57,6 +60,7 @@ function puntoCercaDePoligono(lat: number, lng: number, poligono: number[][]): b
   }
   return false;
 }
+
 function distanciaPuntoALinea(px: number, py: number, x1: number, y1: number, x2: number, y2: number): number {
   const A = px - x1;
   const B = py - y1;
@@ -74,25 +78,30 @@ function distanciaPuntoALinea(px: number, py: number, x1: number, y1: number, x2
   const dy = py - yy;
   return Math.sqrt(dx * dx + dy * dy);
 }
+
 const corsHeaders = {
   'Access-Control-Allow-Origin': '*',
   'Access-Control-Allow-Headers': 'authorization, x-client-info, apikey, content-type',
 };
+
 serve(async (req) => {
   if (req.method === 'OPTIONS') {
     return new Response('ok', { headers: corsHeaders });
   }
+
   try {
     const { lat, lng, action, deviceId, previousZona, accuracy, deviceName } = await req.json();
     console.log(`[check-geofence] Received: lat=${lat}, lng=${lng}, action=${action}, deviceId=${deviceId}, prevZona=${previousZona}`);
+
+    // Validate device ID
     if (!deviceId || typeof deviceId !== 'string' || deviceId.length < 36) {
       return new Response(JSON.stringify({
         success: false,
         message: "❌ Device ID inválido."
       }), { headers: { ...corsHeaders, 'Content-Type': 'application/json' } });
     }
-    // Expanded range: All of Europe for testing (Munich, Barcelona, etc.)
-    // Europe roughly: lat 35-72, lng -25 to 45
+
+    // Validate coordinates (Europe range for compatibility)
     if (typeof lat !== 'number' || typeof lng !== 'number' ||
       lat < 35.0 || lat > 72.0 || lng < -25.0 || lng > 45.0) {
       return new Response(JSON.stringify({
@@ -100,6 +109,8 @@ serve(async (req) => {
         message: "❌ Coordenadas fuera de Europa."
       }), { headers: { ...corsHeaders, 'Content-Type': 'application/json' } });
     }
+
+    // Detect current zone
     let zonaDetectada: string | null = null;
     for (const [nombre, datos] of Object.entries(ZONAS)) {
       for (const poligono of datos.poligonos) {
@@ -110,55 +121,111 @@ serve(async (req) => {
       }
       if (zonaDetectada) break;
     }
+
     console.log(`[check-geofence] Zona detectada: ${zonaDetectada || 'ninguna'}`);
+
     if (action === 'register') {
       const supabase = createClient(
         Deno.env.get('SUPABASE_URL') ?? '',
         Deno.env.get('SUPABASE_SERVICE_ROLE_KEY') ?? ''
       );
-      const { data: lastEntry } = await supabase
-        .from('registros_reten')
-        .select('created_at')
-        .eq('device_id', deviceId)
-        .order('created_at', { ascending: false })
-        .limit(1)
-        .maybeSingle();
-      if (lastEntry) {
-        const lastTime = new Date(lastEntry.created_at).getTime();
-        const now = Date.now();
-        const diffMinutes = (now - lastTime) / (1000 * 60);
-        if (diffMinutes < 1) {
-          return new Response(JSON.stringify({
-            success: false,
-            message: `⏳ Espera ${Math.ceil(60 - (now - lastTime) / 1000)} segundos.`
-          }), { headers: { ...corsHeaders, 'Content-Type': 'application/json' } });
-        }
-      }
-      const zonaParaGuardar = zonaDetectada || "DEBUG";
-      const { error } = await supabase.from('registros_reten').insert({
-        zona: zonaParaGuardar,
-        tipo_zona: zonaDetectada ? "STANDARD" : "DEBUG",
-        evento: 'ENTRADA',
-        lat: lat,
-        lng: lng,
-        device_id: deviceId
-      });
-      if (error) {
-        console.error(`[check-geofence] DB Error:`, error);
-        throw error;
-      }
-      console.log(`[check-geofence] Ping guardado en ${zonaParaGuardar} para device ${deviceId}`);
-      // --- LOGGING DETALLADO PARA TESTING ---
+
+      // Determine event type
       let eventType = 'POSITION_UPDATE';
-      if (previousZona !== zonaDetectada) {
-        if (zonaDetectada && (!previousZona || previousZona === 'DEBUG')) {
+      const prevZonaReal = previousZona && previousZona !== 'DEBUG' ? previousZona : null;
+      const currentZonaReal = zonaDetectada && zonaDetectada !== 'DEBUG' ? zonaDetectada : null;
+
+      if (prevZonaReal !== currentZonaReal) {
+        if (currentZonaReal && !prevZonaReal) {
+          // Entering a zone from outside
           eventType = 'ENTER_ZONE';
-        } else if ((!zonaDetectada || zonaDetectada === 'DEBUG') && previousZona && previousZona !== 'DEBUG') {
+        } else if (!currentZonaReal && prevZonaReal) {
+          // Exiting a zone to outside
           eventType = 'EXIT_ZONE';
-        } else if (zonaDetectada && previousZona && zonaDetectada !== previousZona) {
-          eventType = 'ENTER_ZONE';
+        } else if (currentZonaReal && prevZonaReal && currentZonaReal !== prevZonaReal) {
+          // Changing zones directly (exit old, enter new)
+          eventType = 'ZONE_CHANGE';
         }
       }
+
+      console.log(`[check-geofence] Event type: ${eventType}`);
+
+      // === WAITING TIME TRACKING LOGIC ===
+
+      // If EXITING a zone or CHANGING zones, mark the exit time on the open entry
+      if ((eventType === 'EXIT_ZONE' || eventType === 'ZONE_CHANGE') && prevZonaReal) {
+        const { data: openEntry, error: findError } = await supabase
+          .from('registros_reten')
+          .select('id, created_at')
+          .eq('device_id', deviceId)
+          .eq('zona', prevZonaReal)
+          .is('exited_at', null)
+          .order('created_at', { ascending: false })
+          .limit(1)
+          .maybeSingle();
+
+        if (findError) {
+          console.error(`[check-geofence] Error finding open entry:`, findError);
+        } else if (openEntry) {
+          const { error: updateError } = await supabase
+            .from('registros_reten')
+            .update({ exited_at: new Date().toISOString() })
+            .eq('id', openEntry.id);
+
+          if (updateError) {
+            console.error(`[check-geofence] Error updating exit time:`, updateError);
+          } else {
+            const entryTime = new Date(openEntry.created_at).getTime();
+            const exitTime = Date.now();
+            const waitMinutes = Math.round((exitTime - entryTime) / 60000);
+            console.log(`[check-geofence] ✅ Marked exit from ${prevZonaReal}. Wait time: ${waitMinutes} min`);
+          }
+        } else {
+          console.log(`[check-geofence] No open entry found for ${prevZonaReal}`);
+        }
+      }
+
+      // If ENTERING a zone, create a new entry record
+      if ((eventType === 'ENTER_ZONE' || eventType === 'ZONE_CHANGE') && currentZonaReal) {
+        // Check rate limit (1 entry per zone per 5 minutes)
+        const { data: recentEntry } = await supabase
+          .from('registros_reten')
+          .select('created_at')
+          .eq('device_id', deviceId)
+          .eq('zona', currentZonaReal)
+          .order('created_at', { ascending: false })
+          .limit(1)
+          .maybeSingle();
+
+        let canCreateEntry = true;
+        if (recentEntry) {
+          const lastTime = new Date(recentEntry.created_at).getTime();
+          const diffMinutes = (Date.now() - lastTime) / (1000 * 60);
+          canCreateEntry = diffMinutes >= 5;
+        }
+
+        if (canCreateEntry) {
+          const { error: insertError } = await supabase.from('registros_reten').insert({
+            zona: currentZonaReal,
+            tipo_zona: "STANDARD",
+            evento: 'ENTRADA',
+            lat: lat,
+            lng: lng,
+            device_id: deviceId
+            // exited_at is NULL by default = waiting
+          });
+
+          if (insertError) {
+            console.error(`[check-geofence] Error creating entry:`, insertError);
+          } else {
+            console.log(`[check-geofence] ✅ Created entry in ${currentZonaReal}`);
+          }
+        } else {
+          console.log(`[check-geofence] Rate limited: recent entry exists for ${currentZonaReal}`);
+        }
+      }
+
+      // Log the event for debugging
       const { error: logError } = await supabase.from('geofence_logs').insert({
         event_type: eventType,
         zona: zonaDetectada,
@@ -169,23 +236,26 @@ serve(async (req) => {
         device_id: deviceId,
         device_name: deviceName || null
       });
+
       if (logError) {
         console.error(`[check-geofence] Log Error (non-fatal):`, logError);
       } else {
         console.log(`[check-geofence] Event logged: ${eventType}`);
       }
     }
+
+    // Return response
     if (zonaDetectada) {
       return new Response(JSON.stringify({
         success: true,
         zona: zonaDetectada,
-        message: `✅ Entrada confirmada en ${zonaDetectada}`
+        message: `✅ ${zonaDetectada}`
       }), { headers: { ...corsHeaders, 'Content-Type': 'application/json' } });
     } else {
       return new Response(JSON.stringify({
         success: true,
-        zona: "DEBUG",
-        message: `📍 Ubicación registrada (fuera de zonas)`
+        zona: null,
+        message: `📍 Fuera de zonas`
       }), { headers: { ...corsHeaders, 'Content-Type': 'application/json' } });
     }
   } catch (error) {
