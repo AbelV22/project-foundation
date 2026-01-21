@@ -1,17 +1,18 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import { supabase } from "@/integrations/supabase/client";
-import { RefreshCw, MapPin, Clock, Users, Lock, LogOut, Eye, EyeOff, Play, Square, Activity, Navigation, Smartphone, Wifi, WifiOff } from "lucide-react";
+import { RefreshCw, MapPin, Clock, Users, Lock, LogOut, Eye, EyeOff, Play, Square, Activity, Navigation, Smartphone, Wifi, WifiOff, Radio } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { enableTestingMode, disableTestingMode, getTrackingStatus, forceLocationCheck, checkConnection } from "@/services/location/AutoLocationService";
 import { requestBrowserPermission, getLastGeolocationError, hasRecentGeolocationSuccess } from "@/services/native/geolocation";
-import { 
-    initBackgroundGeolocation, 
-    stopBackgroundGeolocation, 
+import {
+    initBackgroundGeolocation,
+    stopBackgroundGeolocation,
     getBackgroundStatus,
     isNativePlatform,
     openLocationSettings
 } from "@/services/native/backgroundGeolocation";
+import { isProTrackingActive, getLastProPosition } from "@/services/native/proTracking";
 
 // Admin password
 const ADMIN_PASSWORD = "laraabel22";
@@ -48,6 +49,15 @@ interface GeofenceLog {
     created_at: string;
 }
 
+interface TrackingCheckLog {
+    timestamp: number;
+    success: boolean;
+    latitude?: number;
+    longitude?: number;
+    zona?: string;
+    error?: string;
+}
+
 export default function Admin() {
     const [isAuthenticated, setIsAuthenticated] = useState(false);
     const [password, setPassword] = useState("");
@@ -68,6 +78,9 @@ export default function Admin() {
     const [geoError, setGeoError] = useState<string | null>(null);
     const [backgroundStatus, setBackgroundStatus] = useState(getBackgroundStatus());
     const [isNative, setIsNative] = useState(isNativePlatform());
+    const [trackingMonitorLogs, setTrackingMonitorLogs] = useState<TrackingCheckLog[]>([]);
+    const [proTrackingActive, setProTrackingActive] = useState(false);
+    const monitorIntervalRef = useRef<number | null>(null);
     const navigate = useNavigate();
 
     // Background geolocation controls
@@ -184,7 +197,46 @@ export default function Admin() {
                 setBackgroundStatus(getBackgroundStatus());
             }, 5000); // Refresh every 5s for real-time status
 
-            return () => clearInterval(interval);
+            // 30-second tracking monitor - checks ProTracking status
+            const checkProTracking = async () => {
+                try {
+                    const isActive = await isProTrackingActive();
+                    setProTrackingActive(isActive);
+
+                    const position = await getLastProPosition();
+
+                    const newLog: TrackingCheckLog = {
+                        timestamp: Date.now(),
+                        success: position !== null,
+                        latitude: position?.latitude,
+                        longitude: position?.longitude,
+                        zona: position?.zona,
+                        error: position === null ? 'No position available' : undefined
+                    };
+
+                    setTrackingMonitorLogs(prev => [newLog, ...prev.slice(0, 19)]); // Keep last 20
+                } catch (e) {
+                    const newLog: TrackingCheckLog = {
+                        timestamp: Date.now(),
+                        success: false,
+                        error: e instanceof Error ? e.message : 'Unknown error'
+                    };
+                    setTrackingMonitorLogs(prev => [newLog, ...prev.slice(0, 19)]);
+                }
+            };
+
+            // Initial check
+            checkProTracking();
+
+            // Run every 30 seconds
+            monitorIntervalRef.current = window.setInterval(checkProTracking, 30000);
+
+            return () => {
+                clearInterval(interval);
+                if (monitorIntervalRef.current) {
+                    clearInterval(monitorIntervalRef.current);
+                }
+            };
         }
     }, [isAuthenticated]);
 
@@ -372,6 +424,73 @@ export default function Admin() {
                     </p>
                 </section>
             )}
+
+            {/* 🔴 PRO TRACKING MONITOR - 30s checks */}
+            <section className="card-glass p-4 mb-4">
+                <div className="flex items-center justify-between mb-3">
+                    <div className="flex items-center gap-2">
+                        <Radio className={cn("h-5 w-5", proTrackingActive ? "text-emerald-400 animate-pulse" : "text-muted-foreground")} />
+                        <span className="font-semibold text-white">Monitor Tracking (30s)</span>
+                        <span className={cn(
+                            "text-xs px-2 py-0.5 rounded-full",
+                            proTrackingActive
+                                ? "bg-emerald-500/20 text-emerald-400"
+                                : "bg-red-500/20 text-red-400"
+                        )}>
+                            {proTrackingActive ? "PRO ACTIVO" : "INACTIVO"}
+                        </span>
+                    </div>
+                    <span className="text-xs text-muted-foreground">
+                        {trackingMonitorLogs.length} checks
+                    </span>
+                </div>
+
+                {/* Rolling log of 30s checks */}
+                <div className="max-h-[200px] overflow-y-auto space-y-1">
+                    {trackingMonitorLogs.length === 0 ? (
+                        <p className="text-sm text-muted-foreground text-center py-4">
+                            ⏳ Esperando primer check (30s)...
+                        </p>
+                    ) : (
+                        trackingMonitorLogs.map((log, idx) => (
+                            <div
+                                key={log.timestamp}
+                                className={cn(
+                                    "flex items-center justify-between p-2 rounded text-xs",
+                                    log.success ? "bg-emerald-500/10" : "bg-red-500/10",
+                                    idx === 0 && "ring-1 ring-white/20"
+                                )}
+                            >
+                                <div className="flex items-center gap-2">
+                                    <span className={log.success ? "text-emerald-400" : "text-red-400"}>
+                                        {log.success ? "✅" : "❌"}
+                                    </span>
+                                    <span className="text-muted-foreground font-mono">
+                                        {new Date(log.timestamp).toLocaleTimeString('es-ES')}
+                                    </span>
+                                    {log.success && log.latitude && (
+                                        <span className="text-blue-400 font-mono">
+                                            {log.latitude.toFixed(4)}, {log.longitude?.toFixed(4)}
+                                        </span>
+                                    )}
+                                    {log.zona && (
+                                        <span className="text-primary font-medium">
+                                            📍 {log.zona}
+                                        </span>
+                                    )}
+                                </div>
+                                {log.error && (
+                                    <span className="text-red-400 text-[10px]">{log.error}</span>
+                                )}
+                            </div>
+                        ))
+                    )}
+                </div>
+
+                <p className="text-[10px] text-muted-foreground mt-2 text-center">
+                    🔄 Se actualiza automáticamente cada 30 segundos
+                </p>
+            </section>
 
             {/* Testing Mode Control Panel */}
             <section className="card-glass p-4 mb-4">
