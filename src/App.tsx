@@ -10,6 +10,11 @@ import { StatusBar, Style } from "@capacitor/status-bar";
 import { SplashScreen } from "@capacitor/splash-screen";
 import { startAutoTracking, initTestingMode } from "./services/location/AutoLocationService";
 import { requestLocationPermission, checkLocationPermission } from "./services/native/geolocation";
+import { 
+  initBackgroundGeolocation, 
+  shouldRestoreBackgroundTracking,
+  isNativePlatform 
+} from "./services/native/backgroundGeolocation";
 import Index from "./pages/Index";
 import Admin from "./pages/Admin";
 import NotFound from "./pages/NotFound";
@@ -17,7 +22,7 @@ import NotFound from "./pages/NotFound";
 const queryClient = new QueryClient();
 
 // Initialize native features when running on Android/iOS
-// Also enables web tracking if testing mode was previously activated
+// Uses background geolocation on native, foreground on web
 const initializeNative = async (setPermissionDenied: (denied: boolean) => void) => {
   // Initialize testing mode from localStorage (works on all platforms)
   initTestingMode();
@@ -51,7 +56,6 @@ const initializeNative = async (setPermissionDenied: (denied: boolean) => void) 
     if (!hasPermission) {
       console.warn('[App] Location permission denied');
       setPermissionDenied(true);
-      // Try to check if it's just not granted yet vs denied
       const currentStatus = await checkLocationPermission();
       if (!currentStatus) {
         console.log('[App] Permission not granted, will retry on user action');
@@ -59,12 +63,32 @@ const initializeNative = async (setPermissionDenied: (denied: boolean) => void) 
       return;
     }
 
-    console.log('[App] Location permission granted, starting tracking...');
+    console.log('[App] Location permission granted');
 
-    // Start automatic location tracking
-    startAutoTracking((zona) => {
-      console.log('[App] Zone changed to:', zona);
-    });
+    // Check if background tracking should be restored
+    const shouldRestoreBackground = shouldRestoreBackgroundTracking();
+    
+    if (shouldRestoreBackground || isTestingMode) {
+      // Use background geolocation for continuous tracking
+      console.log('[App] Initializing background geolocation...');
+      const bgSuccess = await initBackgroundGeolocation();
+      
+      if (bgSuccess) {
+        console.log('[App] ✅ Background geolocation active');
+      } else {
+        // Fallback to foreground tracking
+        console.log('[App] Falling back to foreground tracking...');
+        startAutoTracking((zona) => {
+          console.log('[App] Zone changed to:', zona);
+        });
+      }
+    } else {
+      // Start foreground tracking by default
+      console.log('[App] Starting foreground tracking...');
+      startAutoTracking((zona) => {
+        console.log('[App] Zone changed to:', zona);
+      });
+    }
   } catch (error) {
     console.error("Error initializing native features:", error);
   }
