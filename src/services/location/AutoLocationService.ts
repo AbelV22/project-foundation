@@ -149,12 +149,6 @@ const checkLocationAndRegister = async (): Promise<string | null> => {
         // Detect zone changes
         if (newZona !== lastZona) {
             console.log(`[AutoLocation] 🔄 Zone changed: ${lastZona || 'none'} → ${newZona || 'none'}`);
-
-            // If we left a zone, register exit
-            if (lastZona && !newZona) {
-                await registerExit(deviceId, lastZona);
-            }
-
             lastZona = newZona;
         }
 
@@ -166,31 +160,6 @@ const checkLocationAndRegister = async (): Promise<string | null> => {
         console.error('[AutoLocation] ❌ Error:', error);
         onZoneChange?.(null, lastError);
         return null;
-    }
-};
-
-/**
- * Register exit from a zone
- */
-const registerExit = async (deviceId: string, zona: string): Promise<void> => {
-    try {
-        console.log(`[AutoLocation] Registering exit from ${zona}`);
-
-        // Update the most recent entry for this device in this zone
-        const { error } = await supabase
-            .from('registros_reten')
-            .update({ exited_at: new Date().toISOString() } as any)
-            .eq('device_id', deviceId)
-            .eq('zona', zona)
-            .is('exited_at', null)
-            .order('created_at', { ascending: false })
-            .limit(1);
-
-        if (error) {
-            console.error('[AutoLocation] Exit registration error:', error);
-        }
-    } catch (error) {
-        console.error('[AutoLocation] Exit error:', error);
     }
 };
 
