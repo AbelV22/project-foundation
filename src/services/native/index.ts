@@ -41,6 +41,16 @@ export {
     ensureBatteryOptimizationExcluded,
 } from './batteryOptimization';
 
+// Debug tracking for diagnosing background issues
+export {
+    startDebugTracking,
+    stopDebugTracking,
+    getDebugStatus,
+    setDebugDeviceName,
+    logDebugEvent,
+    fetchDebugLogs,
+} from './debugTracking';
+
 import { Capacitor } from '@capacitor/core';
 
 /**
@@ -49,4 +59,3 @@ import { Capacitor } from '@capacitor/core';
 export const getPlatform = (): 'android' | 'ios' | 'web' => {
     return Capacitor.getPlatform() as 'android' | 'ios' | 'web';
 };
-

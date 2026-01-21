@@ -49,211 +49,51 @@ jobs:
       - name: Add Android platform
         run: npx cap add android
       
-      - name: Add Google Play Services Location dependency
-        run: |
-          BUILD_GRADLE="android/app/build.gradle"
-          
-          # Add play-services-location dependency if not present
-          if ! grep -q "play-services-location" "$BUILD_GRADLE"; then
-            # Find the dependencies block and add our dependency
-            python3 << 'EOF'
-          with open("android/app/build.gradle", "r") as f:
-              content = f.read()
-          
-          if "play-services-location" in content:
-              print("✅ play-services-location already present")
-              exit(0)
-          
-          # Add the dependency in the dependencies block
-          # Find the line with "implementation project(':capacitor-android')" and add after it
-          dependency_line = "    implementation 'com.google.android.gms:play-services-location:21.0.1'"
-          
-          if "implementation project(':capacitor-android')" in content:
-              content = content.replace(
-                  "implementation project(':capacitor-android')",
-                  "implementation project(':capacitor-android')\n" + dependency_line
-              )
-          else:
-              # Alternative: find dependencies block and add at the end
-              import re
-              pattern = r'(dependencies\s*\{[^}]*)'
-              match = re.search(pattern, content, re.DOTALL)
-              if match:
-                  deps_content = match.group(1)
-                  new_deps = deps_content + "\n" + dependency_line + "\n"
-                  content = content.replace(deps_content, new_deps)
-          
-          with open("android/app/build.gradle", "w") as f:
-              f.write(content)
-          
-          print("✅ play-services-location dependency added")
-          EOF
-          fi
-          
-          # Show dependencies for verification
-          echo "=== build.gradle dependencies ==="
-          grep -A 20 "dependencies {" "$BUILD_GRADLE" | head -25
-      
-      - name: Ensure location and foreground service permissions in AndroidManifest
+      - name: Ensure all permissions in AndroidManifest
         run: |
           MANIFEST="android/app/src/main/AndroidManifest.xml"
           
-          # Add tools namespace if not present
-          if ! grep -q "xmlns:tools" "$MANIFEST"; then
-            sed -i 's/<manifest /<manifest xmlns:tools="http:\/\/schemas.android.com\/tools" /' "$MANIFEST"
-          fi
-          
-          # Add location permissions if not present
-          if ! grep -q "ACCESS_FINE_LOCATION" "$MANIFEST"; then
-            sed -i '/<uses-permission android:name="android.permission.INTERNET"/a \    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />\n    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />\n    <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION" />' "$MANIFEST"
-            echo "✅ Location permissions added"
-          fi
-          
-          # Add foreground service permissions for Android 14+ (required for background location)
-          if ! grep -q "FOREGROUND_SERVICE" "$MANIFEST"; then
-            sed -i '/<uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION"/a \    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />\n    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_LOCATION" />\n    <uses-permission android:name="android.permission.WAKE_LOCK" />' "$MANIFEST"
-            echo "✅ Foreground service permissions added"
-          fi
-          
-          # Add battery optimization and WiFi permissions
-          if ! grep -q "REQUEST_IGNORE_BATTERY_OPTIMIZATIONS" "$MANIFEST"; then
-            sed -i '/<uses-permission android:name="android.permission.WAKE_LOCK"/a \    <uses-permission android:name="android.permission.REQUEST_IGNORE_BATTERY_OPTIMIZATIONS" />\n    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />\n    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />\n    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />' "$MANIFEST"
-            echo "✅ Battery optimization and WiFi permissions added"
-          fi
-          
-          # Show the permissions section for verification
-          echo "=== AndroidManifest permissions ==="
-          grep "uses-permission" "$MANIFEST" || true
-      
-      - name: Copy Android native plugins and services
-        run: |
-          # Create directories
-          mkdir -p android/app/src/main/java/com/itaxibcn/app/plugins
-          mkdir -p android/app/src/main/java/com/itaxibcn/app/services
-          
-          # Copy plugins
-          cp android-plugin/BatteryOptimizationPlugin.java android/app/src/main/java/com/itaxibcn/app/plugins/
-          cp android-plugin/ProLocationTrackingPlugin.java android/app/src/main/java/com/itaxibcn/app/plugins/
-          
-          # Copy services
-          cp android-plugin/LocationTrackingService.java android/app/src/main/java/com/itaxibcn/app/services/
-          cp android-plugin/LocationBroadcastReceiver.java android/app/src/main/java/com/itaxibcn/app/services/
-          cp android-plugin/LocationAlarmReceiver.java android/app/src/main/java/com/itaxibcn/app/services/
-          
-          echo "✅ All plugins and services copied"
-          
-      - name: Register services and receivers in AndroidManifest
-        run: |
-          MANIFEST="android/app/src/main/AndroidManifest.xml"
-          
-          # Add service and receivers before closing </application> tag using Python
           python3 << 'EOF'
           with open("android/app/src/main/AndroidManifest.xml", "r") as f:
               content = f.read()
           
-          # Check if already modified
-          if "LocationTrackingService" in content:
-              print("✅ Services already registered, skipping")
-              exit(0)
+          # Permissions to add
+          permissions = [
+              'android.permission.ACCESS_COARSE_LOCATION',
+              'android.permission.ACCESS_FINE_LOCATION',
+              'android.permission.ACCESS_BACKGROUND_LOCATION',
+              'android.permission.FOREGROUND_SERVICE',
+              'android.permission.FOREGROUND_SERVICE_LOCATION',
+              'android.permission.WAKE_LOCK',
+              'android.permission.REQUEST_IGNORE_BATTERY_OPTIMIZATIONS',
+              'android.permission.ACCESS_WIFI_STATE',
+              'android.permission.CHANGE_WIFI_STATE',
+              'android.permission.POST_NOTIFICATIONS',
+          ]
           
-          # Service and receiver declarations
-          service_declarations = '''
-              <!-- Pro Location Tracking Service -->
-              <service
-                  android:name=".services.LocationTrackingService"
-                  android:enabled="true"
-                  android:exported="false"
-                  android:foregroundServiceType="location" />
-              
-              <!-- Location Broadcast Receiver (for PendingIntent) -->
-              <receiver
-                  android:name=".services.LocationBroadcastReceiver"
-                  android:enabled="true"
-                  android:exported="false">
-                  <intent-filter>
-                      <action android:name="com.itaxibcn.app.LOCATION_UPDATE" />
-                  </intent-filter>
-              </receiver>
-              
-              <!-- Alarm Receiver (for Doze-resistant tracking) -->
-              <receiver
-                  android:name=".services.LocationAlarmReceiver"
-                  android:enabled="true"
-                  android:exported="false">
-                  <intent-filter>
-                      <action android:name="com.itaxibcn.app.LOCATION_ALARM" />
-                  </intent-filter>
-              </receiver>
-          '''
+          # Add xmlns:tools if not present
+          if 'xmlns:tools' not in content:
+              content = content.replace('<manifest ', '<manifest xmlns:tools="http://schemas.android.com/tools" ')
           
-          # Insert before </application>
-          content = content.replace("</application>", service_declarations + "\n    </application>")
+          # Find the first <uses-permission> line and add all permissions after it
+          for perm in permissions:
+              perm_line = f'<uses-permission android:name="{perm}" />'
+              if perm not in content:
+                  # Insert after INTERNET permission
+                  content = content.replace(
+                      '<uses-permission android:name="android.permission.INTERNET" />',
+                      f'<uses-permission android:name="android.permission.INTERNET" />\n    {perm_line}'
+                  )
           
           with open("android/app/src/main/AndroidManifest.xml", "w") as f:
               f.write(content)
           
-          print("✅ Services and receivers registered in AndroidManifest")
+          print("✅ All permissions added")
           EOF
           
-          # Show manifest for verification
-          echo "=== AndroidManifest (application section) ==="
-          grep -A 5 "LocationTrackingService\|LocationBroadcastReceiver\|LocationAlarmReceiver" "$MANIFEST" || true
-      
-      - name: Register plugins in MainActivity
-        run: |
-          MAIN_ACTIVITY="android/app/src/main/java/com/itaxibcn/app/MainActivity.java"
-          
-          # Use Python to properly modify the file
-          python3 << 'EOF'
-          import re
-          
-          with open("android/app/src/main/java/com/itaxibcn/app/MainActivity.java", "r") as f:
-              content = f.read()
-          
-          # Check if already modified
-          if "BatteryOptimizationPlugin" in content:
-              print("✅ Already modified, skipping")
-              exit(0)
-          
-          # Add imports for both plugins
-          imports = """import android.os.Bundle;
-          import com.itaxibcn.app.plugins.BatteryOptimizationPlugin;
-          import com.itaxibcn.app.plugins.ProLocationTrackingPlugin;"""
-          
-          content = content.replace(
-              "import com.getcapacitor.BridgeActivity;",
-              "import com.getcapacitor.BridgeActivity;\n" + imports
-          )
-          
-          # Check if onCreate exists
-          if "onCreate" not in content:
-              # Add onCreate method inside the class
-              pattern = r'(public class MainActivity extends BridgeActivity\s*\{)'
-              replacement = r'''\1
-              
-              @Override
-              public void onCreate(Bundle savedInstanceState) {
-                  registerPlugin(BatteryOptimizationPlugin.class);
-                  registerPlugin(ProLocationTrackingPlugin.class);
-                  super.onCreate(savedInstanceState);
-              }'''
-              content = re.sub(pattern, replacement, content)
-          else:
-              # Add registerPlugin calls before super.onCreate
-              content = content.replace(
-                  "super.onCreate(savedInstanceState);",
-                  "registerPlugin(BatteryOptimizationPlugin.class);\n        registerPlugin(ProLocationTrackingPlugin.class);\n        super.onCreate(savedInstanceState);"
-              )
-          
-          with open("android/app/src/main/java/com/itaxibcn/app/MainActivity.java", "w") as f:
-              f.write(content)
-          
-          print("✅ All plugins registered in MainActivity")
-          EOF
-          
-          # Show the MainActivity for verification
-          echo "=== MainActivity.java ==="
-          cat "$MAIN_ACTIVITY"
+          # Show the permissions section for verification
+          echo "=== AndroidManifest permissions ==="
+          grep "uses-permission" "$MANIFEST" || true
       
       - name: Generate native assets
         run: npx capacitor-assets generate --android
