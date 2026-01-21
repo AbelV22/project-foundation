@@ -10,6 +10,10 @@ const config: CapacitorConfig = {
     // url: 'http://YOUR_LOCAL_IP:8080',
     // cleartext: true
   },
+  android: {
+    // Required for background geolocation to work properly
+    // Allows the watcher to continue running after 5 minutes
+  },
   plugins: {
     SplashScreen: {
       launchShowDuration: 2000,
@@ -25,6 +29,9 @@ const config: CapacitorConfig = {
     },
     PushNotifications: {
       presentationOptions: ['badge', 'sound', 'alert'],
+    },
+    BackgroundGeolocation: {
+      // Configuration for background location tracking
     },
   },
 };
