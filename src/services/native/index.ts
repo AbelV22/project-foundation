@@ -1,5 +1,5 @@
 // Native platform services
-// These provide GPS and Push Notification capabilities for the Android app
+// These provide GPS, Push Notification, and Background Tracking capabilities for the Android app
 
 export {
     getCurrentPosition,
@@ -18,14 +18,30 @@ export {
     type NotificationData,
 } from './notifications';
 
-import { Capacitor } from '@capacitor/core';
+export {
+    initBackgroundGeolocation,
+    stopBackgroundGeolocation,
+    getBackgroundStatus,
+    setBackgroundDeviceName,
+    shouldRestoreBackgroundTracking,
+    openLocationSettings,
+    requestBackgroundPermissions,
+    isNativePlatform,
+} from './backgroundGeolocation';
 
-/**
- * Check if the app is running on a native platform (Android/iOS)
- */
-export const isNativePlatform = (): boolean => {
-    return Capacitor.isNativePlatform();
-};
+export {
+    isBatteryOptimizationIgnored,
+    requestIgnoreBatteryOptimization,
+    openBatterySettings,
+    acquireWakeLock,
+    releaseWakeLock,
+    acquireWifiLock,
+    releaseWifiLock,
+    showBatteryOptimizationDialog,
+    ensureBatteryOptimizationExcluded,
+} from './batteryOptimization';
+
+import { Capacitor } from '@capacitor/core';
 
 /**
  * Get the current platform
@@ -33,3 +49,4 @@ export const isNativePlatform = (): boolean => {
 export const getPlatform = (): 'android' | 'ios' | 'web' => {
     return Capacitor.getPlatform() as 'android' | 'ios' | 'web';
 };
+

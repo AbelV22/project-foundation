@@ -3,6 +3,15 @@ import { supabase } from '@/integrations/supabase/client';
 import { getOrCreateDeviceId } from '@/lib/deviceId';
 import type { BackgroundGeolocationPlugin, Location, CallbackError } from '@capacitor-community/background-geolocation';
 import { registerPlugin } from '@capacitor/core';
+import {
+    acquireWakeLock,
+    releaseWakeLock,
+    acquireWifiLock,
+    releaseWifiLock,
+    ensureBatteryOptimizationExcluded,
+    isBatteryOptimizationIgnored
+} from './batteryOptimization';
+import { registerForPushNotifications, checkNotificationPermission } from './notifications';
 
 // Register the plugin
 const BackgroundGeolocation = registerPlugin<BackgroundGeolocationPlugin>('BackgroundGeolocation');
@@ -14,6 +23,8 @@ let lastZona: string | null = null;
 let lastPosition: { lat: number; lng: number; accuracy?: number } | null = null;
 let lastUpdateTime = 0;
 let deviceName: string | null = null;
+let hasWakeLock = false;
+let hasWifiLock = false;
 
 // Configuration
 const MIN_UPDATE_INTERVAL_MS = 30 * 1000; // Minimum 30 seconds between geofence checks
@@ -23,6 +34,39 @@ const MIN_UPDATE_INTERVAL_MS = 30 * 1000; // Minimum 30 seconds between geofence
  */
 export const isNativePlatform = (): boolean => {
     return Capacitor.isNativePlatform();
+};
+
+/**
+ * Request all necessary permissions for background tracking
+ * This includes notifications (to keep foreground service visible) and battery optimization
+ */
+export const requestBackgroundPermissions = async (): Promise<{
+    notifications: boolean;
+    batteryOptimization: boolean;
+}> => {
+    if (!isNativePlatform()) {
+        return { notifications: true, batteryOptimization: true };
+    }
+
+    console.log('[BackgroundGeo] Requesting background permissions...');
+
+    // 1. Request notification permission (required for foreground service visibility)
+    let notificationsGranted = await checkNotificationPermission();
+    if (!notificationsGranted) {
+        console.log('[BackgroundGeo] Requesting notification permission...');
+        const token = await registerForPushNotifications();
+        notificationsGranted = token !== null;
+    }
+    console.log('[BackgroundGeo] Notification permission:', notificationsGranted ? '✅' : '❌');
+
+    // 2. Check and request battery optimization exclusion
+    const batteryOptimizationIgnored = await ensureBatteryOptimizationExcluded();
+    console.log('[BackgroundGeo] Battery optimization excluded:', batteryOptimizationIgnored ? '✅' : '❌');
+
+    return {
+        notifications: notificationsGranted,
+        batteryOptimization: batteryOptimizationIgnored
+    };
 };
 
 /**
@@ -38,6 +82,22 @@ export const initBackgroundGeolocation = async (): Promise<boolean> => {
     try {
         // Load saved settings
         deviceName = localStorage.getItem('geofence_device_name');
+
+        // Request all necessary permissions first
+        const permissions = await requestBackgroundPermissions();
+        console.log('[BackgroundGeo] Permissions status:', permissions);
+
+        // Acquire WakeLock to prevent CPU sleep
+        if (!hasWakeLock) {
+            hasWakeLock = await acquireWakeLock();
+            console.log('[BackgroundGeo] WakeLock acquired:', hasWakeLock);
+        }
+
+        // Acquire WifiLock to maintain network connection
+        if (!hasWifiLock) {
+            hasWifiLock = await acquireWifiLock();
+            console.log('[BackgroundGeo] WifiLock acquired:', hasWifiLock);
+        }
 
         // Add watcher for background location updates
         watcherId = await BackgroundGeolocation.addWatcher(
@@ -56,7 +116,7 @@ export const initBackgroundGeolocation = async (): Promise<boolean> => {
 
                 if (location) {
                     console.log(`[BackgroundGeo] 📍 Location update: ${location.latitude.toFixed(5)}, ${location.longitude.toFixed(5)}`);
-                    
+
                     lastPosition = {
                         lat: location.latitude,
                         lng: location.longitude,
@@ -75,10 +135,10 @@ export const initBackgroundGeolocation = async (): Promise<boolean> => {
 
         isBackgroundTrackingActive = true;
         console.log('[BackgroundGeo] ✅ Background tracking initialized, watcherId:', watcherId);
-        
+
         // Save state
         localStorage.setItem('background_geo_active', 'true');
-        
+
         return true;
     } catch (error) {
         console.error('[BackgroundGeo] ❌ Failed to initialize:', error);
@@ -97,11 +157,25 @@ export const stopBackgroundGeolocation = async (): Promise<void> => {
 
     try {
         await BackgroundGeolocation.removeWatcher({ id: watcherId });
-        
+
+        // Release WakeLock
+        if (hasWakeLock) {
+            await releaseWakeLock();
+            hasWakeLock = false;
+            console.log('[BackgroundGeo] WakeLock released');
+        }
+
+        // Release WifiLock
+        if (hasWifiLock) {
+            await releaseWifiLock();
+            hasWifiLock = false;
+            console.log('[BackgroundGeo] WifiLock released');
+        }
+
         watcherId = null;
         isBackgroundTrackingActive = false;
         localStorage.removeItem('background_geo_active');
-        
+
         console.log('[BackgroundGeo] Tracking stopped');
     } catch (error) {
         console.error('[BackgroundGeo] Error stopping:', error);
@@ -137,12 +211,12 @@ const checkGeofenceAndRegister = async (lat: number, lng: number, accuracy?: num
 
         if (data?.success) {
             const newZona = data.zona || null;
-            
+
             if (newZona !== lastZona) {
                 console.log(`[BackgroundGeo] 🔄 Zone changed: ${lastZona || 'none'} → ${newZona || 'none'}`);
                 lastZona = newZona;
             }
-            
+
             console.log(`[BackgroundGeo] ✅ Zone: ${newZona || 'outside'}`);
         } else {
             console.warn('[BackgroundGeo] Geofence check failed:', data?.message);
@@ -184,7 +258,7 @@ export const shouldRestoreBackgroundTracking = (): boolean => {
  */
 export const openLocationSettings = async (): Promise<void> => {
     if (!isNativePlatform()) return;
-    
+
     try {
         await BackgroundGeolocation.openSettings();
     } catch (error) {
