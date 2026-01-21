@@ -70,9 +70,48 @@ jobs:
             echo "✅ Foreground service permissions added"
           fi
           
+          # Add battery optimization and WiFi permissions
+          if ! grep -q "REQUEST_IGNORE_BATTERY_OPTIMIZATIONS" "$MANIFEST"; then
+            sed -i '/<uses-permission android:name="android.permission.WAKE_LOCK"/a \    <uses-permission android:name="android.permission.REQUEST_IGNORE_BATTERY_OPTIMIZATIONS" />\n    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />\n    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />\n    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />' "$MANIFEST"
+            echo "✅ Battery optimization and WiFi permissions added"
+          fi
+          
           # Show the permissions section for verification
           echo "=== AndroidManifest permissions ==="
           grep "uses-permission" "$MANIFEST" || true
+      
+      - name: Copy BatteryOptimization plugin
+        run: |
+          # Create plugins directory
+          mkdir -p android/app/src/main/java/com/itaxibcn/app/plugins
+          
+          # Copy the plugin
+          cp android-plugin/BatteryOptimizationPlugin.java android/app/src/main/java/com/itaxibcn/app/plugins/
+          echo "✅ BatteryOptimizationPlugin copied"
+      
+      - name: Register BatteryOptimization plugin in MainActivity
+        run: |
+          MAIN_ACTIVITY="android/app/src/main/java/com/itaxibcn/app/MainActivity.java"
+          
+          # Add import if not present
+          if ! grep -q "BatteryOptimizationPlugin" "$MAIN_ACTIVITY"; then
+            # Add import statement
+            sed -i '/^import com.getcapacitor.BridgeActivity;/a import com.itaxibcn.app.plugins.BatteryOptimizationPlugin;' "$MAIN_ACTIVITY"
+            
+            # Check if onCreate exists, if not add it
+            if ! grep -q "onCreate" "$MAIN_ACTIVITY"; then
+              # Add onCreate method before the closing brace
+              sed -i '/^public class MainActivity/a \    @Override\n    public void onCreate(android.os.Bundle savedInstanceState) {\n        registerPlugin(BatteryOptimizationPlugin.class);\n        super.onCreate(savedInstanceState);\n    }' "$MAIN_ACTIVITY"
+            else
+              # Add registerPlugin call before super.onCreate
+              sed -i '/super.onCreate(savedInstanceState);/i \        registerPlugin(BatteryOptimizationPlugin.class);' "$MAIN_ACTIVITY"
+            fi
+            echo "✅ BatteryOptimizationPlugin registered in MainActivity"
+          fi
+          
+          # Show the MainActivity for verification
+          echo "=== MainActivity.java ==="
+          cat "$MAIN_ACTIVITY"
       
       - name: Generate native assets
         run: npx capacitor-assets generate --android
