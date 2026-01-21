@@ -80,16 +80,81 @@ jobs:
           echo "=== AndroidManifest permissions ==="
           grep "uses-permission" "$MANIFEST" || true
       
-      - name: Copy BatteryOptimization plugin
+      - name: Copy Android native plugins and services
         run: |
-          # Create plugins directory
+          # Create directories
           mkdir -p android/app/src/main/java/com/itaxibcn/app/plugins
+          mkdir -p android/app/src/main/java/com/itaxibcn/app/services
           
-          # Copy the plugin
+          # Copy plugins
           cp android-plugin/BatteryOptimizationPlugin.java android/app/src/main/java/com/itaxibcn/app/plugins/
-          echo "✅ BatteryOptimizationPlugin copied"
+          cp android-plugin/ProLocationTrackingPlugin.java android/app/src/main/java/com/itaxibcn/app/plugins/
+          
+          # Copy services
+          cp android-plugin/LocationTrackingService.java android/app/src/main/java/com/itaxibcn/app/services/
+          cp android-plugin/LocationBroadcastReceiver.java android/app/src/main/java/com/itaxibcn/app/services/
+          cp android-plugin/LocationAlarmReceiver.java android/app/src/main/java/com/itaxibcn/app/services/
+          
+          echo "✅ All plugins and services copied"
+          
+      - name: Register services and receivers in AndroidManifest
+        run: |
+          MANIFEST="android/app/src/main/AndroidManifest.xml"
+          
+          # Add service and receivers before closing </application> tag using Python
+          python3 << 'EOF'
+          with open("android/app/src/main/AndroidManifest.xml", "r") as f:
+              content = f.read()
+          
+          # Check if already modified
+          if "LocationTrackingService" in content:
+              print("✅ Services already registered, skipping")
+              exit(0)
+          
+          # Service and receiver declarations
+          service_declarations = '''
+              <!-- Pro Location Tracking Service -->
+              <service
+                  android:name=".services.LocationTrackingService"
+                  android:enabled="true"
+                  android:exported="false"
+                  android:foregroundServiceType="location" />
+              
+              <!-- Location Broadcast Receiver (for PendingIntent) -->
+              <receiver
+                  android:name=".services.LocationBroadcastReceiver"
+                  android:enabled="true"
+                  android:exported="false">
+                  <intent-filter>
+                      <action android:name="com.itaxibcn.app.LOCATION_UPDATE" />
+                  </intent-filter>
+              </receiver>
+              
+              <!-- Alarm Receiver (for Doze-resistant tracking) -->
+              <receiver
+                  android:name=".services.LocationAlarmReceiver"
+                  android:enabled="true"
+                  android:exported="false">
+                  <intent-filter>
+                      <action android:name="com.itaxibcn.app.LOCATION_ALARM" />
+                  </intent-filter>
+              </receiver>
+          '''
+          
+          # Insert before </application>
+          content = content.replace("</application>", service_declarations + "\n    </application>")
+          
+          with open("android/app/src/main/AndroidManifest.xml", "w") as f:
+              f.write(content)
+          
+          print("✅ Services and receivers registered in AndroidManifest")
+          EOF
+          
+          # Show manifest for verification
+          echo "=== AndroidManifest (application section) ==="
+          grep -A 5 "LocationTrackingService\|LocationBroadcastReceiver\|LocationAlarmReceiver" "$MANIFEST" || true
       
-      - name: Register BatteryOptimization plugin in MainActivity
+      - name: Register plugins in MainActivity
         run: |
           MAIN_ACTIVITY="android/app/src/main/java/com/itaxibcn/app/MainActivity.java"
           
@@ -105,44 +170,40 @@ jobs:
               print("✅ Already modified, skipping")
               exit(0)
           
-          # Add import after BridgeActivity import
-          import_line = "import com.itaxibcn.app.plugins.BatteryOptimizationPlugin;"
+          # Add imports for both plugins
+          imports = """import android.os.Bundle;
+          import com.itaxibcn.app.plugins.BatteryOptimizationPlugin;
+          import com.itaxibcn.app.plugins.ProLocationTrackingPlugin;"""
+          
           content = content.replace(
               "import com.getcapacitor.BridgeActivity;",
-              "import com.getcapacitor.BridgeActivity;\n" + import_line
+              "import com.getcapacitor.BridgeActivity;\n" + imports
           )
-          
-          # Add import for Bundle if not present
-          if "import android.os.Bundle;" not in content:
-              content = content.replace(
-                  "import com.getcapacitor.BridgeActivity;",
-                  "import android.os.Bundle;\nimport com.getcapacitor.BridgeActivity;"
-              )
           
           # Check if onCreate exists
           if "onCreate" not in content:
               # Add onCreate method inside the class
-              # Find the class body opening brace and add after it
               pattern = r'(public class MainActivity extends BridgeActivity\s*\{)'
               replacement = r'''\1
               
               @Override
               public void onCreate(Bundle savedInstanceState) {
                   registerPlugin(BatteryOptimizationPlugin.class);
+                  registerPlugin(ProLocationTrackingPlugin.class);
                   super.onCreate(savedInstanceState);
               }'''
               content = re.sub(pattern, replacement, content)
           else:
-              # Add registerPlugin before super.onCreate
+              # Add registerPlugin calls before super.onCreate
               content = content.replace(
                   "super.onCreate(savedInstanceState);",
-                  "registerPlugin(BatteryOptimizationPlugin.class);\n        super.onCreate(savedInstanceState);"
+                  "registerPlugin(BatteryOptimizationPlugin.class);\n        registerPlugin(ProLocationTrackingPlugin.class);\n        super.onCreate(savedInstanceState);"
               )
           
           with open("android/app/src/main/java/com/itaxibcn/app/MainActivity.java", "w") as f:
               f.write(content)
           
-          print("✅ BatteryOptimizationPlugin registered in MainActivity")
+          print("✅ All plugins registered in MainActivity")
           EOF
           
           # Show the MainActivity for verification
