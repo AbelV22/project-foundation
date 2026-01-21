@@ -93,21 +93,57 @@ jobs:
         run: |
           MAIN_ACTIVITY="android/app/src/main/java/com/itaxibcn/app/MainActivity.java"
           
-          # Add import if not present
-          if ! grep -q "BatteryOptimizationPlugin" "$MAIN_ACTIVITY"; then
-            # Add import statement
-            sed -i '/^import com.getcapacitor.BridgeActivity;/a import com.itaxibcn.app.plugins.BatteryOptimizationPlugin;' "$MAIN_ACTIVITY"
-            
-            # Check if onCreate exists, if not add it
-            if ! grep -q "onCreate" "$MAIN_ACTIVITY"; then
-              # Add onCreate method before the closing brace
-              sed -i '/^public class MainActivity/a \    @Override\n    public void onCreate(android.os.Bundle savedInstanceState) {\n        registerPlugin(BatteryOptimizationPlugin.class);\n        super.onCreate(savedInstanceState);\n    }' "$MAIN_ACTIVITY"
-            else
-              # Add registerPlugin call before super.onCreate
-              sed -i '/super.onCreate(savedInstanceState);/i \        registerPlugin(BatteryOptimizationPlugin.class);' "$MAIN_ACTIVITY"
-            fi
-            echo "✅ BatteryOptimizationPlugin registered in MainActivity"
-          fi
+          # Use Python to properly modify the file
+          python3 << 'EOF'
+          import re
+          
+          with open("android/app/src/main/java/com/itaxibcn/app/MainActivity.java", "r") as f:
+              content = f.read()
+          
+          # Check if already modified
+          if "BatteryOptimizationPlugin" in content:
+              print("✅ Already modified, skipping")
+              exit(0)
+          
+          # Add import after BridgeActivity import
+          import_line = "import com.itaxibcn.app.plugins.BatteryOptimizationPlugin;"
+          content = content.replace(
+              "import com.getcapacitor.BridgeActivity;",
+              "import com.getcapacitor.BridgeActivity;\n" + import_line
+          )
+          
+          # Add import for Bundle if not present
+          if "import android.os.Bundle;" not in content:
+              content = content.replace(
+                  "import com.getcapacitor.BridgeActivity;",
+                  "import android.os.Bundle;\nimport com.getcapacitor.BridgeActivity;"
+              )
+          
+          # Check if onCreate exists
+          if "onCreate" not in content:
+              # Add onCreate method inside the class
+              # Find the class body opening brace and add after it
+              pattern = r'(public class MainActivity extends BridgeActivity\s*\{)'
+              replacement = r'''\1
+              
+              @Override
+              public void onCreate(Bundle savedInstanceState) {
+                  registerPlugin(BatteryOptimizationPlugin.class);
+                  super.onCreate(savedInstanceState);
+              }'''
+              content = re.sub(pattern, replacement, content)
+          else:
+              # Add registerPlugin before super.onCreate
+              content = content.replace(
+                  "super.onCreate(savedInstanceState);",
+                  "registerPlugin(BatteryOptimizationPlugin.class);\n        super.onCreate(savedInstanceState);"
+              )
+          
+          with open("android/app/src/main/java/com/itaxibcn/app/MainActivity.java", "w") as f:
+              f.write(content)
+          
+          print("✅ BatteryOptimizationPlugin registered in MainActivity")
+          EOF
           
           # Show the MainActivity for verification
           echo "=== MainActivity.java ==="
