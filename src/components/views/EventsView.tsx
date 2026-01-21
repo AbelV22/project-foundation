@@ -20,11 +20,11 @@ import { motion, AnimatePresence } from "framer-motion";
 
 // Premium gradients for categories
 const categoryGradients: Record<string, string> = {
-  Congress: "from-blue-500/20 to-cyan-500/5 border-blue-500/30 text-blue-400",
-  Music: "from-purple-500/20 to-pink-500/5 border-purple-500/30 text-purple-400",
-  Sports: "from-emerald-500/20 to-teal-500/5 border-emerald-500/30 text-emerald-400",
-  Culture: "from-amber-500/20 to-orange-500/5 border-amber-500/30 text-amber-400",
-  Other: "from-gray-500/20 to-slate-500/5 border-gray-500/30 text-gray-400",
+  Congress: "from-blue-500/20 to-cyan-500/5 border-blue-500/30 text-blue-500 dark:text-blue-400",
+  Music: "from-purple-500/20 to-pink-500/5 border-purple-500/30 text-purple-600 dark:text-purple-400",
+  Sports: "from-emerald-500/20 to-teal-500/5 border-emerald-500/30 text-emerald-600 dark:text-emerald-400",
+  Culture: "from-amber-500/20 to-orange-500/5 border-amber-500/30 text-amber-600 dark:text-amber-400",
+  Other: "from-gray-500/20 to-slate-500/5 border-gray-500/30 text-gray-600 dark:text-gray-400",
 };
 
 const categoryIcons: Record<string, React.ReactNode> = {
@@ -89,11 +89,11 @@ export function EventsView() {
 
   if (loading) {
     return (
-      <div className="space-y-6 p-4">
-        <div className="h-64 w-full bg-white/5 rounded-3xl animate-pulse" />
+      <div className="space-y-6 p-1 md:p-4">
+        <div className="h-64 w-full bg-muted/50 rounded-3xl animate-pulse" />
         <div className="grid md:grid-cols-2 gap-4">
           {[1, 2, 3].map(i => (
-            <div key={i} className="h-32 bg-white/5 rounded-2xl animate-pulse" />
+            <div key={i} className="h-32 bg-muted/50 rounded-2xl animate-pulse" />
           ))}
         </div>
       </div>
@@ -105,11 +105,11 @@ export function EventsView() {
 
       {/* Header Section */}
       <div className="flex flex-col gap-1 px-1">
-        <h2 className="text-2xl font-display font-bold text-transparent bg-clip-text bg-gradient-to-r from-white to-white/60">
+        <h2 className="text-2xl font-display font-bold text-foreground">
           Agenda Barcelona
         </h2>
         <p className="text-sm text-muted-foreground flex items-center gap-2">
-          <Sparkles className="h-3 w-3 text-amber-400" />
+          <Sparkles className="h-3 w-3 text-amber-500 dark:text-amber-400" />
           {events.length} grandes eventos detectados
         </p>
       </div>
@@ -119,42 +119,42 @@ export function EventsView() {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          className="relative overflow-hidden rounded-3xl border border-white/10 group cursor-pointer"
+          className="relative overflow-hidden rounded-3xl border border-border group cursor-pointer bg-card text-card-foreground shadow-sm"
           onClick={() => window.open(heroEvent.url_ticket, "_blank")}
         >
           {/* Dynamic background with gradient based on type */}
           <div className={cn(
-            "absolute inset-0 bg-gradient-to-br opacity-20 transition-opacity duration-500 group-hover:opacity-30",
+            "absolute inset-0 bg-gradient-to-br opacity-10 dark:opacity-20 transition-opacity duration-500 group-hover:opacity-20 dark:group-hover:opacity-30",
             categoryGradients[heroEvent.type].split(' ')[0], // Extracts 'from-...'
             categoryGradients[heroEvent.type].split(' ')[1]  // Extracts 'to-...'
           )} />
 
-          <div className="absolute inset-0 backdrop-blur-3xl bg-black/40" />
+          {/* Removed heavy backdrop-blur-3xl bg-black/40 to allow theme colors to work */}
 
-          <div className="relative p-6 md:p-8 flex flex-col md:flex-row gap-6 md:items-end justify-between">
+          <div className="relative p-5 md:p-8 flex flex-col md:flex-row gap-6 md:items-end justify-between">
             <div className="space-y-4 flex-1">
               <div className="flex items-center gap-3">
-                <Badge variant="outline" className={cn("backdrop-blur-md bg-black/20 border-0", categoryGradients[heroEvent.type].split(' ').pop())}>
+                <Badge variant="outline" className={cn("backdrop-blur-md bg-background/50 border-border", categoryGradients[heroEvent.type].split(' ').pop())}>
                   Next Big Event
                 </Badge>
-                <span className="text-xs font-mono text-white/50 animate-pulse">LIVE UPDATE</span>
+                <span className="text-xs font-mono text-muted-foreground animate-pulse">LIVE UPDATE</span>
               </div>
 
               <div>
-                <h1 className="text-3xl md:text-5xl font-display font-bold text-white mb-2 leading-tight">
+                <h1 className="text-2xl md:text-5xl font-display font-bold text-foreground mb-2 leading-tight">
                   {heroEvent.title}
                 </h1>
-                <div className="flex flex-wrap items-center gap-4 text-sm md:text-base text-white/80">
+                <div className="flex flex-wrap items-center gap-4 text-sm md:text-base text-muted-foreground">
                   <div className="flex items-center gap-1.5">
-                    <CalendarIcon className="h-4 w-4 text-amber-400" />
+                    <CalendarIcon className="h-4 w-4 text-amber-500 dark:text-amber-400" />
                     <span>{heroEvent.date}</span>
                   </div>
                   <div className="flex items-center gap-1.5">
-                    <Clock className="h-4 w-4 text-amber-400" />
+                    <Clock className="h-4 w-4 text-amber-500 dark:text-amber-400" />
                     <span>{heroEvent.time}</span>
                   </div>
                   <div className="flex items-center gap-1.5">
-                    <MapPin className="h-4 w-4 text-amber-400" />
+                    <MapPin className="h-4 w-4 text-amber-500 dark:text-amber-400" />
                     <span>{heroEvent.location}</span>
                   </div>
                 </div>
@@ -162,16 +162,16 @@ export function EventsView() {
             </div>
 
             {/* Attendance & CTA */}
-            <div className="flex flex-row md:flex-col items-center md:items-end gap-4 border-t md:border-t-0 md:border-l border-white/10 pt-4 md:pt-0 md:pl-6">
+            <div className="flex flex-row md:flex-col items-center md:items-end gap-4 border-t md:border-t-0 md:border-l border-border pt-4 md:pt-0 md:pl-6">
               <div className="text-right">
                 <p className="text-xs text-muted-foreground uppercase tracking-widest mb-1">Asistentes est.</p>
-                <p className="text-2xl font-mono font-bold text-white tabular-nums">
+                <p className="text-2xl font-mono font-bold text-foreground tabular-nums">
                   {heroEvent.attendees.toLocaleString()}
                 </p>
               </div>
 
-              <div className="h-10 w-10 rounded-full bg-white/10 flex items-center justify-center group-hover:bg-white/20 transition-colors border border-white/10">
-                <ExternalLink className="h-5 w-5 text-white" />
+              <div className="h-10 w-10 rounded-full bg-secondary/50 flex items-center justify-center group-hover:bg-secondary transition-colors border border-border">
+                <ExternalLink className="h-5 w-5 text-foreground" />
               </div>
             </div>
           </div>
@@ -191,8 +191,8 @@ export function EventsView() {
               className={cn(
                 "px-4 py-1.5 rounded-full text-xs font-medium border transition-all whitespace-nowrap",
                 selectedCategory === null
-                  ? "bg-white text-black border-white"
-                  : "bg-black/40 text-muted-foreground border-white/10 hover:border-white/30"
+                  ? "bg-foreground text-background border-foreground"
+                  : "bg-background/40 text-muted-foreground border-border/50 hover:border-border"
               )}
             >
               Todos
@@ -204,8 +204,8 @@ export function EventsView() {
                 className={cn(
                   "px-4 py-1.5 rounded-full text-xs font-medium border transition-all whitespace-nowrap flex items-center gap-1.5",
                   selectedCategory === cat
-                    ? "bg-white/10 text-white border-white/50"
-                    : "bg-black/40 text-muted-foreground border-white/10 hover:border-white/30"
+                    ? "bg-secondary text-secondary-foreground border-border"
+                    : "bg-background/40 text-muted-foreground border-border/50 hover:border-border"
                 )}
               >
                 {categoryIcons[cat]}
@@ -228,7 +228,7 @@ export function EventsView() {
                   animate={{ opacity: 1, x: 0 }}
                   exit={{ opacity: 0, scale: 0.95 }}
                   transition={{ delay: idx * 0.05 }}
-                  className="group relative overflow-hidden rounded-xl border border-white/5 bg-white/[0.02] hover:bg-white/[0.06] transition-all duration-300"
+                  className="group relative overflow-hidden rounded-xl border border-border bg-card hover:bg-accent/50 transition-all duration-300"
                   onClick={() => window.open(event.url_ticket, "_blank")}
                 >
                   <div className={cn(
@@ -238,15 +238,15 @@ export function EventsView() {
 
                   <div className="p-4 pl-5 flex items-start gap-4">
                     {/* Date Box */}
-                    <div className="flex-shrink-0 flex flex-col items-center justify-center p-2 rounded-lg bg-black/40 border border-white/10 min-w-[60px]">
+                    <div className="flex-shrink-0 flex flex-col items-center justify-center p-2 rounded-lg bg-secondary/30 border border-border min-w-[60px]">
                       <span className="text-[10px] text-muted-foreground uppercase">{event.date.split(' ')[0]}</span>
-                      <span className="text-xl font-bold text-white font-display">{event.date.match(/\d+/)?.[0]}</span>
+                      <span className="text-xl font-bold text-foreground font-display">{event.date.match(/\d+/)?.[0]}</span>
                     </div>
 
                     {/* Content */}
                     <div className="flex-grow min-w-0">
                       <div className="flex items-start justify-between gap-2">
-                        <h4 className="text-base font-semibold text-white truncate pr-2 group-hover:text-primary transition-colors">
+                        <h4 className="text-base font-semibold text-foreground truncate pr-2 group-hover:text-primary transition-colors">
                           {event.title}
                         </h4>
                         <ExternalLink className="h-3.5 w-3.5 text-muted-foreground opacity-0 group-hover:opacity-100 transition-opacity" />
@@ -259,7 +259,7 @@ export function EventsView() {
                         <span className="flex items-center gap-1">
                           <MapPin className="h-3 w-3" /> {event.location}
                         </span>
-                        <span className="flex items-center gap-1 text-white/50">
+                        <span className="flex items-center gap-1 text-muted-foreground/70">
                           <Users className="h-3 w-3" /> {event.attendees.toLocaleString()}
                         </span>
                       </div>
@@ -274,8 +274,8 @@ export function EventsView() {
         {/* Right Column: Calendar & Widgets */}
         <div className="space-y-6">
           {/* Calendar Widget */}
-          <div className="rounded-2xl border border-white/10 bg-black/20 backdrop-blur-xl p-4">
-            <h3 className="text-sm font-semibold text-white mb-4 flex items-center gap-2">
+          <div className="rounded-2xl border border-border bg-card/50 backdrop-blur-xl p-4">
+            <h3 className="text-sm font-semibold text-foreground mb-4 flex items-center gap-2">
               <CalendarIcon className="h-4 w-4 text-primary" />
               Calendario
             </h3>
@@ -288,9 +288,9 @@ export function EventsView() {
                 classNames={{
                   head_cell: "text-muted-foreground rounded-md w-9 font-normal text-[0.8rem]",
                   cell: "h-9 w-9 text-center text-sm p-0 m-0.5 relative [&:has([aria-selected].day-range-end)]:rounded-r-md [&:has([aria-selected].day-outside)]:bg-accent/50 [&:has([aria-selected])]:bg-accent first:[&:has([aria-selected])]:rounded-l-md last:[&:has([aria-selected])]:rounded-r-md focus-within:relative focus-within:z-20",
-                  day: "h-9 w-9 p-0 font-normal aria-selected:opacity-100 hover:bg-white/10 rounded-full transition-all text-white",
+                  day: "h-9 w-9 p-0 font-normal aria-selected:opacity-100 hover:bg-accent rounded-full transition-all text-foreground",
                   day_selected: "bg-primary text-primary-foreground hover:bg-primary hover:text-primary-foreground focus:bg-primary focus:text-primary-foreground",
-                  day_today: "bg-white/5 text-accent-foreground border border-white/20",
+                  day_today: "bg-accent text-accent-foreground border border-border",
                 }}
                 modifiers={{
                   hasEvent: eventDates
@@ -306,7 +306,7 @@ export function EventsView() {
           </div>
 
           {/* Selected Day Preview */}
-          <div className="rounded-2xl border border-white/10 bg-black/20 backdrop-blur-xl p-4 min-h-[150px]">
+          <div className="rounded-2xl border border-border bg-card/50 backdrop-blur-xl p-4 min-h-[150px]">
             <h4 className="text-xs font-semibold text-muted-foreground uppercase tracking-widest mb-3">
               {selectedDate?.toLocaleDateString('es-ES', { weekday: 'long', day: 'numeric', month: 'long' })}
             </h4>
@@ -317,7 +317,7 @@ export function EventsView() {
                   <div key={event.id} className="flex gap-3 items-start group/mini cursor-pointer" onClick={() => window.open(event.url_ticket, "_blank")}>
                     <div className={cn("w-1 self-stretch rounded-full bg-gradient-to-b", categoryGradients[event.type].split(' ')[0], categoryGradients[event.type].split(' ')[1])} />
                     <div>
-                      <p className="text-sm font-medium text-white group-hover/mini:text-primary transition-colors leading-tight">
+                      <p className="text-sm font-medium text-foreground group-hover/mini:text-primary transition-colors leading-tight">
                         {event.title}
                       </p>
                       <p className="text-[10px] text-muted-foreground mt-0.5">
@@ -336,7 +336,7 @@ export function EventsView() {
           </div>
 
           {/* Interactive Map Teaser */}
-          <div className="rounded-2xl overflow-hidden relative h-40 group cursor-pointer border border-white/10">
+          <div className="rounded-2xl overflow-hidden relative h-40 group cursor-pointer border border-border">
             <div className="absolute inset-0 bg-[url('https://cartodb-basemaps-a.global.ssl.fastly.net/dark_all/13/4207/3091.png')] bg-cover bg-center grayscale opacity-60 group-hover:opacity-100 group-hover:scale-110 transition-all duration-700" />
             <div className="absolute inset-0 bg-gradient-to-t from-black/90 to-transparent" />
 

@@ -51,6 +51,15 @@ export {
     fetchDebugLogs,
 } from './debugTracking';
 
+// Pro-level native tracking (ForegroundService + AlarmManager)
+export {
+    configureProTracking,
+    startProTracking,
+    stopProTracking,
+    isProTrackingActive,
+    getLastProPosition,
+} from './proTracking';
+
 import { Capacitor } from '@capacitor/core';
 
 /**

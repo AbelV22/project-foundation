@@ -1,7 +1,6 @@
 name: Build Android App
 
 on:
-  # Manual trigger
   workflow_dispatch:
     inputs:
       build_type:
@@ -12,7 +11,6 @@ on:
         options:
           - debug
           - release
-  # Trigger on release tags
   push:
     tags:
       - 'v*'
@@ -49,6 +47,19 @@ jobs:
       - name: Add Android platform
         run: npx cap add android
       
+      # ADD GOOGLE PLAY SERVICES LOCATION DEPENDENCY
+      - name: Add Google Play Services Location dependency
+        run: |
+          echo "Adding play-services-location to build.gradle..."
+          BUILD_GRADLE="android/app/build.gradle"
+          
+          # Add the dependency after capacitor-android
+          sed -i "/implementation project(':capacitor-android')/a\\    implementation 'com.google.android.gms:play-services-location:21.0.1'" "$BUILD_GRADLE"
+          
+          echo "✅ Dependency added"
+          grep "play-services-location" "$BUILD_GRADLE" || echo "⚠️ Dependency not found!"
+      
+      # ADD ALL PERMISSIONS
       - name: Ensure all permissions in AndroidManifest
         run: |
           MANIFEST="android/app/src/main/AndroidManifest.xml"
@@ -57,7 +68,6 @@ jobs:
           with open("android/app/src/main/AndroidManifest.xml", "r") as f:
               content = f.read()
           
-          # Permissions to add
           permissions = [
               'android.permission.ACCESS_COARSE_LOCATION',
               'android.permission.ACCESS_FINE_LOCATION',
@@ -69,17 +79,16 @@ jobs:
               'android.permission.ACCESS_WIFI_STATE',
               'android.permission.CHANGE_WIFI_STATE',
               'android.permission.POST_NOTIFICATIONS',
+              'android.permission.SCHEDULE_EXACT_ALARM',
+              'android.permission.USE_EXACT_ALARM',
           ]
           
-          # Add xmlns:tools if not present
           if 'xmlns:tools' not in content:
               content = content.replace('<manifest ', '<manifest xmlns:tools="http://schemas.android.com/tools" ')
           
-          # Find the first <uses-permission> line and add all permissions after it
           for perm in permissions:
               perm_line = f'<uses-permission android:name="{perm}" />'
               if perm not in content:
-                  # Insert after INTERNET permission
                   content = content.replace(
                       '<uses-permission android:name="android.permission.INTERNET" />',
                       f'<uses-permission android:name="android.permission.INTERNET" />\n    {perm_line}'
@@ -91,9 +100,103 @@ jobs:
           print("✅ All permissions added")
           EOF
           
-          # Show the permissions section for verification
-          echo "=== AndroidManifest permissions ==="
-          grep "uses-permission" "$MANIFEST" || true
+          echo "=== Permissions ==="
+          grep "uses-permission" "$MANIFEST"
+      
+      # COPY NATIVE TRACKING FILES
+      - name: Copy native tracking files
+        run: |
+          mkdir -p android/app/src/main/java/com/itaxibcn/app/tracking
+          
+          cp android-plugin/tracking/LocationTrackingService.java android/app/src/main/java/com/itaxibcn/app/tracking/
+          cp android-plugin/tracking/AlarmReceiver.java android/app/src/main/java/com/itaxibcn/app/tracking/
+          cp android-plugin/tracking/LocationApiClient.java android/app/src/main/java/com/itaxibcn/app/tracking/
+          cp android-plugin/tracking/ProTrackingPlugin.java android/app/src/main/java/com/itaxibcn/app/tracking/
+          
+          echo "✅ Tracking files copied"
+          ls -la android/app/src/main/java/com/itaxibcn/app/tracking/
+      
+      # REGISTER SERVICE AND RECEIVERS IN MANIFEST
+      - name: Register service and receivers in AndroidManifest
+        run: |
+          python3 << 'EOF'
+          with open("android/app/src/main/AndroidManifest.xml", "r") as f:
+              content = f.read()
+          
+          if "LocationTrackingService" in content:
+              print("✅ Already registered")
+              exit(0)
+          
+          service_declaration = '''
+        <!-- Pro Location Tracking Service -->
+        <service
+            android:name=".tracking.LocationTrackingService"
+            android:enabled="true"
+            android:exported="false"
+            android:foregroundServiceType="location" />
+        
+        <!-- Alarm Receiver for Doze mode -->
+        <receiver
+            android:name=".tracking.AlarmReceiver"
+            android:enabled="true"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.itaxibcn.app.LOCATION_ALARM" />
+            </intent-filter>
+        </receiver>
+          '''
+          
+          content = content.replace("</application>", service_declaration + "\n    </application>")
+          
+          with open("android/app/src/main/AndroidManifest.xml", "w") as f:
+              f.write(content)
+          
+          print("✅ Service and receivers registered")
+          EOF
+      
+      # REGISTER PLUGIN IN MAINACTIVITY
+      - name: Register ProTracking plugin in MainActivity
+        run: |
+          python3 << 'EOF'
+          with open("android/app/src/main/java/com/itaxibcn/app/MainActivity.java", "r") as f:
+              content = f.read()
+          
+          if "ProTrackingPlugin" in content:
+              print("✅ Already registered")
+              exit(0)
+          
+          # Add import
+          content = content.replace(
+              "import com.getcapacitor.BridgeActivity;",
+              "import com.getcapacitor.BridgeActivity;\nimport android.os.Bundle;\nimport com.itaxibcn.app.tracking.ProTrackingPlugin;"
+          )
+          
+          # Add onCreate with registerPlugin
+          if "onCreate" not in content:
+              content = content.replace(
+                  "public class MainActivity extends BridgeActivity {",
+                  '''public class MainActivity extends BridgeActivity {
+    
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        registerPlugin(ProTrackingPlugin.class);
+        super.onCreate(savedInstanceState);
+    }'''
+              )
+          else:
+              content = content.replace(
+                  "super.onCreate(savedInstanceState);",
+                  "registerPlugin(ProTrackingPlugin.class);\n        super.onCreate(savedInstanceState);"
+              )
+          
+          with open("android/app/src/main/java/com/itaxibcn/app/MainActivity.java", "w") as f:
+              f.write(content)
+          
+          print("✅ Plugin registered in MainActivity")
+          EOF
+          
+          echo "=== MainActivity.java ==="
+          cat android/app/src/main/java/com/itaxibcn/app/MainActivity.java
       
       - name: Generate native assets
         run: npx capacitor-assets generate --android
@@ -116,7 +219,7 @@ jobs:
           cd android
           ./gradlew assembleRelease
       
-      - name: Build Release AAB (for Play Store)
+      - name: Build Release AAB
         if: github.event.inputs.build_type == 'release' || startsWith(github.ref, 'refs/tags/v')
         run: |
           cd android
