@@ -1,11 +1,11 @@
 {
     "ticker": {
-        "current_price": 165379,
-        "delta_value": -242,
-        "delta_percent": -0.15,
-        "direction": "down",
+        "current_price": 165621,
+        "delta_value": 4186,
+        "delta_percent": 2.59,
+        "direction": "up",
         "volume": 18,
-        "volatility": 10244
+        "volatility": 10096
     },
     "charts": {
         "history_dates": [
@@ -17,8 +17,7 @@
             "2026-01-18",
             "2026-01-19",
             "2026-01-20",
-            "2026-01-21",
-            "2026-01-22"
+            "2026-01-21"
         ],
         "history_prices": [
             166147,
@@ -29,8 +28,7 @@
             169748,
             169748,
             161435,
-            165621,
-            165379
+            165621
         ],
         "history_sma_7": [
             0,
@@ -41,12 +39,11 @@
             0,
             167648,
             166975,
-            166900,
-            166831
+            166900
         ],
         "price_by_day_descanso": {
-            "JUEVES IMPAR": 172036,
-            "JUEVES PAR": 170495,
+            "JUEVES IMPAR": 177830,
+            "JUEVES PAR": 169777,
             "LUNES PAR": 169719,
             "NO ESPECIFICADO": 161435,
             "VIERNES IMPAR": 164516
@@ -87,22 +84,15 @@
                 "valor_coche": 4437
             },
             {
-                "fuente": "SOLANO",
-                "dia": "JUEVES IMPAR",
-                "modelo": "DACIA",
-                "precio_neto": 159582,
-                "precio_total": 173000,
-                "valor_coche": 13418
+                "fuente": "STAC",
+                "dia": "NO ESPECIFICADO",
+                "modelo": "SKODA OCTAVIA",
+                "precio_neto": 160357,
+                "precio_total": 170000,
+                "valor_coche": 9643
             }
         ],
         "all_offers": [
-            {
-                "fuente": "SOLANO",
-                "precio_neto": 159582,
-                "modelo": "DACIA",
-                "dia": "JUEVES IMPAR",
-                "raw": "Ref:  | 38570 | DIA DE FIESTA:  | JUEVES IMPAR | LICENCIA DE TAXI EN VENTA BARCELONA | LICENCIA TAXI..."
-            },
             {
                 "fuente": "SOLANO",
                 "precio_neto": 166243,
@@ -167,6 +157,13 @@
                 "raw": "Ref:  | 38500 | DIA DE FIESTA:  | VIERNES IMPAR | LICENCIA TAXI EN VENTA BARCELONA | LICENCIA TAXI E..."
             },
             {
+                "fuente": "SOLANO",
+                "precio_neto": 165000,
+                "modelo": "SIN COCHE",
+                "dia": "JUEVES PAR",
+                "raw": "Ref:  | 38495 | DIA DE FIESTA:  | JUEVES PAR | LICENCIA TAXI EN VENTA BARCELONA | LICENCIA TAXI EN V..."
+            },
+            {
                 "fuente": "STAC",
                 "precio_neto": 153563,
                 "modelo": "DESCONOCIDO",
@@ -224,5 +221,5 @@
             }
         ]
     },
-    "updated_at": "22/01/2026 07:19"
+    "updated_at": "21/01/2026 07:20"
 }
