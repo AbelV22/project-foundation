@@ -1,21 +1,13 @@
-import { Calendar, MapPin, Users, ChevronRight, ExternalLink } from "lucide-react";
-import { Badge } from "@/components/ui/badge";
-import { useEvents, FormattedEvent } from "@/hooks/useEvents";
+import { Calendar, MapPin, Users, ChevronRight, Clock, Music, Trophy, Building2, Palette, Ticket } from "lucide-react";
+import { useEvents } from "@/hooks/useEvents";
 
-const typeColors: Record<string, string> = {
-  Congress: "bg-info/20 text-info border border-info/30",
-  Music: "bg-purple-500/20 text-purple-400 border border-purple-500/30",
-  Sports: "bg-success/20 text-success border border-success/30",
-  Culture: "bg-primary/20 text-primary border border-primary/30",
-  Other: "bg-muted text-muted-foreground border border-border",
-};
-
-const typeLabels: Record<string, string> = {
-  Congress: "Congreso",
-  Music: "Música",
-  Sports: "Deportes",
-  Culture: "Cultura",
-  Other: "Otro",
+// Consistent with EventsView - clean category system
+const categories = {
+  Congress: { icon: Building2, color: "#3B82F6", label: "Congresos" },
+  Music: { icon: Music, color: "#8B5CF6", label: "Música" },
+  Sports: { icon: Trophy, color: "#10B981", label: "Deportes" },
+  Culture: { icon: Palette, color: "#F59E0B", label: "Cultura" },
+  Other: { icon: Ticket, color: "#6B7280", label: "Otros" },
 };
 
 interface EventsWidgetProps {
@@ -27,99 +19,115 @@ interface EventsWidgetProps {
 
 export function EventsWidget({ expanded = false, limit = 3, onViewAllClick, compact = false }: EventsWidgetProps) {
   const { events, loading } = useEvents();
-  
+
   const displayEvents = expanded ? events : events.slice(0, compact ? 2 : limit);
 
   if (loading) {
     return (
-      <div className="card-dashboard p-4 animate-pulse">
-        <div className="h-6 w-32 bg-muted rounded mb-4" />
-        <div className="space-y-3">
-          {[1, 2, 3].map(i => (
-            <div key={i} className="h-16 bg-muted rounded-xl" />
+      <div className="p-4 space-y-3">
+        <div className="h-5 w-28 bg-muted rounded animate-pulse" />
+        <div className="space-y-2">
+          {[1, 2].map(i => (
+            <div key={i} className="h-16 bg-muted rounded-xl animate-pulse" />
           ))}
         </div>
       </div>
     );
   }
 
-  // Modo compacto para el dashboard
+  // Compact mode for dashboard - clean minimal cards
   if (compact) {
     return (
-      <div className="card-dashboard p-3 space-y-2">
+      <div className="p-4 space-y-3">
+        {/* Header */}
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-2">
-            <div className="flex h-7 w-7 items-center justify-center rounded-lg bg-purple-500/10">
-              <Calendar className="h-3.5 w-3.5 text-purple-500" />
-            </div>
-            <div>
-              <h3 className="font-display font-semibold text-foreground text-xs">Eventos BCN</h3>
-              <p className="text-[10px] text-muted-foreground">Próximos</p>
-            </div>
+            <Calendar className="h-4 w-4 text-muted-foreground" />
+            <span className="text-sm font-semibold text-foreground">Eventos</span>
+            <span className="text-xs text-muted-foreground">({events.length})</span>
           </div>
-          <button 
+          <button
             onClick={onViewAllClick}
-            className="text-[10px] text-primary hover:underline"
+            className="text-xs font-medium text-primary flex items-center gap-0.5"
           >
-            Ver →
+            Ver todos
+            <ChevronRight className="h-3 w-3" />
           </button>
         </div>
-        <div className="space-y-1.5">
-          {displayEvents.map((event) => (
-            <div 
-              key={event.id}
-              className="p-2 rounded-lg bg-muted/30 text-xs cursor-pointer hover:bg-muted/50 transition-colors"
-              onClick={() => window.open(event.url_ticket, "_blank")}
-            >
-              <div className="flex items-center justify-between gap-1 mb-1">
-                <div className="flex items-center gap-1.5 flex-1 min-w-0">
-                  <Badge className={`${typeColors[event.type]} text-[8px] px-1 py-0 shrink-0`}>
-                    {typeLabels[event.type]?.slice(0, 3) || "Otr"}
-                  </Badge>
-                  <span className="truncate text-foreground text-[10px] font-medium">{event.title}</span>
+
+        {/* Compact event cards */}
+        <div className="space-y-2">
+          {displayEvents.map((event) => {
+            const cat = categories[event.type as keyof typeof categories] || categories.Other;
+            const Icon = cat.icon;
+            const dayNum = event.date.match(/\d+/)?.[0] || "";
+
+            return (
+              <button
+                key={event.id}
+                onClick={() => window.open(event.url_ticket, "_blank")}
+                className="w-full flex items-center gap-3 p-3 rounded-xl bg-muted/30 hover:bg-muted/50 active:scale-[0.98] transition-all text-left"
+              >
+                {/* Date */}
+                <div className="flex-shrink-0 w-10 text-center">
+                  <p className="text-lg font-bold text-foreground leading-none">{dayNum}</p>
+                  <p className="text-[9px] text-muted-foreground uppercase tracking-wide">
+                    {event.date.split(' ')[2]?.slice(0, 3)}
+                  </p>
                 </div>
-                <div className="flex items-center gap-0.5 text-purple-400 shrink-0">
-                  <Users className="h-2.5 w-2.5" />
-                  <span className="font-medium text-[9px]">{(event.attendees / 1000).toFixed(0)}k</span>
+
+                {/* Content */}
+                <div className="flex-1 min-w-0">
+                  <div className="flex items-center gap-1 mb-0.5">
+                    <Icon className="h-2.5 w-2.5" style={{ color: cat.color }} />
+                    <span className="text-[10px] font-medium" style={{ color: cat.color }}>
+                      {cat.label}
+                    </span>
+                  </div>
+                  <p className="text-xs font-semibold text-foreground truncate">{event.title}</p>
+                  <p className="text-[10px] text-muted-foreground flex items-center gap-1 mt-0.5">
+                    <Clock className="h-2.5 w-2.5" />
+                    {event.time}
+                    <span className="mx-1">·</span>
+                    <MapPin className="h-2.5 w-2.5" />
+                    <span className="truncate">{event.location}</span>
+                  </p>
                 </div>
-              </div>
-              <div className="flex items-center gap-2 text-[9px] text-muted-foreground">
-                <span className="flex items-center gap-0.5">
-                  <Calendar className="h-2.5 w-2.5" />
-                  {event.date.split(',')[0]}
-                </span>
-                <span>🕐 {event.time}-{event.endTime}</span>
-                <span className="flex items-center gap-0.5 truncate">
-                  <MapPin className="h-2.5 w-2.5 shrink-0" />
-                  <span className="truncate">{event.location}</span>
-                </span>
-              </div>
-            </div>
-          ))}
+
+                {/* Attendance */}
+                <div className="flex-shrink-0 text-right">
+                  <p className="text-[10px] font-bold text-foreground tabular-nums">
+                    {event.attendees >= 1000 ? `${(event.attendees / 1000).toFixed(0)}k` : event.attendees}
+                  </p>
+                  <p className="text-[9px] text-muted-foreground">est.</p>
+                </div>
+              </button>
+            );
+          })}
         </div>
       </div>
     );
   }
 
+  // Standard/expanded mode - clean cards
   return (
-    <div className="card-dashboard p-4 md:p-5">
-      <div className="flex items-center justify-between mb-4">
-        <div 
-          className="flex items-center gap-2 md:gap-3 cursor-pointer hover:opacity-80 transition-opacity"
+    <div className="p-4 md:p-5 space-y-4">
+      {/* Header */}
+      <div className="flex items-center justify-between">
+        <button
           onClick={onViewAllClick}
+          className="flex items-center gap-2 hover:opacity-80 transition-opacity"
         >
-          <div className="flex h-9 w-9 md:h-10 md:w-10 items-center justify-center rounded-lg bg-purple-500/10">
-            <Calendar className="h-4 w-4 md:h-5 md:w-5 text-purple-500" />
-          </div>
+          <Calendar className="h-5 w-5 text-muted-foreground" />
           <div>
-            <h3 className="font-display font-semibold text-foreground text-sm md:text-base">Eventos Barcelona</h3>
-            <p className="text-xs md:text-sm text-muted-foreground">Próximos eventos ({events.length} totales)</p>
+            <h3 className="text-base font-semibold text-foreground text-left">Eventos</h3>
+            <p className="text-xs text-muted-foreground">{events.length} en Barcelona</p>
           </div>
-        </div>
+        </button>
         {!expanded && (
-          <button 
+          <button
             onClick={onViewAllClick}
-            className="flex items-center gap-1 text-xs md:text-sm text-primary hover:text-primary/80 transition-colors"
+            className="flex items-center gap-1 text-sm font-medium text-primary"
           >
             Ver todos
             <ChevronRight className="h-4 w-4" />
@@ -127,44 +135,66 @@ export function EventsWidget({ expanded = false, limit = 3, onViewAllClick, comp
         )}
       </div>
 
-      <div className="space-y-2 md:space-y-3">
-        {displayEvents.map((event) => (
-          <div 
-            key={event.id}
-            className="flex items-start justify-between p-3 md:p-4 rounded-xl border border-border hover:border-primary/30 transition-colors cursor-pointer group"
-            onClick={() => window.open(event.url_ticket, "_blank")}
-          >
-            <div className="flex-1 min-w-0">
-              <div className="flex items-center gap-2 mb-1 md:mb-2">
-                <Badge className={`${typeColors[event.type]} text-xs`}>
-                  {typeLabels[event.type] || event.categoria}
-                </Badge>
-                <ExternalLink className="h-3 w-3 text-muted-foreground opacity-0 group-hover:opacity-100 transition-opacity" />
+      {/* Event cards */}
+      <div className="space-y-2">
+        {displayEvents.map((event) => {
+          const cat = categories[event.type as keyof typeof categories] || categories.Other;
+          const Icon = cat.icon;
+          const dayNum = event.date.match(/\d+/)?.[0] || "";
+          const monthShort = event.date.split(' ')[2]?.slice(0, 3).toUpperCase() || "";
+
+          return (
+            <button
+              key={event.id}
+              onClick={() => window.open(event.url_ticket, "_blank")}
+              className="w-full flex items-center gap-4 p-4 rounded-2xl border border-border/50 hover:border-border hover:bg-muted/30 active:scale-[0.98] transition-all text-left"
+            >
+              {/* Date block */}
+              <div className="flex-shrink-0 w-12 text-center">
+                <p className="text-xl font-bold text-foreground leading-none">{dayNum}</p>
+                <p className="text-[10px] font-semibold text-muted-foreground tracking-wide mt-0.5">{monthShort}</p>
               </div>
-              
-              <h4 className="font-medium text-foreground text-sm md:text-base mb-1 md:mb-2 line-clamp-2">{event.title}</h4>
-              
-              <div className="flex flex-wrap items-center gap-2 md:gap-4 text-xs md:text-sm text-muted-foreground">
-                <span className="flex items-center gap-1">
-                  <Calendar className="h-3 w-3 md:h-3.5 md:w-3.5 flex-shrink-0" />
-                  {event.date}
-                </span>
-                <span className="flex items-center gap-1">
-                  🕐 {event.time} - {event.endTime}
-                </span>
-                <span className="flex items-center gap-1">
-                  <MapPin className="h-3 w-3 md:h-3.5 md:w-3.5 flex-shrink-0" />
-                  {event.location}
-                </span>
+
+              {/* Divider */}
+              <div className="w-px h-10 bg-border/60" />
+
+              {/* Content */}
+              <div className="flex-1 min-w-0">
+                <div className="flex items-center gap-1.5 mb-1">
+                  <Icon className="h-3 w-3" style={{ color: cat.color }} />
+                  <span className="text-[11px] font-semibold" style={{ color: cat.color }}>
+                    {cat.label}
+                  </span>
+                </div>
+                <h4 className="text-sm font-semibold text-foreground truncate">{event.title}</h4>
+                <div className="flex items-center gap-2 mt-1 text-xs text-muted-foreground">
+                  <span className="flex items-center gap-1">
+                    <Clock className="h-3 w-3" />
+                    {event.time}
+                  </span>
+                  <span className="flex items-center gap-1 truncate">
+                    <MapPin className="h-3 w-3" />
+                    <span className="truncate">{event.location}</span>
+                  </span>
+                </div>
               </div>
-            </div>
-            
-            <div className="flex items-center gap-1 text-primary ml-2">
-              <Users className="h-3 w-3 md:h-4 md:w-4" />
-              <span className="font-medium text-xs md:text-sm">{event.attendees.toLocaleString()}</span>
-            </div>
-          </div>
-        ))}
+
+              {/* Attendance + Arrow */}
+              <div className="flex-shrink-0 flex items-center gap-2">
+                <div className="text-right">
+                  <p className="text-xs font-bold text-foreground tabular-nums">
+                    {event.attendees >= 1000 ? `${(event.attendees / 1000).toFixed(0)}k` : event.attendees}
+                  </p>
+                  <p className="text-[10px] text-muted-foreground flex items-center gap-0.5 justify-end">
+                    <Users className="h-2.5 w-2.5" />
+                    est.
+                  </p>
+                </div>
+                <ChevronRight className="h-4 w-4 text-muted-foreground/50" />
+              </div>
+            </button>
+          );
+        })}
       </div>
     </div>
   );

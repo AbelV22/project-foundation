@@ -1,59 +1,41 @@
-
 import { useState, useMemo } from "react";
 import {
   Calendar as CalendarIcon,
   MapPin,
   Users,
   Clock,
-  ExternalLink,
   ChevronRight,
-  Filter,
-  Sparkles,
-  Search,
-  Zap
+  Music,
+  Trophy,
+  Building2,
+  Palette,
+  Ticket,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
-import { Badge } from "@/components/ui/badge";
 import { Calendar } from "@/components/ui/calendar";
-import { useEvents, FormattedEvent } from "@/hooks/useEvents";
+import { useEvents } from "@/hooks/useEvents";
 import { motion, AnimatePresence } from "framer-motion";
 
-// Premium gradients for categories
-const categoryGradients: Record<string, string> = {
-  Congress: "from-blue-500/20 to-cyan-500/5 border-blue-500/30 text-blue-500 dark:text-blue-400",
-  Music: "from-purple-500/20 to-pink-500/5 border-purple-500/30 text-purple-600 dark:text-purple-400",
-  Sports: "from-emerald-500/20 to-teal-500/5 border-emerald-500/30 text-emerald-600 dark:text-emerald-400",
-  Culture: "from-amber-500/20 to-orange-500/5 border-amber-500/30 text-amber-600 dark:text-amber-400",
-  Other: "from-gray-500/20 to-slate-500/5 border-gray-500/30 text-gray-600 dark:text-gray-400",
-};
-
-const categoryIcons: Record<string, React.ReactNode> = {
-  Congress: <Users className="h-3 w-3" />,
-  Music: <Sparkles className="h-3 w-3" />,
-  Sports: <Zap className="h-3 w-3" />,
-  Culture: <CalendarIcon className="h-3 w-3" />,
-  Other: <MapPin className="h-3 w-3" />,
+// Clean category system - Spotify/Uber inspired minimal colors
+const categories = {
+  Congress: { icon: Building2, color: "#3B82F6", label: "Congresos" },
+  Music: { icon: Music, color: "#8B5CF6", label: "Música" },
+  Sports: { icon: Trophy, color: "#10B981", label: "Deportes" },
+  Culture: { icon: Palette, color: "#F59E0B", label: "Cultura" },
+  Other: { icon: Ticket, color: "#6B7280", label: "Otros" },
 };
 
 export function EventsView() {
-  const [selectedDate, setSelectedDate] = useState<Date | undefined>(new Date());
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
+  const [showCalendar, setShowCalendar] = useState(false);
+  const [selectedDate, setSelectedDate] = useState<Date | undefined>(new Date());
   const { events, loading } = useEvents();
 
-  // Highlight next big event (first one)
-  const heroEvent = events[0];
-  const upcomingEvents = events.slice(1);
-
-  // Filter logic
   const filteredEvents = useMemo(() => {
-    let filtered = upcomingEvents;
-    if (selectedCategory) {
-      filtered = filtered.filter(e => e.type === selectedCategory);
-    }
-    return filtered.slice(0, 10); // Show max 10 in list
-  }, [upcomingEvents, selectedCategory]);
+    if (!selectedCategory) return events;
+    return events.filter(e => e.type === selectedCategory);
+  }, [events, selectedCategory]);
 
-  // Calendar event dates mapping
   const eventDatesMap = useMemo(() => {
     const map = new Map<string, typeof events>();
     events.forEach(event => {
@@ -66,21 +48,18 @@ export function EventsView() {
         const day = parseInt(dateMatch[1]);
         const month = monthNames[dateMatch[2].toLowerCase()];
         const year = new Date().getFullYear();
-        // Handle overlap year if needed, assuming current year or next for simple parsing
         const dateKey = new Date(year, month, day).toDateString();
-
-        if (!map.has(dateKey)) {
-          map.set(dateKey, []);
-        }
+        if (!map.has(dateKey)) map.set(dateKey, []);
         map.get(dateKey)?.push(event);
       }
     });
     return map;
   }, [events]);
 
-  const eventDates = useMemo(() => {
-    return Array.from(eventDatesMap.keys()).map(dateStr => new Date(dateStr));
-  }, [eventDatesMap]);
+  const eventDates = useMemo(() =>
+    Array.from(eventDatesMap.keys()).map(dateStr => new Date(dateStr)),
+    [eventDatesMap]
+  );
 
   const selectedDayEvents = useMemo(() => {
     if (!selectedDate) return [];
@@ -89,11 +68,16 @@ export function EventsView() {
 
   if (loading) {
     return (
-      <div className="space-y-6 p-1 md:p-4">
-        <div className="h-64 w-full bg-muted/50 rounded-3xl animate-pulse" />
-        <div className="grid md:grid-cols-2 gap-4">
+      <div className="p-5 space-y-6">
+        <div className="h-8 w-32 bg-muted rounded-lg animate-pulse" />
+        <div className="flex gap-3">
+          {[1, 2, 3, 4].map(i => (
+            <div key={i} className="h-9 w-20 bg-muted rounded-full animate-pulse" />
+          ))}
+        </div>
+        <div className="space-y-4">
           {[1, 2, 3].map(i => (
-            <div key={i} className="h-32 bg-muted/50 rounded-2xl animate-pulse" />
+            <div key={i} className="h-24 bg-muted rounded-2xl animate-pulse" />
           ))}
         </div>
       </div>
@@ -101,257 +85,228 @@ export function EventsView() {
   }
 
   return (
-    <div className="space-y-6 pb-20 animate-fade-in relative z-10">
-
-      {/* Header Section */}
-      <div className="flex flex-col gap-1 px-1">
-        <h2 className="text-2xl font-display font-bold text-foreground">
-          Agenda Barcelona
-        </h2>
-        <p className="text-sm text-muted-foreground flex items-center gap-2">
-          <Sparkles className="h-3 w-3 text-amber-500 dark:text-amber-400" />
-          {events.length} grandes eventos detectados
+    <div className="flex flex-col h-full bg-background">
+      {/* Header - Uber style minimal */}
+      <div className="px-5 pt-4 pb-2">
+        <h1 className="text-[28px] font-bold tracking-tight text-foreground">
+          Eventos
+        </h1>
+        <p className="text-sm text-muted-foreground mt-0.5">
+          {events.length} eventos en Barcelona
         </p>
       </div>
 
-      {/* Hero Event Card */}
-      {heroEvent && (
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          className="relative overflow-hidden rounded-3xl border border-border group cursor-pointer bg-card text-card-foreground shadow-sm"
-          onClick={() => window.open(heroEvent.url_ticket, "_blank")}
-        >
-          {/* Dynamic background with gradient based on type */}
-          <div className={cn(
-            "absolute inset-0 bg-gradient-to-br opacity-10 dark:opacity-20 transition-opacity duration-500 group-hover:opacity-20 dark:group-hover:opacity-30",
-            categoryGradients[heroEvent.type].split(' ')[0], // Extracts 'from-...'
-            categoryGradients[heroEvent.type].split(' ')[1]  // Extracts 'to-...'
-          )} />
-
-          {/* Removed heavy backdrop-blur-3xl bg-black/40 to allow theme colors to work */}
-
-          <div className="relative p-5 md:p-8 flex flex-col md:flex-row gap-6 md:items-end justify-between">
-            <div className="space-y-4 flex-1">
-              <div className="flex items-center gap-3">
-                <Badge variant="outline" className={cn("backdrop-blur-md bg-background/50 border-border", categoryGradients[heroEvent.type].split(' ').pop())}>
-                  Next Big Event
-                </Badge>
-                <span className="text-xs font-mono text-muted-foreground animate-pulse">LIVE UPDATE</span>
-              </div>
-
-              <div>
-                <h1 className="text-2xl md:text-5xl font-display font-bold text-foreground mb-2 leading-tight">
-                  {heroEvent.title}
-                </h1>
-                <div className="flex flex-wrap items-center gap-4 text-sm md:text-base text-muted-foreground">
-                  <div className="flex items-center gap-1.5">
-                    <CalendarIcon className="h-4 w-4 text-amber-500 dark:text-amber-400" />
-                    <span>{heroEvent.date}</span>
-                  </div>
-                  <div className="flex items-center gap-1.5">
-                    <Clock className="h-4 w-4 text-amber-500 dark:text-amber-400" />
-                    <span>{heroEvent.time}</span>
-                  </div>
-                  <div className="flex items-center gap-1.5">
-                    <MapPin className="h-4 w-4 text-amber-500 dark:text-amber-400" />
-                    <span>{heroEvent.location}</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Attendance & CTA */}
-            <div className="flex flex-row md:flex-col items-center md:items-end gap-4 border-t md:border-t-0 md:border-l border-border pt-4 md:pt-0 md:pl-6">
-              <div className="text-right">
-                <p className="text-xs text-muted-foreground uppercase tracking-widest mb-1">Asistentes est.</p>
-                <p className="text-2xl font-mono font-bold text-foreground tabular-nums">
-                  {heroEvent.attendees.toLocaleString()}
-                </p>
-              </div>
-
-              <div className="h-10 w-10 rounded-full bg-secondary/50 flex items-center justify-center group-hover:bg-secondary transition-colors border border-border">
-                <ExternalLink className="h-5 w-5 text-foreground" />
-              </div>
-            </div>
-          </div>
-        </motion.div>
-      )}
-
-      {/* Main Content Grid */}
-      <div className="grid lg:grid-cols-3 gap-6">
-
-        {/* Left Column: List & Filters */}
-        <div className="lg:col-span-2 space-y-6">
-
-          {/* Filter Pills */}
-          <div className="flex items-center gap-2 overflow-x-auto pb-2 scrollbar-hide mask-fade-right">
+      {/* Filter chips - Spotify style horizontal scroll */}
+      <div className="px-5 py-3">
+        <div className="flex gap-2 overflow-x-auto pb-1 -mx-5 px-5 scrollbar-hide">
+          <button
+            onClick={() => setSelectedCategory(null)}
+            className={cn(
+              "h-9 px-4 rounded-full text-sm font-medium whitespace-nowrap transition-all duration-200",
+              selectedCategory === null
+                ? "bg-foreground text-background"
+                : "bg-muted/60 text-foreground hover:bg-muted"
+            )}
+          >
+            Todos
+          </button>
+          {Object.entries(categories).filter(([k]) => k !== "Other").map(([key, cat]) => (
             <button
-              onClick={() => setSelectedCategory(null)}
+              key={key}
+              onClick={() => setSelectedCategory(key)}
               className={cn(
-                "px-4 py-1.5 rounded-full text-xs font-medium border transition-all whitespace-nowrap",
-                selectedCategory === null
-                  ? "bg-foreground text-background border-foreground"
-                  : "bg-background/40 text-muted-foreground border-border/50 hover:border-border"
+                "h-9 px-4 rounded-full text-sm font-medium whitespace-nowrap transition-all duration-200 flex items-center gap-2",
+                selectedCategory === key
+                  ? "text-white"
+                  : "bg-muted/60 text-foreground hover:bg-muted"
               )}
+              style={selectedCategory === key ? { backgroundColor: cat.color } : {}}
             >
-              Todos
+              <cat.icon className="h-4 w-4" />
+              {cat.label}
             </button>
-            {["Music", "Sports", "Congress", "Culture"].map(cat => (
-              <button
-                key={cat}
-                onClick={() => setSelectedCategory(cat)}
-                className={cn(
-                  "px-4 py-1.5 rounded-full text-xs font-medium border transition-all whitespace-nowrap flex items-center gap-1.5",
-                  selectedCategory === cat
-                    ? "bg-secondary text-secondary-foreground border-border"
-                    : "bg-background/40 text-muted-foreground border-border/50 hover:border-border"
-                )}
-              >
-                {categoryIcons[cat]}
-                {cat}
-              </button>
-            ))}
-          </div>
-
-          {/* Events List */}
-          <div className="space-y-3">
-            <div className="flex items-center justify-between px-1">
-              <h3 className="text-sm font-medium text-muted-foreground">Próximos Eventos</h3>
-            </div>
-
-            <AnimatePresence mode="popLayout">
-              {filteredEvents.map((event, idx) => (
-                <motion.div
-                  key={event.id}
-                  initial={{ opacity: 0, x: -10 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  exit={{ opacity: 0, scale: 0.95 }}
-                  transition={{ delay: idx * 0.05 }}
-                  className="group relative overflow-hidden rounded-xl border border-border bg-card hover:bg-accent/50 transition-all duration-300"
-                  onClick={() => window.open(event.url_ticket, "_blank")}
-                >
-                  <div className={cn(
-                    "absolute left-0 top-0 bottom-0 w-1 transition-all group-hover:w-1.5",
-                    categoryGradients[event.type].split(' ').pop()?.replace('text-', 'bg-')
-                  )} />
-
-                  <div className="p-4 pl-5 flex items-start gap-4">
-                    {/* Date Box */}
-                    <div className="flex-shrink-0 flex flex-col items-center justify-center p-2 rounded-lg bg-secondary/30 border border-border min-w-[60px]">
-                      <span className="text-[10px] text-muted-foreground uppercase">{event.date.split(' ')[0]}</span>
-                      <span className="text-xl font-bold text-foreground font-display">{event.date.match(/\d+/)?.[0]}</span>
-                    </div>
-
-                    {/* Content */}
-                    <div className="flex-grow min-w-0">
-                      <div className="flex items-start justify-between gap-2">
-                        <h4 className="text-base font-semibold text-foreground truncate pr-2 group-hover:text-primary transition-colors">
-                          {event.title}
-                        </h4>
-                        <ExternalLink className="h-3.5 w-3.5 text-muted-foreground opacity-0 group-hover:opacity-100 transition-opacity" />
-                      </div>
-
-                      <div className="flex flex-wrap items-center gap-x-4 gap-y-1 mt-1 text-xs text-muted-foreground">
-                        <span className="flex items-center gap-1">
-                          <Clock className="h-3 w-3" /> {event.time}
-                        </span>
-                        <span className="flex items-center gap-1">
-                          <MapPin className="h-3 w-3" /> {event.location}
-                        </span>
-                        <span className="flex items-center gap-1 text-muted-foreground/70">
-                          <Users className="h-3 w-3" /> {event.attendees.toLocaleString()}
-                        </span>
-                      </div>
-                    </div>
-                  </div>
-                </motion.div>
-              ))}
-            </AnimatePresence>
-          </div>
+          ))}
         </div>
+      </div>
 
-        {/* Right Column: Calendar & Widgets */}
-        <div className="space-y-6">
-          {/* Calendar Widget */}
-          <div className="rounded-2xl border border-border bg-card/50 backdrop-blur-xl p-4">
-            <h3 className="text-sm font-semibold text-foreground mb-4 flex items-center gap-2">
-              <CalendarIcon className="h-4 w-4 text-primary" />
-              Calendario
-            </h3>
-            <div className="flex justify-center">
+      {/* Calendar toggle - minimal */}
+      <div className="px-5 pb-3">
+        <button
+          onClick={() => setShowCalendar(!showCalendar)}
+          className={cn(
+            "flex items-center gap-2 text-sm font-medium transition-colors",
+            showCalendar ? "text-primary" : "text-muted-foreground"
+          )}
+        >
+          <CalendarIcon className="h-4 w-4" />
+          {showCalendar ? "Ocultar calendario" : "Ver calendario"}
+        </button>
+      </div>
+
+      {/* Collapsible Calendar - clean */}
+      <AnimatePresence>
+        {showCalendar && (
+          <motion.div
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: "auto", opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            transition={{ duration: 0.25, ease: "easeInOut" }}
+            className="overflow-hidden border-y border-border/50"
+          >
+            <div className="p-5 bg-muted/20">
               <Calendar
                 mode="single"
                 selected={selectedDate}
                 onSelect={setSelectedDate}
-                className="p-0"
+                className="mx-auto"
                 classNames={{
-                  head_cell: "text-muted-foreground rounded-md w-9 font-normal text-[0.8rem]",
-                  cell: "h-9 w-9 text-center text-sm p-0 m-0.5 relative [&:has([aria-selected].day-range-end)]:rounded-r-md [&:has([aria-selected].day-outside)]:bg-accent/50 [&:has([aria-selected])]:bg-accent first:[&:has([aria-selected])]:rounded-l-md last:[&:has([aria-selected])]:rounded-r-md focus-within:relative focus-within:z-20",
-                  day: "h-9 w-9 p-0 font-normal aria-selected:opacity-100 hover:bg-accent rounded-full transition-all text-foreground",
-                  day_selected: "bg-primary text-primary-foreground hover:bg-primary hover:text-primary-foreground focus:bg-primary focus:text-primary-foreground",
-                  day_today: "bg-accent text-accent-foreground border border-border",
+                  months: "flex flex-col",
+                  month: "space-y-3",
+                  caption: "flex justify-center pt-1 relative items-center",
+                  caption_label: "text-sm font-semibold",
+                  nav: "space-x-1 flex items-center",
+                  nav_button: "h-8 w-8 bg-transparent p-0 opacity-50 hover:opacity-100",
+                  nav_button_previous: "absolute left-1",
+                  nav_button_next: "absolute right-1",
+                  table: "w-full border-collapse",
+                  head_row: "flex justify-between",
+                  head_cell: "text-muted-foreground w-9 font-medium text-xs",
+                  row: "flex w-full justify-between mt-1",
+                  cell: "h-9 w-9 text-center text-sm p-0 relative",
+                  day: "h-9 w-9 p-0 font-normal rounded-full hover:bg-muted transition-colors",
+                  day_selected: "bg-foreground text-background hover:bg-foreground",
+                  day_today: "bg-primary/10 text-primary font-semibold",
                 }}
-                modifiers={{
-                  hasEvent: eventDates
-                }}
+                modifiers={{ hasEvent: eventDates }}
                 modifiersStyles={{
-                  hasEvent: {
-                    fontWeight: 'bold',
-                    color: '#fbbf24', // amber-400
-                  }
+                  hasEvent: { fontWeight: '700', textDecoration: 'underline', textUnderlineOffset: '3px' }
                 }}
               />
+
+              {/* Selected day events */}
+              {selectedDayEvents.length > 0 && (
+                <div className="mt-4 pt-4 border-t border-border/50 space-y-2">
+                  <p className="text-xs font-semibold text-muted-foreground uppercase tracking-wide">
+                    {selectedDate?.toLocaleDateString('es-ES', { weekday: 'long', day: 'numeric', month: 'long' })}
+                  </p>
+                  {selectedDayEvents.slice(0, 3).map(event => {
+                    const cat = categories[event.type as keyof typeof categories] || categories.Other;
+                    return (
+                      <button
+                        key={event.id}
+                        onClick={() => window.open(event.url_ticket, "_blank")}
+                        className="w-full flex items-center gap-3 p-3 rounded-xl bg-background hover:bg-muted/50 transition-colors text-left"
+                      >
+                        <div
+                          className="w-1 h-10 rounded-full"
+                          style={{ backgroundColor: cat.color }}
+                        />
+                        <div className="flex-1 min-w-0">
+                          <p className="text-sm font-semibold text-foreground truncate">{event.title}</p>
+                          <p className="text-xs text-muted-foreground">{event.time}</p>
+                        </div>
+                        <ChevronRight className="h-4 w-4 text-muted-foreground" />
+                      </button>
+                    );
+                  })}
+                </div>
+              )}
             </div>
-          </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
 
-          {/* Selected Day Preview */}
-          <div className="rounded-2xl border border-border bg-card/50 backdrop-blur-xl p-4 min-h-[150px]">
-            <h4 className="text-xs font-semibold text-muted-foreground uppercase tracking-widest mb-3">
-              {selectedDate?.toLocaleDateString('es-ES', { weekday: 'long', day: 'numeric', month: 'long' })}
-            </h4>
+      {/* Events list - Gridwise/Uber clean cards */}
+      <div className="flex-1 overflow-y-auto">
+        <div className="px-5 py-4 space-y-3 pb-28">
+          <AnimatePresence mode="popLayout">
+            {filteredEvents.map((event, idx) => {
+              const cat = categories[event.type as keyof typeof categories] || categories.Other;
+              const Icon = cat.icon;
+              const dayNum = event.date.match(/\d+/)?.[0] || "";
+              const monthShort = event.date.split(' ')[2]?.slice(0, 3).toUpperCase() || "";
 
-            {selectedDayEvents.length > 0 ? (
-              <div className="space-y-3">
-                {selectedDayEvents.map(event => (
-                  <div key={event.id} className="flex gap-3 items-start group/mini cursor-pointer" onClick={() => window.open(event.url_ticket, "_blank")}>
-                    <div className={cn("w-1 self-stretch rounded-full bg-gradient-to-b", categoryGradients[event.type].split(' ')[0], categoryGradients[event.type].split(' ')[1])} />
-                    <div>
-                      <p className="text-sm font-medium text-foreground group-hover/mini:text-primary transition-colors leading-tight">
-                        {event.title}
-                      </p>
-                      <p className="text-[10px] text-muted-foreground mt-0.5">
-                        {event.time} · {event.location}
-                      </p>
+              return (
+                <motion.button
+                  key={event.id}
+                  initial={{ opacity: 0, y: 12 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -12 }}
+                  transition={{ duration: 0.2, delay: idx * 0.03 }}
+                  onClick={() => window.open(event.url_ticket, "_blank")}
+                  className="w-full flex items-center gap-4 p-4 rounded-2xl bg-card border border-border/50 hover:border-border hover:shadow-sm active:scale-[0.98] transition-all duration-200 text-left"
+                >
+                  {/* Date block */}
+                  <div className="flex-shrink-0 w-14 text-center">
+                    <p className="text-2xl font-bold text-foreground leading-none">{dayNum}</p>
+                    <p className="text-[10px] font-semibold text-muted-foreground tracking-wide mt-1">{monthShort}</p>
+                  </div>
+
+                  {/* Divider */}
+                  <div className="w-px h-12 bg-border/60" />
+
+                  {/* Content */}
+                  <div className="flex-1 min-w-0">
+                    {/* Category tag */}
+                    <div className="flex items-center gap-1.5 mb-1">
+                      <Icon className="h-3 w-3" style={{ color: cat.color }} />
+                      <span className="text-[11px] font-semibold" style={{ color: cat.color }}>
+                        {cat.label}
+                      </span>
+                    </div>
+
+                    {/* Title */}
+                    <h3 className="text-[15px] font-semibold text-foreground leading-snug line-clamp-1">
+                      {event.title}
+                    </h3>
+
+                    {/* Meta */}
+                    <div className="flex items-center gap-3 mt-1.5 text-xs text-muted-foreground">
+                      <span className="flex items-center gap-1">
+                        <Clock className="h-3 w-3" />
+                        {event.time}
+                      </span>
+                      <span className="flex items-center gap-1 truncate">
+                        <MapPin className="h-3 w-3" />
+                        <span className="truncate">{event.location}</span>
+                      </span>
                     </div>
                   </div>
-                ))}
-              </div>
-            ) : (
-              <div className="h-full flex flex-col items-center justify-center text-center py-6 opacity-50">
-                <CalendarIcon className="h-8 w-8 text-muted-foreground mb-2" />
-                <p className="text-xs text-muted-foreground">Sin eventos este día</p>
-              </div>
-            )}
-          </div>
 
-          {/* Interactive Map Teaser */}
-          <div className="rounded-2xl overflow-hidden relative h-40 group cursor-pointer border border-border">
-            <div className="absolute inset-0 bg-[url('https://cartodb-basemaps-a.global.ssl.fastly.net/dark_all/13/4207/3091.png')] bg-cover bg-center grayscale opacity-60 group-hover:opacity-100 group-hover:scale-110 transition-all duration-700" />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/90 to-transparent" />
+                  {/* Attendance + Arrow */}
+                  <div className="flex-shrink-0 flex items-center gap-2">
+                    <div className="text-right">
+                      <p className="text-xs font-bold text-foreground tabular-nums">
+                        {event.attendees >= 1000
+                          ? `${(event.attendees / 1000).toFixed(0)}k`
+                          : event.attendees}
+                      </p>
+                      <p className="text-[10px] text-muted-foreground flex items-center gap-0.5 justify-end">
+                        <Users className="h-2.5 w-2.5" />
+                        est.
+                      </p>
+                    </div>
+                    <ChevronRight className="h-5 w-5 text-muted-foreground/50" />
+                  </div>
+                </motion.button>
+              );
+            })}
+          </AnimatePresence>
 
-            <div className="absolute bottom-4 left-4 right-4">
-              <div className="flex items-center gap-2 mb-1">
-                <span className="relative flex h-2 w-2">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-                  <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
-                </span>
-                <span className="text-[10px] font-bold text-emerald-400 uppercase tracking-widest">Radar Activo</span>
+          {/* Empty state */}
+          {filteredEvents.length === 0 && (
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              className="flex flex-col items-center justify-center py-16 text-center"
+            >
+              <div className="w-16 h-16 rounded-full bg-muted/50 flex items-center justify-center mb-4">
+                <CalendarIcon className="h-7 w-7 text-muted-foreground/50" />
               </div>
-              <p className="text-sm font-medium text-white">Mapa de calor de eventos</p>
-            </div>
-          </div>
-
+              <p className="text-base font-semibold text-foreground">Sin eventos</p>
+              <p className="text-sm text-muted-foreground mt-1">No hay eventos en esta categoría</p>
+            </motion.div>
+          )}
         </div>
       </div>
     </div>
