@@ -14,6 +14,9 @@ on:
   push:
     tags:
       - 'v*'
+    # Only run on tag pushes, not regular commits
+    branches-ignore:
+      - '**'
 
 jobs:
   build-android:
