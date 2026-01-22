@@ -22,7 +22,7 @@ public class AlarmReceiver extends BroadcastReceiver {
             return;
         }
         
-        Log.d(TAG, "⏰ Alarm received");
+        Log.d(TAG, "⏰ Alarm received - waking up device");
         
         // Acquire brief WakeLock
         PowerManager pm = (PowerManager) context.getSystemService(Context.POWER_SERVICE);
@@ -30,12 +30,16 @@ public class AlarmReceiver extends BroadcastReceiver {
             PowerManager.PARTIAL_WAKE_LOCK,
             "iTaxiBcn:AlarmWakeLock"
         );
-        wl.acquire(5000); // 5 second timeout
+        wl.acquire(10000); // 10 second timeout for location request
         
         try {
             if (LocationTrackingService.isRunning) {
                 LocationTrackingService.forceLocationCheck(context);
+            } else {
+                Log.w(TAG, "⚠️ Service not running, alarm ignored");
             }
+        } catch (Exception e) {
+            Log.e(TAG, "Error in alarm receiver: " + e.getMessage());
         } finally {
             if (wl.isHeld()) {
                 wl.release();
