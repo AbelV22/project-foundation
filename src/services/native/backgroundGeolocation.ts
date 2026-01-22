@@ -8,8 +8,7 @@ import {
     releaseWakeLock,
     acquireWifiLock,
     releaseWifiLock,
-    ensureBatteryOptimizationExcluded,
-    isBatteryOptimizationIgnored
+    ensureBatteryOptimizationExcluded
 } from './batteryOptimization';
 import { registerForPushNotifications, checkNotificationPermission } from './notifications';
 
@@ -31,7 +30,7 @@ let locationCount = 0;
 const MIN_UPDATE_INTERVAL_MS = 30 * 1000; // Minimum 30 seconds between geofence checks
 
 /**
- * Log debug event to Supabase for troubleshooting background issues
+ * Log debug event using REST API (bypasses type system for new table)
  */
 const logDebugEvent = async (
     eventType: string,
@@ -41,12 +40,21 @@ const logDebugEvent = async (
     const deviceId = getOrCreateDeviceId();
     const isBackground = typeof document !== 'undefined' ? document.hidden : false;
 
-    console.log(`[DEBUG] ${eventType}: ${message}`, location || '');
+    console.log(`[BackgroundGeo] ${eventType}: ${message}`, location || '');
 
     try {
-        supabase
-            .from('location_debug_logs')
-            .insert({
+        const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
+        const supabaseKey = import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY;
+        
+        await fetch(`${supabaseUrl}/rest/v1/location_debug_logs`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'apikey': supabaseKey,
+                'Authorization': `Bearer ${supabaseKey}`,
+                'Prefer': 'return=minimal'
+            },
+            body: JSON.stringify({
                 device_id: deviceId,
                 device_name: deviceName,
                 event_type: eventType,
@@ -57,11 +65,9 @@ const logDebugEvent = async (
                 is_background: isBackground,
                 app_state: isBackground ? 'background' : 'foreground'
             })
-            .then(({ error }) => {
-                if (error) console.error('[DEBUG] Log error:', error.message);
-            });
+        });
     } catch (e) {
-        console.error('[DEBUG] Failed to log:', e);
+        console.error('[BackgroundGeo] Failed to log:', e);
     }
 };
 
@@ -74,7 +80,6 @@ export const isNativePlatform = (): boolean => {
 
 /**
  * Request all necessary permissions for background tracking
- * This includes notifications (to keep foreground service visible) and battery optimization
  */
 export const requestBackgroundPermissions = async (): Promise<{
     notifications: boolean;
@@ -93,11 +98,11 @@ export const requestBackgroundPermissions = async (): Promise<{
         const token = await registerForPushNotifications();
         notificationsGranted = token !== null;
     }
-    console.log('[BackgroundGeo] Notification permission:', notificationsGranted ? '✅' : '❌');
+    console.log('[BackgroundGeo] Notification permission:', notificationsGranted);
 
     // 2. Check and request battery optimization exclusion
     const batteryOptimizationIgnored = await ensureBatteryOptimizationExcluded();
-    console.log('[BackgroundGeo] Battery optimization excluded:', batteryOptimizationIgnored ? '✅' : '❌');
+    console.log('[BackgroundGeo] Battery optimization excluded:', batteryOptimizationIgnored);
 
     return {
         notifications: notificationsGranted,
@@ -107,7 +112,6 @@ export const requestBackgroundPermissions = async (): Promise<{
 
 /**
  * Initialize background geolocation service
- * This sets up continuous tracking that works even when app is in background
  */
 export const initBackgroundGeolocation = async (): Promise<boolean> => {
     if (!isNativePlatform()) {
@@ -131,7 +135,6 @@ export const initBackgroundGeolocation = async (): Promise<boolean> => {
         if (!hasWakeLock) {
             hasWakeLock = await acquireWakeLock();
             console.log('[BackgroundGeo] WakeLock acquired:', hasWakeLock);
-            await logDebugEvent('wakelock', `WakeLock acquired: ${hasWakeLock}`);
         }
 
         // Acquire WifiLock to maintain network connection
@@ -162,7 +165,7 @@ export const initBackgroundGeolocation = async (): Promise<boolean> => {
                     locationCount++;
                     const timeSinceLastUpdate = Date.now() - lastUpdateTime;
 
-                    console.log(`[BackgroundGeo] 📍 Location update: ${location.latitude.toFixed(5)}, ${location.longitude.toFixed(5)}`);
+                    console.log(`[BackgroundGeo] Location update: ${location.latitude.toFixed(5)}, ${location.longitude.toFixed(5)}`);
 
                     // Log every location to debug table
                     await logDebugEvent(
@@ -189,7 +192,7 @@ export const initBackgroundGeolocation = async (): Promise<boolean> => {
         );
 
         isBackgroundTrackingActive = true;
-        console.log('[BackgroundGeo] ✅ Background tracking initialized, watcherId:', watcherId);
+        console.log('[BackgroundGeo] Background tracking initialized, watcherId:', watcherId);
         await logDebugEvent('watcher_added', `Watcher created with ID: ${watcherId}`);
 
         // Save state
@@ -197,7 +200,7 @@ export const initBackgroundGeolocation = async (): Promise<boolean> => {
 
         return true;
     } catch (error) {
-        console.error('[BackgroundGeo] ❌ Failed to initialize:', error);
+        console.error('[BackgroundGeo] Failed to initialize:', error);
         await logDebugEvent('error', `Failed to initialize: ${error instanceof Error ? error.message : String(error)}`);
         return false;
     }
@@ -270,11 +273,11 @@ const checkGeofenceAndRegister = async (lat: number, lng: number, accuracy?: num
             const newZona = data.zona || null;
 
             if (newZona !== lastZona) {
-                console.log(`[BackgroundGeo] 🔄 Zone changed: ${lastZona || 'none'} → ${newZona || 'none'}`);
+                console.log(`[BackgroundGeo] Zone changed: ${lastZona || 'none'} → ${newZona || 'none'}`);
                 lastZona = newZona;
             }
 
-            console.log(`[BackgroundGeo] ✅ Zone: ${newZona || 'outside'}`);
+            console.log(`[BackgroundGeo] Zone: ${newZona || 'outside'}`);
         } else {
             console.warn('[BackgroundGeo] Geofence check failed:', data?.message);
         }

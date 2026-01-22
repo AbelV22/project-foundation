@@ -53,6 +53,48 @@ export type Database = {
         }
         Relationships: []
       }
+      location_debug_logs: {
+        Row: {
+          accuracy: number | null
+          app_state: string | null
+          created_at: string
+          device_id: string
+          device_name: string | null
+          event_type: string
+          id: string
+          is_background: boolean | null
+          latitude: number | null
+          longitude: number | null
+          message: string
+        }
+        Insert: {
+          accuracy?: number | null
+          app_state?: string | null
+          created_at?: string
+          device_id: string
+          device_name?: string | null
+          event_type: string
+          id?: string
+          is_background?: boolean | null
+          latitude?: number | null
+          longitude?: number | null
+          message: string
+        }
+        Update: {
+          accuracy?: number | null
+          app_state?: string | null
+          created_at?: string
+          device_id?: string
+          device_name?: string | null
+          event_type?: string
+          id?: string
+          is_background?: boolean | null
+          latitude?: number | null
+          longitude?: number | null
+          message?: string
+        }
+        Relationships: []
+      }
       registros_carreras: {
         Row: {
           created_at: string

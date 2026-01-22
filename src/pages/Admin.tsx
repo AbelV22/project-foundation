@@ -13,6 +13,7 @@ import {
     openLocationSettings
 } from "@/services/native/backgroundGeolocation";
 import { isProTrackingActive, getLastProPosition } from "@/services/native/proTracking";
+import { LocationDiagnosticsPanel } from "@/components/LocationDiagnosticsPanel";
 
 // Admin password
 const ADMIN_PASSWORD = "laraabel22";
@@ -384,13 +385,16 @@ export default function Admin() {
                 </div>
             </div>
 
+            {/* 🆕 LOCATION DIAGNOSTICS - Works on Web & Native */}
+            <LocationDiagnosticsPanel deviceName={deviceNameInput} />
+
             {/* Background Geolocation Control (Native only) */}
             {isNative && (
-                <section className="card-glass p-4 mb-4">
+                <section className="card-glass p-4 mb-4 mt-4">
                     <div className="flex items-center justify-between mb-3">
                         <div className="flex items-center gap-2">
                             <Smartphone className={cn("h-5 w-5", backgroundStatus.isActive ? "text-emerald-400" : "text-muted-foreground")} />
-                            <span className="font-semibold text-white">Background Tracking</span>
+                            <span className="font-semibold text-white">Background Tracking (Native)</span>
                             <span className={cn(
                                 "text-xs px-2 py-0.5 rounded-full",
                                 backgroundStatus.isActive

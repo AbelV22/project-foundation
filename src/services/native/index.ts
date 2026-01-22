@@ -41,16 +41,6 @@ export {
     ensureBatteryOptimizationExcluded,
 } from './batteryOptimization';
 
-// Debug tracking for diagnosing background issues
-export {
-    startDebugTracking,
-    stopDebugTracking,
-    getDebugStatus,
-    setDebugDeviceName,
-    logDebugEvent,
-    fetchDebugLogs,
-} from './debugTracking';
-
 // Pro-level native tracking (ForegroundService + AlarmManager)
 export {
     configureProTracking,
