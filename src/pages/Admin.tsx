@@ -230,8 +230,8 @@ export default function Admin() {
             // Initial check
             checkProTracking();
 
-            // Run every 30 seconds
-            monitorIntervalRef.current = window.setInterval(checkProTracking, 30000);
+            // Run every 60 seconds (matching native service interval)
+            monitorIntervalRef.current = window.setInterval(checkProTracking, 60000);
 
             return () => {
                 clearInterval(interval);
@@ -305,8 +305,13 @@ export default function Admin() {
         return new Date(isoString).toLocaleTimeString("es-ES", { hour: "2-digit", minute: "2-digit" });
     };
 
-    const anonymizeDeviceId = (deviceId: string | null) => {
+    const formatDeviceId = (deviceId: string | null) => {
         if (!deviceId) return "---";
+        // If it's a simple device ID like D1, D2, show it as is
+        if (deviceId.match(/^D\d+$/)) {
+            return deviceId;
+        }
+        // Otherwise truncate UUID
         return deviceId.substring(0, 4) + "..." + deviceId.substring(deviceId.length - 4);
     };
 
@@ -492,7 +497,7 @@ export default function Admin() {
                 <div className="max-h-[200px] overflow-y-auto space-y-1">
                     {trackingMonitorLogs.length === 0 ? (
                         <p className="text-sm text-muted-foreground text-center py-4">
-                            ⏳ Esperando primer check (30s)...
+                            ⏳ Esperando primer check (60s)...
                         </p>
                     ) : (
                         trackingMonitorLogs.map((log, idx) => (
@@ -531,7 +536,7 @@ export default function Admin() {
                 </div>
 
                 <p className="text-[10px] text-muted-foreground mt-2 text-center">
-                    🔄 Se actualiza automáticamente cada 30 segundos
+                    🔄 Se actualiza automáticamente cada 60 segundos (1 minuto)
                 </p>
             </section>
 
@@ -547,7 +552,7 @@ export default function Admin() {
                                 ? "bg-emerald-500/20 text-emerald-400"
                                 : "bg-muted-foreground/20 text-muted-foreground"
                         )}>
-                            {testingModeActive ? "ACTIVO (30s)" : "INACTIVO"}
+                            {testingModeActive ? "ACTIVO (60s)" : "INACTIVO"}
                         </span>
                     </div>
                     <div className="flex gap-2">
@@ -755,7 +760,7 @@ export default function Admin() {
                                                         {reg.exited_at ? "Salió" : "En cola"}
                                                     </span>
                                                 </div>
-                                                <span className="text-[10px] text-muted-foreground">{anonymizeDeviceId(reg.device_id)}</span>
+                                                <span className="text-[10px] text-muted-foreground">{formatDeviceId(reg.device_id)}</span>
                                             </div>
                                             <div className="flex items-center gap-4 text-[10px] mt-1">
                                                 <span className="font-mono text-blue-400">
@@ -884,7 +889,7 @@ export default function Admin() {
                                             {log.device_name && (
                                                 <span className="text-amber-400">🚕 {log.device_name}</span>
                                             )}
-                                            <span>{anonymizeDeviceId(log.device_id)}</span>
+                                            <span>{formatDeviceId(log.device_id)}</span>
                                         </div>
 
                                         {/* Google Maps Link */}

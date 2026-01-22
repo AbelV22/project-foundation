@@ -94,8 +94,8 @@ const startWebTracking = (): void => {
 const handlePositionUpdate = async (position: GeolocationPosition): Promise<void> => {
     const now = Date.now();
     
-    // Throttle to max one check per 30 seconds
-    if (now - lastCheckTime < 30000) {
+    // Throttle to max one check per 60 seconds (1 minute)
+    if (now - lastCheckTime < 60000) {
         return;
     }
     

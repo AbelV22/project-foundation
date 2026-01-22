@@ -27,7 +27,7 @@ let hasWifiLock = false;
 let locationCount = 0;
 
 // Configuration
-const MIN_UPDATE_INTERVAL_MS = 30 * 1000; // Minimum 30 seconds between geofence checks
+const MIN_UPDATE_INTERVAL_MS = 60 * 1000; // Minimum 60 seconds (1 minute) between geofence checks
 
 /**
  * Log debug event using REST API (bypasses type system for new table)

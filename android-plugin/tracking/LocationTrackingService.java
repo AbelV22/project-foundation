@@ -41,8 +41,8 @@ public class LocationTrackingService extends Service {
     public static final int LOCATION_REQUEST_CODE = 9002;
     public static final int ALARM_REQUEST_CODE = 9003;
     
-    public static final long INTERVAL_MS = 30 * 1000; // 30 seconds
-    public static final long FASTEST_INTERVAL_MS = 15 * 1000;
+    public static final long INTERVAL_MS = 60 * 1000; // 60 seconds (1 minute)
+    public static final long FASTEST_INTERVAL_MS = 30 * 1000;
     
     public static volatile boolean isRunning = false;
     

@@ -10,7 +10,7 @@ import { StatusBar, Style } from "@capacitor/status-bar";
 import { SplashScreen } from "@capacitor/splash-screen";
 import { startAutoTracking, initTestingMode } from "./services/location/AutoLocationService";
 import { requestLocationPermission, checkLocationPermission } from "./services/native/geolocation";
-import { getOrCreateDeviceId } from "@/lib/deviceId";
+import { getOrCreateDeviceId, registerDevice, getOrCreateDeviceUUID } from "@/lib/deviceId";
 import {
   initBackgroundGeolocation,
   shouldRestoreBackgroundTracking,
@@ -71,16 +71,16 @@ const initializeNative = async (setPermissionDenied: (denied: boolean) => void) 
 
     console.log('[App] Location permission granted');
 
-    // Check if background tracking should be restored
-    const shouldRestoreBackground = shouldRestoreBackgroundTracking();
+    // ALWAYS start tracking on native platform (no admin action required)
+    // User just needs to install the APK and grant location permission
+    console.log('[App] Initializing PRO tracking system (auto-start enabled)...');
 
-    if (shouldRestoreBackground || isTestingMode) {
-      // === USE PRO TRACKING (ForegroundService + AlarmManager) ===
-      console.log('[App] Initializing PRO tracking system...');
-
-      // Get device info
-      const deviceId = getOrCreateDeviceId();
-      const deviceName = localStorage.getItem('geofence_device_name') || 'iTaxiBcn Device';
+    {
+      // Register device and get simple numeric ID (1, 2, 3, ...)
+      const deviceName = localStorage.getItem('geofence_device_name') || 'Taxi';
+      const deviceNumber = await registerDevice(deviceName);
+      const deviceId = `D${deviceNumber}`; // Simple ID like D1, D2, D3
+      console.log(`[App] Registered as device ${deviceId}`);
 
       // Configure the native service with Supabase credentials
       console.log('[App] Configuring ProTracking with Supabase...');
@@ -107,12 +107,6 @@ const initializeNative = async (setPermissionDenied: (denied: boolean) => void) 
         console.log('[App] ⚠️ ProTracking config failed, falling back to old method');
         await initBackgroundGeolocation();
       }
-    } else {
-      // Start foreground tracking by default
-      console.log('[App] Starting foreground tracking...');
-      startAutoTracking((zona) => {
-        console.log('[App] Zone changed to:', zona);
-      });
     }
   } catch (error) {
     console.error("Error initializing native features:", error);
