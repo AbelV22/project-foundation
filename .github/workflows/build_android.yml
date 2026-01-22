@@ -124,18 +124,16 @@ jobs:
               content = f.read()
           
           if "LocationTrackingService" in content:
-              print("✅ Already registered")
+              print("Already registered")
               exit(0)
           
-          service_declaration = '''
-        <!-- Pro Location Tracking Service -->
+          service_declaration = """
         <service
             android:name=".tracking.LocationTrackingService"
             android:enabled="true"
             android:exported="false"
             android:foregroundServiceType="location" />
         
-        <!-- Alarm Receiver for Doze mode -->
         <receiver
             android:name=".tracking.AlarmReceiver"
             android:enabled="true"
@@ -144,14 +142,14 @@ jobs:
                 <action android:name="com.itaxibcn.app.LOCATION_ALARM" />
             </intent-filter>
         </receiver>
-          '''
+          """
           
           content = content.replace("</application>", service_declaration + "\n    </application>")
           
           with open("android/app/src/main/AndroidManifest.xml", "w") as f:
               f.write(content)
           
-          print("✅ Service and receivers registered")
+          print("Service and receivers registered")
           EOF
       
       # REGISTER PLUGIN IN MAINACTIVITY
