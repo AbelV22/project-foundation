@@ -38,13 +38,21 @@ public class LocationApiClient {
     ) {
         if (supabaseUrl == null || supabaseUrl.isEmpty()) {
             Log.w(TAG, "Supabase URL not configured");
+            logDebug(supabaseUrl, supabaseKey, deviceId, deviceName, "config_error", 
+                "❌ ERROR CONFIG: supabase_url no configurado");
+            return;
+        }
+        
+        if (deviceId == null || deviceId.isEmpty()) {
+            Log.w(TAG, "Device ID not configured");
             return;
         }
         
         executor.execute(() -> {
+            HttpURLConnection conn = null;
             try {
                 URL url = new URL(supabaseUrl + "/functions/v1/check-geofence");
-                HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+                conn = (HttpURLConnection) url.openConnection();
                 conn.setRequestMethod("POST");
                 conn.setRequestProperty("Content-Type", "application/json");
                 conn.setRequestProperty("Authorization", "Bearer " + supabaseKey);
@@ -70,8 +78,8 @@ public class LocationApiClient {
                 int code = conn.getResponseCode();
                 Log.d(TAG, "Geofence response: " + code);
                 
-                if (code == 200 && callback != null) {
-                    // Parse response to get zona (simplified)
+                if (code == 200) {
+                    // Parse response to get zona
                     java.io.InputStream is = conn.getInputStream();
                     java.io.BufferedReader reader = new java.io.BufferedReader(
                         new java.io.InputStreamReader(is)
@@ -83,24 +91,45 @@ public class LocationApiClient {
                     }
                     reader.close();
                     
-                    // Extract zona from JSON response (simple parsing)
+                    // Extract zona from JSON response
                     String responseStr = response.toString();
+                    String zona = null;
                     if (responseStr.contains("\"zona\":\"")) {
                         int start = responseStr.indexOf("\"zona\":\"") + 8;
                         int end = responseStr.indexOf("\"", start);
                         if (end > start) {
-                            String zona = responseStr.substring(start, end);
-                            callback.onZona(zona);
+                            zona = responseStr.substring(start, end);
                         }
-                    } else {
-                        callback.onZona(null);
                     }
+                    
+                    if (callback != null) {
+                        callback.onZona(zona);
+                    }
+                    
+                    Log.d(TAG, "✅ Geofence enviado OK. Zona: " + (zona != null ? zona : "ninguna"));
+                } else {
+                    // Error response
+                    String errorMsg = String.format("❌ ERROR GEOFENCE: HTTP %d", code);
+                    Log.e(TAG, errorMsg);
+                    logDebug(supabaseUrl, supabaseKey, deviceId, deviceName, "geofence_http_error", errorMsg);
                 }
                 
-                conn.disconnect();
-                
+            } catch (java.net.SocketTimeoutException e) {
+                String errorMsg = "❌ ERROR RED: Timeout conectando con servidor";
+                Log.e(TAG, errorMsg);
+                logDebug(supabaseUrl, supabaseKey, deviceId, deviceName, "network_timeout", errorMsg);
+            } catch (java.net.UnknownHostException e) {
+                String errorMsg = "❌ ERROR RED: Sin conexión a internet";
+                Log.e(TAG, errorMsg);
+                logDebug(supabaseUrl, supabaseKey, deviceId, deviceName, "network_no_internet", errorMsg);
             } catch (Exception e) {
-                Log.e(TAG, "Error sending location: " + e.getMessage());
+                String errorMsg = "❌ ERROR: " + e.getClass().getSimpleName() + " - " + e.getMessage();
+                Log.e(TAG, "Error sending location: " + errorMsg);
+                logDebug(supabaseUrl, supabaseKey, deviceId, deviceName, "geofence_exception", errorMsg);
+            } finally {
+                if (conn != null) {
+                    conn.disconnect();
+                }
             }
         });
     }

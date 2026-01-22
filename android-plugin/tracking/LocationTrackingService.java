@@ -100,8 +100,17 @@ public class LocationTrackingService extends Service {
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) 
                 != PackageManager.PERMISSION_GRANTED) {
             Log.e(TAG, "No location permission!");
-            logDebug("error", "No location permission");
+            logDebug("error_no_permission", "❌ ERROR: No tiene permiso ACCESS_FINE_LOCATION");
             return;
+        }
+        
+        // Check background location permission for Android 10+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+            if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_BACKGROUND_LOCATION) 
+                    != PackageManager.PERMISSION_GRANTED) {
+                Log.w(TAG, "No background location permission!");
+                logDebug("warning_no_background", "⚠️ AVISO: No tiene permiso ACCESS_BACKGROUND_LOCATION (Android 10+)");
+            }
         }
         
         LocationRequest locationRequest = new LocationRequest.Builder(
@@ -117,13 +126,23 @@ public class LocationTrackingService extends Service {
             public void onLocationResult(LocationResult locationResult) {
                 if (locationResult == null) {
                     Log.w(TAG, "Location result is null");
+                    logDebug("location_null", "❌ ERROR: LocationResult es null - GPS puede estar desactivado");
                     return;
                 }
                 
                 android.location.Location location = locationResult.getLastLocation();
                 if (location != null) {
-                    Log.d(TAG, "📍 Location: " + location.getLatitude() + ", " + location.getLongitude());
+                    String msg = String.format(
+                        "✅ UBICACIÓN OK: %.6f, %.6f (precisión: %.0fm)",
+                        location.getLatitude(),
+                        location.getLongitude(),
+                        location.getAccuracy()
+                    );
+                    Log.d(TAG, "📍 " + msg);
+                    logDebug("location_success", msg);
                     processLocation(location);
+                } else {
+                    logDebug("location_empty", "❌ ERROR: getLastLocation() devolvió null");
                 }
             }
         };
@@ -135,7 +154,7 @@ public class LocationTrackingService extends Service {
         );
         
         Log.d(TAG, "✅ Location updates started");
-        logDebug("location_updates_started", "FusedLocationProviderClient updates started");
+        logDebug("location_updates_started", "Servicio iniciado - esperando primera ubicación...");
     }
     
     /**
@@ -217,37 +236,72 @@ public class LocationTrackingService extends Service {
      */
     public static void forceLocationCheck(Context context) {
         Log.d(TAG, "⏰ Alarm triggered - forcing location check");
+        SharedPreferences prefs = context.getSharedPreferences("iTaxiBcn", MODE_PRIVATE);
         
         if (ActivityCompat.checkSelfPermission(context, Manifest.permission.ACCESS_FINE_LOCATION) 
                 != PackageManager.PERMISSION_GRANTED) {
+            logDebugStatic(prefs, "alarm_no_permission", "❌ ALARM ERROR: Sin permiso de ubicación");
             return;
         }
         
         FusedLocationProviderClient client = LocationServices.getFusedLocationProviderClient(context);
-        client.getLastLocation().addOnSuccessListener(location -> {
-            if (location != null) {
-                Log.d(TAG, "📍 Alarm location: " + location.getLatitude() + ", " + location.getLongitude());
-                
-                // Send directly using API client
-                SharedPreferences prefs = context.getSharedPreferences("iTaxiBcn", MODE_PRIVATE);
-                LocationApiClient.sendLocation(
-                    prefs.getString("supabase_url", ""),
-                    prefs.getString("supabase_anon_key", ""),
-                    prefs.getString("device_id", ""),
-                    prefs.getString("device_name", null),
-                    location.getLatitude(),
-                    location.getLongitude(),
-                    location.getAccuracy(),
-                    prefs.getString("last_zona", null),
-                    null
-                );
-            }
-        });
+        
+        // Log that alarm is attempting to get location
+        logDebugStatic(prefs, "alarm_triggered", "⏰ Alarm despertó - solicitando ubicación...");
+        
+        client.getLastLocation()
+            .addOnSuccessListener(location -> {
+                if (location != null) {
+                    String msg = String.format(
+                        "✅ ALARM UBICACIÓN: %.6f, %.6f (precisión: %.0fm, edad: %ds)",
+                        location.getLatitude(),
+                        location.getLongitude(),
+                        location.getAccuracy(),
+                        (System.currentTimeMillis() - location.getTime()) / 1000
+                    );
+                    Log.d(TAG, "📍 " + msg);
+                    logDebugStatic(prefs, "alarm_location_success", msg);
+                    
+                    // Send directly using API client
+                    LocationApiClient.sendLocation(
+                        prefs.getString("supabase_url", ""),
+                        prefs.getString("supabase_anon_key", ""),
+                        prefs.getString("device_id", ""),
+                        prefs.getString("device_name", null),
+                        location.getLatitude(),
+                        location.getLongitude(),
+                        location.getAccuracy(),
+                        prefs.getString("last_zona", null),
+                        null
+                    );
+                } else {
+                    logDebugStatic(prefs, "alarm_location_null", "❌ ALARM ERROR: getLastLocation() devolvió null - GPS inactivo o sin fix");
+                }
+            })
+            .addOnFailureListener(e -> {
+                String errorMsg = "❌ ALARM ERROR: " + e.getClass().getSimpleName() + " - " + e.getMessage();
+                Log.e(TAG, errorMsg);
+                logDebugStatic(prefs, "alarm_location_error", errorMsg);
+            });
         
         // Re-schedule alarm
         if (isRunning) {
             scheduleNextAlarm(context);
         }
+    }
+    
+    /**
+     * Static helper to log debug messages (used from static methods)
+     */
+    private static void logDebugStatic(SharedPreferences prefs, String eventType, String message) {
+        LocationApiClient.logDebug(
+            prefs.getString("supabase_url", ""),
+            prefs.getString("supabase_anon_key", ""),
+            prefs.getString("device_id", ""),
+            prefs.getString("device_name", null),
+            eventType,
+            message
+        );
     }
     
     private static void scheduleNextAlarm(Context context) {

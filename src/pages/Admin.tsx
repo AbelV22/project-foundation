@@ -12,8 +12,9 @@ import {
     isNativePlatform,
     openLocationSettings
 } from "@/services/native/backgroundGeolocation";
-import { isProTrackingActive, getLastProPosition } from "@/services/native/proTracking";
+import { isProTrackingActive, getLastProPosition, configureProTracking, startProTracking, stopProTracking } from "@/services/native/proTracking";
 import { LocationDiagnosticsPanel } from "@/components/LocationDiagnosticsPanel";
+import { NativeDebugLogsPanel } from "@/components/NativeDebugLogsPanel";
 
 // Admin password
 const ADMIN_PASSWORD = "laraabel22";
@@ -429,25 +430,63 @@ export default function Admin() {
                 </section>
             )}
 
-            {/* 🔴 PRO TRACKING MONITOR - 30s checks */}
+            {/* 📱 NATIVE DEBUG LOGS - Shows logs from Android ForegroundService */}
+            <NativeDebugLogsPanel deviceFilter={deviceNameInput || undefined} />
+
+            {/* 🔴 PRO TRACKING CONTROL - Native Android Service */}
             <section className="card-glass p-4 mb-4">
                 <div className="flex items-center justify-between mb-3">
                     <div className="flex items-center gap-2">
                         <Radio className={cn("h-5 w-5", proTrackingActive ? "text-emerald-400 animate-pulse" : "text-muted-foreground")} />
-                        <span className="font-semibold text-white">Monitor Tracking (30s)</span>
+                        <span className="font-semibold text-white">Tracking Nativo (Android)</span>
                         <span className={cn(
                             "text-xs px-2 py-0.5 rounded-full",
                             proTrackingActive
                                 ? "bg-emerald-500/20 text-emerald-400"
                                 : "bg-red-500/20 text-red-400"
                         )}>
-                            {proTrackingActive ? "PRO ACTIVO" : "INACTIVO"}
+                            {proTrackingActive ? "ACTIVO" : "INACTIVO"}
                         </span>
                     </div>
-                    <span className="text-xs text-muted-foreground">
-                        {trackingMonitorLogs.length} checks
-                    </span>
+                    <div className="flex items-center gap-2">
+                        <span className="text-xs text-muted-foreground">
+                            {trackingMonitorLogs.length} checks
+                        </span>
+                        <button
+                            onClick={async () => {
+                                if (proTrackingActive) {
+                                    await stopProTracking();
+                                } else {
+                                    // Configure and start
+                                    const deviceId = localStorage.getItem('itaxi_device_id') || crypto.randomUUID();
+                                    const supabaseUrl = import.meta.env.VITE_SUPABASE_URL || '';
+                                    const supabaseKey = import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY || '';
+                                    
+                                    await configureProTracking(supabaseUrl, supabaseKey, deviceId, deviceNameInput || 'Taxi');
+                                    await startProTracking();
+                                }
+                                // Refresh status
+                                setTimeout(async () => {
+                                    const isActive = await isProTrackingActive();
+                                    setProTrackingActive(isActive);
+                                }, 500);
+                            }}
+                            className={cn(
+                                "flex items-center gap-1.5 px-3 py-1.5 rounded-lg font-medium text-sm transition-colors",
+                                proTrackingActive
+                                    ? "bg-red-500/20 text-red-400 hover:bg-red-500/30"
+                                    : "bg-emerald-500/20 text-emerald-400 hover:bg-emerald-500/30"
+                            )}
+                        >
+                            {proTrackingActive ? <Square className="h-4 w-4" /> : <Play className="h-4 w-4" />}
+                            {proTrackingActive ? "Detener" : "Iniciar"}
+                        </button>
+                    </div>
                 </div>
+
+                <p className="text-xs text-muted-foreground mb-3">
+                    📱 Servicio nativo Android con ForegroundService + AlarmManager para tracking en segundo plano
+                </p>
 
                 {/* Rolling log of 30s checks */}
                 <div className="max-h-[200px] overflow-y-auto space-y-1">
