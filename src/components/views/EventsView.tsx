@@ -10,19 +10,25 @@ import {
   Building2,
   Palette,
   Ticket,
+  Navigation,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Calendar } from "@/components/ui/calendar";
 import { useEvents } from "@/hooks/useEvents";
 import { motion, AnimatePresence } from "framer-motion";
 
-// Clean category system - Spotify/Uber inspired minimal colors
 const categories = {
   Congress: { icon: Building2, color: "#3B82F6", label: "Congresos" },
   Music: { icon: Music, color: "#8B5CF6", label: "Música" },
   Sports: { icon: Trophy, color: "#10B981", label: "Deportes" },
   Culture: { icon: Palette, color: "#F59E0B", label: "Cultura" },
   Other: { icon: Ticket, color: "#6B7280", label: "Otros" },
+};
+
+const monthNamesShort = ["ENE", "FEB", "MAR", "ABR", "MAY", "JUN", "JUL", "AGO", "SEP", "OCT", "NOV", "DIC"];
+
+const getWazeUrl = (lat: number, lon: number, name: string) => {
+  return `https://waze.com/ul?ll=${lat},${lon}&navigate=yes&z=10`;
 };
 
 export function EventsView() {
@@ -39,19 +45,9 @@ export function EventsView() {
   const eventDatesMap = useMemo(() => {
     const map = new Map<string, typeof events>();
     events.forEach(event => {
-      const dateMatch = event.date.match(/(\d+) de (\w+)/);
-      if (dateMatch) {
-        const monthNames: Record<string, number> = {
-          enero: 0, febrero: 1, marzo: 2, abril: 3, mayo: 4, junio: 5,
-          julio: 6, agosto: 7, septiembre: 8, octubre: 9, noviembre: 10, diciembre: 11
-        };
-        const day = parseInt(dateMatch[1]);
-        const month = monthNames[dateMatch[2].toLowerCase()];
-        const year = new Date().getFullYear();
-        const dateKey = new Date(year, month, day).toDateString();
-        if (!map.has(dateKey)) map.set(dateKey, []);
-        map.get(dateKey)?.push(event);
-      }
+      const dateKey = new Date(event.rawDate).toDateString();
+      if (!map.has(dateKey)) map.set(dateKey, []);
+      map.get(dateKey)?.push(event);
     });
     return map;
   }, [events]);
@@ -68,14 +64,14 @@ export function EventsView() {
 
   if (loading) {
     return (
-      <div className="p-5 space-y-6">
+      <div className="flex flex-col h-full bg-background p-5 space-y-4">
         <div className="h-8 w-32 bg-muted rounded-lg animate-pulse" />
-        <div className="flex gap-3">
+        <div className="flex gap-2">
           {[1, 2, 3, 4].map(i => (
             <div key={i} className="h-9 w-20 bg-muted rounded-full animate-pulse" />
           ))}
         </div>
-        <div className="space-y-4">
+        <div className="space-y-3">
           {[1, 2, 3].map(i => (
             <div key={i} className="h-24 bg-muted rounded-2xl animate-pulse" />
           ))}
@@ -86,26 +82,24 @@ export function EventsView() {
 
   return (
     <div className="flex flex-col h-full bg-background">
-      {/* Header - Uber style minimal */}
-      <div className="px-5 pt-4 pb-2">
-        <h1 className="text-[28px] font-bold tracking-tight text-foreground">
-          Eventos
-        </h1>
+      {/* Header */}
+      <div className="flex-shrink-0 px-5 pt-4 pb-2">
+        <h1 className="text-[28px] font-bold tracking-tight">Eventos</h1>
         <p className="text-sm text-muted-foreground mt-0.5">
           {events.length} eventos en Barcelona
         </p>
       </div>
 
-      {/* Filter chips - Spotify style horizontal scroll */}
-      <div className="px-5 py-3">
+      {/* Filter chips */}
+      <div className="flex-shrink-0 px-5 py-3">
         <div className="flex gap-2 overflow-x-auto pb-1 -mx-5 px-5 scrollbar-hide">
           <button
             onClick={() => setSelectedCategory(null)}
             className={cn(
-              "h-9 px-4 rounded-full text-sm font-medium whitespace-nowrap transition-all duration-200",
+              "h-9 px-4 rounded-full text-sm font-medium whitespace-nowrap transition-all active:scale-[0.98]",
               selectedCategory === null
                 ? "bg-foreground text-background"
-                : "bg-muted/60 text-foreground hover:bg-muted"
+                : "bg-muted/60 text-foreground"
             )}
           >
             Todos
@@ -115,10 +109,10 @@ export function EventsView() {
               key={key}
               onClick={() => setSelectedCategory(key)}
               className={cn(
-                "h-9 px-4 rounded-full text-sm font-medium whitespace-nowrap transition-all duration-200 flex items-center gap-2",
+                "h-9 px-4 rounded-full text-sm font-medium whitespace-nowrap transition-all flex items-center gap-2 active:scale-[0.98]",
                 selectedCategory === key
                   ? "text-white"
-                  : "bg-muted/60 text-foreground hover:bg-muted"
+                  : "bg-muted/60 text-foreground"
               )}
               style={selectedCategory === key ? { backgroundColor: cat.color } : {}}
             >
@@ -129,8 +123,8 @@ export function EventsView() {
         </div>
       </div>
 
-      {/* Calendar toggle - minimal */}
-      <div className="px-5 pb-3">
+      {/* Calendar toggle */}
+      <div className="flex-shrink-0 px-5 pb-3">
         <button
           onClick={() => setShowCalendar(!showCalendar)}
           className={cn(
@@ -143,7 +137,7 @@ export function EventsView() {
         </button>
       </div>
 
-      {/* Collapsible Calendar - clean */}
+      {/* Collapsible Calendar */}
       <AnimatePresence>
         {showCalendar && (
           <motion.div
@@ -183,7 +177,6 @@ export function EventsView() {
                 }}
               />
 
-              {/* Selected day events */}
               {selectedDayEvents.length > 0 && (
                 <div className="mt-4 pt-4 border-t border-border/50 space-y-2">
                   <p className="text-xs font-semibold text-muted-foreground uppercase tracking-wide">
@@ -192,21 +185,22 @@ export function EventsView() {
                   {selectedDayEvents.slice(0, 3).map(event => {
                     const cat = categories[event.type as keyof typeof categories] || categories.Other;
                     return (
-                      <button
-                        key={event.id}
-                        onClick={() => window.open(event.url_ticket, "_blank")}
-                        className="w-full flex items-center gap-3 p-3 rounded-xl bg-background hover:bg-muted/50 transition-colors text-left"
-                      >
-                        <div
-                          className="w-1 h-10 rounded-full"
-                          style={{ backgroundColor: cat.color }}
-                        />
+                      <div key={event.id} className="flex items-center gap-3 p-3 rounded-xl bg-background">
+                        <div className="w-1 h-10 rounded-full" style={{ backgroundColor: cat.color }} />
                         <div className="flex-1 min-w-0">
-                          <p className="text-sm font-semibold text-foreground truncate">{event.title}</p>
+                          <p className="text-sm font-semibold truncate">{event.title}</p>
                           <p className="text-xs text-muted-foreground">{event.time}</p>
                         </div>
-                        <ChevronRight className="h-4 w-4 text-muted-foreground" />
-                      </button>
+                        <button
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            window.open(getWazeUrl(event.lat, event.lon, event.location), "_blank");
+                          }}
+                          className="h-8 w-8 rounded-lg bg-blue-500/10 flex items-center justify-center active:scale-[0.95]"
+                        >
+                          <Navigation className="h-4 w-4 text-blue-500" />
+                        </button>
+                      </div>
                     );
                   })}
                 </div>
@@ -216,29 +210,29 @@ export function EventsView() {
         )}
       </AnimatePresence>
 
-      {/* Events list - Gridwise/Uber clean cards */}
+      {/* Events list */}
       <div className="flex-1 overflow-y-auto">
         <div className="px-5 py-4 space-y-3 pb-28">
           <AnimatePresence mode="popLayout">
             {filteredEvents.map((event, idx) => {
               const cat = categories[event.type as keyof typeof categories] || categories.Other;
               const Icon = cat.icon;
-              const dayNum = event.date.match(/\d+/)?.[0] || "";
-              const monthShort = event.date.split(' ')[2]?.slice(0, 3).toUpperCase() || "";
+              const eventDate = new Date(event.rawDate);
+              const dayNum = eventDate.getDate();
+              const monthShort = monthNamesShort[eventDate.getMonth()];
 
               return (
-                <motion.button
+                <motion.div
                   key={event.id}
                   initial={{ opacity: 0, y: 12 }}
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -12 }}
                   transition={{ duration: 0.2, delay: idx * 0.03 }}
-                  onClick={() => window.open(event.url_ticket, "_blank")}
-                  className="w-full flex items-center gap-4 p-4 rounded-2xl bg-card border border-border/50 hover:border-border hover:shadow-sm active:scale-[0.98] transition-all duration-200 text-left"
+                  className="flex items-center gap-4 p-4 rounded-2xl bg-card border border-border/50"
                 >
                   {/* Date block */}
-                  <div className="flex-shrink-0 w-14 text-center">
-                    <p className="text-2xl font-bold text-foreground leading-none">{dayNum}</p>
+                  <div className="flex-shrink-0 w-12 text-center">
+                    <p className="text-2xl font-bold leading-none">{dayNum}</p>
                     <p className="text-[10px] font-semibold text-muted-foreground tracking-wide mt-1">{monthShort}</p>
                   </div>
 
@@ -247,20 +241,15 @@ export function EventsView() {
 
                   {/* Content */}
                   <div className="flex-1 min-w-0">
-                    {/* Category tag */}
                     <div className="flex items-center gap-1.5 mb-1">
                       <Icon className="h-3 w-3" style={{ color: cat.color }} />
                       <span className="text-[11px] font-semibold" style={{ color: cat.color }}>
                         {cat.label}
                       </span>
                     </div>
-
-                    {/* Title */}
-                    <h3 className="text-[15px] font-semibold text-foreground leading-snug line-clamp-1">
+                    <h3 className="text-[15px] font-semibold leading-snug line-clamp-1">
                       {event.title}
                     </h3>
-
-                    {/* Meta */}
                     <div className="flex items-center gap-3 mt-1.5 text-xs text-muted-foreground">
                       <span className="flex items-center gap-1">
                         <Clock className="h-3 w-3" />
@@ -273,10 +262,11 @@ export function EventsView() {
                     </div>
                   </div>
 
-                  {/* Attendance + Arrow */}
+                  {/* Actions */}
                   <div className="flex-shrink-0 flex items-center gap-2">
-                    <div className="text-right">
-                      <p className="text-xs font-bold text-foreground tabular-nums">
+                    {/* Attendance */}
+                    <div className="text-right mr-1">
+                      <p className="text-xs font-bold tabular-nums">
                         {event.attendees >= 1000
                           ? `${(event.attendees / 1000).toFixed(0)}k`
                           : event.attendees}
@@ -286,14 +276,21 @@ export function EventsView() {
                         est.
                       </p>
                     </div>
-                    <ChevronRight className="h-5 w-5 text-muted-foreground/50" />
+
+                    {/* Waze button */}
+                    <button
+                      onClick={() => window.open(getWazeUrl(event.lat, event.lon, event.location), "_blank")}
+                      className="h-10 w-10 rounded-xl bg-blue-500 flex items-center justify-center active:scale-[0.95] transition-transform"
+                      title="Ir con Waze"
+                    >
+                      <Navigation className="h-5 w-5 text-white" />
+                    </button>
                   </div>
-                </motion.button>
+                </motion.div>
               );
             })}
           </AnimatePresence>
 
-          {/* Empty state */}
           {filteredEvents.length === 0 && (
             <motion.div
               initial={{ opacity: 0 }}
@@ -303,7 +300,7 @@ export function EventsView() {
               <div className="w-16 h-16 rounded-full bg-muted/50 flex items-center justify-center mb-4">
                 <CalendarIcon className="h-7 w-7 text-muted-foreground/50" />
               </div>
-              <p className="text-base font-semibold text-foreground">Sin eventos</p>
+              <p className="text-base font-semibold">Sin eventos</p>
               <p className="text-sm text-muted-foreground mt-1">No hay eventos en esta categoría</p>
             </motion.div>
           )}

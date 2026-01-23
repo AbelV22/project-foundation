@@ -346,9 +346,9 @@ export function TerminalDetailView({ terminalId, onBack }: TerminalDetailViewPro
                       )}
                     >
                       {/* Time block */}
-                      <div className="flex-shrink-0 w-14 text-center">
+                      <div className="flex-shrink-0 w-16 text-center">
                         <p className="text-2xl font-bold leading-none">{hour}</p>
-                        <p className="text-[10px] text-muted-foreground mt-0.5">{minutes}</p>
+                        <p className="text-base font-semibold text-muted-foreground">{minutes}</p>
                       </div>
 
                       {/* Divider */}

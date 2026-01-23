@@ -18,17 +18,20 @@ export interface FormattedEvent {
   title: string;
   location: string;
   date: string;
+  rawDate: string; // ISO date for reliable parsing
   time: string;
   endTime: string;
   attendees: number;
   type: "Congress" | "Music" | "Sports" | "Culture" | "Other";
   categoria: string;
   url_ticket: string;
+  lat: number;
+  lon: number;
 }
 
 const categoryMap: Record<string, FormattedEvent["type"]> = {
   "Congress": "Congress",
-  "Music": "Music", 
+  "Music": "Music",
   "Sports": "Sports",
   "Culture": "Culture"
 };
@@ -56,7 +59,6 @@ const estimateAttendees = (recinto: string, categoria: string): number => {
     }
   }
 
-  // Default estimates by category
   if (categoria === "Congress") return 15000;
   if (categoria === "Music") return 5000;
   if (categoria === "Sports") return 20000;
@@ -86,12 +88,12 @@ export function useEvents() {
       try {
         const response = await fetch("/eventos_bcn.json");
         if (!response.ok) throw new Error("Error fetching events");
-        
+
         const data: EventBcn[] = await response.json();
-        
+
         const today = new Date();
         today.setHours(0, 0, 0, 0);
-        
+
         const formattedEvents: FormattedEvent[] = data
           .filter(event => new Date(event.fecha) >= today)
           .map(event => ({
@@ -99,17 +101,18 @@ export function useEvents() {
             title: event.titulo,
             location: event.recinto,
             date: formatDate(event.fecha),
+            rawDate: event.fecha,
             time: formatTime(event.hora_inicio),
             endTime: formatTime(event.hora_fin_estimada),
             attendees: estimateAttendees(event.recinto, event.categoria),
             type: categoryMap[event.categoria] || "Other",
             categoria: event.categoria,
-            url_ticket: event.url_ticket
+            url_ticket: event.url_ticket,
+            lat: event.latitud,
+            lon: event.longitud
           }))
           .sort((a, b) => {
-            const dateA = new Date(data.find(e => e.id === a.id)?.fecha || "");
-            const dateB = new Date(data.find(e => e.id === b.id)?.fecha || "");
-            return dateA.getTime() - dateB.getTime();
+            return new Date(a.rawDate).getTime() - new Date(b.rawDate).getTime();
           });
 
         setEvents(formattedEvents);

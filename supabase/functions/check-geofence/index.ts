@@ -1,6 +1,28 @@
 import { serve } from "https://deno.land/std@0.168.0/http/server.ts"
 import { createClient } from 'https://esm.sh/@supabase/supabase-js@2'
 
+// Rate limiting: track requests per device
+const rateLimitMap = new Map<string, { count: number; resetTime: number }>();
+const RATE_LIMIT_WINDOW_MS = 30 * 1000; // 30 seconds
+const RATE_LIMIT_MAX_REQUESTS = 2; // Max 2 requests per 30 seconds per device
+
+function isRateLimited(deviceId: string): { limited: boolean; retryAfter?: number } {
+  const now = Date.now();
+  const deviceLimit = rateLimitMap.get(deviceId);
+
+  if (!deviceLimit || now > deviceLimit.resetTime) {
+    rateLimitMap.set(deviceId, { count: 1, resetTime: now + RATE_LIMIT_WINDOW_MS });
+    return { limited: false };
+  }
+
+  if (deviceLimit.count >= RATE_LIMIT_MAX_REQUESTS) {
+    return { limited: true, retryAfter: Math.ceil((deviceLimit.resetTime - now) / 1000) };
+  }
+
+  deviceLimit.count++;
+  return { limited: false };
+}
+
 // --- CONFIGURACIÓN DE ZONAS ---
 const ZONAS: Record<string, { tipo: string; poligonos: number[][][] }> = {
   "T1": {
@@ -105,11 +127,26 @@ serve(async (req) => {
     }
 
     // For register action, validate device ID
-    if (!deviceId || typeof deviceId !== 'string' || deviceId.length < 36) {
+    if (!deviceId || typeof deviceId !== 'string' || deviceId.length < 2) {
       return new Response(JSON.stringify({
         success: false,
         message: "❌ Device ID inválido."
       }), { headers: { ...corsHeaders, 'Content-Type': 'application/json' } });
+    }
+
+    // Rate limiting check
+    const rateLimitResult = isRateLimited(deviceId);
+    if (rateLimitResult.limited) {
+      console.log(`[check-geofence] Rate limited: ${deviceId}`);
+      return new Response(JSON.stringify({
+        success: false,
+        message: `⏱️ Demasiadas solicitudes. Intenta en ${rateLimitResult.retryAfter}s`,
+        rateLimited: true,
+        retryAfter: rateLimitResult.retryAfter
+      }), {
+        status: 429,
+        headers: { ...corsHeaders, 'Content-Type': 'application/json', 'Retry-After': String(rateLimitResult.retryAfter) }
+      });
     }
 
     // Validate coordinates (Europe range for compatibility)

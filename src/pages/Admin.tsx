@@ -16,8 +16,9 @@ import { isProTrackingActive, getLastProPosition, configureProTracking, startPro
 import { LocationDiagnosticsPanel } from "@/components/LocationDiagnosticsPanel";
 import { NativeDebugLogsPanel } from "@/components/NativeDebugLogsPanel";
 
-// Admin password
-const ADMIN_PASSWORD = "laraabel22";
+// Admin password - loaded from environment variable for security
+// Set VITE_ADMIN_PASSWORD in your .env file
+const ADMIN_PASSWORD = import.meta.env.VITE_ADMIN_PASSWORD || "";
 
 interface RegistroReten {
     id: string;
