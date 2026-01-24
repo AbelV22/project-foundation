@@ -21,17 +21,20 @@ PUBLIC_DIR = PROJECT_ROOT / 'public'
 OUTPUT_FILES = {
     # Vuelos AENA (scraper)
     'vuelos_aena': PUBLIC_DIR / 'vuelos.json',
-    
+
     # Trenes ADIF (scraper)
     'trenes_sants': PUBLIC_DIR / 'trenes_sants.json',
-    
+
+    # Cruceros Port de Barcelona (scraper)
+    'cruceros': PUBLIC_DIR / 'cruceros.json',
+
     # Licencias (scraper raw)
     'licencias_raw': PROJECT_ROOT / 'licencias_totales.json',
-    
+
     # Licencias (procesado)
     'licencias_history': PUBLIC_DIR / 'history_stats.csv',
     'licencias_web_feed': PUBLIC_DIR / 'web_feed.json',
-    
+
     # API Vuelos (update_data)
     'data_api': PUBLIC_DIR / 'data.json',
 }
@@ -43,6 +46,9 @@ URLS = {
     'adif': 'https://www.adif.es/w/71801-barcelona-sants?pageFromPlid=335',
     'aena': 'https://www.aena.es/es/infovuelos.html',
     'aviation_api': 'http://api.aviationstack.com/v1/flights',
+    # Port de Barcelona Open Data - Cruceros
+    'cruceros_llegadas': 'https://opendata.portdebarcelona.cat/dataset/342fe09b-017b-4019-a743-ee773f09befd/resource/72f0fc9e-b4b4-4a61-a0fb-e7b65b601b4d/download/arribadesavui.csv',
+    'cruceros_salidas': 'https://opendata.portdebarcelona.cat/dataset/342fe09b-017b-4019-a743-ee773f09befd/resource/4bf1ccd0-5132-4d54-81d4-1ab72d5542e9/download/sortidesavui.csv',
 }
 
 # =============================================================================
@@ -62,6 +68,7 @@ LIMITS = {
     'min_flights_valid': 10,    # Mínimo vuelos para considerar válido
     'min_trains_valid': 5,      # Mínimo trenes para considerar válido
     'min_licenses_valid': 3,    # Mínimo licencias para considerar válido
+    'min_cruises_valid': 0,     # Puede haber días sin cruceros
 }
 
 # =============================================================================

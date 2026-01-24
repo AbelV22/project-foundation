@@ -11,6 +11,7 @@ import { FullDayView } from "@/components/views/FullDayView";
 import { TrainsFullDayView } from "@/components/views/TrainsFullDayView";
 import { TrainsByCityView } from "@/components/views/TrainsByCityView";
 import { TrainsByOperatorView } from "@/components/views/TrainsByOperatorView";
+import { CruisesView } from "@/components/views/CruisesView";
 import { QuickEarningsSheet } from "@/components/widgets/QuickEarningsSheet";
 import { WhereNextSheet } from "@/components/widgets/WhereNextSheet";
 import { EarningsView } from "@/components/views/EarningsView";
@@ -19,6 +20,7 @@ const titles: Record<string, string> = {
   dashboard: "Inicio",
   vuelos: "Vuelos Aeropuerto BCN",
   trenes: "Trenes Sants",
+  cruceros: "Cruceros Puerto BCN",
   eventos: "Calendario de Eventos",
   licencias: "Precio de Licencias",
   alertas: "Alertas",
@@ -94,6 +96,14 @@ const Index = () => {
     setActiveTab("licencias");
   };
 
+  const handleViewCruises = () => {
+    setActiveTab("cruceros");
+  };
+
+  const handleBackFromCruises = () => {
+    setActiveTab("dashboard");
+  };
+
   return (
     <div className="min-h-screen bg-background">
       {/* Bottom Navigation */}
@@ -118,6 +128,7 @@ const Index = () => {
               onViewAllEvents={handleViewAllEvents}
               onViewFullDay={handleViewFullDay}
               onViewTrainsFullDay={handleViewTrainsFullDay}
+              onViewCruises={handleViewCruises}
               onViewLicenses={handleViewLicenses}
               onViewEarnings={() => setActiveTab("earnings")}
             />
@@ -131,6 +142,9 @@ const Index = () => {
             />
           )}
           {activeTab === "eventos" && <EventsView />}
+          {activeTab === "cruceros" && (
+            <CruisesView onBack={handleBackFromCruises} />
+          )}
           {activeTab === "licencias" && <LicensesView />}
           {activeTab === "alertas" && <AlertsView />}
           {activeTab === "terminalDetail" && selectedTerminal && (

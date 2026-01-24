@@ -117,18 +117,46 @@ class DataValidator:
     def validate_web_feed(data: Dict) -> tuple[bool, str]:
         """Valida estructura del feed web de licencias."""
         required_keys = ['ticker', 'charts', 'market_depth', 'updated_at']
-        
+
         if not isinstance(data, dict):
             return False, "No es un diccionario"
-        
+
         for key in required_keys:
             if key not in data:
                 return False, f"Falta clave '{key}'"
-        
+
         if 'ticker' in data and 'current_price' in data['ticker']:
             if data['ticker']['current_price'] <= 0:
                 return False, "Precio actual es 0 o negativo"
-        
+
+        return True, "OK"
+
+    @staticmethod
+    def validate_cruise_data(data: Dict) -> tuple[bool, str]:
+        """Valida estructura de datos de cruceros."""
+        if not isinstance(data, dict):
+            return False, "No es un diccionario"
+
+        required_keys = ['llegadas', 'salidas', 'resumen', 'metadata']
+        for key in required_keys:
+            if key not in data:
+                return False, f"Falta clave '{key}'"
+
+        # Verificar que llegadas y salidas son listas
+        if not isinstance(data.get('llegadas'), list):
+            return False, "llegadas no es una lista"
+        if not isinstance(data.get('salidas'), list):
+            return False, "salidas no es una lista"
+
+        # Validar estructura de cruceros individuales (si hay datos)
+        for i, crucero in enumerate(data['llegadas'][:3]):
+            if 'hora' not in crucero or 'nombre' not in crucero:
+                return False, f"Crucero llegada {i} sin campos requeridos"
+
+        for i, crucero in enumerate(data['salidas'][:3]):
+            if 'hora' not in crucero or 'nombre' not in crucero:
+                return False, f"Crucero salida {i} sin campos requeridos"
+
         return True, "OK"
 
 
@@ -317,6 +345,7 @@ def safe_save_json(filepath: str, data: Any, data_type: str = 'generic', **kwarg
         'trains': validator.validate_train_data,
         'licenses': validator.validate_license_data,
         'web_feed': validator.validate_web_feed,
+        'cruises': validator.validate_cruise_data,
     }
     
     validator_func = validators.get(data_type)
