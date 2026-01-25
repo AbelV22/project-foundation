@@ -1,0 +1,55 @@
+name: Actualizar Cruceros Puerto BCN
+
+on:
+  schedule:
+    # Ejecutar cada 2 horas desde las 5:00 hasta las 23:00 UTC
+    # En España esto es: 06:00 AM hasta 00:00 AM (horario de cruceros)
+    - cron: '0 5,7,9,11,13,15,17,19,21,23 * * *'
+  workflow_dispatch: # Permite ejecutarlo manualmente desde la pestaña Actions
+
+permissions:
+  contents: write # Necesario para poder hacer 'git push' del JSON
+
+jobs:
+  scrape-cruises:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 🛎️ Checkout del código
+        uses: actions/checkout@v4
+
+      - name: 🐍 Configurar Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.9'
+
+      - name: 📦 Instalar dependencias
+        run: |
+          pip install requests
+
+      - name: 🚢 Ejecutar Scraper Cruceros
+        run: python scripts/cruceros_scrap.py
+
+      - name: 💾 Commit y Push si hay cambios
+        run: |
+          git config --global user.name 'GitHub Action Bot'
+          git config --global user.email 'action@github.com'
+          git add public/cruceros.json public/backups/ || true
+
+          # Solo hace commit si hay cambios reales
+          if git diff --staged --quiet; then
+            echo "✅ No hay cambios nuevos en cruceros. Nada que guardar."
+          else
+            git commit -m "🚢 Actualizar cruceros Puerto BCN"
+
+            # Manejar conflictos con fetch + rebase
+            git fetch origin main
+
+            if ! git rebase origin/main; then
+              echo "⚠️ Rebase falló, intentando merge..."
+              git rebase --abort || true
+              git merge origin/main --no-edit -X theirs || true
+            fi
+
+            git push origin main
+          fi

@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react";
-import { RefreshCw, Plane, Train, Users, Clock, ChevronRight, TrendingUp, Calendar, Settings, Euro, MapPin, Navigation } from "lucide-react";
+import { RefreshCw, Plane, Train, Ship, Users, Clock, ChevronRight, TrendingUp, Calendar, Settings, Euro, MapPin, Navigation, Anchor } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useEvents } from "@/hooks/useEvents";
+import { useCruises } from "@/hooks/useCruises";
 import { useWaitingTimes, getZoneWaitingTime, getZoneTaxistasActivos, getZoneHasRealData } from "@/hooks/useWaitingTimes";
 import { useNavigate } from "react-router-dom";
 import { getTrackingStatus, forceLocationCheck } from "@/services/location/AutoLocationService";
@@ -31,6 +32,7 @@ interface DashboardViewProps {
   onViewAllEvents?: () => void;
   onViewFullDay?: () => void;
   onViewTrainsFullDay?: () => void;
+  onViewCruises?: () => void;
   onViewLicenses?: () => void;
   onViewEarnings?: () => void;
   onViewExpenses?: () => void;
@@ -102,7 +104,7 @@ interface LicenciasData {
   metadata: { precio_mercado_referencia: number };
 }
 
-export function DashboardView({ onTerminalClick, onViewAllFlights, onViewAllEvents, onViewFullDay, onViewTrainsFullDay, onViewLicenses, onViewEarnings, onViewExpenses }: DashboardViewProps) {
+export function DashboardView({ onTerminalClick, onViewAllFlights, onViewAllEvents, onViewFullDay, onViewTrainsFullDay, onViewCruises, onViewLicenses, onViewEarnings, onViewExpenses }: DashboardViewProps) {
   const [vuelos, setVuelos] = useState<VueloRaw[]>([]);
   const [trenes, setTrenes] = useState<TrenSants[]>([]);
   const [licencias, setLicencias] = useState<LicenciasData | null>(null);
@@ -114,8 +116,11 @@ export function DashboardView({ onTerminalClick, onViewAllFlights, onViewAllEven
     lastCheckTime: string | null;
   } | null>(null);
   const { events } = useEvents();
+  const { resumen: cruiseResumen, getNextArrival, loading: cruisesLoading } = useCruises();
   const { waitingTimes } = useWaitingTimes();
   const navigate = useNavigate();
+
+  const nextCruise = getNextArrival();
 
   // Poll tracking status every 10 seconds
   useEffect(() => {
@@ -434,6 +439,77 @@ export function DashboardView({ onTerminalClick, onViewAllFlights, onViewAllEven
           </div>
         </div>
       </section>
+
+      {/* === PUERTO BCN - CRUCEROS === */}
+      {!cruisesLoading && (
+        <section className="space-y-2 animate-fade-in" style={{ animationDelay: '550ms', animationFillMode: 'backwards' }}>
+          <button
+            onClick={onViewCruises}
+            className="flex items-center justify-between w-full px-1 group"
+          >
+            <div className="flex items-center gap-2">
+              <Ship className="h-4 w-4 text-cyan-400" />
+              <span className="text-xs font-semibold text-muted-foreground uppercase tracking-wider group-hover:text-foreground transition-colors">Puerto BCN</span>
+              {cruiseResumen.total_cruceros > 0 && (
+                <>
+                  <span className="font-mono text-lg font-bold text-foreground tabular-nums">{cruiseResumen.total_cruceros}</span>
+                  <span className="text-[10px] text-muted-foreground">cruceros</span>
+                </>
+              )}
+            </div>
+            <ChevronRight className="h-4 w-4 text-muted-foreground group-hover:text-primary transition-colors" />
+          </button>
+
+          {cruiseResumen.total_cruceros > 0 ? (
+            <div className="card-glass p-3">
+              <div className="flex items-center justify-between">
+                <div className="flex items-center gap-3">
+                  <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-cyan-500/10">
+                    <Anchor className="h-5 w-5 text-cyan-400" />
+                  </div>
+                  <div>
+                    <div className="flex items-center gap-2">
+                      <span className="font-display font-bold text-lg text-foreground">
+                        {cruiseResumen.total_cruceros}
+                      </span>
+                      <span className="text-xs text-muted-foreground">barcos hoy</span>
+                    </div>
+                    <div className="flex items-center gap-3 text-[10px] text-muted-foreground">
+                      <span>↓ {cruiseResumen.total_llegadas} llegadas</span>
+                      <span>↑ {cruiseResumen.total_salidas} salidas</span>
+                    </div>
+                  </div>
+                </div>
+                <div className="text-right">
+                  <div className="flex items-center gap-1 text-purple-400">
+                    <Users className="h-3 w-3" />
+                    <span className="font-display font-bold text-sm">
+                      {cruiseResumen.pax_estimados_hoy >= 1000
+                        ? `${(cruiseResumen.pax_estimados_hoy / 1000).toFixed(1)}k`
+                        : cruiseResumen.pax_estimados_hoy}
+                    </span>
+                  </div>
+                  <span className="text-[9px] text-muted-foreground">pax estimados</span>
+                </div>
+              </div>
+              {nextCruise && (
+                <div className="mt-2 pt-2 border-t border-border/40 flex items-center justify-between text-xs">
+                  <div className="flex items-center gap-2">
+                    <Clock className="h-3 w-3 text-cyan-400" />
+                    <span className="text-muted-foreground">Próximo:</span>
+                    <span className="font-medium text-foreground truncate max-w-[120px]">{nextCruise.nombre}</span>
+                  </div>
+                  <span className="font-display font-bold text-cyan-400">{nextCruise.hora}</span>
+                </div>
+              )}
+            </div>
+          ) : (
+            <div className="card-glass p-3 text-center">
+              <p className="text-sm text-muted-foreground">Sin cruceros programados hoy</p>
+            </div>
+          )}
+        </section>
+      )}
 
       {/* === LIVE DATA WIDGETS - GLASS === */}
       <div className="grid grid-cols-2 gap-2 animate-fade-in" style={{ animationDelay: '600ms', animationFillMode: 'backwards' }}>

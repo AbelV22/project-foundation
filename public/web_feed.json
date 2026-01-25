@@ -1,11 +1,11 @@
 {
     "ticker": {
-        "current_price": 164824,
-        "delta_value": -555,
-        "delta_percent": -0.34,
-        "direction": "down",
-        "volume": 18,
-        "volatility": 10652
+        "current_price": 162591,
+        "delta_value": 0,
+        "delta_percent": 0.0,
+        "direction": "up",
+        "volume": 19,
+        "volatility": 10539
     },
     "charts": {
         "history_dates": [
@@ -19,7 +19,9 @@
             "2026-01-20",
             "2026-01-21",
             "2026-01-22",
-            "2026-01-23"
+            "2026-01-23",
+            "2026-01-24",
+            "2026-01-25"
         ],
         "history_prices": [
             166147,
@@ -32,7 +34,9 @@
             161435,
             165621,
             165379,
-            164824
+            164824,
+            162591,
+            162591
         ],
         "history_sma_7": [
             0,
@@ -45,14 +49,16 @@
             166975,
             166900,
             166831,
-            166643
+            166643,
+            165620,
+            164598
         ],
         "price_by_day_descanso": {
             "JUEVES IMPAR": 169040,
             "JUEVES PAR": 170495,
             "MARTES PAR": 174285,
             "MIERCOLES IMPAR": 175783,
-            "NO ESPECIFICADO": 161435,
+            "NO ESPECIFICADO": 160357,
             "VIERNES IMPAR": 160161
         }
     },
@@ -91,12 +97,12 @@
                 "valor_coche": 4437
             },
             {
-                "fuente": "SOLANO",
-                "dia": "JUEVES IMPAR",
-                "modelo": "DACIA",
-                "precio_neto": 159582,
-                "precio_total": 173000,
-                "valor_coche": 13418
+                "fuente": "STAC",
+                "dia": "NO ESPECIFICADO",
+                "modelo": "DESCONOCIDO",
+                "precio_neto": 158563,
+                "precio_total": 163000,
+                "valor_coche": 4437
             }
         ],
         "all_offers": [
@@ -172,6 +178,13 @@
             },
             {
                 "fuente": "STAC",
+                "precio_neto": 158563,
+                "modelo": "DESCONOCIDO",
+                "dia": "NO ESPECIFICADO",
+                "raw": "Referencia: 935 |  | Se vende licencia sin vehículo. | Precio: 163000€ | + INFO..."
+            },
+            {
+                "fuente": "STAC",
                 "precio_neto": 153563,
                 "modelo": "DESCONOCIDO",
                 "dia": "NO ESPECIFICADO",
@@ -228,5 +241,5 @@
             }
         ]
     },
-    "updated_at": "23/01/2026 07:17"
+    "updated_at": "25/01/2026 07:14"
 }

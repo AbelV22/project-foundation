@@ -1,7 +1,5 @@
 import { useState, useEffect, useMemo } from "react";
-import { ArrowLeft, Plane, Globe, Clock, Flame, ChevronRight } from "lucide-react";
 import { cn } from "@/lib/utils";
-import { motion, AnimatePresence } from "framer-motion";
 
 interface VueloRaw {
   hora: string;
@@ -28,15 +26,6 @@ const LONG_HAUL_ORIGINS = [
   "TEL AVIV", "CAIRO", "EL CAIRO", "LAX", "JFK", "ORD", "DFW", "DOH", "DXB",
 ];
 
-const terminals = {
-  t1: { name: "T1", fullName: "Terminal 1", color: "#FACC15" },
-  t2: { name: "T2", fullName: "Terminal 2", color: "#3B82F6" },
-  puente: { name: "Puente", fullName: "Puente Aéreo", color: "#8B5CF6" },
-  t2c: { name: "T2C", fullName: "T2C EasyJet", color: "#F97316" },
-};
-
-const waitTimeBase: Record<string, number> = { t1: 25, t2: 15, t2c: 12, puente: 8 };
-
 const isLongHaul = (origen: string): boolean => {
   const origenUpper = origen?.toUpperCase() || "";
   return LONG_HAUL_ORIGINS.some((lh) => origenUpper.includes(lh));
@@ -54,10 +43,29 @@ const getTerminalType = (vuelo: VueloRaw): "t1" | "t2" | "t2c" | "puente" => {
   return "t2";
 };
 
+// Intensity levels for heat coloring
+type IntensityLevel = "none" | "low" | "medium" | "high";
+
+const getIntensityLevel = (count: number, max: number): IntensityLevel => {
+  if (count === 0) return "none";
+  const ratio = count / max;
+  if (ratio >= 0.7) return "high";
+  if (ratio >= 0.4) return "medium";
+  return "low";
+};
+
+// Terminal colors
+const terminalColors = {
+  t1: { bg: "bg-amber-500", text: "text-amber-500", badge: "bg-amber-500" },
+  t2: { bg: "bg-blue-500", text: "text-blue-500", badge: "bg-blue-500" },
+  puente: { bg: "bg-purple-500", text: "text-purple-500", badge: "bg-purple-500" },
+  t2c: { bg: "bg-orange-500", text: "text-orange-500", badge: "bg-orange-500" },
+};
+
 export function FullDayView({ onBack, onTerminalClick }: FullDayViewProps) {
   const [vuelos, setVuelos] = useState<VueloRaw[]>([]);
   const [loading, setLoading] = useState(true);
-  const [selectedTerminal, setSelectedTerminal] = useState<string | null>(null);
+  const [showAll24Hours, setShowAll24Hours] = useState(false);
 
   useEffect(() => {
     fetch("/vuelos.json?t=" + Date.now())
@@ -75,11 +83,9 @@ export function FullDayView({ onBack, onTerminalClick }: FullDayViewProps) {
 
   const now = new Date();
   const currentHour = now.getHours();
-  const currentMinutes = currentHour * 60 + now.getMinutes();
-  const timeFormatted = now.toLocaleTimeString("es-ES", { hour: "2-digit", minute: "2-digit" });
 
-  const vuelosActivos = useMemo(() =>
-    vuelos.filter((v) => !v.estado?.toLowerCase().includes("cancelado")),
+  const vuelosActivos = useMemo(
+    () => vuelos.filter((v) => !v.estado?.toLowerCase().includes("cancelado")),
     [vuelos]
   );
 
@@ -92,384 +98,259 @@ export function FullDayView({ onBack, onTerminalClick }: FullDayViewProps) {
     return data;
   }, [vuelosActivos]);
 
-  // Group flights by hour for each terminal
-  const hourlyData = useMemo(() => {
-    const startHour = (currentHour - 1 + 24) % 24;
-    const hours: { hour: number; t1: number; t2: number; t2c: number; puente: number; total: number }[] = [];
-
-    for (let i = 0; i < 8; i++) {
-      const h = (startHour + i) % 24;
-      const counts = { hour: h, t1: 0, t2: 0, t2c: 0, puente: 0, total: 0 };
-
-      Object.entries(vuelosPorTerminal).forEach(([terminal, flights]) => {
-        const count = flights.filter(v => {
-          const flightHour = parseInt(v.hora?.split(":")[0] || "0", 10);
-          return flightHour === h;
-        }).length;
-        counts[terminal as keyof typeof counts] = count;
-        counts.total += count;
+  // Count flights per hour and terminal
+  const countByHourAndTerminal = useMemo(() => {
+    const counts: Record<string, Record<number, number>> = { t1: {}, t2: {}, t2c: {}, puente: {} };
+    Object.entries(vuelosPorTerminal).forEach(([terminal, flights]) => {
+      flights.forEach((v) => {
+        const hour = parseInt(v.hora?.split(":")[0] || "0", 10);
+        counts[terminal][hour] = (counts[terminal][hour] || 0) + 1;
       });
+    });
+    return counts;
+  }, [vuelosPorTerminal]);
 
-      hours.push(counts);
+  // Find max per terminal for intensity calculation
+  const maxByTerminal = useMemo(() => {
+    return {
+      t1: Math.max(...Object.values(countByHourAndTerminal.t1), 1),
+      t2: Math.max(...Object.values(countByHourAndTerminal.t2), 1),
+      puente: Math.max(...Object.values(countByHourAndTerminal.puente), 1),
+      t2c: Math.max(...Object.values(countByHourAndTerminal.t2c), 1),
+    };
+  }, [countByHourAndTerminal]);
+
+  // Calculate upcoming long-haul flights for the alert banner
+  const upcomingLongHaul = useMemo(() => {
+    const currentMinutes = currentHour * 60 + now.getMinutes();
+    const twoHoursFromNow = currentMinutes + 120;
+
+    return vuelosActivos
+      .filter((v) => {
+        if (!isLongHaul(v.origen)) return false;
+        const estado = v.estado?.toLowerCase() || "";
+        if (estado.includes("finalizado")) return false;
+        const [h, m] = (v.hora || "00:00").split(":").map(Number);
+        const flightMin = h * 60 + m;
+        return flightMin >= currentMinutes - 30 && flightMin <= twoHoursFromNow;
+      })
+      .sort((a, b) => {
+        const [ha, ma] = (a.hora || "00:00").split(":").map(Number);
+        const [hb, mb] = (b.hora || "00:00").split(":").map(Number);
+        return ha * 60 + ma - (hb * 60 + mb);
+      });
+  }, [vuelosActivos, currentHour, now]);
+
+  // Generate hour rows - starting from 1 hour before current
+  const hourRows = useMemo(() => {
+    const startHour = (currentHour - 1 + 24) % 24;
+    const hoursToShow = showAll24Hours ? 24 : 12;
+    const rows = [];
+
+    for (let i = 0; i < hoursToShow; i++) {
+      const hour = (startHour + i) % 24;
+      const t1Count = countByHourAndTerminal.t1[hour] || 0;
+      const t2Count = countByHourAndTerminal.t2[hour] || 0;
+      const puenteCount = countByHourAndTerminal.puente[hour] || 0;
+      const t2cCount = countByHourAndTerminal.t2c[hour] || 0;
+      const total = t1Count + t2Count + puenteCount + t2cCount;
+
+      rows.push({
+        hour,
+        label: `${hour.toString().padStart(2, "0")}:00`,
+        t1: t1Count,
+        t2: t2Count,
+        puente: puenteCount,
+        t2c: t2cCount,
+        total,
+        isCurrent: hour === currentHour,
+        t1Intensity: getIntensityLevel(t1Count, maxByTerminal.t1),
+        t2Intensity: getIntensityLevel(t2Count, maxByTerminal.t2),
+        puenteIntensity: getIntensityLevel(puenteCount, maxByTerminal.puente),
+        t2cIntensity: getIntensityLevel(t2cCount, maxByTerminal.t2c),
+      });
     }
 
-    return hours;
-  }, [vuelosPorTerminal, currentHour]);
+    return rows;
+  }, [countByHourAndTerminal, currentHour, maxByTerminal, showAll24Hours]);
 
-  // Find peak hour
-  const peakHour = useMemo(() => {
-    const upcoming = hourlyData.filter(h => h.hour >= currentHour);
-    if (upcoming.length === 0) return null;
-    return upcoming.reduce((max, h) => h.total > max.total ? h : max, upcoming[0]);
-  }, [hourlyData, currentHour]);
+  // Totals
+  const totals = useMemo(() => ({
+    t1: vuelosPorTerminal.t1.length,
+    t2: vuelosPorTerminal.t2.length,
+    puente: vuelosPorTerminal.puente.length,
+    t2c: vuelosPorTerminal.t2c.length,
+    total: vuelosActivos.length,
+  }), [vuelosPorTerminal, vuelosActivos]);
 
-  // Current hour data
-  const currentHourData = useMemo(() => {
-    return hourlyData.find(h => h.hour === currentHour) || { t1: 0, t2: 0, t2c: 0, puente: 0, total: 0 };
-  }, [hourlyData, currentHour]);
-
-  // Long-haul flights coming in next 2 hours
-  const upcomingLongHaul = useMemo(() => {
-    const twoHoursFromNow = currentMinutes + 120;
-    return vuelosActivos.filter(v => {
-      if (!isLongHaul(v.origen)) return false;
-      const estado = v.estado?.toLowerCase() || "";
-      if (estado.includes("finalizado")) return false;
-      const [h, m] = (v.hora || "00:00").split(":").map(Number);
-      const flightMin = h * 60 + m;
-      return flightMin >= currentMinutes - 30 && flightMin <= twoHoursFromNow;
-    }).sort((a, b) => {
-      const [ha, ma] = (a.hora || "00:00").split(":").map(Number);
-      const [hb, mb] = (b.hora || "00:00").split(":").map(Number);
-      return (ha * 60 + ma) - (hb * 60 + mb);
-    });
-  }, [vuelosActivos, currentMinutes]);
-
-  // Filtered flights by selected terminal
-  const filteredHourlyData = useMemo(() => {
-    if (!selectedTerminal) return hourlyData;
-    return hourlyData.map(h => ({
-      ...h,
-      total: h[selectedTerminal as keyof typeof h] as number
-    }));
-  }, [hourlyData, selectedTerminal]);
-
-  const maxHourlyTotal = Math.max(...filteredHourlyData.map(h => h.total), 1);
-
-  const isPeakHour = (currentHour >= 10 && currentHour <= 14) || (currentHour >= 18 && currentHour <= 21);
+  // Get badge style based on intensity
+  const getBadgeStyle = (intensity: IntensityLevel, terminal: keyof typeof terminalColors) => {
+    const colors = terminalColors[terminal];
+    switch (intensity) {
+      case "high":
+        return `${colors.badge} text-black font-bold`;
+      case "medium":
+        return `${colors.badge}/70 text-white font-semibold`;
+      case "low":
+        return `${colors.badge}/40 text-white font-medium`;
+      default:
+        return "bg-transparent text-muted-foreground/30";
+    }
+  };
 
   if (loading) {
     return (
-      <div className="flex flex-col h-full bg-background">
-        <div className="flex-shrink-0 px-5 pt-4 pb-3">
-          <div className="flex items-center justify-between">
-            <div className="h-10 w-10 rounded-xl bg-muted animate-pulse" />
-            <div className="h-6 w-32 rounded-lg bg-muted animate-pulse" />
-            <div className="h-8 w-20 rounded-full bg-muted animate-pulse" />
-          </div>
-        </div>
-        <div className="flex-1 px-5 space-y-4">
-          <div className="grid grid-cols-4 gap-2">
-            {[1, 2, 3, 4].map(i => (
-              <div key={i} className="h-16 bg-muted rounded-2xl animate-pulse" />
-            ))}
-          </div>
-          <div className="h-48 bg-muted rounded-2xl animate-pulse" />
-        </div>
+      <div className="flex flex-col h-full bg-background items-center justify-center">
+        <div className="w-8 h-8 border-2 border-primary border-t-transparent rounded-full animate-spin" />
+        <p className="text-xs text-muted-foreground mt-2">Cargando vuelos...</p>
       </div>
     );
   }
 
   return (
     <div className="flex flex-col h-full bg-background">
-      {/* Header */}
-      <div className="flex-shrink-0 px-5 pt-4 pb-3">
+      {/* Long-haul Alert Banner - Compact */}
+      {upcomingLongHaul.length > 0 && (
+        <div className="flex-shrink-0 px-3 py-2 bg-amber-500/10 border-b border-amber-500/30">
+          <div className="flex items-center gap-2">
+            <span className="text-amber-500 text-sm">🌍</span>
+            <span className="text-xs font-semibold text-amber-500">
+              {upcomingLongHaul.length} vuelos larga distancia prox. 2h
+            </span>
+          </div>
+          {upcomingLongHaul.slice(0, 2).map((flight, idx) => (
+            <p key={idx} className="text-[10px] text-amber-500/80 ml-6">
+              {flight.hora} {flight.origen?.split("(")[0]?.trim()}
+            </p>
+          ))}
+        </div>
+      )}
+
+      {/* Header Row - Minimal */}
+      <div className="flex-shrink-0 px-3 py-2 border-b border-border/50">
         <div className="flex items-center justify-between">
-          <button
-            onClick={onBack}
-            className="h-10 w-10 rounded-xl bg-muted/50 flex items-center justify-center hover:bg-muted active:scale-[0.98] transition-all"
-          >
-            <ArrowLeft className="h-5 w-5" />
-          </button>
-
-          <h1 className="text-lg font-bold">Vista del Día</h1>
-
-          <div className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-muted/50">
-            <div className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
-            <span className="text-sm font-mono font-bold">{timeFormatted}</span>
+          <div className="flex items-center gap-2">
+            <span className="text-xs text-muted-foreground">☀️</span>
+            <span className="text-xs font-semibold">Llegadas por hora</span>
+          </div>
+          <div className="flex items-center gap-3 text-[10px]">
+            <span className="flex items-center gap-1">
+              <span className="w-2 h-2 rounded-sm bg-green-500/40" /> Bajo
+            </span>
+            <span className="flex items-center gap-1">
+              <span className="w-2 h-2 rounded-sm bg-amber-500/70" /> Medio
+            </span>
+            <span className="flex items-center gap-1">
+              <span className="w-2 h-2 rounded-sm bg-red-500" /> Alto
+            </span>
           </div>
         </div>
       </div>
 
-      {/* Scrollable Content */}
+      {/* Table Header */}
+      <div className="flex-shrink-0 grid grid-cols-[50px_1fr_1fr_1fr_1fr_50px] gap-1 px-3 py-2 bg-muted/30 border-b border-border/50">
+        <div className="text-[10px] font-semibold text-muted-foreground text-center">Hora</div>
+        <div className="text-[10px] font-bold text-amber-500 text-center">T1</div>
+        <div className="text-[10px] font-bold text-blue-500 text-center">T2</div>
+        <div className="text-[10px] font-bold text-purple-500 text-center">PA</div>
+        <div className="text-[10px] font-bold text-orange-500 text-center">T2C</div>
+        <div className="text-[10px] font-semibold text-muted-foreground text-center">Total</div>
+      </div>
+
+      {/* Scrollable Table Body */}
       <div className="flex-1 overflow-y-auto">
-        <div className="px-5 pb-28 space-y-4">
-          {/* Terminal Filter Pills */}
-          <div className="flex gap-2 overflow-x-auto pb-1 -mx-5 px-5 scrollbar-hide">
-            <button
-              onClick={() => setSelectedTerminal(null)}
-              className={cn(
-                "h-9 px-4 rounded-full text-sm font-medium whitespace-nowrap transition-all active:scale-[0.98]",
-                selectedTerminal === null
-                  ? "bg-foreground text-background"
-                  : "bg-muted/60 text-foreground"
-              )}
-            >
-              Todos
-            </button>
-            {Object.entries(terminals).map(([key, t]) => (
-              <button
-                key={key}
-                onClick={() => setSelectedTerminal(key)}
-                className={cn(
-                  "h-9 px-4 rounded-full text-sm font-medium whitespace-nowrap transition-all active:scale-[0.98]",
-                  selectedTerminal === key
-                    ? "text-white"
-                    : "bg-muted/60 text-foreground"
-                )}
-                style={selectedTerminal === key ? { backgroundColor: t.color } : {}}
-              >
-                {t.name}
-              </button>
-            ))}
-          </div>
-
-          {/* Quick Stats - Current Hour */}
-          <div className="p-4 rounded-2xl bg-card border border-border/50">
-            <div className="flex items-center justify-between mb-3">
-              <div className="flex items-center gap-2">
-                <Clock className="h-4 w-4 text-muted-foreground" />
-                <span className="text-sm font-medium text-muted-foreground">Ahora mismo</span>
-              </div>
-              {isPeakHour && (
-                <div className="flex items-center gap-1 px-2 py-1 rounded-full bg-red-500/10">
-                  <Flame className="h-3 w-3 text-red-500" />
-                  <span className="text-xs font-semibold text-red-500">Hora pico</span>
-                </div>
-              )}
+        {hourRows.map((row) => (
+          <div
+            key={row.hour}
+            className={cn(
+              "grid grid-cols-[50px_1fr_1fr_1fr_1fr_50px] gap-1 px-3 py-1.5 border-b border-border/30",
+              row.isCurrent && "bg-primary/10 border-l-2 border-l-primary"
+            )}
+          >
+            {/* Hour */}
+            <div className={cn(
+              "text-xs font-mono text-center",
+              row.isCurrent ? "font-bold text-primary" : "text-muted-foreground"
+            )}>
+              {row.label}
             </div>
 
-            <div className="grid grid-cols-4 gap-2">
-              {Object.entries(terminals).map(([key, t]) => {
-                const count = currentHourData[key as keyof typeof currentHourData];
-                const waitTime = waitTimeBase[key] + (isPeakHour ? 12 : 0);
-                const isSelected = selectedTerminal === key || selectedTerminal === null;
+            {/* T1 */}
+            <div className="flex justify-center">
+              <span className={cn(
+                "min-w-[28px] h-6 flex items-center justify-center rounded text-xs",
+                getBadgeStyle(row.t1Intensity, "t1")
+              )}>
+                {row.t1 > 0 ? row.t1 : ""}
+              </span>
+            </div>
 
-                return (
-                  <button
-                    key={key}
-                    onClick={() => onTerminalClick?.(key)}
-                    className={cn(
-                      "p-3 rounded-xl border transition-all active:scale-[0.98]",
-                      isSelected
-                        ? "bg-card border-border/50"
-                        : "bg-muted/20 border-transparent opacity-50"
-                    )}
-                  >
-                    <p className="text-2xl font-bold" style={{ color: t.color }}>{count}</p>
-                    <p className="text-[10px] font-semibold text-muted-foreground">{t.name}</p>
-                    <p className="text-[10px] text-muted-foreground/70">~{waitTime}' espera</p>
-                  </button>
-                );
-              })}
+            {/* T2 */}
+            <div className="flex justify-center">
+              <span className={cn(
+                "min-w-[28px] h-6 flex items-center justify-center rounded text-xs",
+                getBadgeStyle(row.t2Intensity, "t2")
+              )}>
+                {row.t2 > 0 ? row.t2 : ""}
+              </span>
+            </div>
+
+            {/* Puente Aéreo */}
+            <div className="flex justify-center">
+              <span className={cn(
+                "min-w-[28px] h-6 flex items-center justify-center rounded text-xs",
+                getBadgeStyle(row.puenteIntensity, "puente")
+              )}>
+                {row.puente > 0 ? row.puente : ""}
+              </span>
+            </div>
+
+            {/* T2C */}
+            <div className="flex justify-center">
+              <span className={cn(
+                "min-w-[28px] h-6 flex items-center justify-center rounded text-xs",
+                getBadgeStyle(row.t2cIntensity, "t2c")
+              )}>
+                {row.t2c > 0 ? row.t2c : ""}
+              </span>
+            </div>
+
+            {/* Total */}
+            <div className={cn(
+              "text-xs font-bold text-center flex items-center justify-center",
+              row.total > 30 ? "text-red-500" : row.total > 20 ? "text-amber-500" : "text-foreground"
+            )}>
+              {row.total}
             </div>
           </div>
+        ))}
 
-          {/* Peak Hour Alert */}
-          {peakHour && peakHour.total > 0 && peakHour.hour !== currentHour && (
-            <motion.div
-              initial={{ opacity: 0, y: 12 }}
-              animate={{ opacity: 1, y: 0 }}
-              className="flex items-center gap-3 p-4 rounded-2xl bg-card border border-red-500/30"
-            >
-              <div className="h-12 w-12 rounded-xl bg-red-500/10 flex items-center justify-center">
-                <Flame className="h-6 w-6 text-red-500" />
-              </div>
-              <div className="flex-1">
-                <p className="text-sm font-semibold">Próximo pico: {peakHour.hour}:00h</p>
-                <p className="text-xs text-muted-foreground">
-                  {peakHour.total} vuelos aterrizando
-                </p>
-              </div>
-              <div className="text-right">
-                <p className="text-2xl font-bold text-red-500">{peakHour.total}</p>
-              </div>
-            </motion.div>
-          )}
+        {/* Show More / Less Button */}
+        <button
+          onClick={() => setShowAll24Hours(!showAll24Hours)}
+          className="w-full py-2 text-[11px] text-muted-foreground hover:text-foreground transition-colors border-b border-border/30"
+        >
+          {showAll24Hours ? "‹ Mostrar menos horas" : "› Mostrar 24 horas completas"}
+        </button>
+      </div>
 
-          {/* Long-haul Flights Alert */}
-          {upcomingLongHaul.length > 0 && (
-            <div className="p-4 rounded-2xl bg-card border border-amber-500/30">
-              <div className="flex items-center gap-2 mb-3">
-                <Globe className="h-4 w-4 text-amber-500" />
-                <span className="text-sm font-semibold text-amber-500">
-                  {upcomingLongHaul.length} vuelos larga distancia
-                </span>
-              </div>
-              <div className="space-y-2">
-                {upcomingLongHaul.slice(0, 3).map((flight, idx) => {
-                  const terminalType = getTerminalType(flight);
-                  const terminal = terminals[terminalType];
-                  const origen = flight.origen?.split("(")[0]?.trim() || flight.origen;
-
-                  return (
-                    <div
-                      key={idx}
-                      className="flex items-center gap-3 p-2 rounded-xl bg-amber-500/5"
-                    >
-                      <span className="font-mono font-bold text-lg">{flight.hora}</span>
-                      <div className="flex-1 min-w-0">
-                        <p className="text-sm font-medium truncate">{origen}</p>
-                      </div>
-                      <span
-                        className="text-xs font-semibold px-2 py-1 rounded-full"
-                        style={{ backgroundColor: `${terminal.color}20`, color: terminal.color }}
-                      >
-                        {terminal.name}
-                      </span>
-                    </div>
-                  );
-                })}
-                {upcomingLongHaul.length > 3 && (
-                  <p className="text-xs text-muted-foreground text-center">
-                    +{upcomingLongHaul.length - 3} más
-                  </p>
-                )}
-              </div>
-            </div>
-          )}
-
-          {/* Hourly Breakdown */}
-          <div className="p-4 rounded-2xl bg-card border border-border/50">
-            <div className="flex items-center justify-between mb-4">
-              <h2 className="text-sm font-semibold">Próximas horas</h2>
-              <span className="text-xs text-muted-foreground">Llegadas por hora</span>
-            </div>
-
-            <div className="space-y-2">
-              {filteredHourlyData.map((hourData, idx) => {
-                const isCurrent = hourData.hour === currentHour;
-                const isPeak = peakHour && hourData.hour === peakHour.hour;
-                const barWidth = maxHourlyTotal > 0 ? (hourData.total / maxHourlyTotal) * 100 : 0;
-
-                return (
-                  <motion.div
-                    key={hourData.hour}
-                    initial={{ opacity: 0, x: -12 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: idx * 0.03 }}
-                    className={cn(
-                      "flex items-center gap-3 p-2 rounded-xl transition-colors",
-                      isCurrent && "bg-primary/5 border border-primary/20"
-                    )}
-                  >
-                    <div className="w-12 flex items-center gap-1">
-                      {isPeak && <Flame className="h-3 w-3 text-red-500" />}
-                      <span className={cn(
-                        "text-sm font-mono",
-                        isCurrent ? "font-bold text-primary" : "text-muted-foreground"
-                      )}>
-                        {hourData.hour.toString().padStart(2, "0")}:00
-                      </span>
-                    </div>
-
-                    <div className="flex-1 h-7 bg-muted/30 rounded-full overflow-hidden">
-                      <motion.div
-                        initial={{ width: 0 }}
-                        animate={{ width: `${barWidth}%` }}
-                        transition={{ duration: 0.5, delay: idx * 0.05 }}
-                        className={cn(
-                          "h-full rounded-full flex items-center justify-end pr-2",
-                          isPeak ? "bg-red-500" : isCurrent ? "bg-primary" : "bg-muted-foreground/30"
-                        )}
-                      >
-                        {barWidth > 20 && (
-                          <span className="text-xs font-bold text-white">{hourData.total}</span>
-                        )}
-                      </motion.div>
-                    </div>
-
-                    {barWidth <= 20 && (
-                      <span className={cn(
-                        "w-8 text-sm font-bold text-right tabular-nums",
-                        isCurrent ? "text-primary" : "text-muted-foreground"
-                      )}>
-                        {hourData.total}
-                      </span>
-                    )}
-
-                    {/* Mini terminal breakdown */}
-                    {!selectedTerminal && hourData.total > 0 && (
-                      <div className="flex gap-1">
-                        {Object.entries(terminals).map(([key, t]) => {
-                          const count = hourData[key as keyof typeof hourData];
-                          if (count === 0) return null;
-                          return (
-                            <span
-                              key={key}
-                              className="text-[10px] font-bold px-1.5 py-0.5 rounded"
-                              style={{ backgroundColor: `${t.color}20`, color: t.color }}
-                            >
-                              {count}
-                            </span>
-                          );
-                        })}
-                      </div>
-                    )}
-                  </motion.div>
-                );
-              })}
-            </div>
-          </div>
-
-          {/* Terminal Cards - Tap to see details */}
-          <div className="space-y-3">
-            <h2 className="text-sm font-semibold px-1">Por terminal</h2>
-            {Object.entries(terminals).map(([key, t]) => {
-              const flights = vuelosPorTerminal[key];
-              const longHaulCount = flights.filter(f => isLongHaul(f.origen)).length;
-              const waitTime = waitTimeBase[key] + (isPeakHour ? 12 : 0);
-
-              if (selectedTerminal && selectedTerminal !== key) return null;
-
-              return (
-                <motion.button
-                  key={key}
-                  initial={{ opacity: 0, y: 12 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  onClick={() => onTerminalClick?.(key)}
-                  className="w-full flex items-center gap-4 p-4 rounded-2xl bg-card border border-border/50 hover:border-border active:scale-[0.98] transition-all text-left"
-                >
-                  <div
-                    className="h-12 w-12 rounded-xl flex items-center justify-center"
-                    style={{ backgroundColor: `${t.color}15` }}
-                  >
-                    <Plane className="h-6 w-6" style={{ color: t.color }} />
-                  </div>
-
-                  <div className="flex-1 min-w-0">
-                    <p className="text-base font-semibold">{t.fullName}</p>
-                    <div className="flex items-center gap-3 mt-1 text-xs text-muted-foreground">
-                      <span>{flights.length} vuelos hoy</span>
-                      {longHaulCount > 0 && (
-                        <span className="flex items-center gap-1 text-amber-500">
-                          <Globe className="h-3 w-3" />
-                          {longHaulCount} larga dist.
-                        </span>
-                      )}
-                    </div>
-                  </div>
-
-                  <div className="text-right">
-                    <p className="text-2xl font-bold" style={{ color: t.color }}>{flights.length}</p>
-                    <p className="text-[10px] text-muted-foreground">~{waitTime}' espera</p>
-                  </div>
-
-                  <ChevronRight className="h-5 w-5 text-muted-foreground/50" />
-                </motion.button>
-              );
-            })}
-          </div>
+      {/* Footer Totals - Sticky */}
+      <div className="flex-shrink-0 grid grid-cols-[50px_1fr_1fr_1fr_1fr_50px] gap-1 px-3 py-2 bg-muted/50 border-t border-border">
+        <div className="text-[10px] font-bold text-muted-foreground text-center">Total</div>
+        <div className="text-center">
+          <span className="text-sm font-bold text-amber-500">{totals.t1}</span>
+        </div>
+        <div className="text-center">
+          <span className="text-sm font-bold text-blue-500">{totals.t2}</span>
+        </div>
+        <div className="text-center">
+          <span className="text-sm font-bold text-purple-500">{totals.puente}</span>
+        </div>
+        <div className="text-center">
+          <span className="text-sm font-bold text-orange-500">{totals.t2c}</span>
+        </div>
+        <div className="text-center">
+          <span className="text-sm font-bold text-foreground">{totals.total}</span>
         </div>
       </div>
     </div>
