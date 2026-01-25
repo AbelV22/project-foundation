@@ -71,13 +71,15 @@ jobs:
       - name: Copy native tracking files
         run: |
           mkdir -p android/app/src/main/java/com/itaxibcn/app/tracking
-          
+
           # Only copy files that exist (handling potential deletions by other devs)
           [ -f android-plugin/tracking/LocationTrackingService.java ] && cp android-plugin/tracking/LocationTrackingService.java android/app/src/main/java/com/itaxibcn/app/tracking/
           [ -f android-plugin/tracking/AlarmReceiver.java ] && cp android-plugin/tracking/AlarmReceiver.java android/app/src/main/java/com/itaxibcn/app/tracking/
           [ -f android-plugin/tracking/LocationApiClient.java ] && cp android-plugin/tracking/LocationApiClient.java android/app/src/main/java/com/itaxibcn/app/tracking/
           [ -f android-plugin/tracking/ProTrackingPlugin.java ] && cp android-plugin/tracking/ProTrackingPlugin.java android/app/src/main/java/com/itaxibcn/app/tracking/
-          
+          [ -f android-plugin/tracking/BootCompletedReceiver.java ] && cp android-plugin/tracking/BootCompletedReceiver.java android/app/src/main/java/com/itaxibcn/app/tracking/
+          [ -f android-plugin/tracking/OfflineLocationQueue.java ] && cp android-plugin/tracking/OfflineLocationQueue.java android/app/src/main/java/com/itaxibcn/app/tracking/
+
           echo "✅ Tracking files copied"
           ls -la android/app/src/main/java/com/itaxibcn/app/tracking/
       

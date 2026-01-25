@@ -1,5 +1,6 @@
 package com.itaxibcn.app.tracking;
 
+import android.content.Context;
 import android.util.Log;
 
 import java.io.OutputStream;
@@ -14,12 +15,32 @@ import java.util.concurrent.Executors;
  * This bypasses the WebView entirely for maximum reliability.
  */
 public class LocationApiClient {
-    
+
     private static final String TAG = "LocationApiClient";
     private static final ExecutorService executor = Executors.newSingleThreadExecutor();
+
+    private static OfflineLocationQueue offlineQueue;
     
     public interface OnZonaCallback {
         void onZona(String zona);
+    }
+
+    /**
+     * Initialize the offline queue for network failures.
+     * Should be called once when the service starts.
+     */
+    public static void initOfflineQueue(Context context) {
+        if (offlineQueue == null) {
+            offlineQueue = new OfflineLocationQueue(context);
+            Log.d(TAG, "Offline queue initialized");
+        }
+    }
+
+    /**
+     * Get the offline queue instance
+     */
+    public static OfflineLocationQueue getOfflineQueue() {
+        return offlineQueue;
     }
     
     /**
