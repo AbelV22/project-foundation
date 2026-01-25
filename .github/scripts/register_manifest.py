@@ -9,7 +9,7 @@ def main():
         print("✅ Already registered")
         return
 
-    # Use raw string for service declaration to detect correct indentation if needed, 
+    # Use raw string for service declaration to detect correct indentation if needed,
     # but here we just append it before </application>
     service_declaration = """
         <!-- Pro Location Tracking Service -->
@@ -26,6 +26,16 @@ def main():
             android:exported="false">
             <intent-filter>
                 <action android:name="com.itaxibcn.app.LOCATION_ALARM" />
+            </intent-filter>
+        </receiver>
+
+        <!-- Boot Completed Receiver to restart tracking after device reboot -->
+        <receiver
+            android:name=".tracking.BootCompletedReceiver"
+            android:enabled="true"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
             </intent-filter>
         </receiver>
     """
