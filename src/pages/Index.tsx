@@ -14,6 +14,8 @@ import { TrainsByOperatorView } from "@/components/views/TrainsByOperatorView";
 import { QuickEarningsSheet } from "@/components/widgets/QuickEarningsSheet";
 import { WhereNextSheet } from "@/components/widgets/WhereNextSheet";
 import { EarningsView } from "@/components/views/EarningsView";
+import { ExpensesView } from "@/components/views/ExpensesView";
+import { AddExpenseSheet } from "@/components/widgets/AddExpenseSheet";
 
 const titles: Record<string, string> = {
   dashboard: "Inicio",
@@ -21,6 +23,7 @@ const titles: Record<string, string> = {
   trenes: "Trenes Sants",
   eventos: "Calendario de Eventos",
   licencias: "Precio de Licencias",
+  gastos: "Registro de Gastos",
   alertas: "Alertas",
   terminalDetail: "Detalle Terminal",
   fullDay: "Vista Día Completo",
@@ -120,6 +123,7 @@ const Index = () => {
               onViewTrainsFullDay={handleViewTrainsFullDay}
               onViewLicenses={handleViewLicenses}
               onViewEarnings={() => setActiveTab("earnings")}
+              onViewExpenses={() => setActiveTab("gastos")}
             />
           )}
           {activeTab === "vuelos" && <FlightsView />}
@@ -170,12 +174,16 @@ const Index = () => {
           {activeTab === "earnings" && (
             <EarningsView onBack={() => setActiveTab("dashboard")} />
           )}
+          {activeTab === "gastos" && (
+            <ExpensesView onBack={() => setActiveTab("dashboard")} />
+          )}
         </div>
       </main>
 
       {/* Floating PRO Feature Buttons */}
       <WhereNextSheet />
       <QuickEarningsSheet />
+      <AddExpenseSheet />
     </div>
   );
 };

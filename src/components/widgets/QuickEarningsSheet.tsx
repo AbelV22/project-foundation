@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Euro, CreditCard, Banknote, Check, Plus } from "lucide-react";
+import { Euro, CreditCard, Banknote, Check, Plus, ChevronDown } from "lucide-react";
 import { cn } from "@/lib/utils";
 import {
     Drawer,
@@ -11,8 +11,14 @@ import {
     DrawerTrigger,
 } from "@/components/ui/drawer";
 import { Button } from "@/components/ui/button";
-import { useEarnings } from "@/hooks/useEarnings";
+import { Input } from "@/components/ui/input";
+import { useEarnings, RideCategory } from "@/hooks/useEarnings";
 import { useToast } from "@/hooks/use-toast";
+import {
+    Collapsible,
+    CollapsibleContent,
+    CollapsibleTrigger,
+} from "@/components/ui/collapsible";
 
 // Preset amounts for quick selection
 const PRESET_AMOUNTS = [8, 12, 18, 25, 35];
@@ -27,10 +33,26 @@ export function QuickEarningsSheet({ currentZone }: QuickEarningsSheetProps) {
     const [customAmount, setCustomAmount] = useState<string>("");
     const [propina, setPropina] = useState<number>(0);
     const [metodoPago, setMetodoPago] = useState<'efectivo' | 'tarjeta'>('efectivo');
+    const [showAdvanced, setShowAdvanced] = useState(false);
+    const [startKm, setStartKm] = useState<string>("");
+    const [endKm, setEndKm] = useState<string>("");
     const [saving, setSaving] = useState(false);
 
     const { addCarrera, stats } = useEarnings();
     const { toast } = useToast();
+
+    // Determine ride category from current zone
+    const getRideCategory = (): RideCategory | undefined => {
+        if (!currentZone) return undefined;
+        const zone = currentZone.toLowerCase();
+        if (zone.includes('t1') || zone.includes('t2') || zone.includes('puente') || zone.includes('aeropuerto')) {
+            return 'airport';
+        }
+        if (zone.includes('sants') || zone.includes('tren')) {
+            return 'train_station';
+        }
+        return 'street';
+    };
 
     const handleAmountSelect = (amount: number) => {
         setSelectedAmount(amount);
@@ -63,7 +85,15 @@ export function QuickEarningsSheet({ currentZone }: QuickEarningsSheetProps) {
         }
 
         setSaving(true);
-        const success = await addCarrera(amount, propina, metodoPago, currentZone || undefined);
+        const success = await addCarrera(
+            amount,
+            propina,
+            metodoPago,
+            currentZone || undefined,
+            startKm ? parseInt(startKm) : undefined,
+            endKm ? parseInt(endKm) : undefined,
+            getRideCategory()
+        );
         setSaving(false);
 
         if (success) {
@@ -76,6 +106,9 @@ export function QuickEarningsSheet({ currentZone }: QuickEarningsSheetProps) {
             setCustomAmount("");
             setPropina(0);
             setMetodoPago('efectivo');
+            setStartKm("");
+            setEndKm("");
+            setShowAdvanced(false);
             setOpen(false);
         } else {
             toast({
@@ -197,6 +230,60 @@ export function QuickEarningsSheet({ currentZone }: QuickEarningsSheetProps) {
                             Tarjeta
                         </button>
                     </div>
+
+                    {/* Advanced Options - Collapsible */}
+                    <Collapsible open={showAdvanced} onOpenChange={setShowAdvanced}>
+                        <CollapsibleTrigger asChild>
+                            <button className="w-full flex items-center justify-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors py-2">
+                                <ChevronDown className={cn(
+                                    "h-4 w-4 transition-transform",
+                                    showAdvanced && "rotate-180"
+                                )} />
+                                Opciones avanzadas (km)
+                            </button>
+                        </CollapsibleTrigger>
+                        <CollapsibleContent className="space-y-3">
+                            <div className="grid grid-cols-2 gap-3">
+                                <div className="space-y-1">
+                                    <label className="text-xs text-muted-foreground">Km inicial</label>
+                                    <Input
+                                        type="text"
+                                        inputMode="numeric"
+                                        placeholder="0"
+                                        value={startKm}
+                                        onChange={(e) => {
+                                            const val = e.target.value;
+                                            if (val === "" || /^\d+$/.test(val)) {
+                                                setStartKm(val);
+                                            }
+                                        }}
+                                        className="bg-slate-800 border-slate-700 text-white"
+                                    />
+                                </div>
+                                <div className="space-y-1">
+                                    <label className="text-xs text-muted-foreground">Km final</label>
+                                    <Input
+                                        type="text"
+                                        inputMode="numeric"
+                                        placeholder="0"
+                                        value={endKm}
+                                        onChange={(e) => {
+                                            const val = e.target.value;
+                                            if (val === "" || /^\d+$/.test(val)) {
+                                                setEndKm(val);
+                                            }
+                                        }}
+                                        className="bg-slate-800 border-slate-700 text-white"
+                                    />
+                                </div>
+                            </div>
+                            {startKm && endKm && parseInt(endKm) > parseInt(startKm) && (
+                                <p className="text-xs text-emerald-400 text-center">
+                                    Distancia: {parseInt(endKm) - parseInt(startKm)} km
+                                </p>
+                            )}
+                        </CollapsibleContent>
+                    </Collapsible>
                 </div>
 
                 <DrawerFooter className="pt-2">

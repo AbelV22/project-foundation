@@ -5,6 +5,7 @@ import { useEvents } from "@/hooks/useEvents";
 import { useWaitingTimes, getZoneWaitingTime, getZoneTaxistasActivos, getZoneHasRealData } from "@/hooks/useWaitingTimes";
 import { useNavigate } from "react-router-dom";
 import { getTrackingStatus, forceLocationCheck } from "@/services/location/AutoLocationService";
+import { ProfitWidget } from "@/components/widgets/ProfitWidget";
 // Tipos para vuelos.json (estructura real del scraper)
 interface VueloRaw {
   hora: string;
@@ -32,6 +33,7 @@ interface DashboardViewProps {
   onViewTrainsFullDay?: () => void;
   onViewLicenses?: () => void;
   onViewEarnings?: () => void;
+  onViewExpenses?: () => void;
 }
 
 // Función para parsear hora "HH:MM" a minutos del día
@@ -100,7 +102,7 @@ interface LicenciasData {
   metadata: { precio_mercado_referencia: number };
 }
 
-export function DashboardView({ onTerminalClick, onViewAllFlights, onViewAllEvents, onViewFullDay, onViewTrainsFullDay, onViewLicenses, onViewEarnings }: DashboardViewProps) {
+export function DashboardView({ onTerminalClick, onViewAllFlights, onViewAllEvents, onViewFullDay, onViewTrainsFullDay, onViewLicenses, onViewEarnings, onViewExpenses }: DashboardViewProps) {
   const [vuelos, setVuelos] = useState<VueloRaw[]>([]);
   const [trenes, setTrenes] = useState<TrenSants[]>([]);
   const [licencias, setLicencias] = useState<LicenciasData | null>(null);
@@ -477,22 +479,13 @@ export function DashboardView({ onTerminalClick, onViewAllFlights, onViewAllEven
           </div>
         </button>
 
-        {/* Earnings Widget */}
-        <button
-          onClick={onViewEarnings}
-          className="col-span-2 card-glass-hover flex items-center justify-between p-2.5 group"
-        >
-          <div className="flex items-center gap-3">
-            <div className="w-8 h-8 rounded-full bg-emerald-500/10 flex items-center justify-center">
-              <Euro className="h-4 w-4 text-emerald-400" />
-            </div>
-            <div className="text-left">
-              <p className="text-[10px] text-muted-foreground font-medium uppercase tracking-wider">Ingresos Hoy</p>
-              <p className="text-sm font-semibold text-foreground">Ver Registro</p>
-            </div>
-          </div>
-          <ChevronRight className="h-4 w-4 text-muted-foreground/50 group-hover:text-primary transition-colors" />
-        </button>
+        {/* Profit Widget - Revenue vs Expenses */}
+        <div className="col-span-2">
+          <ProfitWidget
+            onViewEarnings={onViewEarnings}
+            onViewExpenses={onViewExpenses}
+          />
+        </div>
       </div>
 
       {/* Hidden Admin Access - Triple tap on version to access */}
