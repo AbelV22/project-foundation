@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { supabase } from "@/integrations/supabase/client";
-import { Users, Clock, MapPin, Calendar } from "lucide-react";
+import { Users, Clock, MapPin, Calendar, AlertCircle } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 interface UserPresence {
@@ -31,23 +31,31 @@ export function UserPresenceTimeline() {
     const [timeRange, setTimeRange] = useState<"24h" | "7d" | "30d">("24h");
     const [selectedZone, setSelectedZone] = useState<string | "all">("all");
     const [loading, setLoading] = useState(false);
+    const [error, setError] = useState<string | null>(null);
 
     const zones = ["T1", "T2", "SANTS", "PUENTE_AEREO", "T2C_EASY"];
 
     // Fetch active users (currently in zones)
     const fetchActiveUsers = async () => {
-        const { data, error } = await supabase
-            .from("registros_reten")
-            .select("*")
-            .is("exited_at", null)
-            .in("zona", zones)
-            .order("created_at", { ascending: false });
+        try {
+            const { data, error } = await supabase
+                .from("registros_reten")
+                .select("*")
+                .is("exited_at", null)
+                .in("zona", zones)
+                .order("created_at", { ascending: false });
 
-        if (error) {
-            console.error("Error fetching active users:", error);
-            return;
+            if (error) {
+                console.error("Error fetching active users:", error);
+                setError(`Error al cargar usuarios activos: ${error.message}`);
+                return;
+            }
+            setActiveUsers(data || []);
+            setError(null);
+        } catch (err) {
+            console.error("Exception fetching active users:", err);
+            setError("Error de conexión al cargar datos");
         }
-        setActiveUsers(data || []);
     };
 
     // Fetch historical timeline data
@@ -149,6 +157,17 @@ export function UserPresenceTimeline() {
 
     return (
         <div className="space-y-4">
+            {/* Error Display */}
+            {error && (
+                <div className="bg-red-500/10 border border-red-500/20 rounded-lg p-3 flex items-center gap-2">
+                    <AlertCircle className="h-5 w-5 text-red-400 flex-shrink-0" />
+                    <div className="flex-1">
+                        <p className="text-sm text-red-400 font-medium">Error de Conexión</p>
+                        <p className="text-xs text-red-300/80 mt-1">{error}</p>
+                    </div>
+                </div>
+            )}
+
             {/* Section 1: Currently Active Users */}
             <section className="card-glass p-4">
                 <div className="flex items-center justify-between mb-4">
