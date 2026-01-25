@@ -11,6 +11,10 @@ import {
   Palette,
   Ticket,
   Navigation,
+  TrendingUp,
+  AlertCircle,
+  MapIcon,
+  Flame,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Calendar } from "@/components/ui/calendar";
@@ -29,6 +33,21 @@ const monthNamesShort = ["ENE", "FEB", "MAR", "ABR", "MAY", "JUN", "JUL", "AGO",
 
 const getWazeUrl = (lat: number, lon: number, name: string) => {
   return `https://waze.com/ul?ll=${lat},${lon}&navigate=yes&z=10`;
+};
+
+const demandLevelLabels = {
+  "very-high": { label: "Muy Alta", color: "#EF4444", intensity: "🔥🔥🔥" },
+  "high": { label: "Alta", color: "#F59E0B", intensity: "🔥🔥" },
+  "medium": { label: "Media", color: "#3B82F6", intensity: "🔥" },
+  "low": { label: "Baja", color: "#6B7280", intensity: "" },
+};
+
+const statusLabels = {
+  "upcoming": "Próximo",
+  "starting-soon": "Comienza pronto",
+  "ongoing": "En curso",
+  "ending-soon": "Terminando",
+  "ended": "Finalizado",
 };
 
 export function EventsView() {
@@ -221,6 +240,9 @@ export function EventsView() {
               const dayNum = eventDate.getDate();
               const monthShort = monthNamesShort[eventDate.getMonth()];
 
+              const demandInfo = event.demandLevel ? demandLevelLabels[event.demandLevel] : null;
+              const statusLabel = event.status ? statusLabels[event.status] : null;
+
               return (
                 <motion.div
                   key={event.id}
@@ -228,64 +250,129 @@ export function EventsView() {
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -12 }}
                   transition={{ duration: 0.2, delay: idx * 0.03 }}
-                  className="flex items-center gap-4 p-4 rounded-2xl bg-card border border-border/50"
+                  className="rounded-2xl bg-card border border-border/50 overflow-hidden"
                 >
-                  {/* Date block */}
-                  <div className="flex-shrink-0 w-12 text-center">
-                    <p className="text-2xl font-bold leading-none">{dayNum}</p>
-                    <p className="text-[10px] font-semibold text-muted-foreground tracking-wide mt-1">{monthShort}</p>
-                  </div>
-
-                  {/* Divider */}
-                  <div className="w-px h-12 bg-border/60" />
-
-                  {/* Content */}
-                  <div className="flex-1 min-w-0">
-                    <div className="flex items-center gap-1.5 mb-1">
-                      <Icon className="h-3 w-3" style={{ color: cat.color }} />
-                      <span className="text-[11px] font-semibold" style={{ color: cat.color }}>
-                        {cat.label}
-                      </span>
-                    </div>
-                    <h3 className="text-[15px] font-semibold leading-snug line-clamp-1">
-                      {event.title}
-                    </h3>
-                    <div className="flex items-center gap-3 mt-1.5 text-xs text-muted-foreground">
-                      <span className="flex items-center gap-1">
-                        <Clock className="h-3 w-3" />
-                        {event.time}
-                      </span>
-                      <span className="flex items-center gap-1 truncate">
-                        <MapPin className="h-3 w-3" />
-                        <span className="truncate">{event.location}</span>
-                      </span>
-                    </div>
-                  </div>
-
-                  {/* Actions */}
-                  <div className="flex-shrink-0 flex items-center gap-2">
-                    {/* Attendance */}
-                    <div className="text-right mr-1">
-                      <p className="text-xs font-bold tabular-nums">
-                        {event.attendees >= 1000
-                          ? `${(event.attendees / 1000).toFixed(0)}k`
-                          : event.attendees}
-                      </p>
-                      <p className="text-[10px] text-muted-foreground flex items-center gap-0.5 justify-end">
-                        <Users className="h-2.5 w-2.5" />
-                        est.
-                      </p>
+                  <div className="flex items-center gap-4 p-4">
+                    {/* Date block */}
+                    <div className="flex-shrink-0 w-12 text-center">
+                      <p className="text-2xl font-bold leading-none">{dayNum}</p>
+                      <p className="text-[10px] font-semibold text-muted-foreground tracking-wide mt-1">{monthShort}</p>
                     </div>
 
-                    {/* Waze button */}
-                    <button
-                      onClick={() => window.open(getWazeUrl(event.lat, event.lon, event.location), "_blank")}
-                      className="h-10 w-10 rounded-xl bg-blue-500 flex items-center justify-center active:scale-[0.95] transition-transform"
-                      title="Ir con Waze"
-                    >
-                      <Navigation className="h-5 w-5 text-white" />
-                    </button>
+                    {/* Divider */}
+                    <div className="w-px h-12 bg-border/60" />
+
+                    {/* Content */}
+                    <div className="flex-1 min-w-0">
+                      <div className="flex items-center gap-1.5 mb-1">
+                        <Icon className="h-3 w-3" style={{ color: cat.color }} />
+                        <span className="text-[11px] font-semibold" style={{ color: cat.color }}>
+                          {cat.label}
+                        </span>
+                        {event.status === "ongoing" && (
+                          <span className="ml-auto text-[10px] font-semibold text-green-500 flex items-center gap-1 px-2 py-0.5 rounded-full bg-green-500/10">
+                            <div className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse" />
+                            {statusLabel}
+                          </span>
+                        )}
+                        {event.status === "ending-soon" && (
+                          <span className="ml-auto text-[10px] font-semibold text-orange-500 flex items-center gap-1 px-2 py-0.5 rounded-full bg-orange-500/10">
+                            <AlertCircle className="h-3 w-3" />
+                            {statusLabel}
+                          </span>
+                        )}
+                      </div>
+                      <h3 className="text-[15px] font-semibold leading-snug line-clamp-1">
+                        {event.title}
+                      </h3>
+                      <div className="flex items-center gap-3 mt-1.5 text-xs text-muted-foreground">
+                        <span className="flex items-center gap-1">
+                          <Clock className="h-3 w-3" />
+                          {event.time} - {event.endTime}
+                        </span>
+                        <span className="flex items-center gap-1 truncate">
+                          <MapPin className="h-3 w-3" />
+                          <span className="truncate">{event.location}</span>
+                        </span>
+                      </div>
+                    </div>
+
+                    {/* Actions */}
+                    <div className="flex-shrink-0 flex items-center gap-2">
+                      {/* Attendance */}
+                      <div className="text-right mr-1">
+                        <p className="text-xs font-bold tabular-nums">
+                          {event.attendees >= 1000
+                            ? `${(event.attendees / 1000).toFixed(0)}k`
+                            : event.attendees}
+                        </p>
+                        <p className="text-[10px] text-muted-foreground flex items-center gap-0.5 justify-end">
+                          <Users className="h-2.5 w-2.5" />
+                          est.
+                        </p>
+                      </div>
+
+                      {/* Waze button */}
+                      <button
+                        onClick={() => window.open(getWazeUrl(event.lat, event.lon, event.location), "_blank")}
+                        className="h-10 w-10 rounded-xl bg-blue-500 flex items-center justify-center active:scale-[0.95] transition-transform"
+                        title="Ir con Waze"
+                      >
+                        <Navigation className="h-5 w-5 text-white" />
+                      </button>
+                    </div>
                   </div>
+
+                  {/* New: Post-Event Demand Info + Nearby Events */}
+                  {(event.postEventDemand || event.nearbyEvents) && (
+                    <div className="border-t border-border/30 bg-muted/20 px-4 py-3 space-y-2">
+                      {/* Post-event demand window */}
+                      {event.postEventDemand && demandInfo && (
+                        <div className="flex items-center gap-2 text-xs">
+                          <div className="flex items-center gap-1.5 flex-1">
+                            <TrendingUp className="h-3.5 w-3.5" style={{ color: demandInfo.color }} />
+                            <span className="font-semibold">Pico de salida:</span>
+                            <span className="font-bold tabular-nums" style={{ color: demandInfo.color }}>
+                              {event.postEventDemand.peakTime}h
+                            </span>
+                            <span className="text-muted-foreground">
+                              ({event.postEventDemand.start}h - {event.postEventDemand.end}h)
+                            </span>
+                          </div>
+                          <div className="flex items-center gap-1 px-2 py-1 rounded-md" style={{ backgroundColor: `${demandInfo.color}15` }}>
+                            <Flame className="h-3 w-3" style={{ color: demandInfo.color }} />
+                            <span className="text-[10px] font-bold" style={{ color: demandInfo.color }}>
+                              Demanda {demandInfo.label}
+                            </span>
+                          </div>
+                        </div>
+                      )}
+
+                      {/* Nearby events alert */}
+                      {event.nearbyEvents && event.nearbyEvents.length > 0 && (
+                        <div className="flex items-start gap-2 text-xs bg-blue-500/10 rounded-lg p-2">
+                          <MapIcon className="h-3.5 w-3.5 text-blue-500 mt-0.5 flex-shrink-0" />
+                          <div className="flex-1">
+                            <span className="font-semibold text-blue-600 dark:text-blue-400">
+                              {event.nearbyEvents.length} {event.nearbyEvents.length === 1 ? 'evento cercano' : 'eventos cercanos'}:
+                            </span>
+                            <div className="mt-1 space-y-0.5">
+                              {event.nearbyEvents.slice(0, 2).map(nearby => (
+                                <div key={nearby.id} className="text-[11px] text-muted-foreground">
+                                  • {nearby.title} ({nearby.distance}km, ±{nearby.timeDiff}min)
+                                </div>
+                              ))}
+                              {event.nearbyEvents.length > 2 && (
+                                <div className="text-[11px] text-blue-500 font-medium">
+                                  +{event.nearbyEvents.length - 2} más
+                                </div>
+                              )}
+                            </div>
+                          </div>
+                        </div>
+                      )}
+                    </div>
+                  )}
                 </motion.div>
               );
             })}
