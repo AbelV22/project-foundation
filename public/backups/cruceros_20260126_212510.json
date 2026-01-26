@@ -145,6 +145,22 @@
             "fecha": "2026-01-26"
         },
         {
+            "hora": "09:00",
+            "nombre": "Georgiy Ushakov",
+            "naviera": "YAMAL TRADE PTE. LTD",
+            "terminal": "ENAGAS TRANSPORTE SAU",
+            "terminal_codigo": "8192",
+            "eslora": 299.0,
+            "pax_estimados": 3000,
+            "puerto": "Sabetta",
+            "tipo": "llegada",
+            "estado": "Autoritzada",
+            "bandera": "Bahames",
+            "imo": "9750749",
+            "mmsi": "311000633",
+            "fecha": "2026-01-26"
+        },
+        {
             "hora": "09:39",
             "nombre": "Msc Potomac F",
             "naviera": "MEDITERRANEAN SHIPPING CO",
@@ -225,23 +241,7 @@
             "fecha": "2026-01-26"
         },
         {
-            "hora": "20:42",
-            "nombre": "Georgiy Ushakov",
-            "naviera": "YAMAL TRADE PTE. LTD",
-            "terminal": "ENAGAS TRANSPORTE SAU",
-            "terminal_codigo": "8192",
-            "eslora": 299.0,
-            "pax_estimados": 3000,
-            "puerto": "Sabetta",
-            "tipo": "llegada",
-            "estado": "Iniciada",
-            "bandera": "Bahames",
-            "imo": "9750749",
-            "mmsi": "311000633",
-            "fecha": "2026-01-26"
-        },
-        {
-            "hora": "21:13",
+            "hora": "21:15",
             "nombre": "Abel Matutes",
             "naviera": "EUROLINEAS MARITIMAS S.A",
             "terminal": "TERMINAL F1",
@@ -250,7 +250,7 @@
             "pax_estimados": 1000,
             "puerto": "Alcudia",
             "tipo": "llegada",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Espanya",
             "imo": "9441130",
             "mmsi": "224402000",
@@ -492,7 +492,7 @@
             "pax_estimados": 1000,
             "puerto": "Alcudia",
             "tipo": "salida",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Espanya",
             "imo": "9441130",
             "mmsi": "224402000",
@@ -504,23 +504,23 @@
         "total_llegadas": 16,
         "total_salidas": 15,
         "pax_estimados_hoy": 32500,
-        "proximo_desembarco": null,
-        "proximo_barco": null
+        "proximo_desembarco": "21:15",
+        "proximo_barco": "Abel Matutes"
     },
     "terminales_activas": [
-        "F3",
-        "6212",
-        "F2",
-        "8192",
-        "F1",
-        "6995",
         "8156",
+        "8192",
+        "F2",
         "7946",
-        "E"
+        "F3",
+        "E",
+        "6212",
+        "6995",
+        "F1"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-01-26T21:25:10.181673",
+        "actualizado": "2026-01-26T19:23:55.147538",
         "frecuencia": "horaria"
     }
 }
