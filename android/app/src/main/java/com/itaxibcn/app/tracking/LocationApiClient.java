@@ -1,0 +1,197 @@
+package com.itaxibcn.app.tracking;
+
+import android.content.Context;
+import android.util.Log;
+
+import java.io.OutputStream;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.nio.charset.StandardCharsets;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+
+/**
+ * Direct HTTP client for sending location to Supabase.
+ * This bypasses the WebView entirely for maximum reliability.
+ */
+public class LocationApiClient {
+
+    private static final String TAG = "LocationApiClient";
+    private static final ExecutorService executor = Executors.newSingleThreadExecutor();
+
+    /**
+     * Initialize offline queue for storing locations when network is unavailable.
+     * Currently a placeholder for future offline support.
+     */
+    public static void initOfflineQueue(Context context) {
+        Log.d(TAG, "Offline queue initialized");
+    }
+    
+    public interface OnZonaCallback {
+        void onZona(String zona);
+    }
+    
+    /**
+     * Send location to Supabase check-geofence function
+     */
+    public static void sendLocation(
+            String supabaseUrl,
+            String supabaseKey,
+            String deviceId,
+            String deviceName,
+            double lat,
+            double lng,
+            float accuracy,
+            String previousZona,
+            OnZonaCallback callback
+    ) {
+        if (supabaseUrl == null || supabaseUrl.isEmpty()) {
+            Log.w(TAG, "Supabase URL not configured");
+            logDebug(supabaseUrl, supabaseKey, deviceId, deviceName, "config_error", 
+                "❌ ERROR CONFIG: supabase_url no configurado");
+            return;
+        }
+        
+        if (deviceId == null || deviceId.isEmpty()) {
+            Log.w(TAG, "Device ID not configured");
+            return;
+        }
+        
+        executor.execute(() -> {
+            HttpURLConnection conn = null;
+            try {
+                URL url = new URL(supabaseUrl + "/functions/v1/check-geofence");
+                conn = (HttpURLConnection) url.openConnection();
+                conn.setRequestMethod("POST");
+                conn.setRequestProperty("Content-Type", "application/json");
+                conn.setRequestProperty("Authorization", "Bearer " + supabaseKey);
+                conn.setRequestProperty("apikey", supabaseKey);
+                conn.setDoOutput(true);
+                conn.setConnectTimeout(15000);
+                conn.setReadTimeout(15000);
+                
+                // Build JSON
+                String json = String.format(
+                    "{\"lat\":%.6f,\"lng\":%.6f,\"action\":\"register\",\"deviceId\":\"%s\"," +
+                    "\"previousZona\":%s,\"accuracy\":%.1f,\"deviceName\":%s,\"isBackground\":true,\"fromNative\":true}",
+                    lat, lng, deviceId,
+                    previousZona != null ? "\"" + previousZona + "\"" : "null",
+                    accuracy,
+                    deviceName != null ? "\"" + deviceName + "\"" : "null"
+                );
+                
+                try (OutputStream os = conn.getOutputStream()) {
+                    os.write(json.getBytes(StandardCharsets.UTF_8));
+                }
+                
+                int code = conn.getResponseCode();
+                Log.d(TAG, "Geofence response: " + code);
+                
+                if (code == 200) {
+                    // Parse response to get zona
+                    java.io.InputStream is = conn.getInputStream();
+                    java.io.BufferedReader reader = new java.io.BufferedReader(
+                        new java.io.InputStreamReader(is)
+                    );
+                    StringBuilder response = new StringBuilder();
+                    String line;
+                    while ((line = reader.readLine()) != null) {
+                        response.append(line);
+                    }
+                    reader.close();
+                    
+                    // Extract zona from JSON response
+                    String responseStr = response.toString();
+                    String zona = null;
+                    if (responseStr.contains("\"zona\":\"")) {
+                        int start = responseStr.indexOf("\"zona\":\"") + 8;
+                        int end = responseStr.indexOf("\"", start);
+                        if (end > start) {
+                            zona = responseStr.substring(start, end);
+                        }
+                    }
+                    
+                    if (callback != null) {
+                        callback.onZona(zona);
+                    }
+                    
+                    Log.d(TAG, "✅ Geofence enviado OK. Zona: " + (zona != null ? zona : "ninguna"));
+                } else {
+                    // Error response
+                    String errorMsg = String.format("❌ ERROR GEOFENCE: HTTP %d", code);
+                    Log.e(TAG, errorMsg);
+                    logDebug(supabaseUrl, supabaseKey, deviceId, deviceName, "geofence_http_error", errorMsg);
+                }
+                
+            } catch (java.net.SocketTimeoutException e) {
+                String errorMsg = "❌ ERROR RED: Timeout conectando con servidor";
+                Log.e(TAG, errorMsg);
+                logDebug(supabaseUrl, supabaseKey, deviceId, deviceName, "network_timeout", errorMsg);
+            } catch (java.net.UnknownHostException e) {
+                String errorMsg = "❌ ERROR RED: Sin conexión a internet";
+                Log.e(TAG, errorMsg);
+                logDebug(supabaseUrl, supabaseKey, deviceId, deviceName, "network_no_internet", errorMsg);
+            } catch (Exception e) {
+                String errorMsg = "❌ ERROR: " + e.getClass().getSimpleName() + " - " + e.getMessage();
+                Log.e(TAG, "Error sending location: " + errorMsg);
+                logDebug(supabaseUrl, supabaseKey, deviceId, deviceName, "geofence_exception", errorMsg);
+            } finally {
+                if (conn != null) {
+                    conn.disconnect();
+                }
+            }
+        });
+    }
+    
+    /**
+     * Send debug log to Supabase
+     */
+    public static void logDebug(
+            String supabaseUrl,
+            String supabaseKey,
+            String deviceId,
+            String deviceName,
+            String eventType,
+            String message
+    ) {
+        if (supabaseUrl == null || supabaseUrl.isEmpty()) {
+            return;
+        }
+        
+        executor.execute(() -> {
+            try {
+                URL url = new URL(supabaseUrl + "/rest/v1/location_debug_logs");
+                HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+                conn.setRequestMethod("POST");
+                conn.setRequestProperty("Content-Type", "application/json");
+                conn.setRequestProperty("Authorization", "Bearer " + supabaseKey);
+                conn.setRequestProperty("apikey", supabaseKey);
+                conn.setRequestProperty("Prefer", "return=minimal");
+                conn.setDoOutput(true);
+                conn.setConnectTimeout(10000);
+                conn.setReadTimeout(10000);
+                
+                String json = String.format(
+                    "{\"device_id\":\"%s\",\"device_name\":%s,\"event_type\":\"%s\"," +
+                    "\"message\":\"%s\",\"is_background\":true,\"app_state\":\"native_service\"}",
+                    deviceId,
+                    deviceName != null ? "\"" + deviceName + "\"" : "null",
+                    eventType,
+                    message.replace("\"", "'")
+                );
+                
+                try (OutputStream os = conn.getOutputStream()) {
+                    os.write(json.getBytes(StandardCharsets.UTF_8));
+                }
+                
+                int code = conn.getResponseCode();
+                Log.d(TAG, "Debug log response: " + code);
+                
+                conn.disconnect();
+                
+            } catch (Exception e) {
+                Log.e(TAG, "Error logging debug: " + e.getMessage());
+            }
+        });
+    }
+}
