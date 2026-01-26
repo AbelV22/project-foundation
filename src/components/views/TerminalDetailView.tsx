@@ -364,7 +364,7 @@ export function TerminalDetailView({ terminalId, onBack }: TerminalDetailViewPro
                             </span>
                           )}
                         </div>
-                        <p className="text-xs text-muted-foreground font-mono mt-0.5">{codigoPrincipal}</p>
+                        <p className="text-xs text-foreground/70 font-mono mt-0.5">{codigoPrincipal}</p>
                       </div>
 
                       {/* Status + Arrow */}

@@ -194,10 +194,14 @@ const Index = () => {
         </div>
       </main>
 
-      {/* Floating PRO Feature Buttons */}
+      {/* Floating PRO Feature Buttons - Hidden in fullDay and trainsFullDay views */}
       <WhereNextSheet />
-      <QuickEarningsSheet />
-      <AddExpenseSheet />
+      {activeTab !== "fullDay" && activeTab !== "trainsFullDay" && (
+        <>
+          <QuickEarningsSheet />
+          <AddExpenseSheet />
+        </>
+      )}
     </div>
   );
 };
