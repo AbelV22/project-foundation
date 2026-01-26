@@ -7,10 +7,14 @@ function normalizeJSON(text) {
     // 1. Replace single quotes with double quotes
     fixed = fixed.replace(/'/g, '"');
 
-    // 2. Fix unquoted keys: {key: "value"} -> {"key": "value"}
+    // 2. Fix decimal commas: 41,3919 -> 41.3919
+    // Only replace commas that are between two digits
+    fixed = fixed.replace(/(\d),(\d)/g, '$1.$2');
+
+    // 3. Fix unquoted keys: {key: "value"} -> {"key": "value"}
     fixed = fixed.replace(/([{,]\s*)([a-zA-Z0-9_]+)\s*:/g, '$1"$2":');
 
-    // 3. Remove trailing commas: {"a": 1, } -> {"a": 1}
+    // 4. Remove trailing commas: {"a": 1, } -> {"a": 1}
     fixed = fixed.replace(/,\s*([}\]])/g, '$1');
 
     return fixed;
@@ -41,6 +45,11 @@ const testCases = [
         name: "Combined: Unquoted keys, single quotes, and trailing comma",
         input: "{lat: 41.3, 'lng': 2.1, action: 'register',}",
         expected: '{"lat": 41.3, "lng": 2.1, "action": "register"}'
+    },
+    {
+        name: "Decimal commas (Spanish locale)",
+        input: '{"lat":41,391970,"lng":2,164582,"action":"register"}',
+        expected: '{"lat":41.391970,"lng":2.164582,"action":"register"}'
     }
 ];
 

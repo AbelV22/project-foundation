@@ -114,11 +114,15 @@ function normalizeJSON(text: string): string {
   // This is a heuristic and might need refinement based on actual logs
   fixed = fixed.replace(/'/g, '"');
 
-  // 2. Fix unquoted keys: {key: "value"} -> {"key": "value"}
+  // 2. Fix decimal commas: 41,3919 -> 41.3919
+  // Only replace commas that are between two digits
+  fixed = fixed.replace(/(\d),(\d)/g, '$1.$2');
+
+  // 3. Fix unquoted keys: {key: "value"} -> {"key": "value"}
   // Matches word characters at the start of an object or after a comma/whitespace
   fixed = fixed.replace(/([{,]\s*)([a-zA-Z0-9_]+)\s*:/g, '$1"$2":');
 
-  // 3. Remove trailing commas: {"a": 1, } -> {"a": 1}
+  // 4. Remove trailing commas: {"a": 1, } -> {"a": 1}
   fixed = fixed.replace(/,\s*([}\]])/g, '$1');
 
   return fixed;
@@ -147,7 +151,8 @@ serve(async (req) => {
         body = JSON.parse(normalized);
         console.log(`[check-geofence] JSON healed successfully.`);
       } catch (e2) {
-        console.error(`[check-geofence] Normalization failed. Error: ${e2.message}`);
+        const errorMsg = e2 instanceof Error ? e2.message : 'Unknown error';
+        console.error(`[check-geofence] Normalization failed. Error: ${errorMsg}`);
         return new Response(JSON.stringify({
           success: false,
           error: "INVALID_JSON",
