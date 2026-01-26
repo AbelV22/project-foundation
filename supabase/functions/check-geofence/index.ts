@@ -285,43 +285,85 @@ serve(async (req) => {
         }
       }
 
-      // If ENTERING a zone, create a new entry record
+      // If ENTERING a zone, create a new entry record OR resurrect a recent one
       if ((eventType === 'ENTER_ZONE' || eventType === 'ZONE_CHANGE') && currentZonaReal) {
-        // Check rate limit (1 entry per zone per 5 minutes)
-        const { data: recentEntry } = await supabase
+
+        // --- SESSION RESURRECTION LOGIC ---
+        // Check if there is a recently closed session (glitch protection)
+        const RESURRECTION_WINDOW_MINUTES = 15;
+        const resurrectionCutoff = new Date(Date.now() - (RESURRECTION_WINDOW_MINUTES * 60 * 1000)).toISOString();
+
+        const { data: recentClosedEntry, error: recentError } = await supabase
           .from('registros_reten')
-          .select('created_at')
+          .select('id, created_at, exited_at')
           .eq('device_id', deviceId)
           .eq('zona', currentZonaReal)
-          .order('created_at', { ascending: false })
+          .gte('exited_at', resurrectionCutoff) // Only look for recently closed ones
+          .order('exited_at', { ascending: false })
           .limit(1)
           .maybeSingle();
 
-        let canCreateEntry = true;
-        if (recentEntry) {
-          const lastTime = new Date(recentEntry.created_at).getTime();
-          const diffMinutes = (Date.now() - lastTime) / (1000 * 60);
-          canCreateEntry = diffMinutes >= 5;
-        }
+        if (recentClosedEntry) {
+          // Resurrect the session!
+          console.log(`[check-geofence] 🧟 RESURRECTING SESSION ${recentClosedEntry.id} (exited at ${recentClosedEntry.exited_at})`);
 
-        if (canCreateEntry) {
-          const { error: insertError } = await supabase.from('registros_reten').insert({
-            zona: currentZonaReal,
-            tipo_zona: "STANDARD",
-            evento: 'ENTRADA',
-            lat: lat,
-            lng: lng,
-            device_id: deviceId
-            // exited_at is NULL by default = waiting
-          });
+          const { error: resurrectError } = await supabase
+            .from('registros_reten')
+            .update({ exited_at: null }) // Re-open it
+            .eq('id', recentClosedEntry.id);
 
-          if (insertError) {
-            console.error(`[check-geofence] Error creating entry:`, insertError);
+          if (resurrectError) {
+            console.error(`[check-geofence] Error resurrecting session:`, resurrectError);
           } else {
-            console.log(`[check-geofence] ✅ Created entry in ${currentZonaReal}`);
+            console.log(`[check-geofence] ✅ Session resurrected successfully.`);
+            // We are done, no need to create a new entry
+            await supabase.from('geofence_logs').insert({
+              event_type: 'SESSION_RESURRECTED',
+              zona: currentZonaReal,
+              device_id: deviceId,
+              lat: lat,
+              lng: lng
+            });
+            // Return early to skip new entry creation
           }
         } else {
-          console.log(`[check-geofence] Rate limited: recent entry exists for ${currentZonaReal}`);
+          // --- NEW ENTRY LOGIC (Original) ---
+          // Check rate limit (1 entry per zone per 5 minutes)
+          const { data: recentEntry } = await supabase
+            .from('registros_reten')
+            .select('created_at')
+            .eq('device_id', deviceId)
+            .eq('zona', currentZonaReal)
+            .order('created_at', { ascending: false })
+            .limit(1)
+            .maybeSingle();
+
+          let canCreateEntry = true;
+          if (recentEntry) {
+            const lastTime = new Date(recentEntry.created_at).getTime();
+            const diffMinutes = (Date.now() - lastTime) / (1000 * 60);
+            canCreateEntry = diffMinutes >= 5;
+          }
+
+          if (canCreateEntry) {
+            const { error: insertError } = await supabase.from('registros_reten').insert({
+              zona: currentZonaReal,
+              tipo_zona: "STANDARD",
+              evento: 'ENTRADA',
+              lat: lat,
+              lng: lng,
+              device_id: deviceId
+              // exited_at is NULL by default = waiting
+            });
+
+            if (insertError) {
+              console.error(`[check-geofence] Error creating entry:`, insertError);
+            } else {
+              console.log(`[check-geofence] ✅ Created entry in ${currentZonaReal}`);
+            }
+          } else {
+            console.log(`[check-geofence] Rate limited: recent entry exists for ${currentZonaReal}`);
+          }
         }
       }
 
