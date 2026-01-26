@@ -101,6 +101,29 @@ function distanciaPuntoALinea(px: number, py: number, x1: number, y1: number, x2
   return Math.sqrt(dx * dx + dy * dy);
 }
 
+/**
+ * Attempts to "fix" malformed JSON strings typically sent by misconfigured clients.
+ * Handles: single quotes, unquoted keys, and trailing commas.
+ */
+function normalizeJSON(text: string): string {
+  if (!text) return "";
+  let fixed = text.trim();
+
+  // 1. If it's already reasonably valid (starts with { or [), try to fix internal quotes
+  // Replace single quotes with double quotes, but be careful with nested quotes
+  // This is a heuristic and might need refinement based on actual logs
+  fixed = fixed.replace(/'/g, '"');
+
+  // 2. Fix unquoted keys: {key: "value"} -> {"key": "value"}
+  // Matches word characters at the start of an object or after a comma/whitespace
+  fixed = fixed.replace(/([{,]\s*)([a-zA-Z0-9_]+)\s*:/g, '$1"$2":');
+
+  // 3. Remove trailing commas: {"a": 1, } -> {"a": 1}
+  fixed = fixed.replace(/,\s*([}\]])/g, '$1');
+
+  return fixed;
+}
+
 const corsHeaders = {
   'Access-Control-Allow-Origin': '*',
   'Access-Control-Allow-Headers': 'authorization, x-client-info, apikey, content-type',
@@ -112,7 +135,31 @@ serve(async (req) => {
   }
 
   try {
-    const body = await req.json();
+    const rawBody = await req.text();
+    let body;
+
+    try {
+      body = JSON.parse(rawBody);
+    } catch (e) {
+      console.warn(`[check-geofence] Simple JSON.parse failed, attempting normalization. Raw: ${rawBody.substring(0, 100)}...`);
+      const normalized = normalizeJSON(rawBody);
+      try {
+        body = JSON.parse(normalized);
+        console.log(`[check-geofence] JSON healed successfully.`);
+      } catch (e2) {
+        console.error(`[check-geofence] Normalization failed. Error: ${e2.message}`);
+        return new Response(JSON.stringify({
+          success: false,
+          error: "INVALID_JSON",
+          message: "El formato de los datos es inválido",
+          received: rawBody.substring(0, 50)
+        }), {
+          status: 400,
+          headers: { ...corsHeaders, 'Content-Type': 'application/json' }
+        });
+      }
+    }
+
     const { lat, lng, action, deviceId, previousZona, accuracy, deviceName } = body;
     console.log(`[check-geofence] Received: lat=${lat}, lng=${lng}, action=${action}, deviceId=${deviceId}, prevZona=${previousZona}`);
 
