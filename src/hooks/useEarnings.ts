@@ -9,14 +9,10 @@ export interface CarreraRecord {
     id: string;
     importe: number;
     propina: number;
-    metodo_pago: 'efectivo' | 'tarjeta';
+    metodo_pago: string;
     zona: string | null;
-    ride_category: RideCategory | null;
-    shift_type: ShiftType | null;
-    start_km: number | null;
-    end_km: number | null;
-    notes: string | null;
     created_at: string;
+    device_id: string;
 }
 
 interface DailyStats {
@@ -48,11 +44,7 @@ interface UseEarningsResult {
         importe: number,
         propina?: number,
         metodoPago?: 'efectivo' | 'tarjeta',
-        zona?: string,
-        startKm?: number,
-        endKm?: number,
-        category?: RideCategory,
-        notes?: string
+        zona?: string
     ) => Promise<boolean>;
     refresh: () => void;
 }
@@ -130,26 +122,11 @@ export const useEarnings = (): UseEarningsResult => {
         importe: number,
         propina: number = 0,
         metodoPago: 'efectivo' | 'tarjeta' = 'efectivo',
-        zona?: string,
-        startKm?: number,
-        endKm?: number,
-        category?: RideCategory,
-        notes?: string
+        zona?: string
     ): Promise<boolean> => {
         try {
             const deviceId = getOrCreateDeviceId();
-            console.log('[useEarnings] Adding carrera:', { importe, propina, metodoPago, zona, startKm, endKm, category, notes, deviceId });
-
-            // Determine shift type based on current time
-            const hour = new Date().getHours();
-            let shiftType: ShiftType;
-            if (hour >= 6 && hour < 14) {
-                shiftType = 'morning';
-            } else if (hour >= 14 && hour < 22) {
-                shiftType = 'afternoon';
-            } else {
-                shiftType = 'night';
-            }
+            console.log('[useEarnings] Adding carrera:', { importe, propina, metodoPago, zona, deviceId });
 
             const { data, error: insertError } = await supabase
                 .from('registros_carreras')
@@ -159,11 +136,6 @@ export const useEarnings = (): UseEarningsResult => {
                     propina: propina || 0,
                     metodo_pago: metodoPago,
                     zona: zona || null,
-                    start_km: startKm || null,
-                    end_km: endKm || null,
-                    ride_category: category || null,
-                    shift_type: shiftType,
-                    notes: notes || null,
                 })
                 .select()
                 .single();
@@ -180,7 +152,6 @@ export const useEarnings = (): UseEarningsResult => {
             return true;
         } catch (err) {
             console.error('[useEarnings] Add error:', err);
-            // Log full error object for debugging
             if (err && typeof err === 'object' && 'message' in err) {
                 console.error('[useEarnings] Error message:', (err as any).message);
                 console.error('[useEarnings] Error details:', (err as any).details);

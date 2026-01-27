@@ -89,10 +89,7 @@ export function QuickEarningsSheet({ currentZone }: QuickEarningsSheetProps) {
             amount,
             propina,
             metodoPago,
-            currentZone || undefined,
-            startKm ? parseInt(startKm) : undefined,
-            endKm ? parseInt(endKm) : undefined,
-            getRideCategory()
+            currentZone || undefined
         );
         setSaving(false);
 
