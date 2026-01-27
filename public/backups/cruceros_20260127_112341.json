@@ -2,6 +2,22 @@
     "llegadas": [
         {
             "hora": "06:00",
+            "nombre": "Msc Ghana",
+            "naviera": "MEDITERRANEAN SHIPPING CO",
+            "terminal": "TERMINAL CATALUNYA SA",
+            "terminal_codigo": "6212",
+            "eslora": 260.0,
+            "pax_estimados": 3000,
+            "puerto": "Port Said West",
+            "tipo": "llegada",
+            "estado": "Sol·licitada",
+            "bandera": "Libèria",
+            "imo": "9974503",
+            "mmsi": "636025251",
+            "fecha": "2026-01-27"
+        },
+        {
+            "hora": "06:00",
             "nombre": "Msc Josseline",
             "naviera": "MEDITERRANEAN SHIPPING CO",
             "terminal": "TERMINAL CATALUNYA SA",
@@ -276,6 +292,22 @@
         },
         {
             "hora": "20:00",
+            "nombre": "Msc Ghana",
+            "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
+            "terminal": "TERMINAL CATALUNYA SA",
+            "terminal_codigo": "6212",
+            "eslora": 260.0,
+            "pax_estimados": 3000,
+            "puerto": "Livorno",
+            "tipo": "salida",
+            "estado": "Sol·licitada",
+            "bandera": "Libèria",
+            "imo": "9974503",
+            "mmsi": "636025251",
+            "fecha": "2026-01-27"
+        },
+        {
+            "hora": "20:00",
             "nombre": "Rachel Borchard",
             "naviera": "NOATUM MARITIME SPAIN SAU",
             "terminal": "APM TERMINALS BARCELONA, S.L.U.",
@@ -388,28 +420,28 @@
         }
     ],
     "resumen": {
-        "total_cruceros": 14,
-        "total_llegadas": 12,
-        "total_salidas": 12,
-        "pax_estimados_hoy": 20500,
-        "proximo_desembarco": "12:00",
-        "proximo_barco": "Rachel Borchard"
+        "total_cruceros": 15,
+        "total_llegadas": 13,
+        "total_salidas": 13,
+        "pax_estimados_hoy": 23500,
+        "proximo_desembarco": "09:42",
+        "proximo_barco": "Msc Istanbul"
     },
     "terminales_activas": [
-        "6154",
-        "7083",
         "6212",
-        "F3",
-        "8192",
         "2396",
-        "F2",
+        "8192",
         "F1",
-        "8156",
-        "E"
+        "F3",
+        "6154",
+        "F2",
+        "E",
+        "7083",
+        "8156"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-01-27T11:23:41.155048",
+        "actualizado": "2026-01-27T09:33:50.614818",
         "frecuencia": "horaria"
     }
 }
