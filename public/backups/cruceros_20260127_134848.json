@@ -74,7 +74,7 @@
             "pax_estimados": 2000,
             "puerto": "Valencia",
             "tipo": "llegada",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Itàlia",
             "imo": "9859600",
             "mmsi": "247384100",
@@ -227,7 +227,7 @@
             "fecha": "2026-01-27"
         },
         {
-            "hora": "11:29",
+            "hora": "11:00",
             "nombre": "Eco Adriatica",
             "naviera": "GRIMALDI LOGISTICA ESPAÑA SL",
             "terminal": "GRIMALDI TERMINAL BARCELONA SL",
@@ -236,7 +236,7 @@
             "pax_estimados": 2000,
             "puerto": "Livorno",
             "tipo": "salida",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Itàlia",
             "imo": "9859600",
             "mmsi": "247384100",
@@ -392,24 +392,24 @@
         "total_llegadas": 12,
         "total_salidas": 12,
         "pax_estimados_hoy": 20500,
-        "proximo_desembarco": "17:15",
-        "proximo_barco": "Gnv Sealand"
+        "proximo_desembarco": "12:00",
+        "proximo_barco": "Rachel Borchard"
     },
     "terminales_activas": [
-        "F2",
-        "E",
-        "8192",
-        "F1",
+        "6154",
         "7083",
         "6212",
         "F3",
-        "6154",
+        "8192",
+        "2396",
+        "F2",
+        "F1",
         "8156",
-        "2396"
+        "E"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-01-27T13:48:48.771954",
+        "actualizado": "2026-01-27T11:23:41.155048",
         "frecuencia": "horaria"
     }
 }
