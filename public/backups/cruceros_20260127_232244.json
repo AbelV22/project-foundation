@@ -202,7 +202,7 @@
             "pax_estimados": 1000,
             "puerto": "Alcudia",
             "tipo": "llegada",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Espanya",
             "imo": "9441130",
             "mmsi": "224402000",
@@ -222,22 +222,6 @@
             "bandera": "Espanya",
             "imo": "9506289",
             "mmsi": "225416000",
-            "fecha": "2026-01-27"
-        },
-        {
-            "hora": "23:00",
-            "nombre": "Msc Ghana",
-            "naviera": "MEDITERRANEAN SHIPPING CO",
-            "terminal": "TERMINAL CATALUNYA SA",
-            "terminal_codigo": "6212",
-            "eslora": 260.0,
-            "pax_estimados": 3000,
-            "puerto": "Port Said West",
-            "tipo": "llegada",
-            "estado": "Iniciada",
-            "bandera": "Libèria",
-            "imo": "9974503",
-            "mmsi": "636025251",
             "fecha": "2026-01-27"
         }
     ],
@@ -356,6 +340,22 @@
         },
         {
             "hora": "21:30",
+            "nombre": "Abel Matutes",
+            "naviera": "BALEARIA EUROLINEAS MARITIMAS SA ",
+            "terminal": "TERMINAL F1",
+            "terminal_codigo": "F1",
+            "eslora": 190.0,
+            "pax_estimados": 1000,
+            "puerto": "Alcudia",
+            "tipo": "salida",
+            "estado": "Iniciada",
+            "bandera": "Espanya",
+            "imo": "9441130",
+            "mmsi": "224402000",
+            "fecha": "2026-01-27"
+        },
+        {
+            "hora": "21:30",
             "nombre": "Gnv Sealand",
             "naviera": "TRANSCOMA BALEARES SA",
             "terminal": "TERMINAL F2",
@@ -368,22 +368,6 @@
             "bandera": "Itàlia",
             "imo": "9435454",
             "mmsi": "247265800",
-            "fecha": "2026-01-27"
-        },
-        {
-            "hora": "21:45",
-            "nombre": "Abel Matutes",
-            "naviera": "BALEARIA EUROLINEAS MARITIMAS SA ",
-            "terminal": "TERMINAL F1",
-            "terminal_codigo": "F1",
-            "eslora": 190.0,
-            "pax_estimados": 1000,
-            "puerto": "Alcudia",
-            "tipo": "salida",
-            "estado": "Finalitzada",
-            "bandera": "Espanya",
-            "imo": "9441130",
-            "mmsi": "224402000",
             "fecha": "2026-01-27"
         },
         {
@@ -436,29 +420,29 @@
         }
     ],
     "resumen": {
-        "total_cruceros": 16,
-        "total_llegadas": 15,
+        "total_cruceros": 15,
+        "total_llegadas": 14,
         "total_salidas": 12,
-        "pax_estimados_hoy": 25500,
+        "pax_estimados_hoy": 22500,
         "proximo_desembarco": null,
         "proximo_barco": null
     },
     "terminales_activas": [
+        "E",
+        "2396",
+        "8192",
         "F2",
+        "F1",
+        "6154",
+        "8156",
         "6212",
         "0010",
         "7083",
-        "6154",
-        "F1",
-        "F3",
-        "8192",
-        "2396",
-        "E",
-        "8156"
+        "F3"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-01-27T23:22:44.202039",
+        "actualizado": "2026-01-27T21:18:53.029842",
         "frecuencia": "horaria"
     }
 }
