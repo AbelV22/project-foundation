@@ -1,11 +1,11 @@
 {
     "ticker": {
-        "current_price": 167058,
-        "delta_value": 4467,
-        "delta_percent": 2.75,
+        "current_price": 162591,
+        "delta_value": 0,
+        "delta_percent": 0.0,
         "direction": "up",
-        "volume": 17,
-        "volatility": 10838
+        "volume": 19,
+        "volatility": 10539
     },
     "charts": {
         "history_dates": [
@@ -22,8 +22,7 @@
             "2026-01-23",
             "2026-01-24",
             "2026-01-25",
-            "2026-01-26",
-            "2026-01-27"
+            "2026-01-26"
         ],
         "history_prices": [
             166147,
@@ -39,8 +38,7 @@
             164824,
             162591,
             162591,
-            162591,
-            167058
+            162591
         ],
         "history_sma_7": [
             0,
@@ -56,15 +54,14 @@
             166643,
             165620,
             164598,
-            163576,
-            164379
+            163576
         ],
         "price_by_day_descanso": {
             "JUEVES IMPAR": 169040,
             "JUEVES PAR": 170495,
             "MARTES PAR": 174285,
             "MIERCOLES IMPAR": 175783,
-            "NO ESPECIFICADO": 162513,
+            "NO ESPECIFICADO": 160357,
             "VIERNES IMPAR": 160161
         }
     },
@@ -103,12 +100,12 @@
                 "valor_coche": 4437
             },
             {
-                "fuente": "SOLANO",
-                "dia": "JUEVES IMPAR",
-                "modelo": "DACIA",
-                "precio_neto": 159582,
-                "precio_total": 173000,
-                "valor_coche": 13418
+                "fuente": "STAC",
+                "dia": "NO ESPECIFICADO",
+                "modelo": "DESCONOCIDO",
+                "precio_neto": 158563,
+                "precio_total": 163000,
+                "valor_coche": 4437
             }
         ],
         "all_offers": [
@@ -184,6 +181,13 @@
             },
             {
                 "fuente": "STAC",
+                "precio_neto": 158563,
+                "modelo": "DESCONOCIDO",
+                "dia": "NO ESPECIFICADO",
+                "raw": "Referencia: 935 |  | Se vende licencia sin vehículo. | Precio: 163000€ | + INFO..."
+            },
+            {
+                "fuente": "STAC",
                 "precio_neto": 153563,
                 "modelo": "DESCONOCIDO",
                 "dia": "NO ESPECIFICADO",
@@ -202,6 +206,13 @@
                 "modelo": "DESCONOCIDO",
                 "dia": "NO ESPECIFICADO",
                 "raw": "Referencia: 923 |  | Se vende licencia sin vehículo. | Precio: 160000€ | + INFO..."
+            },
+            {
+                "fuente": "STAC",
+                "precio_neto": 160357,
+                "modelo": "SKODA OCTAVIA",
+                "dia": "NO ESPECIFICADO",
+                "raw": "Referencia: 920 |  | Se vende licencia con vehículo Skoda Octavia Combi GNC Automatico con 5 años de..."
             },
             {
                 "fuente": "STAC",
@@ -233,5 +244,5 @@
             }
         ]
     },
-    "updated_at": "27/01/2026 07:19"
+    "updated_at": "26/01/2026 07:20"
 }
