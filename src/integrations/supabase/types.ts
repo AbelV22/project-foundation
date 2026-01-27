@@ -95,54 +95,6 @@ export type Database = {
         }
         Relationships: []
       }
-      expenses: {
-        Row: {
-          id: string
-          device_id: string
-          timestamp: string
-          category: string
-          subcategory: string | null
-          amount: number
-          odometer_reading: number | null
-          liters: number | null
-          notes: string | null
-          receipt_photo_url: string | null
-          is_recurring: boolean
-          recurrence_pattern: string | null
-          created_at: string
-        }
-        Insert: {
-          id?: string
-          device_id: string
-          timestamp?: string
-          category: string
-          subcategory?: string | null
-          amount: number
-          odometer_reading?: number | null
-          liters?: number | null
-          notes?: string | null
-          receipt_photo_url?: string | null
-          is_recurring?: boolean
-          recurrence_pattern?: string | null
-          created_at?: string
-        }
-        Update: {
-          id?: string
-          device_id?: string
-          timestamp?: string
-          category?: string
-          subcategory?: string | null
-          amount?: number
-          odometer_reading?: number | null
-          liters?: number | null
-          notes?: string | null
-          receipt_photo_url?: string | null
-          is_recurring?: boolean
-          recurrence_pattern?: string | null
-          created_at?: string
-        }
-        Relationships: []
-      }
       registros_carreras: {
         Row: {
           created_at: string
@@ -152,11 +104,6 @@ export type Database = {
           metodo_pago: string
           propina: number
           zona: string | null
-          ride_category: string | null
-          shift_type: string | null
-          start_km: number | null
-          end_km: number | null
-          notes: string | null
         }
         Insert: {
           created_at?: string
@@ -166,11 +113,6 @@ export type Database = {
           metodo_pago?: string
           propina?: number
           zona?: string | null
-          ride_category?: string | null
-          shift_type?: string | null
-          start_km?: number | null
-          end_km?: number | null
-          notes?: string | null
         }
         Update: {
           created_at?: string
@@ -180,11 +122,6 @@ export type Database = {
           metodo_pago?: string
           propina?: number
           zona?: string | null
-          ride_category?: string | null
-          shift_type?: string | null
-          start_km?: number | null
-          end_km?: number | null
-          notes?: string | null
         }
         Relationships: []
       }

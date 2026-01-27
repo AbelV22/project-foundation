@@ -10,7 +10,7 @@ import { StatusBar, Style } from "@capacitor/status-bar";
 import { SplashScreen } from "@capacitor/splash-screen";
 import { startAutoTracking, initTestingMode } from "./services/location/AutoLocationService";
 import { requestLocationPermission, checkLocationPermission } from "./services/native/geolocation";
-import { getOrCreateDeviceId, registerDevice, getOrCreateDeviceUUID } from "@/lib/deviceId";
+import { getOrCreateDeviceId, registerDevice } from "@/lib/deviceId";
 import {
   initBackgroundGeolocation,
   shouldRestoreBackgroundTracking,
