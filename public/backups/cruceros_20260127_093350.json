@@ -2,6 +2,22 @@
     "llegadas": [
         {
             "hora": "06:00",
+            "nombre": "Senator",
+            "naviera": "SIDRA DENIZCILIK VE TICARET",
+            "terminal": "TERMINAL PORT NOU SA",
+            "terminal_codigo": "2398",
+            "eslora": 181.0,
+            "pax_estimados": 1000,
+            "puerto": "Mersin",
+            "tipo": "llegada",
+            "estado": "Sol·licitada",
+            "bandera": "Panamà",
+            "imo": "9117612",
+            "mmsi": "370240000",
+            "fecha": "2026-01-27"
+        },
+        {
+            "hora": "06:00",
             "nombre": "Msc Ghana",
             "naviera": "MEDITERRANEAN SHIPPING CO",
             "terminal": "TERMINAL CATALUNYA SA",
@@ -94,22 +110,6 @@
             "bandera": "Itàlia",
             "imo": "9859600",
             "mmsi": "247384100",
-            "fecha": "2026-01-27"
-        },
-        {
-            "hora": "09:42",
-            "nombre": "Msc Istanbul",
-            "naviera": "MEDITERRANEAN SHIPPING CO",
-            "terminal": "TERMINAL CATALUNYA SA",
-            "terminal_codigo": "6212",
-            "eslora": 399.0,
-            "pax_estimados": 6500,
-            "puerto": "Valencia",
-            "tipo": "llegada",
-            "estado": "Iniciada",
-            "bandera": "Libèria",
-            "imo": "9606326",
-            "mmsi": "636017537",
             "fecha": "2026-01-27"
         },
         {
@@ -211,7 +211,7 @@
     ],
     "salidas": [
         {
-            "hora": "07:32",
+            "hora": "02:00",
             "nombre": "Msc Adonis",
             "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
             "terminal": "TERMINAL CATALUNYA SA",
@@ -220,7 +220,7 @@
             "pax_estimados": 500,
             "puerto": "Valencia",
             "tipo": "salida",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Libèria",
             "imo": "9706310",
             "mmsi": "636021251",
@@ -423,25 +423,26 @@
         "total_cruceros": 15,
         "total_llegadas": 13,
         "total_salidas": 13,
-        "pax_estimados_hoy": 23500,
-        "proximo_desembarco": "09:42",
-        "proximo_barco": "Msc Istanbul"
+        "pax_estimados_hoy": 18000,
+        "proximo_desembarco": "07:42",
+        "proximo_barco": "Eco Adriatica"
     },
     "terminales_activas": [
-        "6212",
-        "2396",
-        "8192",
-        "F1",
-        "F3",
-        "6154",
         "F2",
+        "8156",
+        "F1",
+        "8192",
+        "F3",
+        "6212",
         "E",
         "7083",
-        "8156"
+        "6154",
+        "2396",
+        "2398"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-01-27T09:33:50.614818",
+        "actualizado": "2026-01-27T07:28:12.821211",
         "frecuencia": "horaria"
     }
 }
