@@ -97,39 +97,7 @@
             "fecha": "2026-01-27"
         },
         {
-            "hora": "15:58",
-            "nombre": "Sti Clapham",
-            "naviera": "SCORPIO COMMERCIAL MANAGEMENT",
-            "terminal": "",
-            "terminal_codigo": "",
-            "eslora": 184.0,
-            "pax_estimados": 1000,
-            "puerto": "Santa Panagia",
-            "tipo": "llegada",
-            "estado": "Autoritzada",
-            "bandera": "Illes Marshall",
-            "imo": "9696577",
-            "mmsi": "538005407",
-            "fecha": "2026-01-27"
-        },
-        {
-            "hora": "16:00",
-            "nombre": "Sti Clapham",
-            "naviera": "SCORPIO COMMERCIAL MANAGEMENT",
-            "terminal": "EXOLUM CORPORATION, SA",
-            "terminal_codigo": "0010",
-            "eslora": 184.0,
-            "pax_estimados": 1000,
-            "puerto": "Santa Panagia",
-            "tipo": "llegada",
-            "estado": "Autoritzada",
-            "bandera": "Illes Marshall",
-            "imo": "9696577",
-            "mmsi": "538005407",
-            "fecha": "2026-01-27"
-        },
-        {
-            "hora": "17:00",
+            "hora": "12:00",
             "nombre": "Rachel Borchard",
             "naviera": "BORCHARD LINES",
             "terminal": "APM TERMINALS BARCELONA, S.L.U.",
@@ -138,7 +106,7 @@
             "pax_estimados": 1000,
             "puerto": "Marseille",
             "tipo": "llegada",
-            "estado": "Autoritzada",
+            "estado": "Sol·licitada",
             "bandera": "Portugal",
             "imo": "1016587",
             "mmsi": "255915592",
@@ -158,22 +126,6 @@
             "bandera": "Itàlia",
             "imo": "9435454",
             "mmsi": "247265800",
-            "fecha": "2026-01-27"
-        },
-        {
-            "hora": "18:00",
-            "nombre": "Cruise Barcelona",
-            "naviera": "GRIMALDI EUROMED SPA",
-            "terminal": "TERMINAL F3",
-            "terminal_codigo": "F3",
-            "eslora": 0,
-            "pax_estimados": 500,
-            "puerto": "Civitavecchia",
-            "tipo": "llegada",
-            "estado": "Autoritzada",
-            "bandera": "Itàlia",
-            "imo": "9351488",
-            "mmsi": "247243600",
             "fecha": "2026-01-27"
         },
         {
@@ -222,6 +174,22 @@
             "bandera": "Espanya",
             "imo": "9506289",
             "mmsi": "225416000",
+            "fecha": "2026-01-27"
+        },
+        {
+            "hora": "19:00",
+            "nombre": "Cruise Barcelona",
+            "naviera": "GRIMALDI EUROMED SPA",
+            "terminal": "TERMINAL F3",
+            "terminal_codigo": "F3",
+            "eslora": 0,
+            "pax_estimados": 500,
+            "puerto": "Civitavecchia",
+            "tipo": "llegada",
+            "estado": "Autoritzada",
+            "bandera": "Itàlia",
+            "imo": "9351488",
+            "mmsi": "247243600",
             "fecha": "2026-01-27"
         }
     ],
@@ -291,22 +259,6 @@
             "fecha": "2026-01-27"
         },
         {
-            "hora": "15:59",
-            "nombre": "Sti Clapham",
-            "naviera": "NEXT MARITIME SL",
-            "terminal": "",
-            "terminal_codigo": "",
-            "eslora": 184.0,
-            "pax_estimados": 1000,
-            "puerto": "Desconegut",
-            "tipo": "salida",
-            "estado": "Autoritzada",
-            "bandera": "Illes Marshall",
-            "imo": "9696577",
-            "mmsi": "538005407",
-            "fecha": "2026-01-27"
-        },
-        {
             "hora": "17:30",
             "nombre": "Costa Toscana",
             "naviera": "NOATUM MARITIME SPAIN SAU",
@@ -320,6 +272,22 @@
             "bandera": "Itàlia",
             "imo": "9781891",
             "mmsi": "247431200",
+            "fecha": "2026-01-27"
+        },
+        {
+            "hora": "20:00",
+            "nombre": "Rachel Borchard",
+            "naviera": "NOATUM MARITIME SPAIN SAU",
+            "terminal": "APM TERMINALS BARCELONA, S.L.U.",
+            "terminal_codigo": "7083",
+            "eslora": 150.0,
+            "pax_estimados": 1000,
+            "puerto": "Castellon de la Plana",
+            "tipo": "salida",
+            "estado": "Sol·licitada",
+            "bandera": "Portugal",
+            "imo": "1016587",
+            "mmsi": "255915592",
             "fecha": "2026-01-27"
         },
         {
@@ -420,29 +388,28 @@
         }
     ],
     "resumen": {
-        "total_cruceros": 15,
-        "total_llegadas": 14,
+        "total_cruceros": 14,
+        "total_llegadas": 12,
         "total_salidas": 12,
-        "pax_estimados_hoy": 22500,
-        "proximo_desembarco": "15:58",
-        "proximo_barco": "Sti Clapham"
+        "pax_estimados_hoy": 20500,
+        "proximo_desembarco": "17:15",
+        "proximo_barco": "Gnv Sealand"
     },
     "terminales_activas": [
-        "7083",
-        "F1",
-        "8192",
         "F2",
-        "2396",
-        "8156",
+        "E",
+        "8192",
+        "F1",
+        "7083",
         "6212",
         "F3",
-        "0010",
-        "E",
-        "6154"
+        "6154",
+        "8156",
+        "2396"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-01-27T15:31:11.864473",
+        "actualizado": "2026-01-27T13:48:48.771954",
         "frecuencia": "horaria"
     }
 }
