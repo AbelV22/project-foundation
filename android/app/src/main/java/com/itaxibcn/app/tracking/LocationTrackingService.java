@@ -173,10 +173,10 @@ public class LocationTrackingService extends Service {
                         location.getAccuracy()
                     );
                     Log.d(TAG, "📍 " + msg);
-                    logDebug("location_success", msg);
+                    // logDebug("location_success", msg); // REMOVED TO SAVE STORAGE
                     processLocation(location);
                 } else {
-                    logDebug("location_empty", "❌ ERROR: getLastLocation() devolvió null");
+                    // logDebug("location_empty", "❌ ERROR: getLastLocation() devolvió null"); // Only log real errors
                 }
             }
         };
@@ -286,7 +286,7 @@ public class LocationTrackingService extends Service {
         FusedLocationProviderClient client = LocationServices.getFusedLocationProviderClient(context);
         
         // Log that alarm is attempting to get location
-        logDebugStatic(prefs, "alarm_triggered", "⏰ Alarm despertó - solicitando ubicación...");
+        // logDebugStatic(prefs, "alarm_triggered", "⏰ Alarm despertó - solicitando ubicación..."); // REMOVED TO SAVE STORAGE
         
         client.getLastLocation()
             .addOnSuccessListener(location -> {
@@ -299,7 +299,7 @@ public class LocationTrackingService extends Service {
                         (System.currentTimeMillis() - location.getTime()) / 1000
                     );
                     Log.d(TAG, "📍 " + msg);
-                    logDebugStatic(prefs, "alarm_location_success", msg);
+                    // logDebugStatic(prefs, "alarm_location_success", msg); // REMOVED TO SAVE STORAGE
                     
                     // Send directly using API client
                     LocationApiClient.sendLocation(
