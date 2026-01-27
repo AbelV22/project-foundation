@@ -406,7 +406,7 @@ export function TrainsFullDayView({ onBack, onCityClick, onOperatorClick }: Trai
                 )}>
                   {getTipoTren(tren.tren)}
                 </span>
-                <span className="text-[10px] text-muted-foreground font-mono">
+                <span className="text-[10px] text-foreground/70 font-mono">
                   {getNumeroTren(tren.tren)}
                 </span>
                 <div className="flex-1 flex items-center gap-1 justify-end">

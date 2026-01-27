@@ -10,13 +10,14 @@ import { StatusBar, Style } from "@capacitor/status-bar";
 import { SplashScreen } from "@capacitor/splash-screen";
 import { startAutoTracking, initTestingMode } from "./services/location/AutoLocationService";
 import { requestLocationPermission, checkLocationPermission } from "./services/native/geolocation";
-import { getOrCreateDeviceId, registerDevice, getOrCreateDeviceUUID } from "@/lib/deviceId";
+import { getOrCreateDeviceId, registerDevice } from "@/lib/deviceId";
 import {
   initBackgroundGeolocation,
   shouldRestoreBackgroundTracking,
   isNativePlatform
 } from "./services/native/backgroundGeolocation";
 import { configureProTracking, startProTracking, isProTrackingActive } from "./services/native/proTracking";
+import { ErrorBoundary } from "./components/ErrorBoundary";
 import Index from "./pages/Index";
 import Admin from "./pages/Admin";
 import NotFound from "./pages/NotFound";
@@ -37,13 +38,11 @@ const initializeNative = async (setPermissionDenied: (denied: boolean) => void) 
   const isTestingMode = localStorage.getItem('geofence_testing_mode') === 'true';
 
   if (!Capacitor.isNativePlatform()) {
-    // On web, only start tracking if testing mode is enabled
-    if (isTestingMode) {
-      console.log('[App] Web platform with testing mode - starting tracking');
-      startAutoTracking((zona) => {
-        console.log('[App] Zone changed to:', zona);
-      });
-    }
+    // On web, start tracking automatically (browser will ask for permission)
+    console.log('[App] Web platform - starting tracking');
+    startAutoTracking((zona) => {
+      console.log('[App] Zone changed to:', zona);
+    });
     return;
   }
 
@@ -140,12 +139,34 @@ const BackButtonHandler = () => {
   return null;
 };
 
+import PrivacyPolicy from "./pages/PrivacyPolicy";
+import SettingsView from "./components/views/SettingsView";
+
+import { LocationDisclosureDialog } from "@/components/LocationDisclosureDialog";
+import { getItem, setItem } from "@/lib/storage";
+
 const App = () => {
   const [permissionDenied, setPermissionDenied] = useState(false);
+  const [disclosureOpen, setDisclosureOpen] = useState(false);
 
   useEffect(() => {
-    initializeNative(setPermissionDenied);
+    const checkDisclosure = async () => {
+      const ack = await getItem('disclosure_ack');
+      if (ack !== 'true' && Capacitor.isNativePlatform()) {
+        setDisclosureOpen(true);
+      } else {
+        // Already acked or web, proceed
+        initializeNative(setPermissionDenied);
+      }
+    };
+    checkDisclosure();
   }, []);
+
+  const handleDisclosureAccept = async () => {
+    await setItem('disclosure_ack', 'true');
+    setDisclosureOpen(false);
+    initializeNative(setPermissionDenied);
+  };
 
   const handleRetryPermission = async () => {
     const hasPermission = await requestLocationPermission();
@@ -162,6 +183,10 @@ const App = () => {
       <TooltipProvider>
         <Toaster />
         <Sonner />
+        <LocationDisclosureDialog
+          open={disclosureOpen}
+          onAccept={handleDisclosureAccept}
+        />
         {/* Permission denied banner */}
         {permissionDenied && (
           <div
@@ -178,12 +203,16 @@ const App = () => {
         )}
         <BrowserRouter>
           <BackButtonHandler />
-          <Routes>
-            <Route path="/" element={<Index />} />
-            <Route path="/admin" element={<Admin />} />
-            {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-            <Route path="*" element={<NotFound />} />
-          </Routes>
+          <ErrorBoundary>
+            <Routes>
+              <Route path="/" element={<Index />} />
+              <Route path="/admin" element={<Admin />} />
+              <Route path="/privacy" element={<PrivacyPolicy />} />
+              <Route path="/settings" element={<SettingsView />} />
+              {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+              <Route path="*" element={<NotFound />} />
+            </Routes>
+          </ErrorBoundary>
         </BrowserRouter>
       </TooltipProvider>
     </QueryClientProvider>

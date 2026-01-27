@@ -1,5 +1,6 @@
 import { supabase } from '@/integrations/supabase/client';
 import { getOrCreateDeviceId } from '@/lib/deviceId';
+import { getItem, setItem } from '@/lib/storage';
 import { Capacitor } from '@capacitor/core';
 
 // Tracking state
@@ -28,6 +29,12 @@ export const startAutoTracking = async (callback?: ZoneCallback): Promise<void> 
 
     onZoneChange = callback || null;
     isTracking = true;
+
+    // Restore state
+    const savedZona = await getItem('auto_last_zona');
+    if (savedZona) {
+        lastZona = savedZona;
+    }
 
     console.log(`[AutoLocation] Starting tracking (testing=${isTestingMode}, platform=${Capacitor.getPlatform()})`);
 
@@ -93,24 +100,24 @@ const startWebTracking = (): void => {
  */
 const handlePositionUpdate = async (position: GeolocationPosition): Promise<void> => {
     const now = Date.now();
-    
+
     // Throttle to max one check per 60 seconds (1 minute)
     if (now - lastCheckTime < 60000) {
         return;
     }
-    
+
     lastCheckTime = now;
     lastError = null;
-    
+
     const lat = position.coords.latitude;
     const lng = position.coords.longitude;
     const accuracy = position.coords.accuracy;
-    
+
     lastPosition = { lat, lng };
     console.log(`[AutoLocation] Position: ${lat.toFixed(5)}, ${lng.toFixed(5)} (acc: ${accuracy?.toFixed(0)}m)`);
-    
+
     const deviceId = getOrCreateDeviceId();
-    
+
     try {
         const { data, error } = await supabase.functions.invoke('check-geofence', {
             body: {
@@ -124,30 +131,35 @@ const handlePositionUpdate = async (position: GeolocationPosition): Promise<void
                 isBackground: document.hidden
             }
         });
-        
+
         if (error) {
             lastError = `Error de geofence: ${error.message}`;
             console.error('[AutoLocation] Geofence error:', error);
             onZoneChange?.(lastZona, lastError);
             return;
         }
-        
+
         if (!data?.success) {
             lastError = data?.message || 'Error desconocido';
             console.warn('[AutoLocation] Geofence response:', data?.message);
             onZoneChange?.(lastZona, lastError);
             return;
         }
-        
+
         const newZona = data.zona || null;
-        
+
         if (newZona !== lastZona) {
             console.log(`[AutoLocation] Zone changed: ${lastZona || 'none'} → ${newZona || 'none'}`);
             lastZona = newZona;
+            if (newZona) {
+                await setItem('auto_last_zona', newZona);
+            } else {
+                await setItem('auto_last_zona', '');
+            }
         }
-        
+
         onZoneChange?.(newZona);
-        
+
     } catch (err) {
         lastError = err instanceof Error ? err.message : 'Error desconocido';
         console.error('[AutoLocation] Error:', err);
@@ -164,7 +176,7 @@ const handlePositionError = (error: GeolocationPositionError): void => {
         2: 'Ubicación no disponible',
         3: 'Tiempo de espera agotado'
     };
-    
+
     lastError = errorMessages[error.code] || error.message;
     console.error('[AutoLocation] Geolocation error:', lastError);
     onZoneChange?.(lastZona, lastError);
@@ -195,7 +207,7 @@ export const forceLocationCheck = async (): Promise<string | null> => {
     if (!('geolocation' in navigator)) {
         return null;
     }
-    
+
     return new Promise((resolve) => {
         navigator.geolocation.getCurrentPosition(
             async (position) => {

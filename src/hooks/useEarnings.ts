@@ -2,13 +2,28 @@ import { useState, useEffect, useCallback } from 'react';
 import { supabase } from '@/integrations/supabase/client';
 import { getOrCreateDeviceId } from '@/lib/deviceId';
 
+export type RideCategory = 'airport' | 'train_station' | 'event' | 'street' | 'app' | 'other';
+export type ShiftType = 'morning' | 'afternoon' | 'night';
+
 export interface CarreraRecord {
     id: string;
     importe: number;
     propina: number;
-    metodo_pago: 'efectivo' | 'tarjeta';
+    metodo_pago: string;
     zona: string | null;
     created_at: string;
+    device_id: string;
+}
+
+interface DailyStats {
+    date: string;
+    total: number;
+    count: number;
+}
+
+interface WeeklyStats {
+    revenue: number;
+    count: number;
 }
 
 interface EarningsStats {
@@ -16,6 +31,8 @@ interface EarningsStats {
     todayCount: number;
     week: number;
     weekCount: number;
+    daily: DailyStats[];
+    weekly: WeeklyStats;
 }
 
 interface UseEarningsResult {
@@ -23,7 +40,12 @@ interface UseEarningsResult {
     stats: EarningsStats;
     loading: boolean;
     error: Error | null;
-    addCarrera: (importe: number, propina?: number, metodoPago?: 'efectivo' | 'tarjeta', zona?: string) => Promise<boolean>;
+    addCarrera: (
+        importe: number,
+        propina?: number,
+        metodoPago?: 'efectivo' | 'tarjeta',
+        zona?: string
+    ) => Promise<boolean>;
     refresh: () => void;
 }
 
@@ -32,7 +54,14 @@ interface UseEarningsResult {
  */
 export const useEarnings = (): UseEarningsResult => {
     const [carreras, setCarreras] = useState<CarreraRecord[]>([]);
-    const [stats, setStats] = useState<EarningsStats>({ today: 0, todayCount: 0, week: 0, weekCount: 0 });
+    const [stats, setStats] = useState<EarningsStats>({
+        today: 0,
+        todayCount: 0,
+        week: 0,
+        weekCount: 0,
+        daily: [],
+        weekly: { revenue: 0, count: 0 }
+    });
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState<Error | null>(null);
 
@@ -58,11 +87,26 @@ export const useEarnings = (): UseEarningsResult => {
             today.setHours(0, 0, 0, 0);
             const todayRecords = records.filter(r => new Date(r.created_at) >= today);
 
+            // Group by date for daily stats
+            const dailyMap = new Map<string, DailyStats>();
+            records.forEach(r => {
+                const date = new Date(r.created_at).toISOString().split('T')[0];
+                const existing = dailyMap.get(date) || { date, total: 0, count: 0 };
+                existing.total += Number(r.importe) + Number(r.propina || 0);
+                existing.count += 1;
+                dailyMap.set(date, existing);
+            });
+
             setStats({
                 today: todayRecords.reduce((acc, r) => acc + Number(r.importe) + Number(r.propina || 0), 0),
                 todayCount: todayRecords.length,
                 week: records.reduce((acc, r) => acc + Number(r.importe) + Number(r.propina || 0), 0),
                 weekCount: records.length,
+                daily: Array.from(dailyMap.values()).sort((a, b) => b.date.localeCompare(a.date)),
+                weekly: {
+                    revenue: records.reduce((acc, r) => acc + Number(r.importe) + Number(r.propina || 0), 0),
+                    count: records.length
+                }
             });
 
             setError(null);
@@ -108,7 +152,6 @@ export const useEarnings = (): UseEarningsResult => {
             return true;
         } catch (err) {
             console.error('[useEarnings] Add error:', err);
-            // Log full error object for debugging
             if (err && typeof err === 'object' && 'message' in err) {
                 console.error('[useEarnings] Error message:', (err as any).message);
                 console.error('[useEarnings] Error details:', (err as any).details);

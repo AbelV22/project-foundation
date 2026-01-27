@@ -15,9 +15,11 @@ import {
 import { isProTrackingActive, getLastProPosition, configureProTracking, startProTracking, stopProTracking } from "@/services/native/proTracking";
 import { LocationDiagnosticsPanel } from "@/components/LocationDiagnosticsPanel";
 import { NativeDebugLogsPanel } from "@/components/NativeDebugLogsPanel";
+import { UserPresenceTimeline } from "@/components/admin/UserPresenceTimeline";
 
-// Admin password
-const ADMIN_PASSWORD = "laraabel22";
+// Admin password - loaded from environment variable for security
+// Set VITE_ADMIN_PASSWORD in your .env file
+const ADMIN_PASSWORD = import.meta.env.VITE_ADMIN_PASSWORD || "";
 
 interface RegistroReten {
     id: string;
@@ -710,8 +712,11 @@ export default function Admin() {
 
             {activeTab === 'stats' ? (
                 <>
+                    {/* User Presence Timeline */}
+                    <UserPresenceTimeline />
+
                     {/* Stats Grid */}
-                    <section className="mb-6">
+                    <section className="mb-6 mt-6">
                         <h2 className="text-sm font-semibold text-muted-foreground uppercase mb-3">Estadísticas en Tiempo Real</h2>
                         <div className="grid grid-cols-2 gap-2">
                             {zonaStats.map((stat) => (

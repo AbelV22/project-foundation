@@ -63,32 +63,56 @@ public class LocationTrackingService extends Service {
         PowerManager pm = (PowerManager) getSystemService(Context.POWER_SERVICE);
         wakeLock = pm.newWakeLock(PowerManager.PARTIAL_WAKE_LOCK, "iTaxiBcn:LocationWakeLock");
         
+        // Initialize offline queue for network failures
+        LocationApiClient.initOfflineQueue(this);
+
         createNotificationChannel();
     }
-    
+
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
         Log.d(TAG, "Service onStartCommand");
-        
+
         // Start as foreground with notification
         startForeground(NOTIFICATION_ID, createNotification());
-        
-        // Acquire WakeLock
-        if (!wakeLock.isHeld()) {
-            wakeLock.acquire();
-            Log.d(TAG, "WakeLock acquired");
-        }
-        
+
+        // Acquire WakeLock with timeout to prevent battery drain
+        acquireWakeLockWithTimeout();
+
         // Start location updates
         startLocationUpdates();
-        
+
         // Schedule Doze-resistant alarm
         scheduleExactAlarm();
-        
+
         isRunning = true;
+
+        // Mark tracking as enabled for boot recovery
+        BootCompletedReceiver.markTrackingEnabled(this);
+
         logDebug("service_started", "Location tracking service started");
-        
+
         return START_STICKY;
+    }
+
+    /**
+     * Acquire WakeLock with timeout to prevent excessive battery drain.
+     */
+    private void acquireWakeLockWithTimeout() {
+        if (wakeLock != null && !wakeLock.isHeld()) {
+            wakeLock.acquire(2 * 60 * 1000L); // 2-minute timeout
+            Log.d(TAG, "WakeLock acquired with 2-minute timeout");
+        }
+    }
+
+    /**
+     * Reacquire WakeLock briefly during location processing.
+     */
+    private void reacquireWakeLockBriefly() {
+        if (wakeLock != null && !wakeLock.isHeld()) {
+            wakeLock.acquire(30 * 1000L); // 30 seconds
+            Log.d(TAG, "WakeLock reacquired briefly");
+        }
     }
     
     /**
@@ -124,12 +148,15 @@ public class LocationTrackingService extends Service {
         locationCallback = new LocationCallback() {
             @Override
             public void onLocationResult(LocationResult locationResult) {
+                // Reacquire WakeLock briefly during processing
+                reacquireWakeLockBriefly();
+
                 if (locationResult == null) {
                     Log.w(TAG, "Location result is null");
                     logDebug("location_null", "❌ ERROR: LocationResult es null - GPS puede estar desactivado");
                     return;
                 }
-                
+
                 android.location.Location location = locationResult.getLastLocation();
                 if (location != null) {
                     String msg = String.format(
@@ -391,8 +418,12 @@ public class LocationTrackingService extends Service {
         alarmManager.cancel(pi);
         
         isRunning = false;
+
+        // Mark tracking as disabled for boot recovery
+        BootCompletedReceiver.markTrackingDisabled(this);
+
         logDebug("service_stopped", "Location tracking service stopped");
-        
+
         super.onDestroy();
     }
     

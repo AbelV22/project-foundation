@@ -3,7 +3,7 @@ import {
   Plane,
   Train,
   Calendar,
-  TrendingUp
+  TrendingDown
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 
@@ -17,7 +17,7 @@ const navItems = [
   { id: "vuelos", label: "Vuelos", icon: Plane, target: "fullDay" },
   { id: "trenes", label: "Trenes", icon: Train, target: "trainsFullDay" },
   { id: "eventos", label: "Eventos", icon: Calendar, target: "eventos" },
-  { id: "licencias", label: "Licencias", icon: TrendingUp, target: "licencias" },
+  { id: "gastos", label: "Gastos", icon: TrendingDown, target: "gastos" },
 ];
 
 export function BottomNav({ activeTab, onTabChange }: BottomNavProps) {

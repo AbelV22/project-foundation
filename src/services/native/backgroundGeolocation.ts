@@ -1,6 +1,7 @@
 import { Capacitor } from '@capacitor/core';
 import { supabase } from '@/integrations/supabase/client';
 import { getOrCreateDeviceId } from '@/lib/deviceId';
+import { getItem, setItem } from '@/lib/storage'; // Persistence
 import type { BackgroundGeolocationPlugin, Location, CallbackError } from '@capacitor-community/background-geolocation';
 import { registerPlugin } from '@capacitor/core';
 import {
@@ -45,7 +46,7 @@ const logDebugEvent = async (
     try {
         const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
         const supabaseKey = import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY;
-        
+
         await fetch(`${supabaseUrl}/rest/v1/location_debug_logs`, {
             method: 'POST',
             headers: {
@@ -141,6 +142,13 @@ export const initBackgroundGeolocation = async (): Promise<boolean> => {
         if (!hasWifiLock) {
             hasWifiLock = await acquireWifiLock();
             console.log('[BackgroundGeo] WifiLock acquired:', hasWifiLock);
+        }
+
+        // Restore last known zone from storage to prevent "missing exit" if app restarted inside a zone
+        const savedZona = await getItem('background_last_zona');
+        if (savedZona) {
+            lastZona = savedZona;
+            console.log(`[BackgroundGeo] Restored lastZona from storage: ${lastZona}`);
         }
 
         await logDebugEvent('watcher_adding', 'About to add BackgroundGeolocation watcher...');
@@ -275,6 +283,15 @@ const checkGeofenceAndRegister = async (lat: number, lng: number, accuracy?: num
             if (newZona !== lastZona) {
                 console.log(`[BackgroundGeo] Zone changed: ${lastZona || 'none'} → ${newZona || 'none'}`);
                 lastZona = newZona;
+                // Persist new state
+                if (newZona) {
+                    await setItem('background_last_zona', newZona);
+                } else {
+                    // We don't necessarily want to remove it immediately if we want to handle glitches? 
+                    // No, for client side "state", if server says NULL, we are OUT.
+                    // But wait, if we are OUT, we should clear it so we don't think we are IN next boot.
+                    await setItem('background_last_zona', '');
+                }
             }
 
             console.log(`[BackgroundGeo] Zone: ${newZona || 'outside'}`);

@@ -1,7 +1,6 @@
 import { useState, useEffect, useMemo } from "react";
-import { ArrowLeft, Plane, RefreshCw, Flame, Clock, ChevronDown, Globe } from "lucide-react";
 import { cn } from "@/lib/utils";
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
+import { Plane, Clock } from "lucide-react";
 
 interface VueloRaw {
   hora: string;
@@ -16,50 +15,16 @@ interface VueloRaw {
 
 interface FullDayViewProps {
   onBack?: () => void;
+  onTerminalClick?: (terminalId: string) => void;
 }
 
-// Lista de orígenes de larga distancia (high ticket)
 const LONG_HAUL_ORIGINS = [
-  "NEW YORK",
-  "LOS ANGELES",
-  "MIAMI",
-  "CHICAGO",
-  "WASHINGTON",
-  "BOSTON",
-  "SAN FRANCISCO",
-  "TORONTO",
-  "MONTREAL",
-  "MEXICO",
-  "BOGOTA",
-  "BUENOS AIRES",
-  "SAO PAULO",
-  "LIMA",
-  "SANTIAGO",
-  "DOHA",
-  "DUBAI",
-  "ABU DHABI",
-  "TOKYO",
-  "SEOUL",
-  "BEIJING",
-  "SHANGHAI",
-  "SINGAPORE",
-  "HONG KONG",
-  "BANGKOK",
-  "DELHI",
-  "MUMBAI",
-  "JOHANNESBURG",
-  "CAPE TOWN",
-  "SYDNEY",
-  "MELBOURNE",
-  "TEL AVIV",
-  "CAIRO",
-  "EL CAIRO",
-  "LAX",
-  "JFK",
-  "ORD",
-  "DFW",
-  "DOH",
-  "DXB",
+  "NEW YORK", "LOS ANGELES", "MIAMI", "CHICAGO", "WASHINGTON", "BOSTON",
+  "SAN FRANCISCO", "TORONTO", "MONTREAL", "MEXICO", "BOGOTA", "BUENOS AIRES",
+  "SAO PAULO", "LIMA", "SANTIAGO", "DOHA", "DUBAI", "ABU DHABI", "TOKYO",
+  "SEOUL", "BEIJING", "SHANGHAI", "SINGAPORE", "HONG KONG", "BANGKOK",
+  "DELHI", "MUMBAI", "JOHANNESBURG", "CAPE TOWN", "SYDNEY", "MELBOURNE",
+  "TEL AVIV", "CAIRO", "EL CAIRO", "LAX", "JFK", "ORD", "DFW", "DOH", "DXB",
 ];
 
 const isLongHaul = (origen: string): boolean => {
@@ -79,20 +44,29 @@ const getTerminalType = (vuelo: VueloRaw): "t1" | "t2" | "t2c" | "puente" => {
   return "t2";
 };
 
-const generateHourSlots = (startHour: number): string[] => {
-  const slots: string[] = [];
-  for (let i = 0; i < 24; i++) {
-    const hour = (startHour + i) % 24;
-    const nextHour = (hour + 1) % 24;
-    slots.push(`${hour.toString().padStart(2, "0")} - ${nextHour.toString().padStart(2, "0")}`);
-  }
-  return slots;
+// Intensity levels for heat coloring
+type IntensityLevel = "none" | "low" | "medium" | "high";
+
+const getIntensityLevel = (count: number, max: number): IntensityLevel => {
+  if (count === 0) return "none";
+  const ratio = count / max;
+  if (ratio >= 0.7) return "high";
+  if (ratio >= 0.4) return "medium";
+  return "low";
 };
 
-export function FullDayView({ onBack }: FullDayViewProps) {
+// Terminal colors
+const terminalColors = {
+  t1: { bg: "bg-amber-500", text: "text-amber-500", badge: "bg-amber-500" },
+  t2: { bg: "bg-blue-500", text: "text-blue-500", badge: "bg-blue-500" },
+  puente: { bg: "bg-purple-500", text: "text-purple-500", badge: "bg-purple-500" },
+  t2c: { bg: "bg-orange-500", text: "text-orange-500", badge: "bg-orange-500" },
+};
+
+export function FullDayView({ onBack, onTerminalClick }: FullDayViewProps) {
   const [vuelos, setVuelos] = useState<VueloRaw[]>([]);
   const [loading, setLoading] = useState(true);
-  const [lastUpdate, setLastUpdate] = useState<string>("");
+  const [showAll24Hours, setShowAll24Hours] = useState(false);
 
   useEffect(() => {
     fetch("/vuelos.json?t=" + Date.now())
@@ -102,9 +76,6 @@ export function FullDayView({ onBack }: FullDayViewProps) {
           setVuelos(data);
         } else if (data?.vuelos) {
           setVuelos(data.vuelos);
-          if (data.meta?.update_time) {
-            setLastUpdate(data.meta.update_time);
-          }
         }
         setLoading(false);
       })
@@ -113,11 +84,11 @@ export function FullDayView({ onBack }: FullDayViewProps) {
 
   const now = new Date();
   const currentHour = now.getHours();
-  const startHour = (currentHour - 1 + 24) % 24;
 
-  const hourSlots = useMemo(() => generateHourSlots(startHour), [startHour]);
-
-  const vuelosActivos = useMemo(() => vuelos.filter((v) => !v.estado?.toLowerCase().includes("cancelado")), [vuelos]);
+  const vuelosActivos = useMemo(
+    () => vuelos.filter((v) => !v.estado?.toLowerCase().includes("cancelado")),
+    [vuelos]
+  );
 
   const vuelosPorTerminal = useMemo(() => {
     const data: Record<string, VueloRaw[]> = { t1: [], t2: [], t2c: [], puente: [] };
@@ -128,30 +99,11 @@ export function FullDayView({ onBack }: FullDayViewProps) {
     return data;
   }, [vuelosActivos]);
 
-  // Agrupar vuelos por hora para T1 y T2
-  const vuelosPorHora = useMemo(() => {
-    const groups: Record<number, { t1: VueloRaw[]; t2: VueloRaw[] }> = {};
-    for (let h = 0; h < 24; h++) {
-      groups[h] = { t1: [], t2: [] };
-    }
-
-    vuelosPorTerminal.t1.forEach((v) => {
-      const hour = parseInt(v.hora?.split(":")[0] || "0", 10);
-      groups[hour].t1.push(v);
-    });
-
-    vuelosPorTerminal.t2.forEach((v) => {
-      const hour = parseInt(v.hora?.split(":")[0] || "0", 10);
-      groups[hour].t2.push(v);
-    });
-
-    return groups;
-  }, [vuelosPorTerminal]);
-
+  // Count flights per hour and terminal
   const countByHourAndTerminal = useMemo(() => {
     const counts: Record<string, Record<number, number>> = { t1: {}, t2: {}, t2c: {}, puente: {} };
-    Object.entries(vuelosPorTerminal).forEach(([terminal, vuelos]) => {
-      vuelos.forEach((v) => {
+    Object.entries(vuelosPorTerminal).forEach(([terminal, flights]) => {
+      flights.forEach((v) => {
         const hour = parseInt(v.hora?.split(":")[0] || "0", 10);
         counts[terminal][hour] = (counts[terminal][hour] || 0) + 1;
       });
@@ -159,354 +111,347 @@ export function FullDayView({ onBack }: FullDayViewProps) {
     return counts;
   }, [vuelosPorTerminal]);
 
-  const getVuelosHoraExacta = (terminal: "t2c" | "puente"): VueloRaw[] => {
-    const nowMinutes = currentHour * 60 + now.getMinutes();
-    const startMinutes = nowMinutes - 30;
+  // Find max per terminal for intensity calculation
+  const maxByTerminal = useMemo(() => {
+    return {
+      t1: Math.max(...Object.values(countByHourAndTerminal.t1), 1),
+      t2: Math.max(...Object.values(countByHourAndTerminal.t2), 1),
+      puente: Math.max(...Object.values(countByHourAndTerminal.puente), 1),
+      t2c: Math.max(...Object.values(countByHourAndTerminal.t2c), 1),
+    };
+  }, [countByHourAndTerminal]);
 
+  // Get next arrivals for T2C and Puente Aereo
+  const getNextArrivals = (terminal: "t2c" | "puente", count: number = 3) => {
+    const currentMinutes = currentHour * 60 + now.getMinutes();
     return vuelosPorTerminal[terminal]
       .filter((v) => {
-        if (v.estado?.toLowerCase().includes("finalizado")) return false;
         const [h, m] = (v.hora || "00:00").split(":").map(Number);
-        const vueloMinutes = h * 60 + m;
-        return vueloMinutes >= startMinutes;
+        const flightMin = h * 60 + m;
+        return flightMin >= currentMinutes - 15; // Include flights from 15 min ago
+      })
+      .sort((a, b) => {
+        const [ha, ma] = (a.hora || "00:00").split(":").map(Number);
+        const [hb, mb] = (b.hora || "00:00").split(":").map(Number);
+        return ha * 60 + ma - (hb * 60 + mb);
+      })
+      .slice(0, count);
+  };
+
+  const nextT2CArrivals = useMemo(() => getNextArrivals("t2c", 4), [vuelosPorTerminal, currentHour, now]);
+  const nextPuenteArrivals = useMemo(() => getNextArrivals("puente", 4), [vuelosPorTerminal, currentHour, now]);
+
+  // Calculate upcoming long-haul flights for the alert section
+  const upcomingLongHaul = useMemo(() => {
+    const currentMinutes = currentHour * 60 + now.getMinutes();
+    const twoHoursFromNow = currentMinutes + 120;
+
+    return vuelosActivos
+      .filter((v) => {
+        if (!isLongHaul(v.origen)) return false;
+        const estado = v.estado?.toLowerCase() || "";
+        if (estado.includes("finalizado")) return false;
+        const [h, m] = (v.hora || "00:00").split(":").map(Number);
+        const flightMin = h * 60 + m;
+        return flightMin >= currentMinutes - 30 && flightMin <= twoHoursFromNow;
       })
       .sort((a, b) => {
         const [ha, ma] = (a.hora || "00:00").split(":").map(Number);
         const [hb, mb] = (b.hora || "00:00").split(":").map(Number);
         return ha * 60 + ma - (hb * 60 + mb);
       });
+  }, [vuelosActivos, currentHour, now]);
+
+  // Generate hour rows - starting from 1 hour before current
+  const hourRows = useMemo(() => {
+    const startHour = (currentHour - 1 + 24) % 24;
+    const hoursToShow = showAll24Hours ? 24 : 12;
+    const rows = [];
+
+    for (let i = 0; i < hoursToShow; i++) {
+      const hour = (startHour + i) % 24;
+      const t1Count = countByHourAndTerminal.t1[hour] || 0;
+      const t2Count = countByHourAndTerminal.t2[hour] || 0;
+      const puenteCount = countByHourAndTerminal.puente[hour] || 0;
+      const t2cCount = countByHourAndTerminal.t2c[hour] || 0;
+
+      rows.push({
+        hour,
+        label: `${hour.toString().padStart(2, "0")}:00`,
+        t1: t1Count,
+        t2: t2Count,
+        puente: puenteCount,
+        t2c: t2cCount,
+        isCurrent: hour === currentHour,
+        t1Intensity: getIntensityLevel(t1Count, maxByTerminal.t1),
+        t2Intensity: getIntensityLevel(t2Count, maxByTerminal.t2),
+        puenteIntensity: getIntensityLevel(puenteCount, maxByTerminal.puente),
+        t2cIntensity: getIntensityLevel(t2cCount, maxByTerminal.t2c),
+      });
+    }
+
+    return rows;
+  }, [countByHourAndTerminal, currentHour, maxByTerminal, showAll24Hours]);
+
+  // Totals
+  const totals = useMemo(() => ({
+    t1: vuelosPorTerminal.t1.length,
+    t2: vuelosPorTerminal.t2.length,
+    puente: vuelosPorTerminal.puente.length,
+    t2c: vuelosPorTerminal.t2c.length,
+    total: vuelosActivos.length,
+  }), [vuelosPorTerminal, vuelosActivos]);
+
+  // Get badge style based on intensity
+  const getBadgeStyle = (intensity: IntensityLevel, terminal: keyof typeof terminalColors) => {
+    const colors = terminalColors[terminal];
+    switch (intensity) {
+      case "high":
+        return `${colors.badge} text-white font-bold`;
+      case "medium":
+        return `${colors.badge}/80 text-white font-semibold`;
+      case "low":
+        return `${colors.badge}/20 ${colors.text} font-bold`; // Dark text on light bg
+      default:
+        return "bg-transparent text-muted-foreground/30";
+    }
   };
-
-  const maxT1 = Math.max(...Object.values(countByHourAndTerminal.t1), 1);
-  const maxT2 = Math.max(...Object.values(countByHourAndTerminal.t2), 1);
-
-  const totalT1 = vuelosPorTerminal.t1.length;
-  const totalT2 = vuelosPorTerminal.t2.length;
-  const totalPuente = vuelosPorTerminal.puente.length;
-  const totalT2C = vuelosPorTerminal.t2c.length;
-
-  const fechaFormateada = now.toLocaleDateString("es-ES", { day: "2-digit", month: "2-digit", year: "numeric" });
-  const diaSemana = now.toLocaleDateString("es-ES", { weekday: "long" }).toUpperCase();
-
-  const puenteVuelos = getVuelosHoraExacta("puente");
-  const t2cVuelos = getVuelosHoraExacta("t2c");
 
   if (loading) {
     return (
-      <div className="flex flex-col items-center justify-center h-[60vh] space-y-4">
-        <RefreshCw className="h-8 w-8 text-primary animate-spin" />
-        <p className="text-sm text-muted-foreground">Cargando vuelos...</p>
+      <div className="flex flex-col h-full bg-background items-center justify-center">
+        <div className="w-8 h-8 border-2 border-primary border-t-transparent rounded-full animate-spin" />
+        <p className="text-xs text-muted-foreground mt-2">Cargando vuelos...</p>
       </div>
     );
   }
 
   return (
-    <div className="animate-fade-in pb-20">
-      {/* Header */}
-      <div className="flex items-center gap-3 mb-3">
-        <button
-          onClick={onBack}
-          className="flex items-center justify-center w-10 h-10 rounded-xl bg-card border border-border shadow-md hover:bg-muted transition-colors"
-        >
-          <ArrowLeft className="h-5 w-5 text-foreground" />
-        </button>
-        <div className="flex-1">
-          <h1 className="font-display font-bold text-xl text-foreground">Vista Día</h1>
-          <p className="text-[11px] text-muted-foreground">Toca una franja horaria para ver detalles</p>
+    <div className="flex flex-col h-full bg-background overflow-y-auto pb-20">
+      {/* Header Row - Minimal */}
+      <div className="flex-shrink-0 px-3 py-2 border-b border-border/50">
+        <div className="flex items-center justify-between">
+          <div className="flex items-center gap-2">
+            <Plane className="h-4 w-4 text-primary" />
+            <span className="text-sm font-semibold">Llegadas por hora</span>
+          </div>
+          <div className="flex items-center gap-3 text-[10px]">
+            <span className="flex items-center gap-1">
+              <span className="w-2 h-2 rounded-sm bg-green-500/40" /> Bajo
+            </span>
+            <span className="flex items-center gap-1">
+              <span className="w-2 h-2 rounded-sm bg-amber-500/70" /> Medio
+            </span>
+            <span className="flex items-center gap-1">
+              <span className="w-2 h-2 rounded-sm bg-red-500" /> Alto
+            </span>
+          </div>
         </div>
-        {lastUpdate && (
-          <div className="flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-primary/10 border border-primary/30">
-            <Clock className="h-3 w-3 text-primary" />
-            <span className="text-[10px] text-primary font-medium">{lastUpdate}</span>
+      </div>
+
+      {/* Table Header - 4 columns without total */}
+      <div className="flex-shrink-0 grid grid-cols-[50px_1fr_1fr_1fr_1fr] gap-1 px-3 py-2 bg-muted/30 border-b border-border/50">
+        <div className="text-[10px] font-semibold text-muted-foreground text-center">Hora</div>
+        <div className="text-[10px] font-bold text-amber-500 text-center">T1</div>
+        <div className="text-[10px] font-bold text-blue-500 text-center">T2</div>
+        <div className="text-[10px] font-bold text-purple-500 text-center">PA</div>
+        <div className="text-[10px] font-bold text-orange-500 text-center">T2C</div>
+      </div>
+
+      {/* Table Body */}
+      <div className="flex-shrink-0">
+        {hourRows.map((row) => (
+          <div
+            key={row.hour}
+            className={cn(
+              "grid grid-cols-[50px_1fr_1fr_1fr_1fr] gap-1 px-3 py-1.5 border-b border-border/30",
+              row.isCurrent && "bg-primary/10 border-l-2 border-l-primary"
+            )}
+          >
+            {/* Hour */}
+            <div className={cn(
+              "text-xs font-mono text-center",
+              row.isCurrent ? "font-bold text-primary" : "text-muted-foreground"
+            )}>
+              {row.label}
+            </div>
+
+            {/* T1 */}
+            <div className="flex justify-center">
+              <span className={cn(
+                "min-w-[28px] h-6 flex items-center justify-center rounded text-xs",
+                getBadgeStyle(row.t1Intensity, "t1")
+              )}>
+                {row.t1 > 0 ? row.t1 : ""}
+              </span>
+            </div>
+
+            {/* T2 */}
+            <div className="flex justify-center">
+              <span className={cn(
+                "min-w-[28px] h-6 flex items-center justify-center rounded text-xs",
+                getBadgeStyle(row.t2Intensity, "t2")
+              )}>
+                {row.t2 > 0 ? row.t2 : ""}
+              </span>
+            </div>
+
+            {/* Puente Aereo */}
+            <div className="flex justify-center">
+              <span className={cn(
+                "min-w-[28px] h-6 flex items-center justify-center rounded text-xs",
+                getBadgeStyle(row.puenteIntensity, "puente")
+              )}>
+                {row.puente > 0 ? row.puente : ""}
+              </span>
+            </div>
+
+            {/* T2C */}
+            <div className="flex justify-center">
+              <span className={cn(
+                "min-w-[28px] h-6 flex items-center justify-center rounded text-xs",
+                getBadgeStyle(row.t2cIntensity, "t2c")
+              )}>
+                {row.t2c > 0 ? row.t2c : ""}
+              </span>
+            </div>
+          </div>
+        ))}
+
+        {/* Show More / Less Button */}
+        <button
+          onClick={() => setShowAll24Hours(!showAll24Hours)}
+          className="w-full py-2 text-[11px] text-muted-foreground hover:text-foreground transition-colors border-b border-border/30"
+        >
+          {showAll24Hours ? "- Mostrar menos horas" : "+ Mostrar 24 horas completas"}
+        </button>
+      </div>
+
+      {/* Footer Totals - 4 columns */}
+      <div className="flex-shrink-0 grid grid-cols-[50px_1fr_1fr_1fr_1fr] gap-1 px-3 py-2 bg-muted/50 border-t border-border">
+        <div className="text-[10px] font-bold text-muted-foreground text-center">Total</div>
+        <div className="text-center">
+          <span className="text-sm font-bold text-amber-500">{totals.t1}</span>
+        </div>
+        <div className="text-center">
+          <span className="text-sm font-bold text-blue-500">{totals.t2}</span>
+        </div>
+        <div className="text-center">
+          <span className="text-sm font-bold text-purple-500">{totals.puente}</span>
+        </div>
+        <div className="text-center">
+          <span className="text-sm font-bold text-orange-500">{totals.t2c}</span>
+        </div>
+      </div>
+
+      {/* Next Arrivals for T2C and Puente Aereo */}
+      <div className="flex-shrink-0 px-3 py-3 space-y-3">
+        {/* T2C Next Arrivals */}
+        {nextT2CArrivals.length > 0 && (
+          <div className="rounded-xl border border-orange-500/30 bg-orange-500/5 p-3">
+            <div className="flex items-center gap-2 mb-2">
+              <div className="w-6 h-6 rounded-full bg-orange-500 flex items-center justify-center">
+                <Plane className="h-3 w-3 text-white" />
+              </div>
+              <span className="text-xs font-bold text-orange-500">Proximos T2C (EasyJet)</span>
+            </div>
+            <div className="grid grid-cols-2 gap-2">
+              {nextT2CArrivals.map((flight, idx) => (
+                <div key={idx} className="flex items-center gap-2 bg-background/50 rounded-lg px-2 py-1.5">
+                  <Clock className="h-3 w-3 text-orange-500" />
+                  <span className="text-sm font-mono font-bold text-foreground">{flight.hora}</span>
+                  <span className="text-[10px] text-muted-foreground truncate">{flight.origen?.split("(")[0]?.trim()}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
+
+        {/* Puente Aereo Next Arrivals */}
+        {nextPuenteArrivals.length > 0 && (
+          <div className="rounded-xl border border-purple-500/30 bg-purple-500/5 p-3">
+            <div className="flex items-center gap-2 mb-2">
+              <div className="w-6 h-6 rounded-full bg-purple-500 flex items-center justify-center">
+                <Plane className="h-3 w-3 text-white" />
+              </div>
+              <span className="text-xs font-bold text-purple-500">Proximos Puente Aereo (Madrid)</span>
+            </div>
+            <div className="grid grid-cols-2 gap-2">
+              {nextPuenteArrivals.map((flight, idx) => (
+                <div key={idx} className="flex items-center gap-2 bg-background/50 rounded-lg px-2 py-1.5">
+                  <Clock className="h-3 w-3 text-purple-500" />
+                  <span className="text-sm font-mono font-bold text-foreground">{flight.hora}</span>
+                  <span className="text-[10px] text-foreground/70 font-medium">{flight.vuelo}</span>
+                </div>
+              ))}
+            </div>
           </div>
         )}
       </div>
 
-      {/* Fecha */}
-      <div className="flex gap-2 mb-3">
-        <div className="flex-1 bg-card rounded-xl py-2.5 px-4 text-center border border-border shadow-sm">
-          <span className="font-display font-bold text-foreground text-sm">{fechaFormateada}</span>
-        </div>
-        <div className="flex-1 bg-card rounded-xl py-2.5 px-4 text-center border border-border shadow-sm">
-          <span className="font-display font-bold text-foreground text-sm capitalize">{diaSemana}</span>
-        </div>
-      </div>
-
-      {/* Two-Table Layout */}
-      <div className="grid grid-cols-2 gap-2">
-        {/* Left Table: T1 & T2 */}
-        <div className="rounded-xl border border-border bg-card shadow-lg shadow-black/10 overflow-hidden flex flex-col">
-          {/* Header - using table for perfect alignment */}
-          <table className="w-full table-fixed border-collapse">
-            <thead>
-              <tr className="bg-gradient-to-r from-muted to-muted/80">
-                <th className="w-[72px] py-2.5 px-1 text-center border-b border-border">
-                  <span className="text-[10px] font-display font-bold text-muted-foreground uppercase tracking-wide">
-                    Hora
+      {/* Long-haul High-Ticket Flights Section */}
+      {upcomingLongHaul.length > 0 && (
+        <div className="flex-shrink-0 px-3 py-3">
+          <div className="rounded-xl border border-amber-500/30 bg-amber-500/5 p-3">
+            <div className="flex items-center gap-2 mb-3">
+              <span className="text-lg">🌍</span>
+              <span className="text-xs font-bold text-amber-500">
+                Vuelos larga distancia (proximas 2h) - High Ticket
+              </span>
+              <span className="ml-auto text-xs font-bold text-amber-500 bg-amber-500/20 px-2 py-0.5 rounded-full">
+                {upcomingLongHaul.length}
+              </span>
+            </div>
+            <div className="space-y-2">
+              {upcomingLongHaul.slice(0, 6).map((flight, idx) => (
+                <div
+                  key={idx}
+                  className="flex items-center gap-3 bg-background/50 rounded-lg px-3 py-2"
+                >
+                  <span className="text-sm font-mono font-bold text-amber-400 w-12">{flight.hora}</span>
+                  <span className="text-xs font-medium text-foreground flex-1 truncate">
+                    {flight.origen?.split("(")[0]?.trim()}
                   </span>
-                </th>
-                <th className="py-2.5 px-1 text-center border-b border-l border-border">
-                  <span className="text-[11px] font-display font-bold text-amber-500 uppercase tracking-wide">T1</span>
-                </th>
-                <th className="py-2.5 px-1 text-center border-b border-l border-border">
-                  <span className="text-[11px] font-display font-bold text-blue-500 uppercase tracking-wide">T2</span>
-                </th>
-              </tr>
-            </thead>
-          </table>
-
-          {/* Body with Accordion */}
-          <div className="flex-1 max-h-[50vh] overflow-y-auto scrollbar-dark">
-            <Accordion type="single" collapsible className="w-full">
-              {hourSlots.map((slot, idx) => {
-                const hour = (startHour + idx) % 24;
-                const countT1 = countByHourAndTerminal.t1[hour] || 0;
-                const countT2 = countByHourAndTerminal.t2[hour] || 0;
-                const isHotT1 = countT1 >= maxT1 * 0.7 && countT1 > 0;
-                const isHotT2 = countT2 >= maxT2 * 0.7 && countT2 > 0;
-                const isCurrentHour = hour === currentHour;
-                const hasFlights = countT1 > 0 || countT2 > 0;
-                const flightsT1 = vuelosPorHora[hour]?.t1 || [];
-                const flightsT2 = vuelosPorHora[hour]?.t2 || [];
-                const longHaulT1 = flightsT1.filter((f) => isLongHaul(f.origen)).length;
-                const longHaulT2 = flightsT2.filter((f) => isLongHaul(f.origen)).length;
-
-                return (
-                  <AccordionItem
-                    key={slot}
-                    value={slot}
-                    className={cn("border-b border-border/30", isCurrentHour && "bg-primary/10")}
-                  >
-                    <AccordionTrigger className="py-0 px-0 hover:no-underline [&[data-state=open]>table]:bg-muted/30">
-                      <table className="w-full table-fixed border-collapse">
-                        <tbody>
-                          <tr>
-                            <td className={cn("w-[72px] py-2 px-1 text-center", isCurrentHour && "bg-primary/15")}>
-                              <div className="flex items-center justify-center gap-0.5">
-                                <span className={cn(
-                                  "text-[9px] font-mono font-semibold",
-                                  isCurrentHour ? "font-bold text-primary" : "text-muted-foreground"
-                                )}>
-                                  {slot}
-                                </span>
-                                {hasFlights && <ChevronDown className="h-2.5 w-2.5 text-muted-foreground/40 shrink-0" />}
-                              </div>
-                            </td>
-                            <td className={cn(
-                              "py-2 px-1 text-center border-l border-border/30",
-                              isHotT1 && "bg-amber-500/10"
-                            )}>
-                              <div className="flex items-center justify-center gap-0.5">
-                                {isHotT1 && <Flame className="h-3 w-3 text-amber-500" />}
-                                <span className={cn(
-                                  "font-display font-bold text-sm tabular-nums",
-                                  isHotT1 ? "text-amber-500" : "text-foreground",
-                                  countT1 === 0 && "text-muted-foreground/30"
-                                )}>
-                                  {countT1.toString().padStart(2, "0")}
-                                </span>
-                              </div>
-                            </td>
-                            <td className={cn(
-                              "py-2 px-1 text-center border-l border-border/30",
-                              isHotT2 && "bg-blue-500/10"
-                            )}>
-                              <div className="flex items-center justify-center gap-0.5">
-                                {isHotT2 && <Flame className="h-3 w-3 text-blue-500" />}
-                                <span className={cn(
-                                  "font-display font-bold text-sm tabular-nums",
-                                  isHotT2 ? "text-blue-500" : "text-foreground",
-                                  countT2 === 0 && "text-muted-foreground/30"
-                                )}>
-                                  {countT2.toString().padStart(2, "0")}
-                                </span>
-                              </div>
-                            </td>
-                          </tr>
-                        </tbody>
-                      </table>
-                    </AccordionTrigger>
-
-                    <AccordionContent className="pb-0">
-                      {hasFlights && (
-                        <div className="bg-muted/20 border-t border-border/30 p-2">
-                          <div className="grid grid-cols-2 gap-2">
-                            {/* T1 Flights */}
-                            {flightsT1.length > 0 && (
-                              <div>
-                                <span className="text-[8px] font-bold text-amber-500 uppercase mb-1 block">T1</span>
-                                <div className="space-y-0.5">
-                                  {flightsT1.slice(0, 3).map((f, i) => (
-                                    <div key={i} className={cn(
-                                      "flex items-center gap-1 text-[9px] py-0.5 px-1 rounded",
-                                      isLongHaul(f.origen) && "bg-yellow-500/10"
-                                    )}>
-                                      <span className="font-mono font-semibold text-foreground">{f.hora}</span>
-                                      {isLongHaul(f.origen) && <Globe className="h-2.5 w-2.5 text-yellow-500" />}
-                                      <span className="text-muted-foreground/60 truncate">{f.origen?.split("(")[0]?.trim()?.slice(0, 6)}</span>
-                                    </div>
-                                  ))}
-                                  {flightsT1.length > 3 && (
-                                    <span className="text-[8px] text-muted-foreground">+{flightsT1.length - 3} más</span>
-                                  )}
-                                </div>
-                              </div>
-                            )}
-                            {/* T2 Flights */}
-                            {flightsT2.length > 0 && (
-                              <div>
-                                <span className="text-[8px] font-bold text-blue-500 uppercase mb-1 block">T2</span>
-                                <div className="space-y-0.5">
-                                  {flightsT2.slice(0, 3).map((f, i) => (
-                                    <div key={i} className={cn(
-                                      "flex items-center gap-1 text-[9px] py-0.5 px-1 rounded",
-                                      isLongHaul(f.origen) && "bg-yellow-500/10"
-                                    )}>
-                                      <span className="font-mono font-semibold text-foreground">{f.hora}</span>
-                                      {isLongHaul(f.origen) && <Globe className="h-2.5 w-2.5 text-yellow-500" />}
-                                      <span className="text-muted-foreground/60 truncate">{f.origen?.split("(")[0]?.trim()?.slice(0, 6)}</span>
-                                    </div>
-                                  ))}
-                                  {flightsT2.length > 3 && (
-                                    <span className="text-[8px] text-muted-foreground">+{flightsT2.length - 3} más</span>
-                                  )}
-                                </div>
-                              </div>
-                            )}
-                          </div>
-                        </div>
-                      )}
-                    </AccordionContent>
-                  </AccordionItem>
-                );
-              })}
-            </Accordion>
+                  <span className={cn(
+                    "text-[10px] font-bold px-2 py-0.5 rounded",
+                    getTerminalType(flight) === "t1" ? "bg-amber-500/20 text-amber-500" : "bg-blue-500/20 text-blue-500"
+                  )}>
+                    {getTerminalType(flight) === "t1" ? "T1" : "T2"}
+                  </span>
+                  <span className="text-[10px] text-foreground/70 font-mono">{flight.vuelo}</span>
+                </div>
+              ))}
+              {upcomingLongHaul.length > 6 && (
+                <p className="text-[10px] text-amber-500/70 text-center pt-1">
+                  +{upcomingLongHaul.length - 6} vuelos mas
+                </p>
+              )}
+            </div>
           </div>
-
-          {/* Footer */}
-          <table className="w-full table-fixed border-collapse">
-            <tfoot>
-              <tr className="bg-gradient-to-r from-muted to-muted/80">
-                <td className="w-[72px] py-2.5 px-1 text-center border-t border-border">
-                  <span className="text-[9px] font-display font-bold text-muted-foreground uppercase">Total</span>
-                </td>
-                <td className="py-2.5 px-1 text-center border-t border-l border-border">
-                  <span className="font-display font-bold text-base text-amber-500 tabular-nums">{totalT1}</span>
-                </td>
-                <td className="py-2.5 px-1 text-center border-t border-l border-border">
-                  <span className="font-display font-bold text-base text-blue-500 tabular-nums">{totalT2}</span>
-                </td>
-              </tr>
-            </tfoot>
-          </table>
         </div>
-
-        {/* Right Table: Puente Aéreo & T2C */}
-        <div className="rounded-xl border border-border bg-card shadow-lg shadow-black/10 overflow-hidden flex flex-col">
-          {/* Header */}
-          <table className="w-full table-fixed border-collapse">
-            <thead>
-              <tr className="bg-gradient-to-r from-muted to-muted/80">
-                <th className="py-2.5 px-2 text-center border-b border-border">
-                  <div className="flex flex-col items-center leading-tight">
-                    <span className="text-[10px] font-display font-bold text-red-500 uppercase">Puente</span>
-                    <span className="text-[8px] font-display text-red-500/70 uppercase">Aéreo</span>
-                  </div>
-                </th>
-                <th className="py-2.5 px-2 text-center border-b border-l border-border">
-                  <div className="flex flex-col items-center leading-tight">
-                    <span className="text-[10px] font-display font-bold text-orange-500 uppercase">T2C</span>
-                    <span className="text-[8px] font-display text-orange-500/70 uppercase">EasyJet</span>
-                  </div>
-                </th>
-              </tr>
-            </thead>
-          </table>
-
-          {/* Body */}
-          <div className="flex-1 max-h-[50vh] overflow-y-auto scrollbar-dark">
-            <table className="w-full table-fixed border-collapse">
-              <tbody>
-                {hourSlots.map((slot, idx) => {
-                  const hour = (startHour + idx) % 24;
-                  const isCurrentHour = hour === currentHour;
-
-                  const puenteForHour = vuelosPorTerminal.puente.filter(v => {
-                    const h = parseInt(v.hora?.split(":")[0] || "0", 10);
-                    return h === hour;
-                  }).sort((a, b) => a.hora.localeCompare(b.hora));
-
-                  const t2cForHour = vuelosPorTerminal.t2c.filter(v => {
-                    const h = parseInt(v.hora?.split(":")[0] || "0", 10);
-                    return h === hour;
-                  }).sort((a, b) => a.hora.localeCompare(b.hora));
-
-                  return (
-                    <tr key={slot} className={cn("border-b border-border/30", isCurrentHour && "bg-primary/10")}>
-                      <td className="py-2 px-2 text-center align-middle h-[36px]">
-                        {puenteForHour.length === 0 ? (
-                          <span className="text-[9px] text-muted-foreground/25">—</span>
-                        ) : (
-                          <div className="flex flex-col items-center gap-0.5">
-                            {puenteForHour.slice(0, 2).map((vuelo, i) => (
-                              <span key={i} className="font-mono font-bold text-[9px] text-red-500 leading-tight">
-                                {vuelo.hora}
-                              </span>
-                            ))}
-                            {puenteForHour.length > 2 && (
-                              <span className="text-[7px] text-red-500/60">+{puenteForHour.length - 2}</span>
-                            )}
-                          </div>
-                        )}
-                      </td>
-                      <td className="py-2 px-2 text-center align-middle border-l border-border/30 h-[36px]">
-                        {t2cForHour.length === 0 ? (
-                          <span className="text-[9px] text-muted-foreground/25">—</span>
-                        ) : (
-                          <div className="flex flex-col items-center gap-0.5">
-                            {t2cForHour.slice(0, 2).map((vuelo, i) => (
-                              <span key={i} className="font-mono font-bold text-[9px] text-orange-500 leading-tight">
-                                {vuelo.hora}
-                              </span>
-                            ))}
-                            {t2cForHour.length > 2 && (
-                              <span className="text-[7px] text-orange-500/60">+{t2cForHour.length - 2}</span>
-                            )}
-                          </div>
-                        )}
-                      </td>
-                    </tr>
-                  );
-                })}
-              </tbody>
-            </table>
-          </div>
-
-          {/* Footer */}
-          <table className="w-full table-fixed border-collapse">
-            <tfoot>
-              <tr className="bg-gradient-to-r from-muted to-muted/80">
-                <td className="py-2.5 px-2 text-center border-t border-border">
-                  <span className="font-display font-bold text-base text-red-500 tabular-nums">{totalPuente}</span>
-                </td>
-                <td className="py-2.5 px-2 text-center border-t border-l border-border">
-                  <span className="font-display font-bold text-base text-orange-500 tabular-nums">{totalT2C}</span>
-                </td>
-              </tr>
-            </tfoot>
-          </table>
-        </div>
-      </div>
+      )}
 
       {/* Legend */}
-      <div className="mt-3 flex flex-wrap items-center gap-4 p-3 rounded-xl bg-card/50 border border-border/50">
-        <div className="flex items-center gap-1.5 text-[11px] text-muted-foreground">
-          <Flame className="h-3.5 w-3.5 text-amber-500" />
-          <span>Hora caliente</span>
-        </div>
-        <div className="flex items-center gap-1.5 text-[11px] text-muted-foreground">
-          <Globe className="h-3.5 w-3.5 text-yellow-500" />
-          <span>Larga Distancia</span>
+      <div className="flex-shrink-0 px-3 py-3">
+        <div className="rounded-xl bg-muted/30 p-3">
+          <div className="grid grid-cols-4 gap-2 text-center">
+            <div>
+              <div className="w-4 h-4 rounded bg-amber-500 mx-auto mb-1" />
+              <span className="text-[9px] text-muted-foreground">T1</span>
+            </div>
+            <div>
+              <div className="w-4 h-4 rounded bg-blue-500 mx-auto mb-1" />
+              <span className="text-[9px] text-muted-foreground">T2</span>
+            </div>
+            <div>
+              <div className="w-4 h-4 rounded bg-purple-500 mx-auto mb-1" />
+              <span className="text-[9px] text-muted-foreground">P. Aereo</span>
+            </div>
+            <div>
+              <div className="w-4 h-4 rounded bg-orange-500 mx-auto mb-1" />
+              <span className="text-[9px] text-muted-foreground">T2C</span>
+            </div>
+          </div>
         </div>
       </div>
     </div>
