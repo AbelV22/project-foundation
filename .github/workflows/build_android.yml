@@ -45,7 +45,12 @@ jobs:
         run: npm run build
       
       - name: Add Android platform
-        run: npx cap add android
+        run: |
+          if [ ! -d "android" ]; then
+            npx cap add android
+          else
+            echo "Android platform already exists. Skipping..."
+          fi
       
       # ADD GOOGLE PLAY SERVICES LOCATION DEPENDENCY
       - name: Add Google Play Services Location dependency
