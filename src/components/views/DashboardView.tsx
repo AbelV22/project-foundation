@@ -261,6 +261,13 @@ export function DashboardView({ onTerminalClick, onViewAllFlights, onViewAllEven
 
   return (
     <div className="space-y-3 pb-16">
+      {/* Header with Settings */}
+      <div className="flex items-center justify-between px-1 pt-1">
+        <h2 className="text-xl font-display font-bold text-foreground">iTaxi BCN</h2>
+        <button onClick={() => navigate('/settings')} className="p-2 rounded-full hover:bg-muted/50 transition-colors">
+          <Settings className="h-5 w-5 text-muted-foreground" />
+        </button>
+      </div>
 
       {/* === LOCATION STATUS WIDGET (visible when testing mode is on) === */}
       {locationStatus?.isTestingMode && (

@@ -21,6 +21,13 @@ interface ProTrackingPlugin {
         timestamp?: number;
         zona?: string;
     }>;
+
+    setSchedule(options: {
+        startHour: number;
+        endHour: number;
+        enabled: boolean;
+        trackingEnabled: boolean;
+    }): Promise<{ success: boolean }>;
 }
 
 const ProTracking = registerPlugin<ProTrackingPlugin>('ProTracking');
@@ -130,5 +137,32 @@ export const getLastProPosition = async () => {
     } catch (e) {
         console.error('[ProTracking] Position error:', e);
         return null;
+    }
+};
+
+/**
+ * Configure tracking schedule and global toggle
+ */
+export const setProSchedule = async (
+    startHour: number,
+    endHour: number,
+    enabled: boolean,
+    trackingEnabled: boolean
+): Promise<boolean> => {
+    if (!Capacitor.isNativePlatform()) {
+        return true;
+    }
+
+    try {
+        const result = await ProTracking.setSchedule({
+            startHour,
+            endHour,
+            enabled,
+            trackingEnabled
+        });
+        return result.success;
+    } catch (e) {
+        console.error('[ProTracking] Schedule error:', e);
+        return false;
     }
 };

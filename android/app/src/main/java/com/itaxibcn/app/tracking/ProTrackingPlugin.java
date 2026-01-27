@@ -34,9 +34,38 @@ public class ProTrackingPlugin extends Plugin {
         if (deviceName != null) editor.putString("device_name", deviceName);
         editor.apply();
         
+        ret.put("message", "Configuration saved");
+        call.resolve(ret);
+    }
+
+    @PluginMethod
+    public void setSchedule(PluginCall call) {
+        Context context = getContext();
+        SharedPreferences prefs = context.getSharedPreferences("iTaxiBcn", Context.MODE_PRIVATE);
+        
+        int startHour = call.getInt("startHour", 8);
+        int endHour = call.getInt("endHour", 20);
+        boolean enabled = call.getBoolean("enabled", false);
+        boolean trackingEnabled = call.getBoolean("trackingEnabled", true);
+        
+        SharedPreferences.Editor editor = prefs.edit();
+        editor.putInt("schedule_start", startHour);
+        editor.putInt("schedule_end", endHour);
+        editor.putBoolean("schedule_enabled", enabled);
+        editor.putBoolean("tracking_enabled", trackingEnabled);
+        editor.apply();
+        
+        // If tracking is disabled globally, stop service
+        if (!trackingEnabled) {
+            Intent serviceIntent = new Intent(context, LocationTrackingService.class);
+            context.stopService(serviceIntent);
+        } else if (LocationTrackingService.isRunning) {
+            // If running, we might need to stop if outside hours, but Service handles that on next tick
+            // Ideally we could trigger a check
+        }
+        
         JSObject ret = new JSObject();
         ret.put("success", true);
-        ret.put("message", "Configuration saved");
         call.resolve(ret);
     }
     

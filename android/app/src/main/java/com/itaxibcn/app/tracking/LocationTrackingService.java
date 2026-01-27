@@ -121,6 +121,13 @@ public class LocationTrackingService extends Service {
      * The AlarmManager is our backup for Doze mode.
      */
     private void startLocationUpdates() {
+        if (!isTrackingAllowed()) {
+            Log.d(TAG, "⛔ Tracking paused (Schedule or Manual Stop)");
+            logDebug("tracking_paused", "Tracking en pausa por horario o interruptor manual");
+            stopSelf(); // Stop service to save battery
+            return;
+        }
+
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) 
                 != PackageManager.PERMISSION_GRANTED) {
             Log.e(TAG, "No location permission!");
@@ -269,6 +276,11 @@ public class LocationTrackingService extends Service {
                 != PackageManager.PERMISSION_GRANTED) {
             logDebugStatic(prefs, "alarm_no_permission", "❌ ALARM ERROR: Sin permiso de ubicación");
             return;
+        }
+
+        if (!isTrackingAllowed(context)) {
+             Log.d(TAG, "⛔ Alarm: Tracking paused by schedule");
+             return;
         }
         
         FusedLocationProviderClient client = LocationServices.getFusedLocationProviderClient(context);
@@ -431,5 +443,43 @@ public class LocationTrackingService extends Service {
     @Override
     public IBinder onBind(Intent intent) {
         return null;
+    }
+
+    /**
+     * Check if tracking is allowed based on user settings (Manual Toggle + Schedule)
+     */
+    public static boolean isTrackingAllowed(Context context) {
+        SharedPreferences prefs = context.getSharedPreferences("iTaxiBcn", Context.MODE_PRIVATE);
+        
+        // 1. Global manual toggle
+        boolean trackingEnabled = prefs.getBoolean("tracking_enabled", true);
+        if (!trackingEnabled) return false;
+        
+        // 2. Schedule
+        boolean scheduleEnabled = prefs.getBoolean("schedule_enabled", false);
+        if (scheduleEnabled) {
+            int startHour = prefs.getInt("schedule_start", 8);
+            int endHour = prefs.getInt("schedule_end", 20);
+            
+            java.util.Calendar now = java.util.Calendar.getInstance();
+            int currentHour = now.get(java.util.Calendar.HOUR_OF_DAY);
+            
+            // Example: 9:00 to 18:00
+            // If start < end: valid range [start, end)
+            // If start > end (night shift): valid range [start, 24) U [0, end)
+            
+            if (startHour < endHour) {
+                if (currentHour < startHour || currentHour >= endHour) return false;
+            } else {
+                // Night shift (e.g. 22:00 to 06:00)
+                if (currentHour < startHour && currentHour >= endHour) return false;
+            }
+        }
+        
+        return true;
+    }
+
+    private boolean isTrackingAllowed() {
+        return isTrackingAllowed(this);
     }
 }

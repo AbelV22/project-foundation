@@ -33,10 +33,14 @@ public class AlarmReceiver extends BroadcastReceiver {
         wl.acquire(10000); // 10 second timeout for location request
         
         try {
-            if (LocationTrackingService.isRunning) {
+            if (LocationTrackingService.isRunning || LocationTrackingService.isTrackingAllowed(context)) {
+                // Even if not running, if allowed, we might want to wake up?
+                // For now, let's stick to "if allowed, force check".
+                // Actually, if service is killed, alarm resurrects it?
+                // Yes, forceLocationCheck checks permissions. Let's add schedule check there too.
                 LocationTrackingService.forceLocationCheck(context);
             } else {
-                Log.w(TAG, "⚠️ Service not running, alarm ignored");
+                Log.w(TAG, "⚠️ Service not running or tracking invalid, alarm ignored");
             }
         } catch (Exception e) {
             Log.e(TAG, "Error in alarm receiver: " + e.getMessage());
