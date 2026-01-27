@@ -107,6 +107,16 @@ BEGIN
     LIMIT 1;
 
     -- B. OBTENER ESTADO ACTUAL (Sesión Abierta)
+    
+    -- B.1 LIMPIEZA DE SESIONES ZOMBIE (> 24 horas)
+    -- Si el usuario lleva > 24h "dentro" sin salir, forzamos cierre para no acumular horas infinitas.
+    UPDATE public.registros_reten
+    SET exited_at = created_at + interval '24 hours'
+    WHERE device_id = p_device_id
+      AND exited_at IS NULL
+      AND created_at < (v_timestamp - interval '24 hours');
+
+    -- B.2 Ahora sí, buscamos sesión activa (que no sea zombie)
     SELECT * INTO v_current_session
     FROM public.registros_reten
     WHERE device_id = p_device_id
