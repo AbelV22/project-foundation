@@ -207,11 +207,11 @@ export function FullDayView({ onBack, onTerminalClick }: FullDayViewProps) {
     const colors = terminalColors[terminal];
     switch (intensity) {
       case "high":
-        return `${colors.badge} text-black font-bold`;
+        return `${colors.badge} text-white font-bold`;
       case "medium":
-        return `${colors.badge}/70 text-white font-semibold`;
+        return `${colors.badge}/80 text-white font-semibold`;
       case "low":
-        return `${colors.badge}/40 text-white font-medium`;
+        return `${colors.badge}/20 ${colors.text} font-bold`; // Dark text on light bg
       default:
         return "bg-transparent text-muted-foreground/30";
     }
