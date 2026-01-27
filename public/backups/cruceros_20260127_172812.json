@@ -97,7 +97,7 @@
             "fecha": "2026-01-27"
         },
         {
-            "hora": "16:31",
+            "hora": "15:58",
             "nombre": "Sti Clapham",
             "naviera": "SCORPIO COMMERCIAL MANAGEMENT",
             "terminal": "",
@@ -106,14 +106,14 @@
             "pax_estimados": 1000,
             "puerto": "Santa Panagia",
             "tipo": "llegada",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Illes Marshall",
             "imo": "9696577",
             "mmsi": "538005407",
             "fecha": "2026-01-27"
         },
         {
-            "hora": "16:34",
+            "hora": "16:00",
             "nombre": "Sti Clapham",
             "naviera": "SCORPIO COMMERCIAL MANAGEMENT",
             "terminal": "EXOLUM CORPORATION, SA",
@@ -122,30 +122,14 @@
             "pax_estimados": 1000,
             "puerto": "Santa Panagia",
             "tipo": "llegada",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Illes Marshall",
             "imo": "9696577",
             "mmsi": "538005407",
             "fecha": "2026-01-27"
         },
         {
-            "hora": "17:20",
-            "nombre": "Gnv Sealand",
-            "naviera": "GRANDI NAVI VELOCI",
-            "terminal": "TERMINAL F2",
-            "terminal_codigo": "F2",
-            "eslora": 0,
-            "pax_estimados": 500,
-            "puerto": "Palma de Mallorca",
-            "tipo": "llegada",
-            "estado": "Iniciada",
-            "bandera": "Itàlia",
-            "imo": "9435454",
-            "mmsi": "247265800",
-            "fecha": "2026-01-27"
-        },
-        {
-            "hora": "17:45",
+            "hora": "17:00",
             "nombre": "Rachel Borchard",
             "naviera": "BORCHARD LINES",
             "terminal": "APM TERMINALS BARCELONA, S.L.U.",
@@ -154,10 +138,26 @@
             "pax_estimados": 1000,
             "puerto": "Marseille",
             "tipo": "llegada",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Portugal",
             "imo": "1016587",
             "mmsi": "255915592",
+            "fecha": "2026-01-27"
+        },
+        {
+            "hora": "17:15",
+            "nombre": "Gnv Sealand",
+            "naviera": "GRANDI NAVI VELOCI",
+            "terminal": "TERMINAL F2",
+            "terminal_codigo": "F2",
+            "eslora": 0,
+            "pax_estimados": 500,
+            "puerto": "Palma de Mallorca",
+            "tipo": "llegada",
+            "estado": "Autoritzada",
+            "bandera": "Itàlia",
+            "imo": "9435454",
+            "mmsi": "247265800",
             "fecha": "2026-01-27"
         },
         {
@@ -291,7 +291,7 @@
             "fecha": "2026-01-27"
         },
         {
-            "hora": "16:33",
+            "hora": "15:59",
             "nombre": "Sti Clapham",
             "naviera": "NEXT MARITIME SL",
             "terminal": "",
@@ -300,7 +300,7 @@
             "pax_estimados": 1000,
             "puerto": "Desconegut",
             "tipo": "salida",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Illes Marshall",
             "imo": "9696577",
             "mmsi": "538005407",
@@ -364,7 +364,7 @@
             "pax_estimados": 500,
             "puerto": "Palma de Mallorca",
             "tipo": "salida",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Itàlia",
             "imo": "9435454",
             "mmsi": "247265800",
@@ -424,25 +424,25 @@
         "total_llegadas": 14,
         "total_salidas": 12,
         "pax_estimados_hoy": 22500,
-        "proximo_desembarco": "17:45",
-        "proximo_barco": "Rachel Borchard"
+        "proximo_desembarco": "15:58",
+        "proximo_barco": "Sti Clapham"
     },
     "terminales_activas": [
-        "E",
-        "6212",
-        "0010",
-        "F3",
-        "2396",
-        "8192",
-        "8156",
         "7083",
-        "6154",
         "F1",
-        "F2"
+        "8192",
+        "F2",
+        "2396",
+        "8156",
+        "6212",
+        "F3",
+        "0010",
+        "E",
+        "6154"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-01-27T17:28:12.593264",
+        "actualizado": "2026-01-27T15:31:11.864473",
         "frecuencia": "horaria"
     }
 }
