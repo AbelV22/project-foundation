@@ -38,13 +38,11 @@ const initializeNative = async (setPermissionDenied: (denied: boolean) => void) 
   const isTestingMode = localStorage.getItem('geofence_testing_mode') === 'true';
 
   if (!Capacitor.isNativePlatform()) {
-    // On web, only start tracking if testing mode is enabled
-    if (isTestingMode) {
-      console.log('[App] Web platform with testing mode - starting tracking');
-      startAutoTracking((zona) => {
-        console.log('[App] Zone changed to:', zona);
-      });
-    }
+    // On web, start tracking automatically (browser will ask for permission)
+    console.log('[App] Web platform - starting tracking');
+    startAutoTracking((zona) => {
+      console.log('[App] Zone changed to:', zona);
+    });
     return;
   }
 
@@ -141,6 +139,8 @@ const BackButtonHandler = () => {
   return null;
 };
 
+import PrivacyPolicy from "./pages/PrivacyPolicy";
+
 const App = () => {
   const [permissionDenied, setPermissionDenied] = useState(false);
 
@@ -183,6 +183,7 @@ const App = () => {
             <Routes>
               <Route path="/" element={<Index />} />
               <Route path="/admin" element={<Admin />} />
+              <Route path="/privacy" element={<PrivacyPolicy />} />
               {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
               <Route path="*" element={<NotFound />} />
             </Routes>
