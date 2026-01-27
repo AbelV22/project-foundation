@@ -20,10 +20,10 @@ export async function getStableDeviceUUID(): Promise<string> {
   if (Capacitor.isNativePlatform()) {
     try {
       const id = await Device.getId();
-      if (id && id.uuid) {
-        console.log('[DeviceId] Using hardware UUID:', id.uuid);
-        localStorage.setItem(DEVICE_UUID_KEY, id.uuid);
-        return id.uuid;
+      if (id && id.identifier) {
+        console.log('[DeviceId] Using hardware UUID:', id.identifier);
+        localStorage.setItem(DEVICE_UUID_KEY, id.identifier);
+        return id.identifier;
       }
     } catch (e) {
       console.warn('[DeviceId] Failed to get hardware ID:', e);
@@ -63,6 +63,7 @@ export async function registerDevice(deviceName?: string): Promise<number> {
 
   try {
     // Call the database function to get or create device number
+    // @ts-ignore
     const { data, error } = await supabase.rpc('get_or_create_device_number', {
       p_device_uuid: deviceUUID,
       p_device_name: deviceName || null
