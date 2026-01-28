@@ -50,6 +50,22 @@
         },
         {
             "hora": "06:00",
+            "nombre": "Star Legend",
+            "naviera": "WINDSTAR CRUISES LLC",
+            "terminal": "Terminal Sud",
+            "terminal_codigo": "S",
+            "eslora": 159.0,
+            "pax_estimados": 1000,
+            "puerto": "Palma de Mallorca",
+            "tipo": "llegada",
+            "estado": "Autoritzada",
+            "bandera": "Bahames",
+            "imo": "9008598",
+            "mmsi": "311085000",
+            "fecha": "2026-01-28"
+        },
+        {
+            "hora": "06:00",
             "nombre": "Msc Cedar Ii",
             "naviera": "MEDITERRANEAN SHIPPING CO",
             "terminal": "TERMINAL CATALUNYA SA",
@@ -81,23 +97,7 @@
             "fecha": "2026-01-28"
         },
         {
-            "hora": "06:26",
-            "nombre": "Star Legend",
-            "naviera": "WINDSTAR CRUISES LLC",
-            "terminal": "Terminal Sud",
-            "terminal_codigo": "S",
-            "eslora": 159.0,
-            "pax_estimados": 1000,
-            "puerto": "Palma de Mallorca",
-            "tipo": "llegada",
-            "estado": "Iniciada",
-            "bandera": "Bahames",
-            "imo": "9008598",
-            "mmsi": "311085000",
-            "fecha": "2026-01-28"
-        },
-        {
-            "hora": "07:50",
+            "hora": "07:00",
             "nombre": "Eco Savona",
             "naviera": "GRIMALDI EUROMED SPA",
             "terminal": "GRIMALDI TERMINAL BARCELONA SL",
@@ -106,7 +106,7 @@
             "pax_estimados": 2000,
             "puerto": "Valencia",
             "tipo": "llegada",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Itàlia",
             "imo": "9859569",
             "mmsi": "247383600",
@@ -355,22 +355,6 @@
             "fecha": "2026-01-28"
         },
         {
-            "hora": "05:56",
-            "nombre": "Georgiy Ushakov",
-            "naviera": "NEXT MARITIME SL",
-            "terminal": "ENAGAS TRANSPORTE SAU",
-            "terminal_codigo": "8192",
-            "eslora": 299.0,
-            "pax_estimados": 3000,
-            "puerto": "Desconegut",
-            "tipo": "salida",
-            "estado": "Finalitzada",
-            "bandera": "Bahames",
-            "imo": "9750749",
-            "mmsi": "311000633",
-            "fecha": "2026-01-28"
-        },
-        {
             "hora": "13:00",
             "nombre": "Eco Savona",
             "naviera": "GRIMALDI LOGISTICA ESPAÑA SL",
@@ -380,7 +364,7 @@
             "pax_estimados": 2000,
             "puerto": "Savona",
             "tipo": "salida",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Itàlia",
             "imo": "9859569",
             "mmsi": "247383600",
@@ -596,31 +580,31 @@
         }
     ],
     "resumen": {
-        "total_cruceros": 20,
+        "total_cruceros": 19,
         "total_llegadas": 15,
-        "total_salidas": 22,
+        "total_salidas": 21,
         "pax_estimados_hoy": 19000,
-        "proximo_desembarco": "07:50",
-        "proximo_barco": "Eco Savona"
+        "proximo_desembarco": "06:00",
+        "proximo_barco": "Star Legend"
     },
     "terminales_activas": [
-        "0010",
         "2396",
         "7946",
-        "6212",
-        "S",
-        "8192",
-        "8156",
+        "F3",
         "6154",
+        "6212",
+        "0010",
+        "7083",
+        "8156",
         "F1",
+        "8192",
         "F2",
         "6995",
-        "7083",
-        "F3"
+        "S"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-01-28T07:26:54.558739",
+        "actualizado": "2026-01-28T05:28:44.481613",
         "frecuencia": "horaria"
     }
 }
