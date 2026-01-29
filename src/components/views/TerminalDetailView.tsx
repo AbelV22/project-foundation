@@ -1,7 +1,8 @@
 import { useState, useEffect, useMemo } from "react";
-import { Plane, ArrowLeft, Globe, ChevronRight } from "lucide-react";
+import { Plane, ArrowLeft, Globe, ChevronRight, Clock } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { motion, AnimatePresence } from "framer-motion";
+import { useWaitingTimes, getZoneWaitingTime, getZoneHasRealData } from "@/hooks/useWaitingTimes";
 
 interface TerminalDetailViewProps {
   terminalId: string;
@@ -60,16 +61,18 @@ const getTerminalType = (vuelo: VueloRaw): "t1" | "t2" | "t2c" | "puente" => {
   return "t2";
 };
 
-const getEsperaReten = (terminalId: string, currentHour: number): number => {
-  const isPeakHour = (currentHour >= 10 && currentHour <= 14) || (currentHour >= 18 && currentHour <= 21);
-  const baseWait: Record<string, number> = { t1: 25, t2: 15, t2c: 12, puente: 8 };
-  const base = baseWait[terminalId] || 20;
-  return isPeakHour ? base + 12 : base;
+// Map terminal IDs to zone slugs for geofencing data
+const terminalToZone: Record<string, string> = {
+  t1: "T1",
+  t2: "T2",
+  t2c: "T2C_EASY",
+  puente: "PUENTE_AEREO",
 };
 
 export function TerminalDetailView({ terminalId, onBack }: TerminalDetailViewProps) {
   const [vuelos, setVuelos] = useState<VueloRaw[]>([]);
   const [loading, setLoading] = useState(true);
+  const { waitingTimes } = useWaitingTimes();
 
   useEffect(() => {
     fetch("/vuelos.json?t=" + Date.now())
@@ -145,7 +148,10 @@ export function TerminalDetailView({ terminalId, onBack }: TerminalDetailViewPro
       .slice(0, 20);
   }, [terminalFlights, currentMinutes]);
 
-  const espera = getEsperaReten(terminalId, currentHour);
+  // Get real waiting time from geofencing data
+  const zoneSlug = terminalToZone[terminalId] || "T1";
+  const espera = getZoneWaitingTime(waitingTimes, zoneSlug);
+  const hasRealData = getZoneHasRealData(waitingTimes, zoneSlug);
   const longHaulCount = upcomingFlights.filter((f) => isLongHaul(f.origen)).length;
   const timeFormatted = now.toLocaleTimeString("es-ES", { hour: "2-digit", minute: "2-digit" });
 
@@ -231,8 +237,20 @@ export function TerminalDetailView({ terminalId, onBack }: TerminalDetailViewPro
               <p className="text-xs text-muted-foreground">Pendientes</p>
             </div>
             <div className="flex-1 p-4 rounded-2xl bg-card border border-border/50">
-              <p className="text-2xl font-bold text-amber-500">~{espera}'</p>
-              <p className="text-xs text-muted-foreground">Espera retén</p>
+              {hasRealData && espera !== null ? (
+                <>
+                  <p className="text-2xl font-bold text-amber-500">~{espera}'</p>
+                  <p className="text-xs text-muted-foreground">Espera retén</p>
+                </>
+              ) : (
+                <>
+                  <div className="flex items-center gap-1 text-muted-foreground">
+                    <Clock className="h-4 w-4" />
+                    <p className="text-lg font-medium">—</p>
+                  </div>
+                  <p className="text-xs text-muted-foreground">Sin datos</p>
+                </>
+              )}
             </div>
           </div>
 

@@ -59,13 +59,6 @@ const getTerminalType = (vuelo: VueloRaw): 't1' | 't2' | 't2c' | 'puente' => {
   return "t2";
 };
 
-// Tiempos de retén estimados por terminal y hora del día
-const getEsperaReten = (terminalId: string, currentHour: number): number => {
-  const isPeakHour = (currentHour >= 10 && currentHour <= 14) || (currentHour >= 18 && currentHour <= 21);
-  const baseWait: Record<string, number> = { t1: 25, t2: 15, t2c: 12, puente: 8 };
-  const base = baseWait[terminalId] || 20;
-  return isPeakHour ? base + 12 : base;
-};
 
 // Extraer tipo de tren limpio
 const getTipoTren = (tren: string): string => {
