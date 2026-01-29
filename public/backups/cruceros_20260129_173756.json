@@ -113,7 +113,7 @@
             "fecha": "2026-01-29"
         },
         {
-            "hora": "17:17",
+            "hora": "17:15",
             "nombre": "Gnv Sealand",
             "naviera": "GRANDI NAVI VELOCI",
             "terminal": "TERMINAL F2",
@@ -122,7 +122,7 @@
             "pax_estimados": 500,
             "puerto": "Palma de Mallorca",
             "tipo": "llegada",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Itàlia",
             "imo": "9435454",
             "mmsi": "247265800",
@@ -227,7 +227,7 @@
             "fecha": "2026-01-29"
         },
         {
-            "hora": "16:06",
+            "hora": "16:00",
             "nombre": "Star Legend",
             "naviera": "BALEARES CONSIGNATARIOS SLU",
             "terminal": "Terminal Sud",
@@ -236,26 +236,10 @@
             "pax_estimados": 1000,
             "puerto": "Nice",
             "tipo": "salida",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Bahames",
             "imo": "9008598",
             "mmsi": "311085000",
-            "fecha": "2026-01-29"
-        },
-        {
-            "hora": "16:20",
-            "nombre": "Msc Istanbul",
-            "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
-            "terminal": "TERMINAL CATALUNYA SA",
-            "terminal_codigo": "6212",
-            "eslora": 399.0,
-            "pax_estimados": 6500,
-            "puerto": "Gioia Tauro",
-            "tipo": "salida",
-            "estado": "Finalitzada",
-            "bandera": "Libèria",
-            "imo": "9606326",
-            "mmsi": "636017537",
             "fecha": "2026-01-29"
         },
         {
@@ -348,7 +332,7 @@
             "pax_estimados": 500,
             "puerto": "Palma de Mallorca",
             "tipo": "salida",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Itàlia",
             "imo": "9435454",
             "mmsi": "247265800",
@@ -388,25 +372,25 @@
         }
     ],
     "resumen": {
-        "total_cruceros": 15,
+        "total_cruceros": 14,
         "total_llegadas": 11,
-        "total_salidas": 13,
+        "total_salidas": 12,
         "pax_estimados_hoy": 19000,
-        "proximo_desembarco": "18:30",
-        "proximo_barco": "Ciudad De Palma"
+        "proximo_desembarco": "15:54",
+        "proximo_barco": "Msc Cedar Ii"
     },
     "terminales_activas": [
         "6212",
-        "8156",
-        "F1",
+        "F2",
         "7946",
         "S",
-        "F2",
-        "8192"
+        "F1",
+        "8192",
+        "8156"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-01-29T17:37:56.555085",
+        "actualizado": "2026-01-29T15:36:05.282614",
         "frecuencia": "horaria"
     }
 }
