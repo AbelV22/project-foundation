@@ -162,7 +162,7 @@ export default function Admin() {
                 stats[zona] = {
                     zona,
                     taxistas_activos: activos,
-                    espera_promedio: avgWait || getDefaultEspera(zona),
+                    espera_promedio: avgWait, // Only use real calculated data, no defaults
                     ultimo_registro: zonaRegistros[0]?.created_at || null
                 };
             }
@@ -298,10 +298,6 @@ export default function Admin() {
         }
     };
 
-    const getDefaultEspera = (zona: string): number => {
-        const defaults: Record<string, number> = { T1: 25, T2: 15, SANTS: 10, PUENTE_AEREO: 8, T2C_EASY: 12 };
-        return defaults[zona] || 20;
-    };
 
     const formatTime = (isoString: string) => {
         return new Date(isoString).toLocaleTimeString("es-ES", { hour: "2-digit", minute: "2-digit" });
@@ -730,7 +726,9 @@ export default function Admin() {
                                     </div>
                                     <div className="flex items-center gap-2">
                                         <Clock className="h-4 w-4 text-amber-400" />
-                                        <span className="text-lg font-mono font-bold text-amber-400">{stat.espera_promedio}'</span>
+                                        <span className="text-lg font-mono font-bold text-amber-400">
+                                            {stat.espera_promedio ? `${stat.espera_promedio}'` : '—'}
+                                        </span>
                                     </div>
                                     {stat.ultimo_registro && (
                                         <p className="text-[10px] text-muted-foreground mt-1">
