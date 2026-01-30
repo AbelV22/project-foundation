@@ -30,8 +30,9 @@ export const useWaitingTimes = (): UseWaitingTimesResult => {
 
             const { data: registros, error: fetchError } = await supabase
                 .from('registros_reten')
-                .select('zona, created_at, exited_at')
+                .select('zona, created_at, exited_at, tipo_zona')
                 .gte('created_at', twoHoursAgo)
+                .neq('tipo_zona', 'TRANSIT') // Exclude brief passes through zones
                 .order('created_at', { ascending: false });
 
             if (fetchError) throw fetchError;
