@@ -97,7 +97,7 @@
             "fecha": "2026-01-30"
         },
         {
-            "hora": "17:24",
+            "hora": "17:15",
             "nombre": "Gnv Sealand",
             "naviera": "GRANDI NAVI VELOCI",
             "terminal": "TERMINAL F2",
@@ -106,7 +106,7 @@
             "pax_estimados": 500,
             "puerto": "Palma de Mallorca",
             "tipo": "llegada",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Itàlia",
             "imo": "9435454",
             "mmsi": "247265800",
@@ -284,7 +284,7 @@
             "pax_estimados": 500,
             "puerto": "Palma de Mallorca",
             "tipo": "salida",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Itàlia",
             "imo": "9435454",
             "mmsi": "247265800",
@@ -376,23 +376,23 @@
         "total_llegadas": 10,
         "total_salidas": 13,
         "pax_estimados_hoy": 11500,
-        "proximo_desembarco": "18:30",
-        "proximo_barco": "Ciudad De Palma"
+        "proximo_desembarco": "17:15",
+        "proximo_barco": "Gnv Sealand"
     },
     "terminales_activas": [
-        "F2",
-        "8192",
         "F3",
-        "8156",
-        "H",
         "TC",
-        "0010",
+        "6212",
+        "8192",
+        "F2",
         "7946",
-        "6212"
+        "0010",
+        "8156",
+        "H"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-01-30T17:33:59.328457",
+        "actualizado": "2026-01-30T15:35:41.424719",
         "frecuencia": "horaria"
     }
 }
