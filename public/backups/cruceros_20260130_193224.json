@@ -74,7 +74,7 @@
             "pax_estimados": 500,
             "puerto": "Malta (Valetta)",
             "tipo": "llegada",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Malta",
             "imo": "9837420",
             "mmsi": "256070000",
@@ -113,7 +113,7 @@
             "fecha": "2026-01-30"
         },
         {
-            "hora": "18:49",
+            "hora": "18:30",
             "nombre": "Ciudad De Palma",
             "naviera": "TRASMED GLE S.L.",
             "terminal": "TERMINAL F2",
@@ -122,14 +122,14 @@
             "pax_estimados": 1000,
             "puerto": "Palma de Mallorca",
             "tipo": "llegada",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Espanya",
             "imo": "9349772",
             "mmsi": "224588000",
             "fecha": "2026-01-30"
         },
         {
-            "hora": "19:16",
+            "hora": "19:00",
             "nombre": "Ciudad De Barcelona",
             "naviera": "TRASMED GLE S.L.",
             "terminal": "TERMINAL F2",
@@ -138,7 +138,7 @@
             "pax_estimados": 1000,
             "puerto": "Ibiza",
             "tipo": "llegada",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Espanya",
             "imo": "9506289",
             "mmsi": "225416000",
@@ -243,7 +243,7 @@
             "fecha": "2026-01-30"
         },
         {
-            "hora": "18:31",
+            "hora": "18:00",
             "nombre": "Msc World Europa",
             "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
             "terminal": "ADOSSAT/TERMINAL H",
@@ -252,7 +252,7 @@
             "pax_estimados": 500,
             "puerto": "Marseille",
             "tipo": "salida",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Malta",
             "imo": "9837420",
             "mmsi": "256070000",
@@ -316,7 +316,7 @@
             "pax_estimados": 1000,
             "puerto": "Mahon Menorca",
             "tipo": "salida",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Espanya",
             "imo": "9506289",
             "mmsi": "225416000",
@@ -332,7 +332,7 @@
             "pax_estimados": 1000,
             "puerto": "Palma de Mallorca",
             "tipo": "salida",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Espanya",
             "imo": "9349772",
             "mmsi": "224588000",
@@ -376,23 +376,23 @@
         "total_llegadas": 10,
         "total_salidas": 13,
         "pax_estimados_hoy": 11500,
-        "proximo_desembarco": "22:00",
-        "proximo_barco": "Abel Matutes"
+        "proximo_desembarco": "18:30",
+        "proximo_barco": "Ciudad De Palma"
     },
     "terminales_activas": [
         "F2",
-        "H",
-        "7946",
-        "0010",
-        "8156",
+        "8192",
         "F3",
-        "6212",
+        "8156",
+        "H",
         "TC",
-        "8192"
+        "0010",
+        "7946",
+        "6212"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-01-30T19:32:24.200030",
+        "actualizado": "2026-01-30T17:33:59.328457",
         "frecuencia": "horaria"
     }
 }
