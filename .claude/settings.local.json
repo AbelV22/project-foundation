@@ -6,7 +6,8 @@
       "Bash(powershell -Command \"\\(Invoke-RestMethod -Uri ''https://uqjwfnevtefdfpbckuwf.supabase.co/rest/v1/location_debug_logs?select=*&order=created_at.desc&limit=5'' -Headers @{apikey=''eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InVxandmbmV2dGVmZGZwYmNrdXdmIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Njg1MTMxOTEsImV4cCI6MjA4NDA4OTE5MX0.Zt21QTJf-Xs11-6HkYnz_lYjePZr60eCBXBQ7PLAwxY''}\\) | Format-Table device_id, event_type, message, created_at\")",
       "Bash(npx cap add:*)",
       "Bash(npx cap:*)",
-      "Bash(npx cap sync android)"
+      "Bash(npx cap sync android)",
+      "Bash(git commit:*)"
     ]
   }
 }
