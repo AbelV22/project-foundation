@@ -1,7 +1,7 @@
 {
     "llegadas": [
         {
-            "hora": "00:45",
+            "hora": "00:30",
             "nombre": "Cruise Barcelona",
             "naviera": "GRIMALDI EUROMED SPA",
             "terminal": "TERMINAL F3",
@@ -10,7 +10,7 @@
             "pax_estimados": 500,
             "puerto": "Porto Torres",
             "tipo": "llegada",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Itàlia",
             "imo": "9351488",
             "mmsi": "247243600",
@@ -130,22 +130,6 @@
         }
     ],
     "salidas": [
-        {
-            "hora": "02:16",
-            "nombre": "Cool Discoverer",
-            "naviera": "BERGE MARITIMA SL",
-            "terminal": "ENAGAS TRANSPORTE SAU",
-            "terminal_codigo": "8192",
-            "eslora": 299.0,
-            "pax_estimados": 3000,
-            "puerto": "Corpus Christi",
-            "tipo": "salida",
-            "estado": "Finalitzada",
-            "bandera": "Malta",
-            "imo": "9861031",
-            "mmsi": "215567000",
-            "fecha": "2026-01-30"
-        },
         {
             "hora": "14:00",
             "nombre": "Msc Cedar Ii",
@@ -300,7 +284,7 @@
             "pax_estimados": 500,
             "puerto": "Civitavecchia",
             "tipo": "salida",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Itàlia",
             "imo": "9351488",
             "mmsi": "247243600",
@@ -308,25 +292,25 @@
         }
     ],
     "resumen": {
-        "total_cruceros": 11,
+        "total_cruceros": 10,
         "total_llegadas": 8,
-        "total_salidas": 11,
+        "total_salidas": 10,
         "pax_estimados_hoy": 9500,
-        "proximo_desembarco": "06:00",
-        "proximo_barco": "Kunlun"
+        "proximo_desembarco": null,
+        "proximo_barco": null
     },
     "terminales_activas": [
-        "F3",
-        "7332",
-        "8192",
+        "H",
         "8156",
         "6212",
+        "8192",
         "F2",
-        "H"
+        "7332",
+        "F3"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-01-30T05:48:09.181290",
+        "actualizado": "2026-01-29T23:27:28.322636",
         "frecuencia": "horaria"
     }
 }
