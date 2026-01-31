@@ -33,7 +33,7 @@
             "fecha": "2026-01-31"
         },
         {
-            "hora": "19:17",
+            "hora": "19:00",
             "nombre": "Abel Matutes",
             "naviera": "EUROLINEAS MARITIMAS S.A",
             "terminal": "LEPANT/TRUCK CENTER",
@@ -42,14 +42,14 @@
             "pax_estimados": 1000,
             "puerto": "Alcudia",
             "tipo": "llegada",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Espanya",
             "imo": "9441130",
             "mmsi": "224402000",
             "fecha": "2026-01-31"
         },
         {
-            "hora": "19:50",
+            "hora": "19:30",
             "nombre": "Ciudad De Palma",
             "naviera": "TRASMED GLE S.L.",
             "terminal": "TERMINAL F2",
@@ -58,7 +58,7 @@
             "pax_estimados": 1000,
             "puerto": "Palma de Mallorca",
             "tipo": "llegada",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Espanya",
             "imo": "9349772",
             "mmsi": "224588000",
@@ -188,7 +188,7 @@
             "pax_estimados": 1000,
             "puerto": "Alcudia",
             "tipo": "salida",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Espanya",
             "imo": "9441130",
             "mmsi": "224402000",
@@ -200,21 +200,21 @@
         "total_llegadas": 6,
         "total_salidas": 6,
         "pax_estimados_hoy": 9000,
-        "proximo_desembarco": "22:00",
-        "proximo_barco": "Cruise Roma"
+        "proximo_desembarco": "19:30",
+        "proximo_barco": "Ciudad De Palma"
     },
     "terminales_activas": [
-        "7946",
-        "8156",
         "F3",
+        "6212",
+        "8156",
         "8192",
         "F2",
-        "6212",
-        "TC"
+        "TC",
+        "7946"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-01-31T21:21:46.399597",
+        "actualizado": "2026-01-31T19:21:17.423696",
         "frecuencia": "horaria"
     }
 }
