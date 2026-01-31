@@ -131,22 +131,6 @@
             "fecha": "2026-01-31"
         },
         {
-            "hora": "17:27",
-            "nombre": "Cma Cgm Kimberley",
-            "naviera": "CMA CGM IBERICA SAU",
-            "terminal": "TERMINAL CATALUNYA SA",
-            "terminal_codigo": "6212",
-            "eslora": 366.0,
-            "pax_estimados": 6500,
-            "puerto": "Fos-sur-Mer",
-            "tipo": "salida",
-            "estado": "Finalitzada",
-            "bandera": "França",
-            "imo": "9894973",
-            "mmsi": "228409900",
-            "fecha": "2026-01-31"
-        },
-        {
             "hora": "18:00",
             "nombre": "Sti Clapham",
             "naviera": "NEXT MARITIME SL",
@@ -160,22 +144,6 @@
             "bandera": "Illes Marshall",
             "imo": "9696577",
             "mmsi": "538005407",
-            "fecha": "2026-01-31"
-        },
-        {
-            "hora": "18:09",
-            "nombre": "Kunlun",
-            "naviera": "MH BLAND SL",
-            "terminal": "ENAGAS TRANSPORTE SAU",
-            "terminal_codigo": "8192",
-            "eslora": 295.0,
-            "pax_estimados": 3000,
-            "puerto": "Punta Europa Terminal",
-            "tipo": "salida",
-            "estado": "Finalitzada",
-            "bandera": "Hong Kong",
-            "imo": "9915911",
-            "mmsi": "477885400",
             "fecha": "2026-01-31"
         },
         {
@@ -196,25 +164,24 @@
         }
     ],
     "resumen": {
-        "total_cruceros": 10,
+        "total_cruceros": 8,
         "total_llegadas": 6,
-        "total_salidas": 6,
+        "total_salidas": 4,
         "pax_estimados_hoy": 9000,
-        "proximo_desembarco": "19:30",
-        "proximo_barco": "Ciudad De Palma"
+        "proximo_desembarco": "19:00",
+        "proximo_barco": "Abel Matutes"
     },
     "terminales_activas": [
         "F3",
         "6212",
-        "8156",
-        "8192",
         "F2",
         "TC",
+        "8156",
         "7946"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-01-31T19:21:17.423696",
+        "actualizado": "2026-01-31T17:23:53.856875",
         "frecuencia": "horaria"
     }
 }
