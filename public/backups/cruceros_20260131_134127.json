@@ -99,22 +99,6 @@
     ],
     "salidas": [
         {
-            "hora": "11:59",
-            "nombre": "Msc Cedar Ii",
-            "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
-            "terminal": "TERMINAL CATALUNYA SA",
-            "terminal_codigo": "6212",
-            "eslora": 0,
-            "pax_estimados": 500,
-            "puerto": "Alger (Algiers)",
-            "tipo": "salida",
-            "estado": "Finalitzada",
-            "bandera": "Libèria",
-            "imo": "9231092",
-            "mmsi": "636025342",
-            "fecha": "2026-01-31"
-        },
-        {
             "hora": "13:00",
             "nombre": "Eco Livorno",
             "naviera": "GRIMALDI LOGISTICA ESPAÑA SL",
@@ -164,24 +148,23 @@
         }
     ],
     "resumen": {
-        "total_cruceros": 8,
+        "total_cruceros": 7,
         "total_llegadas": 6,
-        "total_salidas": 4,
+        "total_salidas": 3,
         "pax_estimados_hoy": 9000,
         "proximo_desembarco": "19:00",
         "proximo_barco": "Abel Matutes"
     },
     "terminales_activas": [
-        "TC",
-        "7946",
-        "F2",
         "F3",
-        "6212",
-        "8156"
+        "8156",
+        "F2",
+        "7946",
+        "TC"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-01-31T13:41:27.205565",
+        "actualizado": "2026-01-31T11:20:47.706182",
         "frecuencia": "horaria"
     }
 }
