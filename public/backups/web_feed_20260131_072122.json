@@ -1,11 +1,11 @@
 {
     "ticker": {
-        "current_price": 163052,
-        "delta_value": -4006,
-        "delta_percent": -2.4,
-        "direction": "down",
-        "volume": 15,
-        "volatility": 9519
+        "current_price": 167058,
+        "delta_value": 0,
+        "delta_percent": 0.0,
+        "direction": "up",
+        "volume": 17,
+        "volatility": 9338
     },
     "charts": {
         "history_dates": [
@@ -26,8 +26,7 @@
             "2026-01-27",
             "2026-01-28",
             "2026-01-29",
-            "2026-01-30",
-            "2026-01-31"
+            "2026-01-30"
         ],
         "history_prices": [
             166147,
@@ -47,8 +46,7 @@
             167058,
             167058,
             167058,
-            167058,
-            163052
+            167058
         ],
         "history_sma_7": [
             0,
@@ -68,15 +66,15 @@
             164379,
             164584,
             164824,
-            165143,
-            165209
+            165143
         ],
         "price_by_day_descanso": {
-            "JUEVES IMPAR": 177830,
-            "JUEVES PAR": 171213,
+            "JUEVES IMPAR": 169040,
+            "JUEVES PAR": 170495,
             "MARTES PAR": 174285,
-            "NO ESPECIFICADO": 162513,
-            "VIERNES IMPAR": 166143
+            "MIERCOLES IMPAR": 175783,
+            "NO ESPECIFICADO": 162591,
+            "VIERNES IMPAR": 160161
         }
     },
     "market_depth": {
@@ -125,10 +123,24 @@
         "all_offers": [
             {
                 "fuente": "SOLANO",
+                "precio_neto": 160250,
+                "modelo": "DACIA JOGGER",
+                "dia": "JUEVES IMPAR",
+                "raw": "Ref:  | 38579 | DIA DE FIESTA:  | JUEVES PAR | LICENCIA DE TAXI EN VENTA BARCELONA | LICENCIA DE TAX..."
+            },
+            {
+                "fuente": "SOLANO",
                 "precio_neto": 174285,
                 "modelo": "FORD CUSTOM",
                 "dia": "MARTES PAR",
                 "raw": "Ref:  | 38572 | DIA DE FIESTA:  | MARTES PAR | LICENCIA DE TAXI EN VENTA BARCELONA | LICENCIA DE TAX..."
+            },
+            {
+                "fuente": "SOLANO",
+                "precio_neto": 175783,
+                "modelo": "DACIA",
+                "dia": "MIERCOLES IMPAR",
+                "raw": "Ref:  | 38574 | DIA DE FIESTA:  | MIERCOLES IMPAR | LICENCIA TAXI EN VENTA BARCELONA | LICENCIA TAXI..."
             },
             {
                 "fuente": "SOLANO",
@@ -153,6 +165,13 @@
             },
             {
                 "fuente": "SOLANO",
+                "precio_neto": 169777,
+                "modelo": "TOYOTA COROLLA",
+                "dia": "JUEVES PAR",
+                "raw": "Ref:  | 38538 | DIA DE FIESTA:  | JUEVES PAR | LICENCIA DE TAXI EN VENTA BARCELONA | LICENCIA TAXI E..."
+            },
+            {
+                "fuente": "SOLANO",
                 "precio_neto": 177830,
                 "modelo": "VOLKSWAGEN CADDY",
                 "dia": "JUEVES IMPAR",
@@ -173,18 +192,11 @@
                 "raw": "Ref:  | 38500 | DIA DE FIESTA:  | VIERNES IMPAR | LICENCIA TAXI EN VENTA BARCELONA | LICENCIA TAXI E..."
             },
             {
-                "fuente": "SOLANO",
-                "precio_neto": 166143,
-                "modelo": "TOYOTA COROLLA",
-                "dia": "VIERNES IMPAR",
-                "raw": "Ref:  | 38404 | DIA DE FIESTA:  | VIERNES IMPAR | LICENCIA DE TAXI EN VENTA BARCELONA | LICENCIA DE ..."
-            },
-            {
                 "fuente": "STAC",
-                "precio_neto": 162513,
-                "modelo": "TOYOTA COROLLA",
+                "precio_neto": 167227,
+                "modelo": "DESCONOCIDO",
                 "dia": "NO ESPECIFICADO",
-                "raw": "Referencia: 937 |  | Se vende licencia con vehículo TOYOTA COROLLA SEDAN Automatico con 4 años de an..."
+                "raw": "Referencia: 937 |  | Se vende licencia con vehículo Automatico con 4 años de antigüedad y 250000km. ..."
             },
             {
                 "fuente": "STAC",
@@ -230,5 +242,5 @@
             }
         ]
     },
-    "updated_at": "31/01/2026 07:21"
+    "updated_at": "30/01/2026 07:33"
 }
