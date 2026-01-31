@@ -1,7 +1,7 @@
 {
     "llegadas": [
         {
-            "hora": "07:33",
+            "hora": "07:00",
             "nombre": "Eco Livorno",
             "naviera": "GRIMALDI EUROMED SPA",
             "terminal": "GRIMALDI TERMINAL BARCELONA SL",
@@ -10,7 +10,7 @@
             "pax_estimados": 2000,
             "puerto": "Valencia",
             "tipo": "llegada",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Itàlia",
             "imo": "9859557",
             "mmsi": "247383500",
@@ -92,7 +92,7 @@
             "pax_estimados": 2000,
             "puerto": "Savona",
             "tipo": "salida",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Itàlia",
             "imo": "9859557",
             "mmsi": "247383500",
@@ -136,19 +136,19 @@
         "total_llegadas": 5,
         "total_salidas": 3,
         "pax_estimados_hoy": 8000,
-        "proximo_desembarco": "07:33",
+        "proximo_desembarco": "07:00",
         "proximo_barco": "Eco Livorno"
     },
     "terminales_activas": [
-        "7946",
         "F2",
-        "7332",
+        "F3",
+        "7946",
         "8156",
-        "F3"
+        "7332"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-01-31T07:28:56.239106",
+        "actualizado": "2026-01-31T05:38:17.450552",
         "frecuencia": "horaria"
     }
 }
