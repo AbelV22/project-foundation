@@ -16,6 +16,7 @@ import { QuickEarningsSheet } from "@/components/widgets/QuickEarningsSheet";
 import { WhereNextSheet } from "@/components/widgets/WhereNextSheet";
 import { EarningsView } from "@/components/views/EarningsView";
 import { ExpensesView } from "@/components/views/ExpensesView";
+import { OffersView } from "@/components/views/OffersView";
 import { AddExpenseSheet } from "@/components/widgets/AddExpenseSheet";
 
 const titles: Record<string, string> = {
@@ -33,6 +34,7 @@ const titles: Record<string, string> = {
   trainsByCity: "Trenes por Ciudad",
   trainsByOperator: "Trenes por Operador",
   earnings: "Registro de Ingresos",
+  ofertas: "Ofertas Exclusivas",
 };
 
 const Index = () => {
@@ -191,6 +193,7 @@ const Index = () => {
           {activeTab === "gastos" && (
             <ExpensesView onBack={() => setActiveTab("dashboard")} />
           )}
+          {activeTab === "ofertas" && <OffersView />}
         </div>
       </main>
 
