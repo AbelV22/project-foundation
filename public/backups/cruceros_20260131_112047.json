@@ -17,32 +17,16 @@
             "fecha": "2026-01-31"
         },
         {
-            "hora": "10:56",
-            "nombre": "Visborg",
-            "naviera": "EUROLINEAS MARITIMAS S.A",
-            "terminal": "",
-            "terminal_codigo": "",
-            "eslora": 196.0,
-            "pax_estimados": 1000,
-            "puerto": "Valencia",
-            "tipo": "llegada",
-            "estado": "Iniciada",
-            "bandera": "Malta",
-            "imo": "9223784",
-            "mmsi": "229455000",
-            "fecha": "2026-01-31"
-        },
-        {
             "hora": "19:00",
             "nombre": "Abel Matutes",
             "naviera": "EUROLINEAS MARITIMAS S.A",
-            "terminal": "LEPANT/TRUCK CENTER",
-            "terminal_codigo": "TC",
+            "terminal": "BALEARIA EUROLINEAS MARITIMAS SA ",
+            "terminal_codigo": "7332",
             "eslora": 190.0,
             "pax_estimados": 1000,
             "puerto": "Alcudia",
             "tipo": "llegada",
-            "estado": "Autoritzada",
+            "estado": "Confirmada",
             "bandera": "Espanya",
             "imo": "9441130",
             "mmsi": "224402000",
@@ -134,13 +118,13 @@
             "hora": "22:00",
             "nombre": "Abel Matutes",
             "naviera": "BALEARIA EUROLINEAS MARITIMAS SA ",
-            "terminal": "LEPANT/TRUCK CENTER",
-            "terminal_codigo": "TC",
+            "terminal": "BALEARIA EUROLINEAS MARITIMAS SA ",
+            "terminal_codigo": "7332",
             "eslora": 190.0,
             "pax_estimados": 1000,
             "puerto": "Alcudia",
             "tipo": "salida",
-            "estado": "Autoritzada",
+            "estado": "Confirmada",
             "bandera": "Espanya",
             "imo": "9441130",
             "mmsi": "224402000",
@@ -148,23 +132,23 @@
         }
     ],
     "resumen": {
-        "total_cruceros": 7,
-        "total_llegadas": 6,
+        "total_cruceros": 6,
+        "total_llegadas": 5,
         "total_salidas": 3,
-        "pax_estimados_hoy": 9000,
+        "pax_estimados_hoy": 8000,
         "proximo_desembarco": "19:00",
         "proximo_barco": "Abel Matutes"
     },
     "terminales_activas": [
-        "F3",
-        "8156",
-        "F2",
         "7946",
-        "TC"
+        "8156",
+        "7332",
+        "F2",
+        "F3"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-01-31T11:20:47.706182",
+        "actualizado": "2026-01-31T09:28:31.179664",
         "frecuencia": "horaria"
     }
 }
