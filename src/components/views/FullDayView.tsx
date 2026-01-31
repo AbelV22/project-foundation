@@ -211,7 +211,8 @@ export function FullDayView({ onBack, onTerminalClick }: FullDayViewProps) {
       case "medium":
         return `${colors.badge}/80 text-white font-semibold`;
       case "low":
-        return `${colors.badge}/20 ${colors.text} font-bold`; // Dark text on light bg
+        // Use dark text that works in both light and dark mode
+        return `${colors.badge}/30 text-foreground font-semibold`;
       default:
         return "bg-transparent text-muted-foreground/30";
     }
