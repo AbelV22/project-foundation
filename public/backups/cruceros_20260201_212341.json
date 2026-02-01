@@ -90,7 +90,7 @@
             "pax_estimados": 500,
             "puerto": "Palma de Mallorca",
             "tipo": "llegada",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Itàlia",
             "imo": "9435454",
             "mmsi": "247265800",
@@ -238,22 +238,6 @@
             "bandera": "Libèria",
             "imo": "9936628",
             "mmsi": "636022921",
-            "fecha": "2026-02-01"
-        },
-        {
-            "hora": "16:54",
-            "nombre": "Sti Clapham",
-            "naviera": "SCORPIO COMMERCIAL MANAGEMENT",
-            "terminal": "TRADEBE PORT SERVICES SL",
-            "terminal_codigo": "7946",
-            "eslora": 184.0,
-            "pax_estimados": 1000,
-            "puerto": "Santa Panagia",
-            "tipo": "llegada",
-            "estado": "Iniciada",
-            "bandera": "Illes Marshall",
-            "imo": "9696577",
-            "mmsi": "538005407",
             "fecha": "2026-02-01"
         }
     ],
@@ -469,27 +453,26 @@
     ],
     "resumen": {
         "total_cruceros": 18,
-        "total_llegadas": 16,
+        "total_llegadas": 15,
         "total_salidas": 13,
-        "pax_estimados_hoy": 28000,
+        "pax_estimados_hoy": 27000,
         "proximo_desembarco": null,
         "proximo_barco": null
     },
     "terminales_activas": [
+        "F2",
+        "TC",
         "8156",
         "7585",
-        "2398",
-        "B",
-        "6212",
-        "TC",
         "H",
-        "7946",
-        "F2",
-        "F3"
+        "6212",
+        "2398",
+        "F3",
+        "B"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-02-01T21:23:41.386311",
+        "actualizado": "2026-02-01T19:25:08.639049",
         "frecuencia": "horaria"
     }
 }
