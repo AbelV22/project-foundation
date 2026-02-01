@@ -10,7 +10,7 @@
             "pax_estimados": 2000,
             "puerto": "Malaga",
             "tipo": "llegada",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Noruega",
             "imo": "9845922",
             "mmsi": "258024000",
@@ -291,7 +291,7 @@
             "fecha": "2026-02-01"
         },
         {
-            "hora": "16:51",
+            "hora": "17:00",
             "nombre": "Viking Saturn",
             "naviera": "A PEREZ Y CIA SL",
             "terminal": "Terminal B (Maremagnum)",
@@ -300,7 +300,7 @@
             "pax_estimados": 2000,
             "puerto": "Malta (Valetta)",
             "tipo": "salida",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Noruega",
             "imo": "9845922",
             "mmsi": "258024000",
@@ -440,23 +440,23 @@
         "total_llegadas": 15,
         "total_salidas": 12,
         "pax_estimados_hoy": 27000,
-        "proximo_desembarco": null,
-        "proximo_barco": null
+        "proximo_desembarco": "16:00",
+        "proximo_barco": "Msc Claude Girardet"
     },
     "terminales_activas": [
-        "F3",
-        "6212",
-        "H",
-        "B",
         "8156",
-        "2398",
+        "6212",
         "F2",
+        "B",
+        "7585",
+        "F3",
+        "H",
         "TC",
-        "7585"
+        "2398"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-02-01T17:25:13.310904",
+        "actualizado": "2026-02-01T15:25:49.773628",
         "frecuencia": "horaria"
     }
 }
