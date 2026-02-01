@@ -161,6 +161,22 @@
             "fecha": "2026-02-01"
         },
         {
+            "hora": "09:00",
+            "nombre": "Al Jubail",
+            "naviera": "IGNAZIO MESSINA AND CO., SPA",
+            "terminal": "MANIPULADORA DE MERCANCIAS SL",
+            "terminal_codigo": "7585",
+            "eslora": 239.0,
+            "pax_estimados": 2000,
+            "puerto": "Yanbu al-Bahr",
+            "tipo": "llegada",
+            "estado": "Autoritzada",
+            "bandera": "Illes Marshall",
+            "imo": "9547219",
+            "mmsi": "538010831",
+            "fecha": "2026-02-01"
+        },
+        {
             "hora": "09:12",
             "nombre": "Msc Milan",
             "naviera": "MEDITERRANEAN SHIPPING CO",
@@ -177,23 +193,7 @@
             "fecha": "2026-02-01"
         },
         {
-            "hora": "10:04",
-            "nombre": "Al Jubail",
-            "naviera": "IGNAZIO MESSINA AND CO., SPA",
-            "terminal": "MANIPULADORA DE MERCANCIAS SL",
-            "terminal_codigo": "7585",
-            "eslora": 239.0,
-            "pax_estimados": 2000,
-            "puerto": "Yanbu al-Bahr",
-            "tipo": "llegada",
-            "estado": "Iniciada",
-            "bandera": "Illes Marshall",
-            "imo": "9547219",
-            "mmsi": "538010831",
-            "fecha": "2026-02-01"
-        },
-        {
-            "hora": "10:35",
+            "hora": "12:00",
             "nombre": "Msc Asli Ii",
             "naviera": "MEDITERRANEAN SHIPPING CO",
             "terminal": "TERMINAL CATALUNYA SA",
@@ -202,7 +202,7 @@
             "pax_estimados": 500,
             "puerto": "La Spezia",
             "tipo": "llegada",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Libèria",
             "imo": "9162631",
             "mmsi": "636018322",
@@ -440,23 +440,23 @@
         "total_llegadas": 15,
         "total_salidas": 12,
         "pax_estimados_hoy": 27000,
-        "proximo_desembarco": "14:00",
-        "proximo_barco": "Abel Matutes"
+        "proximo_desembarco": "12:00",
+        "proximo_barco": "Msc Asli Ii"
     },
     "terminales_activas": [
         "B",
-        "F3",
         "TC",
-        "6212",
-        "7585",
         "2398",
+        "H",
         "8156",
         "F2",
-        "H"
+        "7585",
+        "6212",
+        "F3"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-02-01T11:21:49.101555",
+        "actualizado": "2026-02-01T09:31:43.258471",
         "frecuencia": "horaria"
     }
 }
