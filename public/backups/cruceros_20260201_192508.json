@@ -122,7 +122,7 @@
             "pax_estimados": 3000,
             "puerto": "Valencia",
             "tipo": "llegada",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Panamà",
             "imo": "9320099",
             "mmsi": "372497000",
@@ -307,23 +307,7 @@
             "fecha": "2026-02-01"
         },
         {
-            "hora": "16:53",
-            "nombre": "Sti Clapham",
-            "naviera": "NEXT MARITIME SL",
-            "terminal": "",
-            "terminal_codigo": "",
-            "eslora": 184.0,
-            "pax_estimados": 1000,
-            "puerto": "Augusta",
-            "tipo": "salida",
-            "estado": "Iniciada",
-            "bandera": "Illes Marshall",
-            "imo": "9696577",
-            "mmsi": "538005407",
-            "fecha": "2026-02-01"
-        },
-        {
-            "hora": "18:13",
+            "hora": "18:00",
             "nombre": "Msc Orchestra",
             "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
             "terminal": "ADOSSAT/TERMINAL H",
@@ -332,7 +316,7 @@
             "pax_estimados": 3000,
             "puerto": "Marseille",
             "tipo": "salida",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Panamà",
             "imo": "9320099",
             "mmsi": "372497000",
@@ -452,27 +436,27 @@
         }
     ],
     "resumen": {
-        "total_cruceros": 18,
+        "total_cruceros": 17,
         "total_llegadas": 15,
-        "total_salidas": 13,
+        "total_salidas": 12,
         "pax_estimados_hoy": 27000,
         "proximo_desembarco": null,
         "proximo_barco": null
     },
     "terminales_activas": [
+        "F3",
+        "6212",
+        "H",
+        "B",
+        "8156",
+        "2398",
         "F2",
         "TC",
-        "8156",
-        "7585",
-        "H",
-        "6212",
-        "2398",
-        "F3",
-        "B"
+        "7585"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-02-01T19:25:08.639049",
+        "actualizado": "2026-02-01T17:25:13.310904",
         "frecuencia": "horaria"
     }
 }
