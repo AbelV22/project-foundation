@@ -106,7 +106,7 @@
             "pax_estimados": 2000,
             "puerto": "Savona",
             "tipo": "llegada",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Itàlia",
             "imo": "9859569",
             "mmsi": "247383600",
@@ -154,7 +154,7 @@
             "pax_estimados": 1000,
             "puerto": "Marseille",
             "tipo": "llegada",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Dinamarca",
             "imo": "9503639",
             "mmsi": "219034351",
@@ -209,7 +209,7 @@
             "fecha": "2026-02-01"
         },
         {
-            "hora": "14:01",
+            "hora": "14:00",
             "nombre": "Abel Matutes",
             "naviera": "EUROLINEAS MARITIMAS S.A",
             "terminal": "LEPANT/TRUCK CENTER",
@@ -218,7 +218,7 @@
             "pax_estimados": 1000,
             "puerto": "Alcudia",
             "tipo": "llegada",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Espanya",
             "imo": "9441130",
             "mmsi": "224402000",
@@ -259,7 +259,7 @@
             "fecha": "2026-02-01"
         },
         {
-            "hora": "13:50",
+            "hora": "14:00",
             "nombre": "Eco Savona",
             "naviera": "GRIMALDI LOGISTICA ESPAÑA SL",
             "terminal": "GRIMALDI TERMINAL BARCELONA SL",
@@ -268,14 +268,14 @@
             "pax_estimados": 2000,
             "puerto": "Valencia",
             "tipo": "salida",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Itàlia",
             "imo": "9859569",
             "mmsi": "247383600",
             "fecha": "2026-02-01"
         },
         {
-            "hora": "14:23",
+            "hora": "15:00",
             "nombre": "Stena Shipper",
             "naviera": "ROMEU Y CIA SA",
             "terminal": "TERMINAL PORT NOU SA",
@@ -284,7 +284,7 @@
             "pax_estimados": 1000,
             "puerto": "Rades/Tunis",
             "tipo": "salida",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Dinamarca",
             "imo": "9503639",
             "mmsi": "219034351",
@@ -412,7 +412,7 @@
             "pax_estimados": 1000,
             "puerto": "Alcudia",
             "tipo": "salida",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Espanya",
             "imo": "9441130",
             "mmsi": "224402000",
@@ -440,23 +440,23 @@
         "total_llegadas": 15,
         "total_salidas": 12,
         "pax_estimados_hoy": 27000,
-        "proximo_desembarco": "16:00",
-        "proximo_barco": "Msc Claude Girardet"
+        "proximo_desembarco": "14:00",
+        "proximo_barco": "Abel Matutes"
     },
     "terminales_activas": [
         "8156",
-        "6212",
-        "F2",
-        "B",
-        "7585",
-        "F3",
         "H",
+        "6212",
+        "F3",
+        "F2",
+        "7585",
+        "2398",
         "TC",
-        "2398"
+        "B"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-02-01T15:25:49.773628",
+        "actualizado": "2026-02-01T13:43:22.535613",
         "frecuencia": "horaria"
     }
 }
