@@ -1,6 +1,38 @@
 {
     "llegadas": [
         {
+            "hora": "00:01",
+            "nombre": "Msc Rapallo",
+            "naviera": "MEDITERRANEAN SHIPPING CO",
+            "terminal": "TERMINAL CATALUNYA SA",
+            "terminal_codigo": "6212",
+            "eslora": 0,
+            "pax_estimados": 500,
+            "puerto": "Valencia",
+            "tipo": "llegada",
+            "estado": "Autoritzada",
+            "bandera": "Libèria",
+            "imo": "9484455",
+            "mmsi": "636092271",
+            "fecha": "2026-02-01"
+        },
+        {
+            "hora": "05:00",
+            "nombre": "Msc Milan",
+            "naviera": "MEDITERRANEAN SHIPPING CO",
+            "terminal": "TERMINAL CATALUNYA SA",
+            "terminal_codigo": "6212",
+            "eslora": 0,
+            "pax_estimados": 500,
+            "puerto": "La Spezia",
+            "tipo": "llegada",
+            "estado": "Autoritzada",
+            "bandera": "Libèria",
+            "imo": "9964235",
+            "mmsi": "636024421",
+            "fecha": "2026-02-01"
+        },
+        {
             "hora": "05:37",
             "nombre": "Viking Saturn",
             "naviera": "VIKING OCEAN CRUISES SHIP",
@@ -14,6 +46,22 @@
             "bandera": "Noruega",
             "imo": "9845922",
             "mmsi": "258024000",
+            "fecha": "2026-02-01"
+        },
+        {
+            "hora": "06:00",
+            "nombre": "Stena Shipper",
+            "naviera": "COTUNAV",
+            "terminal": "TERMINAL PORT NOU SA",
+            "terminal_codigo": "2398",
+            "eslora": 193.0,
+            "pax_estimados": 1000,
+            "puerto": "Marseille",
+            "tipo": "llegada",
+            "estado": "Autoritzada",
+            "bandera": "Dinamarca",
+            "imo": "9503639",
+            "mmsi": "219034351",
             "fecha": "2026-02-01"
         },
         {
@@ -129,38 +177,6 @@
             "fecha": "2026-02-01"
         },
         {
-            "hora": "08:27",
-            "nombre": "Msc Rapallo",
-            "naviera": "MEDITERRANEAN SHIPPING CO",
-            "terminal": "TERMINAL CATALUNYA SA",
-            "terminal_codigo": "6212",
-            "eslora": 0,
-            "pax_estimados": 500,
-            "puerto": "Valencia",
-            "tipo": "llegada",
-            "estado": "Iniciada",
-            "bandera": "Libèria",
-            "imo": "9484455",
-            "mmsi": "636092271",
-            "fecha": "2026-02-01"
-        },
-        {
-            "hora": "08:44",
-            "nombre": "Stena Shipper",
-            "naviera": "COTUNAV",
-            "terminal": "TERMINAL PORT NOU SA",
-            "terminal_codigo": "2398",
-            "eslora": 193.0,
-            "pax_estimados": 1000,
-            "puerto": "Marseille",
-            "tipo": "llegada",
-            "estado": "Iniciada",
-            "bandera": "Dinamarca",
-            "imo": "9503639",
-            "mmsi": "219034351",
-            "fecha": "2026-02-01"
-        },
-        {
             "hora": "09:00",
             "nombre": "Al Jubail",
             "naviera": "IGNAZIO MESSINA AND CO., SPA",
@@ -174,22 +190,6 @@
             "bandera": "Illes Marshall",
             "imo": "9547219",
             "mmsi": "538010831",
-            "fecha": "2026-02-01"
-        },
-        {
-            "hora": "09:12",
-            "nombre": "Msc Milan",
-            "naviera": "MEDITERRANEAN SHIPPING CO",
-            "terminal": "TERMINAL CATALUNYA SA",
-            "terminal_codigo": "6212",
-            "eslora": 0,
-            "pax_estimados": 500,
-            "puerto": "La Spezia",
-            "tipo": "llegada",
-            "estado": "Iniciada",
-            "bandera": "Libèria",
-            "imo": "9964235",
-            "mmsi": "636024421",
             "fecha": "2026-02-01"
         },
         {
@@ -212,13 +212,13 @@
             "hora": "14:00",
             "nombre": "Abel Matutes",
             "naviera": "EUROLINEAS MARITIMAS S.A",
-            "terminal": "LEPANT/TRUCK CENTER",
-            "terminal_codigo": "TC",
+            "terminal": "BALEARIA EUROLINEAS MARITIMAS SA ",
+            "terminal_codigo": "7332",
             "eslora": 190.0,
             "pax_estimados": 1000,
             "puerto": "Alcudia",
             "tipo": "llegada",
-            "estado": "Autoritzada",
+            "estado": "Confirmada",
             "bandera": "Espanya",
             "imo": "9441130",
             "mmsi": "224402000",
@@ -243,7 +243,7 @@
     ],
     "salidas": [
         {
-            "hora": "08:07",
+            "hora": "01:30",
             "nombre": "Cruise Roma",
             "naviera": "GRIMALDI LOGISTICA ESPAÑA SL",
             "terminal": "TERMINAL F3",
@@ -252,7 +252,7 @@
             "pax_estimados": 3000,
             "puerto": "Civitavecchia",
             "tipo": "salida",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Itàlia",
             "imo": "9351476",
             "mmsi": "247219400",
@@ -284,7 +284,7 @@
             "pax_estimados": 1000,
             "puerto": "Rades/Tunis",
             "tipo": "salida",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Dinamarca",
             "imo": "9503639",
             "mmsi": "219034351",
@@ -388,6 +388,22 @@
         },
         {
             "hora": "21:30",
+            "nombre": "Abel Matutes",
+            "naviera": "BALEARIA EUROLINEAS MARITIMAS SA ",
+            "terminal": "BALEARIA EUROLINEAS MARITIMAS SA ",
+            "terminal_codigo": "7332",
+            "eslora": 190.0,
+            "pax_estimados": 1000,
+            "puerto": "Alcudia",
+            "tipo": "salida",
+            "estado": "Confirmada",
+            "bandera": "Espanya",
+            "imo": "9441130",
+            "mmsi": "224402000",
+            "fecha": "2026-02-01"
+        },
+        {
+            "hora": "21:30",
             "nombre": "Gnv Sealand",
             "naviera": "TRANSCOMA BALEARES SA",
             "terminal": "TERMINAL F2",
@@ -400,22 +416,6 @@
             "bandera": "Itàlia",
             "imo": "9435454",
             "mmsi": "247265800",
-            "fecha": "2026-02-01"
-        },
-        {
-            "hora": "21:30",
-            "nombre": "Abel Matutes",
-            "naviera": "BALEARIA EUROLINEAS MARITIMAS SA ",
-            "terminal": "LEPANT/TRUCK CENTER",
-            "terminal_codigo": "TC",
-            "eslora": 190.0,
-            "pax_estimados": 1000,
-            "puerto": "Alcudia",
-            "tipo": "salida",
-            "estado": "Autoritzada",
-            "bandera": "Espanya",
-            "imo": "9441130",
-            "mmsi": "224402000",
             "fecha": "2026-02-01"
         },
         {
@@ -440,23 +440,23 @@
         "total_llegadas": 15,
         "total_salidas": 12,
         "pax_estimados_hoy": 27000,
-        "proximo_desembarco": "12:00",
-        "proximo_barco": "Msc Asli Ii"
+        "proximo_desembarco": "07:44",
+        "proximo_barco": "Msc Orchestra"
     },
     "terminales_activas": [
-        "B",
-        "TC",
         "2398",
-        "H",
-        "8156",
+        "B",
         "F2",
+        "8156",
         "7585",
+        "F3",
         "6212",
-        "F3"
+        "H",
+        "7332"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-02-01T09:31:43.258471",
+        "actualizado": "2026-02-01T07:37:06.202584",
         "frecuencia": "horaria"
     }
 }
