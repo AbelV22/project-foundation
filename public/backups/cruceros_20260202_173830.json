@@ -42,7 +42,7 @@
             "pax_estimados": 2000,
             "puerto": "Savona",
             "tipo": "llegada",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Itàlia",
             "imo": "9859533",
             "mmsi": "247383300",
@@ -113,7 +113,7 @@
             "fecha": "2026-02-02"
         },
         {
-            "hora": "17:18",
+            "hora": "17:15",
             "nombre": "Gnv Sealand",
             "naviera": "GRANDI NAVI VELOCI",
             "terminal": "TERMINAL F2",
@@ -122,7 +122,7 @@
             "pax_estimados": 500,
             "puerto": "Palma de Mallorca",
             "tipo": "llegada",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Itàlia",
             "imo": "9435454",
             "mmsi": "247265800",
@@ -227,6 +227,22 @@
             "fecha": "2026-02-02"
         },
         {
+            "hora": "14:00",
+            "nombre": "Eco Valencia",
+            "naviera": "GRIMALDI LOGISTICA ESPAÑA SL",
+            "terminal": "GRIMALDI TERMINAL BARCELONA SL",
+            "terminal_codigo": "8156",
+            "eslora": 238.0,
+            "pax_estimados": 2000,
+            "puerto": "Valencia",
+            "tipo": "salida",
+            "estado": "Iniciada",
+            "bandera": "Itàlia",
+            "imo": "9859533",
+            "mmsi": "247383300",
+            "fecha": "2026-02-02"
+        },
+        {
             "hora": "15:21",
             "nombre": "Sti Clapham",
             "naviera": "NEXT MARITIME SL",
@@ -240,22 +256,6 @@
             "bandera": "Illes Marshall",
             "imo": "9696577",
             "mmsi": "538005407",
-            "fecha": "2026-02-02"
-        },
-        {
-            "hora": "15:28",
-            "nombre": "Eco Valencia",
-            "naviera": "GRIMALDI LOGISTICA ESPAÑA SL",
-            "terminal": "GRIMALDI TERMINAL BARCELONA SL",
-            "terminal_codigo": "8156",
-            "eslora": 238.0,
-            "pax_estimados": 2000,
-            "puerto": "Valencia",
-            "tipo": "salida",
-            "estado": "Finalitzada",
-            "bandera": "Itàlia",
-            "imo": "9859533",
-            "mmsi": "247383300",
             "fecha": "2026-02-02"
         },
         {
@@ -300,7 +300,7 @@
             "pax_estimados": 500,
             "puerto": "Palma de Mallorca",
             "tipo": "salida",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Itàlia",
             "imo": "9435454",
             "mmsi": "247265800",
@@ -376,21 +376,21 @@
         "total_llegadas": 10,
         "total_salidas": 13,
         "pax_estimados_hoy": 12500,
-        "proximo_desembarco": "18:30",
-        "proximo_barco": "Ciudad De Palma"
+        "proximo_desembarco": "17:15",
+        "proximo_barco": "Gnv Sealand"
     },
     "terminales_activas": [
-        "F3",
-        "TC",
         "8156",
+        "TC",
         "F2",
         "6212",
+        "7946",
         "E",
-        "7946"
+        "F3"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-02-02T17:38:30.446875",
+        "actualizado": "2026-02-02T15:37:59.748323",
         "frecuencia": "horaria"
     }
 }
