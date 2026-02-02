@@ -2,51 +2,89 @@ name: Actualizar Licencias Taxi
 
 on:
   schedule:
-    - cron: '0 7 * * *'  # Ejecutar a las 07:00 UTC (08:00 u 09:00 hora España según horario invierno/verano)
-  workflow_dispatch:      # Permite ejecutar manualmente desde la pestaña "Actions"
+    - cron: '0 7 * * *'   # 07:00 UTC (08:00-09:00 España)
+    - cron: '0 13 * * *'  # 13:00 UTC (14:00-15:00 España) - Segunda ejecución diaria
+  workflow_dispatch:       # Ejecución manual
 
 jobs:
   update-data:
     runs-on: ubuntu-latest
     permissions:
-      contents: write     # Permiso CRÍTICO para poder guardar los archivos generados
+      contents: write
 
     steps:
       - name: 📥 Checkout del código
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0  # Para tener todo el histórico
 
       - name: 🐍 Instalar Python
-        uses: actions/setup-python@v4
+        uses: actions/setup-python@v5
         with:
-          python-version: '3.9'
+          python-version: '3.11'
+          cache: 'pip'
 
       - name: 📦 Instalar dependencias
         run: |
           pip install -r requirements.txt
-        # Asegúrate de que requirements.txt esté en la raíz y tenga: pandas, numpy, requests, beautifulsoup4 (o lo que use tu scraper)
+          pip install undetected-chromedriver  # Para evasión de detección
 
-      - name: 🔍 Debug - Ver estructura de archivos
-        run: ls -R
-     
+      - name: 🔧 Instalar Chrome
+        uses: browser-actions/setup-chrome@latest
+        with:
+          chrome-version: stable
 
-      - name: 🕵️ Ejecutar Scraper
-        env:  # <--- AÑADE ESTO
+      - name: 🔍 Debug - Ver estructura
+        run: |
+          echo "📁 Estructura de scripts:"
+          ls -la scripts/
+          echo ""
+          echo "📁 Estructura de public:"
+          ls -la public/ || echo "No existe public/"
+
+      - name: 🕵️ Ejecutar Scraper V2
+        env:
           SCRAPER_API_KEY: ${{ secrets.SCRAPER_API_KEY }}
-        run: python scripts/licencia_scrap.py
-        # Esto ejecutará tu script de scraping.
-        # IMPORTANTE: Asegúrate de que licencia_scrap.py guarde el JSON en la raíz (o que procesado_licen.py sepa dónde buscarlo).
+        run: |
+          cd scripts
+          python licencia_scrap_v2.py || python licencia_scrap.py
+        # Intenta v2 primero, fallback a v1 si falla
 
-      - name: 📊 Ejecutar Procesado y Estadísticas
-        run: python scripts/procesado_licen.py
-        # Esto leerá el archivo del paso anterior y generará los datos para la web (market_data/)
+      - name: 📊 Ejecutar Procesado V2
+        run: |
+          cd scripts
+          python procesado_licen_v2.py || python procesado_licen.py
+        # Intenta v2 primero, fallback a v1 si falla
 
-      - name: 💾 Guardar cambios (Commit & Push)
+      - name: 🔍 Verificar outputs
+        run: |
+          echo "📊 Archivos generados:"
+          ls -la public/*.json public/*.csv 2>/dev/null || echo "No hay archivos en public/"
+          echo ""
+          echo "📈 Contenido web_feed.json (primeras líneas):"
+          head -30 public/web_feed.json 2>/dev/null || echo "No existe web_feed.json"
+
+      - name: 💾 Guardar cambios
         run: |
           git config --global user.name 'TaxiBot'
           git config --global user.email 'bot@noreply.github.com'
-          
-          # Añadimos todo lo que haya cambiado (el JSON raw y los datos procesados)
-          git add .
-          
-          # Hacemos commit solo si hay cambios para evitar errores
-          git diff --quiet && git diff --staged --quiet || (git commit -m "📈 Actualización diaria: $(date +'%Y-%m-%d')" && git push)
+
+          # Pull para evitar conflictos
+          git pull --rebase origin main || git pull origin main
+
+          # Añadir archivos específicos
+          git add licencias_totales.json || true
+          git add public/web_feed.json || true
+          git add public/history_stats.csv || true
+          git add public/analisis_licencias_taxi.json || true
+          git add backups/ || true
+
+          # Commit si hay cambios
+          if ! git diff --staged --quiet; then
+            OFERTAS=$(cat public/web_feed.json | grep -o '"volume":[0-9]*' | head -1 | grep -o '[0-9]*' || echo "?")
+            PRECIO=$(cat public/web_feed.json | grep -o '"current_price":[0-9]*' | head -1 | grep -o '[0-9]*' || echo "?")
+            git commit -m "📈 Licencias $(date +'%Y-%m-%d %H:%M'): ${OFERTAS} ofertas @ ${PRECIO}€"
+            git push
+          else
+            echo "No hay cambios para guardar"
+          fi

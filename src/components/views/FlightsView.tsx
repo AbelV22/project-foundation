@@ -1,23 +1,13 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { Plane, Clock, Users, ArrowDown, RefreshCw } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { 
+import {
   AreaChart, Area, XAxis, YAxis, Tooltip, ResponsiveContainer
 } from "recharts";
-
-// Tipos para vuelos.json (estructura real del scraper)
-interface VueloRaw {
-  hora: string;
-  vuelo: string;
-  aerolinea: string;
-  origen: string;
-  terminal: string;
-  sala: string;
-  estado: string;
-  dia_relativo: number;
-}
+import { useVuelos } from "@/contexts/DataContext";
+import { VueloRaw } from "@/services/dataService";
 
 // Función para parsear hora "HH:MM" a minutos del día
 const parseHora = (hora: string): number => {
@@ -70,24 +60,10 @@ const getEsperaReten = (terminalId: string, currentHour: number): number => {
 };
 
 export function FlightsView() {
-  const [vuelos, setVuelos] = useState<VueloRaw[]>([]);
-  const [loading, setLoading] = useState(true);
+  // Use centralized data from context (cached & auto-refreshed)
+  const { vuelos, loading, refresh } = useVuelos();
   const [selectedTerminal, setSelectedTerminal] = useState("all");
   const [chartType, setChartType] = useState<"vuelos" | "pasajeros">("pasajeros");
-
-  useEffect(() => {
-    fetch("/vuelos.json?t=" + Date.now())
-      .then((res) => res.json())
-      .then((data) => {
-        console.log("📡 FlightsView - Vuelos cargados:", data?.length || 0);
-        setVuelos(Array.isArray(data) ? data : []);
-        setLoading(false);
-      })
-      .catch((err) => {
-        console.error("Error cargando vuelos.json:", err);
-        setLoading(false);
-      });
-  }, []);
 
   if (loading) {
     return (
@@ -307,16 +283,15 @@ export function FlightsView() {
             filteredFlights.map((flight, idx) => {
               const termType = getTerminalType(flight);
               const termColor = terminalStats.find(t => t.id === termType)?.color || "#666";
-              const codigoPrincipal = flight.vuelo?.split("/")[0]?.trim() || flight.vuelo;
               const origenCorto = flight.origen?.split("(")[0]?.trim() || flight.origen;
               const paxEstimado = termType === 'puente' ? 150 : termType === 't2c' ? 180 : 200;
-              
+
               return (
                 <div key={idx} className="flex flex-col md:flex-row md:items-center gap-3 md:gap-6 p-4 md:p-6 hover:bg-accent/30 transition-colors">
                   {/* Mobile: compact row */}
                   <div className="flex items-center gap-4 md:gap-6 flex-1">
                     {/* Arrow Icon */}
-                    <div 
+                    <div
                       className="flex h-10 w-10 md:h-12 md:w-12 items-center justify-center rounded-full flex-shrink-0"
                       style={{ backgroundColor: `${termColor}15` }}
                     >
@@ -326,28 +301,28 @@ export function FlightsView() {
                     {/* Flight Info */}
                     <div className="flex-1 min-w-0">
                       <div className="flex items-center gap-2 md:gap-3 mb-1">
-                        <span className="font-semibold text-foreground">{codigoPrincipal}</span>
-                        <Badge 
+                        <span className="font-semibold text-foreground">{origenCorto}</span>
+                        <Badge
                           className={cn(
                             "text-xs",
-                            flight.estado?.toLowerCase().includes("aterriz") 
-                              ? "status-landing" 
+                            flight.estado?.toLowerCase().includes("aterriz")
+                              ? "status-landing"
                               : "status-ontime"
                           )}
                         >
                           {flight.estado || "Programado"}
                         </Badge>
-                        <span 
+                        <span
                           className="text-xs px-2 py-0.5 rounded font-medium"
-                          style={{ 
-                            backgroundColor: `${termColor}15`, 
+                          style={{
+                            backgroundColor: `${termColor}15`,
                             color: termColor,
                           }}
                         >
                           {termType === 'puente' ? 'P.Aéreo' : termType.toUpperCase()}
                         </span>
                       </div>
-                      <p className="text-sm text-muted-foreground truncate">{flight.aerolinea} • {origenCorto}</p>
+                      <p className="text-sm text-muted-foreground truncate">{flight.aerolinea}</p>
                     </div>
 
                     {/* Time */}

@@ -255,9 +255,9 @@ export function DashboardView({ onTerminalClick, onViewAllFlights, onViewAllEven
   return (
     <div className="space-y-3 pb-16">
       {/* Header with Settings */}
-      <div className="flex items-center justify-between px-1 pt-1">
+      <div className="flex items-center justify-between px-1 pt-1 animate-slide-down" style={{ animationDelay: '50ms', animationFillMode: 'backwards' }}>
         <h2 className="text-xl font-display font-bold text-foreground">iTaxi BCN</h2>
-        <button onClick={() => navigate('/settings')} className="p-2 rounded-full hover:bg-muted/50 transition-colors">
+        <button onClick={() => navigate('/settings')} className="p-2 rounded-full hover:bg-muted/50 active:scale-95 transition-all duration-150">
           <Settings className="h-5 w-5 text-muted-foreground" />
         </button>
       </div>
@@ -303,7 +303,7 @@ export function DashboardView({ onTerminalClick, onViewAllFlights, onViewAllEven
 
 
       {/* === AEROPUERTO SECTION - GLASSMORPHISM === */}
-      <section className="space-y-2 animate-fade-in" style={{ animationDelay: '300ms', animationFillMode: 'backwards' }}>
+      <section className="space-y-2 animate-fade-in-up" style={{ animationDelay: '100ms', animationFillMode: 'backwards' }}>
         {/* Section Header - Clickable */}
         <button
           onClick={onViewFullDay}
@@ -322,7 +322,7 @@ export function DashboardView({ onTerminalClick, onViewAllFlights, onViewAllEven
 
         {/* Terminal Cards - 2x2 Grid Glass */}
         <div className="grid grid-cols-2 gap-2">
-          {terminals.map(term => {
+          {terminals.map((term, idx) => {
             // Only calculate esperaLevel if we have real data
             const esperaLevel = term.hasRealData && term.espera !== null
               ? (term.espera <= 10 ? "low" : term.espera <= 25 ? "medium" : "high")
@@ -332,7 +332,8 @@ export function DashboardView({ onTerminalClick, onViewAllFlights, onViewAllEven
               <button
                 key={term.id}
                 onClick={() => onTerminalClick?.(term.id)}
-                className="card-glass-hover p-2.5 text-left group"
+                className="card-glass-hover p-2.5 text-left group active:scale-[0.98] transition-transform duration-150"
+                style={{ animationDelay: `${150 + idx * 50}ms` }}
               >
                 {/* Header Row */}
                 <div className="flex items-center justify-between mb-0.5">
@@ -377,7 +378,7 @@ export function DashboardView({ onTerminalClick, onViewAllFlights, onViewAllEven
       </section>
 
       {/* === TRENES SANTS - GLASSMORPHISM DEPARTURE BOARD === */}
-      <section className="space-y-2 animate-fade-in" style={{ animationDelay: '500ms', animationFillMode: 'backwards' }}>
+      <section className="space-y-2 animate-fade-in-up" style={{ animationDelay: '200ms', animationFillMode: 'backwards' }}>
         {/* Section Header - Clickable */}
         <button
           onClick={onViewTrainsFullDay}
@@ -402,9 +403,10 @@ export function DashboardView({ onTerminalClick, onViewAllFlights, onViewAllEven
                 <div
                   key={idx}
                   className={cn(
-                    "grid grid-cols-[50px_1fr_auto_60px] gap-2 px-3 py-2 items-center transition-colors",
+                    "grid grid-cols-[50px_1fr_auto_60px] gap-2 px-3 py-2 items-center transition-all duration-300 animate-fade-in-up",
                     countdown.isCritical && "bg-red-500/10"
                   )}
+                  style={{ animationDelay: `${250 + idx * 75}ms`, animationFillMode: 'backwards' }}
                 >
                   {/* Time - White */}
                   <span className="font-mono text-sm font-bold tabular-nums text-foreground">
@@ -442,7 +444,7 @@ export function DashboardView({ onTerminalClick, onViewAllFlights, onViewAllEven
 
       {/* === PUERTO BCN - CRUCEROS === */}
       {!cruisesLoading && (
-        <section className="space-y-2 animate-fade-in" style={{ animationDelay: '550ms', animationFillMode: 'backwards' }}>
+        <section className="space-y-2 animate-fade-in-up" style={{ animationDelay: '300ms', animationFillMode: 'backwards' }}>
           <button
             onClick={onViewCruises}
             className="flex items-center justify-between w-full px-1 group"
@@ -512,7 +514,7 @@ export function DashboardView({ onTerminalClick, onViewAllFlights, onViewAllEven
       )}
 
       {/* === LIVE DATA WIDGETS - GLASS === */}
-      <div className="grid grid-cols-2 gap-2 animate-fade-in" style={{ animationDelay: '600ms', animationFillMode: 'backwards' }}>
+      <div className="grid grid-cols-2 gap-2 animate-fade-in-up" style={{ animationDelay: '400ms', animationFillMode: 'backwards' }}>
         {/* Eventos Widget */}
         <button
           onClick={onViewAllEvents}

@@ -144,6 +144,7 @@ import SettingsView from "./components/views/SettingsView";
 
 import { LocationDisclosureDialog } from "@/components/LocationDisclosureDialog";
 import { getItem, setItem } from "@/lib/storage";
+import { DataProvider } from "@/contexts/DataContext";
 
 const App = () => {
   const [permissionDenied, setPermissionDenied] = useState(false);
@@ -201,19 +202,21 @@ const App = () => {
             </p>
           </div>
         )}
-        <BrowserRouter>
-          <BackButtonHandler />
-          <ErrorBoundary>
-            <Routes>
-              <Route path="/" element={<Index />} />
-              <Route path="/admin" element={<Admin />} />
-              <Route path="/privacy" element={<PrivacyPolicy />} />
-              <Route path="/settings" element={<SettingsView />} />
-              {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-              <Route path="*" element={<NotFound />} />
-            </Routes>
-          </ErrorBoundary>
-        </BrowserRouter>
+        <DataProvider autoRefresh={true}>
+          <BrowserRouter>
+            <BackButtonHandler />
+            <ErrorBoundary>
+              <Routes>
+                <Route path="/" element={<Index />} />
+                <Route path="/admin" element={<Admin />} />
+                <Route path="/privacy" element={<PrivacyPolicy />} />
+                <Route path="/settings" element={<SettingsView />} />
+                {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+                <Route path="*" element={<NotFound />} />
+              </Routes>
+            </ErrorBoundary>
+          </BrowserRouter>
+        </DataProvider>
       </TooltipProvider>
     </QueryClientProvider>
   );
