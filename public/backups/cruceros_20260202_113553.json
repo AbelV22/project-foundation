@@ -65,7 +65,7 @@
             "fecha": "2026-02-02"
         },
         {
-            "hora": "07:47",
+            "hora": "07:51",
             "nombre": "Eco Valencia",
             "naviera": "GRIMALDI EUROMED SPA",
             "terminal": "GRIMALDI TERMINAL BARCELONA SL",
@@ -97,7 +97,7 @@
             "fecha": "2026-02-02"
         },
         {
-            "hora": "10:16",
+            "hora": "10:00",
             "nombre": "Visborg",
             "naviera": "EUROLINEAS MARITIMAS S.A",
             "terminal": "TERMINAL F2",
@@ -164,13 +164,13 @@
             "hora": "19:00",
             "nombre": "Abel Matutes",
             "naviera": "EUROLINEAS MARITIMAS S.A",
-            "terminal": "LEPANT/TRUCK CENTER",
-            "terminal_codigo": "TC",
+            "terminal": "BALEARIA EUROLINEAS MARITIMAS SA ",
+            "terminal_codigo": "7332",
             "eslora": 190.0,
             "pax_estimados": 1000,
             "puerto": "Alcudia",
             "tipo": "llegada",
-            "estado": "Autoritzada",
+            "estado": "Confirmada",
             "bandera": "Espanya",
             "imo": "9441130",
             "mmsi": "224402000",
@@ -195,7 +195,7 @@
             "fecha": "2026-02-02"
         },
         {
-            "hora": "10:15",
+            "hora": "09:59",
             "nombre": "Visborg",
             "naviera": "BALEARIA EUROLINEAS MARITIMAS SA ",
             "terminal": "",
@@ -324,6 +324,22 @@
         },
         {
             "hora": "21:30",
+            "nombre": "Abel Matutes",
+            "naviera": "BALEARIA EUROLINEAS MARITIMAS SA ",
+            "terminal": "BALEARIA EUROLINEAS MARITIMAS SA ",
+            "terminal_codigo": "7332",
+            "eslora": 190.0,
+            "pax_estimados": 1000,
+            "puerto": "Alcudia",
+            "tipo": "salida",
+            "estado": "Confirmada",
+            "bandera": "Espanya",
+            "imo": "9441130",
+            "mmsi": "224402000",
+            "fecha": "2026-02-02"
+        },
+        {
+            "hora": "21:30",
             "nombre": "Gnv Sealand",
             "naviera": "TRANSCOMA BALEARES SA",
             "terminal": "TERMINAL F2",
@@ -352,22 +368,6 @@
             "bandera": "Itàlia",
             "imo": "9351488",
             "mmsi": "247243600",
-            "fecha": "2026-02-02"
-        },
-        {
-            "hora": "21:30",
-            "nombre": "Abel Matutes",
-            "naviera": "BALEARIA EUROLINEAS MARITIMAS SA ",
-            "terminal": "LEPANT/TRUCK CENTER",
-            "terminal_codigo": "TC",
-            "eslora": 190.0,
-            "pax_estimados": 1000,
-            "puerto": "Alcudia",
-            "tipo": "salida",
-            "estado": "Autoritzada",
-            "bandera": "Espanya",
-            "imo": "9441130",
-            "mmsi": "224402000",
             "fecha": "2026-02-02"
         },
         {
@@ -424,21 +424,21 @@
         "total_llegadas": 11,
         "total_salidas": 15,
         "pax_estimados_hoy": 15500,
-        "proximo_desembarco": "12:00",
-        "proximo_barco": "Msc Barcelona"
+        "proximo_desembarco": "10:00",
+        "proximo_barco": "Visborg"
     },
     "terminales_activas": [
         "6212",
-        "7946",
-        "F3",
         "F2",
-        "TC",
+        "7946",
+        "8156",
         "E",
-        "8156"
+        "F3",
+        "7332"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-02-02T11:35:53.605691",
+        "actualizado": "2026-02-02T09:51:27.973671",
         "frecuencia": "horaria"
     }
 }
