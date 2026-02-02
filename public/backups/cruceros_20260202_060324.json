@@ -1,7 +1,7 @@
 {
     "llegadas": [
         {
-            "hora": "00:02",
+            "hora": "00:30",
             "nombre": "Cruise Barcelona",
             "naviera": "GRIMALDI EUROMED SPA",
             "terminal": "TERMINAL F3",
@@ -10,7 +10,7 @@
             "pax_estimados": 500,
             "puerto": "Civitavecchia",
             "tipo": "llegada",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Itàlia",
             "imo": "9351488",
             "mmsi": "247243600",
@@ -364,7 +364,7 @@
             "pax_estimados": 500,
             "puerto": "Civitavecchia",
             "tipo": "salida",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Itàlia",
             "imo": "9351488",
             "mmsi": "247243600",
@@ -424,21 +424,21 @@
         "total_llegadas": 11,
         "total_salidas": 15,
         "pax_estimados_hoy": 15500,
-        "proximo_desembarco": "06:30",
-        "proximo_barco": "Ciudad De Barcelona"
+        "proximo_desembarco": null,
+        "proximo_barco": null
     },
     "terminales_activas": [
+        "7946",
+        "F2",
+        "E",
         "F3",
         "6212",
         "7332",
-        "8156",
-        "F2",
-        "7946",
-        "E"
+        "8156"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-02-02T06:03:24.569101",
+        "actualizado": "2026-02-01T23:25:37.511593",
         "frecuencia": "horaria"
     }
 }
