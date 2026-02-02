@@ -17,6 +17,38 @@
             "fecha": "2026-02-02"
         },
         {
+            "hora": "04:00",
+            "nombre": "Msc Leandra V",
+            "naviera": "MEDITERRANEAN SHIPPING CO",
+            "terminal": "TERMINAL CATALUNYA SA",
+            "terminal_codigo": "6212",
+            "eslora": 294.0,
+            "pax_estimados": 3000,
+            "puerto": "Fos-sur-Mer",
+            "tipo": "llegada",
+            "estado": "Sol·licitada",
+            "bandera": "Portugal",
+            "imo": "9313943",
+            "mmsi": "255803590",
+            "fecha": "2026-02-02"
+        },
+        {
+            "hora": "06:00",
+            "nombre": "Msc Josseline",
+            "naviera": "MEDITERRANEAN SHIPPING CO",
+            "terminal": "TERMINAL CATALUNYA SA",
+            "terminal_codigo": "6212",
+            "eslora": 0,
+            "pax_estimados": 500,
+            "puerto": "Gioia Tauro",
+            "tipo": "llegada",
+            "estado": "Autoritzada",
+            "bandera": "Libèria",
+            "imo": "9842061",
+            "mmsi": "636019206",
+            "fecha": "2026-02-02"
+        },
+        {
             "hora": "06:52",
             "nombre": "Ciudad De Barcelona",
             "naviera": "TRASMED GLE S.L.",
@@ -94,22 +126,6 @@
             "bandera": "Malta",
             "imo": "9480186",
             "mmsi": "256573000",
-            "fecha": "2026-02-02"
-        },
-        {
-            "hora": "13:04",
-            "nombre": "Msc Josseline",
-            "naviera": "MEDITERRANEAN SHIPPING CO",
-            "terminal": "TERMINAL CATALUNYA SA",
-            "terminal_codigo": "6212",
-            "eslora": 0,
-            "pax_estimados": 500,
-            "puerto": "Gioia Tauro",
-            "tipo": "llegada",
-            "estado": "Iniciada",
-            "bandera": "Libèria",
-            "imo": "9842061",
-            "mmsi": "636019206",
             "fecha": "2026-02-02"
         },
         {
@@ -195,7 +211,7 @@
             "fecha": "2026-02-02"
         },
         {
-            "hora": "11:30",
+            "hora": "11:00",
             "nombre": "Msc Milan",
             "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
             "terminal": "TERMINAL CATALUNYA SA",
@@ -204,7 +220,7 @@
             "pax_estimados": 500,
             "puerto": "Valencia",
             "tipo": "salida",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Libèria",
             "imo": "9964235",
             "mmsi": "636024421",
@@ -291,6 +307,22 @@
             "fecha": "2026-02-02"
         },
         {
+            "hora": "20:00",
+            "nombre": "Henning Maersk",
+            "naviera": "ALFASHIP MARITIME SERVICES SL ",
+            "terminal": "TRADEBE PORT SERVICES SL",
+            "terminal_codigo": "7946",
+            "eslora": 180.0,
+            "pax_estimados": 1000,
+            "puerto": "Desconegut",
+            "tipo": "salida",
+            "estado": "Sol·licitada",
+            "bandera": "Dinamarca",
+            "imo": "9389526",
+            "mmsi": "219277000",
+            "fecha": "2026-02-02"
+        },
+        {
             "hora": "21:30",
             "nombre": "Gnv Sealand",
             "naviera": "TRANSCOMA BALEARES SA",
@@ -369,28 +401,44 @@
             "imo": "9349772",
             "mmsi": "224588000",
             "fecha": "2026-02-02"
+        },
+        {
+            "hora": "23:59",
+            "nombre": "Msc Leandra V",
+            "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
+            "terminal": "TERMINAL CATALUNYA SA",
+            "terminal_codigo": "6212",
+            "eslora": 294.0,
+            "pax_estimados": 3000,
+            "puerto": "Gioia Tauro",
+            "tipo": "salida",
+            "estado": "Sol·licitada",
+            "bandera": "Portugal",
+            "imo": "9313943",
+            "mmsi": "255803590",
+            "fecha": "2026-02-02"
         }
     ],
     "resumen": {
-        "total_cruceros": 14,
-        "total_llegadas": 10,
-        "total_salidas": 13,
-        "pax_estimados_hoy": 12500,
-        "proximo_desembarco": "17:15",
-        "proximo_barco": "Gnv Sealand"
+        "total_cruceros": 16,
+        "total_llegadas": 11,
+        "total_salidas": 15,
+        "pax_estimados_hoy": 15500,
+        "proximo_desembarco": "12:00",
+        "proximo_barco": "Msc Barcelona"
     },
     "terminales_activas": [
         "6212",
-        "TC",
-        "F3",
         "7946",
+        "F3",
         "F2",
-        "8156",
-        "E"
+        "TC",
+        "E",
+        "8156"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-02-02T14:02:40.617377",
+        "actualizado": "2026-02-02T11:35:53.605691",
         "frecuencia": "horaria"
     }
 }
