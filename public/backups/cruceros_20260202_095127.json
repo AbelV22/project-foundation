@@ -65,6 +65,22 @@
             "fecha": "2026-02-02"
         },
         {
+            "hora": "07:30",
+            "nombre": "Costa Smeralda",
+            "naviera": "COSTA CROCIERE, S.P.A.",
+            "terminal": "Terminal E (Adossat)",
+            "terminal_codigo": "E",
+            "eslora": 337.0,
+            "pax_estimados": 4500,
+            "puerto": "Marseille",
+            "tipo": "llegada",
+            "estado": "Autoritzada",
+            "bandera": "Itàlia",
+            "imo": "9781889",
+            "mmsi": "247391900",
+            "fecha": "2026-02-02"
+        },
+        {
             "hora": "07:51",
             "nombre": "Eco Valencia",
             "naviera": "GRIMALDI EUROMED SPA",
@@ -78,22 +94,6 @@
             "bandera": "Itàlia",
             "imo": "9859533",
             "mmsi": "247383300",
-            "fecha": "2026-02-02"
-        },
-        {
-            "hora": "08:11",
-            "nombre": "Costa Smeralda",
-            "naviera": "COSTA CROCIERE, S.P.A.",
-            "terminal": "Terminal E (Adossat)",
-            "terminal_codigo": "E",
-            "eslora": 337.0,
-            "pax_estimados": 4500,
-            "puerto": "Marseille",
-            "tipo": "llegada",
-            "estado": "Iniciada",
-            "bandera": "Itàlia",
-            "imo": "9781889",
-            "mmsi": "247391900",
             "fecha": "2026-02-02"
         },
         {
@@ -179,22 +179,6 @@
     ],
     "salidas": [
         {
-            "hora": "08:56",
-            "nombre": "Msc Rapallo",
-            "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
-            "terminal": "TERMINAL CATALUNYA SA",
-            "terminal_codigo": "6212",
-            "eslora": 0,
-            "pax_estimados": 500,
-            "puerto": "Tekirdag",
-            "tipo": "salida",
-            "estado": "Finalitzada",
-            "bandera": "Libèria",
-            "imo": "9484455",
-            "mmsi": "636092271",
-            "fecha": "2026-02-02"
-        },
-        {
             "hora": "09:59",
             "nombre": "Visborg",
             "naviera": "BALEARIA EUROLINEAS MARITIMAS SA ",
@@ -259,6 +243,22 @@
             "fecha": "2026-02-02"
         },
         {
+            "hora": "15:00",
+            "nombre": "Msc Rapallo",
+            "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
+            "terminal": "TERMINAL CATALUNYA SA",
+            "terminal_codigo": "6212",
+            "eslora": 0,
+            "pax_estimados": 500,
+            "puerto": "Tekirdag",
+            "tipo": "salida",
+            "estado": "Iniciada",
+            "bandera": "Libèria",
+            "imo": "9484455",
+            "mmsi": "636092271",
+            "fecha": "2026-02-02"
+        },
+        {
             "hora": "17:00",
             "nombre": "Visborg",
             "naviera": "BALEARIA EUROLINEAS MARITIMAS SA ",
@@ -284,7 +284,7 @@
             "pax_estimados": 4500,
             "puerto": "La Goulette Nord (Halqueloued)",
             "tipo": "salida",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Itàlia",
             "imo": "9781889",
             "mmsi": "247391900",
@@ -424,21 +424,21 @@
         "total_llegadas": 11,
         "total_salidas": 15,
         "pax_estimados_hoy": 15500,
-        "proximo_desembarco": "10:00",
-        "proximo_barco": "Visborg"
+        "proximo_desembarco": "07:51",
+        "proximo_barco": "Eco Valencia"
     },
     "terminales_activas": [
-        "6212",
+        "7332",
+        "F3",
         "F2",
+        "6212",
         "7946",
         "8156",
-        "E",
-        "F3",
-        "7332"
+        "E"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-02-02T09:51:27.973671",
+        "actualizado": "2026-02-02T07:50:18.999640",
         "frecuencia": "horaria"
     }
 }
