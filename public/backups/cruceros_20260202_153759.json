@@ -81,6 +81,22 @@
             "fecha": "2026-02-02"
         },
         {
+            "hora": "12:00",
+            "nombre": "Msc Barcelona",
+            "naviera": "MEDITERRANEAN SHIPPING CO",
+            "terminal": "TERMINAL CATALUNYA SA",
+            "terminal_codigo": "6212",
+            "eslora": 0,
+            "pax_estimados": 500,
+            "puerto": "Genoa",
+            "tipo": "llegada",
+            "estado": "Autoritzada",
+            "bandera": "Malta",
+            "imo": "9480186",
+            "mmsi": "256573000",
+            "fecha": "2026-02-02"
+        },
+        {
             "hora": "13:04",
             "nombre": "Msc Josseline",
             "naviera": "MEDITERRANEAN SHIPPING CO",
@@ -94,22 +110,6 @@
             "bandera": "Libèria",
             "imo": "9842061",
             "mmsi": "636019206",
-            "fecha": "2026-02-02"
-        },
-        {
-            "hora": "15:10",
-            "nombre": "Msc Barcelona",
-            "naviera": "MEDITERRANEAN SHIPPING CO",
-            "terminal": "TERMINAL CATALUNYA SA",
-            "terminal_codigo": "6212",
-            "eslora": 0,
-            "pax_estimados": 500,
-            "puerto": "Genoa",
-            "tipo": "llegada",
-            "estado": "Iniciada",
-            "bandera": "Malta",
-            "imo": "9480186",
-            "mmsi": "256573000",
             "fecha": "2026-02-02"
         },
         {
@@ -211,22 +211,6 @@
             "fecha": "2026-02-02"
         },
         {
-            "hora": "13:41",
-            "nombre": "Msc Asli Ii",
-            "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
-            "terminal": "TERMINAL CATALUNYA SA",
-            "terminal_codigo": "6212",
-            "eslora": 0,
-            "pax_estimados": 500,
-            "puerto": "Castellon de la Plana",
-            "tipo": "salida",
-            "estado": "Finalitzada",
-            "bandera": "Libèria",
-            "imo": "9162631",
-            "mmsi": "636018322",
-            "fecha": "2026-02-02"
-        },
-        {
             "hora": "14:00",
             "nombre": "Eco Valencia",
             "naviera": "GRIMALDI LOGISTICA ESPAÑA SL",
@@ -243,19 +227,19 @@
             "fecha": "2026-02-02"
         },
         {
-            "hora": "15:21",
-            "nombre": "Sti Clapham",
-            "naviera": "NEXT MARITIME SL",
-            "terminal": "TRADEBE PORT SERVICES SL",
-            "terminal_codigo": "7946",
-            "eslora": 184.0,
-            "pax_estimados": 1000,
-            "puerto": "Augusta",
+            "hora": "15:00",
+            "nombre": "Msc Asli Ii",
+            "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
+            "terminal": "TERMINAL CATALUNYA SA",
+            "terminal_codigo": "6212",
+            "eslora": 0,
+            "pax_estimados": 500,
+            "puerto": "Castellon de la Plana",
             "tipo": "salida",
-            "estado": "Finalitzada",
-            "bandera": "Illes Marshall",
-            "imo": "9696577",
-            "mmsi": "538005407",
+            "estado": "Iniciada",
+            "bandera": "Libèria",
+            "imo": "9162631",
+            "mmsi": "636018322",
             "fecha": "2026-02-02"
         },
         {
@@ -288,6 +272,22 @@
             "bandera": "Itàlia",
             "imo": "9781889",
             "mmsi": "247391900",
+            "fecha": "2026-02-02"
+        },
+        {
+            "hora": "18:00",
+            "nombre": "Sti Clapham",
+            "naviera": "NEXT MARITIME SL",
+            "terminal": "TRADEBE PORT SERVICES SL",
+            "terminal_codigo": "7946",
+            "eslora": 184.0,
+            "pax_estimados": 1000,
+            "puerto": "Augusta",
+            "tipo": "salida",
+            "estado": "Iniciada",
+            "bandera": "Illes Marshall",
+            "imo": "9696577",
+            "mmsi": "538005407",
             "fecha": "2026-02-02"
         },
         {
@@ -380,17 +380,17 @@
         "proximo_barco": "Gnv Sealand"
     },
     "terminales_activas": [
-        "8156",
-        "TC",
-        "F2",
         "6212",
+        "TC",
+        "F3",
         "7946",
-        "E",
-        "F3"
+        "F2",
+        "8156",
+        "E"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-02-02T15:37:59.748323",
+        "actualizado": "2026-02-02T14:02:40.617377",
         "frecuencia": "horaria"
     }
 }
