@@ -26,7 +26,7 @@
             "pax_estimados": 3000,
             "puerto": "Tangier",
             "tipo": "llegada",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Malta",
             "imo": "9189421",
             "mmsi": "249048000",
@@ -138,7 +138,7 @@
             "pax_estimados": 500,
             "puerto": "Palma de Mallorca",
             "tipo": "llegada",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Itàlia",
             "imo": "9435454",
             "mmsi": "247265800",
@@ -255,6 +255,38 @@
             "imo": "9389526",
             "mmsi": "219277000",
             "fecha": "2026-02-03"
+        },
+        {
+            "hora": "23:00",
+            "nombre": "Al Jubail",
+            "naviera": "UNITED GLOBAL RORO FZCO",
+            "terminal": "SETRAM",
+            "terminal_codigo": "2396",
+            "eslora": 239.0,
+            "pax_estimados": 2000,
+            "puerto": "Barcelona",
+            "tipo": "llegada",
+            "estado": "Fondeig Previ",
+            "bandera": "Illes Marshall",
+            "imo": "9547219",
+            "mmsi": "538010831",
+            "fecha": "2026-02-03"
+        },
+        {
+            "hora": "23:00",
+            "nombre": "Al Jubail",
+            "naviera": "UNITED GLOBAL RORO FZCO",
+            "terminal": "AUTOTERMINAL SA",
+            "terminal_codigo": "6154",
+            "eslora": 239.0,
+            "pax_estimados": 2000,
+            "puerto": "Barcelona",
+            "tipo": "llegada",
+            "estado": "Fondeig Previ",
+            "bandera": "Illes Marshall",
+            "imo": "9547219",
+            "mmsi": "538010831",
+            "fecha": "2026-02-03"
         }
     ],
     "salidas": [
@@ -323,7 +355,7 @@
             "fecha": "2026-02-03"
         },
         {
-            "hora": "16:49",
+            "hora": "17:00",
             "nombre": "Celebrity Infinity",
             "naviera": "BALEARES CONSIGNATARIOS SLU",
             "terminal": "Terminal B (Maremagnum)",
@@ -332,7 +364,7 @@
             "pax_estimados": 3000,
             "puerto": "Messina",
             "tipo": "salida",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Malta",
             "imo": "9189421",
             "mmsi": "249048000",
@@ -364,7 +396,7 @@
             "pax_estimados": 500,
             "puerto": "Palma de Mallorca",
             "tipo": "salida",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Itàlia",
             "imo": "9435454",
             "mmsi": "247265800",
@@ -417,34 +449,50 @@
             "imo": "9349772",
             "mmsi": "224588000",
             "fecha": "2026-02-03"
+        },
+        {
+            "hora": "22:59",
+            "nombre": "Al Jubail",
+            "naviera": "NOATUM MARITIME SPAIN SAU",
+            "terminal": "",
+            "terminal_codigo": "",
+            "eslora": 239.0,
+            "pax_estimados": 2000,
+            "puerto": "El Iskandariya (= Alexandria)",
+            "tipo": "salida",
+            "estado": "Fondeig Previ",
+            "bandera": "Illes Marshall",
+            "imo": "9547219",
+            "mmsi": "538010831",
+            "fecha": "2026-02-03"
         }
     ],
     "resumen": {
         "total_cruceros": 16,
-        "total_llegadas": 16,
-        "total_salidas": 10,
-        "pax_estimados_hoy": 28000,
-        "proximo_desembarco": "18:30",
-        "proximo_barco": "Ciudad De Palma"
+        "total_llegadas": 18,
+        "total_salidas": 11,
+        "pax_estimados_hoy": 32000,
+        "proximo_desembarco": "17:15",
+        "proximo_barco": "Gnv Sealand"
     },
     "terminales_activas": [
-        "7585",
-        "2396",
-        "6995",
-        "6212",
-        "A",
-        "7083",
-        "6154",
-        "F1",
         "F2",
+        "2396",
+        "6154",
+        "6212",
+        "7083",
+        "6995",
+        "F1",
         "8156",
+        "7585",
         "F3",
         "B",
+        "A",
         "7946"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-02-03T17:53:11.695921",
+        "actualizado": "2026-02-03T15:51:09.139661",
         "frecuencia": "horaria"
     }
 }
