@@ -225,7 +225,7 @@
             "fecha": "2026-02-03"
         },
         {
-            "hora": "20:22",
+            "hora": "20:58",
             "nombre": "Henning Maersk",
             "naviera": "MAERSK TANKERS HANDY",
             "terminal": "",
@@ -234,7 +234,7 @@
             "pax_estimados": 1000,
             "puerto": "Lavera",
             "tipo": "llegada",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Dinamarca",
             "imo": "9389526",
             "mmsi": "219277000",
@@ -250,7 +250,7 @@
             "pax_estimados": 1000,
             "puerto": "Lavera",
             "tipo": "llegada",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Dinamarca",
             "imo": "9389526",
             "mmsi": "219277000",
@@ -266,7 +266,7 @@
             "pax_estimados": 1000,
             "puerto": "Lavera",
             "tipo": "llegada",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Dinamarca",
             "imo": "9389526",
             "mmsi": "219277000",
@@ -380,7 +380,7 @@
             "pax_estimados": 1000,
             "puerto": "Huelva",
             "tipo": "salida",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Dinamarca",
             "imo": "9389526",
             "mmsi": "219277000",
@@ -472,27 +472,27 @@
         "total_llegadas": 17,
         "total_salidas": 12,
         "pax_estimados_hoy": 29000,
-        "proximo_desembarco": null,
-        "proximo_barco": null
+        "proximo_desembarco": "20:58",
+        "proximo_barco": "Henning Maersk"
     },
     "terminales_activas": [
-        "6212",
         "8156",
-        "2396",
-        "7946",
-        "A",
-        "F1",
-        "6995",
-        "B",
-        "F3",
         "7585",
-        "7083",
+        "6154",
+        "6212",
+        "7946",
+        "2396",
+        "B",
+        "A",
         "F2",
-        "6154"
+        "6995",
+        "7083",
+        "F1",
+        "F3"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-02-03T21:35:27.544674",
+        "actualizado": "2026-02-03T19:44:43.578021",
         "frecuencia": "horaria"
     }
 }
