@@ -81,22 +81,6 @@
             "fecha": "2026-02-03"
         },
         {
-            "hora": "08:26",
-            "nombre": "Msc Leandra V",
-            "naviera": "MEDITERRANEAN SHIPPING CO",
-            "terminal": "TERMINAL CATALUNYA SA",
-            "terminal_codigo": "6212",
-            "eslora": 294.0,
-            "pax_estimados": 3000,
-            "puerto": "Fos-sur-Mer",
-            "tipo": "llegada",
-            "estado": "Iniciada",
-            "bandera": "Portugal",
-            "imo": "9313943",
-            "mmsi": "255803590",
-            "fecha": "2026-02-03"
-        },
-        {
             "hora": "11:00",
             "nombre": "Sunbelt Spirit",
             "naviera": "NEPTUNE LINES SHIPPING",
@@ -126,6 +110,22 @@
             "bandera": "Illes Marshall",
             "imo": "9233246",
             "mmsi": "538001657",
+            "fecha": "2026-02-03"
+        },
+        {
+            "hora": "12:00",
+            "nombre": "Msc Leandra V",
+            "naviera": "MEDITERRANEAN SHIPPING CO",
+            "terminal": "TERMINAL CATALUNYA SA",
+            "terminal_codigo": "6212",
+            "eslora": 294.0,
+            "pax_estimados": 3000,
+            "puerto": "Fos-sur-Mer",
+            "tipo": "llegada",
+            "estado": "Autoritzada",
+            "bandera": "Portugal",
+            "imo": "9313943",
+            "mmsi": "255803590",
             "fecha": "2026-02-03"
         },
         {
@@ -255,38 +255,6 @@
             "imo": "9389526",
             "mmsi": "219277000",
             "fecha": "2026-02-03"
-        },
-        {
-            "hora": "23:00",
-            "nombre": "Al Jubail",
-            "naviera": "UNITED GLOBAL RORO FZCO",
-            "terminal": "SETRAM",
-            "terminal_codigo": "2396",
-            "eslora": 239.0,
-            "pax_estimados": 2000,
-            "puerto": "Barcelona",
-            "tipo": "llegada",
-            "estado": "Sol·licitada",
-            "bandera": "Illes Marshall",
-            "imo": "9547219",
-            "mmsi": "538010831",
-            "fecha": "2026-02-03"
-        },
-        {
-            "hora": "23:00",
-            "nombre": "Al Jubail",
-            "naviera": "UNITED GLOBAL RORO FZCO",
-            "terminal": "AUTOTERMINAL SA",
-            "terminal_codigo": "6154",
-            "eslora": 239.0,
-            "pax_estimados": 2000,
-            "puerto": "Barcelona",
-            "tipo": "llegada",
-            "estado": "Sol·licitada",
-            "bandera": "Illes Marshall",
-            "imo": "9547219",
-            "mmsi": "538010831",
-            "fecha": "2026-02-03"
         }
     ],
     "salidas": [
@@ -307,7 +275,7 @@
             "fecha": "2026-02-03"
         },
         {
-            "hora": "08:37",
+            "hora": "02:00",
             "nombre": "Msc Josseline",
             "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
             "terminal": "TERMINAL CATALUNYA SA",
@@ -316,7 +284,7 @@
             "pax_estimados": 500,
             "puerto": "La Spezia",
             "tipo": "salida",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Libèria",
             "imo": "9842061",
             "mmsi": "636019206",
@@ -469,29 +437,29 @@
     ],
     "resumen": {
         "total_cruceros": 17,
-        "total_llegadas": 18,
+        "total_llegadas": 16,
         "total_salidas": 11,
-        "pax_estimados_hoy": 35500,
+        "pax_estimados_hoy": 31500,
         "proximo_desembarco": "11:00",
         "proximo_barco": "Sunbelt Spirit"
     },
     "terminales_activas": [
-        "F2",
-        "8156",
         "2396",
+        "7946",
+        "8156",
+        "F3",
+        "A",
         "7083",
-        "7585",
         "B",
+        "7585",
         "6212",
         "7332",
-        "F3",
-        "7946",
         "6154",
-        "A"
+        "F2"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-02-03T09:41:44.376030",
+        "actualizado": "2026-02-03T07:42:46.709414",
         "frecuencia": "horaria"
     }
 }
