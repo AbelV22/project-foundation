@@ -1,4 +1,5 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
+import { supabase } from '@/integrations/supabase/client';
 import { getOrCreateDeviceId } from '@/lib/deviceId';
 
 export type ExpenseCategory = 'fuel' | 'maintenance' | 'operating' | 'other';
@@ -69,64 +70,186 @@ export const EXPENSE_SUBCATEGORIES = {
 
 /**
  * Hook for managing expenses
- * NOTE: This hook is a placeholder - the 'expenses' table needs to be created
- * in the database before this functionality will work.
  */
 export const useExpenses = () => {
     const [expenses, setExpenses] = useState<Expense[]>([]);
-    const [loading, setLoading] = useState(false);
+    const [loading, setLoading] = useState(true);
     const [error, setError] = useState<string | null>(null);
     const [dailySummary, setDailySummary] = useState<DailyExpensesSummary[]>([]);
 
-    const deviceId = getOrCreateDeviceId();
+    const fetchExpenses = useCallback(async (startDate?: Date, endDate?: Date) => {
+        try {
+            setLoading(true);
+            setError(null);
+            const deviceId = getOrCreateDeviceId();
 
-    const fetchExpenses = async (_startDate?: Date, _endDate?: Date) => {
-        // Table 'expenses' does not exist yet - return empty data
-        console.warn('[useExpenses] Table "expenses" not found in database schema. Feature disabled.');
-        setExpenses([]);
-        setLoading(false);
-    };
+            let query = supabase
+                .from('expenses')
+                .select('*')
+                .eq('device_id', deviceId)
+                .order('timestamp', { ascending: false });
 
-    const addExpense = async (
-        _category: ExpenseCategory,
-        _amount: number,
-        _subcategory?: string,
-        _odometerReading?: number,
-        _liters?: number,
-        _notes?: string,
-        _isRecurring: boolean = false,
-        _recurrencePattern?: RecurrencePattern
+            if (startDate) {
+                query = query.gte('timestamp', startDate.toISOString());
+            }
+            if (endDate) {
+                query = query.lte('timestamp', endDate.toISOString());
+            }
+
+            const { data, error: fetchError } = await query;
+
+            if (fetchError) {
+                console.error('[useExpenses] Fetch error:', fetchError);
+                throw fetchError;
+            }
+
+            setExpenses((data || []) as Expense[]);
+        } catch (err) {
+            console.error('[useExpenses] Error fetching expenses:', err);
+            setError(err instanceof Error ? err.message : 'Error al cargar gastos');
+        } finally {
+            setLoading(false);
+        }
+    }, []);
+
+    const addExpense = useCallback(async (
+        category: ExpenseCategory,
+        amount: number,
+        subcategory?: string,
+        odometerReading?: number,
+        liters?: number,
+        notes?: string,
+        isRecurring: boolean = false,
+        recurrencePattern?: RecurrencePattern
     ): Promise<boolean> => {
-        console.warn('[useExpenses] Table "expenses" not found in database schema. Cannot add expense.');
-        setError('La tabla de gastos no está disponible todavía');
-        return false;
-    };
+        try {
+            setError(null);
+            const deviceId = getOrCreateDeviceId();
+            console.log('[useExpenses] Adding expense:', { category, amount, subcategory, deviceId });
 
-    const deleteExpense = async (_id: string): Promise<boolean> => {
-        console.warn('[useExpenses] Table "expenses" not found in database schema. Cannot delete expense.');
-        setError('La tabla de gastos no está disponible todavía');
-        return false;
-    };
+            const { data, error: insertError } = await supabase
+                .from('expenses')
+                .insert({
+                    device_id: deviceId,
+                    category,
+                    amount,
+                    subcategory: subcategory || null,
+                    odometer_reading: odometerReading || null,
+                    liters: liters || null,
+                    notes: notes || null,
+                    is_recurring: isRecurring,
+                    recurrence_pattern: recurrencePattern || null,
+                })
+                .select()
+                .single();
 
-    const fetchDailySummary = async (_startDate?: Date, _endDate?: Date) => {
-        setDailySummary([]);
-    };
+            if (insertError) {
+                console.error('[useExpenses] Supabase insert error:', insertError);
+                throw insertError;
+            }
 
-    const getTotalExpenses = (_category?: ExpenseCategory): number => {
-        return 0;
-    };
+            console.log('[useExpenses] Expense added successfully:', data);
 
-    const getMonthlyExpenses = (_year: number, _month: number): number => {
-        return 0;
-    };
+            // Refresh data after insert
+            await fetchExpenses();
+            return true;
+        } catch (err) {
+            console.error('[useExpenses] Add error:', err);
+            setError(err instanceof Error ? err.message : 'Error al agregar gasto');
+            return false;
+        }
+    }, [fetchExpenses]);
+
+    const deleteExpense = useCallback(async (id: string): Promise<boolean> => {
+        try {
+            setError(null);
+            const deviceId = getOrCreateDeviceId();
+
+            const { error: deleteError } = await supabase
+                .from('expenses')
+                .delete()
+                .eq('id', id)
+                .eq('device_id', deviceId);
+
+            if (deleteError) {
+                console.error('[useExpenses] Delete error:', deleteError);
+                throw deleteError;
+            }
+
+            console.log('[useExpenses] Expense deleted successfully:', id);
+
+            // Refresh data after delete
+            await fetchExpenses();
+            return true;
+        } catch (err) {
+            console.error('[useExpenses] Delete error:', err);
+            setError(err instanceof Error ? err.message : 'Error al eliminar gasto');
+            return false;
+        }
+    }, [fetchExpenses]);
+
+    const fetchDailySummary = useCallback(async (startDate?: Date, endDate?: Date) => {
+        try {
+            const deviceId = getOrCreateDeviceId();
+
+            // Calculate summary from expenses
+            const filteredExpenses = expenses.filter(exp => {
+                const expDate = new Date(exp.timestamp);
+                if (startDate && expDate < startDate) return false;
+                if (endDate && expDate > endDate) return false;
+                return true;
+            });
+
+            // Group by date
+            const summaryMap = new Map<string, DailyExpensesSummary>();
+            filteredExpenses.forEach(exp => {
+                const date = new Date(exp.timestamp).toISOString().split('T')[0];
+                const existing = summaryMap.get(date) || {
+                    date,
+                    total_expenses: 0,
+                    fuel_expenses: 0,
+                    maintenance_expenses: 0,
+                    operating_expenses: 0,
+                    other_expenses: 0,
+                };
+
+                existing.total_expenses += Number(exp.amount);
+                if (exp.category === 'fuel') existing.fuel_expenses += Number(exp.amount);
+                if (exp.category === 'maintenance') existing.maintenance_expenses += Number(exp.amount);
+                if (exp.category === 'operating') existing.operating_expenses += Number(exp.amount);
+                if (exp.category === 'other') existing.other_expenses += Number(exp.amount);
+
+                summaryMap.set(date, existing);
+            });
+
+            setDailySummary(Array.from(summaryMap.values()).sort((a, b) => b.date.localeCompare(a.date)));
+        } catch (err) {
+            console.error('[useExpenses] Error calculating daily summary:', err);
+        }
+    }, [expenses]);
+
+    const getTotalExpenses = useCallback((category?: ExpenseCategory): number => {
+        return expenses
+            .filter(exp => !category || exp.category === category)
+            .reduce((acc, exp) => acc + Number(exp.amount), 0);
+    }, [expenses]);
+
+    const getMonthlyExpenses = useCallback((year: number, month: number): number => {
+        return expenses
+            .filter(exp => {
+                const expDate = new Date(exp.timestamp);
+                return expDate.getFullYear() === year && expDate.getMonth() === month;
+            })
+            .reduce((acc, exp) => acc + Number(exp.amount), 0);
+    }, [expenses]);
 
     useEffect(() => {
         fetchExpenses();
-    }, [deviceId]);
+    }, [fetchExpenses]);
 
     useEffect(() => {
         fetchDailySummary();
-    }, [expenses]);
+    }, [expenses, fetchDailySummary]);
 
     return {
         expenses,

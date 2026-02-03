@@ -14,6 +14,54 @@ export type Database = {
   }
   public: {
     Tables: {
+      expenses: {
+        Row: {
+          id: string
+          device_id: string
+          timestamp: string
+          category: string
+          subcategory: string | null
+          amount: number
+          odometer_reading: number | null
+          liters: number | null
+          notes: string | null
+          receipt_photo_url: string | null
+          is_recurring: boolean
+          recurrence_pattern: string | null
+          created_at: string
+        }
+        Insert: {
+          id?: string
+          device_id: string
+          timestamp?: string
+          category: string
+          subcategory?: string | null
+          amount: number
+          odometer_reading?: number | null
+          liters?: number | null
+          notes?: string | null
+          receipt_photo_url?: string | null
+          is_recurring?: boolean
+          recurrence_pattern?: string | null
+          created_at?: string
+        }
+        Update: {
+          id?: string
+          device_id?: string
+          timestamp?: string
+          category?: string
+          subcategory?: string | null
+          amount?: number
+          odometer_reading?: number | null
+          liters?: number | null
+          notes?: string | null
+          receipt_photo_url?: string | null
+          is_recurring?: boolean
+          recurrence_pattern?: string | null
+          created_at?: string
+        }
+        Relationships: []
+      }
       geofence_logs: {
         Row: {
           accuracy: number | null
