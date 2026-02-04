@@ -291,6 +291,22 @@
             "fecha": "2026-02-04"
         },
         {
+            "hora": "12:00",
+            "nombre": "Visborg",
+            "naviera": "BALEARIA EUROLINEAS MARITIMAS SA ",
+            "terminal": "TERMINAL F2",
+            "terminal_codigo": "F2",
+            "eslora": 196.0,
+            "pax_estimados": 1000,
+            "puerto": "Valencia",
+            "tipo": "salida",
+            "estado": "Iniciada",
+            "bandera": "Malta",
+            "imo": "9223784",
+            "mmsi": "229455000",
+            "fecha": "2026-02-04"
+        },
+        {
             "hora": "12:15",
             "nombre": "Eco Valencia",
             "naviera": "GRIMALDI LOGISTICA ESPAÑA SL",
@@ -304,22 +320,6 @@
             "bandera": "Itàlia",
             "imo": "9859533",
             "mmsi": "247383300",
-            "fecha": "2026-02-04"
-        },
-        {
-            "hora": "15:30",
-            "nombre": "Visborg",
-            "naviera": "BALEARIA EUROLINEAS MARITIMAS SA ",
-            "terminal": "TERMINAL F2",
-            "terminal_codigo": "F2",
-            "eslora": 196.0,
-            "pax_estimados": 1000,
-            "puerto": "Valencia",
-            "tipo": "salida",
-            "estado": "Iniciada",
-            "bandera": "Malta",
-            "imo": "9223784",
-            "mmsi": "229455000",
             "fecha": "2026-02-04"
         },
         {
@@ -524,19 +524,19 @@
         "proximo_barco": "Gnv Sealand"
     },
     "terminales_activas": [
-        "F3",
-        "6212",
-        "7083",
         "F1",
-        "8156",
-        "2396",
         "6154",
+        "6212",
         "A",
-        "F2"
+        "7083",
+        "8156",
+        "F3",
+        "F2",
+        "2396"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-02-04T15:42:59.300181",
+        "actualizado": "2026-02-04T14:03:07.771754",
         "frecuencia": "horaria"
     }
 }
