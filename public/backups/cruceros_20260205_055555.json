@@ -195,22 +195,6 @@
     ],
     "salidas": [
         {
-            "hora": "00:03",
-            "nombre": "Cruise Barcelona",
-            "naviera": "GRIMALDI LOGISTICA ESPAÑA SL",
-            "terminal": "TERMINAL F3",
-            "terminal_codigo": "F3",
-            "eslora": 0,
-            "pax_estimados": 500,
-            "puerto": "Porto Torres",
-            "tipo": "salida",
-            "estado": "Finalitzada",
-            "bandera": "Itàlia",
-            "imo": "9351488",
-            "mmsi": "247243600",
-            "fecha": "2026-02-05"
-        },
-        {
             "hora": "01:00",
             "nombre": "Henning Maersk",
             "naviera": "ALFASHIP MARITIME SERVICES SL ",
@@ -404,25 +388,24 @@
         }
     ],
     "resumen": {
-        "total_cruceros": 14,
+        "total_cruceros": 13,
         "total_llegadas": 12,
-        "total_salidas": 13,
+        "total_salidas": 12,
         "pax_estimados_hoy": 18000,
-        "proximo_desembarco": "06:00",
-        "proximo_barco": "Msc Verona"
+        "proximo_desembarco": null,
+        "proximo_barco": null
     },
     "terminales_activas": [
-        "7946",
-        "6995",
-        "6212",
-        "F3",
+        "F1",
         "8156",
+        "6212",
         "F2",
-        "F1"
+        "6995",
+        "7946"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-02-05T05:55:55.833086",
+        "actualizado": "2026-02-04T23:28:21.519623",
         "frecuencia": "horaria"
     }
 }
