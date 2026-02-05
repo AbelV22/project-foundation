@@ -33,7 +33,7 @@
             "fecha": "2026-02-05"
         },
         {
-            "hora": "01:27",
+            "hora": "01:23",
             "nombre": "Eco Adriatica",
             "naviera": "GRIMALDI EUROMED SPA",
             "terminal": "GRIMALDI TERMINAL BARCELONA SL",
@@ -65,16 +65,32 @@
             "fecha": "2026-02-05"
         },
         {
-            "hora": "11:39",
+            "hora": "06:00",
+            "nombre": "Msc Levante F",
+            "naviera": "MEDITERRANEAN SHIPPING CO",
+            "terminal": "TERMINAL CATALUNYA SA",
+            "terminal_codigo": "6212",
+            "eslora": 0,
+            "pax_estimados": 500,
+            "puerto": "Casablanca",
+            "tipo": "llegada",
+            "estado": "Sol·licitada",
+            "bandera": "Panamà",
+            "imo": "9330264",
+            "mmsi": "352898711",
+            "fecha": "2026-02-05"
+        },
+        {
+            "hora": "12:00",
             "nombre": "Msc Jiani",
             "naviera": "MEDITERRANEAN SHIPPING CO",
-            "terminal": "",
-            "terminal_codigo": "",
+            "terminal": "TERMINAL CATALUNYA SA",
+            "terminal_codigo": "6212",
             "eslora": 172.0,
             "pax_estimados": 1000,
             "puerto": "Valencia",
             "tipo": "llegada",
-            "estado": "Fondeig Previ",
+            "estado": "Confirmada",
             "bandera": "Libèria",
             "imo": "9966934",
             "mmsi": "636023100",
@@ -126,6 +142,22 @@
             "bandera": "Espanya",
             "imo": "9349772",
             "mmsi": "224588000",
+            "fecha": "2026-02-05"
+        },
+        {
+            "hora": "19:00",
+            "nombre": "Msc Asli Ii",
+            "naviera": "MEDITERRANEAN SHIPPING CO",
+            "terminal": "TERMINAL CATALUNYA SA",
+            "terminal_codigo": "6212",
+            "eslora": 0,
+            "pax_estimados": 500,
+            "puerto": "Valencia",
+            "tipo": "llegada",
+            "estado": "Fondeig Previ",
+            "bandera": "Libèria",
+            "imo": "9162631",
+            "mmsi": "636018322",
             "fecha": "2026-02-05"
         },
         {
@@ -195,7 +227,7 @@
             "fecha": "2026-02-05"
         },
         {
-            "hora": "04:47",
+            "hora": "04:38",
             "nombre": "Eco Adriatica",
             "naviera": "GRIMALDI LOGISTICA ESPAÑA SL",
             "terminal": "GRIMALDI TERMINAL BARCELONA SL",
@@ -259,6 +291,22 @@
             "fecha": "2026-02-05"
         },
         {
+            "hora": "18:59",
+            "nombre": "Msc Asli Ii",
+            "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
+            "terminal": "",
+            "terminal_codigo": "",
+            "eslora": 0,
+            "pax_estimados": 500,
+            "puerto": "Casablanca",
+            "tipo": "salida",
+            "estado": "Fondeig Previ",
+            "bandera": "Libèria",
+            "imo": "9162631",
+            "mmsi": "636018322",
+            "fecha": "2026-02-05"
+        },
+        {
             "hora": "20:00",
             "nombre": "Msc Verona",
             "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
@@ -272,6 +320,22 @@
             "bandera": "Libèria",
             "imo": "9987287",
             "mmsi": "636024514",
+            "fecha": "2026-02-05"
+        },
+        {
+            "hora": "20:00",
+            "nombre": "Msc Levante F",
+            "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
+            "terminal": "TERMINAL CATALUNYA SA",
+            "terminal_codigo": "6212",
+            "eslora": 0,
+            "pax_estimados": 500,
+            "puerto": "Oran",
+            "tipo": "salida",
+            "estado": "Sol·licitada",
+            "bandera": "Panamà",
+            "imo": "9330264",
+            "mmsi": "352898711",
             "fecha": "2026-02-05"
         },
         {
@@ -356,25 +420,25 @@
         }
     ],
     "resumen": {
-        "total_cruceros": 13,
-        "total_llegadas": 10,
-        "total_salidas": 12,
-        "pax_estimados_hoy": 17000,
-        "proximo_desembarco": "11:39",
+        "total_cruceros": 15,
+        "total_llegadas": 12,
+        "total_salidas": 14,
+        "pax_estimados_hoy": 18000,
+        "proximo_desembarco": "12:00",
         "proximo_barco": "Msc Jiani"
     },
     "terminales_activas": [
-        "8156",
         "7946",
         "6995",
-        "F3",
+        "8156",
         "6212",
-        "F2",
-        "F1"
+        "F1",
+        "F3",
+        "F2"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-02-05T11:35:43.402050",
+        "actualizado": "2026-02-05T09:45:24.091919",
         "frecuencia": "horaria"
     }
 }
