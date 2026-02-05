@@ -81,7 +81,7 @@
             "fecha": "2026-02-05"
         },
         {
-            "hora": "13:23",
+            "hora": "13:00",
             "nombre": "Eco Livorno",
             "naviera": "GRIMALDI EUROMED SPA",
             "terminal": "GRIMALDI TERMINAL BARCELONA SL",
@@ -90,7 +90,7 @@
             "pax_estimados": 2000,
             "puerto": "Valencia",
             "tipo": "llegada",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Itàlia",
             "imo": "9859557",
             "mmsi": "247383500",
@@ -227,7 +227,7 @@
             "fecha": "2026-02-05"
         },
         {
-            "hora": "12:20",
+            "hora": "12:00",
             "nombre": "Visborg",
             "naviera": "BALEARIA EUROLINEAS MARITIMAS SA ",
             "terminal": "TERMINAL F1",
@@ -236,7 +236,7 @@
             "pax_estimados": 1000,
             "puerto": "Valencia",
             "tipo": "salida",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Malta",
             "imo": "9223784",
             "mmsi": "229455000",
@@ -284,7 +284,7 @@
             "pax_estimados": 2000,
             "puerto": "Savona",
             "tipo": "salida",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Itàlia",
             "imo": "9859557",
             "mmsi": "247383500",
@@ -360,21 +360,21 @@
         "total_llegadas": 10,
         "total_salidas": 12,
         "pax_estimados_hoy": 17000,
-        "proximo_desembarco": "17:15",
-        "proximo_barco": "Gnv Sealand"
+        "proximo_desembarco": "11:39",
+        "proximo_barco": "Msc Jiani"
     },
     "terminales_activas": [
         "8156",
         "7946",
-        "F1",
-        "F3",
-        "F2",
         "6995",
-        "6212"
+        "F3",
+        "6212",
+        "F2",
+        "F1"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-02-05T14:05:44.167384",
+        "actualizado": "2026-02-05T11:35:43.402050",
         "frecuencia": "horaria"
     }
 }
