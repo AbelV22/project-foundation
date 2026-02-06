@@ -49,6 +49,54 @@
             "fecha": "2026-02-06"
         },
         {
+            "hora": "06:00",
+            "nombre": "Msc Virginia",
+            "naviera": "MEDITERRANEAN SHIPPING CO",
+            "terminal": "TERMINAL CATALUNYA SA",
+            "terminal_codigo": "6212",
+            "eslora": 335.0,
+            "pax_estimados": 4500,
+            "puerto": "La Spezia",
+            "tipo": "llegada",
+            "estado": "Sol·licitada",
+            "bandera": "Libèria",
+            "imo": "9908059",
+            "mmsi": "636021366",
+            "fecha": "2026-02-06"
+        },
+        {
+            "hora": "06:00",
+            "nombre": "Msc Mexico V",
+            "naviera": "MEDITERRANEAN SHIPPING CO",
+            "terminal": "TERMINAL CATALUNYA SA",
+            "terminal_codigo": "6212",
+            "eslora": 294.0,
+            "pax_estimados": 3000,
+            "puerto": "Livorno",
+            "tipo": "llegada",
+            "estado": "Autoritzada",
+            "bandera": "Libèria",
+            "imo": "9231779",
+            "mmsi": "636015496",
+            "fecha": "2026-02-06"
+        },
+        {
+            "hora": "06:00",
+            "nombre": "Msc Eleni",
+            "naviera": "MEDITERRANEAN SHIPPING CO",
+            "terminal": "TERMINAL CATALUNYA SA",
+            "terminal_codigo": "6212",
+            "eslora": 0,
+            "pax_estimados": 500,
+            "puerto": "Genoa",
+            "tipo": "llegada",
+            "estado": "Sol·licitada",
+            "bandera": "Panamà",
+            "imo": "9278143",
+            "mmsi": "357067000",
+            "fecha": "2026-02-06"
+        },
+        {
             "hora": "07:16",
             "nombre": "Msc World Europa",
             "naviera": "MSC CRUISES S.A.",
@@ -110,38 +158,6 @@
             "bandera": "Libèria",
             "imo": "9162631",
             "mmsi": "636018322",
-            "fecha": "2026-02-06"
-        },
-        {
-            "hora": "12:06",
-            "nombre": "Henning Maersk",
-            "naviera": "MAERSK TANKERS HANDY",
-            "terminal": "TRADEBE PORT SERVICES SL",
-            "terminal_codigo": "7946",
-            "eslora": 180.0,
-            "pax_estimados": 1000,
-            "puerto": "Lavera",
-            "tipo": "llegada",
-            "estado": "Iniciada",
-            "bandera": "Dinamarca",
-            "imo": "9389526",
-            "mmsi": "219277000",
-            "fecha": "2026-02-06"
-        },
-        {
-            "hora": "13:04",
-            "nombre": "Msc Mexico V",
-            "naviera": "MEDITERRANEAN SHIPPING CO",
-            "terminal": "TERMINAL CATALUNYA SA",
-            "terminal_codigo": "6212",
-            "eslora": 294.0,
-            "pax_estimados": 3000,
-            "puerto": "Livorno",
-            "tipo": "llegada",
-            "estado": "Iniciada",
-            "bandera": "Libèria",
-            "imo": "9231779",
-            "mmsi": "636015496",
             "fecha": "2026-02-06"
         },
         {
@@ -218,7 +234,7 @@
             "pax_estimados": 1000,
             "puerto": "Baton Rouge",
             "tipo": "llegada",
-            "estado": "Autoritzada",
+            "estado": "Confirmada",
             "bandera": "Illa de Man",
             "imo": "9493664",
             "mmsi": "232041699",
@@ -291,22 +307,6 @@
             "fecha": "2026-02-06"
         },
         {
-            "hora": "11:24",
-            "nombre": "Msc Sofia Paz",
-            "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
-            "terminal": "TERMINAL CATALUNYA SA",
-            "terminal_codigo": "6212",
-            "eslora": 0,
-            "pax_estimados": 500,
-            "puerto": "Livorno",
-            "tipo": "salida",
-            "estado": "Finalitzada",
-            "bandera": "Libèria",
-            "imo": "9695028",
-            "mmsi": "636016306",
-            "fecha": "2026-02-06"
-        },
-        {
             "hora": "12:00",
             "nombre": "Msc Asli Ii",
             "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
@@ -323,22 +323,6 @@
             "fecha": "2026-02-06"
         },
         {
-            "hora": "12:05",
-            "nombre": "Henning Maersk",
-            "naviera": "ALFASHIP MARITIME SERVICES SL ",
-            "terminal": "",
-            "terminal_codigo": "",
-            "eslora": 180.0,
-            "pax_estimados": 1000,
-            "puerto": "Huelva",
-            "tipo": "salida",
-            "estado": "Iniciada",
-            "bandera": "Dinamarca",
-            "imo": "9389526",
-            "mmsi": "219277000",
-            "fecha": "2026-02-06"
-        },
-        {
             "hora": "18:00",
             "nombre": "Msc World Europa",
             "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
@@ -352,6 +336,38 @@
             "bandera": "Malta",
             "imo": "9837420",
             "mmsi": "256070000",
+            "fecha": "2026-02-06"
+        },
+        {
+            "hora": "20:00",
+            "nombre": "Msc Virginia",
+            "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
+            "terminal": "TERMINAL CATALUNYA SA",
+            "terminal_codigo": "6212",
+            "eslora": 335.0,
+            "pax_estimados": 4500,
+            "puerto": "Valencia",
+            "tipo": "salida",
+            "estado": "Sol·licitada",
+            "bandera": "Libèria",
+            "imo": "9908059",
+            "mmsi": "636021366",
+            "fecha": "2026-02-06"
+        },
+        {
+            "hora": "20:00",
+            "nombre": "Msc Eleni",
+            "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
+            "terminal": "TERMINAL CATALUNYA SA",
+            "terminal_codigo": "6212",
+            "eslora": 0,
+            "pax_estimados": 500,
+            "puerto": "Valencia",
+            "tipo": "salida",
+            "estado": "Sol·licitada",
+            "bandera": "Panamà",
+            "imo": "9278143",
+            "mmsi": "357067000",
             "fecha": "2026-02-06"
         },
         {
@@ -412,7 +428,7 @@
             "pax_estimados": 3000,
             "puerto": "Valencia",
             "tipo": "salida",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Libèria",
             "imo": "9231779",
             "mmsi": "636015496",
@@ -469,25 +485,24 @@
     ],
     "resumen": {
         "total_cruceros": 16,
-        "total_llegadas": 14,
+        "total_llegadas": 15,
         "total_salidas": 15,
-        "pax_estimados_hoy": 17000,
-        "proximo_desembarco": "17:15",
-        "proximo_barco": "Gnv Sealand"
+        "pax_estimados_hoy": 21000,
+        "proximo_desembarco": "12:00",
+        "proximo_barco": "Msc Levante F"
     },
     "terminales_activas": [
         "6212",
-        "H",
-        "F1",
-        "8156",
-        "7946",
+        "F2",
         "F3",
         "172133",
-        "F2"
+        "F1",
+        "8156",
+        "H"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-02-06T14:02:09.892210",
+        "actualizado": "2026-02-06T11:33:58.280026",
         "frecuencia": "horaria"
     }
 }
