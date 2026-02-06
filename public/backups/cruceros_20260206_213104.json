@@ -193,7 +193,7 @@
             "fecha": "2026-02-06"
         },
         {
-            "hora": "21:50",
+            "hora": "22:00",
             "nombre": "Abel Matutes",
             "naviera": "EUROLINEAS MARITIMAS S.A",
             "terminal": "TERMINAL F1",
@@ -202,7 +202,7 @@
             "pax_estimados": 1000,
             "puerto": "Alcudia",
             "tipo": "llegada",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Espanya",
             "imo": "9441130",
             "mmsi": "224402000",
@@ -435,22 +435,6 @@
             "fecha": "2026-02-06"
         },
         {
-            "hora": "22:59",
-            "nombre": "Magic Striker",
-            "naviera": "H JOSE M  MASIQUES SA",
-            "terminal": "",
-            "terminal_codigo": "",
-            "eslora": 190.0,
-            "pax_estimados": 1000,
-            "puerto": "Gibraltar",
-            "tipo": "salida",
-            "estado": "Autoritzada",
-            "bandera": "Illa de Man",
-            "imo": "9493664",
-            "mmsi": "232041699",
-            "fecha": "2026-02-06"
-        },
-        {
             "hora": "23:00",
             "nombre": "Cruise Roma",
             "naviera": "GRIMALDI LOGISTICA ESPAÑA SL",
@@ -476,7 +460,7 @@
             "pax_estimados": 1000,
             "puerto": "Alcudia",
             "tipo": "salida",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Espanya",
             "imo": "9441130",
             "mmsi": "224402000",
@@ -486,24 +470,24 @@
     "resumen": {
         "total_cruceros": 16,
         "total_llegadas": 14,
-        "total_salidas": 16,
+        "total_salidas": 15,
         "pax_estimados_hoy": 17000,
-        "proximo_desembarco": "21:50",
+        "proximo_desembarco": "22:00",
         "proximo_barco": "Abel Matutes"
     },
     "terminales_activas": [
-        "H",
-        "F1",
-        "6212",
-        "8156",
-        "7946",
+        "172133",
         "F2",
         "F3",
-        "172133"
+        "H",
+        "8156",
+        "6212",
+        "F1",
+        "7946"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-02-06T21:31:04.729884",
+        "actualizado": "2026-02-06T19:38:05.197654",
         "frecuencia": "horaria"
     }
 }
