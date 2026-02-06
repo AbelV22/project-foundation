@@ -1,7 +1,7 @@
 {
     "llegadas": [
         {
-            "hora": "01:21",
+            "hora": "00:15",
             "nombre": "Cruise Roma",
             "naviera": "GRIMALDI EUROMED SPA",
             "terminal": "TERMINAL F3",
@@ -10,14 +10,14 @@
             "pax_estimados": 3000,
             "puerto": "Porto Torres",
             "tipo": "llegada",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Itàlia",
             "imo": "9351476",
             "mmsi": "247219400",
             "fecha": "2026-02-06"
         },
         {
-            "hora": "01:50",
+            "hora": "02:00",
             "nombre": "Eco Savona",
             "naviera": "GRIMALDI EUROMED SPA",
             "terminal": "GRIMALDI TERMINAL BARCELONA SL",
@@ -26,14 +26,14 @@
             "pax_estimados": 2000,
             "puerto": "Savona",
             "tipo": "llegada",
-            "estado": "Finalitzada",
+            "estado": "Autoritzada",
             "bandera": "Itàlia",
             "imo": "9859569",
             "mmsi": "247383600",
             "fecha": "2026-02-06"
         },
         {
-            "hora": "04:57",
+            "hora": "04:35",
             "nombre": "Gnv Cristal",
             "naviera": "GRANDI NAVI VELOCI",
             "terminal": "TERMINAL F2",
@@ -42,7 +42,7 @@
             "pax_estimados": 1000,
             "puerto": "Sete",
             "tipo": "llegada",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Itàlia",
             "imo": "8712518",
             "mmsi": "247163900",
@@ -275,7 +275,7 @@
             "fecha": "2026-02-06"
         },
         {
-            "hora": "05:24",
+            "hora": "05:00",
             "nombre": "Eco Savona",
             "naviera": "GRIMALDI LOGISTICA ESPAÑA SL",
             "terminal": "GRIMALDI TERMINAL BARCELONA SL",
@@ -284,7 +284,7 @@
             "pax_estimados": 2000,
             "puerto": "Valencia",
             "tipo": "salida",
-            "estado": "Finalitzada",
+            "estado": "Autoritzada",
             "bandera": "Itàlia",
             "imo": "9859569",
             "mmsi": "247383600",
@@ -300,7 +300,7 @@
             "pax_estimados": 1000,
             "puerto": "Nador",
             "tipo": "salida",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Itàlia",
             "imo": "8712518",
             "mmsi": "247163900",
@@ -508,7 +508,7 @@
             "pax_estimados": 3000,
             "puerto": "Civitavecchia",
             "tipo": "salida",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Itàlia",
             "imo": "9351476",
             "mmsi": "247219400",
@@ -520,21 +520,21 @@
         "total_llegadas": 16,
         "total_salidas": 16,
         "pax_estimados_hoy": 21500,
-        "proximo_desembarco": "06:00",
-        "proximo_barco": "Msc Cedar Ii"
+        "proximo_desembarco": null,
+        "proximo_barco": null
     },
     "terminales_activas": [
-        "6212",
-        "F1",
-        "H",
-        "F2",
-        "F3",
         "172133",
-        "8156"
+        "F3",
+        "8156",
+        "H",
+        "6212",
+        "F2",
+        "F1"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-02-06T05:54:01.647696",
+        "actualizado": "2026-02-05T23:24:04.212207",
         "frecuencia": "horaria"
     }
 }
