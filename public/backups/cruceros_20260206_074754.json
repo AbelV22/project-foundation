@@ -113,7 +113,7 @@
             "fecha": "2026-02-06"
         },
         {
-            "hora": "07:16",
+            "hora": "06:30",
             "nombre": "Msc World Europa",
             "naviera": "MSC CRUISES S.A.",
             "terminal": "ADOSSAT/TERMINAL H",
@@ -122,7 +122,7 @@
             "pax_estimados": 500,
             "puerto": "Palma de Mallorca",
             "tipo": "llegada",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Malta",
             "imo": "9837420",
             "mmsi": "256070000",
@@ -348,7 +348,7 @@
             "pax_estimados": 500,
             "puerto": "Marseille",
             "tipo": "salida",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Malta",
             "imo": "9837420",
             "mmsi": "256070000",
@@ -520,21 +520,21 @@
         "total_llegadas": 16,
         "total_salidas": 16,
         "pax_estimados_hoy": 21500,
-        "proximo_desembarco": "12:00",
-        "proximo_barco": "Msc Levante F"
+        "proximo_desembarco": "06:00",
+        "proximo_barco": "Msc Cedar Ii"
     },
     "terminales_activas": [
         "6212",
         "F1",
-        "8156",
-        "172133",
         "H",
         "F2",
-        "F3"
+        "F3",
+        "172133",
+        "8156"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-02-06T07:47:54.925506",
+        "actualizado": "2026-02-06T05:54:01.647696",
         "frecuencia": "horaria"
     }
 }
