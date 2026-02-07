@@ -113,6 +113,22 @@
             "fecha": "2026-02-07"
         },
         {
+            "hora": "12:30",
+            "nombre": "Maersk Adriatic",
+            "naviera": "SYNERGY DENMARK A/S",
+            "terminal": "DECAL ESPAÑA SA",
+            "terminal_codigo": "6037",
+            "eslora": 184.0,
+            "pax_estimados": 1000,
+            "puerto": "Porto Foxi (Sarroch)",
+            "tipo": "llegada",
+            "estado": "Sol·licitada",
+            "bandera": "Dinamarca",
+            "imo": "9636632",
+            "mmsi": "219733000",
+            "fecha": "2026-02-07"
+        },
+        {
             "hora": "13:00",
             "nombre": "Eco Valencia",
             "naviera": "GRIMALDI EUROMED SPA",
@@ -126,22 +142,6 @@
             "bandera": "Itàlia",
             "imo": "9859533",
             "mmsi": "247383300",
-            "fecha": "2026-02-07"
-        },
-        {
-            "hora": "15:00",
-            "nombre": "Maersk Adriatic",
-            "naviera": "SYNERGY DENMARK A/S",
-            "terminal": "DECAL ESPAÑA SA",
-            "terminal_codigo": "6037",
-            "eslora": 184.0,
-            "pax_estimados": 1000,
-            "puerto": "Porto Foxi (Sarroch)",
-            "tipo": "llegada",
-            "estado": "Sol·licitada",
-            "bandera": "Dinamarca",
-            "imo": "9636632",
-            "mmsi": "219733000",
             "fecha": "2026-02-07"
         },
         {
@@ -256,22 +256,6 @@
             "bandera": "Libèria",
             "imo": "9231779",
             "mmsi": "636015496",
-            "fecha": "2026-02-07"
-        },
-        {
-            "hora": "07:36",
-            "nombre": "Msc Claude Girardet",
-            "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
-            "terminal": "TERMINAL CATALUNYA SA",
-            "terminal_codigo": "6212",
-            "eslora": 0,
-            "pax_estimados": 500,
-            "puerto": "Gioia Tauro",
-            "tipo": "salida",
-            "estado": "Finalitzada",
-            "bandera": "Libèria",
-            "imo": "9936628",
-            "mmsi": "636022921",
             "fecha": "2026-02-07"
         },
         {
@@ -404,27 +388,27 @@
         }
     ],
     "resumen": {
-        "total_cruceros": 18,
+        "total_cruceros": 17,
         "total_llegadas": 15,
-        "total_salidas": 10,
+        "total_salidas": 9,
         "pax_estimados_hoy": 31000,
-        "proximo_desembarco": "12:00",
-        "proximo_barco": "Msc Eleni"
+        "proximo_desembarco": "07:34",
+        "proximo_barco": "Msc Splendida"
     },
     "terminales_activas": [
         "H",
-        "6037",
-        "8156",
+        "7946",
         "F1",
+        "F3",
+        "8156",
+        "F2",
         "6212",
         "7083",
-        "F3",
-        "F2",
-        "7946"
+        "6037"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-02-07T09:31:30.870902",
+        "actualizado": "2026-02-07T07:31:56.546908",
         "frecuencia": "horaria"
     }
 }
