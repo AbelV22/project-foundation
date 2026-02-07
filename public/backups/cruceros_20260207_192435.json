@@ -58,7 +58,7 @@
             "pax_estimados": 4500,
             "puerto": "Malta (Valetta)",
             "tipo": "llegada",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Panamà",
             "imo": "9359806",
             "mmsi": "357698000",
@@ -451,7 +451,7 @@
             "fecha": "2026-02-07"
         },
         {
-            "hora": "18:01",
+            "hora": "18:00",
             "nombre": "Msc Splendida",
             "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
             "terminal": "ADOSSAT/TERMINAL H",
@@ -460,7 +460,7 @@
             "pax_estimados": 4500,
             "puerto": "Marseille",
             "tipo": "salida",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Panamà",
             "imo": "9359806",
             "mmsi": "357698000",
@@ -520,24 +520,24 @@
         "total_llegadas": 18,
         "total_salidas": 14,
         "pax_estimados_hoy": 33500,
-        "proximo_desembarco": "19:30",
-        "proximo_barco": "Ciudad De Palma"
+        "proximo_desembarco": "17:56",
+        "proximo_barco": "Magic Striker"
     },
     "terminales_activas": [
-        "F2",
-        "6037",
-        "F3",
-        "F1",
         "8156",
-        "7946",
         "6212",
-        "H",
+        "7946",
+        "6037",
+        "F2",
+        "F1",
+        "7083",
         "172133",
-        "7083"
+        "F3",
+        "H"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-02-07T19:24:35.867867",
+        "actualizado": "2026-02-07T17:26:01.806794",
         "frecuencia": "horaria"
     }
 }
