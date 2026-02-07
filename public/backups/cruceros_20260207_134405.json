@@ -74,7 +74,7 @@
             "pax_estimados": 2000,
             "puerto": "Valencia",
             "tipo": "llegada",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Itàlia",
             "imo": "9859600",
             "mmsi": "247384100",
@@ -142,22 +142,6 @@
             "bandera": "Itàlia",
             "imo": "9859533",
             "mmsi": "247383300",
-            "fecha": "2026-02-07"
-        },
-        {
-            "hora": "14:58",
-            "nombre": "Maersk Adriatic",
-            "naviera": "SYNERGY DENMARK A/S",
-            "terminal": "",
-            "terminal_codigo": "",
-            "eslora": 184.0,
-            "pax_estimados": 1000,
-            "puerto": "Porto Foxi (Sarroch)",
-            "tipo": "llegada",
-            "estado": "Autoritzada",
-            "bandera": "Dinamarca",
-            "imo": "9636632",
-            "mmsi": "219733000",
             "fecha": "2026-02-07"
         },
         {
@@ -371,7 +355,7 @@
             "fecha": "2026-02-07"
         },
         {
-            "hora": "13:12",
+            "hora": "13:00",
             "nombre": "Eco Adriatica",
             "naviera": "GRIMALDI LOGISTICA ESPAÑA SL",
             "terminal": "GRIMALDI TERMINAL BARCELONA SL",
@@ -380,26 +364,10 @@
             "pax_estimados": 2000,
             "puerto": "Savona",
             "tipo": "salida",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Itàlia",
             "imo": "9859600",
             "mmsi": "247384100",
-            "fecha": "2026-02-07"
-        },
-        {
-            "hora": "14:59",
-            "nombre": "Maersk Adriatic",
-            "naviera": "ALFASHIP MARITIME SERVICES SL ",
-            "terminal": "",
-            "terminal_codigo": "",
-            "eslora": 184.0,
-            "pax_estimados": 1000,
-            "puerto": "Desconegut",
-            "tipo": "salida",
-            "estado": "Autoritzada",
-            "bandera": "Dinamarca",
-            "imo": "9636632",
-            "mmsi": "219733000",
             "fecha": "2026-02-07"
         },
         {
@@ -485,26 +453,26 @@
     ],
     "resumen": {
         "total_cruceros": 19,
-        "total_llegadas": 17,
-        "total_salidas": 13,
-        "pax_estimados_hoy": 32500,
-        "proximo_desembarco": "14:58",
-        "proximo_barco": "Maersk Adriatic"
+        "total_llegadas": 16,
+        "total_salidas": 12,
+        "pax_estimados_hoy": 31500,
+        "proximo_desembarco": "11:50",
+        "proximo_barco": "Msc Asli Ii"
     },
     "terminales_activas": [
-        "6212",
-        "8156",
-        "7083",
         "F2",
-        "7946",
-        "F3",
+        "7083",
         "F1",
+        "F3",
+        "H",
+        "7946",
         "6037",
-        "H"
+        "6212",
+        "8156"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-02-07T13:44:05.833053",
+        "actualizado": "2026-02-07T11:22:23.496894",
         "frecuencia": "horaria"
     }
 }
