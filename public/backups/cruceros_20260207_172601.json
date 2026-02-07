@@ -113,6 +113,22 @@
             "fecha": "2026-02-07"
         },
         {
+            "hora": "12:00",
+            "nombre": "Msc Eleni",
+            "naviera": "MEDITERRANEAN SHIPPING CO",
+            "terminal": "TERMINAL CATALUNYA SA",
+            "terminal_codigo": "6212",
+            "eslora": 0,
+            "pax_estimados": 500,
+            "puerto": "Genoa",
+            "tipo": "llegada",
+            "estado": "Autoritzada",
+            "bandera": "Panamà",
+            "imo": "9278143",
+            "mmsi": "357067000",
+            "fecha": "2026-02-07"
+        },
+        {
             "hora": "14:37",
             "nombre": "Eco Valencia",
             "naviera": "GRIMALDI EUROMED SPA",
@@ -129,7 +145,7 @@
             "fecha": "2026-02-07"
         },
         {
-            "hora": "15:21",
+            "hora": "14:58",
             "nombre": "Maersk Adriatic",
             "naviera": "SYNERGY DENMARK A/S",
             "terminal": "",
@@ -138,14 +154,14 @@
             "pax_estimados": 1000,
             "puerto": "Porto Foxi (Sarroch)",
             "tipo": "llegada",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Dinamarca",
             "imo": "9636632",
             "mmsi": "219733000",
             "fecha": "2026-02-07"
         },
         {
-            "hora": "15:24",
+            "hora": "15:00",
             "nombre": "Maersk Adriatic",
             "naviera": "SYNERGY DENMARK A/S",
             "terminal": "DECAL ESPAÑA SA",
@@ -154,42 +170,10 @@
             "pax_estimados": 1000,
             "puerto": "Porto Foxi (Sarroch)",
             "tipo": "llegada",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Dinamarca",
             "imo": "9636632",
             "mmsi": "219733000",
-            "fecha": "2026-02-07"
-        },
-        {
-            "hora": "15:25",
-            "nombre": "Msc Eleni",
-            "naviera": "MEDITERRANEAN SHIPPING CO",
-            "terminal": "TERMINAL CATALUNYA SA",
-            "terminal_codigo": "6212",
-            "eslora": 0,
-            "pax_estimados": 500,
-            "puerto": "Genoa",
-            "tipo": "llegada",
-            "estado": "Iniciada",
-            "bandera": "Panamà",
-            "imo": "9278143",
-            "mmsi": "357067000",
-            "fecha": "2026-02-07"
-        },
-        {
-            "hora": "17:56",
-            "nombre": "Magic Striker",
-            "naviera": "ELIAN BARCELONA SL",
-            "terminal": "ELIAN BARCELONA SL",
-            "terminal_codigo": "172133",
-            "eslora": 190.0,
-            "pax_estimados": 1000,
-            "puerto": "Baton Rouge",
-            "tipo": "llegada",
-            "estado": "Iniciada",
-            "bandera": "Illa de Man",
-            "imo": "9493664",
-            "mmsi": "232041699",
             "fecha": "2026-02-07"
         },
         {
@@ -403,6 +387,22 @@
             "fecha": "2026-02-07"
         },
         {
+            "hora": "14:59",
+            "nombre": "Maersk Adriatic",
+            "naviera": "ALFASHIP MARITIME SERVICES SL ",
+            "terminal": "",
+            "terminal_codigo": "",
+            "eslora": 184.0,
+            "pax_estimados": 1000,
+            "puerto": "Desconegut",
+            "tipo": "salida",
+            "estado": "Autoritzada",
+            "bandera": "Dinamarca",
+            "imo": "9636632",
+            "mmsi": "219733000",
+            "fecha": "2026-02-07"
+        },
+        {
             "hora": "15:00",
             "nombre": "Msc Levante F",
             "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
@@ -416,38 +416,6 @@
             "bandera": "Panamà",
             "imo": "9330264",
             "mmsi": "352898711",
-            "fecha": "2026-02-07"
-        },
-        {
-            "hora": "15:23",
-            "nombre": "Maersk Adriatic",
-            "naviera": "ALFASHIP MARITIME SERVICES SL ",
-            "terminal": "",
-            "terminal_codigo": "",
-            "eslora": 184.0,
-            "pax_estimados": 1000,
-            "puerto": "Desconegut",
-            "tipo": "salida",
-            "estado": "Iniciada",
-            "bandera": "Dinamarca",
-            "imo": "9636632",
-            "mmsi": "219733000",
-            "fecha": "2026-02-07"
-        },
-        {
-            "hora": "17:55",
-            "nombre": "Magic Striker",
-            "naviera": "H JOSE M  MASIQUES SA",
-            "terminal": "",
-            "terminal_codigo": "",
-            "eslora": 190.0,
-            "pax_estimados": 1000,
-            "puerto": "Gibraltar",
-            "tipo": "salida",
-            "estado": "Iniciada",
-            "bandera": "Illa de Man",
-            "imo": "9493664",
-            "mmsi": "232041699",
             "fecha": "2026-02-07"
         },
         {
@@ -508,7 +476,7 @@
             "pax_estimados": 500,
             "puerto": "Valencia",
             "tipo": "salida",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Panamà",
             "imo": "9278143",
             "mmsi": "357067000",
@@ -516,28 +484,27 @@
         }
     ],
     "resumen": {
-        "total_cruceros": 20,
-        "total_llegadas": 18,
-        "total_salidas": 14,
-        "pax_estimados_hoy": 33500,
-        "proximo_desembarco": "17:56",
-        "proximo_barco": "Magic Striker"
+        "total_cruceros": 19,
+        "total_llegadas": 17,
+        "total_salidas": 13,
+        "pax_estimados_hoy": 32500,
+        "proximo_desembarco": "18:00",
+        "proximo_barco": "Msc Virginia"
     },
     "terminales_activas": [
-        "8156",
-        "6212",
         "7946",
-        "6037",
-        "F2",
-        "F1",
-        "7083",
-        "172133",
         "F3",
-        "H"
+        "6037",
+        "8156",
+        "H",
+        "F1",
+        "6212",
+        "F2",
+        "7083"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-02-07T17:26:01.806794",
+        "actualizado": "2026-02-07T15:25:39.826547",
         "frecuencia": "horaria"
     }
 }
