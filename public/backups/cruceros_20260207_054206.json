@@ -1,23 +1,7 @@
 {
     "llegadas": [
         {
-            "hora": "04:36",
-            "nombre": "Msc Levante F",
-            "naviera": "MEDITERRANEAN SHIPPING CO",
-            "terminal": "TERMINAL CATALUNYA SA",
-            "terminal_codigo": "6212",
-            "eslora": 0,
-            "pax_estimados": 500,
-            "puerto": "Casablanca",
-            "tipo": "llegada",
-            "estado": "Iniciada",
-            "bandera": "Panamà",
-            "imo": "9330264",
-            "mmsi": "352898711",
-            "fecha": "2026-02-07"
-        },
-        {
-            "hora": "05:39",
+            "hora": "05:00",
             "nombre": "Leonidas Z",
             "naviera": "HAPAG-LLOYD,A.G.",
             "terminal": "APM TERMINALS BARCELONA, S.L.U.",
@@ -26,7 +10,7 @@
             "pax_estimados": 1000,
             "puerto": "Livorno",
             "tipo": "llegada",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Illes Marshall",
             "imo": "9963528",
             "mmsi": "538010119",
@@ -243,22 +227,6 @@
     ],
     "salidas": [
         {
-            "hora": "02:14",
-            "nombre": "Msc Mexico V",
-            "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
-            "terminal": "TERMINAL CATALUNYA SA",
-            "terminal_codigo": "6212",
-            "eslora": 294.0,
-            "pax_estimados": 3000,
-            "puerto": "Valencia",
-            "tipo": "salida",
-            "estado": "Finalitzada",
-            "bandera": "Libèria",
-            "imo": "9231779",
-            "mmsi": "636015496",
-            "fecha": "2026-02-07"
-        },
-        {
             "hora": "08:59",
             "nombre": "Henning Maersk",
             "naviera": "ALFASHIP MARITIME SERVICES SL ",
@@ -316,7 +284,7 @@
             "pax_estimados": 500,
             "puerto": "Oran",
             "tipo": "salida",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Panamà",
             "imo": "9330264",
             "mmsi": "352898711",
@@ -388,27 +356,27 @@
         }
     ],
     "resumen": {
-        "total_cruceros": 17,
-        "total_llegadas": 15,
-        "total_salidas": 9,
-        "pax_estimados_hoy": 31000,
-        "proximo_desembarco": "06:00",
-        "proximo_barco": "Msc Antigua"
+        "total_cruceros": 16,
+        "total_llegadas": 14,
+        "total_salidas": 8,
+        "pax_estimados_hoy": 30500,
+        "proximo_desembarco": "23:45",
+        "proximo_barco": "Msc Niovi Viii"
     },
     "terminales_activas": [
+        "7946",
         "6037",
+        "F1",
         "8156",
         "F3",
-        "7083",
-        "F1",
-        "H",
-        "6212",
         "F2",
-        "7946"
+        "6212",
+        "H",
+        "7083"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-02-07T05:42:06.147209",
+        "actualizado": "2026-02-06T23:26:54.054948",
         "frecuencia": "horaria"
     }
 }
