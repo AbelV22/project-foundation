@@ -84,22 +84,6 @@
             "hora": "09:00",
             "nombre": "Henning Maersk",
             "naviera": "MAERSK TANKERS HANDY",
-            "terminal": "",
-            "terminal_codigo": "",
-            "eslora": 180.0,
-            "pax_estimados": 1000,
-            "puerto": "Lavera",
-            "tipo": "llegada",
-            "estado": "Iniciada",
-            "bandera": "Dinamarca",
-            "imo": "9389526",
-            "mmsi": "219277000",
-            "fecha": "2026-02-07"
-        },
-        {
-            "hora": "09:02",
-            "nombre": "Henning Maersk",
-            "naviera": "MAERSK TANKERS HANDY",
             "terminal": "TRADEBE PORT SERVICES SL",
             "terminal_codigo": "7946",
             "eslora": 180.0,
@@ -209,6 +193,22 @@
             "fecha": "2026-02-07"
         },
         {
+            "hora": "18:00",
+            "nombre": "Msc Virginia",
+            "naviera": "MEDITERRANEAN SHIPPING CO",
+            "terminal": "TERMINAL CATALUNYA SA",
+            "terminal_codigo": "6212",
+            "eslora": 335.0,
+            "pax_estimados": 4500,
+            "puerto": "La Spezia",
+            "tipo": "llegada",
+            "estado": "Autoritzada",
+            "bandera": "Libèria",
+            "imo": "9908059",
+            "mmsi": "636021366",
+            "fecha": "2026-02-07"
+        },
+        {
             "hora": "19:00",
             "nombre": "Abel Matutes",
             "naviera": "EUROLINEAS MARITIMAS S.A",
@@ -225,7 +225,7 @@
             "fecha": "2026-02-07"
         },
         {
-            "hora": "19:25",
+            "hora": "19:30",
             "nombre": "Ciudad De Palma",
             "naviera": "TRASMED GLE S.L.",
             "terminal": "TERMINAL F2",
@@ -234,26 +234,10 @@
             "pax_estimados": 1000,
             "puerto": "Palma de Mallorca",
             "tipo": "llegada",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Espanya",
             "imo": "9349772",
             "mmsi": "224588000",
-            "fecha": "2026-02-07"
-        },
-        {
-            "hora": "20:57",
-            "nombre": "Msc Virginia",
-            "naviera": "MEDITERRANEAN SHIPPING CO",
-            "terminal": "TERMINAL CATALUNYA SA",
-            "terminal_codigo": "6212",
-            "eslora": 335.0,
-            "pax_estimados": 4500,
-            "puerto": "La Spezia",
-            "tipo": "llegada",
-            "estado": "Iniciada",
-            "bandera": "Libèria",
-            "imo": "9908059",
-            "mmsi": "636021366",
             "fecha": "2026-02-07"
         },
         {
@@ -344,22 +328,6 @@
             "naviera": "ALFASHIP MARITIME SERVICES SL ",
             "terminal": "TRADEBE PORT SERVICES SL",
             "terminal_codigo": "7946",
-            "eslora": 180.0,
-            "pax_estimados": 1000,
-            "puerto": "Huelva",
-            "tipo": "salida",
-            "estado": "Iniciada",
-            "bandera": "Dinamarca",
-            "imo": "9389526",
-            "mmsi": "219277000",
-            "fecha": "2026-02-07"
-        },
-        {
-            "hora": "09:01",
-            "nombre": "Henning Maersk",
-            "naviera": "ALFASHIP MARITIME SERVICES SL ",
-            "terminal": "",
-            "terminal_codigo": "",
             "eslora": 180.0,
             "pax_estimados": 1000,
             "puerto": "Huelva",
@@ -549,27 +517,27 @@
     ],
     "resumen": {
         "total_cruceros": 20,
-        "total_llegadas": 19,
-        "total_salidas": 15,
-        "pax_estimados_hoy": 34500,
-        "proximo_desembarco": "22:00",
-        "proximo_barco": "Cruise Barcelona"
+        "total_llegadas": 18,
+        "total_salidas": 14,
+        "pax_estimados_hoy": 33500,
+        "proximo_desembarco": "19:30",
+        "proximo_barco": "Ciudad De Palma"
     },
     "terminales_activas": [
-        "F1",
-        "H",
-        "8156",
-        "6212",
-        "172133",
-        "7083",
         "F2",
-        "7946",
+        "6037",
         "F3",
-        "6037"
+        "F1",
+        "8156",
+        "7946",
+        "6212",
+        "H",
+        "172133",
+        "7083"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-02-07T21:27:10.462930",
+        "actualizado": "2026-02-07T19:24:35.867867",
         "frecuencia": "horaria"
     }
 }
