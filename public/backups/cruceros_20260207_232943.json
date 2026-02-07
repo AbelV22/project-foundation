@@ -122,7 +122,7 @@
             "pax_estimados": 500,
             "puerto": "Valencia",
             "tipo": "llegada",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Libèria",
             "imo": "9162631",
             "mmsi": "636018322",
@@ -209,6 +209,22 @@
             "fecha": "2026-02-07"
         },
         {
+            "hora": "19:00",
+            "nombre": "Abel Matutes",
+            "naviera": "EUROLINEAS MARITIMAS S.A",
+            "terminal": "TERMINAL F1",
+            "terminal_codigo": "F1",
+            "eslora": 190.0,
+            "pax_estimados": 1000,
+            "puerto": "Alcudia",
+            "tipo": "llegada",
+            "estado": "Autoritzada",
+            "bandera": "Espanya",
+            "imo": "9441130",
+            "mmsi": "224402000",
+            "fecha": "2026-02-07"
+        },
+        {
             "hora": "19:25",
             "nombre": "Ciudad De Palma",
             "naviera": "TRASMED GLE S.L.",
@@ -241,7 +257,7 @@
             "fecha": "2026-02-07"
         },
         {
-            "hora": "21:42",
+            "hora": "22:00",
             "nombre": "Cruise Barcelona",
             "naviera": "GRIMALDI EUROMED SPA",
             "terminal": "TERMINAL F3",
@@ -250,26 +266,10 @@
             "pax_estimados": 500,
             "puerto": "Civitavecchia",
             "tipo": "llegada",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Itàlia",
             "imo": "9351488",
             "mmsi": "247243600",
-            "fecha": "2026-02-07"
-        },
-        {
-            "hora": "22:17",
-            "nombre": "Abel Matutes",
-            "naviera": "EUROLINEAS MARITIMAS S.A",
-            "terminal": "TERMINAL F1",
-            "terminal_codigo": "F1",
-            "eslora": 190.0,
-            "pax_estimados": 1000,
-            "puerto": "Alcudia",
-            "tipo": "llegada",
-            "estado": "Iniciada",
-            "bandera": "Espanya",
-            "imo": "9441130",
-            "mmsi": "224402000",
             "fecha": "2026-02-07"
         },
         {
@@ -396,7 +396,23 @@
             "pax_estimados": 500,
             "puerto": "Casablanca",
             "tipo": "salida",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
+            "bandera": "Libèria",
+            "imo": "9162631",
+            "mmsi": "636018322",
+            "fecha": "2026-02-07"
+        },
+        {
+            "hora": "11:52",
+            "nombre": "Msc Asli Ii",
+            "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
+            "terminal": "TERMINAL CATALUNYA SA",
+            "terminal_codigo": "6212",
+            "eslora": 0,
+            "pax_estimados": 500,
+            "puerto": "Casablanca",
+            "tipo": "salida",
+            "estado": "Iniciada",
             "bandera": "Libèria",
             "imo": "9162631",
             "mmsi": "636018322",
@@ -515,22 +531,6 @@
             "fecha": "2026-02-07"
         },
         {
-            "hora": "22:11",
-            "nombre": "Msc Asli Ii",
-            "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
-            "terminal": "TERMINAL CATALUNYA SA",
-            "terminal_codigo": "6212",
-            "eslora": 0,
-            "pax_estimados": 500,
-            "puerto": "Casablanca",
-            "tipo": "salida",
-            "estado": "Finalitzada",
-            "bandera": "Libèria",
-            "imo": "9162631",
-            "mmsi": "636018322",
-            "fecha": "2026-02-07"
-        },
-        {
             "hora": "23:00",
             "nombre": "Msc Eleni",
             "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
@@ -552,24 +552,24 @@
         "total_llegadas": 19,
         "total_salidas": 15,
         "pax_estimados_hoy": 34500,
-        "proximo_desembarco": "23:45",
-        "proximo_barco": "Msc Niovi Viii"
+        "proximo_desembarco": "22:00",
+        "proximo_barco": "Cruise Barcelona"
     },
     "terminales_activas": [
-        "6037",
-        "7946",
-        "6212",
         "F1",
-        "172133",
-        "F3",
-        "F2",
-        "8156",
         "H",
-        "7083"
+        "8156",
+        "6212",
+        "172133",
+        "7083",
+        "F2",
+        "7946",
+        "F3",
+        "6037"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-02-07T23:29:43.020964",
+        "actualizado": "2026-02-07T21:27:10.462930",
         "frecuencia": "horaria"
     }
 }
