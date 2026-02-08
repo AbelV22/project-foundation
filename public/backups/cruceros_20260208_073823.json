@@ -129,7 +129,7 @@
             "fecha": "2026-02-08"
         },
         {
-            "hora": "06:29",
+            "hora": "06:00",
             "nombre": "Gnv Sealand",
             "naviera": "GRANDI NAVI VELOCI",
             "terminal": "TERMINAL F2",
@@ -138,14 +138,14 @@
             "pax_estimados": 500,
             "puerto": "Palma de Mallorca",
             "tipo": "llegada",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Itàlia",
             "imo": "9435454",
             "mmsi": "247265800",
             "fecha": "2026-02-08"
         },
         {
-            "hora": "07:40",
+            "hora": "07:00",
             "nombre": "Msc Orchestra",
             "naviera": "MSC CRUISES S.A.",
             "terminal": "ADOSSAT/TERMINAL H",
@@ -154,7 +154,7 @@
             "pax_estimados": 3000,
             "puerto": "Valencia",
             "tipo": "llegada",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Panamà",
             "imo": "9320099",
             "mmsi": "372497000",
@@ -300,7 +300,7 @@
             "pax_estimados": 3000,
             "puerto": "Marseille",
             "tipo": "salida",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Panamà",
             "imo": "9320099",
             "mmsi": "372497000",
@@ -396,7 +396,7 @@
             "pax_estimados": 500,
             "puerto": "Palma de Mallorca",
             "tipo": "salida",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Itàlia",
             "imo": "9435454",
             "mmsi": "247265800",
@@ -424,22 +424,22 @@
         "total_llegadas": 10,
         "total_salidas": 16,
         "pax_estimados_hoy": 23000,
-        "proximo_desembarco": "07:40",
-        "proximo_barco": "Msc Orchestra"
+        "proximo_desembarco": "06:00",
+        "proximo_barco": "Msc Izmir F"
     },
     "terminales_activas": [
-        "F2",
-        "7946",
         "F3",
-        "7083",
+        "6212",
         "6037",
         "H",
-        "6212",
-        "F1"
+        "F1",
+        "7946",
+        "7083",
+        "F2"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-02-08T07:38:23.355596",
+        "actualizado": "2026-02-08T05:59:40.236005",
         "frecuencia": "horaria"
     }
 }
