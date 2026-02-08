@@ -259,7 +259,7 @@
             "fecha": "2026-02-08"
         },
         {
-            "hora": "08:18",
+            "hora": "08:00",
             "nombre": "Leonidas Z",
             "naviera": "HAPAG LLOYD SPAIN SL",
             "terminal": "APM TERMINALS BARCELONA, S.L.U.",
@@ -268,7 +268,7 @@
             "pax_estimados": 1000,
             "puerto": "Cartagena",
             "tipo": "salida",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Illes Marshall",
             "imo": "9963528",
             "mmsi": "538010119",
@@ -424,22 +424,22 @@
         "total_llegadas": 10,
         "total_salidas": 16,
         "pax_estimados_hoy": 23000,
-        "proximo_desembarco": null,
-        "proximo_barco": null
+        "proximo_desembarco": "07:40",
+        "proximo_barco": "Msc Orchestra"
     },
     "terminales_activas": [
+        "F2",
+        "7946",
+        "F3",
+        "7083",
+        "6037",
         "H",
         "6212",
-        "7946",
-        "6037",
-        "7083",
-        "F1",
-        "F2",
-        "F3"
+        "F1"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-02-08T09:31:30.235889",
+        "actualizado": "2026-02-08T07:38:23.355596",
         "frecuencia": "horaria"
     }
 }
