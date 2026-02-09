@@ -10,7 +10,7 @@
             "pax_estimados": 3000,
             "puerto": "Civitavecchia",
             "tipo": "llegada",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Itàlia",
             "imo": "9351476",
             "mmsi": "247219400",
@@ -435,22 +435,6 @@
             "fecha": "2026-02-09"
         },
         {
-            "hora": "21:27",
-            "nombre": "Cruise Roma",
-            "naviera": "GRIMALDI LOGISTICA ESPAÑA SL",
-            "terminal": "TERMINAL F3",
-            "terminal_codigo": "F3",
-            "eslora": 254.0,
-            "pax_estimados": 3000,
-            "puerto": "Civitavecchia",
-            "tipo": "salida",
-            "estado": "Finalitzada",
-            "bandera": "Itàlia",
-            "imo": "9351476",
-            "mmsi": "247219400",
-            "fecha": "2026-02-09"
-        },
-        {
             "hora": "21:30",
             "nombre": "Abel Matutes",
             "naviera": "BALEARIA EUROLINEAS MARITIMAS SA ",
@@ -480,6 +464,22 @@
             "bandera": "Itàlia",
             "imo": "9435454",
             "mmsi": "247265800",
+            "fecha": "2026-02-09"
+        },
+        {
+            "hora": "21:30",
+            "nombre": "Cruise Roma",
+            "naviera": "GRIMALDI LOGISTICA ESPAÑA SL",
+            "terminal": "TERMINAL F3",
+            "terminal_codigo": "F3",
+            "eslora": 254.0,
+            "pax_estimados": 3000,
+            "puerto": "Civitavecchia",
+            "tipo": "salida",
+            "estado": "Iniciada",
+            "bandera": "Itàlia",
+            "imo": "9351476",
+            "mmsi": "247219400",
             "fecha": "2026-02-09"
         },
         {
@@ -525,18 +525,18 @@
     },
     "terminales_activas": [
         "F3",
+        "6212",
+        "6037",
+        "8156",
+        "F1",
         "7946",
         "6995",
         "F2",
-        "6037",
-        "8156",
-        "E",
-        "6212",
-        "F1"
+        "E"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-02-09T21:39:25.908781",
+        "actualizado": "2026-02-09T20:01:48.109509",
         "frecuencia": "horaria"
     }
 }
