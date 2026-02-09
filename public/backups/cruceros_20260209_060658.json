@@ -1,7 +1,7 @@
 {
     "llegadas": [
         {
-            "hora": "00:17",
+            "hora": "00:30",
             "nombre": "Cruise Roma",
             "naviera": "GRIMALDI EUROMED SPA",
             "terminal": "TERMINAL F3",
@@ -10,14 +10,14 @@
             "pax_estimados": 3000,
             "puerto": "Civitavecchia",
             "tipo": "llegada",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Itàlia",
             "imo": "9351476",
             "mmsi": "247219400",
             "fecha": "2026-02-09"
         },
         {
-            "hora": "04:42",
+            "hora": "06:00",
             "nombre": "Cma Cgm Greenland",
             "naviera": "CMA CGM",
             "terminal": "TERMINAL CATALUNYA SA",
@@ -26,26 +26,10 @@
             "pax_estimados": 6500,
             "puerto": "Valencia",
             "tipo": "llegada",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "França",
             "imo": "9895006",
             "mmsi": "228410800",
-            "fecha": "2026-02-09"
-        },
-        {
-            "hora": "05:40",
-            "nombre": "Ardmore Pursuit",
-            "naviera": "Trust Company Complex",
-            "terminal": "",
-            "terminal_codigo": "",
-            "eslora": 183.0,
-            "pax_estimados": 1000,
-            "puerto": "Baton Rouge",
-            "tipo": "llegada",
-            "estado": "Fondeig Previ",
-            "bandera": "Illes Marshall",
-            "imo": "9732931",
-            "mmsi": "538009233",
             "fecha": "2026-02-09"
         },
         {
@@ -428,7 +412,7 @@
             "pax_estimados": 3000,
             "puerto": "Civitavecchia",
             "tipo": "salida",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Itàlia",
             "imo": "9351476",
             "mmsi": "247219400",
@@ -468,26 +452,26 @@
         }
     ],
     "resumen": {
-        "total_cruceros": 19,
-        "total_llegadas": 16,
+        "total_cruceros": 18,
+        "total_llegadas": 15,
         "total_salidas": 13,
-        "pax_estimados_hoy": 34500,
-        "proximo_desembarco": "06:30",
-        "proximo_barco": "Ciudad De Barcelona"
+        "pax_estimados_hoy": 33500,
+        "proximo_desembarco": null,
+        "proximo_barco": null
     },
     "terminales_activas": [
+        "7946",
+        "6212",
+        "F3",
+        "6037",
+        "F2",
         "E",
         "F1",
-        "6037",
-        "7946",
-        "F2",
-        "6212",
-        "8156",
-        "F3"
+        "8156"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-02-09T06:06:58.204382",
+        "actualizado": "2026-02-08T23:31:47.173138",
         "frecuencia": "horaria"
     }
 }
