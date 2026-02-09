@@ -138,7 +138,7 @@
             "pax_estimados": 2000,
             "puerto": "Savona",
             "tipo": "llegada",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Itàlia",
             "imo": "9859557",
             "mmsi": "247383500",
@@ -161,16 +161,16 @@
             "fecha": "2026-02-09"
         },
         {
-            "hora": "13:16",
+            "hora": "12:00",
             "nombre": "Msc Gaeta Ii",
             "naviera": "MEDITERRANEAN SHIPPING CO",
-            "terminal": "",
-            "terminal_codigo": "",
+            "terminal": "TERMINAL CATALUNYA SA",
+            "terminal_codigo": "6212",
             "eslora": 0,
             "pax_estimados": 500,
             "puerto": "Valencia",
             "tipo": "llegada",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Libèria",
             "imo": "9306213",
             "mmsi": "636019225",
@@ -323,7 +323,7 @@
             "fecha": "2026-02-09"
         },
         {
-            "hora": "11:50",
+            "hora": "14:00",
             "nombre": "Eco Livorno",
             "naviera": "GRIMALDI LOGISTICA ESPAÑA SL",
             "terminal": "GRIMALDI TERMINAL BARCELONA SL",
@@ -332,7 +332,7 @@
             "pax_estimados": 2000,
             "puerto": "Valencia",
             "tipo": "salida",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Itàlia",
             "imo": "9859557",
             "mmsi": "247383500",
@@ -520,23 +520,23 @@
         "total_llegadas": 17,
         "total_salidas": 15,
         "pax_estimados_hoy": 35500,
-        "proximo_desembarco": "17:15",
-        "proximo_barco": "Gnv Sealand"
+        "proximo_desembarco": "12:00",
+        "proximo_barco": "Msc Gaeta Ii"
     },
     "terminales_activas": [
-        "F3",
-        "F1",
-        "8156",
+        "7946",
         "F2",
         "E",
-        "6212",
         "6995",
-        "7946",
-        "6037"
+        "F1",
+        "F3",
+        "8156",
+        "6037",
+        "6212"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-02-09T14:14:42.230217",
+        "actualizado": "2026-02-09T11:44:25.913908",
         "frecuencia": "horaria"
     }
 }
