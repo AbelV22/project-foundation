@@ -177,22 +177,6 @@
             "fecha": "2026-02-09"
         },
         {
-            "hora": "14:01",
-            "nombre": "Ardmore Pursuit",
-            "naviera": "Trust Company Complex",
-            "terminal": "TRADEBE PORT SERVICES SL",
-            "terminal_codigo": "7946",
-            "eslora": 183.0,
-            "pax_estimados": 1000,
-            "puerto": "Baton Rouge",
-            "tipo": "llegada",
-            "estado": "Fondeig Previ",
-            "bandera": "Illes Marshall",
-            "imo": "9732931",
-            "mmsi": "538009233",
-            "fecha": "2026-02-09"
-        },
-        {
             "hora": "17:15",
             "nombre": "Gnv Sealand",
             "naviera": "GRANDI NAVI VELOCI",
@@ -336,22 +320,6 @@
             "bandera": "Itàlia",
             "imo": "9859557",
             "mmsi": "247383500",
-            "fecha": "2026-02-09"
-        },
-        {
-            "hora": "14:00",
-            "nombre": "Ardmore Pursuit",
-            "naviera": "INCHCAPE SHIPPING SERVICIOS ESPAÑA SA",
-            "terminal": "",
-            "terminal_codigo": "",
-            "eslora": 183.0,
-            "pax_estimados": 1000,
-            "puerto": "Algeciras",
-            "tipo": "salida",
-            "estado": "Fondeig Previ",
-            "bandera": "Illes Marshall",
-            "imo": "9732931",
-            "mmsi": "538009233",
             "fecha": "2026-02-09"
         },
         {
@@ -517,26 +485,26 @@
     ],
     "resumen": {
         "total_cruceros": 19,
-        "total_llegadas": 17,
-        "total_salidas": 15,
-        "pax_estimados_hoy": 35500,
+        "total_llegadas": 16,
+        "total_salidas": 14,
+        "pax_estimados_hoy": 34500,
         "proximo_desembarco": "12:00",
         "proximo_barco": "Msc Gaeta Ii"
     },
     "terminales_activas": [
         "7946",
-        "F2",
-        "E",
-        "6995",
         "F1",
-        "F3",
-        "8156",
         "6037",
-        "6212"
+        "F2",
+        "6995",
+        "8156",
+        "E",
+        "6212",
+        "F3"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-02-09T11:44:25.913908",
+        "actualizado": "2026-02-09T10:03:43.825318",
         "frecuencia": "horaria"
     }
 }
