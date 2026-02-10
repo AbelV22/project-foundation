@@ -1,22 +1,6 @@
 {
     "llegadas": [
         {
-            "hora": "01:04",
-            "nombre": "Msc Sena",
-            "naviera": "MEDITERRANEAN SHIPPING CO",
-            "terminal": "TERMINAL CATALUNYA SA",
-            "terminal_codigo": "6212",
-            "eslora": 202.0,
-            "pax_estimados": 2000,
-            "puerto": "La Spezia",
-            "tipo": "llegada",
-            "estado": "Iniciada",
-            "bandera": "Libèria",
-            "imo": "9116369",
-            "mmsi": "636017582",
-            "fecha": "2026-02-10"
-        },
-        {
             "hora": "06:00",
             "nombre": "Msc Anzio Ii",
             "naviera": "MEDITERRANEAN SHIPPING CO",
@@ -179,7 +163,7 @@
     ],
     "salidas": [
         {
-            "hora": "00:53",
+            "hora": "01:30",
             "nombre": "Gnv Cristal",
             "naviera": "TRANSCOMA BALEARES SA",
             "terminal": "TERMINAL F2",
@@ -188,26 +172,10 @@
             "pax_estimados": 1000,
             "puerto": "Sete",
             "tipo": "salida",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Itàlia",
             "imo": "8712518",
             "mmsi": "247163900",
-            "fecha": "2026-02-10"
-        },
-        {
-            "hora": "03:00",
-            "nombre": "Gnv Sealand",
-            "naviera": "TRANSCOMA BALEARES SA",
-            "terminal": "TERMINAL F2",
-            "terminal_codigo": "F2",
-            "eslora": 0,
-            "pax_estimados": 500,
-            "puerto": "Palma de Mallorca",
-            "tipo": "salida",
-            "estado": "Finalitzada",
-            "bandera": "Itàlia",
-            "imo": "9435454",
-            "mmsi": "247265800",
             "fecha": "2026-02-10"
         },
         {
@@ -268,7 +236,7 @@
             "pax_estimados": 2000,
             "puerto": "Castellon de la Plana",
             "tipo": "salida",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Libèria",
             "imo": "9116369",
             "mmsi": "636017582",
@@ -405,22 +373,22 @@
     ],
     "resumen": {
         "total_cruceros": 14,
-        "total_llegadas": 11,
-        "total_salidas": 14,
-        "pax_estimados_hoy": 14500,
-        "proximo_desembarco": "07:00",
-        "proximo_barco": "Eco Valencia"
+        "total_llegadas": 10,
+        "total_salidas": 13,
+        "pax_estimados_hoy": 12500,
+        "proximo_desembarco": null,
+        "proximo_barco": null
     },
     "terminales_activas": [
         "F3",
-        "F1",
-        "6212",
         "F2",
-        "8156"
+        "8156",
+        "F1",
+        "6212"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-02-10T06:11:19.929721",
+        "actualizado": "2026-02-09T23:37:12.417036",
         "frecuencia": "horaria"
     }
 }
