@@ -18,6 +18,22 @@
         },
         {
             "hora": "06:00",
+            "nombre": "Msc Anzio Ii",
+            "naviera": "MEDITERRANEAN SHIPPING CO",
+            "terminal": "TERMINAL CATALUNYA SA",
+            "terminal_codigo": "6212",
+            "eslora": 168.0,
+            "pax_estimados": 1000,
+            "puerto": "Bejaia (ex Bougie)",
+            "tipo": "llegada",
+            "estado": "Sol·licitada",
+            "bandera": "Libèria",
+            "imo": "9306237",
+            "mmsi": "636019221",
+            "fecha": "2026-02-10"
+        },
+        {
+            "hora": "06:00",
             "nombre": "Msc Levante F",
             "naviera": "MEDITERRANEAN SHIPPING CO",
             "terminal": "TERMINAL CATALUNYA SA",
@@ -42,7 +58,7 @@
             "pax_estimados": 2000,
             "puerto": "Valencia",
             "tipo": "llegada",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Itàlia",
             "imo": "9859533",
             "mmsi": "247383300",
@@ -65,22 +81,6 @@
             "fecha": "2026-02-10"
         },
         {
-            "hora": "13:36",
-            "nombre": "Msc Cedar Ii",
-            "naviera": "MEDITERRANEAN SHIPPING CO",
-            "terminal": "TERMINAL CATALUNYA SA",
-            "terminal_codigo": "6212",
-            "eslora": 0,
-            "pax_estimados": 500,
-            "puerto": "Alger (Algiers)",
-            "tipo": "llegada",
-            "estado": "Iniciada",
-            "bandera": "Libèria",
-            "imo": "9231092",
-            "mmsi": "636025342",
-            "fecha": "2026-02-10"
-        },
-        {
             "hora": "18:00",
             "nombre": "Msc Tianjin",
             "naviera": "MEDITERRANEAN SHIPPING CO",
@@ -90,7 +90,7 @@
             "pax_estimados": 4500,
             "puerto": "Freeport, Grand Bahama",
             "tipo": "llegada",
-            "estado": "Autoritzada",
+            "estado": "Confirmada",
             "bandera": "Libèria",
             "imo": "9285471",
             "mmsi": "636019332",
@@ -110,6 +110,22 @@
             "bandera": "Itàlia",
             "imo": "9351488",
             "mmsi": "247243600",
+            "fecha": "2026-02-10"
+        },
+        {
+            "hora": "18:00",
+            "nombre": "Minerva Antonia",
+            "naviera": "MINERVA MARINE",
+            "terminal": "",
+            "terminal_codigo": "",
+            "eslora": 183.0,
+            "pax_estimados": 1000,
+            "puerto": "Tarragona",
+            "tipo": "llegada",
+            "estado": "Sol·licitada",
+            "bandera": "Grècia",
+            "imo": "9380398",
+            "mmsi": "240787000",
             "fecha": "2026-02-10"
         },
         {
@@ -227,7 +243,23 @@
             "fecha": "2026-02-10"
         },
         {
-            "hora": "11:42",
+            "hora": "06:00",
+            "nombre": "Msc Cedar Ii",
+            "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
+            "terminal": "TERMINAL CATALUNYA SA",
+            "terminal_codigo": "6212",
+            "eslora": 0,
+            "pax_estimados": 500,
+            "puerto": "Alger (Algiers)",
+            "tipo": "salida",
+            "estado": "Autoritzada",
+            "bandera": "Libèria",
+            "imo": "9231092",
+            "mmsi": "636025342",
+            "fecha": "2026-02-10"
+        },
+        {
+            "hora": "11:00",
             "nombre": "Eco Valencia",
             "naviera": "GRIMALDI LOGISTICA ESPAÑA SL",
             "terminal": "GRIMALDI TERMINAL BARCELONA SL",
@@ -236,7 +268,7 @@
             "pax_estimados": 2000,
             "puerto": "Livorno",
             "tipo": "salida",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Itàlia",
             "imo": "9859533",
             "mmsi": "247383300",
@@ -256,22 +288,6 @@
             "bandera": "Libèria",
             "imo": "9306213",
             "mmsi": "636019225",
-            "fecha": "2026-02-10"
-        },
-        {
-            "hora": "13:38",
-            "nombre": "Msc Cedar Ii",
-            "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
-            "terminal": "TERMINAL CATALUNYA SA",
-            "terminal_codigo": "6212",
-            "eslora": 0,
-            "pax_estimados": 500,
-            "puerto": "Alger (Algiers)",
-            "tipo": "salida",
-            "estado": "Iniciada",
-            "bandera": "Libèria",
-            "imo": "9231092",
-            "mmsi": "636025342",
             "fecha": "2026-02-10"
         },
         {
@@ -304,6 +320,22 @@
             "bandera": "França",
             "imo": "9895006",
             "mmsi": "228410800",
+            "fecha": "2026-02-10"
+        },
+        {
+            "hora": "20:00",
+            "nombre": "Msc Anzio Ii",
+            "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
+            "terminal": "TERMINAL CATALUNYA SA",
+            "terminal_codigo": "6212",
+            "eslora": 168.0,
+            "pax_estimados": 1000,
+            "puerto": "Bejaia (ex Bougie)",
+            "tipo": "salida",
+            "estado": "Sol·licitada",
+            "bandera": "Libèria",
+            "imo": "9306237",
+            "mmsi": "636019221",
             "fecha": "2026-02-10"
         },
         {
@@ -404,23 +436,23 @@
         }
     ],
     "resumen": {
-        "total_cruceros": 13,
-        "total_llegadas": 11,
-        "total_salidas": 14,
-        "pax_estimados_hoy": 14000,
-        "proximo_desembarco": "18:00",
-        "proximo_barco": "Msc Tianjin"
+        "total_cruceros": 15,
+        "total_llegadas": 12,
+        "total_salidas": 15,
+        "pax_estimados_hoy": 15500,
+        "proximo_desembarco": "12:00",
+        "proximo_barco": "Msc Gaeta Ii"
     },
     "terminales_activas": [
         "F2",
         "F1",
-        "8156",
+        "6212",
         "F3",
-        "6212"
+        "8156"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-02-10T14:21:49.692471",
+        "actualizado": "2026-02-10T11:50:49.645468",
         "frecuencia": "horaria"
     }
 }
