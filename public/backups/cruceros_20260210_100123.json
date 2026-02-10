@@ -49,7 +49,7 @@
             "fecha": "2026-02-10"
         },
         {
-            "hora": "07:23",
+            "hora": "07:00",
             "nombre": "Eco Valencia",
             "naviera": "GRIMALDI EUROMED SPA",
             "terminal": "GRIMALDI TERMINAL BARCELONA SL",
@@ -58,7 +58,7 @@
             "pax_estimados": 2000,
             "puerto": "Valencia",
             "tipo": "llegada",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Itàlia",
             "imo": "9859533",
             "mmsi": "247383300",
@@ -179,22 +179,6 @@
     ],
     "salidas": [
         {
-            "hora": "00:35",
-            "nombre": "Ciudad De Palma",
-            "naviera": "GRIMALDI LOGISTICA ESPAÑA SL",
-            "terminal": "TERMINAL F2",
-            "terminal_codigo": "F2",
-            "eslora": 186.0,
-            "pax_estimados": 1000,
-            "puerto": "Palma de Mallorca",
-            "tipo": "salida",
-            "estado": "Finalitzada",
-            "bandera": "Espanya",
-            "imo": "9349772",
-            "mmsi": "224588000",
-            "fecha": "2026-02-10"
-        },
-        {
             "hora": "00:53",
             "nombre": "Gnv Cristal",
             "naviera": "TRANSCOMA BALEARES SA",
@@ -252,7 +236,7 @@
             "pax_estimados": 2000,
             "puerto": "Livorno",
             "tipo": "salida",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Itàlia",
             "imo": "9859533",
             "mmsi": "247383300",
@@ -422,21 +406,21 @@
     "resumen": {
         "total_cruceros": 14,
         "total_llegadas": 11,
-        "total_salidas": 15,
+        "total_salidas": 14,
         "pax_estimados_hoy": 14500,
         "proximo_desembarco": "12:00",
         "proximo_barco": "Msc Gaeta Ii"
     },
     "terminales_activas": [
-        "F1",
         "6212",
+        "F3",
+        "F1",
         "8156",
-        "F2",
-        "F3"
+        "F2"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-02-10T10:01:23.412073",
+        "actualizado": "2026-02-10T07:58:38.800121",
         "frecuencia": "horaria"
     }
 }
