@@ -81,6 +81,22 @@
             "fecha": "2026-02-10"
         },
         {
+            "hora": "17:15",
+            "nombre": "Gnv Sealand",
+            "naviera": "GRANDI NAVI VELOCI",
+            "terminal": "TERMINAL F2",
+            "terminal_codigo": "F2",
+            "eslora": 0,
+            "pax_estimados": 500,
+            "puerto": "Palma de Mallorca",
+            "tipo": "llegada",
+            "estado": "Autoritzada",
+            "bandera": "Itàlia",
+            "imo": "9435454",
+            "mmsi": "247265800",
+            "fecha": "2026-02-10"
+        },
+        {
             "hora": "18:00",
             "nombre": "Msc Tianjin",
             "naviera": "MEDITERRANEAN SHIPPING CO",
@@ -94,38 +110,6 @@
             "bandera": "Libèria",
             "imo": "9285471",
             "mmsi": "636019332",
-            "fecha": "2026-02-10"
-        },
-        {
-            "hora": "18:00",
-            "nombre": "Cruise Barcelona",
-            "naviera": "GRIMALDI EUROMED SPA",
-            "terminal": "TERMINAL F3",
-            "terminal_codigo": "F3",
-            "eslora": 0,
-            "pax_estimados": 500,
-            "puerto": "Civitavecchia",
-            "tipo": "llegada",
-            "estado": "Autoritzada",
-            "bandera": "Itàlia",
-            "imo": "9351488",
-            "mmsi": "247243600",
-            "fecha": "2026-02-10"
-        },
-        {
-            "hora": "18:00",
-            "nombre": "Minerva Antonia",
-            "naviera": "MINERVA MARINE",
-            "terminal": "",
-            "terminal_codigo": "",
-            "eslora": 183.0,
-            "pax_estimados": 1000,
-            "puerto": "Tarragona",
-            "tipo": "llegada",
-            "estado": "Sol·licitada",
-            "bandera": "Grècia",
-            "imo": "9380398",
-            "mmsi": "240787000",
             "fecha": "2026-02-10"
         },
         {
@@ -177,19 +161,19 @@
             "fecha": "2026-02-10"
         },
         {
-            "hora": "19:40",
-            "nombre": "Gnv Sealand",
-            "naviera": "GRANDI NAVI VELOCI",
-            "terminal": "TERMINAL F2",
-            "terminal_codigo": "F2",
+            "hora": "19:00",
+            "nombre": "Cruise Barcelona",
+            "naviera": "GRIMALDI EUROMED SPA",
+            "terminal": "TERMINAL F3",
+            "terminal_codigo": "F3",
             "eslora": 0,
             "pax_estimados": 500,
-            "puerto": "Palma de Mallorca",
+            "puerto": "Civitavecchia",
             "tipo": "llegada",
             "estado": "Autoritzada",
             "bandera": "Itàlia",
-            "imo": "9435454",
-            "mmsi": "247265800",
+            "imo": "9351488",
+            "mmsi": "247243600",
             "fecha": "2026-02-10"
         }
     ],
@@ -371,6 +355,22 @@
             "fecha": "2026-02-10"
         },
         {
+            "hora": "21:30",
+            "nombre": "Gnv Sealand",
+            "naviera": "TRANSCOMA BALEARES SA",
+            "terminal": "TERMINAL F2",
+            "terminal_codigo": "F2",
+            "eslora": 0,
+            "pax_estimados": 500,
+            "puerto": "Palma de Mallorca",
+            "tipo": "salida",
+            "estado": "Autoritzada",
+            "bandera": "Itàlia",
+            "imo": "9435454",
+            "mmsi": "247265800",
+            "fecha": "2026-02-10"
+        },
+        {
             "hora": "22:00",
             "nombre": "Ciudad De Barcelona",
             "naviera": "GRIMALDI LOGISTICA ESPAÑA SL",
@@ -417,42 +417,26 @@
             "imo": "9349772",
             "mmsi": "224588000",
             "fecha": "2026-02-10"
-        },
-        {
-            "hora": "23:59",
-            "nombre": "Gnv Sealand",
-            "naviera": "TRANSCOMA BALEARES SA",
-            "terminal": "TERMINAL F2",
-            "terminal_codigo": "F2",
-            "eslora": 0,
-            "pax_estimados": 500,
-            "puerto": "Palma de Mallorca",
-            "tipo": "salida",
-            "estado": "Autoritzada",
-            "bandera": "Itàlia",
-            "imo": "9435454",
-            "mmsi": "247265800",
-            "fecha": "2026-02-10"
         }
     ],
     "resumen": {
-        "total_cruceros": 15,
-        "total_llegadas": 12,
+        "total_cruceros": 14,
+        "total_llegadas": 11,
         "total_salidas": 15,
-        "pax_estimados_hoy": 15500,
+        "pax_estimados_hoy": 14500,
         "proximo_desembarco": "12:00",
         "proximo_barco": "Msc Gaeta Ii"
     },
     "terminales_activas": [
-        "F2",
         "F1",
         "6212",
-        "F3",
-        "8156"
+        "8156",
+        "F2",
+        "F3"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-02-10T11:50:49.645468",
+        "actualizado": "2026-02-10T10:01:23.412073",
         "frecuencia": "horaria"
     }
 }
