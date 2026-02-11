@@ -154,7 +154,7 @@
             "pax_estimados": 2000,
             "puerto": "Valencia",
             "tipo": "llegada",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Itàlia",
             "imo": "9859557",
             "mmsi": "247383500",
@@ -174,22 +174,6 @@
             "bandera": "Libèria",
             "imo": "9755957",
             "mmsi": "636017435",
-            "fecha": "2026-02-11"
-        },
-        {
-            "hora": "17:15",
-            "nombre": "Gnv Sealand",
-            "naviera": "GRANDI NAVI VELOCI",
-            "terminal": "TERMINAL F2",
-            "terminal_codigo": "F2",
-            "eslora": 0,
-            "pax_estimados": 500,
-            "puerto": "Palma de Mallorca",
-            "tipo": "llegada",
-            "estado": "Autoritzada",
-            "bandera": "Itàlia",
-            "imo": "9435454",
-            "mmsi": "247265800",
             "fecha": "2026-02-11"
         },
         {
@@ -225,7 +209,23 @@
             "fecha": "2026-02-11"
         },
         {
-            "hora": "19:45",
+            "hora": "19:40",
+            "nombre": "Gnv Sealand",
+            "naviera": "GRANDI NAVI VELOCI",
+            "terminal": "TERMINAL F2",
+            "terminal_codigo": "F2",
+            "eslora": 0,
+            "pax_estimados": 500,
+            "puerto": "Palma de Mallorca",
+            "tipo": "llegada",
+            "estado": "Autoritzada",
+            "bandera": "Itàlia",
+            "imo": "9435454",
+            "mmsi": "247265800",
+            "fecha": "2026-02-11"
+        },
+        {
+            "hora": "20:30",
             "nombre": "Cruise Roma",
             "naviera": "GRIMALDI EUROMED SPA",
             "terminal": "TERMINAL F3",
@@ -387,7 +387,7 @@
             "fecha": "2026-02-11"
         },
         {
-            "hora": "14:40",
+            "hora": "13:00",
             "nombre": "Eco Livorno",
             "naviera": "GRIMALDI LOGISTICA ESPAÑA SL",
             "terminal": "GRIMALDI TERMINAL BARCELONA SL",
@@ -396,7 +396,7 @@
             "pax_estimados": 2000,
             "puerto": "Savona",
             "tipo": "salida",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Itàlia",
             "imo": "9859557",
             "mmsi": "247383500",
@@ -500,6 +500,22 @@
         },
         {
             "hora": "23:59",
+            "nombre": "Gnv Sealand",
+            "naviera": "TRANSCOMA BALEARES SA",
+            "terminal": "TERMINAL F2",
+            "terminal_codigo": "F2",
+            "eslora": 0,
+            "pax_estimados": 500,
+            "puerto": "Palma de Mallorca",
+            "tipo": "salida",
+            "estado": "Autoritzada",
+            "bandera": "Itàlia",
+            "imo": "9435454",
+            "mmsi": "247265800",
+            "fecha": "2026-02-11"
+        },
+        {
+            "hora": "23:59",
             "nombre": "Cruise Roma",
             "naviera": "GRIMALDI LOGISTICA ESPAÑA SL",
             "terminal": "TERMINAL F3",
@@ -518,22 +534,22 @@
     "resumen": {
         "total_cruceros": 18,
         "total_llegadas": 16,
-        "total_salidas": 16,
+        "total_salidas": 17,
         "pax_estimados_hoy": 31500,
-        "proximo_desembarco": "17:15",
-        "proximo_barco": "Gnv Sealand"
+        "proximo_desembarco": "18:30",
+        "proximo_barco": "Ciudad De Palma"
     },
     "terminales_activas": [
-        "7585",
-        "8156",
         "F2",
+        "8156",
+        "F1",
         "6212",
-        "F3",
-        "F1"
+        "7585",
+        "F3"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-02-11T16:02:22.885004",
+        "actualizado": "2026-02-11T14:15:46.756463",
         "frecuencia": "horaria"
     }
 }
