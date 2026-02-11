@@ -355,22 +355,6 @@
             "fecha": "2026-02-11"
         },
         {
-            "hora": "11:37",
-            "nombre": "Msc Cedar Ii",
-            "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
-            "terminal": "TERMINAL CATALUNYA SA",
-            "terminal_codigo": "6212",
-            "eslora": 0,
-            "pax_estimados": 500,
-            "puerto": "Alger (Algiers)",
-            "tipo": "salida",
-            "estado": "Finalitzada",
-            "bandera": "Libèria",
-            "imo": "9231092",
-            "mmsi": "636025342",
-            "fecha": "2026-02-11"
-        },
-        {
             "hora": "12:00",
             "nombre": "Minerva Antonia",
             "naviera": "ALFASHIP MARITIME SERVICES SL ",
@@ -499,6 +483,22 @@
             "fecha": "2026-02-11"
         },
         {
+            "hora": "23:30",
+            "nombre": "Abel Matutes",
+            "naviera": "BALEARIA EUROLINEAS MARITIMAS SA ",
+            "terminal": "TERMINAL F1",
+            "terminal_codigo": "F1",
+            "eslora": 190.0,
+            "pax_estimados": 1000,
+            "puerto": "Alcudia",
+            "tipo": "salida",
+            "estado": "Autoritzada",
+            "bandera": "Espanya",
+            "imo": "9441130",
+            "mmsi": "224402000",
+            "fecha": "2026-02-11"
+        },
+        {
             "hora": "23:59",
             "nombre": "Gnv Sealand",
             "naviera": "TRANSCOMA BALEARES SA",
@@ -532,24 +532,24 @@
         }
     ],
     "resumen": {
-        "total_cruceros": 18,
+        "total_cruceros": 17,
         "total_llegadas": 16,
         "total_salidas": 17,
         "pax_estimados_hoy": 31500,
-        "proximo_desembarco": "18:30",
-        "proximo_barco": "Ciudad De Palma"
+        "proximo_desembarco": "11:45",
+        "proximo_barco": "Msc Eloane"
     },
     "terminales_activas": [
-        "F2",
-        "8156",
         "F1",
-        "6212",
+        "8156",
         "7585",
-        "F3"
+        "F2",
+        "F3",
+        "6212"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-02-11T14:15:46.756463",
+        "actualizado": "2026-02-11T11:45:02.013582",
         "frecuencia": "horaria"
     }
 }
