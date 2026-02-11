@@ -1,6 +1,22 @@
 {
     "llegadas": [
         {
+            "hora": "00:30",
+            "nombre": "Eco Adriatica",
+            "naviera": "GRIMALDI EUROMED SPA",
+            "terminal": "GRIMALDI TERMINAL BARCELONA SL",
+            "terminal_codigo": "8156",
+            "eslora": 238.0,
+            "pax_estimados": 2000,
+            "puerto": "Savona",
+            "tipo": "llegada",
+            "estado": "Autoritzada",
+            "bandera": "Itàlia",
+            "imo": "9859600",
+            "mmsi": "247384100",
+            "fecha": "2026-02-11"
+        },
+        {
             "hora": "01:23",
             "nombre": "Msc Tianjin",
             "naviera": "MEDITERRANEAN SHIPPING CO",
@@ -14,22 +30,6 @@
             "bandera": "Libèria",
             "imo": "9285471",
             "mmsi": "636019332",
-            "fecha": "2026-02-11"
-        },
-        {
-            "hora": "01:32",
-            "nombre": "Eco Adriatica",
-            "naviera": "GRIMALDI EUROMED SPA",
-            "terminal": "GRIMALDI TERMINAL BARCELONA SL",
-            "terminal_codigo": "8156",
-            "eslora": 238.0,
-            "pax_estimados": 2000,
-            "puerto": "Savona",
-            "tipo": "llegada",
-            "estado": "Finalitzada",
-            "bandera": "Itàlia",
-            "imo": "9859600",
-            "mmsi": "247384100",
             "fecha": "2026-02-11"
         },
         {
@@ -145,7 +145,7 @@
             "fecha": "2026-02-11"
         },
         {
-            "hora": "09:49",
+            "hora": "07:00",
             "nombre": "Eco Livorno",
             "naviera": "GRIMALDI EUROMED SPA",
             "terminal": "GRIMALDI TERMINAL BARCELONA SL",
@@ -154,7 +154,7 @@
             "pax_estimados": 2000,
             "puerto": "Valencia",
             "tipo": "llegada",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Itàlia",
             "imo": "9859557",
             "mmsi": "247383500",
@@ -307,7 +307,7 @@
             "fecha": "2026-02-11"
         },
         {
-            "hora": "05:26",
+            "hora": "05:00",
             "nombre": "Eco Adriatica",
             "naviera": "GRIMALDI LOGISTICA ESPAÑA SL",
             "terminal": "GRIMALDI TERMINAL BARCELONA SL",
@@ -316,7 +316,7 @@
             "pax_estimados": 2000,
             "puerto": "Valencia",
             "tipo": "salida",
-            "estado": "Finalitzada",
+            "estado": "Autoritzada",
             "bandera": "Itàlia",
             "imo": "9859600",
             "mmsi": "247384100",
@@ -380,7 +380,7 @@
             "pax_estimados": 2000,
             "puerto": "Savona",
             "tipo": "salida",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Itàlia",
             "imo": "9859557",
             "mmsi": "247383500",
@@ -540,16 +540,16 @@
         "proximo_barco": "Msc Eloane"
     },
     "terminales_activas": [
-        "F2",
-        "7585",
-        "8156",
         "F3",
+        "7585",
+        "F2",
         "6212",
+        "8156",
         "F1"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-02-11T09:54:56.155533",
+        "actualizado": "2026-02-11T07:56:05.802445",
         "frecuencia": "horaria"
     }
 }
