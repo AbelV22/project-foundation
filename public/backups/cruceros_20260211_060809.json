@@ -17,38 +17,6 @@
             "fecha": "2026-02-11"
         },
         {
-            "hora": "01:23",
-            "nombre": "Msc Tianjin",
-            "naviera": "MEDITERRANEAN SHIPPING CO",
-            "terminal": "TERMINAL CATALUNYA SA",
-            "terminal_codigo": "6212",
-            "eslora": 323.0,
-            "pax_estimados": 4500,
-            "puerto": "Freeport, Grand Bahama",
-            "tipo": "llegada",
-            "estado": "Iniciada",
-            "bandera": "Libèria",
-            "imo": "9285471",
-            "mmsi": "636019332",
-            "fecha": "2026-02-11"
-        },
-        {
-            "hora": "03:30",
-            "nombre": "Msc Gaeta Ii",
-            "naviera": "MEDITERRANEAN SHIPPING CO",
-            "terminal": "TERMINAL CATALUNYA SA",
-            "terminal_codigo": "6212",
-            "eslora": 0,
-            "pax_estimados": 500,
-            "puerto": "Valencia",
-            "tipo": "llegada",
-            "estado": "Iniciada",
-            "bandera": "Libèria",
-            "imo": "9306213",
-            "mmsi": "636019225",
-            "fecha": "2026-02-11"
-        },
-        {
             "hora": "05:30",
             "nombre": "Minerva Antonia",
             "naviera": "MINERVA MARINE",
@@ -259,39 +227,7 @@
     ],
     "salidas": [
         {
-            "hora": "02:12",
-            "nombre": "Msc Sena",
-            "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
-            "terminal": "TERMINAL CATALUNYA SA",
-            "terminal_codigo": "6212",
-            "eslora": 202.0,
-            "pax_estimados": 2000,
-            "puerto": "Castellon de la Plana",
-            "tipo": "salida",
-            "estado": "Finalitzada",
-            "bandera": "Libèria",
-            "imo": "9116369",
-            "mmsi": "636017582",
-            "fecha": "2026-02-11"
-        },
-        {
-            "hora": "03:29",
-            "nombre": "Msc Gaeta Ii",
-            "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
-            "terminal": "",
-            "terminal_codigo": "",
-            "eslora": 0,
-            "pax_estimados": 500,
-            "puerto": "Bejaia (ex Bougie)",
-            "tipo": "salida",
-            "estado": "Iniciada",
-            "bandera": "Libèria",
-            "imo": "9306213",
-            "mmsi": "636019225",
-            "fecha": "2026-02-11"
-        },
-        {
-            "hora": "03:32",
+            "hora": "02:00",
             "nombre": "Msc Gaeta Ii",
             "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
             "terminal": "TERMINAL CATALUNYA SA",
@@ -348,7 +284,7 @@
             "pax_estimados": 4500,
             "puerto": "Gioia Tauro",
             "tipo": "salida",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Libèria",
             "imo": "9285471",
             "mmsi": "636019332",
@@ -532,24 +468,24 @@
         }
     ],
     "resumen": {
-        "total_cruceros": 17,
-        "total_llegadas": 16,
-        "total_salidas": 17,
-        "pax_estimados_hoy": 31500,
-        "proximo_desembarco": "06:30",
-        "proximo_barco": "Msc Anzio Ii"
+        "total_cruceros": 16,
+        "total_llegadas": 14,
+        "total_salidas": 15,
+        "pax_estimados_hoy": 26500,
+        "proximo_desembarco": null,
+        "proximo_barco": null
     },
     "terminales_activas": [
         "F1",
-        "8156",
-        "6212",
-        "7585",
         "F3",
-        "F2"
+        "F2",
+        "7585",
+        "8156",
+        "6212"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-02-11T06:08:09.290465",
+        "actualizado": "2026-02-10T23:38:56.841441",
         "frecuencia": "horaria"
     }
 }
