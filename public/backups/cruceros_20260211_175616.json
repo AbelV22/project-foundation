@@ -42,7 +42,7 @@
             "pax_estimados": 500,
             "puerto": "Valencia",
             "tipo": "llegada",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Libèria",
             "imo": "9306213",
             "mmsi": "636019225",
@@ -177,7 +177,7 @@
             "fecha": "2026-02-11"
         },
         {
-            "hora": "17:26",
+            "hora": "17:15",
             "nombre": "Gnv Sealand",
             "naviera": "GRANDI NAVI VELOCI",
             "terminal": "TERMINAL F2",
@@ -186,7 +186,7 @@
             "pax_estimados": 500,
             "puerto": "Palma de Mallorca",
             "tipo": "llegada",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Itàlia",
             "imo": "9435454",
             "mmsi": "247265800",
@@ -284,7 +284,23 @@
             "pax_estimados": 500,
             "puerto": "Bejaia (ex Bougie)",
             "tipo": "salida",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
+            "bandera": "Libèria",
+            "imo": "9306213",
+            "mmsi": "636019225",
+            "fecha": "2026-02-11"
+        },
+        {
+            "hora": "03:32",
+            "nombre": "Msc Gaeta Ii",
+            "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
+            "terminal": "TERMINAL CATALUNYA SA",
+            "terminal_codigo": "6212",
+            "eslora": 0,
+            "pax_estimados": 500,
+            "puerto": "Bejaia (ex Bougie)",
+            "tipo": "salida",
+            "estado": "Iniciada",
             "bandera": "Libèria",
             "imo": "9306213",
             "mmsi": "636019225",
@@ -384,22 +400,6 @@
             "bandera": "Itàlia",
             "imo": "9859557",
             "mmsi": "247383500",
-            "fecha": "2026-02-11"
-        },
-        {
-            "hora": "16:46",
-            "nombre": "Msc Gaeta Ii",
-            "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
-            "terminal": "TERMINAL CATALUNYA SA",
-            "terminal_codigo": "6212",
-            "eslora": 0,
-            "pax_estimados": 500,
-            "puerto": "Bejaia (ex Bougie)",
-            "tipo": "salida",
-            "estado": "Finalitzada",
-            "bandera": "Libèria",
-            "imo": "9306213",
-            "mmsi": "636019225",
             "fecha": "2026-02-11"
         },
         {
@@ -520,20 +520,20 @@
         "total_llegadas": 16,
         "total_salidas": 16,
         "pax_estimados_hoy": 31500,
-        "proximo_desembarco": "18:30",
-        "proximo_barco": "Ciudad De Palma"
+        "proximo_desembarco": "17:15",
+        "proximo_barco": "Gnv Sealand"
     },
     "terminales_activas": [
         "7585",
-        "F2",
-        "F1",
         "8156",
+        "F2",
+        "6212",
         "F3",
-        "6212"
+        "F1"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-02-11T17:56:16.379289",
+        "actualizado": "2026-02-11T16:02:22.885004",
         "frecuencia": "horaria"
     }
 }
