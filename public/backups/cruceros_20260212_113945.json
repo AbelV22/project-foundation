@@ -49,6 +49,38 @@
             "fecha": "2026-02-12"
         },
         {
+            "hora": "11:00",
+            "nombre": "Sunbelt Spirit",
+            "naviera": "NEPTUNE LINES SHIPPING",
+            "terminal": "SETRAM",
+            "terminal_codigo": "2396",
+            "eslora": 212.0,
+            "pax_estimados": 2000,
+            "puerto": "Fos-sur-Mer",
+            "tipo": "llegada",
+            "estado": "Sol·licitada",
+            "bandera": "Illes Marshall",
+            "imo": "9233246",
+            "mmsi": "538001657",
+            "fecha": "2026-02-12"
+        },
+        {
+            "hora": "11:00",
+            "nombre": "Sunbelt Spirit",
+            "naviera": "NEPTUNE LINES SHIPPING",
+            "terminal": "AUTOTERMINAL SA",
+            "terminal_codigo": "6154",
+            "eslora": 212.0,
+            "pax_estimados": 2000,
+            "puerto": "Fos-sur-Mer",
+            "tipo": "llegada",
+            "estado": "Sol·licitada",
+            "bandera": "Illes Marshall",
+            "imo": "9233246",
+            "mmsi": "538001657",
+            "fecha": "2026-02-12"
+        },
+        {
             "hora": "18:30",
             "nombre": "Ciudad De Palma",
             "naviera": "TRASMED GLE S.L.",
@@ -78,22 +110,6 @@
             "bandera": "Espanya",
             "imo": "9506289",
             "mmsi": "225416000",
-            "fecha": "2026-02-12"
-        },
-        {
-            "hora": "23:00",
-            "nombre": "Cruise Barcelona",
-            "naviera": "GRIMALDI EUROMED SPA",
-            "terminal": "TERMINAL F3",
-            "terminal_codigo": "F3",
-            "eslora": 0,
-            "pax_estimados": 500,
-            "puerto": "Civitavecchia",
-            "tipo": "llegada",
-            "estado": "Autoritzada",
-            "bandera": "Itàlia",
-            "imo": "9351488",
-            "mmsi": "247243600",
             "fecha": "2026-02-12"
         }
     ],
@@ -245,24 +261,25 @@
     ],
     "resumen": {
         "total_cruceros": 10,
-        "total_llegadas": 6,
+        "total_llegadas": 7,
         "total_salidas": 9,
-        "pax_estimados_hoy": 5500,
-        "proximo_desembarco": "18:30",
-        "proximo_barco": "Ciudad De Palma"
+        "pax_estimados_hoy": 9000,
+        "proximo_desembarco": "11:00",
+        "proximo_barco": "Sunbelt Spirit"
     },
     "terminales_activas": [
-        "F1",
-        "7585",
-        "F2",
-        "F3",
-        "6212",
         "199896",
-        "8156"
+        "F1",
+        "2396",
+        "8156",
+        "7585",
+        "6212",
+        "F2",
+        "6154"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-02-12T11:39:45.916573",
+        "actualizado": "2026-02-12T09:51:34.227771",
         "frecuencia": "horaria"
     }
 }
