@@ -1,7 +1,7 @@
 {
     "llegadas": [
         {
-            "hora": "01:14",
+            "hora": "01:00",
             "nombre": "Eco Savona",
             "naviera": "GRIMALDI EUROMED SPA",
             "terminal": "GRIMALDI TERMINAL BARCELONA SL",
@@ -10,7 +10,7 @@
             "pax_estimados": 2000,
             "puerto": "Savona",
             "tipo": "llegada",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Itàlia",
             "imo": "9859569",
             "mmsi": "247383600",
@@ -115,22 +115,6 @@
     ],
     "salidas": [
         {
-            "hora": "02:09",
-            "nombre": "Minerva Antonia",
-            "naviera": "ALFASHIP MARITIME SERVICES SL ",
-            "terminal": "MANIPULADORA DE MERCANCIAS SL",
-            "terminal_codigo": "7585",
-            "eslora": 183.0,
-            "pax_estimados": 1000,
-            "puerto": "Piraeus",
-            "tipo": "salida",
-            "estado": "Finalitzada",
-            "bandera": "Grècia",
-            "imo": "9380398",
-            "mmsi": "240787000",
-            "fecha": "2026-02-12"
-        },
-        {
             "hora": "07:00",
             "nombre": "Msc Anzio Ii",
             "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
@@ -204,7 +188,7 @@
             "pax_estimados": 2000,
             "puerto": "Valencia",
             "tipo": "salida",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Itàlia",
             "imo": "9859569",
             "mmsi": "247383600",
@@ -260,26 +244,25 @@
         }
     ],
     "resumen": {
-        "total_cruceros": 10,
+        "total_cruceros": 9,
         "total_llegadas": 7,
-        "total_salidas": 9,
+        "total_salidas": 8,
         "pax_estimados_hoy": 9000,
-        "proximo_desembarco": "11:00",
-        "proximo_barco": "Sunbelt Spirit"
+        "proximo_desembarco": null,
+        "proximo_barco": null
     },
     "terminales_activas": [
-        "6212",
-        "2396",
         "F1",
+        "6154",
         "8156",
+        "6212",
         "199896",
         "F2",
-        "7585",
-        "6154"
+        "2396"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-02-12T06:04:32.960358",
+        "actualizado": "2026-02-11T23:32:51.160065",
         "frecuencia": "horaria"
     }
 }
