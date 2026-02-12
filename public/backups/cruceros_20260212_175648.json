@@ -81,6 +81,22 @@
             "fecha": "2026-02-12"
         },
         {
+            "hora": "19:00",
+            "nombre": "Ciudad De Barcelona",
+            "naviera": "TRASMED GLE S.L.",
+            "terminal": "TERMINAL F2",
+            "terminal_codigo": "F2",
+            "eslora": 176.0,
+            "pax_estimados": 1000,
+            "puerto": "Ibiza",
+            "tipo": "llegada",
+            "estado": "Autoritzada",
+            "bandera": "Espanya",
+            "imo": "9506289",
+            "mmsi": "225416000",
+            "fecha": "2026-02-12"
+        },
+        {
             "hora": "23:00",
             "nombre": "Cruise Barcelona",
             "naviera": "GRIMALDI EUROMED SPA",
@@ -227,6 +243,22 @@
             "fecha": "2026-02-12"
         },
         {
+            "hora": "22:00",
+            "nombre": "Ciudad De Barcelona",
+            "naviera": "GRIMALDI LOGISTICA ESPAÑA SL",
+            "terminal": "TERMINAL F2",
+            "terminal_codigo": "F2",
+            "eslora": 176.0,
+            "pax_estimados": 1000,
+            "puerto": "Ibiza",
+            "tipo": "salida",
+            "estado": "Autoritzada",
+            "bandera": "Espanya",
+            "imo": "9506289",
+            "mmsi": "225416000",
+            "fecha": "2026-02-12"
+        },
+        {
             "hora": "22:45",
             "nombre": "Ciudad De Palma",
             "naviera": "GRIMALDI LOGISTICA ESPAÑA SL",
@@ -244,25 +276,25 @@
         }
     ],
     "resumen": {
-        "total_cruceros": 10,
-        "total_llegadas": 6,
-        "total_salidas": 9,
-        "pax_estimados_hoy": 7500,
+        "total_cruceros": 11,
+        "total_llegadas": 7,
+        "total_salidas": 10,
+        "pax_estimados_hoy": 8500,
         "proximo_desembarco": "18:30",
         "proximo_barco": "Ciudad De Palma"
     },
     "terminales_activas": [
-        "199896",
-        "F3",
+        "7585",
+        "8156",
+        "F1",
         "F2",
         "6212",
-        "F1",
-        "8156",
-        "7585"
+        "F3",
+        "199896"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-02-12T17:56:48.668079",
+        "actualizado": "2026-02-12T15:53:31.625946",
         "frecuencia": "horaria"
     }
 }
