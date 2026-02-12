@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Política de Privacidad - iTaxiBcn</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #0f172a;
+            color: #e2e8f0;
+            line-height: 1.7;
+            padding: 2rem 1rem;
+        }
+        .container {
+            max-width: 720px;
+            margin: 0 auto;
+        }
+        h1 {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+            color: #f8fafc;
+        }
+        .date {
+            color: #94a3b8;
+            font-size: 0.875rem;
+            margin-bottom: 2rem;
+        }
+        h2 {
+            font-size: 1.25rem;
+            color: #f8fafc;
+            margin-top: 2rem;
+            margin-bottom: 0.75rem;
+        }
+        p { margin-bottom: 1rem; color: #cbd5e1; }
+        ul {
+            padding-left: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        li {
+            margin-bottom: 0.5rem;
+            color: #cbd5e1;
+        }
+        .alert {
+            background: rgba(59, 130, 246, 0.1);
+            border: 1px solid rgba(59, 130, 246, 0.3);
+            border-radius: 8px;
+            padding: 1rem;
+            margin: 1rem 0;
+        }
+        .alert strong { color: #f8fafc; }
+        .alert p { color: #94a3b8; font-size: 0.875rem; margin-bottom: 0; }
+        a { color: #60a5fa; }
+        .footer {
+            margin-top: 3rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid #1e293b;
+            color: #64748b;
+            font-size: 0.875rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Política de Privacidad</h1>
+        <p class="date">Última actualización: 12 de febrero de 2026</p>
+
+        <h2>1. Introducción</h2>
+        <p>
+            iTaxiBcn ("la App") es una herramienta profesional diseñada para taxistas en Barcelona.
+            Nos comprometemos a proteger la privacidad de nuestros usuarios. Esta política describe
+            qué datos recopilamos, cómo los usamos y cómo los protegemos.
+        </p>
+
+        <h2>2. Responsable del tratamiento</h2>
+        <p>
+            El responsable del tratamiento de los datos es iTaxiBcn.<br>
+            Email de contacto: <a href="mailto:soporte@itaxibcn.com">soporte@itaxibcn.com</a>
+        </p>
+
+        <h2>3. Uso de la ubicación en segundo plano</h2>
+        <div class="alert">
+            <strong>Aviso importante sobre localización</strong>
+            <p>
+                Esta aplicación recopila datos de ubicación incluso cuando la aplicación está cerrada
+                o no se está utilizando, para permitir la función de detección automática de zonas de
+                espera y calcular tiempos de espera estimados en el Aeropuerto y Estaciones.
+            </p>
+        </div>
+        <p>Utilizamos la ubicación para:</p>
+        <ul>
+            <li>Detectar automáticamente cuando entra a una zona de espera (T1, T2, Sants).</li>
+            <li>Calcular su tiempo de espera real para compartirlo de forma anónima con la comunidad.</li>
+            <li>Registrar su historial de servicios (función opcional).</li>
+        </ul>
+        <p>
+            El seguimiento de ubicación en segundo plano es esencial para la funcionalidad principal
+            de la app, ya que los taxistas necesitan que la detección sea automática mientras esperan
+            en las colas sin tener que mantener la pantalla encendida.
+        </p>
+
+        <h2>4. Datos recopilados</h2>
+        <p>Solo recopilamos los siguientes datos:</p>
+        <ul>
+            <li><strong>Coordenadas GPS</strong>: latitud, longitud y precisión.</li>
+            <li><strong>Identificador de dispositivo anónimo</strong>: generado por la app, no vinculado a datos personales.</li>
+            <li><strong>Información técnica básica</strong>: modelo de dispositivo y nivel de batería (para diagnóstico).</li>
+            <li><strong>Datos financieros opcionales</strong>: registro de ganancias y gastos que el usuario introduce voluntariamente. Estos datos se almacenan de forma privada y nunca se comparten.</li>
+        </ul>
+
+        <h2>5. Cómo usamos los datos</h2>
+        <ul>
+            <li>Los datos de ubicación se procesan para detectar entradas y salidas de zonas de espera definidas (geofencing).</li>
+            <li>Los tiempos de espera calculados se comparten de forma anónima con la comunidad de taxistas.</li>
+            <li>Los datos financieros (ganancias/gastos) son privados y solo visibles para el usuario que los introduce.</li>
+            <li>La información técnica del dispositivo se usa exclusivamente para diagnóstico y mejora de la app.</li>
+        </ul>
+
+        <h2>6. Compartir datos con terceros</h2>
+        <p>
+            <strong>No vendemos ni compartimos datos personales con terceros.</strong>
+        </p>
+        <p>
+            Los únicos datos que se comparten son los tiempos de espera anónimos agregados en las
+            zonas de espera, que se muestran a la comunidad de taxistas sin ningún dato identificativo.
+        </p>
+        <p>
+            Utilizamos Supabase como proveedor de infraestructura para el almacenamiento y
+            procesamiento de datos. Supabase cumple con las normativas de protección de datos aplicables.
+        </p>
+
+        <h2>7. Seguridad de los datos</h2>
+        <ul>
+            <li>Todos los datos se transmiten cifrados mediante HTTPS/TLS.</li>
+            <li>Los identificadores de dispositivo son anónimos y no están vinculados a información personal.</li>
+            <li>Los datos financieros del usuario se almacenan de forma privada y cifrada.</li>
+        </ul>
+
+        <h2>8. Retención de datos</h2>
+        <p>
+            Los datos de ubicación se retienen mientras el usuario tenga la app instalada y el
+            seguimiento activo. Los datos de ganancias y gastos se retienen hasta que el usuario
+            solicite su eliminación.
+        </p>
+
+        <h2>9. Derechos del usuario</h2>
+        <p>Conforme al RGPD y la legislación española de protección de datos, usted tiene derecho a:</p>
+        <ul>
+            <li><strong>Acceso</strong>: solicitar una copia de sus datos personales.</li>
+            <li><strong>Rectificación</strong>: corregir datos inexactos.</li>
+            <li><strong>Supresión</strong>: solicitar la eliminación de sus datos.</li>
+            <li><strong>Portabilidad</strong>: recibir sus datos en un formato estructurado.</li>
+            <li><strong>Oposición</strong>: oponerse al tratamiento de sus datos.</li>
+        </ul>
+        <p>
+            Para ejercer cualquiera de estos derechos, contacte con nosotros en
+            <a href="mailto:soporte@itaxibcn.com">soporte@itaxibcn.com</a>.
+        </p>
+
+        <h2>10. Menores de edad</h2>
+        <p>
+            Esta aplicación está diseñada exclusivamente para profesionales del taxi mayores de 18 años.
+            No recopilamos intencionadamente datos de menores de edad.
+        </p>
+
+        <h2>11. Cambios en esta política</h2>
+        <p>
+            Podemos actualizar esta política periódicamente. Notificaremos los cambios significativos
+            a través de la app. Le recomendamos revisar esta página periódicamente.
+        </p>
+
+        <h2>12. Contacto</h2>
+        <p>
+            Si tiene preguntas sobre esta política de privacidad o sobre el tratamiento de sus datos,
+            puede contactarnos en:<br>
+            <a href="mailto:soporte@itaxibcn.com">soporte@itaxibcn.com</a>
+        </p>
+
+        <div class="footer">
+            <p>&copy; 2026 iTaxiBcn. Todos los derechos reservados.</p>
+        </div>
+    </div>
+</body>
+</html>
