@@ -45,8 +45,14 @@ export const useWaitingTimes = (): UseWaitingTimesResult => {
                 const zonaRegistros = (registros || []).filter(r => r.zona === zona);
                 const activos = zonaRegistros.filter(r => !r.exited_at).length;
 
-                // Calculate average waiting time from completed waits
-                const completedWaits = zonaRegistros.filter(r => r.exited_at);
+                // Calculate average waiting time from completed waits (minimum 5 minutes)
+                const completedWaits = zonaRegistros.filter(r => {
+                    if (!r.exited_at) return false;
+                    const start = new Date(r.created_at).getTime();
+                    const end = new Date(r.exited_at).getTime();
+                    const durationMinutes = (end - start) / 60000;
+                    return durationMinutes >= 5; // Exclude waits shorter than 5 minutes
+                });
 
                 // Only show real data if we have at least 3 completed waits
                 const hasRealData = completedWaits.length >= 3;
