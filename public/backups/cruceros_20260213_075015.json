@@ -177,7 +177,7 @@
             "fecha": "2026-02-13"
         },
         {
-            "hora": "07:26",
+            "hora": "06:42",
             "nombre": "Msc World Europa",
             "naviera": "MSC CRUISES S.A.",
             "terminal": "ADOSSAT/TERMINAL H",
@@ -186,14 +186,14 @@
             "pax_estimados": 500,
             "puerto": "Malta (Valetta)",
             "tipo": "llegada",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Malta",
             "imo": "9837420",
             "mmsi": "256070000",
             "fecha": "2026-02-13"
         },
         {
-            "hora": "07:48",
+            "hora": "07:30",
             "nombre": "Ciudad De Barcelona",
             "naviera": "TRASMED GLE S.L.",
             "terminal": "TERMINAL F2",
@@ -202,7 +202,7 @@
             "pax_estimados": 1000,
             "puerto": "Ibiza",
             "tipo": "llegada",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Espanya",
             "imo": "9506289",
             "mmsi": "225416000",
@@ -380,7 +380,7 @@
             "pax_estimados": 500,
             "puerto": "Marseille",
             "tipo": "salida",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Malta",
             "imo": "9837420",
             "mmsi": "256070000",
@@ -460,7 +460,7 @@
             "pax_estimados": 1000,
             "puerto": "Ibiza",
             "tipo": "salida",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Espanya",
             "imo": "9506289",
             "mmsi": "225416000",
@@ -504,23 +504,23 @@
         "total_llegadas": 15,
         "total_salidas": 16,
         "pax_estimados_hoy": 21000,
-        "proximo_desembarco": "18:30",
-        "proximo_barco": "Ciudad De Palma"
+        "proximo_desembarco": "06:00",
+        "proximo_barco": "Maersk Adriatic"
     },
     "terminales_activas": [
+        "6037",
+        "7946",
         "H",
         "6995",
-        "6212",
-        "8156",
-        "F1",
-        "6037",
-        "F2",
         "F3",
-        "7946"
+        "6212",
+        "F1",
+        "F2",
+        "8156"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-02-13T07:50:15.297714",
+        "actualizado": "2026-02-13T05:59:37.267050",
         "frecuencia": "horaria"
     }
 }
