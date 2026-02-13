@@ -65,6 +65,22 @@
             "fecha": "2026-02-13"
         },
         {
+            "hora": "01:45",
+            "nombre": "Msc Izmir F",
+            "naviera": "MEDITERRANEAN SHIPPING CO",
+            "terminal": "TERMINAL CATALUNYA SA",
+            "terminal_codigo": "6212",
+            "eslora": 0,
+            "pax_estimados": 500,
+            "puerto": "Alger (Algiers)",
+            "tipo": "llegada",
+            "estado": "Fondeig Previ",
+            "bandera": "Libèria",
+            "imo": "9127021",
+            "mmsi": "636017878",
+            "fecha": "2026-02-13"
+        },
+        {
             "hora": "06:00",
             "nombre": "Maersk Adriatic",
             "naviera": "SYNERGY DENMARK A/S",
@@ -129,7 +145,7 @@
             "fecha": "2026-02-13"
         },
         {
-            "hora": "07:15",
+            "hora": "07:09",
             "nombre": "Eco Valencia",
             "naviera": "GRIMALDI EUROMED SPA",
             "terminal": "GRIMALDI TERMINAL BARCELONA SL",
@@ -209,22 +225,6 @@
             "fecha": "2026-02-13"
         },
         {
-            "hora": "12:01",
-            "nombre": "Msc Izmir F",
-            "naviera": "MEDITERRANEAN SHIPPING CO",
-            "terminal": "TERMINAL CATALUNYA SA",
-            "terminal_codigo": "6212",
-            "eslora": 0,
-            "pax_estimados": 500,
-            "puerto": "Alger (Algiers)",
-            "tipo": "llegada",
-            "estado": "Fondeig Previ",
-            "bandera": "Libèria",
-            "imo": "9127021",
-            "mmsi": "636017878",
-            "fecha": "2026-02-13"
-        },
-        {
             "hora": "18:30",
             "nombre": "Ciudad De Palma",
             "naviera": "TRASMED GLE S.L.",
@@ -272,6 +272,38 @@
             "bandera": "Espanya",
             "imo": "9349772",
             "mmsi": "224588000",
+            "fecha": "2026-02-13"
+        },
+        {
+            "hora": "01:44",
+            "nombre": "Msc Izmir F",
+            "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
+            "terminal": "",
+            "terminal_codigo": "",
+            "eslora": 0,
+            "pax_estimados": 500,
+            "puerto": "Alger (Algiers)",
+            "tipo": "salida",
+            "estado": "Fondeig Previ",
+            "bandera": "Libèria",
+            "imo": "9127021",
+            "mmsi": "636017878",
+            "fecha": "2026-02-13"
+        },
+        {
+            "hora": "01:46",
+            "nombre": "Msc Izmir F",
+            "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
+            "terminal": "TERMINAL CATALUNYA SA",
+            "terminal_codigo": "6212",
+            "eslora": 0,
+            "pax_estimados": 500,
+            "puerto": "Alger (Algiers)",
+            "tipo": "salida",
+            "estado": "Fondeig Previ",
+            "bandera": "Libèria",
+            "imo": "9127021",
+            "mmsi": "636017878",
             "fecha": "2026-02-13"
         },
         {
@@ -352,22 +384,6 @@
             "bandera": "Illes Marshall",
             "imo": "9732931",
             "mmsi": "538009233",
-            "fecha": "2026-02-13"
-        },
-        {
-            "hora": "12:00",
-            "nombre": "Msc Izmir F",
-            "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
-            "terminal": "",
-            "terminal_codigo": "",
-            "eslora": 0,
-            "pax_estimados": 500,
-            "puerto": "Alger (Algiers)",
-            "tipo": "salida",
-            "estado": "Fondeig Previ",
-            "bandera": "Libèria",
-            "imo": "9127021",
-            "mmsi": "636017878",
             "fecha": "2026-02-13"
         },
         {
@@ -534,26 +550,26 @@
     "resumen": {
         "total_cruceros": 16,
         "total_llegadas": 16,
-        "total_salidas": 17,
+        "total_salidas": 18,
         "pax_estimados_hoy": 22000,
-        "proximo_desembarco": "12:01",
-        "proximo_barco": "Msc Izmir F"
+        "proximo_desembarco": "09:49",
+        "proximo_barco": "Ardmore Pursuit"
     },
     "terminales_activas": [
-        "8156",
         "F3",
-        "7946",
-        "6995",
-        "199896",
         "H",
         "F2",
+        "199896",
+        "F1",
         "6037",
+        "6995",
         "6212",
-        "F1"
+        "8156",
+        "7946"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-02-13T11:31:48.728652",
+        "actualizado": "2026-02-13T09:44:20.751192",
         "frecuencia": "horaria"
     }
 }
