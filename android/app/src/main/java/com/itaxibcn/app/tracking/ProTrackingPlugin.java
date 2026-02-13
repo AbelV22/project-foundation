@@ -33,7 +33,8 @@ public class ProTrackingPlugin extends Plugin {
         if (!deviceId.isEmpty()) editor.putString("device_id", deviceId);
         if (deviceName != null) editor.putString("device_name", deviceName);
         editor.apply();
-        
+
+        JSObject ret = new JSObject();
         ret.put("message", "Configuration saved");
         call.resolve(ret);
     }

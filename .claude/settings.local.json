@@ -7,7 +7,18 @@
       "Bash(npx cap add:*)",
       "Bash(npx cap:*)",
       "Bash(npx cap sync android)",
-      "Bash(git commit:*)"
+      "Bash(git commit:*)",
+      "Bash(git -C \"C:\\\\Users\\\\vazab\\\\proyectos\\\\project-foundation\" status)",
+      "Bash(git push)",
+      "Bash(git pull:*)",
+      "Bash(git -C \"C:\\\\Users\\\\vazab\\\\proyectos\\\\project-foundation\" diff public/eventos_bcn.json)",
+      "Bash(git stash:*)",
+      "Bash(git -C \"C:\\\\Users\\\\vazab\\\\proyectos\\\\project-foundation\" add public/eventos_bcn.json)",
+      "Bash(git -C \"C:\\\\Users\\\\vazab\\\\proyectos\\\\project-foundation\" commit -m \"$\\(cat <<''EOF''\nAñadir eventos del Gran Teatre del Liceu temporada 2025-2026\n\n44 funciones de ópera, ballet y conciertos:\n- La Gioconda \\(Ponchielli\\) - Feb/Mar\n- Manon Lescaut \\(Puccini\\) - Mar/Abr\n- Nijinsky \\(Hamburg Ballett\\) - Abr\n- Tristan und Isolde \\(Wagner\\) - May/Jun\n- Falstaff \\(Verdi\\) - Jul\n- Conciertos Mahler, Monteverdi, Galas\n\nCo-Authored-By: Claude Opus 4.5 <noreply@anthropic.com>\nEOF\n\\)\")",
+      "Bash(git -C \"C:\\\\Users\\\\vazab\\\\proyectos\\\\project-foundation\" push)",
+      "Bash(git rm:*)",
+      "Bash(npx tsc:*)",
+      "Bash(npx vite build:*)"
     ]
   }
 }

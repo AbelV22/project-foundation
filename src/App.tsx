@@ -195,10 +195,10 @@ const App = () => {
             className="fixed top-0 left-0 right-0 z-50 bg-red-500/90 text-white px-4 py-3 text-center cursor-pointer"
           >
             <p className="text-sm font-medium">
-              📍 Se requiere permiso de ubicación para el tracking
+              Se requiere permiso de ubicacion para el tracking
             </p>
             <p className="text-xs opacity-80">
-              Toca aquí para activar los permisos
+              Toca aqui para activar los permisos
             </p>
           </div>
         )}

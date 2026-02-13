@@ -55,12 +55,36 @@ const getIntensityLevel = (count: number, max: number): IntensityLevel => {
   return "low";
 };
 
-// Terminal colors
+// Terminal colors - all classes must be complete strings for Tailwind to detect them
 const terminalColors = {
-  t1: { bg: "bg-amber-500", text: "text-amber-500", badge: "bg-amber-500" },
-  t2: { bg: "bg-blue-500", text: "text-blue-500", badge: "bg-blue-500" },
-  puente: { bg: "bg-purple-500", text: "text-purple-500", badge: "bg-purple-500" },
-  t2c: { bg: "bg-orange-500", text: "text-orange-500", badge: "bg-orange-500" },
+  t1: {
+    bg: "bg-amber-500",
+    text: "text-amber-500",
+    badgeHigh: "bg-amber-500 text-white font-bold",
+    badgeMedium: "bg-amber-500 text-white font-semibold",
+    badgeLow: "bg-amber-500/40 text-amber-700 dark:text-amber-200 font-semibold",
+  },
+  t2: {
+    bg: "bg-blue-500",
+    text: "text-blue-500",
+    badgeHigh: "bg-blue-500 text-white font-bold",
+    badgeMedium: "bg-blue-500 text-white font-semibold",
+    badgeLow: "bg-blue-500/40 text-blue-700 dark:text-blue-200 font-semibold",
+  },
+  puente: {
+    bg: "bg-purple-500",
+    text: "text-purple-500",
+    badgeHigh: "bg-purple-500 text-white font-bold",
+    badgeMedium: "bg-purple-500 text-white font-semibold",
+    badgeLow: "bg-purple-500/40 text-purple-700 dark:text-purple-200 font-semibold",
+  },
+  t2c: {
+    bg: "bg-orange-500",
+    text: "text-orange-500",
+    badgeHigh: "bg-orange-500 text-white font-bold",
+    badgeMedium: "bg-orange-500 text-white font-semibold",
+    badgeLow: "bg-orange-500/40 text-orange-700 dark:text-orange-200 font-semibold",
+  },
 };
 
 export function FullDayView({ onBack, onTerminalClick }: FullDayViewProps) {
@@ -207,12 +231,11 @@ export function FullDayView({ onBack, onTerminalClick }: FullDayViewProps) {
     const colors = terminalColors[terminal];
     switch (intensity) {
       case "high":
-        return `${colors.badge} text-white font-bold`;
+        return colors.badgeHigh;
       case "medium":
-        return `${colors.badge}/80 text-white font-semibold`;
+        return colors.badgeMedium;
       case "low":
-        // Use dark text that works in both light and dark mode
-        return `${colors.badge}/30 text-foreground font-semibold`;
+        return colors.badgeLow;
       default:
         return "bg-transparent text-muted-foreground/30";
     }
@@ -382,7 +405,7 @@ export function FullDayView({ onBack, onTerminalClick }: FullDayViewProps) {
                 <div key={idx} className="flex items-center gap-2 bg-background/50 rounded-lg px-2 py-1.5">
                   <Clock className="h-3 w-3 text-purple-500" />
                   <span className="text-sm font-mono font-bold text-foreground">{flight.hora}</span>
-                  <span className="text-[10px] text-foreground/70 font-medium">{flight.vuelo}</span>
+                  <span className="text-[10px] text-muted-foreground truncate">{flight.origen?.split("(")[0]?.trim()}</span>
                 </div>
               ))}
             </div>
@@ -419,7 +442,6 @@ export function FullDayView({ onBack, onTerminalClick }: FullDayViewProps) {
                   )}>
                     {getTerminalType(flight) === "t1" ? "T1" : "T2"}
                   </span>
-                  <span className="text-[10px] text-foreground/70 font-mono">{flight.vuelo}</span>
                 </div>
               ))}
               {upcomingLongHaul.length > 6 && (
