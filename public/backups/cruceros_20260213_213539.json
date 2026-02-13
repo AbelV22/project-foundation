@@ -170,7 +170,7 @@
             "pax_estimados": 4500,
             "puerto": "Livorno",
             "tipo": "llegada",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Xipre",
             "imo": "9285990",
             "mmsi": "209550000",
@@ -241,7 +241,7 @@
             "fecha": "2026-02-13"
         },
         {
-            "hora": "20:24",
+            "hora": "19:00",
             "nombre": "Abel Matutes",
             "naviera": "EUROLINEAS MARITIMAS S.A",
             "terminal": "TERMINAL F1",
@@ -250,7 +250,7 @@
             "pax_estimados": 1000,
             "puerto": "Alcudia",
             "tipo": "llegada",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Espanya",
             "imo": "9441130",
             "mmsi": "224402000",
@@ -371,6 +371,22 @@
             "fecha": "2026-02-13"
         },
         {
+            "hora": "14:00",
+            "nombre": "America",
+            "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
+            "terminal": "TERMINAL CATALUNYA SA",
+            "terminal_codigo": "6212",
+            "eslora": 334.0,
+            "pax_estimados": 4500,
+            "puerto": "Valencia",
+            "tipo": "salida",
+            "estado": "Iniciada",
+            "bandera": "Xipre",
+            "imo": "9285990",
+            "mmsi": "209550000",
+            "fecha": "2026-02-13"
+        },
+        {
             "hora": "16:40",
             "nombre": "Henning Maersk",
             "naviera": "ALFASHIP MARITIME SERVICES SL ",
@@ -467,22 +483,6 @@
             "fecha": "2026-02-13"
         },
         {
-            "hora": "20:21",
-            "nombre": "America",
-            "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
-            "terminal": "TERMINAL CATALUNYA SA",
-            "terminal_codigo": "6212",
-            "eslora": 334.0,
-            "pax_estimados": 4500,
-            "puerto": "Valencia",
-            "tipo": "salida",
-            "estado": "Finalitzada",
-            "bandera": "Xipre",
-            "imo": "9285990",
-            "mmsi": "209550000",
-            "fecha": "2026-02-13"
-        },
-        {
             "hora": "21:30",
             "nombre": "Abel Matutes",
             "naviera": "BALEARIA EUROLINEAS MARITIMAS SA ",
@@ -492,7 +492,7 @@
             "pax_estimados": 1000,
             "puerto": "Alcudia",
             "tipo": "salida",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Espanya",
             "imo": "9441130",
             "mmsi": "224402000",
@@ -556,20 +556,20 @@
         "proximo_barco": null
     },
     "terminales_activas": [
-        "6037",
-        "F1",
-        "8156",
-        "F3",
-        "6995",
         "7946",
-        "F2",
         "H",
+        "F2",
+        "6995",
+        "6037",
+        "199896",
+        "F3",
         "6212",
-        "199896"
+        "F1",
+        "8156"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-02-13T21:35:39.617463",
+        "actualizado": "2026-02-13T19:42:05.102513",
         "frecuencia": "horaria"
     }
 }
