@@ -307,7 +307,6 @@ export function FlightsView() {
             filteredFlights.map((flight, idx) => {
               const termType = getTerminalType(flight);
               const termColor = terminalStats.find(t => t.id === termType)?.color || "#666";
-              const codigoPrincipal = flight.vuelo?.split("/")[0]?.trim() || flight.vuelo;
               const origenCorto = flight.origen?.split("(")[0]?.trim() || flight.origen;
               const paxEstimado = termType === 'puente' ? 150 : termType === 't2c' ? 180 : 200;
               
@@ -326,28 +325,28 @@ export function FlightsView() {
                     {/* Flight Info */}
                     <div className="flex-1 min-w-0">
                       <div className="flex items-center gap-2 md:gap-3 mb-1">
-                        <span className="font-semibold text-foreground">{codigoPrincipal}</span>
-                        <Badge 
+                        <span className="font-semibold text-foreground">{origenCorto}</span>
+                        <Badge
                           className={cn(
                             "text-xs",
-                            flight.estado?.toLowerCase().includes("aterriz") 
-                              ? "status-landing" 
+                            flight.estado?.toLowerCase().includes("aterriz")
+                              ? "status-landing"
                               : "status-ontime"
                           )}
                         >
                           {flight.estado || "Programado"}
                         </Badge>
-                        <span 
+                        <span
                           className="text-xs px-2 py-0.5 rounded font-medium"
-                          style={{ 
-                            backgroundColor: `${termColor}15`, 
+                          style={{
+                            backgroundColor: `${termColor}15`,
                             color: termColor,
                           }}
                         >
                           {termType === 'puente' ? 'P.Aéreo' : termType.toUpperCase()}
                         </span>
                       </div>
-                      <p className="text-sm text-muted-foreground truncate">{flight.aerolinea} • {origenCorto}</p>
+                      <p className="text-sm text-muted-foreground truncate">{flight.aerolinea}</p>
                     </div>
 
                     {/* Time */}

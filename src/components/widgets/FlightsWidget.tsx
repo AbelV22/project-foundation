@@ -25,7 +25,7 @@ export function FlightsWidget({
 }: FlightsWidgetProps) {
 
   // Si aún no han llegado los datos, mostramos un esqueleto o null
-  if (!kpis || !grafica) return <div className="card-dashboard p-10 animate-pulse bg-slate-900/50">Cargando Radar...</div>;
+  if (!kpis || !grafica) return <div className="card-dashboard p-10 animate-pulse bg-muted/50">Cargando Radar...</div>;
   // Preparamos los datos para el loop de tarjetas (igual que tu diseño original pero con datos reales)
   const terminals = [
     { id: "t1", name: "T1 General", arrivals: kpis.t1.vuelos, passengers: kpis.t1.pax, color: "#3B82F6" },
@@ -61,7 +61,7 @@ export function FlightsWidget({
           <div 
             key={terminal.id}
             onClick={() => onTerminalClick?.(terminal.id)}
-            className="text-center p-3 md:p-4 rounded-xl border border-border hover:border-blue-500/30 transition-all cursor-pointer hover:bg-slate-800/50 group"
+            className="text-center p-3 md:p-4 rounded-xl border border-border hover:border-blue-500/30 transition-all cursor-pointer hover:bg-accent/50 group"
           >
             <div className="flex items-center justify-center gap-1 md:gap-2 mb-2 md:mb-3 text-muted-foreground group-hover:text-foreground">
               <span className="font-medium text-xs md:text-sm uppercase tracking-wide">{terminal.name}</span>
@@ -90,9 +90,9 @@ export function FlightsWidget({
       </div>
 
       {/* 2. GRÁFICA DE EVOLUCIÓN (NUEVO) */}
-      <div className="h-48 w-full bg-slate-950/30 rounded-xl p-2 border border-slate-800/50">
+      <div className="h-48 w-full bg-muted/30 rounded-xl p-2 border border-border">
         <div className="flex justify-between items-center px-2 mb-2">
-            <span className="text-xs font-medium text-slate-500 uppercase">Curva de Demanda (Pax/Hora)</span>
+            <span className="text-xs font-medium text-muted-foreground uppercase">Curva de Demanda (Pax/Hora)</span>
         </div>
         <ResponsiveContainer width="100%" height="85%">
             <AreaChart data={grafica}>
@@ -102,10 +102,10 @@ export function FlightsWidget({
                         <stop offset="95%" stopColor="#f59e0b" stopOpacity={0}/>
                     </linearGradient>
                 </defs>
-                <CartesianGrid strokeDasharray="3 3" stroke="#334155" vertical={false} />
-                <XAxis dataKey="name" stroke="#64748b" tickLine={false} axisLine={false} fontSize={10} interval={3} />
-                <Tooltip 
-                    contentStyle={{ backgroundColor: '#0f172a', borderColor: '#334155', color: '#fff', fontSize: '12px' }} 
+                <CartesianGrid strokeDasharray="3 3" className="stroke-border" vertical={false} />
+                <XAxis dataKey="name" className="fill-muted-foreground" tickLine={false} axisLine={false} fontSize={10} interval={3} />
+                <Tooltip
+                    contentStyle={{ backgroundColor: 'hsl(var(--popover))', borderColor: 'hsl(var(--border))', color: 'hsl(var(--popover-foreground))', fontSize: '12px' }}
                     itemStyle={{ color: '#f59e0b' }}
                     labelStyle={{ display: 'none' }}
                     formatter={(value: number) => [`${value} pax`, 'Demanda']}
@@ -119,20 +119,20 @@ export function FlightsWidget({
       {!expanded && vuelos && (
         <div className="mt-4 pt-4 border-t border-border">
             <div className="flex justify-between items-center mb-3 px-1">
-                <span className="text-xs font-semibold text-slate-400 uppercase">Próximos Aterrizajes</span>
+                <span className="text-xs font-semibold text-muted-foreground uppercase">Próximos Aterrizajes</span>
                 <button onClick={onViewAllClick} className="text-xs text-blue-400 hover:text-blue-300 flex items-center gap-1">
                     Ver tabla completa <ArrowRight size={12} />
                 </button>
             </div>
             <div className="space-y-2">
                 {vuelos.slice(0, 3).map((vuelo, idx) => (
-                    <div key={idx} className="flex items-center justify-between text-sm p-2 hover:bg-slate-800/30 rounded-lg transition-colors">
+                    <div key={idx} className="flex items-center justify-between text-sm p-2 hover:bg-accent/30 rounded-lg transition-colors">
                         <div className="flex items-center gap-3">
                             <span className="font-mono text-yellow-500 font-bold">{vuelo.hora}</span>
                             <div>
-                                <div className="text-foreground font-medium">{vuelo.aerolinea}</div>
-                                <div className="text-xs text-slate-500 flex gap-1">
-                                    {vuelo.avion && <span>{vuelo.avion} •</span>} {vuelo.id}
+                                <div className="text-foreground font-medium">{vuelo.origen || vuelo.aerolinea}</div>
+                                <div className="text-xs text-muted-foreground">
+                                    {vuelo.aerolinea}
                                 </div>
                             </div>
                         </div>
