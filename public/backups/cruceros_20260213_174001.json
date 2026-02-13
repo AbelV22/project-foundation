@@ -177,6 +177,22 @@
             "fecha": "2026-02-13"
         },
         {
+            "hora": "09:01",
+            "nombre": "Henning Maersk",
+            "naviera": "MAERSK TANKERS HANDY",
+            "terminal": "",
+            "terminal_codigo": "",
+            "eslora": 180.0,
+            "pax_estimados": 1000,
+            "puerto": "Lavera",
+            "tipo": "llegada",
+            "estado": "Iniciada",
+            "bandera": "Dinamarca",
+            "imo": "9389526",
+            "mmsi": "219277000",
+            "fecha": "2026-02-13"
+        },
+        {
             "hora": "09:49",
             "nombre": "Ardmore Pursuit",
             "naviera": "Trust Company Complex",
@@ -206,22 +222,6 @@
             "bandera": "Libèria",
             "imo": "9127021",
             "mmsi": "636017878",
-            "fecha": "2026-02-13"
-        },
-        {
-            "hora": "16:41",
-            "nombre": "Henning Maersk",
-            "naviera": "MAERSK TANKERS HANDY",
-            "terminal": "",
-            "terminal_codigo": "",
-            "eslora": 180.0,
-            "pax_estimados": 1000,
-            "puerto": "Lavera",
-            "tipo": "llegada",
-            "estado": "Iniciada",
-            "bandera": "Dinamarca",
-            "imo": "9389526",
-            "mmsi": "219277000",
             "fecha": "2026-02-13"
         },
         {
@@ -288,6 +288,54 @@
             "bandera": "Dinamarca",
             "imo": "9636632",
             "mmsi": "219733000",
+            "fecha": "2026-02-13"
+        },
+        {
+            "hora": "09:00",
+            "nombre": "Henning Maersk",
+            "naviera": "ALFASHIP MARITIME SERVICES SL ",
+            "terminal": "MEROIL SA",
+            "terminal_codigo": "6995",
+            "eslora": 180.0,
+            "pax_estimados": 1000,
+            "puerto": "Huelva",
+            "tipo": "salida",
+            "estado": "Iniciada",
+            "bandera": "Dinamarca",
+            "imo": "9389526",
+            "mmsi": "219277000",
+            "fecha": "2026-02-13"
+        },
+        {
+            "hora": "09:00",
+            "nombre": "Henning Maersk",
+            "naviera": "ALFASHIP MARITIME SERVICES SL ",
+            "terminal": "TRADEBE PORT SERVICES SL",
+            "terminal_codigo": "7946",
+            "eslora": 180.0,
+            "pax_estimados": 1000,
+            "puerto": "Huelva",
+            "tipo": "salida",
+            "estado": "Iniciada",
+            "bandera": "Dinamarca",
+            "imo": "9389526",
+            "mmsi": "219277000",
+            "fecha": "2026-02-13"
+        },
+        {
+            "hora": "09:02",
+            "nombre": "Henning Maersk",
+            "naviera": "ALFASHIP MARITIME SERVICES SL ",
+            "terminal": "",
+            "terminal_codigo": "",
+            "eslora": 180.0,
+            "pax_estimados": 1000,
+            "puerto": "Huelva",
+            "tipo": "salida",
+            "estado": "Iniciada",
+            "bandera": "Dinamarca",
+            "imo": "9389526",
+            "mmsi": "219277000",
             "fecha": "2026-02-13"
         },
         {
@@ -384,54 +432,6 @@
             "bandera": "Xipre",
             "imo": "9285990",
             "mmsi": "209550000",
-            "fecha": "2026-02-13"
-        },
-        {
-            "hora": "16:40",
-            "nombre": "Henning Maersk",
-            "naviera": "ALFASHIP MARITIME SERVICES SL ",
-            "terminal": "MEROIL SA",
-            "terminal_codigo": "6995",
-            "eslora": 180.0,
-            "pax_estimados": 1000,
-            "puerto": "Huelva",
-            "tipo": "salida",
-            "estado": "Iniciada",
-            "bandera": "Dinamarca",
-            "imo": "9389526",
-            "mmsi": "219277000",
-            "fecha": "2026-02-13"
-        },
-        {
-            "hora": "16:40",
-            "nombre": "Henning Maersk",
-            "naviera": "ALFASHIP MARITIME SERVICES SL ",
-            "terminal": "TRADEBE PORT SERVICES SL",
-            "terminal_codigo": "7946",
-            "eslora": 180.0,
-            "pax_estimados": 1000,
-            "puerto": "Huelva",
-            "tipo": "salida",
-            "estado": "Iniciada",
-            "bandera": "Dinamarca",
-            "imo": "9389526",
-            "mmsi": "219277000",
-            "fecha": "2026-02-13"
-        },
-        {
-            "hora": "16:42",
-            "nombre": "Henning Maersk",
-            "naviera": "ALFASHIP MARITIME SERVICES SL ",
-            "terminal": "",
-            "terminal_codigo": "",
-            "eslora": 180.0,
-            "pax_estimados": 1000,
-            "puerto": "Huelva",
-            "tipo": "salida",
-            "estado": "Iniciada",
-            "bandera": "Dinamarca",
-            "imo": "9389526",
-            "mmsi": "219277000",
             "fecha": "2026-02-13"
         },
         {
@@ -556,20 +556,20 @@
         "proximo_barco": "Ciudad De Palma"
     },
     "terminales_activas": [
-        "8156",
-        "F2",
-        "6995",
-        "7946",
-        "6212",
-        "199896",
-        "F1",
         "F3",
+        "199896",
+        "7946",
         "H",
-        "6037"
+        "F1",
+        "F2",
+        "6037",
+        "8156",
+        "6212",
+        "6995"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-02-13T17:40:01.800482",
+        "actualizado": "2026-02-13T15:42:04.571559",
         "frecuencia": "horaria"
     }
 }
