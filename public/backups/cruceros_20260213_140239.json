@@ -58,7 +58,7 @@
             "pax_estimados": 500,
             "puerto": "Alger (Algiers)",
             "tipo": "llegada",
-            "estado": "Iniciada",
+            "estado": "Fondeig Previ",
             "bandera": "Libèria",
             "imo": "9127021",
             "mmsi": "636017878",
@@ -78,6 +78,22 @@
             "bandera": "Dinamarca",
             "imo": "9636632",
             "mmsi": "219733000",
+            "fecha": "2026-02-13"
+        },
+        {
+            "hora": "06:00",
+            "nombre": "Msc Aliya",
+            "naviera": "MEDITERRANEAN SHIPPING CO",
+            "terminal": "TERMINAL CATALUNYA SA",
+            "terminal_codigo": "6212",
+            "eslora": 0,
+            "pax_estimados": 500,
+            "puerto": "La Spezia",
+            "tipo": "llegada",
+            "estado": "Sol·licitada",
+            "bandera": "Libèria",
+            "imo": "9842097",
+            "mmsi": "636019215",
             "fecha": "2026-02-13"
         },
         {
@@ -193,7 +209,7 @@
             "fecha": "2026-02-13"
         },
         {
-            "hora": "12:49",
+            "hora": "12:01",
             "nombre": "Msc Izmir F",
             "naviera": "MEDITERRANEAN SHIPPING CO",
             "terminal": "TERMINAL CATALUNYA SA",
@@ -202,7 +218,7 @@
             "pax_estimados": 500,
             "puerto": "Alger (Algiers)",
             "tipo": "llegada",
-            "estado": "Iniciada",
+            "estado": "Fondeig Previ",
             "bandera": "Libèria",
             "imo": "9127021",
             "mmsi": "636017878",
@@ -339,23 +355,7 @@
             "fecha": "2026-02-13"
         },
         {
-            "hora": "11:56",
-            "nombre": "Msc Anzio Ii",
-            "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
-            "terminal": "TERMINAL CATALUNYA SA",
-            "terminal_codigo": "6212",
-            "eslora": 168.0,
-            "pax_estimados": 1000,
-            "puerto": "Bejaia (ex Bougie)",
-            "tipo": "salida",
-            "estado": "Finalitzada",
-            "bandera": "Libèria",
-            "imo": "9306237",
-            "mmsi": "636019221",
-            "fecha": "2026-02-13"
-        },
-        {
-            "hora": "12:48",
+            "hora": "12:00",
             "nombre": "Msc Izmir F",
             "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
             "terminal": "",
@@ -364,7 +364,7 @@
             "pax_estimados": 500,
             "puerto": "Alger (Algiers)",
             "tipo": "salida",
-            "estado": "Iniciada",
+            "estado": "Fondeig Previ",
             "bandera": "Libèria",
             "imo": "9127021",
             "mmsi": "636017878",
@@ -416,6 +416,22 @@
             "bandera": "Malta",
             "imo": "9837420",
             "mmsi": "256070000",
+            "fecha": "2026-02-13"
+        },
+        {
+            "hora": "20:00",
+            "nombre": "Msc Aliya",
+            "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
+            "terminal": "TERMINAL CATALUNYA SA",
+            "terminal_codigo": "6212",
+            "eslora": 0,
+            "pax_estimados": 500,
+            "puerto": "Valencia",
+            "tipo": "salida",
+            "estado": "Sol·licitada",
+            "bandera": "Libèria",
+            "imo": "9842097",
+            "mmsi": "636019215",
             "fecha": "2026-02-13"
         },
         {
@@ -517,27 +533,27 @@
     ],
     "resumen": {
         "total_cruceros": 16,
-        "total_llegadas": 15,
+        "total_llegadas": 16,
         "total_salidas": 17,
-        "pax_estimados_hoy": 21500,
-        "proximo_desembarco": "18:30",
-        "proximo_barco": "Ciudad De Palma"
+        "pax_estimados_hoy": 22000,
+        "proximo_desembarco": "12:01",
+        "proximo_barco": "Msc Izmir F"
     },
     "terminales_activas": [
+        "8156",
         "F3",
         "7946",
-        "F1",
-        "8156",
-        "6037",
-        "H",
         "6995",
+        "199896",
+        "H",
         "F2",
+        "6037",
         "6212",
-        "199896"
+        "F1"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-02-13T14:02:39.134542",
+        "actualizado": "2026-02-13T11:31:48.728652",
         "frecuencia": "horaria"
     }
 }
