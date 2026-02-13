@@ -1,38 +1,6 @@
 {
     "llegadas": [
         {
-            "hora": "00:32",
-            "nombre": "Msc Eloane",
-            "naviera": "MEDITERRANEAN SHIPPING CO",
-            "terminal": "TERMINAL CATALUNYA SA",
-            "terminal_codigo": "6212",
-            "eslora": 400.0,
-            "pax_estimados": 6500,
-            "puerto": "Valencia",
-            "tipo": "llegada",
-            "estado": "Iniciada",
-            "bandera": "Libèria",
-            "imo": "9755957",
-            "mmsi": "636017435",
-            "fecha": "2026-02-13"
-        },
-        {
-            "hora": "00:40",
-            "nombre": "Cruise Barcelona",
-            "naviera": "GRIMALDI EUROMED SPA",
-            "terminal": "TERMINAL F3",
-            "terminal_codigo": "F3",
-            "eslora": 0,
-            "pax_estimados": 500,
-            "puerto": "Civitavecchia",
-            "tipo": "llegada",
-            "estado": "Iniciada",
-            "bandera": "Itàlia",
-            "imo": "9351488",
-            "mmsi": "247243600",
-            "fecha": "2026-02-13"
-        },
-        {
             "hora": "01:00",
             "nombre": "America",
             "naviera": "MEDITERRANEAN SHIPPING CO",
@@ -50,6 +18,22 @@
         },
         {
             "hora": "01:00",
+            "nombre": "Msc Eloane",
+            "naviera": "MEDITERRANEAN SHIPPING CO",
+            "terminal": "TERMINAL CATALUNYA SA",
+            "terminal_codigo": "6212",
+            "eslora": 400.0,
+            "pax_estimados": 6500,
+            "puerto": "Valencia",
+            "tipo": "llegada",
+            "estado": "Autoritzada",
+            "bandera": "Libèria",
+            "imo": "9755957",
+            "mmsi": "636017435",
+            "fecha": "2026-02-13"
+        },
+        {
+            "hora": "01:00",
             "nombre": "Msc Meline",
             "naviera": "MEDITERRANEAN SHIPPING CO",
             "terminal": "TERMINAL CATALUNYA SA",
@@ -62,38 +46,6 @@
             "bandera": "Portugal",
             "imo": "9702077",
             "mmsi": "255806497",
-            "fecha": "2026-02-13"
-        },
-        {
-            "hora": "01:42",
-            "nombre": "Msc Izmir F",
-            "naviera": "MEDITERRANEAN SHIPPING CO",
-            "terminal": "",
-            "terminal_codigo": "",
-            "eslora": 0,
-            "pax_estimados": 500,
-            "puerto": "Alger (Algiers)",
-            "tipo": "llegada",
-            "estado": "Fondeig Previ",
-            "bandera": "Libèria",
-            "imo": "9127021",
-            "mmsi": "636017878",
-            "fecha": "2026-02-13"
-        },
-        {
-            "hora": "01:45",
-            "nombre": "Msc Izmir F",
-            "naviera": "MEDITERRANEAN SHIPPING CO",
-            "terminal": "TERMINAL CATALUNYA SA",
-            "terminal_codigo": "6212",
-            "eslora": 0,
-            "pax_estimados": 500,
-            "puerto": "Alger (Algiers)",
-            "tipo": "llegada",
-            "estado": "Fondeig Previ",
-            "bandera": "Libèria",
-            "imo": "9127021",
-            "mmsi": "636017878",
             "fecha": "2026-02-13"
         },
         {
@@ -242,54 +194,6 @@
         }
     ],
     "salidas": [
-        {
-            "hora": "00:04",
-            "nombre": "Ciudad De Palma",
-            "naviera": "GRIMALDI LOGISTICA ESPAÑA SL",
-            "terminal": "TERMINAL F2",
-            "terminal_codigo": "F2",
-            "eslora": 186.0,
-            "pax_estimados": 1000,
-            "puerto": "Palma de Mallorca",
-            "tipo": "salida",
-            "estado": "Finalitzada",
-            "bandera": "Espanya",
-            "imo": "9349772",
-            "mmsi": "224588000",
-            "fecha": "2026-02-13"
-        },
-        {
-            "hora": "01:44",
-            "nombre": "Msc Izmir F",
-            "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
-            "terminal": "",
-            "terminal_codigo": "",
-            "eslora": 0,
-            "pax_estimados": 500,
-            "puerto": "Alger (Algiers)",
-            "tipo": "salida",
-            "estado": "Fondeig Previ",
-            "bandera": "Libèria",
-            "imo": "9127021",
-            "mmsi": "636017878",
-            "fecha": "2026-02-13"
-        },
-        {
-            "hora": "01:46",
-            "nombre": "Msc Izmir F",
-            "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
-            "terminal": "TERMINAL CATALUNYA SA",
-            "terminal_codigo": "6212",
-            "eslora": 0,
-            "pax_estimados": 500,
-            "puerto": "Alger (Algiers)",
-            "tipo": "salida",
-            "estado": "Fondeig Previ",
-            "bandera": "Libèria",
-            "imo": "9127021",
-            "mmsi": "636017878",
-            "fecha": "2026-02-13"
-        },
         {
             "hora": "05:59",
             "nombre": "Maersk Adriatic",
@@ -492,7 +396,7 @@
             "pax_estimados": 500,
             "puerto": "Civitavecchia",
             "tipo": "salida",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Itàlia",
             "imo": "9351488",
             "mmsi": "247243600",
@@ -500,27 +404,27 @@
         }
     ],
     "resumen": {
-        "total_cruceros": 15,
-        "total_llegadas": 15,
-        "total_salidas": 16,
-        "pax_estimados_hoy": 21000,
-        "proximo_desembarco": "06:00",
-        "proximo_barco": "Maersk Adriatic"
+        "total_cruceros": 14,
+        "total_llegadas": 12,
+        "total_salidas": 13,
+        "pax_estimados_hoy": 19500,
+        "proximo_desembarco": null,
+        "proximo_barco": null
     },
     "terminales_activas": [
-        "6037",
         "7946",
-        "H",
-        "6995",
-        "F3",
-        "6212",
-        "F1",
         "F2",
-        "8156"
+        "6995",
+        "F1",
+        "8156",
+        "F3",
+        "6037",
+        "6212",
+        "H"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-02-13T05:59:37.267050",
+        "actualizado": "2026-02-12T23:29:37.691629",
         "frecuencia": "horaria"
     }
 }
