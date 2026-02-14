@@ -10,7 +10,7 @@
             "pax_estimados": 1000,
             "puerto": "Marseille",
             "tipo": "llegada",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Portugal",
             "imo": "1016587",
             "mmsi": "255915592",
@@ -259,7 +259,7 @@
             "fecha": "2026-02-14"
         },
         {
-            "hora": "17:21",
+            "hora": "17:00",
             "nombre": "Rachel Borchard",
             "naviera": "NOATUM MARITIME SPAIN SAU",
             "terminal": "APM TERMINALS BARCELONA, S.L.U.",
@@ -268,7 +268,7 @@
             "pax_estimados": 1000,
             "puerto": "Castellon de la Plana",
             "tipo": "salida",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Portugal",
             "imo": "1016587",
             "mmsi": "255915592",
@@ -317,17 +317,17 @@
     },
     "terminales_activas": [
         "H",
-        "F2",
-        "6037",
-        "F3",
         "TC",
-        "7083",
+        "6037",
         "8156",
-        "6212"
+        "F3",
+        "7083",
+        "6212",
+        "F2"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-02-14T17:26:31.643590",
+        "actualizado": "2026-02-14T15:25:57.105928",
         "frecuencia": "horaria"
     }
 }
