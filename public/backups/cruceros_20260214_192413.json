@@ -58,7 +58,7 @@
             "pax_estimados": 4500,
             "puerto": "Palma de Mallorca",
             "tipo": "llegada",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Panamà",
             "imo": "9359806",
             "mmsi": "357698000",
@@ -145,7 +145,7 @@
             "fecha": "2026-02-14"
         },
         {
-            "hora": "19:39",
+            "hora": "19:30",
             "nombre": "Ciudad De Palma",
             "naviera": "TRASMED GLE S.L.",
             "terminal": "TERMINAL F2",
@@ -154,7 +154,7 @@
             "pax_estimados": 1000,
             "puerto": "Palma de Mallorca",
             "tipo": "llegada",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Espanya",
             "imo": "9349772",
             "mmsi": "224588000",
@@ -275,7 +275,7 @@
             "fecha": "2026-02-14"
         },
         {
-            "hora": "18:24",
+            "hora": "18:00",
             "nombre": "Msc Splendida",
             "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
             "terminal": "ADOSSAT/TERMINAL H",
@@ -284,7 +284,7 @@
             "pax_estimados": 4500,
             "puerto": "Marseille",
             "tipo": "salida",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Panamà",
             "imo": "9359806",
             "mmsi": "357698000",
@@ -312,22 +312,22 @@
         "total_llegadas": 11,
         "total_salidas": 8,
         "pax_estimados_hoy": 26500,
-        "proximo_desembarco": "19:39",
-        "proximo_barco": "Ciudad De Palma"
+        "proximo_desembarco": "19:00",
+        "proximo_barco": "Abel Matutes"
     },
     "terminales_activas": [
         "H",
-        "F3",
-        "7083",
-        "TC",
-        "6212",
-        "6037",
         "F2",
-        "8156"
+        "6037",
+        "F3",
+        "TC",
+        "7083",
+        "8156",
+        "6212"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-02-14T19:24:13.050731",
+        "actualizado": "2026-02-14T17:26:31.643590",
         "frecuencia": "horaria"
     }
 }
