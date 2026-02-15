@@ -1,7 +1,7 @@
 {
     "llegadas": [
         {
-            "hora": "00:37",
+            "hora": "00:00",
             "nombre": "Msc Aliya",
             "naviera": "MEDITERRANEAN SHIPPING CO",
             "terminal": "TERMINAL CATALUNYA SA",
@@ -10,7 +10,7 @@
             "pax_estimados": 500,
             "puerto": "La Spezia",
             "tipo": "llegada",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Libèria",
             "imo": "9842097",
             "mmsi": "636019215",
@@ -264,21 +264,21 @@
         "total_llegadas": 7,
         "total_salidas": 9,
         "pax_estimados_hoy": 8000,
-        "proximo_desembarco": "06:00",
-        "proximo_barco": "Msc Oriane"
+        "proximo_desembarco": null,
+        "proximo_barco": null
     },
     "terminales_activas": [
-        "F3",
+        "8156",
+        "H",
         "F2",
+        "6212",
         "F1",
         "TC",
-        "8156",
-        "6212",
-        "H"
+        "F3"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-02-15T05:56:40.316192",
+        "actualizado": "2026-02-14T23:25:23.004945",
         "frecuencia": "horaria"
     }
 }
