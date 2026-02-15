@@ -42,7 +42,7 @@
             "pax_estimados": 2000,
             "puerto": "Savona",
             "tipo": "llegada",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Itàlia",
             "imo": "9859557",
             "mmsi": "247383500",
@@ -58,7 +58,7 @@
             "pax_estimados": 3000,
             "puerto": "Valencia",
             "tipo": "llegada",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Panamà",
             "imo": "9320099",
             "mmsi": "372497000",
@@ -195,7 +195,7 @@
             "fecha": "2026-02-15"
         },
         {
-            "hora": "17:49",
+            "hora": "14:00",
             "nombre": "Eco Livorno",
             "naviera": "GRIMALDI LOGISTICA ESPAÑA SL",
             "terminal": "GRIMALDI TERMINAL BARCELONA SL",
@@ -204,14 +204,14 @@
             "pax_estimados": 2000,
             "puerto": "Valencia",
             "tipo": "salida",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Itàlia",
             "imo": "9859557",
             "mmsi": "247383500",
             "fecha": "2026-02-15"
         },
         {
-            "hora": "18:18",
+            "hora": "18:00",
             "nombre": "Msc Orchestra",
             "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
             "terminal": "ADOSSAT/TERMINAL H",
@@ -220,7 +220,7 @@
             "pax_estimados": 3000,
             "puerto": "Marseille",
             "tipo": "salida",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Panamà",
             "imo": "9320099",
             "mmsi": "372497000",
@@ -316,18 +316,18 @@
         "proximo_barco": null
     },
     "terminales_activas": [
-        "199896",
-        "F2",
-        "F3",
-        "F1",
-        "TC",
         "6212",
         "H",
-        "8156"
+        "F1",
+        "TC",
+        "199896",
+        "F3",
+        "8156",
+        "F2"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-02-15T19:26:00.540263",
+        "actualizado": "2026-02-15T17:25:44.383474",
         "frecuencia": "horaria"
     }
 }
