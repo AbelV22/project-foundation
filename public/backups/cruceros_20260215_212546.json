@@ -90,10 +90,26 @@
             "pax_estimados": 3000,
             "puerto": "Genoa",
             "tipo": "llegada",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Israel",
             "imo": "9231808",
             "mmsi": "428002000",
+            "fecha": "2026-02-15"
+        },
+        {
+            "hora": "12:00",
+            "nombre": "Msc Ruth F",
+            "naviera": "MEDITERRANEAN SHIPPING CO",
+            "terminal": "TERMINAL CATALUNYA SA",
+            "terminal_codigo": "6212",
+            "eslora": 0,
+            "pax_estimados": 500,
+            "puerto": "Alger (Algiers)",
+            "tipo": "llegada",
+            "estado": "Autoritzada",
+            "bandera": "Libèria",
+            "imo": "9212034",
+            "mmsi": "636025361",
             "fecha": "2026-02-15"
         },
         {
@@ -110,22 +126,6 @@
             "bandera": "Espanya",
             "imo": "9349772",
             "mmsi": "224588000",
-            "fecha": "2026-02-15"
-        },
-        {
-            "hora": "21:29",
-            "nombre": "Msc Ruth F",
-            "naviera": "MEDITERRANEAN SHIPPING CO",
-            "terminal": "TERMINAL CATALUNYA SA",
-            "terminal_codigo": "6212",
-            "eslora": 0,
-            "pax_estimados": 500,
-            "puerto": "Alger (Algiers)",
-            "tipo": "llegada",
-            "estado": "Iniciada",
-            "bandera": "Libèria",
-            "imo": "9212034",
-            "mmsi": "636025361",
             "fecha": "2026-02-15"
         }
     ],
@@ -172,7 +172,7 @@
             "pax_estimados": 3000,
             "puerto": "Valencia",
             "tipo": "salida",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Israel",
             "imo": "9231808",
             "mmsi": "428002000",
@@ -228,6 +228,22 @@
         },
         {
             "hora": "20:00",
+            "nombre": "Zim Virginia",
+            "naviera": "A PEREZ Y CIA SL",
+            "terminal": "TERMINAL CATALUNYA SA",
+            "terminal_codigo": "6212",
+            "eslora": 294.0,
+            "pax_estimados": 3000,
+            "puerto": "Valencia",
+            "tipo": "salida",
+            "estado": "Iniciada",
+            "bandera": "Israel",
+            "imo": "9231808",
+            "mmsi": "428002000",
+            "fecha": "2026-02-15"
+        },
+        {
+            "hora": "20:00",
             "nombre": "Msc Oriane",
             "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
             "terminal": "TERMINAL CATALUNYA SA",
@@ -243,23 +259,7 @@
             "fecha": "2026-02-15"
         },
         {
-            "hora": "20:01",
-            "nombre": "Zim Virginia",
-            "naviera": "A PEREZ Y CIA SL",
-            "terminal": "TERMINAL CATALUNYA SA",
-            "terminal_codigo": "6212",
-            "eslora": 294.0,
-            "pax_estimados": 3000,
-            "puerto": "Valencia",
-            "tipo": "salida",
-            "estado": "Finalitzada",
-            "bandera": "Israel",
-            "imo": "9231808",
-            "mmsi": "428002000",
-            "fecha": "2026-02-15"
-        },
-        {
-            "hora": "21:38",
+            "hora": "21:30",
             "nombre": "Martin I Soler",
             "naviera": "BALEARIA EUROLINEAS MARITIMAS SA ",
             "terminal": "TERMINAL F1",
@@ -268,7 +268,7 @@
             "pax_estimados": 1000,
             "puerto": "Alcudia",
             "tipo": "salida",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Espanya",
             "imo": "9390367",
             "mmsi": "224637000",
@@ -312,22 +312,22 @@
         "total_llegadas": 8,
         "total_salidas": 11,
         "pax_estimados_hoy": 11000,
-        "proximo_desembarco": "21:29",
-        "proximo_barco": "Msc Ruth F"
+        "proximo_desembarco": null,
+        "proximo_barco": null
     },
     "terminales_activas": [
-        "TC",
-        "6212",
+        "199896",
+        "F2",
         "F3",
         "F1",
-        "F2",
-        "199896",
-        "8156",
-        "H"
+        "TC",
+        "6212",
+        "H",
+        "8156"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-02-15T21:25:46.057370",
+        "actualizado": "2026-02-15T19:26:00.540263",
         "frecuencia": "horaria"
     }
 }
