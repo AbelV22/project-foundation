@@ -97,6 +97,22 @@
             "fecha": "2026-02-15"
         },
         {
+            "hora": "11:59",
+            "nombre": "Ciudad De Palma",
+            "naviera": "TRASMED GLE S.L.",
+            "terminal": "TERMINAL F2",
+            "terminal_codigo": "F2",
+            "eslora": 186.0,
+            "pax_estimados": 1000,
+            "puerto": "Palma de Mallorca",
+            "tipo": "llegada",
+            "estado": "Iniciada",
+            "bandera": "Espanya",
+            "imo": "9349772",
+            "mmsi": "224588000",
+            "fecha": "2026-02-15"
+        },
+        {
             "hora": "12:00",
             "nombre": "Msc Ruth F",
             "naviera": "MEDITERRANEAN SHIPPING CO",
@@ -110,22 +126,6 @@
             "bandera": "Libèria",
             "imo": "9212034",
             "mmsi": "636025361",
-            "fecha": "2026-02-15"
-        },
-        {
-            "hora": "12:17",
-            "nombre": "Ciudad De Palma",
-            "naviera": "TRASMED GLE S.L.",
-            "terminal": "TERMINAL F2",
-            "terminal_codigo": "F2",
-            "eslora": 186.0,
-            "pax_estimados": 1000,
-            "puerto": "Palma de Mallorca",
-            "tipo": "llegada",
-            "estado": "Iniciada",
-            "bandera": "Espanya",
-            "imo": "9349772",
-            "mmsi": "224588000",
             "fecha": "2026-02-15"
         }
     ],
@@ -179,7 +179,7 @@
             "fecha": "2026-02-15"
         },
         {
-            "hora": "12:16",
+            "hora": "11:58",
             "nombre": "Ciudad De Palma",
             "naviera": "GRIMALDI LOGISTICA ESPAÑA SL",
             "terminal": "TERMINAL F2",
@@ -312,22 +312,22 @@
         "total_llegadas": 8,
         "total_salidas": 11,
         "pax_estimados_hoy": 11000,
-        "proximo_desembarco": null,
-        "proximo_barco": null
+        "proximo_desembarco": "11:48",
+        "proximo_barco": "Zim Virginia"
     },
     "terminales_activas": [
-        "TC",
         "199896",
         "F2",
         "8156",
-        "H",
+        "TC",
+        "F3",
         "6212",
         "F1",
-        "F3"
+        "H"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-02-15T13:46:04.299467",
+        "actualizado": "2026-02-15T11:23:25.825728",
         "frecuencia": "horaria"
     }
 }
