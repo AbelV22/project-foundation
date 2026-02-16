@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { cn } from "@/lib/utils";
 import { BottomNav } from "@/components/layout/BottomNav";
 import { Header } from "@/components/layout/Header";
 import { DashboardView } from "@/components/views/DashboardView";
@@ -125,7 +126,10 @@ const Index = () => {
       <main className="transition-all duration-300">
         <Header title={titles[activeTab]} />
 
-        <div className="p-4 md:p-6 pb-bottom-nav">
+        <div className={cn(
+          "pb-bottom-nav",
+          activeTab === "terminalDetail" ? "" : "p-4 md:p-6"
+        )}>
           {activeTab === "dashboard" && (
             <DashboardView
               onTerminalClick={handleTerminalClick}

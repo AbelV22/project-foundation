@@ -142,6 +142,9 @@ export function TerminalDetailView({ terminalId, onBack }: TerminalDetailViewPro
       .filter((v) => {
         const estado = v.estado?.toLowerCase() || "";
         if (estado.includes("finalizado")) return false;
+        // Future days are always upcoming
+        if (v.dia_relativo > 0) return true;
+        // Today: only show flights not yet landed (within 30 min past)
         const vueloMin = parseHora(v.hora);
         return vueloMin >= currentMinutes - 30;
       })
@@ -158,14 +161,14 @@ export function TerminalDetailView({ terminalId, onBack }: TerminalDetailViewPro
   if (loading) {
     return (
       <div className="flex flex-col h-full bg-background">
-        <div className="flex-shrink-0 px-5 pt-4 pb-3">
+        <div className="flex-shrink-0 px-3 md:px-4 pt-4 pb-3">
           <div className="flex items-center justify-between">
             <div className="h-10 w-10 rounded-xl bg-muted animate-pulse" />
             <div className="h-6 w-32 rounded-lg bg-muted animate-pulse" />
             <div className="h-8 w-20 rounded-full bg-muted animate-pulse" />
           </div>
         </div>
-        <div className="flex-1 px-5 space-y-4">
+        <div className="flex-1 px-3 md:px-4 space-y-4">
           <div className="flex gap-3">
             {[1, 2, 3].map(i => (
               <div key={i} className="flex-1 h-20 bg-muted rounded-2xl animate-pulse" />
@@ -184,7 +187,7 @@ export function TerminalDetailView({ terminalId, onBack }: TerminalDetailViewPro
 
   if (!terminal) {
     return (
-      <div className="flex flex-col h-full bg-background p-5">
+      <div className="flex flex-col h-full bg-background p-3 md:p-4">
         <button
           onClick={onBack}
           className="h-10 w-10 rounded-xl bg-muted/50 flex items-center justify-center mb-4"
@@ -199,7 +202,7 @@ export function TerminalDetailView({ terminalId, onBack }: TerminalDetailViewPro
   return (
     <div className="flex flex-col h-full bg-background">
       {/* Fixed Header */}
-      <div className="flex-shrink-0 px-5 pt-4 pb-3">
+      <div className="flex-shrink-0 px-3 md:px-4 pt-4 pb-3">
         <div className="flex items-center justify-between">
           {/* Back button */}
           <button
@@ -225,18 +228,18 @@ export function TerminalDetailView({ terminalId, onBack }: TerminalDetailViewPro
 
       {/* Scrollable Content */}
       <div className="flex-1 overflow-y-auto">
-        <div className="px-5 pb-28 space-y-4">
+        <div className="px-3 md:px-4 pb-28 space-y-4">
           {/* Stats Row */}
-          <div className="flex gap-3">
-            <div className="flex-1 p-4 rounded-2xl bg-card border border-border/50">
+          <div className="flex gap-2">
+            <div className="flex-1 p-3 rounded-2xl bg-card border border-border/50">
               <p className="text-2xl font-bold" style={{ color: terminal.color }}>{terminalFlights.length}</p>
               <p className="text-xs text-muted-foreground">Vuelos hoy</p>
             </div>
-            <div className="flex-1 p-4 rounded-2xl bg-card border border-border/50">
+            <div className="flex-1 p-3 rounded-2xl bg-card border border-border/50">
               <p className="text-2xl font-bold text-primary">{upcomingFlights.length}</p>
               <p className="text-xs text-muted-foreground">Pendientes</p>
             </div>
-            <div className="flex-1 p-4 rounded-2xl bg-card border border-border/50">
+            <div className="flex-1 p-3 rounded-2xl bg-card border border-border/50">
               {hasRealData && espera !== null ? (
                 <>
                   <p className="text-2xl font-bold text-amber-500">~{espera}'</p>
@@ -336,6 +339,7 @@ export function TerminalDetailView({ terminalId, onBack }: TerminalDetailViewPro
                   const origenCorto = flight.origen?.split("(")[0]?.trim() || flight.origen;
                   const isHighTicket = isLongHaul(flight.origen);
                   const [hour, minutes] = (flight.hora || "00:00").split(":");
+                  const isTomorrow = flight.dia_relativo > 0;
 
                   const getStatusStyle = () => {
                     const estado = flight.estado?.toLowerCase() || "";
@@ -364,7 +368,10 @@ export function TerminalDetailView({ terminalId, onBack }: TerminalDetailViewPro
                       )}
                     >
                       {/* Time block */}
-                      <div className="flex-shrink-0 w-16 text-center">
+                      <div className="flex-shrink-0 w-14 text-center">
+                        {isTomorrow && (
+                          <p className="text-[10px] font-semibold text-amber-500 mb-0.5">Mañana</p>
+                        )}
                         <p className="text-2xl font-bold leading-none">{hour}</p>
                         <p className="text-base font-semibold text-muted-foreground">{minutes}</p>
                       </div>
