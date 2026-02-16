@@ -74,7 +74,15 @@ public class LocationTrackingService extends Service {
         Log.d(TAG, "Service onStartCommand");
 
         // Start as foreground with notification
-        startForeground(NOTIFICATION_ID, createNotification());
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+            startForeground(
+                NOTIFICATION_ID, 
+                createNotification(), 
+                android.content.pm.ServiceInfo.FOREGROUND_SERVICE_TYPE_LOCATION
+            );
+        } else {
+            startForeground(NOTIFICATION_ID, createNotification());
+        }
 
         // Acquire WakeLock with timeout to prevent battery drain
         acquireWakeLockWithTimeout();
@@ -290,37 +298,56 @@ public class LocationTrackingService extends Service {
         
         client.getLastLocation()
             .addOnSuccessListener(location -> {
-                if (location != null) {
+                if (location != null && (System.currentTimeMillis() - location.getTime() < 30 * 1000)) {
+                    // Location is fresh (less than 30 seconds old)
                     String msg = String.format(
-                        "✅ ALARM UBICACIÓN: %.6f, %.6f (precisión: %.0fm, edad: %ds)",
+                        "✅ ALARM UBICACIÓN (CACHE): %.6f, %.6f (precisión: %.0fm, edad: %ds)",
                         location.getLatitude(),
                         location.getLongitude(),
                         location.getAccuracy(),
                         (System.currentTimeMillis() - location.getTime()) / 1000
                     );
                     Log.d(TAG, "📍 " + msg);
-                    // logDebugStatic(prefs, "alarm_location_success", msg); // REMOVED TO SAVE STORAGE
                     
                     // Send directly using API client
-                    LocationApiClient.sendLocation(
-                        prefs.getString("supabase_url", ""),
-                        prefs.getString("supabase_anon_key", ""),
-                        prefs.getString("device_id", ""),
-                        prefs.getString("device_name", null),
-                        location.getLatitude(),
-                        location.getLongitude(),
-                        location.getAccuracy(),
-                        prefs.getString("last_zona", null),
-                        null
-                    );
+                    sendLocationToSupabase(prefs, location);
                 } else {
-                    logDebugStatic(prefs, "alarm_location_null", "❌ ALARM ERROR: getLastLocation() devolvió null - GPS inactivo o sin fix");
+                    // Location is null or stale - Force fresh update
+                    Log.w(TAG, "⚠️ getLastLocation es null o antiguo. Solicitando ubicación fresca...");
+                    logDebugStatic(prefs, "alarm_forcing_update", "⚠️ Cache vacía o antigua. Forzando getCurrentLocation...");
+                    
+                    com.google.android.gms.tasks.CancellationTokenSource cts = new com.google.android.gms.tasks.CancellationTokenSource();
+                    
+                    client.getCurrentLocation(Priority.PRIORITY_HIGH_ACCURACY, cts.getToken())
+                        .addOnSuccessListener(freshLocation -> {
+                            if (freshLocation != null) {
+                                String msg = String.format(
+                                    "✅ ALARM UBICACIÓN (FRESCA): %.6f, %.6f (precisión: %.0fm)",
+                                    freshLocation.getLatitude(),
+                                    freshLocation.getLongitude(),
+                                    freshLocation.getAccuracy()
+                                );
+                                Log.d(TAG, "📍 " + msg);
+                                sendLocationToSupabase(prefs, freshLocation);
+                            } else {
+                                logDebugStatic(prefs, "alarm_location_fresh_null", "❌ ERROR CRÍTICO: getCurrentLocation() también devolvió null");
+                            }
+                        })
+                        .addOnFailureListener(e -> {
+                            String errorMsg = "❌ ALARM ERROR (Fresh): " + e.getMessage();
+                            Log.e(TAG, errorMsg);
+                            logDebugStatic(prefs, "alarm_fresh_error", errorMsg);
+                        });
                 }
             })
             .addOnFailureListener(e -> {
-                String errorMsg = "❌ ALARM ERROR: " + e.getClass().getSimpleName() + " - " + e.getMessage();
-                Log.e(TAG, errorMsg);
-                logDebugStatic(prefs, "alarm_location_error", errorMsg);
+                Log.e(TAG, "getLastLocation failed: " + e.getMessage());
+                // Try fresh location anyway on failure
+                com.google.android.gms.tasks.CancellationTokenSource cts = new com.google.android.gms.tasks.CancellationTokenSource();
+                client.getCurrentLocation(Priority.PRIORITY_HIGH_ACCURACY, cts.getToken())
+                     .addOnSuccessListener(freshLocation -> {
+                         if (freshLocation != null) sendLocationToSupabase(prefs, freshLocation);
+                     });
             });
         
         // Re-schedule alarm

@@ -30,7 +30,7 @@ public class AlarmReceiver extends BroadcastReceiver {
             PowerManager.PARTIAL_WAKE_LOCK,
             "iTaxiBcn:AlarmWakeLock"
         );
-        wl.acquire(10000); // 10 second timeout for location request
+        wl.acquire(30000); // 30 second timeout to allow for getCurrentLocation
         
         try {
             if (LocationTrackingService.isRunning || LocationTrackingService.isTrackingAllowed(context)) {

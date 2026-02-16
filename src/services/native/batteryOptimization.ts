@@ -1,21 +1,8 @@
-import { Capacitor, registerPlugin } from '@capacitor/core';
-
-/**
- * Battery Optimization Plugin Interface
- * Native plugin to check and request battery optimization exclusion
- */
-interface BatteryOptimizationPlugin {
-    isIgnoringBatteryOptimizations(): Promise<{ ignored: boolean }>;
-    requestIgnoreBatteryOptimizations(): Promise<{ success: boolean }>;
-    openBatterySettings(): Promise<void>;
-    acquireWakeLock(): Promise<{ success: boolean }>;
-    releaseWakeLock(): Promise<{ success: boolean }>;
-    acquireWifiLock(): Promise<{ success: boolean }>;
-    releaseWifiLock(): Promise<{ success: boolean }>;
-}
-
-// Register native plugin (will be implemented in Android)
-const BatteryOptimization = registerPlugin<BatteryOptimizationPlugin>('BatteryOptimization');
+import { Capacitor } from '@capacitor/core';
+import {
+    requestIgnoreBatteryOptimizations as proRequestIgnore,
+    isIgnoringBatteryOptimizations as proIsIgnoring
+} from './proTracking';
 
 /**
  * Check if app is excluded from battery optimization
@@ -26,14 +13,7 @@ export const isBatteryOptimizationIgnored = async (): Promise<boolean> => {
         return true; // On web, we don't need this
     }
 
-    try {
-        const result = await BatteryOptimization.isIgnoringBatteryOptimizations();
-        console.log('[BatteryOptimization] Is ignored:', result.ignored);
-        return result.ignored;
-    } catch (error) {
-        console.error('[BatteryOptimization] Error checking status:', error);
-        return false;
-    }
+    return await proIsIgnoring();
 };
 
 /**
@@ -45,102 +25,50 @@ export const requestIgnoreBatteryOptimization = async (): Promise<boolean> => {
         return true;
     }
 
-    try {
-        const result = await BatteryOptimization.requestIgnoreBatteryOptimizations();
-        console.log('[BatteryOptimization] Request result:', result.success);
-        return result.success;
-    } catch (error) {
-        console.error('[BatteryOptimization] Error requesting:', error);
-        return false;
-    }
+    return await proRequestIgnore();
 };
 
 /**
  * Open battery settings for manual configuration
  */
 export const openBatterySettings = async (): Promise<void> => {
-    if (!Capacitor.isNativePlatform()) {
-        return;
-    }
-
-    try {
-        await BatteryOptimization.openBatterySettings();
-    } catch (error) {
-        console.error('[BatteryOptimization] Error opening settings:', error);
-    }
+    // ProTracking doesn't support opening generic settings yet, 
+    // but the requestIgnore request handles the dialog flow.
+    // For now we can leave this empty or implement a specific intent in ProTracking if needed later.
+    console.warn('[BatteryOptimization] openBatterySettings not implemented in ProTracking yet');
 };
 
 /**
  * Acquire a PARTIAL_WAKE_LOCK to keep CPU running
  */
 export const acquireWakeLock = async (): Promise<boolean> => {
-    if (!Capacitor.isNativePlatform()) {
-        return true;
-    }
-
-    try {
-        const result = await BatteryOptimization.acquireWakeLock();
-        console.log('[BatteryOptimization] WakeLock acquired:', result.success);
-        return result.success;
-    } catch (error) {
-        console.error('[BatteryOptimization] Error acquiring WakeLock:', error);
-        return false;
-    }
+    // WakeLock is handled internally by LocationTrackingService now
+    return true;
 };
 
 /**
  * Release the WakeLock
  */
 export const releaseWakeLock = async (): Promise<boolean> => {
-    if (!Capacitor.isNativePlatform()) {
-        return true;
-    }
-
-    try {
-        const result = await BatteryOptimization.releaseWakeLock();
-        console.log('[BatteryOptimization] WakeLock released:', result.success);
-        return result.success;
-    } catch (error) {
-        console.error('[BatteryOptimization] Error releasing WakeLock:', error);
-        return false;
-    }
+    // WakeLock is handled internally by LocationTrackingService now
+    return true;
 };
 
 /**
  * Acquire WiFi lock to keep network connection active
  */
 export const acquireWifiLock = async (): Promise<boolean> => {
-    if (!Capacitor.isNativePlatform()) {
-        return true;
-    }
-
-    try {
-        const result = await BatteryOptimization.acquireWifiLock();
-        console.log('[BatteryOptimization] WifiLock acquired:', result.success);
-        return result.success;
-    } catch (error) {
-        console.error('[BatteryOptimization] Error acquiring WifiLock:', error);
-        return false;
-    }
+    // Not critical for now
+    return true;
 };
 
 /**
  * Release WiFi lock
  */
 export const releaseWifiLock = async (): Promise<boolean> => {
-    if (!Capacitor.isNativePlatform()) {
-        return true;
-    }
-
-    try {
-        const result = await BatteryOptimization.releaseWifiLock();
-        console.log('[BatteryOptimization] WifiLock released:', result.success);
-        return result.success;
-    } catch (error) {
-        console.error('[BatteryOptimization] Error releasing WifiLock:', error);
-        return false;
-    }
+    return true;
 };
+
 
 /**
  * Show a dialog explaining why battery optimization exclusion is needed

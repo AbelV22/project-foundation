@@ -28,6 +28,10 @@ interface ProTrackingPlugin {
         enabled: boolean;
         trackingEnabled: boolean;
     }): Promise<{ success: boolean }>;
+
+    requestIgnoreBatteryOptimizations(): Promise<{ success: boolean; message: string }>;
+
+    isIgnoringBatteryOptimizations(): Promise<{ ignored: boolean }>;
 }
 
 const ProTracking = registerPlugin<ProTrackingPlugin>('ProTracking');
@@ -163,6 +167,42 @@ export const setProSchedule = async (
         return result.success;
     } catch (e) {
         console.error('[ProTracking] Schedule error:', e);
+        return false;
+    }
+};
+
+/**
+ * Request to ignore battery optimizations
+ */
+export const requestIgnoreBatteryOptimizations = async (): Promise<boolean> => {
+    if (!Capacitor.isNativePlatform()) {
+        return true;
+    }
+
+    try {
+        const result = await ProTracking.requestIgnoreBatteryOptimizations();
+        console.log('[ProTracking] Request Battery Opt:', result);
+        return result.success;
+    } catch (e) {
+        console.error('[ProTracking] Request Battery Opt error:', e);
+        return false;
+    }
+};
+
+/**
+ * Check if battery optimizations are ignored
+ */
+export const isIgnoringBatteryOptimizations = async (): Promise<boolean> => {
+    if (!Capacitor.isNativePlatform()) {
+        return true;
+    }
+
+    try {
+        const result = await ProTracking.isIgnoringBatteryOptimizations();
+        console.log('[ProTracking] Is Ignoring Battery Opt:', result.ignored);
+        return result.ignored;
+    } catch (e) {
+        console.error('[ProTracking] Check Battery Opt error:', e);
         return false;
     }
 };

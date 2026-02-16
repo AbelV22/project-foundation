@@ -130,4 +130,47 @@ public class ProTrackingPlugin extends Plugin {
         }
         call.resolve(ret);
     }
+
+    @PluginMethod
+    public void requestIgnoreBatteryOptimizations(PluginCall call) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            Intent intent = new Intent();
+            String packageName = getContext().getPackageName();
+            android.os.PowerManager pm = (android.os.PowerManager) getContext().getSystemService(Context.POWER_SERVICE);
+            if (!pm.isIgnoringBatteryOptimizations(packageName)) {
+                intent.setAction(android.provider.Settings.ACTION_REQUEST_IGNORE_BATTERY_OPTIMIZATIONS);
+                intent.setData(android.net.Uri.parse("package:" + packageName));
+                getContext().startActivity(intent);
+                
+                JSObject ret = new JSObject();
+                ret.put("success", true);
+                ret.put("message", "Request sent");
+                call.resolve(ret);
+            } else {
+                JSObject ret = new JSObject();
+                ret.put("success", true);
+                ret.put("message", "Already ignored");
+                call.resolve(ret);
+            }
+        } else {
+            JSObject ret = new JSObject();
+            ret.put("success", true);
+            ret.put("message", "Not needed");
+            call.resolve(ret);
+        }
+    }
+
+    @PluginMethod
+    public void isIgnoringBatteryOptimizations(PluginCall call) {
+        boolean isIgnoring = true;
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            String packageName = getContext().getPackageName();
+            android.os.PowerManager pm = (android.os.PowerManager) getContext().getSystemService(Context.POWER_SERVICE);
+            isIgnoring = pm.isIgnoringBatteryOptimizations(packageName);
+        }
+        
+        JSObject ret = new JSObject();
+        ret.put("ignored", isIgnoring);
+        call.resolve(ret);
+    }
 }
