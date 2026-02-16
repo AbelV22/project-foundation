@@ -29,6 +29,12 @@ interface ProTrackingPlugin {
         trackingEnabled: boolean;
     }): Promise<{ success: boolean }>;
 
+    requestLocationPermission(): Promise<{ granted: boolean }>;
+
+    requestBackgroundPermission(): Promise<{ granted: boolean; error?: string }>;
+
+    checkPermissions(): Promise<{ foreground: boolean; background: boolean }>;
+
     requestIgnoreBatteryOptimizations(): Promise<{ success: boolean; message: string }>;
 
     isIgnoringBatteryOptimizations(): Promise<{ ignored: boolean }>;
@@ -63,6 +69,75 @@ export const configureProTracking = async (
         console.error('[ProTracking] Config error:', e);
         return false;
     }
+};
+
+/**
+ * Request foreground location permission via native plugin.
+ * Returns true if ACCESS_FINE_LOCATION is granted.
+ */
+export const requestForegroundPermission = async (): Promise<boolean> => {
+    if (!Capacitor.isNativePlatform()) return true;
+
+    try {
+        const result = await ProTracking.requestLocationPermission();
+        console.log('[ProTracking] Foreground permission:', result.granted);
+        return result.granted;
+    } catch (e) {
+        console.error('[ProTracking] Foreground permission error:', e);
+        return false;
+    }
+};
+
+/**
+ * Request background location permission via native plugin.
+ * MUST be called AFTER foreground permission is granted.
+ * On Android 10+ this shows the "Allow all the time" dialog.
+ */
+export const requestBackgroundPermission = async (): Promise<boolean> => {
+    if (!Capacitor.isNativePlatform()) return true;
+
+    try {
+        const result = await ProTracking.requestBackgroundPermission();
+        console.log('[ProTracking] Background permission:', result.granted);
+        return result.granted;
+    } catch (e) {
+        console.error('[ProTracking] Background permission error:', e);
+        return false;
+    }
+};
+
+/**
+ * Check current permission status for both foreground and background.
+ */
+export const checkProPermissions = async (): Promise<{ foreground: boolean; background: boolean }> => {
+    if (!Capacitor.isNativePlatform()) return { foreground: true, background: true };
+
+    try {
+        return await ProTracking.checkPermissions();
+    } catch (e) {
+        console.error('[ProTracking] Check permissions error:', e);
+        return { foreground: false, background: false };
+    }
+};
+
+/**
+ * Request ALL location permissions in the correct order:
+ * 1. Foreground (ACCESS_FINE_LOCATION) - "While using the app"
+ * 2. Background (ACCESS_BACKGROUND_LOCATION) - "Allow all the time"
+ */
+export const requestAllLocationPermissions = async (): Promise<{ foreground: boolean; background: boolean }> => {
+    // Step 1: Request foreground permission
+    const foreground = await requestForegroundPermission();
+    if (!foreground) {
+        console.warn('[ProTracking] Foreground permission denied, cannot request background');
+        return { foreground: false, background: false };
+    }
+
+    // Step 2: Request background permission (requires foreground first)
+    const background = await requestBackgroundPermission();
+
+    console.log(`[ProTracking] Permissions: foreground=${foreground}, background=${background}`);
+    return { foreground, background };
 };
 
 /**

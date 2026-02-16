@@ -9,14 +9,18 @@ import { App as CapacitorApp } from "@capacitor/app";
 import { StatusBar, Style } from "@capacitor/status-bar";
 import { SplashScreen } from "@capacitor/splash-screen";
 import { startAutoTracking, initTestingMode } from "./services/location/AutoLocationService";
-import { requestLocationPermission, checkLocationPermission } from "./services/native/geolocation";
 import { getOrCreateDeviceId, registerDevice } from "@/lib/deviceId";
 import {
   initBackgroundGeolocation,
   shouldRestoreBackgroundTracking,
   isNativePlatform
 } from "./services/native/backgroundGeolocation";
-import { configureProTracking, startProTracking, isProTrackingActive } from "./services/native/proTracking";
+import {
+  configureProTracking,
+  startProTracking,
+  isProTrackingActive,
+  requestAllLocationPermissions
+} from "./services/native/proTracking";
 import { ensureBatteryOptimizationExcluded } from "./services/native/batteryOptimization";
 import { ErrorBoundary } from "./components/ErrorBoundary";
 import Index from "./pages/Index";
@@ -55,21 +59,20 @@ const initializeNative = async (setPermissionDenied: (denied: boolean) => void) 
     // Hide splash screen after app is ready
     await SplashScreen.hide();
 
-    // Request location permission explicitly
-    console.log('[App] Requesting location permission...');
-    const hasPermission = await requestLocationPermission();
+    // Request location permissions via native plugin (foreground + background)
+    console.log('[App] Requesting location permissions (foreground + background)...');
+    const permissions = await requestAllLocationPermissions();
 
-    if (!hasPermission) {
-      console.warn('[App] Location permission denied');
+    if (!permissions.foreground) {
+      console.warn('[App] Foreground location permission denied');
       setPermissionDenied(true);
-      const currentStatus = await checkLocationPermission();
-      if (!currentStatus) {
-        console.log('[App] Permission not granted, will retry on user action');
-      }
       return;
     }
 
-    console.log('[App] Location permission granted');
+    console.log(`[App] Permissions: foreground=${permissions.foreground}, background=${permissions.background}`);
+    if (!permissions.background) {
+      console.warn('[App] Background location denied - tracking may not work in background');
+    }
 
     // ALWAYS start tracking on native platform (no admin action required)
     // User just needs to install the APK and grant location permission
@@ -178,12 +181,10 @@ const App = () => {
   };
 
   const handleRetryPermission = async () => {
-    const hasPermission = await requestLocationPermission();
-    if (hasPermission) {
+    const permissions = await requestAllLocationPermissions();
+    if (permissions.foreground) {
       setPermissionDenied(false);
-      startAutoTracking((zona) => {
-        console.log('[App] Zone changed to:', zona);
-      });
+      initializeNative(setPermissionDenied);
     }
   };
 
