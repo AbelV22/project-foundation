@@ -17,6 +17,7 @@ import {
   isNativePlatform
 } from "./services/native/backgroundGeolocation";
 import { configureProTracking, startProTracking, isProTrackingActive } from "./services/native/proTracking";
+import { ensureBatteryOptimizationExcluded } from "./services/native/batteryOptimization";
 import { ErrorBoundary } from "./components/ErrorBoundary";
 import Index from "./pages/Index";
 import Admin from "./pages/Admin";
@@ -98,6 +99,13 @@ const initializeNative = async (setPermissionDenied: (denied: boolean) => void) 
 
         if (started) {
           console.log('[App] ✅ PRO tracking active (ForegroundService + AlarmManager)');
+
+          // Request battery optimization exclusion (critical for Play Store builds)
+          try {
+            await ensureBatteryOptimizationExcluded();
+          } catch (e) {
+            console.warn('[App] Battery optimization request failed:', e);
+          }
         } else {
           console.log('[App] ⚠️ PRO tracking failed to start, falling back to old method');
           await initBackgroundGeolocation();

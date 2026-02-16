@@ -30,39 +30,40 @@ import com.google.android.gms.location.Priority;
 
 /**
  * Professional-grade Foreground Service for location tracking.
- * Uses FusedLocationProviderClient with PendingIntent for robust background operation.
+ * Uses FusedLocationProviderClient for high-accuracy updates.
  * Implements AlarmManager.setExactAndAllowWhileIdle for Doze mode resistance.
+ * Self-resurrects via onTaskRemoved and AlarmReceiver.
  */
 public class LocationTrackingService extends Service {
-    
+
     private static final String TAG = "LocationTrackingService";
     public static final String CHANNEL_ID = "location_tracking_channel";
     public static final int NOTIFICATION_ID = 9001;
     public static final int LOCATION_REQUEST_CODE = 9002;
     public static final int ALARM_REQUEST_CODE = 9003;
-    
-    public static final long INTERVAL_MS = 60 * 1000; // 60 seconds (1 minute)
+
+    public static final long INTERVAL_MS = 60 * 1000; // 60 seconds
     public static final long FASTEST_INTERVAL_MS = 30 * 1000;
-    
+
     public static volatile boolean isRunning = false;
-    
+
     private FusedLocationProviderClient fusedLocationClient;
     private LocationCallback locationCallback;
     private PowerManager.WakeLock wakeLock;
     private AlarmManager alarmManager;
-    
+
     @Override
     public void onCreate() {
         super.onCreate();
         Log.d(TAG, "Service onCreate");
-        
+
         fusedLocationClient = LocationServices.getFusedLocationProviderClient(this);
         alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
-        
+
         // Acquire partial WakeLock
         PowerManager pm = (PowerManager) getSystemService(Context.POWER_SERVICE);
         wakeLock = pm.newWakeLock(PowerManager.PARTIAL_WAKE_LOCK, "iTaxiBcn:LocationWakeLock");
-        
+
         // Initialize offline queue for network failures
         LocationApiClient.initOfflineQueue(this);
 
@@ -76,8 +77,8 @@ public class LocationTrackingService extends Service {
         // Start as foreground with notification
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
             startForeground(
-                NOTIFICATION_ID, 
-                createNotification(), 
+                NOTIFICATION_ID,
+                createNotification(),
                 android.content.pm.ServiceInfo.FOREGROUND_SERVICE_TYPE_LOCATION
             );
         } else {
@@ -90,7 +91,7 @@ public class LocationTrackingService extends Service {
         // Start location updates
         startLocationUpdates();
 
-        // Schedule Doze-resistant alarm
+        // Schedule Doze-resistant alarm (also serves as resurrection mechanism)
         scheduleExactAlarm();
 
         isRunning = true;
@@ -101,6 +102,23 @@ public class LocationTrackingService extends Service {
         logDebug("service_started", "Location tracking service started");
 
         return START_STICKY;
+    }
+
+    /**
+     * Called when user swipes app from recents.
+     * Re-schedule alarm to resurrect the service.
+     */
+    @Override
+    public void onTaskRemoved(Intent rootIntent) {
+        Log.w(TAG, "Task removed (app swiped from recents) - scheduling resurrection alarm");
+
+        // Re-schedule alarm so AlarmReceiver can restart us
+        scheduleExactAlarm();
+
+        // Log the event
+        logDebug("task_removed", "App cerrada de recientes - alarm programada para resurrección");
+
+        super.onTaskRemoved(rootIntent);
     }
 
     /**
@@ -122,7 +140,7 @@ public class LocationTrackingService extends Service {
             Log.d(TAG, "WakeLock reacquired briefly");
         }
     }
-    
+
     /**
      * Start location updates using LocationCallback.
      * We use callback here because it's simpler and the ForegroundService keeps us alive.
@@ -130,28 +148,28 @@ public class LocationTrackingService extends Service {
      */
     private void startLocationUpdates() {
         if (!isTrackingAllowed()) {
-            Log.d(TAG, "⛔ Tracking paused (Schedule or Manual Stop)");
+            Log.d(TAG, "Tracking paused (Schedule or Manual Stop)");
             logDebug("tracking_paused", "Tracking en pausa por horario o interruptor manual");
-            stopSelf(); // Stop service to save battery
+            stopSelf();
             return;
         }
 
-        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) 
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION)
                 != PackageManager.PERMISSION_GRANTED) {
             Log.e(TAG, "No location permission!");
-            logDebug("error_no_permission", "❌ ERROR: No tiene permiso ACCESS_FINE_LOCATION");
+            logDebug("error_no_permission", "ERROR: No tiene permiso ACCESS_FINE_LOCATION");
             return;
         }
-        
+
         // Check background location permission for Android 10+
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
-            if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_BACKGROUND_LOCATION) 
+            if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_BACKGROUND_LOCATION)
                     != PackageManager.PERMISSION_GRANTED) {
                 Log.w(TAG, "No background location permission!");
-                logDebug("warning_no_background", "⚠️ AVISO: No tiene permiso ACCESS_BACKGROUND_LOCATION (Android 10+)");
+                logDebug("warning_no_background", "AVISO: No tiene permiso ACCESS_BACKGROUND_LOCATION (Android 10+)");
             }
         }
-        
+
         LocationRequest locationRequest = new LocationRequest.Builder(
             Priority.PRIORITY_HIGH_ACCURACY,
             INTERVAL_MS
@@ -159,7 +177,7 @@ public class LocationTrackingService extends Service {
         .setMinUpdateIntervalMillis(FASTEST_INTERVAL_MS)
         .setWaitForAccurateLocation(false)
         .build();
-        
+
         locationCallback = new LocationCallback() {
             @Override
             public void onLocationResult(LocationResult locationResult) {
@@ -168,56 +186,52 @@ public class LocationTrackingService extends Service {
 
                 if (locationResult == null) {
                     Log.w(TAG, "Location result is null");
-                    logDebug("location_null", "❌ ERROR: LocationResult es null - GPS puede estar desactivado");
+                    logDebug("location_null", "ERROR: LocationResult es null - GPS puede estar desactivado");
                     return;
                 }
 
                 android.location.Location location = locationResult.getLastLocation();
                 if (location != null) {
-                    String msg = String.format(
-                        "✅ UBICACIÓN OK: %.6f, %.6f (precisión: %.0fm)",
+                    Log.d(TAG, String.format(
+                        "Location OK: %.6f, %.6f (accuracy: %.0fm)",
                         location.getLatitude(),
                         location.getLongitude(),
                         location.getAccuracy()
-                    );
-                    Log.d(TAG, "📍 " + msg);
-                    // logDebug("location_success", msg); // REMOVED TO SAVE STORAGE
+                    ));
                     processLocation(location);
-                } else {
-                    // logDebug("location_empty", "❌ ERROR: getLastLocation() devolvió null"); // Only log real errors
                 }
             }
         };
-        
+
         fusedLocationClient.requestLocationUpdates(
             locationRequest,
             locationCallback,
             Looper.getMainLooper()
         );
-        
-        Log.d(TAG, "✅ Location updates started");
+
+        Log.d(TAG, "Location updates started");
         logDebug("location_updates_started", "Servicio iniciado - esperando primera ubicación...");
     }
-    
+
     /**
      * Schedule exact alarm that survives Doze mode.
-     * This is the "nuclear option" for guaranteed 30-second updates.
+     * Also serves as resurrection mechanism if service is killed.
      */
     private void scheduleExactAlarm() {
         Intent intent = new Intent(this, AlarmReceiver.class);
         intent.setAction(AlarmReceiver.ACTION_LOCATION_ALARM);
-        
+
         int flags = PendingIntent.FLAG_UPDATE_CURRENT;
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
             flags |= PendingIntent.FLAG_MUTABLE;
         }
-        
+
         PendingIntent alarmIntent = PendingIntent.getBroadcast(
             this, ALARM_REQUEST_CODE, intent, flags
         );
-        
+
         long triggerTime = System.currentTimeMillis() + INTERVAL_MS;
-        
+
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             alarmManager.setExactAndAllowWhileIdle(
                 AlarmManager.RTC_WAKEUP,
@@ -227,10 +241,10 @@ public class LocationTrackingService extends Service {
         } else {
             alarmManager.setExact(AlarmManager.RTC_WAKEUP, triggerTime, alarmIntent);
         }
-        
-        Log.d(TAG, "✅ Exact alarm scheduled for Doze mode");
+
+        Log.d(TAG, "Exact alarm scheduled for Doze mode");
     }
-    
+
     /**
      * Process a location update - send to Supabase
      */
@@ -241,19 +255,19 @@ public class LocationTrackingService extends Service {
         String deviceId = prefs.getString("device_id", "");
         String deviceName = prefs.getString("device_name", null);
         String previousZona = prefs.getString("last_zona", null);
-        
+
         if (supabaseUrl.isEmpty() || deviceId.isEmpty()) {
             Log.w(TAG, "Supabase not configured or device ID missing");
             return;
         }
-        
+
         // Save last position
         prefs.edit()
             .putFloat("last_lat", (float) location.getLatitude())
             .putFloat("last_lng", (float) location.getLongitude())
             .putLong("last_update", System.currentTimeMillis())
             .apply();
-        
+
         // Send to Supabase asynchronously
         LocationApiClient.sendLocation(
             supabaseUrl,
@@ -272,71 +286,83 @@ public class LocationTrackingService extends Service {
             }
         );
     }
-    
+
     /**
-     * Force location check (called by AlarmReceiver)
+     * Force location check (called by AlarmReceiver).
+     * Also resurrects the service if it was killed by the system.
      */
     public static void forceLocationCheck(Context context) {
-        Log.d(TAG, "⏰ Alarm triggered - forcing location check");
+        Log.d(TAG, "Alarm triggered - forcing location check");
+
+        // RESURRECTION: If service is not running but tracking is allowed, restart it
+        if (!isRunning && isTrackingAllowed(context)) {
+            Log.w(TAG, "Service was killed! Resurrecting via AlarmReceiver...");
+            try {
+                Intent serviceIntent = new Intent(context, LocationTrackingService.class);
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                    context.startForegroundService(serviceIntent);
+                } else {
+                    context.startService(serviceIntent);
+                }
+                SharedPreferences prefs = context.getSharedPreferences("iTaxiBcn", MODE_PRIVATE);
+                logDebugStatic(prefs, "service_resurrected", "Servicio resucitado por AlarmReceiver");
+            } catch (Exception e) {
+                Log.e(TAG, "Failed to resurrect service: " + e.getMessage());
+            }
+            return; // Service onStartCommand will handle location updates
+        }
+
         SharedPreferences prefs = context.getSharedPreferences("iTaxiBcn", MODE_PRIVATE);
-        
-        if (ActivityCompat.checkSelfPermission(context, Manifest.permission.ACCESS_FINE_LOCATION) 
+
+        if (ActivityCompat.checkSelfPermission(context, Manifest.permission.ACCESS_FINE_LOCATION)
                 != PackageManager.PERMISSION_GRANTED) {
-            logDebugStatic(prefs, "alarm_no_permission", "❌ ALARM ERROR: Sin permiso de ubicación");
+            logDebugStatic(prefs, "alarm_no_permission", "ALARM ERROR: Sin permiso de ubicación");
             return;
         }
 
         if (!isTrackingAllowed(context)) {
-             Log.d(TAG, "⛔ Alarm: Tracking paused by schedule");
+             Log.d(TAG, "Alarm: Tracking paused by schedule");
              return;
         }
-        
+
         FusedLocationProviderClient client = LocationServices.getFusedLocationProviderClient(context);
-        
-        // Log that alarm is attempting to get location
-        // logDebugStatic(prefs, "alarm_triggered", "⏰ Alarm despertó - solicitando ubicación..."); // REMOVED TO SAVE STORAGE
-        
+
         client.getLastLocation()
             .addOnSuccessListener(location -> {
                 if (location != null && (System.currentTimeMillis() - location.getTime() < 30 * 1000)) {
                     // Location is fresh (less than 30 seconds old)
-                    String msg = String.format(
-                        "✅ ALARM UBICACIÓN (CACHE): %.6f, %.6f (precisión: %.0fm, edad: %ds)",
+                    Log.d(TAG, String.format(
+                        "ALARM location (cached): %.6f, %.6f (accuracy: %.0fm, age: %ds)",
                         location.getLatitude(),
                         location.getLongitude(),
                         location.getAccuracy(),
                         (System.currentTimeMillis() - location.getTime()) / 1000
-                    );
-                    Log.d(TAG, "📍 " + msg);
-                    
-                    // Send directly using API client
+                    ));
                     sendLocationToSupabase(prefs, location);
                 } else {
                     // Location is null or stale - Force fresh update
-                    Log.w(TAG, "⚠️ getLastLocation es null o antiguo. Solicitando ubicación fresca...");
-                    logDebugStatic(prefs, "alarm_forcing_update", "⚠️ Cache vacía o antigua. Forzando getCurrentLocation...");
-                    
+                    Log.w(TAG, "getLastLocation is null or stale. Requesting fresh location...");
+                    logDebugStatic(prefs, "alarm_forcing_update", "Cache vacía o antigua. Forzando getCurrentLocation...");
+
                     com.google.android.gms.tasks.CancellationTokenSource cts = new com.google.android.gms.tasks.CancellationTokenSource();
-                    
+
                     client.getCurrentLocation(Priority.PRIORITY_HIGH_ACCURACY, cts.getToken())
                         .addOnSuccessListener(freshLocation -> {
                             if (freshLocation != null) {
-                                String msg = String.format(
-                                    "✅ ALARM UBICACIÓN (FRESCA): %.6f, %.6f (precisión: %.0fm)",
+                                Log.d(TAG, String.format(
+                                    "ALARM location (fresh): %.6f, %.6f (accuracy: %.0fm)",
                                     freshLocation.getLatitude(),
                                     freshLocation.getLongitude(),
                                     freshLocation.getAccuracy()
-                                );
-                                Log.d(TAG, "📍 " + msg);
+                                ));
                                 sendLocationToSupabase(prefs, freshLocation);
                             } else {
-                                logDebugStatic(prefs, "alarm_location_fresh_null", "❌ ERROR CRÍTICO: getCurrentLocation() también devolvió null");
+                                logDebugStatic(prefs, "alarm_location_fresh_null", "ERROR CRITICO: getCurrentLocation() también devolvió null");
                             }
                         })
                         .addOnFailureListener(e -> {
-                            String errorMsg = "❌ ALARM ERROR (Fresh): " + e.getMessage();
-                            Log.e(TAG, errorMsg);
-                            logDebugStatic(prefs, "alarm_fresh_error", errorMsg);
+                            Log.e(TAG, "ALARM ERROR (Fresh): " + e.getMessage());
+                            logDebugStatic(prefs, "alarm_fresh_error", "ALARM ERROR (Fresh): " + e.getMessage());
                         });
                 }
             })
@@ -349,13 +375,28 @@ public class LocationTrackingService extends Service {
                          if (freshLocation != null) sendLocationToSupabase(prefs, freshLocation);
                      });
             });
-        
-        // Re-schedule alarm
-        if (isRunning) {
-            scheduleNextAlarm(context);
-        }
+
+        // Always re-schedule alarm (regardless of isRunning state)
+        scheduleNextAlarm(context);
     }
-    
+
+    /**
+     * Helper to send location to Supabase from static context
+     */
+    private static void sendLocationToSupabase(SharedPreferences prefs, android.location.Location location) {
+        LocationApiClient.sendLocation(
+            prefs.getString("supabase_url", ""),
+            prefs.getString("supabase_anon_key", ""),
+            prefs.getString("device_id", ""),
+            prefs.getString("device_name", null),
+            location.getLatitude(),
+            location.getLongitude(),
+            location.getAccuracy(),
+            prefs.getString("last_zona", null),
+            null
+        );
+    }
+
     /**
      * Static helper to log debug messages (used from static methods)
      */
@@ -369,19 +410,19 @@ public class LocationTrackingService extends Service {
             message
         );
     }
-    
+
     private static void scheduleNextAlarm(Context context) {
         AlarmManager am = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
         Intent intent = new Intent(context, AlarmReceiver.class);
         intent.setAction(AlarmReceiver.ACTION_LOCATION_ALARM);
-        
+
         int flags = PendingIntent.FLAG_UPDATE_CURRENT;
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
             flags |= PendingIntent.FLAG_MUTABLE;
         }
-        
+
         PendingIntent pi = PendingIntent.getBroadcast(context, ALARM_REQUEST_CODE, intent, flags);
-        
+
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             am.setExactAndAllowWhileIdle(
                 AlarmManager.RTC_WAKEUP,
@@ -390,7 +431,7 @@ public class LocationTrackingService extends Service {
             );
         }
     }
-    
+
     private void createNotificationChannel() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             NotificationChannel channel = new NotificationChannel(
@@ -400,12 +441,12 @@ public class LocationTrackingService extends Service {
             );
             channel.setDescription("Mantiene el tracking GPS activo");
             channel.setShowBadge(false);
-            
+
             NotificationManager nm = getSystemService(NotificationManager.class);
             nm.createNotificationChannel(channel);
         }
     }
-    
+
     private Notification createNotification() {
         Intent intent = getPackageManager().getLaunchIntentForPackage(getPackageName());
         int flags = PendingIntent.FLAG_UPDATE_CURRENT;
@@ -413,7 +454,7 @@ public class LocationTrackingService extends Service {
             flags |= PendingIntent.FLAG_IMMUTABLE;
         }
         PendingIntent pi = PendingIntent.getActivity(this, 0, intent, flags);
-        
+
         return new NotificationCompat.Builder(this, CHANNEL_ID)
             .setContentTitle("iTaxiBcn - Tracking Activo")
             .setContentText("Ubicación en segundo plano")
@@ -423,7 +464,7 @@ public class LocationTrackingService extends Service {
             .setPriority(NotificationCompat.PRIORITY_LOW)
             .build();
     }
-    
+
     private void logDebug(String eventType, String message) {
         SharedPreferences prefs = getSharedPreferences("iTaxiBcn", MODE_PRIVATE);
         LocationApiClient.logDebug(
@@ -435,19 +476,19 @@ public class LocationTrackingService extends Service {
             message
         );
     }
-    
+
     @Override
     public void onDestroy() {
         Log.d(TAG, "Service onDestroy");
-        
+
         if (locationCallback != null) {
             fusedLocationClient.removeLocationUpdates(locationCallback);
         }
-        
+
         if (wakeLock != null && wakeLock.isHeld()) {
             wakeLock.release();
         }
-        
+
         // Cancel alarms
         Intent intent = new Intent(this, AlarmReceiver.class);
         PendingIntent pi = PendingIntent.getBroadcast(
@@ -455,7 +496,7 @@ public class LocationTrackingService extends Service {
             PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_IMMUTABLE
         );
         alarmManager.cancel(pi);
-        
+
         isRunning = false;
 
         // Mark tracking as disabled for boot recovery
@@ -465,7 +506,7 @@ public class LocationTrackingService extends Service {
 
         super.onDestroy();
     }
-    
+
     @Nullable
     @Override
     public IBinder onBind(Intent intent) {
@@ -477,24 +518,20 @@ public class LocationTrackingService extends Service {
      */
     public static boolean isTrackingAllowed(Context context) {
         SharedPreferences prefs = context.getSharedPreferences("iTaxiBcn", Context.MODE_PRIVATE);
-        
+
         // 1. Global manual toggle
         boolean trackingEnabled = prefs.getBoolean("tracking_enabled", true);
         if (!trackingEnabled) return false;
-        
+
         // 2. Schedule
         boolean scheduleEnabled = prefs.getBoolean("schedule_enabled", false);
         if (scheduleEnabled) {
             int startHour = prefs.getInt("schedule_start", 8);
             int endHour = prefs.getInt("schedule_end", 20);
-            
+
             java.util.Calendar now = java.util.Calendar.getInstance();
             int currentHour = now.get(java.util.Calendar.HOUR_OF_DAY);
-            
-            // Example: 9:00 to 18:00
-            // If start < end: valid range [start, end)
-            // If start > end (night shift): valid range [start, 24) U [0, end)
-            
+
             if (startHour < endHour) {
                 if (currentHour < startHour || currentHour >= endHour) return false;
             } else {
@@ -502,7 +539,7 @@ public class LocationTrackingService extends Service {
                 if (currentHour < startHour && currentHour >= endHour) return false;
             }
         }
-        
+
         return true;
     }
 
