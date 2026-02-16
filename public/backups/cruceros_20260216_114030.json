@@ -90,26 +90,10 @@
             "pax_estimados": 1000,
             "puerto": "Barcelona",
             "tipo": "llegada",
-            "estado": "Iniciada",
+            "estado": "Confirmada",
             "bandera": "Dinamarca",
             "imo": "9636632",
             "mmsi": "219733000",
-            "fecha": "2026-02-16"
-        },
-        {
-            "hora": "11:24",
-            "nombre": "Msc Yuxin",
-            "naviera": "MEDITERRANEAN SHIPPING CO",
-            "terminal": "TERMINAL CATALUNYA SA",
-            "terminal_codigo": "6212",
-            "eslora": 0,
-            "pax_estimados": 500,
-            "puerto": "Djen-Djen",
-            "tipo": "llegada",
-            "estado": "Iniciada",
-            "bandera": "Libèria",
-            "imo": "9966946",
-            "mmsi": "636023314",
             "fecha": "2026-02-16"
         },
         {
@@ -218,7 +202,7 @@
             "pax_estimados": 1000,
             "puerto": "Valencia",
             "tipo": "llegada",
-            "estado": "Autoritzada",
+            "estado": "Confirmada",
             "bandera": "Malta",
             "imo": "9337377",
             "mmsi": "215177000",
@@ -259,22 +243,6 @@
             "fecha": "2026-02-16"
         },
         {
-            "hora": "09:29",
-            "nombre": "Maersk Adriatic",
-            "naviera": "ALFASHIP MARITIME SERVICES SL ",
-            "terminal": "",
-            "terminal_codigo": "",
-            "eslora": 184.0,
-            "pax_estimados": 1000,
-            "puerto": "Desconegut",
-            "tipo": "salida",
-            "estado": "Iniciada",
-            "bandera": "Dinamarca",
-            "imo": "9636632",
-            "mmsi": "219733000",
-            "fecha": "2026-02-16"
-        },
-        {
             "hora": "14:00",
             "nombre": "Msc Yuxin",
             "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
@@ -284,7 +252,7 @@
             "pax_estimados": 500,
             "puerto": "Alger (Algiers)",
             "tipo": "salida",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Libèria",
             "imo": "9966946",
             "mmsi": "636023314",
@@ -453,26 +421,26 @@
     ],
     "resumen": {
         "total_cruceros": 18,
-        "total_llegadas": 14,
-        "total_salidas": 14,
-        "pax_estimados_hoy": 24000,
+        "total_llegadas": 13,
+        "total_salidas": 13,
+        "pax_estimados_hoy": 23500,
         "proximo_desembarco": "18:00",
         "proximo_barco": "Msc Cadiz"
     },
     "terminales_activas": [
-        "6212",
-        "8156",
-        "6037",
-        "E",
         "7083",
+        "6212",
+        "E",
         "F1",
-        "F2",
+        "6037",
         "172133",
-        "F3"
+        "8156",
+        "F3",
+        "F2"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-02-16T11:40:30.901504",
+        "actualizado": "2026-02-16T09:55:09.169696",
         "frecuencia": "horaria"
     }
 }
