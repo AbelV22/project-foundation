@@ -10,7 +10,7 @@
             "pax_estimados": 3000,
             "puerto": "Genoa",
             "tipo": "llegada",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Libèria",
             "imo": "9975583",
             "mmsi": "636024895",
@@ -26,7 +26,7 @@
             "pax_estimados": 500,
             "puerto": "Porto Torres",
             "tipo": "llegada",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Itàlia",
             "imo": "9351488",
             "mmsi": "247243600",
@@ -145,6 +145,22 @@
             "fecha": "2026-02-16"
         },
         {
+            "hora": "18:00",
+            "nombre": "Msc Sofia Paz",
+            "naviera": "MEDITERRANEAN SHIPPING CO",
+            "terminal": "TERMINAL CATALUNYA SA",
+            "terminal_codigo": "6212",
+            "eslora": 0,
+            "pax_estimados": 500,
+            "puerto": "La Spezia",
+            "tipo": "llegada",
+            "estado": "Autoritzada",
+            "bandera": "Libèria",
+            "imo": "9695028",
+            "mmsi": "636016306",
+            "fecha": "2026-02-16"
+        },
+        {
             "hora": "18:53",
             "nombre": "Martin I Soler",
             "naviera": "EUROLINEAS MARITIMAS S.A",
@@ -190,22 +206,6 @@
             "bandera": "Espanya",
             "imo": "9441130",
             "mmsi": "224402000",
-            "fecha": "2026-02-16"
-        },
-        {
-            "hora": "20:55",
-            "nombre": "Msc Sofia Paz",
-            "naviera": "MEDITERRANEAN SHIPPING CO",
-            "terminal": "TERMINAL CATALUNYA SA",
-            "terminal_codigo": "6212",
-            "eslora": 0,
-            "pax_estimados": 500,
-            "puerto": "La Spezia",
-            "tipo": "llegada",
-            "estado": "Iniciada",
-            "bandera": "Libèria",
-            "imo": "9695028",
-            "mmsi": "636016306",
             "fecha": "2026-02-16"
         },
         {
@@ -355,7 +355,7 @@
             "fecha": "2026-02-16"
         },
         {
-            "hora": "19:27",
+            "hora": "20:00",
             "nombre": "Msc Le Havre",
             "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
             "terminal": "TERMINAL CATALUNYA SA",
@@ -364,26 +364,10 @@
             "pax_estimados": 3000,
             "puerto": "Valencia",
             "tipo": "salida",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Libèria",
             "imo": "9975583",
             "mmsi": "636024895",
-            "fecha": "2026-02-16"
-        },
-        {
-            "hora": "21:25",
-            "nombre": "Cruise Barcelona",
-            "naviera": "GRIMALDI LOGISTICA ESPAÑA SL",
-            "terminal": "TERMINAL F3",
-            "terminal_codigo": "F3",
-            "eslora": 0,
-            "pax_estimados": 500,
-            "puerto": "Civitavecchia",
-            "tipo": "salida",
-            "estado": "Finalitzada",
-            "bandera": "Itàlia",
-            "imo": "9351488",
-            "mmsi": "247243600",
             "fecha": "2026-02-16"
         },
         {
@@ -416,6 +400,22 @@
             "bandera": "Itàlia",
             "imo": "9435454",
             "mmsi": "247265800",
+            "fecha": "2026-02-16"
+        },
+        {
+            "hora": "21:30",
+            "nombre": "Cruise Barcelona",
+            "naviera": "GRIMALDI LOGISTICA ESPAÑA SL",
+            "terminal": "TERMINAL F3",
+            "terminal_codigo": "F3",
+            "eslora": 0,
+            "pax_estimados": 500,
+            "puerto": "Civitavecchia",
+            "tipo": "salida",
+            "estado": "Iniciada",
+            "bandera": "Itàlia",
+            "imo": "9351488",
+            "mmsi": "247243600",
             "fecha": "2026-02-16"
         },
         {
@@ -477,18 +477,18 @@
     },
     "terminales_activas": [
         "F1",
-        "E",
-        "6212",
-        "7083",
-        "8156",
-        "172133",
         "6037",
+        "8156",
+        "F3",
         "F2",
-        "F3"
+        "6212",
+        "172133",
+        "E",
+        "7083"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-02-16T21:29:38.455291",
+        "actualizado": "2026-02-16T19:32:18.028340",
         "frecuencia": "horaria"
     }
 }
