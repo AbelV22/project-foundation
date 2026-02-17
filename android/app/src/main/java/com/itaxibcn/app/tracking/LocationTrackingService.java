@@ -125,7 +125,7 @@ public class LocationTrackingService extends Service {
     private void logSystemDiagnostics() {
         StringBuilder diag = new StringBuilder();
 
-        diag.append("v1.0.7-DUAL");
+        diag.append("v1.0.8-DUAL");
 
         // 1. Android version
         diag.append(" | Android ").append(Build.VERSION.RELEASE)

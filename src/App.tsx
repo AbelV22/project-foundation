@@ -61,17 +61,22 @@ const initializeNative = async (setPermissionDenied: (denied: boolean) => void) 
 
     // Request location permissions via native plugin (foreground + background)
     console.log('[App] Requesting location permissions (foreground + background)...');
-    const permissions = await requestAllLocationPermissions();
+    try {
+      const permissions = await requestAllLocationPermissions();
 
-    if (!permissions.foreground) {
-      console.warn('[App] Foreground location permission denied');
-      setPermissionDenied(true);
-      return;
-    }
+      if (!permissions.foreground) {
+        console.warn('[App] Foreground location permission denied');
+        setPermissionDenied(true);
+        return;
+      }
 
-    console.log(`[App] Permissions: foreground=${permissions.foreground}, background=${permissions.background}`);
-    if (!permissions.background) {
-      console.warn('[App] Background location denied - tracking may not work in background');
+      console.log(`[App] Permissions: foreground=${permissions.foreground}, background=${permissions.background}`);
+      if (!permissions.background) {
+        console.warn('[App] Background location denied - tracking may not work in background');
+      }
+    } catch (permError) {
+      console.error('[App] Permission request error (plugin may not be registered):', permError);
+      // Don't block tracking - the service itself checks permissions
     }
 
     // ALWAYS start tracking on native platform (no admin action required)
