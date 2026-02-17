@@ -33,7 +33,7 @@
             "fecha": "2026-02-17"
         },
         {
-            "hora": "07:25",
+            "hora": "07:00",
             "nombre": "Eco Livorno",
             "naviera": "GRIMALDI EUROMED SPA",
             "terminal": "GRIMALDI TERMINAL BARCELONA SL",
@@ -42,42 +42,10 @@
             "pax_estimados": 2000,
             "puerto": "Savona",
             "tipo": "llegada",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Itàlia",
             "imo": "9859557",
             "mmsi": "247383500",
-            "fecha": "2026-02-17"
-        },
-        {
-            "hora": "07:44",
-            "nombre": "Mario A",
-            "naviera": "ARKAS CONTAINER TRANSPORT SA",
-            "terminal": "APM TERMINALS BARCELONA, S.L.U.",
-            "terminal_codigo": "7083",
-            "eslora": 184.0,
-            "pax_estimados": 1000,
-            "puerto": "Valencia",
-            "tipo": "llegada",
-            "estado": "Iniciada",
-            "bandera": "Malta",
-            "imo": "9337377",
-            "mmsi": "215177000",
-            "fecha": "2026-02-17"
-        },
-        {
-            "hora": "07:57",
-            "nombre": "Msc Albany",
-            "naviera": "MEDITERRANEAN SHIPPING CO",
-            "terminal": "TERMINAL CATALUNYA SA",
-            "terminal_codigo": "6212",
-            "eslora": 299.0,
-            "pax_estimados": 3000,
-            "puerto": "Valencia",
-            "tipo": "llegada",
-            "estado": "Iniciada",
-            "bandera": "Libèria",
-            "imo": "9619438",
-            "mmsi": "636015665",
             "fecha": "2026-02-17"
         },
         {
@@ -126,6 +94,22 @@
             "bandera": "Itàlia",
             "imo": "9435454",
             "mmsi": "247265800",
+            "fecha": "2026-02-17"
+        },
+        {
+            "hora": "18:00",
+            "nombre": "Msc Albany",
+            "naviera": "MEDITERRANEAN SHIPPING CO",
+            "terminal": "TERMINAL CATALUNYA SA",
+            "terminal_codigo": "6212",
+            "eslora": 299.0,
+            "pax_estimados": 3000,
+            "puerto": "Valencia",
+            "tipo": "llegada",
+            "estado": "Autoritzada",
+            "bandera": "Libèria",
+            "imo": "9619438",
+            "mmsi": "636015665",
             "fecha": "2026-02-17"
         },
         {
@@ -252,7 +236,7 @@
             "pax_estimados": 2000,
             "puerto": "Valencia",
             "tipo": "salida",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Itàlia",
             "imo": "9859557",
             "mmsi": "247383500",
@@ -284,7 +268,7 @@
             "pax_estimados": 1000,
             "puerto": "La Spezia",
             "tipo": "salida",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Malta",
             "imo": "9337377",
             "mmsi": "215177000",
@@ -421,28 +405,28 @@
     ],
     "resumen": {
         "total_cruceros": 17,
-        "total_llegadas": 13,
+        "total_llegadas": 12,
         "total_salidas": 13,
-        "pax_estimados_hoy": 21500,
-        "proximo_desembarco": "07:57",
-        "proximo_barco": "Msc Albany"
+        "pax_estimados_hoy": 20500,
+        "proximo_desembarco": "06:00",
+        "proximo_barco": "Msc Marie Leslie"
     },
     "terminales_activas": [
-        "6154",
-        "6037",
-        "F3",
+        "8156",
+        "F2",
+        "6212",
         "172133",
         "7332",
-        "6212",
+        "6037",
         "E",
-        "F2",
-        "7083",
-        "8156",
-        "F1"
+        "F3",
+        "F1",
+        "6154",
+        "7083"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-02-17T07:51:18.996026",
+        "actualizado": "2026-02-17T05:57:15.510821",
         "frecuencia": "horaria"
     }
 }
