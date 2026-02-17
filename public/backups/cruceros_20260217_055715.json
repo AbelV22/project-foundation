@@ -1,7 +1,7 @@
 {
     "llegadas": [
         {
-            "hora": "02:59",
+            "hora": "03:00",
             "nombre": "Sunbelt Spirit",
             "naviera": "NEPTUNE LINES SHIPPING",
             "terminal": "AUTOTERMINAL SA",
@@ -10,7 +10,7 @@
             "pax_estimados": 2000,
             "puerto": "Fos-sur-Mer",
             "tipo": "llegada",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Illes Marshall",
             "imo": "9233246",
             "mmsi": "538001657",
@@ -194,22 +194,6 @@
         }
     ],
     "salidas": [
-        {
-            "hora": "04:36",
-            "nombre": "Msc Eloane",
-            "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
-            "terminal": "TERMINAL CATALUNYA SA",
-            "terminal_codigo": "6212",
-            "eslora": 400.0,
-            "pax_estimados": 6500,
-            "puerto": "Abu Kir",
-            "tipo": "salida",
-            "estado": "Finalitzada",
-            "bandera": "Libèria",
-            "imo": "9755957",
-            "mmsi": "636017435",
-            "fecha": "2026-02-17"
-        },
         {
             "hora": "08:00",
             "nombre": "Msc Sofia Paz",
@@ -404,29 +388,29 @@
         }
     ],
     "resumen": {
-        "total_cruceros": 17,
+        "total_cruceros": 16,
         "total_llegadas": 12,
-        "total_salidas": 13,
+        "total_salidas": 12,
         "pax_estimados_hoy": 20500,
-        "proximo_desembarco": "06:00",
-        "proximo_barco": "Msc Marie Leslie"
+        "proximo_desembarco": null,
+        "proximo_barco": null
     },
     "terminales_activas": [
-        "8156",
-        "F2",
-        "6212",
-        "172133",
-        "7332",
-        "6037",
-        "E",
-        "F3",
-        "F1",
         "6154",
-        "7083"
+        "172133",
+        "E",
+        "F1",
+        "6212",
+        "F3",
+        "F2",
+        "8156",
+        "7332",
+        "7083",
+        "6037"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-02-17T05:57:15.510821",
+        "actualizado": "2026-02-16T23:29:41.021339",
         "frecuencia": "horaria"
     }
 }
