@@ -49,7 +49,7 @@
             "fecha": "2026-02-18"
         },
         {
-            "hora": "07:44",
+            "hora": "07:00",
             "nombre": "Eco Adriatica",
             "naviera": "GRIMALDI EUROMED SPA",
             "terminal": "GRIMALDI TERMINAL BARCELONA SL",
@@ -58,7 +58,7 @@
             "pax_estimados": 2000,
             "puerto": "Valencia",
             "tipo": "llegada",
-            "estado": "Finalitzada",
+            "estado": "Autoritzada",
             "bandera": "Itàlia",
             "imo": "9859600",
             "mmsi": "247384100",
@@ -209,7 +209,7 @@
             "fecha": "2026-02-18"
         },
         {
-            "hora": "22:00",
+            "hora": "23:30",
             "nombre": "Ciudad De Barcelona",
             "naviera": "TRASMED GLE S.L.",
             "terminal": "TERMINAL F2",
@@ -323,7 +323,7 @@
             "fecha": "2026-02-18"
         },
         {
-            "hora": "14:15",
+            "hora": "13:00",
             "nombre": "Eco Adriatica",
             "naviera": "GRIMALDI LOGISTICA ESPAÑA SL",
             "terminal": "GRIMALDI TERMINAL BARCELONA SL",
@@ -332,10 +332,26 @@
             "pax_estimados": 2000,
             "puerto": "Savona",
             "tipo": "salida",
-            "estado": "Finalitzada",
+            "estado": "Autoritzada",
             "bandera": "Itàlia",
             "imo": "9859600",
             "mmsi": "247384100",
+            "fecha": "2026-02-18"
+        },
+        {
+            "hora": "14:00",
+            "nombre": "Sunbelt Spirit",
+            "naviera": "NEPTUNE BARCELONA SA",
+            "terminal": "AUTOTERMINAL SA",
+            "terminal_codigo": "6154",
+            "eslora": 212.0,
+            "pax_estimados": 2000,
+            "puerto": "Livorno",
+            "tipo": "salida",
+            "estado": "Iniciada",
+            "bandera": "Illes Marshall",
+            "imo": "9233246",
+            "mmsi": "538001657",
             "fecha": "2026-02-18"
         },
         {
@@ -352,22 +368,6 @@
             "bandera": "Libèria",
             "imo": "9966946",
             "mmsi": "636023314",
-            "fecha": "2026-02-18"
-        },
-        {
-            "hora": "15:44",
-            "nombre": "Sunbelt Spirit",
-            "naviera": "NEPTUNE BARCELONA SA",
-            "terminal": "AUTOTERMINAL SA",
-            "terminal_codigo": "6154",
-            "eslora": 212.0,
-            "pax_estimados": 2000,
-            "puerto": "Livorno",
-            "tipo": "salida",
-            "estado": "Finalitzada",
-            "bandera": "Illes Marshall",
-            "imo": "9233246",
-            "mmsi": "538001657",
             "fecha": "2026-02-18"
         },
         {
@@ -492,21 +492,21 @@
         "proximo_barco": "Ciudad De Palma"
     },
     "terminales_activas": [
-        "172133",
-        "B",
-        "6154",
-        "E",
+        "F3",
+        "7083",
         "F2",
+        "6154",
+        "F1",
+        "E",
+        "B",
         "TC",
         "8156",
         "6212",
-        "F3",
-        "F1",
-        "7083"
+        "172133"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-02-18T17:51:52.768010",
+        "actualizado": "2026-02-18T15:52:48.414315",
         "frecuencia": "horaria"
     }
 }
