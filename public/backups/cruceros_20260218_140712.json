@@ -65,22 +65,6 @@
             "fecha": "2026-02-18"
         },
         {
-            "hora": "08:57",
-            "nombre": "Msc Yuxin",
-            "naviera": "MEDITERRANEAN SHIPPING CO",
-            "terminal": "",
-            "terminal_codigo": "",
-            "eslora": 0,
-            "pax_estimados": 500,
-            "puerto": "Djen-Djen",
-            "tipo": "llegada",
-            "estado": "Iniciada",
-            "bandera": "Libèria",
-            "imo": "9966946",
-            "mmsi": "636023314",
-            "fecha": "2026-02-18"
-        },
-        {
             "hora": "13:00",
             "nombre": "Ionic Smyrni",
             "naviera": "ELIAN BARCELONA SL",
@@ -94,22 +78,6 @@
             "bandera": "Illes Marshall",
             "imo": "9638070",
             "mmsi": "538005056",
-            "fecha": "2026-02-18"
-        },
-        {
-            "hora": "15:00",
-            "nombre": "Msc Yuxin",
-            "naviera": "MEDITERRANEAN SHIPPING CO",
-            "terminal": "",
-            "terminal_codigo": "",
-            "eslora": 0,
-            "pax_estimados": 500,
-            "puerto": "Djen-Djen",
-            "tipo": "llegada",
-            "estado": "Iniciada",
-            "bandera": "Libèria",
-            "imo": "9966946",
-            "mmsi": "636023314",
             "fecha": "2026-02-18"
         },
         {
@@ -177,7 +145,7 @@
             "fecha": "2026-02-18"
         },
         {
-            "hora": "20:00",
+            "hora": "20:30",
             "nombre": "Cruise Barcelona",
             "naviera": "GRIMALDI EUROMED SPA",
             "terminal": "TERMINAL F3",
@@ -190,22 +158,6 @@
             "bandera": "Itàlia",
             "imo": "9351488",
             "mmsi": "247243600",
-            "fecha": "2026-02-18"
-        },
-        {
-            "hora": "21:31",
-            "nombre": "Abel Matutes",
-            "naviera": "EUROLINEAS MARITIMAS S.A",
-            "terminal": "LEPANT/TRUCK CENTER",
-            "terminal_codigo": "TC",
-            "eslora": 190.0,
-            "pax_estimados": 1000,
-            "puerto": "Palma de Mallorca",
-            "tipo": "llegada",
-            "estado": "Autoritzada",
-            "bandera": "Espanya",
-            "imo": "9441130",
-            "mmsi": "224402000",
             "fecha": "2026-02-18"
         },
         {
@@ -316,7 +268,7 @@
             "pax_estimados": 500,
             "puerto": "Alger (Algiers)",
             "tipo": "salida",
-            "estado": "Iniciada",
+            "estado": "Finalitzada",
             "bandera": "Libèria",
             "imo": "9966946",
             "mmsi": "636023314",
@@ -352,54 +304,6 @@
             "bandera": "Illes Marshall",
             "imo": "9233246",
             "mmsi": "538001657",
-            "fecha": "2026-02-18"
-        },
-        {
-            "hora": "14:59",
-            "nombre": "Msc Yuxin",
-            "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
-            "terminal": "",
-            "terminal_codigo": "",
-            "eslora": 0,
-            "pax_estimados": 500,
-            "puerto": "Alger (Algiers)",
-            "tipo": "salida",
-            "estado": "Iniciada",
-            "bandera": "Libèria",
-            "imo": "9966946",
-            "mmsi": "636023314",
-            "fecha": "2026-02-18"
-        },
-        {
-            "hora": "21:00",
-            "nombre": "Msc Yuxin",
-            "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
-            "terminal": "",
-            "terminal_codigo": "",
-            "eslora": 0,
-            "pax_estimados": 500,
-            "puerto": "Alger (Algiers)",
-            "tipo": "salida",
-            "estado": "Iniciada",
-            "bandera": "Libèria",
-            "imo": "9966946",
-            "mmsi": "636023314",
-            "fecha": "2026-02-18"
-        },
-        {
-            "hora": "21:30",
-            "nombre": "Abel Matutes",
-            "naviera": "BALEARIA EUROLINEAS MARITIMAS SA ",
-            "terminal": "TERMINAL F1",
-            "terminal_codigo": "F1",
-            "eslora": 190.0,
-            "pax_estimados": 1000,
-            "puerto": "Palma de Mallorca",
-            "tipo": "salida",
-            "estado": "Autoritzada",
-            "bandera": "Espanya",
-            "imo": "9441130",
-            "mmsi": "224402000",
             "fecha": "2026-02-18"
         },
         {
@@ -485,28 +389,28 @@
     ],
     "resumen": {
         "total_cruceros": 16,
-        "total_llegadas": 14,
-        "total_salidas": 16,
-        "pax_estimados_hoy": 14500,
-        "proximo_desembarco": "15:00",
-        "proximo_barco": "Msc Yuxin"
+        "total_llegadas": 11,
+        "total_salidas": 13,
+        "pax_estimados_hoy": 12500,
+        "proximo_desembarco": "13:00",
+        "proximo_barco": "Ionic Smyrni"
     },
     "terminales_activas": [
-        "6212",
-        "7083",
-        "6154",
-        "E",
-        "8156",
-        "B",
-        "F2",
-        "TC",
         "172133",
+        "B",
+        "8156",
+        "F2",
+        "E",
+        "TC",
         "F1",
-        "F3"
+        "7083",
+        "6212",
+        "F3",
+        "6154"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-02-18T14:07:12.526285",
+        "actualizado": "2026-02-18T11:38:36.495954",
         "frecuencia": "horaria"
     }
 }
