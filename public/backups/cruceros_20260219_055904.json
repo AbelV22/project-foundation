@@ -179,7 +179,7 @@
     ],
     "salidas": [
         {
-            "hora": "01:09",
+            "hora": "01:00",
             "nombre": "Ciudad De Barcelona",
             "naviera": "GRIMALDI LOGISTICA ESPAÑA SL",
             "terminal": "TERMINAL F2",
@@ -188,26 +188,10 @@
             "pax_estimados": 1000,
             "puerto": "Ibiza",
             "tipo": "salida",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Espanya",
             "imo": "9506289",
             "mmsi": "225416000",
-            "fecha": "2026-02-19"
-        },
-        {
-            "hora": "01:34",
-            "nombre": "Cruise Barcelona",
-            "naviera": "GRIMALDI LOGISTICA ESPAÑA SL",
-            "terminal": "TERMINAL F3",
-            "terminal_codigo": "F3",
-            "eslora": 0,
-            "pax_estimados": 500,
-            "puerto": "Porto Torres",
-            "tipo": "salida",
-            "estado": "Finalitzada",
-            "bandera": "Itàlia",
-            "imo": "9351488",
-            "mmsi": "247243600",
             "fecha": "2026-02-19"
         },
         {
@@ -356,25 +340,24 @@
         }
     ],
     "resumen": {
-        "total_cruceros": 14,
+        "total_cruceros": 13,
         "total_llegadas": 11,
-        "total_salidas": 11,
+        "total_salidas": 10,
         "pax_estimados_hoy": 16500,
-        "proximo_desembarco": "06:00",
-        "proximo_barco": "Msc Levante F"
+        "proximo_desembarco": null,
+        "proximo_barco": null
     },
     "terminales_activas": [
-        "B",
-        "6212",
-        "F1",
-        "F3",
         "6995",
         "F2",
-        "8156"
+        "6212",
+        "8156",
+        "B",
+        "F1"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-02-19T05:59:04.322966",
+        "actualizado": "2026-02-18T23:30:37.653339",
         "frecuencia": "horaria"
     }
 }
