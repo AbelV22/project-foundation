@@ -17,22 +17,6 @@
             "fecha": "2026-02-19"
         },
         {
-            "hora": "05:58",
-            "nombre": "Etc Nefertari",
-            "naviera": "MAERSK TANKERS HANDY",
-            "terminal": "",
-            "terminal_codigo": "",
-            "eslora": 189.0,
-            "pax_estimados": 1000,
-            "puerto": "Sete",
-            "tipo": "llegada",
-            "estado": "Sol·licitada",
-            "bandera": "Libèria",
-            "imo": "9399612",
-            "mmsi": "636015007",
-            "fecha": "2026-02-19"
-        },
-        {
             "hora": "06:00",
             "nombre": "Msc Levante F",
             "naviera": "MEDITERRANEAN SHIPPING CO",
@@ -243,22 +227,6 @@
             "fecha": "2026-02-19"
         },
         {
-            "hora": "05:59",
-            "nombre": "Etc Nefertari",
-            "naviera": "BERGE MARITIMA SL",
-            "terminal": "",
-            "terminal_codigo": "",
-            "eslora": 189.0,
-            "pax_estimados": 1000,
-            "puerto": "Genoa",
-            "tipo": "salida",
-            "estado": "Sol·licitada",
-            "bandera": "Libèria",
-            "imo": "9399612",
-            "mmsi": "636015007",
-            "fecha": "2026-02-19"
-        },
-        {
             "hora": "14:00",
             "nombre": "Msc Julie",
             "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
@@ -389,24 +357,24 @@
     ],
     "resumen": {
         "total_cruceros": 14,
-        "total_llegadas": 12,
-        "total_salidas": 12,
-        "pax_estimados_hoy": 17500,
-        "proximo_desembarco": "12:00",
-        "proximo_barco": "Msc Cadiz"
+        "total_llegadas": 11,
+        "total_salidas": 11,
+        "pax_estimados_hoy": 16500,
+        "proximo_desembarco": "06:00",
+        "proximo_barco": "Msc Levante F"
     },
     "terminales_activas": [
-        "F2",
-        "8156",
         "B",
-        "F3",
         "6212",
+        "F1",
+        "F3",
         "6995",
-        "F1"
+        "F2",
+        "8156"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-02-19T07:49:35.070739",
+        "actualizado": "2026-02-19T05:59:04.322966",
         "frecuencia": "horaria"
     }
 }
