@@ -1,7 +1,7 @@
 {
     "llegadas": [
         {
-            "hora": "02:35",
+            "hora": "00:45",
             "nombre": "Eco Valencia",
             "naviera": "GRIMALDI EUROMED SPA",
             "terminal": "GRIMALDI TERMINAL BARCELONA SL",
@@ -10,10 +10,26 @@
             "pax_estimados": 2000,
             "puerto": "Savona",
             "tipo": "llegada",
-            "estado": "Finalitzada",
+            "estado": "Autoritzada",
             "bandera": "Itàlia",
             "imo": "9859533",
             "mmsi": "247383300",
+            "fecha": "2026-02-19"
+        },
+        {
+            "hora": "05:58",
+            "nombre": "Etc Nefertari",
+            "naviera": "MAERSK TANKERS HANDY",
+            "terminal": "",
+            "terminal_codigo": "",
+            "eslora": 189.0,
+            "pax_estimados": 1000,
+            "puerto": "Sete",
+            "tipo": "llegada",
+            "estado": "Sol·licitada",
+            "bandera": "Libèria",
+            "imo": "9399612",
+            "mmsi": "636015007",
             "fecha": "2026-02-19"
         },
         {
@@ -33,23 +49,7 @@
             "fecha": "2026-02-19"
         },
         {
-            "hora": "09:53",
-            "nombre": "Etc Nefertari",
-            "naviera": "MAERSK TANKERS HANDY",
-            "terminal": "",
-            "terminal_codigo": "",
-            "eslora": 189.0,
-            "pax_estimados": 1000,
-            "puerto": "Sete",
-            "tipo": "llegada",
-            "estado": "Fondeig Previ",
-            "bandera": "Libèria",
-            "imo": "9399612",
-            "mmsi": "636015007",
-            "fecha": "2026-02-19"
-        },
-        {
-            "hora": "09:56",
+            "hora": "06:00",
             "nombre": "Etc Nefertari",
             "naviera": "MAERSK TANKERS HANDY",
             "terminal": "MEROIL SA",
@@ -58,7 +58,7 @@
             "pax_estimados": 1000,
             "puerto": "Sete",
             "tipo": "llegada",
-            "estado": "Fondeig Previ",
+            "estado": "Sol·licitada",
             "bandera": "Libèria",
             "imo": "9399612",
             "mmsi": "636015007",
@@ -227,7 +227,7 @@
             "fecha": "2026-02-19"
         },
         {
-            "hora": "06:36",
+            "hora": "05:00",
             "nombre": "Eco Valencia",
             "naviera": "GRIMALDI LOGISTICA ESPAÑA SL",
             "terminal": "GRIMALDI TERMINAL BARCELONA SL",
@@ -236,14 +236,14 @@
             "pax_estimados": 2000,
             "puerto": "Valencia",
             "tipo": "salida",
-            "estado": "Finalitzada",
+            "estado": "Autoritzada",
             "bandera": "Itàlia",
             "imo": "9859533",
             "mmsi": "247383300",
             "fecha": "2026-02-19"
         },
         {
-            "hora": "09:55",
+            "hora": "05:59",
             "nombre": "Etc Nefertari",
             "naviera": "BERGE MARITIMA SL",
             "terminal": "",
@@ -252,7 +252,7 @@
             "pax_estimados": 1000,
             "puerto": "Genoa",
             "tipo": "salida",
-            "estado": "Fondeig Previ",
+            "estado": "Sol·licitada",
             "bandera": "Libèria",
             "imo": "9399612",
             "mmsi": "636015007",
@@ -392,21 +392,21 @@
         "total_llegadas": 12,
         "total_salidas": 12,
         "pax_estimados_hoy": 17500,
-        "proximo_desembarco": "09:53",
-        "proximo_barco": "Etc Nefertari"
+        "proximo_desembarco": "12:00",
+        "proximo_barco": "Msc Cadiz"
     },
     "terminales_activas": [
+        "F2",
         "8156",
+        "B",
         "F3",
         "6212",
-        "F2",
-        "F1",
-        "B",
-        "6995"
+        "6995",
+        "F1"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-02-19T09:46:49.768651",
+        "actualizado": "2026-02-19T07:49:35.070739",
         "frecuencia": "horaria"
     }
 }
