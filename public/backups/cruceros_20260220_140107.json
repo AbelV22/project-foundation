@@ -50,6 +50,22 @@
         },
         {
             "hora": "06:00",
+            "nombre": "Msc Namibia",
+            "naviera": "MEDITERRANEAN SHIPPING CO",
+            "terminal": "TERMINAL CATALUNYA SA",
+            "terminal_codigo": "6212",
+            "eslora": 260.0,
+            "pax_estimados": 3000,
+            "puerto": "Valencia",
+            "tipo": "llegada",
+            "estado": "Sol·licitada",
+            "bandera": "Libèria",
+            "imo": "9974553",
+            "mmsi": "636024939",
+            "fecha": "2026-02-20"
+        },
+        {
+            "hora": "06:00",
             "nombre": "Msc Potomac F",
             "naviera": "MEDITERRANEAN SHIPPING CO",
             "terminal": "TERMINAL CATALUNYA SA",
@@ -62,6 +78,22 @@
             "bandera": "Libèria",
             "imo": "9236274",
             "mmsi": "636020662",
+            "fecha": "2026-02-20"
+        },
+        {
+            "hora": "06:00",
+            "nombre": "Msc Rifaya",
+            "naviera": "MEDITERRANEAN SHIPPING CO",
+            "terminal": "TERMINAL CATALUNYA SA",
+            "terminal_codigo": "6212",
+            "eslora": 400.0,
+            "pax_estimados": 6500,
+            "puerto": "Valencia",
+            "tipo": "llegada",
+            "estado": "Sol·licitada",
+            "bandera": "Libèria",
+            "imo": "9767388",
+            "mmsi": "636017685",
             "fecha": "2026-02-20"
         },
         {
@@ -158,6 +190,38 @@
             "bandera": "Itàlia",
             "imo": "9435454",
             "mmsi": "247265800",
+            "fecha": "2026-02-20"
+        },
+        {
+            "hora": "18:00",
+            "nombre": "Msc Oak F",
+            "naviera": "MEDITERRANEAN SHIPPING CO",
+            "terminal": "TERMINAL CATALUNYA SA",
+            "terminal_codigo": "6212",
+            "eslora": 148.0,
+            "pax_estimados": 500,
+            "puerto": "Oran",
+            "tipo": "llegada",
+            "estado": "Confirmada",
+            "bandera": "Libèria",
+            "imo": "9373917",
+            "mmsi": "636016702",
+            "fecha": "2026-02-20"
+        },
+        {
+            "hora": "18:00",
+            "nombre": "Msc Oriane",
+            "naviera": "MEDITERRANEAN SHIPPING CO",
+            "terminal": "TERMINAL CATALUNYA SA",
+            "terminal_codigo": "6212",
+            "eslora": 0,
+            "pax_estimados": 500,
+            "puerto": "Livorno",
+            "tipo": "llegada",
+            "estado": "Confirmada",
+            "bandera": "Panamà",
+            "imo": "9372482",
+            "mmsi": "353289000",
             "fecha": "2026-02-20"
         },
         {
@@ -275,22 +339,6 @@
             "fecha": "2026-02-20"
         },
         {
-            "hora": "12:42",
-            "nombre": "Henning Maersk",
-            "naviera": "ALFASHIP MARITIME SERVICES SL ",
-            "terminal": "",
-            "terminal_codigo": "",
-            "eslora": 180.0,
-            "pax_estimados": 1000,
-            "puerto": "Huelva",
-            "tipo": "salida",
-            "estado": "Finalitzada",
-            "bandera": "Dinamarca",
-            "imo": "9389526",
-            "mmsi": "219277000",
-            "fecha": "2026-02-20"
-        },
-        {
             "hora": "13:00",
             "nombre": "Etc Nefertari",
             "naviera": "BERGE MARITIMA SL",
@@ -340,6 +388,22 @@
         },
         {
             "hora": "20:00",
+            "nombre": "Msc Namibia",
+            "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
+            "terminal": "TERMINAL CATALUNYA SA",
+            "terminal_codigo": "6212",
+            "eslora": 260.0,
+            "pax_estimados": 3000,
+            "puerto": "Gioia Tauro",
+            "tipo": "salida",
+            "estado": "Sol·licitada",
+            "bandera": "Libèria",
+            "imo": "9974553",
+            "mmsi": "636024939",
+            "fecha": "2026-02-20"
+        },
+        {
+            "hora": "20:00",
             "nombre": "Msc Potomac F",
             "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
             "terminal": "TERMINAL CATALUNYA SA",
@@ -352,6 +416,22 @@
             "bandera": "Libèria",
             "imo": "9236274",
             "mmsi": "636020662",
+            "fecha": "2026-02-20"
+        },
+        {
+            "hora": "20:00",
+            "nombre": "Msc Rifaya",
+            "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
+            "terminal": "TERMINAL CATALUNYA SA",
+            "terminal_codigo": "6212",
+            "eslora": 400.0,
+            "pax_estimados": 6500,
+            "puerto": "Gioia Tauro",
+            "tipo": "salida",
+            "estado": "Sol·licitada",
+            "bandera": "Libèria",
+            "imo": "9767388",
+            "mmsi": "636017685",
             "fecha": "2026-02-20"
         },
         {
@@ -436,25 +516,25 @@
         }
     ],
     "resumen": {
-        "total_cruceros": 15,
-        "total_llegadas": 13,
-        "total_salidas": 14,
-        "pax_estimados_hoy": 24000,
-        "proximo_desembarco": "17:15",
-        "proximo_barco": "Gnv Sealand"
+        "total_cruceros": 18,
+        "total_llegadas": 17,
+        "total_salidas": 15,
+        "pax_estimados_hoy": 34500,
+        "proximo_desembarco": "12:00",
+        "proximo_barco": "Cma Cgm Laguna"
     },
     "terminales_activas": [
-        "6212",
-        "8156",
-        "6995",
+        "H",
         "F2",
+        "8156",
+        "6212",
         "F3",
-        "F1",
-        "H"
+        "6995",
+        "F1"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-02-20T14:01:07.101806",
+        "actualizado": "2026-02-20T11:32:42.406573",
         "frecuencia": "horaria"
     }
 }
