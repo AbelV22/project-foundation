@@ -129,38 +129,6 @@
             "fecha": "2026-02-20"
         },
         {
-            "hora": "10:44",
-            "nombre": "One Fortune",
-            "naviera": "OCEAN NETWORK EXPRESS PTE LTD",
-            "terminal": "TERMINAL CATALUNYA SA",
-            "terminal_codigo": "6212",
-            "eslora": 366.0,
-            "pax_estimados": 6500,
-            "puerto": "Fos-sur-Mer",
-            "tipo": "llegada",
-            "estado": "Iniciada",
-            "bandera": "Hong Kong",
-            "imo": "9944819",
-            "mmsi": "477945300",
-            "fecha": "2026-02-20"
-        },
-        {
-            "hora": "12:00",
-            "nombre": "Cma Cgm Laguna",
-            "naviera": "CMA CGM",
-            "terminal": "TERMINAL CATALUNYA SA",
-            "terminal_codigo": "6212",
-            "eslora": 366.0,
-            "pax_estimados": 6500,
-            "puerto": "Valencia",
-            "tipo": "llegada",
-            "estado": "Sol·licitada",
-            "bandera": "França",
-            "imo": "9938171",
-            "mmsi": "228459700",
-            "fecha": "2026-02-20"
-        },
-        {
             "hora": "12:00",
             "nombre": "Msc Rapallo",
             "naviera": "MEDITERRANEAN SHIPPING CO",
@@ -516,25 +484,25 @@
         }
     ],
     "resumen": {
-        "total_cruceros": 18,
-        "total_llegadas": 17,
+        "total_cruceros": 16,
+        "total_llegadas": 15,
         "total_salidas": 15,
-        "pax_estimados_hoy": 34500,
+        "pax_estimados_hoy": 21500,
         "proximo_desembarco": "12:00",
-        "proximo_barco": "Cma Cgm Laguna"
+        "proximo_barco": "Msc Rapallo"
     },
     "terminales_activas": [
-        "H",
-        "F2",
-        "8156",
         "6212",
-        "F3",
+        "F2",
         "6995",
-        "F1"
+        "F1",
+        "H",
+        "8156",
+        "F3"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-02-20T11:32:42.406573",
+        "actualizado": "2026-02-20T09:41:26.379477",
         "frecuencia": "horaria"
     }
 }
