@@ -90,7 +90,7 @@
             "pax_estimados": 500,
             "puerto": "Freeport, Grand Bahama",
             "tipo": "llegada",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Alemanya",
             "imo": "9480203",
             "mmsi": "218847000",
@@ -259,6 +259,22 @@
             "fecha": "2026-02-20"
         },
         {
+            "hora": "09:10",
+            "nombre": "Msc Cadiz",
+            "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
+            "terminal": "TERMINAL CATALUNYA SA",
+            "terminal_codigo": "6212",
+            "eslora": 0,
+            "pax_estimados": 500,
+            "puerto": "Gioia Tauro",
+            "tipo": "salida",
+            "estado": "Iniciada",
+            "bandera": "Alemanya",
+            "imo": "9480203",
+            "mmsi": "218847000",
+            "fecha": "2026-02-20"
+        },
+        {
             "hora": "12:42",
             "nombre": "Henning Maersk",
             "naviera": "ALFASHIP MARITIME SERVICES SL ",
@@ -320,22 +336,6 @@
             "bandera": "Malta",
             "imo": "9837420",
             "mmsi": "256070000",
-            "fecha": "2026-02-20"
-        },
-        {
-            "hora": "19:22",
-            "nombre": "Msc Cadiz",
-            "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
-            "terminal": "TERMINAL CATALUNYA SA",
-            "terminal_codigo": "6212",
-            "eslora": 0,
-            "pax_estimados": 500,
-            "puerto": "Gioia Tauro",
-            "tipo": "salida",
-            "estado": "Finalitzada",
-            "bandera": "Alemanya",
-            "imo": "9480203",
-            "mmsi": "218847000",
             "fecha": "2026-02-20"
         },
         {
@@ -440,21 +440,21 @@
         "total_llegadas": 13,
         "total_salidas": 14,
         "pax_estimados_hoy": 24000,
-        "proximo_desembarco": null,
-        "proximo_barco": null
+        "proximo_desembarco": "20:00",
+        "proximo_barco": "Cma Cgm Laguna"
     },
     "terminales_activas": [
+        "F2",
+        "6212",
         "8156",
-        "H",
-        "F1",
         "F3",
         "6995",
-        "6212",
-        "F2"
+        "F1",
+        "H"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-02-20T21:26:02.311285",
+        "actualizado": "2026-02-20T19:37:03.945921",
         "frecuencia": "horaria"
     }
 }
