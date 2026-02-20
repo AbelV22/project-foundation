@@ -114,6 +114,22 @@
         },
         {
             "hora": "12:00",
+            "nombre": "Cma Cgm Laguna",
+            "naviera": "CMA CGM",
+            "terminal": "TERMINAL CATALUNYA SA",
+            "terminal_codigo": "6212",
+            "eslora": 366.0,
+            "pax_estimados": 6500,
+            "puerto": "Valencia",
+            "tipo": "llegada",
+            "estado": "Sol·licitada",
+            "bandera": "França",
+            "imo": "9938171",
+            "mmsi": "228459700",
+            "fecha": "2026-02-20"
+        },
+        {
+            "hora": "12:00",
             "nombre": "Msc Rapallo",
             "naviera": "MEDITERRANEAN SHIPPING CO",
             "terminal": "TERMINAL CATALUNYA SA",
@@ -190,22 +206,6 @@
             "bandera": "Espanya",
             "imo": "9506289",
             "mmsi": "225416000",
-            "fecha": "2026-02-20"
-        },
-        {
-            "hora": "20:00",
-            "nombre": "Cma Cgm Laguna",
-            "naviera": "CMA CGM",
-            "terminal": "TERMINAL CATALUNYA SA",
-            "terminal_codigo": "6212",
-            "eslora": 366.0,
-            "pax_estimados": 6500,
-            "puerto": "Valencia",
-            "tipo": "llegada",
-            "estado": "Confirmada",
-            "bandera": "França",
-            "imo": "9938171",
-            "mmsi": "228459700",
             "fecha": "2026-02-20"
         }
     ],
@@ -444,17 +444,17 @@
         "proximo_barco": "Gnv Sealand"
     },
     "terminales_activas": [
-        "H",
-        "F1",
-        "6995",
-        "8156",
         "6212",
+        "8156",
+        "6995",
         "F2",
-        "F3"
+        "F3",
+        "F1",
+        "H"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-02-20T15:37:30.568186",
+        "actualizado": "2026-02-20T14:01:07.101806",
         "frecuencia": "horaria"
     }
 }
