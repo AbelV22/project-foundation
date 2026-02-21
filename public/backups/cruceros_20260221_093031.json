@@ -113,7 +113,7 @@
             "fecha": "2026-02-21"
         },
         {
-            "hora": "07:14",
+            "hora": "07:00",
             "nombre": "Eco Valencia",
             "naviera": "GRIMALDI EUROMED SPA",
             "terminal": "GRIMALDI TERMINAL BARCELONA SL",
@@ -122,7 +122,7 @@
             "pax_estimados": 2000,
             "puerto": "Valencia",
             "tipo": "llegada",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Itàlia",
             "imo": "9859533",
             "mmsi": "247383300",
@@ -142,22 +142,6 @@
             "bandera": "Panamà",
             "imo": "9359806",
             "mmsi": "357698000",
-            "fecha": "2026-02-21"
-        },
-        {
-            "hora": "08:23",
-            "nombre": "Msc Levante F",
-            "naviera": "MEDITERRANEAN SHIPPING CO",
-            "terminal": "",
-            "terminal_codigo": "",
-            "eslora": 0,
-            "pax_estimados": 500,
-            "puerto": "Oran",
-            "tipo": "llegada",
-            "estado": "Iniciada",
-            "bandera": "Panamà",
-            "imo": "9330264",
-            "mmsi": "352898711",
             "fecha": "2026-02-21"
         },
         {
@@ -332,7 +316,7 @@
             "pax_estimados": 2000,
             "puerto": "Savona",
             "tipo": "salida",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Itàlia",
             "imo": "9859533",
             "mmsi": "247383300",
@@ -404,27 +388,27 @@
         }
     ],
     "resumen": {
-        "total_cruceros": 17,
-        "total_llegadas": 16,
+        "total_cruceros": 16,
+        "total_llegadas": 15,
         "total_salidas": 9,
-        "pax_estimados_hoy": 25500,
-        "proximo_desembarco": "12:00",
-        "proximo_barco": "Msc Namibia"
+        "pax_estimados_hoy": 25000,
+        "proximo_desembarco": "07:43",
+        "proximo_barco": "Msc Splendida"
     },
     "terminales_activas": [
-        "H",
-        "F2",
-        "8156",
-        "2398",
         "F3",
+        "7946",
+        "H",
+        "2398",
+        "F2",
+        "6212",
         "7083",
         "F1",
-        "7946",
-        "6212"
+        "8156"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-02-21T09:30:31.980852",
+        "actualizado": "2026-02-21T07:32:32.264085",
         "frecuencia": "horaria"
     }
 }
