@@ -74,7 +74,7 @@
             "pax_estimados": 500,
             "puerto": "Livorno",
             "tipo": "llegada",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Panamà",
             "imo": "9372482",
             "mmsi": "353289000",
@@ -145,6 +145,22 @@
             "fecha": "2026-02-21"
         },
         {
+            "hora": "12:00",
+            "nombre": "Msc Namibia",
+            "naviera": "MEDITERRANEAN SHIPPING CO",
+            "terminal": "TERMINAL CATALUNYA SA",
+            "terminal_codigo": "6212",
+            "eslora": 260.0,
+            "pax_estimados": 3000,
+            "puerto": "Valencia",
+            "tipo": "llegada",
+            "estado": "Autoritzada",
+            "bandera": "Libèria",
+            "imo": "9974553",
+            "mmsi": "636024939",
+            "fecha": "2026-02-21"
+        },
+        {
             "hora": "13:25",
             "nombre": "Msc Oak F",
             "naviera": "MEDITERRANEAN SHIPPING CO",
@@ -158,22 +174,6 @@
             "bandera": "Libèria",
             "imo": "9373917",
             "mmsi": "636016702",
-            "fecha": "2026-02-21"
-        },
-        {
-            "hora": "17:34",
-            "nombre": "Msc Namibia",
-            "naviera": "MEDITERRANEAN SHIPPING CO",
-            "terminal": "TERMINAL CATALUNYA SA",
-            "terminal_codigo": "6212",
-            "eslora": 260.0,
-            "pax_estimados": 3000,
-            "puerto": "Valencia",
-            "tipo": "llegada",
-            "estado": "Iniciada",
-            "bandera": "Libèria",
-            "imo": "9974553",
-            "mmsi": "636024939",
             "fecha": "2026-02-21"
         },
         {
@@ -307,6 +307,22 @@
             "fecha": "2026-02-21"
         },
         {
+            "hora": "10:00",
+            "nombre": "Msc Oriane",
+            "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
+            "terminal": "TERMINAL CATALUNYA SA",
+            "terminal_codigo": "6212",
+            "eslora": 0,
+            "pax_estimados": 500,
+            "puerto": "Valencia",
+            "tipo": "salida",
+            "estado": "Iniciada",
+            "bandera": "Panamà",
+            "imo": "9372482",
+            "mmsi": "353289000",
+            "fecha": "2026-02-21"
+        },
+        {
             "hora": "14:27",
             "nombre": "Eco Valencia",
             "naviera": "GRIMALDI LOGISTICA ESPAÑA SL",
@@ -336,22 +352,6 @@
             "bandera": "Hong Kong",
             "imo": "9944819",
             "mmsi": "477945300",
-            "fecha": "2026-02-21"
-        },
-        {
-            "hora": "15:45",
-            "nombre": "Msc Oriane",
-            "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
-            "terminal": "TERMINAL CATALUNYA SA",
-            "terminal_codigo": "6212",
-            "eslora": 0,
-            "pax_estimados": 500,
-            "puerto": "Valencia",
-            "tipo": "salida",
-            "estado": "Finalitzada",
-            "bandera": "Panamà",
-            "imo": "9372482",
-            "mmsi": "353289000",
             "fecha": "2026-02-21"
         },
         {
@@ -408,23 +408,23 @@
         "total_llegadas": 16,
         "total_salidas": 9,
         "pax_estimados_hoy": 25500,
-        "proximo_desembarco": "17:34",
-        "proximo_barco": "Msc Namibia"
+        "proximo_desembarco": "18:00",
+        "proximo_barco": "Msc Rifaya"
     },
     "terminales_activas": [
-        "F3",
-        "7946",
-        "2398",
-        "6212",
         "H",
-        "7083",
         "8156",
+        "2398",
+        "7946",
         "F1",
-        "F2"
+        "F3",
+        "6212",
+        "F2",
+        "7083"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-02-21T17:25:39.906321",
+        "actualizado": "2026-02-21T15:26:13.556833",
         "frecuencia": "horaria"
     }
 }
