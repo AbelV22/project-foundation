@@ -17,38 +17,6 @@
             "fecha": "2026-02-21"
         },
         {
-            "hora": "00:34",
-            "nombre": "Msc Rapallo",
-            "naviera": "MEDITERRANEAN SHIPPING CO",
-            "terminal": "TERMINAL CATALUNYA SA",
-            "terminal_codigo": "6212",
-            "eslora": 0,
-            "pax_estimados": 500,
-            "puerto": "La Spezia",
-            "tipo": "llegada",
-            "estado": "Iniciada",
-            "bandera": "Libèria",
-            "imo": "9484455",
-            "mmsi": "636092271",
-            "fecha": "2026-02-21"
-        },
-        {
-            "hora": "02:36",
-            "nombre": "Diane A",
-            "naviera": "ARKAS CONTAINER TRANSPORT SA",
-            "terminal": "",
-            "terminal_codigo": "",
-            "eslora": 184.0,
-            "pax_estimados": 1000,
-            "puerto": "Valencia",
-            "tipo": "llegada",
-            "estado": "Iniciada",
-            "bandera": "Malta",
-            "imo": "9385532",
-            "mmsi": "229142000",
-            "fecha": "2026-02-21"
-        },
-        {
             "hora": "05:00",
             "nombre": "Diane A",
             "naviera": "ARKAS CONTAINER TRANSPORT SA",
@@ -58,7 +26,7 @@
             "pax_estimados": 1000,
             "puerto": "Valencia",
             "tipo": "llegada",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Malta",
             "imo": "9385532",
             "mmsi": "229142000",
@@ -243,38 +211,6 @@
     ],
     "salidas": [
         {
-            "hora": "01:35",
-            "nombre": "Msc Emilie",
-            "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
-            "terminal": "TERMINAL CATALUNYA SA",
-            "terminal_codigo": "6212",
-            "eslora": 0,
-            "pax_estimados": 500,
-            "puerto": "Bejaia (ex Bougie)",
-            "tipo": "salida",
-            "estado": "Finalitzada",
-            "bandera": "Libèria",
-            "imo": "9334832",
-            "mmsi": "636020695",
-            "fecha": "2026-02-21"
-        },
-        {
-            "hora": "04:59",
-            "nombre": "Diane A",
-            "naviera": "ARKAS SPAIN SA",
-            "terminal": "",
-            "terminal_codigo": "",
-            "eslora": 184.0,
-            "pax_estimados": 1000,
-            "puerto": "Fos-sur-Mer",
-            "tipo": "salida",
-            "estado": "Iniciada",
-            "bandera": "Malta",
-            "imo": "9385532",
-            "mmsi": "229142000",
-            "fecha": "2026-02-21"
-        },
-        {
             "hora": "10:00",
             "nombre": "Msc Rapallo",
             "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
@@ -284,7 +220,7 @@
             "pax_estimados": 500,
             "puerto": "Valencia",
             "tipo": "salida",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Libèria",
             "imo": "9484455",
             "mmsi": "636092271",
@@ -388,27 +324,27 @@
         }
     ],
     "resumen": {
-        "total_cruceros": 16,
-        "total_llegadas": 15,
-        "total_salidas": 9,
-        "pax_estimados_hoy": 25000,
-        "proximo_desembarco": "06:00",
-        "proximo_barco": "Amilcar"
+        "total_cruceros": 15,
+        "total_llegadas": 13,
+        "total_salidas": 7,
+        "pax_estimados_hoy": 23500,
+        "proximo_desembarco": null,
+        "proximo_barco": null
     },
     "terminales_activas": [
-        "7946",
+        "2398",
         "F3",
+        "7946",
+        "8156",
+        "6212",
         "H",
         "F2",
-        "2398",
-        "8156",
-        "7083",
         "F1",
-        "6212"
+        "7083"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-02-21T05:41:51.600742",
+        "actualizado": "2026-02-20T23:29:15.525403",
         "frecuencia": "horaria"
     }
 }
