@@ -145,23 +145,7 @@
             "fecha": "2026-02-22"
         },
         {
-            "hora": "14:34",
-            "nombre": "Msc Tian Iii",
-            "naviera": "MEDITERRANEAN SHIPPING CO",
-            "terminal": "",
-            "terminal_codigo": "",
-            "eslora": 0,
-            "pax_estimados": 500,
-            "puerto": "Sines",
-            "tipo": "llegada",
-            "estado": "Iniciada",
-            "bandera": "Portugal",
-            "imo": "9359715",
-            "mmsi": "255917251",
-            "fecha": "2026-02-22"
-        },
-        {
-            "hora": "14:59",
+            "hora": "14:15",
             "nombre": "Gnv Cristal",
             "naviera": "GRANDI NAVI VELOCI",
             "terminal": "TERMINAL F2",
@@ -170,7 +154,7 @@
             "pax_estimados": 1000,
             "puerto": "Genoa",
             "tipo": "llegada",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Itàlia",
             "imo": "8712518",
             "mmsi": "247163900",
@@ -348,7 +332,7 @@
             "pax_estimados": 1000,
             "puerto": "Tanger Med",
             "tipo": "salida",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Itàlia",
             "imo": "8712518",
             "mmsi": "247163900",
@@ -420,28 +404,28 @@
         }
     ],
     "resumen": {
-        "total_cruceros": 17,
-        "total_llegadas": 12,
+        "total_cruceros": 16,
+        "total_llegadas": 11,
         "total_salidas": 14,
-        "pax_estimados_hoy": 28000,
-        "proximo_desembarco": "22:00",
-        "proximo_barco": "Zephyr Lumos"
+        "pax_estimados_hoy": 27500,
+        "proximo_desembarco": "14:15",
+        "proximo_barco": "Gnv Cristal"
     },
     "terminales_activas": [
-        "H",
-        "F2",
         "F3",
-        "6995",
-        "6212",
         "2398",
-        "7083",
-        "F1",
         "8156",
-        "7946"
+        "6212",
+        "7083",
+        "H",
+        "6995",
+        "F2",
+        "7946",
+        "F1"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-02-22T15:26:27.285303",
+        "actualizado": "2026-02-22T13:43:31.512954",
         "frecuencia": "horaria"
     }
 }
