@@ -26,7 +26,7 @@
             "pax_estimados": 1000,
             "puerto": "Sete",
             "tipo": "llegada",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Libèria",
             "imo": "9399612",
             "mmsi": "636015007",
@@ -58,7 +58,7 @@
             "pax_estimados": 2000,
             "puerto": "Savona",
             "tipo": "llegada",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Itàlia",
             "imo": "9859600",
             "mmsi": "247384100",
@@ -220,7 +220,23 @@
             "pax_estimados": 1000,
             "puerto": "Genoa",
             "tipo": "salida",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
+            "bandera": "Libèria",
+            "imo": "9399612",
+            "mmsi": "636015007",
+            "fecha": "2026-02-22"
+        },
+        {
+            "hora": "02:29",
+            "nombre": "Etc Nefertari",
+            "naviera": "BERGE MARITIMA SL",
+            "terminal": "MEROIL SA",
+            "terminal_codigo": "6995",
+            "eslora": 189.0,
+            "pax_estimados": 1000,
+            "puerto": "Genoa",
+            "tipo": "salida",
+            "estado": "Iniciada",
             "bandera": "Libèria",
             "imo": "9399612",
             "mmsi": "636015007",
@@ -291,7 +307,7 @@
             "fecha": "2026-02-22"
         },
         {
-            "hora": "11:33",
+            "hora": "14:00",
             "nombre": "Eco Adriatica",
             "naviera": "GRIMALDI LOGISTICA ESPAÑA SL",
             "terminal": "GRIMALDI TERMINAL BARCELONA SL",
@@ -300,7 +316,7 @@
             "pax_estimados": 2000,
             "puerto": "Valencia",
             "tipo": "salida",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Itàlia",
             "imo": "9859600",
             "mmsi": "247384100",
@@ -352,22 +368,6 @@
             "bandera": "Panamà",
             "imo": "9320099",
             "mmsi": "372497000",
-            "fecha": "2026-02-22"
-        },
-        {
-            "hora": "20:09",
-            "nombre": "Etc Nefertari",
-            "naviera": "BERGE MARITIMA SL",
-            "terminal": "MEROIL SA",
-            "terminal_codigo": "6995",
-            "eslora": 189.0,
-            "pax_estimados": 1000,
-            "puerto": "Genoa",
-            "tipo": "salida",
-            "estado": "Finalitzada",
-            "bandera": "Libèria",
-            "imo": "9399612",
-            "mmsi": "636015007",
             "fecha": "2026-02-22"
         },
         {
@@ -428,20 +428,20 @@
         "proximo_barco": "Zephyr Lumos"
     },
     "terminales_activas": [
+        "6995",
+        "F1",
+        "7946",
+        "F2",
+        "6212",
+        "F3",
+        "H",
         "8156",
         "7083",
-        "6212",
-        "F2",
-        "2398",
-        "H",
-        "6995",
-        "F3",
-        "F1",
-        "7946"
+        "2398"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-02-22T21:25:15.619459",
+        "actualizado": "2026-02-22T19:25:13.956219",
         "frecuencia": "horaria"
     }
 }
