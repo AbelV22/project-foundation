@@ -170,7 +170,7 @@
             "pax_estimados": 1000,
             "puerto": "Genoa",
             "tipo": "llegada",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Itàlia",
             "imo": "8712518",
             "mmsi": "247163900",
@@ -307,6 +307,22 @@
             "fecha": "2026-02-22"
         },
         {
+            "hora": "11:00",
+            "nombre": "Diane A",
+            "naviera": "ARKAS SPAIN SA",
+            "terminal": "APM TERMINALS BARCELONA, S.L.U.",
+            "terminal_codigo": "7083",
+            "eslora": 184.0,
+            "pax_estimados": 1000,
+            "puerto": "Fos-sur-Mer",
+            "tipo": "salida",
+            "estado": "Iniciada",
+            "bandera": "Malta",
+            "imo": "9385532",
+            "mmsi": "229142000",
+            "fecha": "2026-02-22"
+        },
+        {
             "hora": "14:00",
             "nombre": "Eco Adriatica",
             "naviera": "GRIMALDI LOGISTICA ESPAÑA SL",
@@ -323,23 +339,7 @@
             "fecha": "2026-02-22"
         },
         {
-            "hora": "15:25",
-            "nombre": "Diane A",
-            "naviera": "ARKAS SPAIN SA",
-            "terminal": "APM TERMINALS BARCELONA, S.L.U.",
-            "terminal_codigo": "7083",
-            "eslora": 184.0,
-            "pax_estimados": 1000,
-            "puerto": "Fos-sur-Mer",
-            "tipo": "salida",
-            "estado": "Finalitzada",
-            "bandera": "Malta",
-            "imo": "9385532",
-            "mmsi": "229142000",
-            "fecha": "2026-02-22"
-        },
-        {
-            "hora": "17:33",
+            "hora": "17:15",
             "nombre": "Gnv Cristal",
             "naviera": "TRANSCOMA BALEARES SA",
             "terminal": "TERMINAL F2",
@@ -348,7 +348,7 @@
             "pax_estimados": 1000,
             "puerto": "Tanger Med",
             "tipo": "salida",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Itàlia",
             "imo": "8712518",
             "mmsi": "247163900",
@@ -428,20 +428,20 @@
         "proximo_barco": "Zephyr Lumos"
     },
     "terminales_activas": [
-        "6995",
-        "8156",
-        "7083",
-        "2398",
-        "F2",
-        "7946",
-        "F3",
         "H",
+        "F2",
+        "F3",
+        "6995",
+        "6212",
+        "2398",
+        "7083",
         "F1",
-        "6212"
+        "8156",
+        "7946"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-02-22T17:25:21.229611",
+        "actualizado": "2026-02-22T15:26:27.285303",
         "frecuencia": "horaria"
     }
 }
