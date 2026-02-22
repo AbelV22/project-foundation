@@ -1,22 +1,6 @@
 {
     "llegadas": [
         {
-            "hora": "00:59",
-            "nombre": "Msc Rifaya",
-            "naviera": "MEDITERRANEAN SHIPPING CO",
-            "terminal": "TERMINAL CATALUNYA SA",
-            "terminal_codigo": "6212",
-            "eslora": 400.0,
-            "pax_estimados": 6500,
-            "puerto": "Valencia",
-            "tipo": "llegada",
-            "estado": "Iniciada",
-            "bandera": "Libèria",
-            "imo": "9767388",
-            "mmsi": "636017685",
-            "fecha": "2026-02-22"
-        },
-        {
             "hora": "01:00",
             "nombre": "Msc Levante F",
             "naviera": "MEDITERRANEAN SHIPPING CO",
@@ -30,22 +14,6 @@
             "bandera": "Panamà",
             "imo": "9330264",
             "mmsi": "352898711",
-            "fecha": "2026-02-22"
-        },
-        {
-            "hora": "02:27",
-            "nombre": "Etc Nefertari",
-            "naviera": "MAERSK TANKERS HANDY",
-            "terminal": "MEROIL SA",
-            "terminal_codigo": "6995",
-            "eslora": 189.0,
-            "pax_estimados": 1000,
-            "puerto": "Sete",
-            "tipo": "llegada",
-            "estado": "Iniciada",
-            "bandera": "Libèria",
-            "imo": "9399612",
-            "mmsi": "636015007",
             "fecha": "2026-02-22"
         },
         {
@@ -147,7 +115,7 @@
             "fecha": "2026-02-22"
         },
         {
-            "hora": "01:34",
+            "hora": "01:30",
             "nombre": "Cruise Barcelona",
             "naviera": "GRIMALDI LOGISTICA ESPAÑA SL",
             "terminal": "TERMINAL F3",
@@ -156,42 +124,10 @@
             "pax_estimados": 500,
             "puerto": "Civitavecchia",
             "tipo": "salida",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Itàlia",
             "imo": "9351488",
             "mmsi": "247243600",
-            "fecha": "2026-02-22"
-        },
-        {
-            "hora": "02:26",
-            "nombre": "Etc Nefertari",
-            "naviera": "BERGE MARITIMA SL",
-            "terminal": "",
-            "terminal_codigo": "",
-            "eslora": 189.0,
-            "pax_estimados": 1000,
-            "puerto": "Genoa",
-            "tipo": "salida",
-            "estado": "Iniciada",
-            "bandera": "Libèria",
-            "imo": "9399612",
-            "mmsi": "636015007",
-            "fecha": "2026-02-22"
-        },
-        {
-            "hora": "02:29",
-            "nombre": "Etc Nefertari",
-            "naviera": "BERGE MARITIMA SL",
-            "terminal": "MEROIL SA",
-            "terminal_codigo": "6995",
-            "eslora": 189.0,
-            "pax_estimados": 1000,
-            "puerto": "Genoa",
-            "tipo": "salida",
-            "estado": "Iniciada",
-            "bandera": "Libèria",
-            "imo": "9399612",
-            "mmsi": "636015007",
             "fecha": "2026-02-22"
         },
         {
@@ -324,26 +260,25 @@
         }
     ],
     "resumen": {
-        "total_cruceros": 13,
-        "total_llegadas": 8,
-        "total_salidas": 12,
-        "pax_estimados_hoy": 21000,
-        "proximo_desembarco": "06:00",
-        "proximo_barco": "Gnv Sealand"
+        "total_cruceros": 11,
+        "total_llegadas": 6,
+        "total_salidas": 10,
+        "pax_estimados_hoy": 13500,
+        "proximo_desembarco": null,
+        "proximo_barco": null
     },
     "terminales_activas": [
-        "7083",
-        "8156",
         "F2",
         "H",
-        "6995",
-        "F3",
         "F1",
-        "6212"
+        "F3",
+        "7083",
+        "6212",
+        "8156"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-02-22T05:51:59.776430",
+        "actualizado": "2026-02-21T23:25:11.813446",
         "frecuencia": "horaria"
     }
 }
