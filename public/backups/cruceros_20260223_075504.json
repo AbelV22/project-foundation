@@ -65,7 +65,7 @@
             "fecha": "2026-02-23"
         },
         {
-            "hora": "06:39",
+            "hora": "06:30",
             "nombre": "Ciudad De Barcelona",
             "naviera": "TRASMED GLE S.L.",
             "terminal": "TERMINAL F2",
@@ -74,14 +74,14 @@
             "pax_estimados": 1000,
             "puerto": "Alcudia",
             "tipo": "llegada",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Espanya",
             "imo": "9506289",
             "mmsi": "225416000",
             "fecha": "2026-02-23"
         },
         {
-            "hora": "07:23",
+            "hora": "07:00",
             "nombre": "Eco Savona",
             "naviera": "GRIMALDI EUROMED SPA",
             "terminal": "GRIMALDI TERMINAL BARCELONA SL",
@@ -90,7 +90,7 @@
             "pax_estimados": 2000,
             "puerto": "Savona",
             "tipo": "llegada",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Itàlia",
             "imo": "9859569",
             "mmsi": "247383600",
@@ -268,7 +268,7 @@
             "pax_estimados": 2000,
             "puerto": "Valencia",
             "tipo": "salida",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Itàlia",
             "imo": "9859569",
             "mmsi": "247383600",
@@ -412,7 +412,7 @@
             "pax_estimados": 1000,
             "puerto": "Ibiza",
             "tipo": "salida",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Espanya",
             "imo": "9506289",
             "mmsi": "225416000",
@@ -456,21 +456,21 @@
         "total_llegadas": 12,
         "total_salidas": 16,
         "pax_estimados_hoy": 23500,
-        "proximo_desembarco": "10:00",
-        "proximo_barco": "Msc Tian Iii"
+        "proximo_desembarco": "06:30",
+        "proximo_barco": "Ciudad De Barcelona"
     },
     "terminales_activas": [
-        "F1",
-        "F2",
+        "6212",
         "8156",
         "F3",
-        "6212",
+        "F2",
+        "F1",
         "TC",
         "E"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-02-23T07:55:04.920617",
+        "actualizado": "2026-02-23T06:05:41.010173",
         "frecuencia": "horaria"
     }
 }
