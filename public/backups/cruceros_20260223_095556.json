@@ -97,7 +97,7 @@
             "fecha": "2026-02-23"
         },
         {
-            "hora": "08:14",
+            "hora": "07:30",
             "nombre": "Costa Smeralda",
             "naviera": "COSTA CROCIERE, S.P.A.",
             "terminal": "Terminal E (Adossat)",
@@ -106,7 +106,7 @@
             "pax_estimados": 4500,
             "puerto": "Marseille",
             "tipo": "llegada",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Itàlia",
             "imo": "9781889",
             "mmsi": "247391900",
@@ -300,7 +300,7 @@
             "pax_estimados": 4500,
             "puerto": "La Goulette Nord (Halqueloued)",
             "tipo": "salida",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Itàlia",
             "imo": "9781889",
             "mmsi": "247391900",
@@ -460,17 +460,17 @@
         "proximo_barco": "Msc Tian Iii"
     },
     "terminales_activas": [
+        "F1",
         "F2",
         "8156",
-        "6212",
         "F3",
-        "F1",
+        "6212",
         "TC",
         "E"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-02-23T09:55:56.656695",
+        "actualizado": "2026-02-23T07:55:04.920617",
         "frecuencia": "horaria"
     }
 }
