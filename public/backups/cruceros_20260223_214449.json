@@ -97,6 +97,22 @@
             "fecha": "2026-02-23"
         },
         {
+            "hora": "10:00",
+            "nombre": "Msc Tian Iii",
+            "naviera": "MEDITERRANEAN SHIPPING CO",
+            "terminal": "TERMINAL CATALUNYA SA",
+            "terminal_codigo": "6212",
+            "eslora": 0,
+            "pax_estimados": 500,
+            "puerto": "Sines",
+            "tipo": "llegada",
+            "estado": "Iniciada",
+            "bandera": "Portugal",
+            "imo": "9359715",
+            "mmsi": "255917251",
+            "fecha": "2026-02-23"
+        },
+        {
             "hora": "17:25",
             "nombre": "Gnv Sealand",
             "naviera": "GRANDI NAVI VELOCI",
@@ -159,22 +175,6 @@
             "imo": "9390367",
             "mmsi": "224637000",
             "fecha": "2026-02-23"
-        },
-        {
-            "hora": "20:34",
-            "nombre": "Msc Tian Iii",
-            "naviera": "MEDITERRANEAN SHIPPING CO",
-            "terminal": "TERMINAL CATALUNYA SA",
-            "terminal_codigo": "6212",
-            "eslora": 0,
-            "pax_estimados": 500,
-            "puerto": "Sines",
-            "tipo": "llegada",
-            "estado": "Iniciada",
-            "bandera": "Portugal",
-            "imo": "9359715",
-            "mmsi": "255917251",
-            "fecha": "2026-02-23"
         }
     ],
     "salidas": [
@@ -208,6 +208,22 @@
             "bandera": "Panamà",
             "imo": "9330264",
             "mmsi": "352898711",
+            "fecha": "2026-02-23"
+        },
+        {
+            "hora": "09:59",
+            "nombre": "Msc Tian Iii",
+            "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
+            "terminal": "",
+            "terminal_codigo": "",
+            "eslora": 0,
+            "pax_estimados": 500,
+            "puerto": "Napoli",
+            "tipo": "salida",
+            "estado": "Iniciada",
+            "bandera": "Portugal",
+            "imo": "9359715",
+            "mmsi": "255917251",
             "fecha": "2026-02-23"
         },
         {
@@ -304,22 +320,6 @@
             "bandera": "Portugal",
             "imo": "9509774",
             "mmsi": "255806099",
-            "fecha": "2026-02-23"
-        },
-        {
-            "hora": "20:33",
-            "nombre": "Msc Tian Iii",
-            "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
-            "terminal": "",
-            "terminal_codigo": "",
-            "eslora": 0,
-            "pax_estimados": 500,
-            "puerto": "Napoli",
-            "tipo": "salida",
-            "estado": "Iniciada",
-            "bandera": "Portugal",
-            "imo": "9359715",
-            "mmsi": "255917251",
             "fecha": "2026-02-23"
         },
         {
@@ -428,17 +428,17 @@
         "proximo_barco": null
     },
     "terminales_activas": [
-        "6212",
-        "F1",
         "E",
         "8156",
-        "TC",
+        "F1",
         "F3",
-        "F2"
+        "F2",
+        "TC",
+        "6212"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-02-23T21:44:49.670272",
+        "actualizado": "2026-02-23T19:56:58.233471",
         "frecuencia": "horaria"
     }
 }
