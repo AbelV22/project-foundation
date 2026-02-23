@@ -18,6 +18,22 @@
         },
         {
             "hora": "06:00",
+            "nombre": "Msc Rita V",
+            "naviera": "MEDITERRANEAN SHIPPING CO",
+            "terminal": "TERMINAL CATALUNYA SA",
+            "terminal_codigo": "6212",
+            "eslora": 0,
+            "pax_estimados": 500,
+            "puerto": "Fos-sur-Mer",
+            "tipo": "llegada",
+            "estado": "Sol·licitada",
+            "bandera": "Xipre",
+            "imo": "9313929",
+            "mmsi": "210885000",
+            "fecha": "2026-02-23"
+        },
+        {
+            "hora": "06:00",
             "nombre": "Msc Tianjin",
             "naviera": "MEDITERRANEAN SHIPPING CO",
             "terminal": "TERMINAL CATALUNYA SA",
@@ -292,6 +308,22 @@
         },
         {
             "hora": "20:00",
+            "nombre": "Msc Rita V",
+            "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
+            "terminal": "TERMINAL CATALUNYA SA",
+            "terminal_codigo": "6212",
+            "eslora": 0,
+            "pax_estimados": 500,
+            "puerto": "Gioia Tauro",
+            "tipo": "salida",
+            "estado": "Sol·licitada",
+            "bandera": "Xipre",
+            "imo": "9313929",
+            "mmsi": "210885000",
+            "fecha": "2026-02-23"
+        },
+        {
+            "hora": "20:00",
             "nombre": "Msc Tianjin",
             "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
             "terminal": "TERMINAL CATALUNYA SA",
@@ -420,25 +452,25 @@
         }
     ],
     "resumen": {
-        "total_cruceros": 15,
-        "total_llegadas": 11,
-        "total_salidas": 15,
-        "pax_estimados_hoy": 23000,
-        "proximo_desembarco": "17:15",
-        "proximo_barco": "Gnv Sealand"
+        "total_cruceros": 16,
+        "total_llegadas": 12,
+        "total_salidas": 16,
+        "pax_estimados_hoy": 23500,
+        "proximo_desembarco": "10:00",
+        "proximo_barco": "Msc Tian Iii"
     },
     "terminales_activas": [
-        "E",
-        "8156",
-        "F3",
         "F2",
-        "TC",
+        "8156",
+        "6212",
+        "F3",
         "F1",
-        "6212"
+        "TC",
+        "E"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-02-23T11:39:56.996285",
+        "actualizado": "2026-02-23T09:55:56.656695",
         "frecuencia": "horaria"
     }
 }
