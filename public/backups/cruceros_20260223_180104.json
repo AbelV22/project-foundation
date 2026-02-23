@@ -113,7 +113,7 @@
             "fecha": "2026-02-23"
         },
         {
-            "hora": "17:25",
+            "hora": "17:15",
             "nombre": "Gnv Sealand",
             "naviera": "GRANDI NAVI VELOCI",
             "terminal": "TERMINAL F2",
@@ -122,14 +122,14 @@
             "pax_estimados": 500,
             "puerto": "Palma de Mallorca",
             "tipo": "llegada",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Itàlia",
             "imo": "9435454",
             "mmsi": "247265800",
             "fecha": "2026-02-23"
         },
         {
-            "hora": "17:53",
+            "hora": "18:00",
             "nombre": "Cape Tainaro",
             "naviera": "MEDITERRANEAN SHIPPING CO",
             "terminal": "TERMINAL CATALUNYA SA",
@@ -211,6 +211,22 @@
             "fecha": "2026-02-23"
         },
         {
+            "hora": "08:00",
+            "nombre": "Cma Cgm Laguna",
+            "naviera": "CMA CGM IBERICA SAU",
+            "terminal": "TERMINAL CATALUNYA SA",
+            "terminal_codigo": "6212",
+            "eslora": 366.0,
+            "pax_estimados": 6500,
+            "puerto": "Fos-sur-Mer",
+            "tipo": "salida",
+            "estado": "Iniciada",
+            "bandera": "França",
+            "imo": "9938171",
+            "mmsi": "228459700",
+            "fecha": "2026-02-23"
+        },
+        {
             "hora": "09:59",
             "nombre": "Msc Tian Iii",
             "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
@@ -243,23 +259,7 @@
             "fecha": "2026-02-23"
         },
         {
-            "hora": "16:16",
-            "nombre": "Cma Cgm Laguna",
-            "naviera": "CMA CGM IBERICA SAU",
-            "terminal": "TERMINAL CATALUNYA SA",
-            "terminal_codigo": "6212",
-            "eslora": 366.0,
-            "pax_estimados": 6500,
-            "puerto": "Fos-sur-Mer",
-            "tipo": "salida",
-            "estado": "Finalitzada",
-            "bandera": "França",
-            "imo": "9938171",
-            "mmsi": "228459700",
-            "fecha": "2026-02-23"
-        },
-        {
-            "hora": "17:52",
+            "hora": "17:59",
             "nombre": "Cape Tainaro",
             "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
             "terminal": "",
@@ -348,7 +348,7 @@
             "pax_estimados": 500,
             "puerto": "Palma de Mallorca",
             "tipo": "salida",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Itàlia",
             "imo": "9435454",
             "mmsi": "247265800",
@@ -424,21 +424,21 @@
         "total_llegadas": 11,
         "total_salidas": 15,
         "pax_estimados_hoy": 23000,
-        "proximo_desembarco": "18:30",
-        "proximo_barco": "Ciudad De Palma"
+        "proximo_desembarco": "17:15",
+        "proximo_barco": "Gnv Sealand"
     },
     "terminales_activas": [
-        "F1",
-        "8156",
-        "TC",
         "F2",
+        "F1",
+        "6212",
+        "TC",
+        "8156",
         "E",
-        "F3",
-        "6212"
+        "F3"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-02-23T18:01:04.217253",
+        "actualizado": "2026-02-23T15:46:38.572303",
         "frecuencia": "horaria"
     }
 }
