@@ -1,7 +1,7 @@
 {
     "llegadas": [
         {
-            "hora": "00:50",
+            "hora": "00:30",
             "nombre": "Cruise Roma",
             "naviera": "GRIMALDI EUROMED SPA",
             "terminal": "TERMINAL F3",
@@ -10,7 +10,7 @@
             "pax_estimados": 3000,
             "puerto": "Civitavecchia",
             "tipo": "llegada",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Itàlia",
             "imo": "9351476",
             "mmsi": "247219400",
@@ -195,7 +195,7 @@
     ],
     "salidas": [
         {
-            "hora": "00:23",
+            "hora": "04:00",
             "nombre": "Msc Namibia",
             "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
             "terminal": "TERMINAL CATALUNYA SA",
@@ -204,14 +204,14 @@
             "pax_estimados": 3000,
             "puerto": "Gioia Tauro",
             "tipo": "salida",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Libèria",
             "imo": "9974553",
             "mmsi": "636024939",
             "fecha": "2026-02-23"
         },
         {
-            "hora": "00:46",
+            "hora": "04:00",
             "nombre": "Msc Levante F",
             "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
             "terminal": "TERMINAL CATALUNYA SA",
@@ -220,7 +220,7 @@
             "pax_estimados": 500,
             "puerto": "Oran",
             "tipo": "salida",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Panamà",
             "imo": "9330264",
             "mmsi": "352898711",
@@ -396,7 +396,7 @@
             "pax_estimados": 3000,
             "puerto": "Civitavecchia",
             "tipo": "salida",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Itàlia",
             "imo": "9351476",
             "mmsi": "247219400",
@@ -456,21 +456,21 @@
         "total_llegadas": 12,
         "total_salidas": 16,
         "pax_estimados_hoy": 23500,
-        "proximo_desembarco": "06:30",
-        "proximo_barco": "Ciudad De Barcelona"
+        "proximo_desembarco": null,
+        "proximo_barco": null
     },
     "terminales_activas": [
         "6212",
         "8156",
-        "F3",
         "F2",
+        "E",
         "F1",
         "TC",
-        "E"
+        "F3"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-02-23T06:05:41.010173",
+        "actualizado": "2026-02-22T23:26:39.536537",
         "frecuencia": "horaria"
     }
 }
