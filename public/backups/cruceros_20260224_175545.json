@@ -33,7 +33,7 @@
             "fecha": "2026-02-24"
         },
         {
-            "hora": "17:33",
+            "hora": "17:15",
             "nombre": "Gnv Sealand",
             "naviera": "GRANDI NAVI VELOCI",
             "terminal": "TERMINAL F2",
@@ -42,7 +42,7 @@
             "pax_estimados": 500,
             "puerto": "Palma de Mallorca",
             "tipo": "llegada",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Itàlia",
             "imo": "9435454",
             "mmsi": "247265800",
@@ -138,7 +138,7 @@
             "pax_estimados": 500,
             "puerto": "Valencia",
             "tipo": "llegada",
-            "estado": "Autoritzada",
+            "estado": "Confirmada",
             "bandera": "Panamà",
             "imo": "9839301",
             "mmsi": "370711000",
@@ -227,22 +227,6 @@
             "fecha": "2026-02-24"
         },
         {
-            "hora": "16:25",
-            "nombre": "Cape Tainaro",
-            "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
-            "terminal": "TERMINAL CATALUNYA SA",
-            "terminal_codigo": "6212",
-            "eslora": 330.0,
-            "pax_estimados": 4500,
-            "puerto": "Valencia",
-            "tipo": "salida",
-            "estado": "Finalitzada",
-            "bandera": "Malta",
-            "imo": "9706205",
-            "mmsi": "249982000",
-            "fecha": "2026-02-24"
-        },
-        {
             "hora": "20:00",
             "nombre": "Stallion",
             "naviera": "ALFASHIP MARITIME SERVICES SL ",
@@ -284,10 +268,26 @@
             "pax_estimados": 500,
             "puerto": "Palma de Mallorca",
             "tipo": "salida",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Itàlia",
             "imo": "9435454",
             "mmsi": "247265800",
+            "fecha": "2026-02-24"
+        },
+        {
+            "hora": "22:00",
+            "nombre": "Cape Tainaro",
+            "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
+            "terminal": "TERMINAL CATALUNYA SA",
+            "terminal_codigo": "6212",
+            "eslora": 330.0,
+            "pax_estimados": 4500,
+            "puerto": "Valencia",
+            "tipo": "salida",
+            "estado": "Iniciada",
+            "bandera": "Malta",
+            "imo": "9706205",
+            "mmsi": "249982000",
             "fecha": "2026-02-24"
         },
         {
@@ -360,21 +360,21 @@
         "total_llegadas": 11,
         "total_salidas": 11,
         "pax_estimados_hoy": 10000,
-        "proximo_desembarco": "18:00",
-        "proximo_barco": "Cruise Barcelona"
+        "proximo_desembarco": "17:15",
+        "proximo_barco": "Gnv Sealand"
     },
     "terminales_activas": [
+        "8156",
+        "F1",
         "6212",
-        "F2",
         "7946",
         "6995",
-        "F1",
-        "F3",
-        "8156"
+        "F2",
+        "F3"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-02-24T17:55:45.680001",
+        "actualizado": "2026-02-24T15:59:07.803566",
         "frecuencia": "horaria"
     }
 }
