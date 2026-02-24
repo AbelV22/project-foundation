@@ -179,6 +179,22 @@
     ],
     "salidas": [
         {
+            "hora": "02:00",
+            "nombre": "Msc Tian Iii",
+            "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
+            "terminal": "TERMINAL CATALUNYA SA",
+            "terminal_codigo": "6212",
+            "eslora": 0,
+            "pax_estimados": 500,
+            "puerto": "Napoli",
+            "tipo": "salida",
+            "estado": "Iniciada",
+            "bandera": "Portugal",
+            "imo": "9359715",
+            "mmsi": "255917251",
+            "fecha": "2026-02-24"
+        },
+        {
             "hora": "11:16",
             "nombre": "Eco Adriatica",
             "naviera": "GRIMALDI LOGISTICA ESPAÑA SL",
@@ -208,22 +224,6 @@
             "bandera": "Regne Unit",
             "imo": "9864227",
             "mmsi": "232030743",
-            "fecha": "2026-02-24"
-        },
-        {
-            "hora": "14:06",
-            "nombre": "Msc Tian Iii",
-            "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
-            "terminal": "TERMINAL CATALUNYA SA",
-            "terminal_codigo": "6212",
-            "eslora": 0,
-            "pax_estimados": 500,
-            "puerto": "Napoli",
-            "tipo": "salida",
-            "estado": "Finalitzada",
-            "bandera": "Portugal",
-            "imo": "9359715",
-            "mmsi": "255917251",
             "fecha": "2026-02-24"
         },
         {
@@ -364,17 +364,17 @@
         "proximo_barco": "Gnv Sealand"
     },
     "terminales_activas": [
-        "8156",
-        "F1",
         "6212",
+        "F1",
+        "8156",
         "7946",
-        "6995",
         "F2",
-        "F3"
+        "F3",
+        "6995"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-02-24T15:59:07.803566",
+        "actualizado": "2026-02-24T14:11:27.368997",
         "frecuencia": "horaria"
     }
 }
