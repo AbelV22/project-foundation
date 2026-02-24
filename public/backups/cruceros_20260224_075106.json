@@ -17,7 +17,7 @@
             "fecha": "2026-02-24"
         },
         {
-            "hora": "07:52",
+            "hora": "07:00",
             "nombre": "Eco Adriatica",
             "naviera": "GRIMALDI EUROMED SPA",
             "terminal": "GRIMALDI TERMINAL BARCELONA SL",
@@ -26,7 +26,7 @@
             "pax_estimados": 2000,
             "puerto": "Valencia",
             "tipo": "llegada",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Itàlia",
             "imo": "9859600",
             "mmsi": "247384100",
@@ -159,22 +159,6 @@
             "imo": "9938169",
             "mmsi": "228459900",
             "fecha": "2026-02-24"
-        },
-        {
-            "hora": "22:00",
-            "nombre": "Maersk Aegean",
-            "naviera": "MAERSK TANKERS HANDY",
-            "terminal": "TRADEBE PORT SERVICES SL",
-            "terminal_codigo": "7946",
-            "eslora": 184.0,
-            "pax_estimados": 1000,
-            "puerto": "Fos-sur-Mer",
-            "tipo": "llegada",
-            "estado": "Sol·licitada",
-            "bandera": "Dinamarca",
-            "imo": "9636644",
-            "mmsi": "219682000",
-            "fecha": "2026-02-24"
         }
     ],
     "salidas": [
@@ -204,7 +188,7 @@
             "pax_estimados": 2000,
             "puerto": "Livorno",
             "tipo": "salida",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Itàlia",
             "imo": "9859600",
             "mmsi": "247384100",
@@ -356,24 +340,24 @@
         }
     ],
     "resumen": {
-        "total_cruceros": 15,
-        "total_llegadas": 11,
+        "total_cruceros": 14,
+        "total_llegadas": 10,
         "total_salidas": 11,
-        "pax_estimados_hoy": 15500,
-        "proximo_desembarco": "07:52",
-        "proximo_barco": "Eco Adriatica"
+        "pax_estimados_hoy": 14500,
+        "proximo_desembarco": "06:00",
+        "proximo_barco": "Msc Rita V"
     },
     "terminales_activas": [
-        "7946",
-        "F1",
-        "6212",
         "F3",
+        "7946",
+        "F2",
+        "6212",
         "8156",
-        "F2"
+        "F1"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-02-24T07:51:06.131277",
+        "actualizado": "2026-02-24T05:59:09.103545",
         "frecuencia": "horaria"
     }
 }
