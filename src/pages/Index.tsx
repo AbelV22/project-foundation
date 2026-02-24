@@ -128,7 +128,7 @@ const Index = () => {
 
         <div className={cn(
           "pb-bottom-nav",
-          activeTab === "terminalDetail" ? "" : "p-4 md:p-6"
+          activeTab === "terminalDetail" || activeTab === "eventos" ? "" : "p-4 md:p-6"
         )}>
           {activeTab === "dashboard" && (
             <DashboardView
@@ -201,10 +201,10 @@ const Index = () => {
         </div>
       </main>
 
-      {/* Floating PRO Feature Buttons - Hidden in fullDay and trainsFullDay views */}
-      <WhereNextSheet />
-      {activeTab !== "fullDay" && activeTab !== "trainsFullDay" && (
+      {/* Floating PRO Feature Buttons - Hidden in fullDay, trainsFullDay and eventos views */}
+      {activeTab !== "fullDay" && activeTab !== "trainsFullDay" && activeTab !== "eventos" && (
         <>
+          <WhereNextSheet />
           <QuickEarningsSheet />
           <AddExpenseSheet />
         </>

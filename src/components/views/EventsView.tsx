@@ -4,7 +4,6 @@ import {
   MapPin,
   Users,
   Clock,
-  ChevronRight,
   Music,
   Trophy,
   Building2,
@@ -31,23 +30,15 @@ const categories = {
 
 const monthNamesShort = ["ENE", "FEB", "MAR", "ABR", "MAY", "JUN", "JUL", "AGO", "SEP", "OCT", "NOV", "DIC"];
 
-const getWazeUrl = (lat: number, lon: number, name: string) => {
+const getWazeUrl = (lat: number, lon: number) => {
   return `https://waze.com/ul?ll=${lat},${lon}&navigate=yes&z=10`;
 };
 
 const demandLevelLabels = {
-  "very-high": { label: "Muy Alta", color: "#EF4444", intensity: "🔥🔥🔥" },
-  "high": { label: "Alta", color: "#F59E0B", intensity: "🔥🔥" },
-  "medium": { label: "Media", color: "#3B82F6", intensity: "🔥" },
-  "low": { label: "Baja", color: "#6B7280", intensity: "" },
-};
-
-const statusLabels = {
-  "upcoming": "Próximo",
-  "starting-soon": "Comienza pronto",
-  "ongoing": "En curso",
-  "ending-soon": "Terminando",
-  "ended": "Finalizado",
+  "very-high": { label: "Muy Alta", color: "#EF4444" },
+  "high": { label: "Alta", color: "#F59E0B" },
+  "medium": { label: "Media", color: "#3B82F6" },
+  "low": { label: "Baja", color: "#6B7280" },
 };
 
 export function EventsView() {
@@ -83,7 +74,7 @@ export function EventsView() {
 
   if (loading) {
     return (
-      <div className="flex flex-col h-full bg-background p-5 space-y-4">
+      <div className="flex flex-col h-full bg-background px-4 pt-4 space-y-4">
         <div className="h-8 w-32 bg-muted rounded-lg animate-pulse" />
         <div className="flex gap-2">
           {[1, 2, 3, 4].map(i => (
@@ -92,7 +83,7 @@ export function EventsView() {
         </div>
         <div className="space-y-3">
           {[1, 2, 3].map(i => (
-            <div key={i} className="h-24 bg-muted rounded-2xl animate-pulse" />
+            <div key={i} className="h-32 bg-muted rounded-2xl animate-pulse" />
           ))}
         </div>
       </div>
@@ -101,8 +92,9 @@ export function EventsView() {
 
   return (
     <div className="flex flex-col h-full bg-background">
+
       {/* Header */}
-      <div className="flex-shrink-0 px-5 pt-4 pb-2">
+      <div className="flex-shrink-0 px-4 pt-4 pb-3">
         <h1 className="text-[28px] font-bold tracking-tight">Eventos</h1>
         <p className="text-sm text-muted-foreground mt-0.5">
           {events.length} eventos en Barcelona
@@ -110,12 +102,12 @@ export function EventsView() {
       </div>
 
       {/* Filter chips */}
-      <div className="flex-shrink-0 px-5 py-3">
-        <div className="flex gap-2 overflow-x-auto pb-1 -mx-5 px-5 scrollbar-hide">
+      <div className="flex-shrink-0 pb-3">
+        <div className="flex gap-2 overflow-x-auto px-4 pb-1 scrollbar-hide">
           <button
             onClick={() => setSelectedCategory(null)}
             className={cn(
-              "h-9 px-4 rounded-full text-sm font-medium whitespace-nowrap transition-all active:scale-[0.98]",
+              "h-9 px-4 rounded-full text-sm font-medium whitespace-nowrap transition-all active:scale-[0.97]",
               selectedCategory === null
                 ? "bg-foreground text-background"
                 : "bg-muted/60 text-foreground"
@@ -128,14 +120,14 @@ export function EventsView() {
               key={key}
               onClick={() => setSelectedCategory(key)}
               className={cn(
-                "h-9 px-4 rounded-full text-sm font-medium whitespace-nowrap transition-all flex items-center gap-2 active:scale-[0.98]",
+                "h-9 px-4 rounded-full text-sm font-medium whitespace-nowrap transition-all flex items-center gap-1.5 active:scale-[0.97]",
                 selectedCategory === key
                   ? "text-white"
                   : "bg-muted/60 text-foreground"
               )}
               style={selectedCategory === key ? { backgroundColor: cat.color } : {}}
             >
-              <cat.icon className="h-4 w-4" />
+              <cat.icon className="h-3.5 w-3.5" />
               {cat.label}
             </button>
           ))}
@@ -143,7 +135,7 @@ export function EventsView() {
       </div>
 
       {/* Calendar toggle */}
-      <div className="flex-shrink-0 px-5 pb-3">
+      <div className="flex-shrink-0 px-4 pb-3">
         <button
           onClick={() => setShowCalendar(!showCalendar)}
           className={cn(
@@ -164,9 +156,9 @@ export function EventsView() {
             animate={{ height: "auto", opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
             transition={{ duration: 0.25, ease: "easeInOut" }}
-            className="overflow-hidden border-y border-border/50"
+            className="overflow-hidden border-y border-border/50 flex-shrink-0"
           >
-            <div className="p-5 bg-muted/20">
+            <div className="p-4 bg-muted/20">
               <Calendar
                 mode="single"
                 selected={selectedDate}
@@ -213,7 +205,7 @@ export function EventsView() {
                         <button
                           onClick={(e) => {
                             e.stopPropagation();
-                            window.open(getWazeUrl(event.lat, event.lon, event.location), "_blank");
+                            window.open(getWazeUrl(event.lat, event.lon), "_blank");
                           }}
                           className="h-8 w-8 rounded-lg bg-blue-500/10 flex items-center justify-center active:scale-[0.95]"
                         >
@@ -231,7 +223,7 @@ export function EventsView() {
 
       {/* Events list */}
       <div className="flex-1 overflow-y-auto">
-        <div className="px-5 py-4 space-y-3 pb-28">
+        <div className="px-4 pt-1 pb-8 space-y-3">
           <AnimatePresence mode="popLayout">
             {filteredEvents.map((event, idx) => {
               const cat = categories[event.type as keyof typeof categories] || categories.Other;
@@ -239,140 +231,142 @@ export function EventsView() {
               const eventDate = new Date(event.rawDate);
               const dayNum = eventDate.getDate();
               const monthShort = monthNamesShort[eventDate.getMonth()];
-
               const demandInfo = event.demandLevel ? demandLevelLabels[event.demandLevel] : null;
-              const statusLabel = event.status ? statusLabels[event.status] : null;
 
               return (
                 <motion.div
                   key={event.id}
-                  initial={{ opacity: 0, y: 12 }}
+                  initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -12 }}
-                  transition={{ duration: 0.2, delay: idx * 0.03 }}
-                  className="rounded-2xl bg-card border border-border/50 overflow-hidden"
+                  exit={{ opacity: 0, y: -10 }}
+                  transition={{ duration: 0.2, delay: idx * 0.025 }}
+                  className="rounded-2xl bg-card border border-border/40 overflow-hidden shadow-sm"
                 >
-                  <div className="flex items-center gap-4 p-4">
-                    {/* Date block */}
-                    <div className="flex-shrink-0 w-12 text-center">
-                      <p className="text-2xl font-bold leading-none">{dayNum}</p>
-                      <p className="text-[10px] font-semibold text-muted-foreground tracking-wide mt-1">{monthShort}</p>
-                    </div>
+                  <div className="p-4">
 
-                    {/* Divider */}
-                    <div className="w-px h-12 bg-border/60" />
-
-                    {/* Content */}
-                    <div className="flex-1 min-w-0">
-                      <div className="flex items-center gap-1.5 mb-1">
-                        <Icon className="h-3 w-3" style={{ color: cat.color }} />
-                        <span className="text-[11px] font-semibold" style={{ color: cat.color }}>
+                    {/* Row 1: Category label + Status badge */}
+                    <div className="flex items-center justify-between mb-2.5">
+                      <div className="flex items-center gap-1.5">
+                        <Icon className="h-3.5 w-3.5 flex-shrink-0" style={{ color: cat.color }} />
+                        <span className="text-[11px] font-bold uppercase tracking-wide" style={{ color: cat.color }}>
                           {cat.label}
                         </span>
-                        {event.status === "ongoing" && (
-                          <span className="ml-auto text-[10px] font-semibold text-green-500 flex items-center gap-1 px-2 py-0.5 rounded-full bg-green-500/10">
-                            <div className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse" />
-                            {statusLabel}
-                          </span>
-                        )}
-                        {event.status === "ending-soon" && (
-                          <span className="ml-auto text-[10px] font-semibold text-orange-500 flex items-center gap-1 px-2 py-0.5 rounded-full bg-orange-500/10">
-                            <AlertCircle className="h-3 w-3" />
-                            {statusLabel}
-                          </span>
-                        )}
                       </div>
-                      <h3 className="text-[15px] font-semibold leading-snug line-clamp-1">
-                        {event.title}
-                      </h3>
-                      <div className="flex items-center gap-3 mt-1.5 text-xs text-muted-foreground">
-                        <span className="flex items-center gap-1">
-                          <Clock className="h-3 w-3" />
-                          {event.time} - {event.endTime}
+                      {event.status === "ongoing" && (
+                        <span className="text-[10px] font-semibold text-emerald-500 flex items-center gap-1 px-2 py-0.5 rounded-full bg-emerald-500/10">
+                          <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse inline-block" />
+                          En curso
                         </span>
-                        <span className="flex items-center gap-1 truncate">
-                          <MapPin className="h-3 w-3" />
-                          <span className="truncate">{event.location}</span>
+                      )}
+                      {event.status === "ending-soon" && (
+                        <span className="text-[10px] font-semibold text-orange-500 flex items-center gap-1 px-2 py-0.5 rounded-full bg-orange-500/10">
+                          <AlertCircle className="h-3 w-3" />
+                          Terminando
                         </span>
+                      )}
+                      {event.status === "starting-soon" && (
+                        <span className="text-[10px] font-semibold text-blue-500 flex items-center gap-1 px-2 py-0.5 rounded-full bg-blue-500/10">
+                          Comienza pronto
+                        </span>
+                      )}
+                    </div>
+
+                    {/* Row 2: Date block + Title + Time/Location */}
+                    <div className="flex gap-3 items-start">
+                      {/* Date block */}
+                      <div className="flex-shrink-0 w-11 h-12 rounded-xl bg-muted/60 flex flex-col items-center justify-center">
+                        <span className="text-[20px] font-black leading-none tabular-nums">{dayNum}</span>
+                        <span className="text-[8px] font-bold text-muted-foreground tracking-widest uppercase mt-0.5">{monthShort}</span>
+                      </div>
+
+                      {/* Content */}
+                      <div className="flex-1 min-w-0">
+                        <h3 className="text-[15px] font-semibold leading-snug line-clamp-2">
+                          {event.title}
+                        </h3>
+                        <div className="flex items-center flex-wrap gap-x-2 gap-y-0.5 mt-1.5 text-xs text-muted-foreground">
+                          <span className="flex items-center gap-1 flex-shrink-0">
+                            <Clock className="h-3 w-3" />
+                            {event.time}–{event.endTime}
+                          </span>
+                          <span className="flex items-center gap-1 min-w-0">
+                            <MapPin className="h-3 w-3 flex-shrink-0" />
+                            <span className="truncate">{event.location}</span>
+                          </span>
+                        </div>
                       </div>
                     </div>
 
-                    {/* Actions */}
-                    <div className="flex-shrink-0 flex items-center gap-2">
-                      {/* Attendance */}
-                      <div className="text-right mr-1">
-                        <p className="text-xs font-bold tabular-nums">
+                    {/* Row 3: Attendance + Navigate */}
+                    <div className="flex items-center justify-between mt-3 pt-3 border-t border-border/30">
+                      <div className="flex items-center gap-1.5 text-xs text-muted-foreground">
+                        <Users className="h-3.5 w-3.5" />
+                        <span className="font-bold text-foreground tabular-nums text-[13px]">
                           {event.attendees >= 1000
                             ? `${(event.attendees / 1000).toFixed(0)}k`
                             : event.attendees}
-                        </p>
-                        <p className="text-[10px] text-muted-foreground flex items-center gap-0.5 justify-end">
-                          <Users className="h-2.5 w-2.5" />
-                          est.
-                        </p>
+                        </span>
+                        <span>personas est.</span>
                       </div>
-
-                      {/* Waze button */}
                       <button
-                        onClick={() => window.open(getWazeUrl(event.lat, event.lon, event.location), "_blank")}
-                        className="h-10 w-10 rounded-xl bg-blue-500 flex items-center justify-center active:scale-[0.95] transition-transform"
-                        title="Ir con Waze"
+                        onClick={() => window.open(getWazeUrl(event.lat, event.lon), "_blank")}
+                        className="h-8 px-3.5 rounded-full bg-blue-500 flex items-center gap-1.5 active:scale-[0.95] transition-transform"
                       >
-                        <Navigation className="h-5 w-5 text-white" />
+                        <Navigation className="h-3.5 w-3.5 text-white" />
+                        <span className="text-[12px] font-semibold text-white">Navegar</span>
                       </button>
                     </div>
                   </div>
 
-                  {/* New: Post-Event Demand Info + Nearby Events */}
-                  {(event.postEventDemand || event.nearbyEvents) && (
-                    <div className="border-t border-border/30 bg-muted/20 px-4 py-3 space-y-2">
-                      {/* Post-event demand window */}
+                  {/* Demand info footer */}
+                  {(event.postEventDemand && demandInfo) || (event.nearbyEvents && event.nearbyEvents.length > 0) ? (
+                    <div className="border-t border-border/30 bg-muted/20 px-4 py-2.5 space-y-2">
                       {event.postEventDemand && demandInfo && (
-                        <div className="flex items-center gap-2 text-xs">
-                          <div className="flex items-center gap-1.5 flex-1">
-                            <TrendingUp className="h-3.5 w-3.5" style={{ color: demandInfo.color }} />
-                            <span className="font-semibold">Pico de salida:</span>
+                        <div className="flex items-center justify-between text-xs">
+                          <div className="flex items-center gap-1.5 flex-1 min-w-0">
+                            <TrendingUp className="h-3.5 w-3.5 flex-shrink-0" style={{ color: demandInfo.color }} />
+                            <span className="text-muted-foreground">Pico salida</span>
                             <span className="font-bold tabular-nums" style={{ color: demandInfo.color }}>
                               {event.postEventDemand.peakTime}h
                             </span>
-                            <span className="text-muted-foreground">
-                              ({event.postEventDemand.start}h - {event.postEventDemand.end}h)
+                            <span className="text-muted-foreground/70 truncate">
+                              ({event.postEventDemand.start}–{event.postEventDemand.end}h)
                             </span>
                           </div>
-                          <div className="flex items-center gap-1 px-2 py-1 rounded-md" style={{ backgroundColor: `${demandInfo.color}15` }}>
+                          <div
+                            className="flex items-center gap-1 px-2 py-0.5 rounded-md flex-shrink-0 ml-2"
+                            style={{ backgroundColor: `${demandInfo.color}18` }}
+                          >
                             <Flame className="h-3 w-3" style={{ color: demandInfo.color }} />
                             <span className="text-[10px] font-bold" style={{ color: demandInfo.color }}>
-                              Demanda {demandInfo.label}
+                              {demandInfo.label}
                             </span>
                           </div>
                         </div>
                       )}
 
-                      {/* Nearby events alert */}
                       {event.nearbyEvents && event.nearbyEvents.length > 0 && (
-                        <div className="flex items-start gap-2 text-xs bg-blue-500/10 rounded-lg p-2">
+                        <div className="flex items-start gap-2 text-xs bg-blue-500/8 rounded-lg p-2">
                           <MapIcon className="h-3.5 w-3.5 text-blue-500 mt-0.5 flex-shrink-0" />
-                          <div className="flex-1">
+                          <div className="flex-1 min-w-0">
                             <span className="font-semibold text-blue-600 dark:text-blue-400">
-                              {event.nearbyEvents.length} {event.nearbyEvents.length === 1 ? 'evento cercano' : 'eventos cercanos'}:
+                              +{event.nearbyEvents.length} evento{event.nearbyEvents.length !== 1 ? "s" : ""} cercano{event.nearbyEvents.length !== 1 ? "s" : ""}
                             </span>
-                            <div className="mt-1 space-y-0.5">
-                              {event.nearbyEvents.slice(0, 2).map(nearby => (
-                                <div key={nearby.id} className="text-[11px] text-muted-foreground">
-                                  • {nearby.title} ({nearby.distance}km, ±{nearby.timeDiff}min)
-                                </div>
-                              ))}
-                              {event.nearbyEvents.length > 2 && (
-                                <div className="text-[11px] text-blue-500 font-medium">
-                                  +{event.nearbyEvents.length - 2} más
-                                </div>
-                              )}
-                            </div>
+                            {event.nearbyEvents.slice(0, 2).map(nearby => (
+                              <div key={nearby.id} className="text-[11px] text-muted-foreground mt-0.5 truncate">
+                                {nearby.title} · {nearby.distance}km
+                              </div>
+                            ))}
+                            {event.nearbyEvents.length > 2 && (
+                              <div className="text-[11px] text-blue-500 font-medium mt-0.5">
+                                +{event.nearbyEvents.length - 2} más
+                              </div>
+                            )}
                           </div>
                         </div>
                       )}
                     </div>
-                  )}
+                  ) : null}
                 </motion.div>
               );
             })}
