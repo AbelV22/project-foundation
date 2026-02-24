@@ -17,7 +17,7 @@
             "fecha": "2026-02-24"
         },
         {
-            "hora": "07:27",
+            "hora": "07:52",
             "nombre": "Eco Adriatica",
             "naviera": "GRIMALDI EUROMED SPA",
             "terminal": "GRIMALDI TERMINAL BARCELONA SL",
@@ -158,22 +158,6 @@
             "bandera": "França",
             "imo": "9938169",
             "mmsi": "228459900",
-            "fecha": "2026-02-24"
-        },
-        {
-            "hora": "22:00",
-            "nombre": "Maersk Aegean",
-            "naviera": "MAERSK TANKERS HANDY",
-            "terminal": "MEROIL SA",
-            "terminal_codigo": "6995",
-            "eslora": 184.0,
-            "pax_estimados": 1000,
-            "puerto": "Fos-sur-Mer",
-            "tipo": "llegada",
-            "estado": "Sol·licitada",
-            "bandera": "Dinamarca",
-            "imo": "9636644",
-            "mmsi": "219682000",
             "fecha": "2026-02-24"
         },
         {
@@ -373,24 +357,23 @@
     ],
     "resumen": {
         "total_cruceros": 15,
-        "total_llegadas": 12,
+        "total_llegadas": 11,
         "total_salidas": 11,
-        "pax_estimados_hoy": 16500,
-        "proximo_desembarco": "17:15",
-        "proximo_barco": "Gnv Sealand"
+        "pax_estimados_hoy": 15500,
+        "proximo_desembarco": "07:52",
+        "proximo_barco": "Eco Adriatica"
     },
     "terminales_activas": [
         "7946",
-        "F2",
-        "F3",
         "F1",
         "6212",
-        "6995",
-        "8156"
+        "F3",
+        "8156",
+        "F2"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-02-24T09:53:30.372647",
+        "actualizado": "2026-02-24T07:51:06.131277",
         "frecuencia": "horaria"
     }
 }
