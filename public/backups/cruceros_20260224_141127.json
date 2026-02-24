@@ -11,7 +11,7 @@
             "puerto": "Valencia",
             "tipo": "llegada",
             "estado": "Autoritzada",
-            "bandera": "Libèria",
+            "bandera": "Xipre",
             "imo": "9313929",
             "mmsi": "210885000",
             "fecha": "2026-02-24"
@@ -26,7 +26,7 @@
             "pax_estimados": 2000,
             "puerto": "Valencia",
             "tipo": "llegada",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Itàlia",
             "imo": "9859600",
             "mmsi": "247384100",
@@ -154,7 +154,7 @@
             "pax_estimados": 1000,
             "puerto": "Fos-sur-Mer",
             "tipo": "llegada",
-            "estado": "Autoritzada",
+            "estado": "Sol·licitada",
             "bandera": "Dinamarca",
             "imo": "9636644",
             "mmsi": "219682000",
@@ -170,7 +170,7 @@
             "pax_estimados": 1000,
             "puerto": "Fos-sur-Mer",
             "tipo": "llegada",
-            "estado": "Autoritzada",
+            "estado": "Sol·licitada",
             "bandera": "Dinamarca",
             "imo": "9636644",
             "mmsi": "219682000",
@@ -195,7 +195,7 @@
             "fecha": "2026-02-24"
         },
         {
-            "hora": "11:16",
+            "hora": "11:00",
             "nombre": "Eco Adriatica",
             "naviera": "GRIMALDI LOGISTICA ESPAÑA SL",
             "terminal": "GRIMALDI TERMINAL BARCELONA SL",
@@ -204,7 +204,7 @@
             "pax_estimados": 2000,
             "puerto": "Livorno",
             "tipo": "salida",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Itàlia",
             "imo": "9859600",
             "mmsi": "247384100",
@@ -364,17 +364,17 @@
         "proximo_barco": "Gnv Sealand"
     },
     "terminales_activas": [
-        "6212",
-        "F1",
-        "8156",
         "7946",
-        "F2",
+        "F1",
         "F3",
+        "8156",
+        "F2",
+        "6212",
         "6995"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-02-24T14:11:27.368997",
+        "actualizado": "2026-02-24T11:41:01.372200",
         "frecuencia": "horaria"
     }
 }
