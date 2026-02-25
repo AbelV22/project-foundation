@@ -241,7 +241,7 @@
             "fecha": "2026-02-25"
         },
         {
-            "hora": "20:08",
+            "hora": "19:45",
             "nombre": "Cruise Roma",
             "naviera": "GRIMALDI EUROMED SPA",
             "terminal": "TERMINAL F3",
@@ -250,7 +250,7 @@
             "pax_estimados": 3000,
             "puerto": "Civitavecchia",
             "tipo": "llegada",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Itàlia",
             "imo": "9351476",
             "mmsi": "247219400",
@@ -492,7 +492,7 @@
             "pax_estimados": 3000,
             "puerto": "Porto Torres",
             "tipo": "salida",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Itàlia",
             "imo": "9351476",
             "mmsi": "247219400",
@@ -508,16 +508,16 @@
         "proximo_barco": null
     },
     "terminales_activas": [
-        "7946",
-        "6212",
-        "F3",
+        "F1",
         "F2",
+        "6212",
+        "7946",
         "8156",
-        "F1"
+        "F3"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-02-25T21:35:02.891131",
+        "actualizado": "2026-02-25T19:49:16.839361",
         "frecuencia": "horaria"
     }
 }
