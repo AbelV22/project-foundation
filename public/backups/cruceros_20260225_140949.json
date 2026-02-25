@@ -66,6 +66,22 @@
         },
         {
             "hora": "06:00",
+            "nombre": "Msc Jordan Iii",
+            "naviera": "MEDITERRANEAN SHIPPING CO",
+            "terminal": "TERMINAL CATALUNYA SA",
+            "terminal_codigo": "6212",
+            "eslora": 237.0,
+            "pax_estimados": 2000,
+            "puerto": "La Spezia",
+            "tipo": "llegada",
+            "estado": "Sol·licitada",
+            "bandera": "Panamà",
+            "imo": "8918980",
+            "mmsi": "355194000",
+            "fecha": "2026-02-25"
+        },
+        {
+            "hora": "06:00",
             "nombre": "Msc Tomoko",
             "naviera": "MEDITERRANEAN SHIPPING CO",
             "terminal": "TERMINAL CATALUNYA SA",
@@ -129,6 +145,22 @@
             "fecha": "2026-02-25"
         },
         {
+            "hora": "15:00",
+            "nombre": "Msc Jiani",
+            "naviera": "MEDITERRANEAN SHIPPING CO",
+            "terminal": "TERMINAL CATALUNYA SA",
+            "terminal_codigo": "6212",
+            "eslora": 172.0,
+            "pax_estimados": 1000,
+            "puerto": "Alger (Algiers)",
+            "tipo": "llegada",
+            "estado": "Confirmada",
+            "bandera": "Libèria",
+            "imo": "9966934",
+            "mmsi": "636023100",
+            "fecha": "2026-02-25"
+        },
+        {
             "hora": "17:15",
             "nombre": "Gnv Sealand",
             "naviera": "GRANDI NAVI VELOCI",
@@ -154,7 +186,7 @@
             "pax_estimados": 6500,
             "puerto": "Valencia",
             "tipo": "llegada",
-            "estado": "Autoritzada",
+            "estado": "Confirmada",
             "bandera": "França",
             "imo": "9938169",
             "mmsi": "228459900",
@@ -225,7 +257,7 @@
             "fecha": "2026-02-25"
         },
         {
-            "hora": "19:45",
+            "hora": "20:30",
             "nombre": "Cruise Roma",
             "naviera": "GRIMALDI EUROMED SPA",
             "terminal": "TERMINAL F3",
@@ -356,6 +388,22 @@
         },
         {
             "hora": "20:00",
+            "nombre": "Msc Jordan Iii",
+            "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
+            "terminal": "TERMINAL CATALUNYA SA",
+            "terminal_codigo": "6212",
+            "eslora": 237.0,
+            "pax_estimados": 2000,
+            "puerto": "Castellon de la Plana",
+            "tipo": "salida",
+            "estado": "Sol·licitada",
+            "bandera": "Panamà",
+            "imo": "8918980",
+            "mmsi": "355194000",
+            "fecha": "2026-02-25"
+        },
+        {
+            "hora": "20:00",
             "nombre": "Msc Tomoko",
             "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
             "terminal": "TERMINAL CATALUNYA SA",
@@ -468,24 +516,24 @@
         }
     ],
     "resumen": {
-        "total_cruceros": 16,
-        "total_llegadas": 15,
-        "total_salidas": 14,
-        "pax_estimados_hoy": 21500,
-        "proximo_desembarco": "17:15",
-        "proximo_barco": "Gnv Sealand"
+        "total_cruceros": 18,
+        "total_llegadas": 17,
+        "total_salidas": 15,
+        "pax_estimados_hoy": 24500,
+        "proximo_desembarco": "15:00",
+        "proximo_barco": "Msc Jiani"
     },
     "terminales_activas": [
-        "6212",
-        "7946",
+        "8156",
         "F1",
         "F3",
+        "6212",
         "F2",
-        "8156"
+        "7946"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-02-25T14:09:49.080607",
+        "actualizado": "2026-02-25T11:40:26.274203",
         "frecuencia": "horaria"
     }
 }
