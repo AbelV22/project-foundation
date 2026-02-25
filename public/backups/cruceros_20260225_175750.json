@@ -145,7 +145,7 @@
             "fecha": "2026-02-25"
         },
         {
-            "hora": "17:34",
+            "hora": "17:15",
             "nombre": "Gnv Sealand",
             "naviera": "GRANDI NAVI VELOCI",
             "terminal": "TERMINAL F2",
@@ -154,14 +154,14 @@
             "pax_estimados": 500,
             "puerto": "Palma de Mallorca",
             "tipo": "llegada",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Itàlia",
             "imo": "9435454",
             "mmsi": "247265800",
             "fecha": "2026-02-25"
         },
         {
-            "hora": "17:46",
+            "hora": "18:00",
             "nombre": "Cma Cgm Big Sur",
             "naviera": "CMA CGM",
             "terminal": "TERMINAL CATALUNYA SA",
@@ -170,7 +170,7 @@
             "pax_estimados": 6500,
             "puerto": "Valencia",
             "tipo": "llegada",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "França",
             "imo": "9938169",
             "mmsi": "228459900",
@@ -339,22 +339,6 @@
             "fecha": "2026-02-25"
         },
         {
-            "hora": "15:54",
-            "nombre": "Zephyr Lumos",
-            "naviera": "OCEAN NETWORK EXPRESS SPAIN SA",
-            "terminal": "TERMINAL CATALUNYA SA",
-            "terminal_codigo": "6212",
-            "eslora": 366.0,
-            "pax_estimados": 6500,
-            "puerto": "Genoa",
-            "tipo": "salida",
-            "estado": "Finalitzada",
-            "bandera": "Regne Unit",
-            "imo": "9864227",
-            "mmsi": "232030743",
-            "fecha": "2026-02-25"
-        },
-        {
             "hora": "20:00",
             "nombre": "Msc Agadir",
             "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
@@ -428,7 +412,7 @@
             "pax_estimados": 500,
             "puerto": "Palma de Mallorca",
             "tipo": "salida",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Itàlia",
             "imo": "9435454",
             "mmsi": "247265800",
@@ -500,24 +484,24 @@
         }
     ],
     "resumen": {
-        "total_cruceros": 18,
+        "total_cruceros": 17,
         "total_llegadas": 16,
-        "total_salidas": 15,
+        "total_salidas": 14,
         "pax_estimados_hoy": 22500,
-        "proximo_desembarco": "18:30",
-        "proximo_barco": "Ciudad De Palma"
+        "proximo_desembarco": "17:15",
+        "proximo_barco": "Gnv Sealand"
     },
     "terminales_activas": [
-        "7946",
-        "6212",
         "8156",
-        "F1",
+        "6212",
         "F2",
-        "F3"
+        "F1",
+        "F3",
+        "7946"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-02-25T17:57:50.393862",
+        "actualizado": "2026-02-25T16:03:52.414730",
         "frecuencia": "horaria"
     }
 }
