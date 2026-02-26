@@ -1,7 +1,7 @@
 {
     "llegadas": [
         {
-            "hora": "01:44",
+            "hora": "01:00",
             "nombre": "Eco Livorno",
             "naviera": "GRIMALDI EUROMED SPA",
             "terminal": "GRIMALDI TERMINAL BARCELONA SL",
@@ -10,7 +10,7 @@
             "pax_estimados": 2000,
             "puerto": "Savona",
             "tipo": "llegada",
-            "estado": "Finalitzada",
+            "estado": "Autoritzada",
             "bandera": "Itàlia",
             "imo": "9859557",
             "mmsi": "247383500",
@@ -179,39 +179,7 @@
     ],
     "salidas": [
         {
-            "hora": "00:30",
-            "nombre": "Cruise Roma",
-            "naviera": "GRIMALDI LOGISTICA ESPAÑA SL",
-            "terminal": "TERMINAL F3",
-            "terminal_codigo": "F3",
-            "eslora": 254.0,
-            "pax_estimados": 3000,
-            "puerto": "Porto Torres",
-            "tipo": "salida",
-            "estado": "Finalitzada",
-            "bandera": "Itàlia",
-            "imo": "9351476",
-            "mmsi": "247219400",
-            "fecha": "2026-02-26"
-        },
-        {
-            "hora": "01:49",
-            "nombre": "Msc Rita V",
-            "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
-            "terminal": "TERMINAL CATALUNYA SA",
-            "terminal_codigo": "6212",
-            "eslora": 0,
-            "pax_estimados": 500,
-            "puerto": "Casablanca",
-            "tipo": "salida",
-            "estado": "Finalitzada",
-            "bandera": "Libèria",
-            "imo": "9313929",
-            "mmsi": "210885000",
-            "fecha": "2026-02-26"
-        },
-        {
-            "hora": "04:38",
+            "hora": "05:00",
             "nombre": "Eco Livorno",
             "naviera": "GRIMALDI LOGISTICA ESPAÑA SL",
             "terminal": "GRIMALDI TERMINAL BARCELONA SL",
@@ -220,7 +188,7 @@
             "pax_estimados": 2000,
             "puerto": "Valencia",
             "tipo": "salida",
-            "estado": "Finalitzada",
+            "estado": "Autoritzada",
             "bandera": "Itàlia",
             "imo": "9859557",
             "mmsi": "247383500",
@@ -372,26 +340,25 @@
         }
     ],
     "resumen": {
-        "total_cruceros": 14,
+        "total_cruceros": 12,
         "total_llegadas": 11,
-        "total_salidas": 12,
+        "total_salidas": 10,
         "pax_estimados_hoy": 17500,
-        "proximo_desembarco": "06:00",
-        "proximo_barco": "Msc Diana"
+        "proximo_desembarco": null,
+        "proximo_barco": null
     },
     "terminales_activas": [
-        "F2",
-        "S",
         "F1",
-        "2398",
-        "8156",
+        "7946",
+        "S",
         "6212",
-        "F3",
-        "7946"
+        "F2",
+        "8156",
+        "2398"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-02-26T05:58:02.451861",
+        "actualizado": "2026-02-25T23:28:45.252843",
         "frecuencia": "horaria"
     }
 }
