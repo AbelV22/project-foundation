@@ -81,6 +81,22 @@
             "fecha": "2026-02-26"
         },
         {
+            "hora": "12:30",
+            "nombre": "Msc Jiani",
+            "naviera": "MEDITERRANEAN SHIPPING CO",
+            "terminal": "TERMINAL CATALUNYA SA",
+            "terminal_codigo": "6212",
+            "eslora": 172.0,
+            "pax_estimados": 1000,
+            "puerto": "Alger (Algiers)",
+            "tipo": "llegada",
+            "estado": "Iniciada",
+            "bandera": "Libèria",
+            "imo": "9966934",
+            "mmsi": "636023100",
+            "fecha": "2026-02-26"
+        },
+        {
             "hora": "13:11",
             "nombre": "Pol Stella",
             "naviera": "COTUNAV",
@@ -94,22 +110,6 @@
             "bandera": "Malta",
             "imo": "9457165",
             "mmsi": "229296000",
-            "fecha": "2026-02-26"
-        },
-        {
-            "hora": "15:23",
-            "nombre": "Msc Jiani",
-            "naviera": "MEDITERRANEAN SHIPPING CO",
-            "terminal": "TERMINAL CATALUNYA SA",
-            "terminal_codigo": "6212",
-            "eslora": 172.0,
-            "pax_estimados": 1000,
-            "puerto": "Alger (Algiers)",
-            "tipo": "llegada",
-            "estado": "Iniciada",
-            "bandera": "Libèria",
-            "imo": "9966934",
-            "mmsi": "636023100",
             "fecha": "2026-02-26"
         },
         {
@@ -227,7 +227,7 @@
             "fecha": "2026-02-26"
         },
         {
-            "hora": "15:22",
+            "hora": "12:29",
             "nombre": "Msc Jiani",
             "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
             "terminal": "",
@@ -380,18 +380,18 @@
         "proximo_barco": "Gnv Sealand"
     },
     "terminales_activas": [
-        "2398",
-        "F2",
-        "S",
         "F3",
-        "8156",
-        "7946",
+        "S",
+        "6212",
         "F1",
-        "6212"
+        "8156",
+        "2398",
+        "7946",
+        "F2"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-02-26T15:53:52.352475",
+        "actualizado": "2026-02-26T14:09:36.949467",
         "frecuencia": "horaria"
     }
 }
