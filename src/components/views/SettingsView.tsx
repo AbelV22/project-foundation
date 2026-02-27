@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { ArrowLeft, Clock, Power, Save } from "lucide-react";
+import { ArrowLeft, Clock, Power, Save, Calculator, ChevronRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Switch } from "@/components/ui/switch";
@@ -148,6 +148,22 @@ export default function SettingsView() {
                     <Save className="h-4 w-4 mr-2" />
                     Guardar Cambios
                 </Button>
+
+                {/* Gestoría Digital */}
+                <Link to="/gestoria" className="block">
+                    <div className="card-dashboard p-5 flex items-center gap-4 hover:border-primary/40 transition-all group">
+                        <div className="w-12 h-12 rounded-2xl bg-primary/10 flex items-center justify-center shrink-0 group-hover:bg-primary/20 transition-colors">
+                            <Calculator className="h-6 w-6 text-primary" />
+                        </div>
+                        <div className="flex-1 min-w-0">
+                            <p className="font-semibold text-foreground">Gestoría Digital</p>
+                            <p className="text-sm text-muted-foreground leading-tight mt-0.5">
+                                Modelo 130, gastos deducibles, vencimientos fiscales y libro contable
+                            </p>
+                        </div>
+                        <ChevronRight className="h-5 w-5 text-muted-foreground group-hover:text-primary transition-colors shrink-0" />
+                    </div>
+                </Link>
             </div>
         </div>
     );

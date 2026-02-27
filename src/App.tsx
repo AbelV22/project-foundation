@@ -157,6 +157,7 @@ const BackButtonHandler = () => {
 
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import SettingsView from "./components/views/SettingsView";
+import Gestoria from "./pages/Gestoria";
 
 import { LocationDisclosureDialog } from "@/components/LocationDisclosureDialog";
 import { getItem, setItem } from "@/lib/storage";
@@ -225,6 +226,7 @@ const App = () => {
                 <Route path="/admin" element={<Admin />} />
                 <Route path="/privacy" element={<PrivacyPolicy />} />
                 <Route path="/settings" element={<SettingsView />} />
+                <Route path="/gestoria" element={<Gestoria />} />
                 {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
                 <Route path="*" element={<NotFound />} />
               </Routes>
