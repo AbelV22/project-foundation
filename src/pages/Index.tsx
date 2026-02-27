@@ -18,6 +18,7 @@ import { WhereNextSheet } from "@/components/widgets/WhereNextSheet";
 import { EarningsView } from "@/components/views/EarningsView";
 import { ExpensesView } from "@/components/views/ExpensesView";
 import { OffersView } from "@/components/views/OffersView";
+import { DemandForecastView } from "@/components/views/DemandForecastView";
 import { AddExpenseSheet } from "@/components/widgets/AddExpenseSheet";
 
 const titles: Record<string, string> = {
@@ -36,6 +37,7 @@ const titles: Record<string, string> = {
   trainsByOperator: "Trenes por Operador",
   earnings: "Registro de Ingresos",
   ofertas: "Ofertas Exclusivas",
+  prediccion: "Predicción de Demanda",
 };
 
 const Index = () => {
@@ -128,7 +130,7 @@ const Index = () => {
 
         <div className={cn(
           "pb-bottom-nav",
-          activeTab === "terminalDetail" || activeTab === "eventos" ? "" : "p-4 md:p-6"
+          activeTab === "terminalDetail" || activeTab === "eventos" || activeTab === "prediccion" ? "" : "p-4 md:p-6"
         )}>
           {activeTab === "dashboard" && (
             <DashboardView
@@ -141,6 +143,7 @@ const Index = () => {
               onViewLicenses={handleViewLicenses}
               onViewEarnings={() => setActiveTab("earnings")}
               onViewExpenses={() => setActiveTab("gastos")}
+              onViewDemandForecast={() => setActiveTab("prediccion")}
             />
           )}
           {activeTab === "vuelos" && <FlightsView />}
@@ -198,6 +201,9 @@ const Index = () => {
             <ExpensesView onBack={() => setActiveTab("dashboard")} />
           )}
           {activeTab === "ofertas" && <OffersView />}
+          {activeTab === "prediccion" && (
+            <DemandForecastView onBack={() => setActiveTab("dashboard")} />
+          )}
         </div>
       </main>
 

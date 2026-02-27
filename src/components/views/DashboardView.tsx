@@ -7,6 +7,7 @@ import { useWaitingTimes, getZoneWaitingTime, getZoneTaxistasActivos, getZoneHas
 import { useNavigate } from "react-router-dom";
 import { getTrackingStatus, forceLocationCheck } from "@/services/location/AutoLocationService";
 import { ProfitWidget } from "@/components/widgets/ProfitWidget";
+import { useDemandForecast } from "@/hooks/useDemandForecast";
 // Tipos para vuelos.json (estructura real del scraper)
 interface VueloRaw {
   hora: string;
@@ -36,6 +37,7 @@ interface DashboardViewProps {
   onViewLicenses?: () => void;
   onViewEarnings?: () => void;
   onViewExpenses?: () => void;
+  onViewDemandForecast?: () => void;
 }
 
 // Función para parsear hora "HH:MM" a minutos del día
@@ -97,7 +99,7 @@ interface LicenciasData {
   metadata: { precio_mercado_referencia: number };
 }
 
-export function DashboardView({ onTerminalClick, onViewAllFlights, onViewAllEvents, onViewFullDay, onViewTrainsFullDay, onViewCruises, onViewLicenses, onViewEarnings, onViewExpenses }: DashboardViewProps) {
+export function DashboardView({ onTerminalClick, onViewAllFlights, onViewAllEvents, onViewFullDay, onViewTrainsFullDay, onViewCruises, onViewLicenses, onViewEarnings, onViewExpenses, onViewDemandForecast }: DashboardViewProps) {
   const [vuelos, setVuelos] = useState<VueloRaw[]>([]);
   const [trenes, setTrenes] = useState<TrenSants[]>([]);
   const [licencias, setLicencias] = useState<LicenciasData | null>(null);
@@ -114,6 +116,7 @@ export function DashboardView({ onTerminalClick, onViewAllFlights, onViewAllEven
   const navigate = useNavigate();
 
   const nextCruise = getNextArrival();
+  const { bestZone, isRainBoost, weatherMultiplier } = useDemandForecast();
 
   // Poll tracking status every 10 seconds
   useEffect(() => {
@@ -301,6 +304,54 @@ export function DashboardView({ onTerminalClick, onViewAllFlights, onViewAllEven
         </button>
       )}
 
+
+      {/* === DEMAND PREDICTION WIDGET === */}
+      {bestZone && (
+        <button
+          onClick={onViewDemandForecast}
+          className="w-full card-glass-hover p-3 text-left group animate-fade-in-up"
+          style={{ animationDelay: '75ms', animationFillMode: 'backwards' }}
+        >
+          <div className="flex items-center justify-between">
+            <div className="flex items-center gap-2">
+              <div className="w-8 h-8 rounded-full bg-primary/20 flex items-center justify-center">
+                <TrendingUp className="h-4 w-4 text-primary" />
+              </div>
+              <div>
+                <div className="flex items-center gap-1.5">
+                  <span className="text-xs font-semibold text-primary uppercase tracking-wide">Predicción</span>
+                  {isRainBoost && <span className="text-xs">🌧️</span>}
+                </div>
+                <p className="text-sm font-bold text-foreground">
+                  {bestZone.zoneName}
+                  <span className="text-muted-foreground font-normal"> — </span>
+                  <span className={cn(
+                    "font-bold",
+                    bestZone.demandScore >= 60 ? "text-amber-400" : "text-muted-foreground"
+                  )}>
+                    {bestZone.demandScore}/100
+                  </span>
+                </p>
+              </div>
+            </div>
+            <div className="flex items-center gap-2">
+              {bestZone.taxiPax > 0 && (
+                <span className="text-xs text-muted-foreground">~{bestZone.taxiPax} taxi</span>
+              )}
+              <ChevronRight className="h-4 w-4 text-muted-foreground group-hover:text-primary transition-colors" />
+            </div>
+          </div>
+          {bestZone.factors.length > 0 && (
+            <div className="flex items-center gap-2 mt-1.5 ml-10">
+              {bestZone.factors.slice(0, 3).map((f, i) => (
+                <span key={i} className="text-[10px] text-muted-foreground">
+                  {f.icon} {f.label}
+                </span>
+              ))}
+            </div>
+          )}
+        </button>
+      )}
 
       {/* === AEROPUERTO SECTION - GLASSMORPHISM === */}
       <section className="space-y-2 animate-fade-in-up" style={{ animationDelay: '100ms', animationFillMode: 'backwards' }}>
