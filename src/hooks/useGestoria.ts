@@ -104,30 +104,62 @@ export interface LibroContable {
 }
 
 // --- DEDUCTIBILITY MAP (incl. % IVA) ---
+// Keys: lowercase, sin acentos, espacios→_  (ver normalizeKey)
 const DEDUCTIBILIDAD: Record<string, { nombre: string; pct: number; iva: number }> = {
-  fuel: { nombre: 'Combustible', pct: 100, iva: 21 },
-  gasolina: { nombre: 'Gasolina / Diésel', pct: 100, iva: 21 },
-  electric: { nombre: 'Electricidad (carga)', pct: 100, iva: 21 },
-  maintenance: { nombre: 'Mantenimiento', pct: 100, iva: 21 },
-  reparacion: { nombre: 'Reparación / Taller', pct: 100, iva: 21 },
-  neumaticos: { nombre: 'Neumáticos', pct: 100, iva: 21 },
-  itv: { nombre: 'ITV y tasas', pct: 100, iva: 21 },
-  seguro_vehiculo: { nombre: 'Seguro Vehículo', pct: 100, iva: 0 },
-  seguro_vida: { nombre: 'Seguro de Vida', pct: 50, iva: 0 },
-  operating: { nombre: 'Gastos operativos', pct: 100, iva: 21 },
-  peajes: { nombre: 'Peajes y aparcamiento', pct: 100, iva: 21 },
-  telefono: { nombre: 'Teléfono móvil', pct: 50, iva: 21 },
-  gestoria: { nombre: 'Gestoría / Asesoría', pct: 100, iva: 21 },
-  formacion: { nombre: 'Formación', pct: 100, iva: 0 },
-  licencia: { nombre: 'Licencia municipal', pct: 100, iva: 0 },
-  autonomo: { nombre: 'Cuota Autónomo (SS)', pct: 100, iva: 0 },
-  dietas: { nombre: 'Dietas (comidas)', pct: 100, iva: 10 },
-  other: { nombre: 'Otros gastos', pct: 100, iva: 21 },
+  // Combustible
+  fuel:              { nombre: 'Combustible', pct: 100, iva: 21 },
+  gasolina:          { nombre: 'Gasolina / Diésel', pct: 100, iva: 21 },
+  diesel:            { nombre: 'Gasolina / Diésel', pct: 100, iva: 21 },
+  gnc:               { nombre: 'Gas Natural (GNC)', pct: 100, iva: 21 },
+  electrico:         { nombre: 'Electricidad (carga)', pct: 100, iva: 21 },
+  electric:          { nombre: 'Electricidad (carga)', pct: 100, iva: 21 },
+  // Mantenimiento
+  maintenance:       { nombre: 'Mantenimiento', pct: 100, iva: 21 },
+  cambio_de_aceite:  { nombre: 'Aceite y Filtros', pct: 100, iva: 21 },
+  reparacion:        { nombre: 'Reparación / Taller', pct: 100, iva: 21 },
+  neumaticos:        { nombre: 'Neumáticos', pct: 100, iva: 21 },
+  frenos:            { nombre: 'Frenos', pct: 100, iva: 21 },
+  bateria:           { nombre: 'Batería', pct: 100, iva: 21 },
+  filtros:           { nombre: 'Filtros', pct: 100, iva: 21 },
+  revision:          { nombre: 'Revisión / Mantenimiento', pct: 100, iva: 21 },
+  itv:               { nombre: 'ITV y tasas', pct: 100, iva: 21 },
+  lavado:            { nombre: 'Lavado vehículo', pct: 100, iva: 21 },
+  // Operativos
+  operating:         { nombre: 'Gastos operativos', pct: 100, iva: 21 },
+  seguro:            { nombre: 'Seguro Vehículo', pct: 100, iva: 0 },
+  seguro_vehiculo:   { nombre: 'Seguro Vehículo', pct: 100, iva: 0 },
+  seguro_vida:       { nombre: 'Seguro de Vida', pct: 50, iva: 0 },
+  licencia:          { nombre: 'Licencia / Tasas AMB', pct: 100, iva: 0 },
+  parking:           { nombre: 'Parking', pct: 100, iva: 21 },
+  peajes:            { nombre: 'Peajes', pct: 100, iva: 21 },
+  multas:            { nombre: 'Multas (NO deducible)', pct: 0, iva: 0 }, // ← NUNCA deducible
+  tasas_municipales: { nombre: 'Tasas municipales', pct: 100, iva: 0 },
+  alquiler_plaza:    { nombre: 'Alquiler plaza parking', pct: 100, iva: 21 },
+  // Profesionales
+  telefono:          { nombre: 'Teléfono móvil (50%)', pct: 50, iva: 21 },
+  gestoria:          { nombre: 'Gestoría / Asesoría', pct: 100, iva: 21 },
+  formacion:         { nombre: 'Formación profesional', pct: 100, iva: 0 },
+  autonomo:          { nombre: 'Cuota Autónomo (SS)', pct: 100, iva: 0 },
+  dietas:            { nombre: 'Dietas (comidas)', pct: 100, iva: 10 },
+  // Otros
+  other:             { nombre: 'Otros gastos', pct: 100, iva: 21 },
 };
 
+// Normaliza para matching con el mapa: sin acentos, minúsculas, espacios→_
+function normalizeKey(s: string): string {
+  return s.toLowerCase()
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .replace(/\s+/g, '_');
+}
+
 function getDeductibilidad(categoria: string, subcategoria?: string | null) {
-  const key = subcategoria?.toLowerCase() || categoria?.toLowerCase() || 'other';
-  return DEDUCTIBILIDAD[key] || DEDUCTIBILIDAD[categoria?.toLowerCase()] || { nombre: 'Otros', pct: 100, iva: 21 };
+  if (subcategoria) {
+    const normSub = normalizeKey(subcategoria);
+    if (DEDUCTIBILIDAD[normSub]) return DEDUCTIBILIDAD[normSub];
+  }
+  const normCat = normalizeKey(categoria);
+  return DEDUCTIBILIDAD[normCat] || { nombre: 'Otros', pct: 100, iva: 21 };
 }
 
 // --- CONSTANTES MÓDULOS ---
@@ -528,6 +560,18 @@ export function useGestoria(year?: number) {
     daysLeft: daysUntil(d390),
   });
 
+  // Modelo 347 — Feb 28 (operaciones con terceros > 3.005€)
+  const d347 = new Date(currentYear + 1, 1, 28);
+  vencimientosArr.push({
+    id: `m347-${currentYear}`,
+    titulo: `Modelo 347 (${currentYear})`,
+    descripcion: 'Declaración de operaciones con terceros > 3.005€. Solo si aplica.',
+    fecha: d347.toISOString(),
+    tipo: 'otro',
+    urgencia: getUrgencia(daysUntil(d347)),
+    daysLeft: daysUntil(d347),
+  });
+
   // Cuotas Autónomo (Próximos 3 meses)
   Array.from({ length: 3 }).forEach((_, i) => {
     const now = new Date();
@@ -546,51 +590,78 @@ export function useGestoria(year?: number) {
     }
   });
 
-  // ITV basada en la fecha de compra del vehículo (aprox)
+  // ITV basada en la fecha de compra del vehículo
   if (vehiculoFechaCompra) {
     const fc = new Date(vehiculoFechaCompra);
-    const difAnyos = currentYear - fc.getFullYear();
-    // Taxi > 5 años = ITV semestral, > 10 años retirado
-    if (difAnyos > 0) {
-      // Create a generic warning for next year ITV
-      const itvDate = new Date(fc);
-      itvDate.setFullYear(currentYear);
-      let daysI = daysUntil(itvDate);
-      if (daysI < 0) {
-        itvDate.setFullYear(currentYear + 1);
-        daysI = daysUntil(itvDate);
-      }
-      vencimientosArr.push({
-        id: `itv-${currentYear}`,
-        titulo: `Recordatorio ITV Taxi`,
-        descripcion: difAnyos < 5 ? 'ITV Anual' : 'ITV Semestral (Vehículo > 5 años)',
-        fecha: itvDate.toISOString(),
-        tipo: 'itv',
-        urgencia: getUrgencia(daysI),
-        daysLeft: daysI,
-      });
+    const difAnyos = new Date().getFullYear() - fc.getFullYear();
+    const isSemestral = difAnyos >= 5;
 
-      if (difAnyos >= 9) {
-        vencimientosArr.push({
-          id: `vida-util`,
-          titulo: `⚠️ Fin vida útil PMTB`,
-          descripcion: 'El reglamento del Área Metropolitana estipula límite de antigüedad (~10 años).',
-          fecha: new Date().toISOString(),
-          tipo: 'otro',
-          urgencia: 'rojo',
-          daysLeft: 0,
-        });
+    if (difAnyos > 0 && difAnyos < 10) {
+      // Fecha aniversario en año actual
+      const itvBase = new Date(fc);
+      itvBase.setFullYear(new Date().getFullYear());
+
+      const itvFechas: Date[] = [itvBase];
+      if (isSemestral) {
+        // Segunda ITV a los 6 meses del aniversario
+        const itv2 = new Date(itvBase);
+        itv2.setMonth(itv2.getMonth() + 6);
+        itvFechas.push(itv2);
       }
+
+      itvFechas.forEach((itvDate, idx) => {
+        // Si ya pasó hace más de 60 días, proyectar al año siguiente
+        if (daysUntil(itvDate) < -60) itvDate.setFullYear(itvDate.getFullYear() + 1);
+        const dI = daysUntil(itvDate);
+        vencimientosArr.push({
+          id: `itv-${currentYear}-${idx}`,
+          titulo: isSemestral ? `ITV Taxi ${idx === 0 ? '(1ª semestral)' : '(2ª semestral)'}` : 'ITV Taxi (Anual)',
+          descripcion: isSemestral
+            ? `Vehículo de ${difAnyos} años — ITV semestral obligatoria`
+            : `Vehículo de ${difAnyos} años — ITV anual`,
+          fecha: itvDate.toISOString(),
+          tipo: 'itv',
+          urgencia: getUrgencia(dI),
+          daysLeft: dI,
+        });
+      });
+    }
+
+    if (difAnyos >= 9) {
+      vencimientosArr.push({
+        id: 'vida-util',
+        titulo: '⚠️ Fin vida útil PMTB',
+        descripcion: `Vehículo de ${difAnyos} años. El reglamento AMB limita antigüedad a ~10 años para taxis en Barcelona.`,
+        fecha: new Date().toISOString(),
+        tipo: 'otro',
+        urgencia: 'rojo',
+        daysLeft: 0,
+      });
     }
   }
 
   // Ordenar
   vencimientosArr = vencimientosArr.sort((a, b) => new Date(a.fecha).getTime() - new Date(b.fecha).getTime());
 
+  // Tramo autónomo detalle
+  const tramoIdx = TRAMOS_AUTONOMO.findIndex(t => rendimientoNetoMensual <= t.max);
+  const tramoInfo = {
+    numero: tramoIdx + 1,
+    total: TRAMOS_AUTONOMO.length,
+    cuota: cuotaAutonoMensual,
+    rendimientoMensual: Math.max(0, rendimientoNetoMensual),
+  };
+
+  const vehiculoAnos = vehiculoFechaCompra
+    ? new Date().getFullYear() - new Date(vehiculoFechaCompra).getFullYear()
+    : null;
+
   return {
     carreras, gastos, regimen, setRegimen,
     resumen, quarters, gastosDeduciblesLista, libroContable, vencimientos: vencimientosArr,
     loading, error, refresh: fetchData, currentYear,
     beneficioModulos: BENEFICIO_MODULOS_ANUAL,
+    tramoInfo,
+    vehiculoAnos,
   };
 }

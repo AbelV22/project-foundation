@@ -3,7 +3,8 @@ import { Link } from "react-router-dom";
 import {
   ArrowLeft, RefreshCw, Euro, TrendingUp, TrendingDown,
   FileText, AlertTriangle, CheckCircle2, Clock, Calendar,
-  Car, BookOpen, ChevronRight, Info, Download, Zap, Activity
+  Car, BookOpen, ChevronRight, Info, Download, Zap, Activity,
+  ChevronLeft, Wrench, Banknote, Shield,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { motion, AnimatePresence } from "framer-motion";
@@ -76,13 +77,14 @@ const TABS: { id: Tab; label: string; icon: string }[] = [
 // === SECTION: RESUMEN ===
 
 function ResumenSection({
-  resumen, loading, regimen, setRegimen, beneficioModulos
+  resumen, loading, regimen, setRegimen, beneficioModulos, tramoInfo,
 }: {
   resumen: ReturnType<typeof useGestoria>['resumen'];
   loading: boolean;
   regimen: RegimenFiscal;
   setRegimen: (r: RegimenFiscal) => void;
   beneficioModulos: number;
+  tramoInfo: ReturnType<typeof useGestoria>['tramoInfo'];
 }) {
   if (loading) return <SectionSkeleton rows={4} />;
 
@@ -226,8 +228,44 @@ function ResumenSection({
       <div className="rounded-xl bg-blue-500/10 border border-blue-500/20 p-3 flex gap-2">
         <Info className="h-4 w-4 text-blue-400 shrink-0 mt-0.5" />
         <p className="text-xs text-muted-foreground">
-          Recuerda: El servicio de taxi devenga un <strong className="text-foreground">10% de IVA</strong>,
-          liquidable mediante el <strong className="text-foreground">Modelo 303</strong>.
+          El servicio de taxi devenga <strong className="text-foreground">10% IVA</strong> (tipo reducido).
+          Se liquida trimestralmente con el <strong className="text-foreground">Modelo 303</strong>.
+        </p>
+      </div>
+
+      {/* Tramo Autónomo */}
+      <div className="rounded-xl border border-border/50 bg-card/30 p-4">
+        <div className="flex items-center gap-2 mb-3">
+          <Shield className="h-4 w-4 text-blue-400" />
+          <span className="text-sm font-semibold">Cuota Autónomo (RETA 2025-2026)</span>
+        </div>
+        <div className="flex items-center gap-3 mb-2">
+          <div className="flex-1 h-2 bg-muted rounded-full overflow-hidden">
+            <div
+              className="h-full bg-blue-400 rounded-full transition-all"
+              style={{ width: `${Math.min(100, (tramoInfo.numero / tramoInfo.total) * 100)}%` }}
+            />
+          </div>
+          <span className="text-xs text-muted-foreground shrink-0">
+            Tramo {tramoInfo.numero}/{tramoInfo.total}
+          </span>
+        </div>
+        <div className="flex justify-between items-center">
+          <div>
+            <p className="text-[10px] text-muted-foreground">Rend. neto mensual estimado</p>
+            <p className="text-sm font-mono font-semibold">
+              {tramoInfo.rendimientoMensual.toLocaleString('es-ES', { style: 'currency', currency: 'EUR', maximumFractionDigits: 0 })}/mes
+            </p>
+          </div>
+          <div className="text-right">
+            <p className="text-[10px] text-muted-foreground">Cuota mensual</p>
+            <p className="text-xl font-black font-mono text-blue-400">
+              {fmt(tramoInfo.cuota)}
+            </p>
+          </div>
+        </div>
+        <p className="text-[10px] text-muted-foreground mt-2">
+          Puedes cambiar de tramo hasta 6 veces/año en la Sede Electrónica de la SS.
         </p>
       </div>
     </div>
@@ -482,13 +520,25 @@ function DeduciblesSection({ gastos, loading }: {
 
 // === SECTION: VENCIMIENTOS ===
 
-function VencimientosSection({ vencimientos, loading }: {
+const TIPO_ICONS: Record<Vencimiento['tipo'], React.ReactNode> = {
+  modelo130:  <FileText className="h-4 w-4 text-amber-400 shrink-0" />,
+  modelo131:  <FileText className="h-4 w-4 text-amber-400 shrink-0" />,
+  modelo303:  <Banknote className="h-4 w-4 text-blue-400 shrink-0" />,
+  modelo390:  <Banknote className="h-4 w-4 text-blue-400 shrink-0" />,
+  'irpf-anual': <FileText className="h-4 w-4 text-purple-400 shrink-0" />,
+  autonomo:   <Shield className="h-4 w-4 text-emerald-400 shrink-0" />,
+  itv:        <Wrench className="h-4 w-4 text-orange-400 shrink-0" />,
+  otro:       <Calendar className="h-4 w-4 text-muted-foreground shrink-0" />,
+};
+
+function VencimientosSection({ vencimientos, loading, regimen }: {
   vencimientos: Vencimiento[];
   loading: boolean;
+  regimen: RegimenFiscal;
 }) {
   if (loading) return <SectionSkeleton rows={5} />;
 
-  const upcoming = vencimientos.filter(v => v.urgencia !== 'pasado').slice(0, 10);
+  const upcoming = vencimientos.filter(v => v.urgencia !== 'pasado').slice(0, 12);
   const past = vencimientos.filter(v => v.urgencia === 'pasado');
 
   return (
@@ -504,8 +554,8 @@ function VencimientosSection({ vencimientos, loading }: {
       {upcoming.map(v => {
         const style = urgenciaStyles[v.urgencia];
         return (
-          <div key={v.id} className={cn("rounded-xl border p-4 flex items-start gap-3", style.bg, "border-border/50")}>
-            <div className={cn("w-2 h-2 rounded-full mt-1.5 shrink-0", style.dot)} />
+          <div key={v.id} className={cn("rounded-xl border p-3 flex items-start gap-3", style.bg, "border-border/50")}>
+            <div className="mt-0.5">{TIPO_ICONS[v.tipo]}</div>
             <div className="flex-1 min-w-0">
               <p className="text-sm font-semibold leading-tight">{v.titulo}</p>
               <p className="text-xs text-muted-foreground mt-0.5">{v.descripcion}</p>
@@ -539,8 +589,11 @@ function VencimientosSection({ vencimientos, loading }: {
       <div className="rounded-xl bg-amber-500/10 border border-amber-500/20 p-3 flex gap-2">
         <Info className="h-4 w-4 text-amber-400 shrink-0 mt-0.5" />
         <p className="text-xs text-muted-foreground">
-          Presenta el Modelo 130 en <strong className="text-foreground">Sede Electrónica AEAT</strong> (aeat.es)
-          con Cl@ve PIN o certificado digital. La cuota de autónomo se domicilia automáticamente.
+          Presenta los modelos en <strong className="text-foreground">Sede Electrónica AEAT</strong> (aeat.es)
+          con Cl@ve PIN o certificado digital.
+          {regimen === 'modulos'
+            ? ' Mod. 131 (IRPF) + 303 (IVA) trimestrales.'
+            : ' Mod. 130 (IRPF) + 303 (IVA) trimestrales.'}
         </p>
       </div>
     </div>
@@ -628,6 +681,32 @@ function LibroSection({ libro, ingresosBrutos, gastosDeducibles, loading }: {
               );
             })}
           </div>
+          {/* Fila TOTAL */}
+          {mesesConDatos.length > 0 && (() => {
+            const totalBase = libro.reduce((s, m) => s + m.ingresosBase - m.gastosBase, 0);
+            const totalIVANet = libro.reduce((s, m) => s + m.ivaRepercutido - m.ivaSoportado, 0);
+            const totalNeto = libro.reduce((s, m) => s + m.beneficio, 0);
+            return (
+              <div className="grid grid-cols-[1fr_75px_70px_65px] gap-2 px-3 py-3 bg-muted/40 border-t border-border/50">
+                <span className="text-xs font-bold uppercase text-foreground">TOTAL</span>
+                <span className={cn("font-mono text-xs font-bold text-right",
+                  totalBase >= 0 ? "text-emerald-400" : "text-red-400"
+                )}>
+                  {fmt(Math.round(totalBase))}
+                </span>
+                <span className={cn("font-mono text-xs font-bold text-right",
+                  totalIVANet >= 0 ? "text-blue-400" : "text-red-400"
+                )}>
+                  {fmt(Math.round(totalIVANet))}
+                </span>
+                <span className={cn("font-mono text-xs font-black text-right",
+                  totalNeto >= 0 ? "text-primary" : "text-red-400"
+                )}>
+                  {fmt(Math.round(totalNeto))}
+                </span>
+              </div>
+            );
+          })()}
         </div>
       ) : (
         <div className="rounded-xl border border-border/50 p-8 text-center text-muted-foreground bg-card/20">
@@ -762,11 +841,13 @@ function SectionSkeleton({ rows }: { rows: number }) {
 
 export default function Gestoria() {
   const [tab, setTab] = useState<Tab>('resumen');
+  const [selectedYear, setSelectedYear] = useState<number>(new Date().getFullYear());
   const {
-    carreras, gastos, regimen, setRegimen,
+    regimen, setRegimen,
     resumen, quarters, gastosDeduciblesLista, libroContable,
-    vencimientos, loading, error, refresh, currentYear, beneficioModulos
-  } = useGestoria();
+    vencimientos, loading, error, refresh, currentYear, beneficioModulos,
+    tramoInfo,
+  } = useGestoria(selectedYear);
 
   const nextUrgent = vencimientos.find(v => v.urgencia === 'rojo' || v.urgencia === 'amarillo');
 
@@ -774,7 +855,7 @@ export default function Gestoria() {
     <div className="min-h-screen bg-background flex flex-col">
       {/* Header */}
       <div className="sticky top-0 z-20 bg-background/95 backdrop-blur-sm border-b border-border/40 px-4 pt-4 pb-0">
-        <div className="flex items-center gap-3 mb-4">
+        <div className="flex items-center gap-3 mb-3">
           <Link
             to="/settings"
             className="p-2 rounded-xl hover:bg-muted transition-colors"
@@ -783,7 +864,24 @@ export default function Gestoria() {
           </Link>
           <div className="flex-1">
             <h1 className="text-xl font-bold tracking-tight">Gestoría Digital</h1>
-            <p className="text-xs text-muted-foreground">Año fiscal {currentYear}</p>
+            <p className="text-xs text-muted-foreground">Ejercicio fiscal {selectedYear}</p>
+          </div>
+          {/* Selector año */}
+          <div className="flex items-center gap-1 bg-muted/50 rounded-xl border border-border/40 px-1 py-1">
+            <button
+              onClick={() => setSelectedYear(y => Math.max(2024, y - 1))}
+              className="p-1 rounded-lg hover:bg-muted transition-colors"
+            >
+              <ChevronLeft className="h-3.5 w-3.5" />
+            </button>
+            <span className="text-xs font-bold tabular-nums px-1">{selectedYear}</span>
+            <button
+              onClick={() => setSelectedYear(y => Math.min(new Date().getFullYear(), y + 1))}
+              disabled={selectedYear >= new Date().getFullYear()}
+              className="p-1 rounded-lg hover:bg-muted transition-colors disabled:opacity-30"
+            >
+              <ChevronRight className="h-3.5 w-3.5" />
+            </button>
           </div>
           <button
             onClick={() => refresh()}
@@ -842,7 +940,7 @@ export default function Gestoria() {
           >
             {tab === 'resumen' && (
               <div className="space-y-4">
-                <ResumenSection resumen={resumen} loading={loading} regimen={regimen} setRegimen={setRegimen} beneficioModulos={beneficioModulos} />
+                <ResumenSection resumen={resumen} loading={loading} regimen={regimen} setRegimen={setRegimen} beneficioModulos={beneficioModulos} tramoInfo={tramoInfo} />
                 <AmortizacionWidget />
               </div>
             )}
@@ -853,7 +951,7 @@ export default function Gestoria() {
               <DeduciblesSection gastos={gastosDeduciblesLista} loading={loading} />
             )}
             {tab === 'vencimientos' && (
-              <VencimientosSection vencimientos={vencimientos} loading={loading} />
+              <VencimientosSection vencimientos={vencimientos} loading={loading} regimen={regimen} />
             )}
             {tab === 'libro' && (
               <LibroSection
