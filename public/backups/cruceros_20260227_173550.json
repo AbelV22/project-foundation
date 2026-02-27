@@ -97,6 +97,22 @@
             "fecha": "2026-02-27"
         },
         {
+            "hora": "11:45",
+            "nombre": "Msc Prelude V",
+            "naviera": "MEDITERRANEAN SHIPPING CO",
+            "terminal": "TERMINAL CATALUNYA SA",
+            "terminal_codigo": "6212",
+            "eslora": 0,
+            "pax_estimados": 500,
+            "puerto": "Livorno",
+            "tipo": "llegada",
+            "estado": "Autoritzada",
+            "bandera": "Libèria",
+            "imo": "9450325",
+            "mmsi": "636022708",
+            "fecha": "2026-02-27"
+        },
+        {
             "hora": "12:15",
             "nombre": "Msc Agadir",
             "naviera": "MEDITERRANEAN SHIPPING CO",
@@ -113,23 +129,7 @@
             "fecha": "2026-02-27"
         },
         {
-            "hora": "16:25",
-            "nombre": "Msc Prelude V",
-            "naviera": "MEDITERRANEAN SHIPPING CO",
-            "terminal": "TERMINAL CATALUNYA SA",
-            "terminal_codigo": "6212",
-            "eslora": 0,
-            "pax_estimados": 500,
-            "puerto": "Livorno",
-            "tipo": "llegada",
-            "estado": "Iniciada",
-            "bandera": "Libèria",
-            "imo": "9450325",
-            "mmsi": "636022708",
-            "fecha": "2026-02-27"
-        },
-        {
-            "hora": "17:41",
+            "hora": "17:15",
             "nombre": "Gnv Sealand",
             "naviera": "GRANDI NAVI VELOCI",
             "terminal": "TERMINAL F2",
@@ -138,7 +138,7 @@
             "pax_estimados": 500,
             "puerto": "Palma de Mallorca",
             "tipo": "llegada",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Itàlia",
             "imo": "9435454",
             "mmsi": "247265800",
@@ -364,7 +364,7 @@
             "pax_estimados": 500,
             "puerto": "Ibiza",
             "tipo": "salida",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Itàlia",
             "imo": "9435454",
             "mmsi": "247265800",
@@ -440,20 +440,20 @@
         "total_llegadas": 13,
         "total_salidas": 14,
         "pax_estimados_hoy": 12000,
-        "proximo_desembarco": "17:41",
+        "proximo_desembarco": "17:15",
         "proximo_barco": "Gnv Sealand"
     },
     "terminales_activas": [
-        "8156",
-        "F1",
-        "H",
         "6212",
+        "F3",
+        "F1",
+        "8156",
         "F2",
-        "F3"
+        "H"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-02-27T17:35:50.859164",
+        "actualizado": "2026-02-27T15:37:42.387643",
         "frecuencia": "horaria"
     }
 }
