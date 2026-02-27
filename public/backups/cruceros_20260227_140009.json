@@ -81,6 +81,22 @@
             "fecha": "2026-02-27"
         },
         {
+            "hora": "06:00",
+            "nombre": "Msc Laurence",
+            "naviera": "MEDITERRANEAN SHIPPING CO",
+            "terminal": "TERMINAL CATALUNYA SA",
+            "terminal_codigo": "6212",
+            "eslora": 0,
+            "pax_estimados": 500,
+            "puerto": "La Spezia",
+            "tipo": "llegada",
+            "estado": "Sol·licitada",
+            "bandera": "Panamà",
+            "imo": "9467419",
+            "mmsi": "371582000",
+            "fecha": "2026-02-27"
+        },
+        {
             "hora": "07:31",
             "nombre": "Msc World Europa",
             "naviera": "MSC CRUISES S.A.",
@@ -323,6 +339,22 @@
             "fecha": "2026-02-27"
         },
         {
+            "hora": "20:00",
+            "nombre": "Msc Laurence",
+            "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
+            "terminal": "TERMINAL CATALUNYA SA",
+            "terminal_codigo": "6212",
+            "eslora": 0,
+            "pax_estimados": 500,
+            "puerto": "Valencia",
+            "tipo": "salida",
+            "estado": "Sol·licitada",
+            "bandera": "Panamà",
+            "imo": "9467419",
+            "mmsi": "371582000",
+            "fecha": "2026-02-27"
+        },
+        {
             "hora": "21:10",
             "nombre": "Msc Sixin",
             "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
@@ -436,24 +468,24 @@
         }
     ],
     "resumen": {
-        "total_cruceros": 16,
-        "total_llegadas": 13,
-        "total_salidas": 14,
-        "pax_estimados_hoy": 12000,
-        "proximo_desembarco": "17:15",
-        "proximo_barco": "Gnv Sealand"
+        "total_cruceros": 17,
+        "total_llegadas": 14,
+        "total_salidas": 15,
+        "pax_estimados_hoy": 12500,
+        "proximo_desembarco": "11:45",
+        "proximo_barco": "Msc Prelude V"
     },
     "terminales_activas": [
         "H",
         "F2",
-        "6212",
+        "8156",
         "F3",
         "F1",
-        "8156"
+        "6212"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-02-27T14:00:09.343645",
+        "actualizado": "2026-02-27T11:32:38.654140",
         "frecuencia": "horaria"
     }
 }
