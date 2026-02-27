@@ -97,6 +97,22 @@
             "fecha": "2026-02-27"
         },
         {
+            "hora": "12:15",
+            "nombre": "Msc Agadir",
+            "naviera": "MEDITERRANEAN SHIPPING CO",
+            "terminal": "TERMINAL CATALUNYA SA",
+            "terminal_codigo": "6212",
+            "eslora": 0,
+            "pax_estimados": 500,
+            "puerto": "Valencia",
+            "tipo": "llegada",
+            "estado": "Autoritzada",
+            "bandera": "Hong Kong",
+            "imo": "9619464",
+            "mmsi": "477001100",
+            "fecha": "2026-02-27"
+        },
+        {
             "hora": "16:25",
             "nombre": "Msc Prelude V",
             "naviera": "MEDITERRANEAN SHIPPING CO",
@@ -191,22 +207,6 @@
             "imo": "9506289",
             "mmsi": "225416000",
             "fecha": "2026-02-27"
-        },
-        {
-            "hora": "21:06",
-            "nombre": "Msc Agadir",
-            "naviera": "MEDITERRANEAN SHIPPING CO",
-            "terminal": "TERMINAL CATALUNYA SA",
-            "terminal_codigo": "6212",
-            "eslora": 0,
-            "pax_estimados": 500,
-            "puerto": "Valencia",
-            "tipo": "llegada",
-            "estado": "Iniciada",
-            "bandera": "Hong Kong",
-            "imo": "9619464",
-            "mmsi": "477001100",
-            "fecha": "2026-02-27"
         }
     ],
     "salidas": [
@@ -259,6 +259,22 @@
             "fecha": "2026-02-27"
         },
         {
+            "hora": "12:00",
+            "nombre": "Cma Cgm Big Sur",
+            "naviera": "CMA CGM IBERICA SAU",
+            "terminal": "TERMINAL CATALUNYA SA",
+            "terminal_codigo": "6212",
+            "eslora": 366.0,
+            "pax_estimados": 6500,
+            "puerto": "Fos-sur-Mer",
+            "tipo": "salida",
+            "estado": "Iniciada",
+            "bandera": "França",
+            "imo": "9938169",
+            "mmsi": "228459900",
+            "fecha": "2026-02-27"
+        },
+        {
             "hora": "18:14",
             "nombre": "Msc World Europa",
             "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
@@ -272,22 +288,6 @@
             "bandera": "Malta",
             "imo": "9837420",
             "mmsi": "256070000",
-            "fecha": "2026-02-27"
-        },
-        {
-            "hora": "19:26",
-            "nombre": "Cma Cgm Big Sur",
-            "naviera": "CMA CGM IBERICA SAU",
-            "terminal": "TERMINAL CATALUNYA SA",
-            "terminal_codigo": "6212",
-            "eslora": 366.0,
-            "pax_estimados": 6500,
-            "puerto": "Fos-sur-Mer",
-            "tipo": "salida",
-            "estado": "Finalitzada",
-            "bandera": "França",
-            "imo": "9938169",
-            "mmsi": "228459900",
             "fecha": "2026-02-27"
         },
         {
@@ -444,16 +444,16 @@
         "proximo_barco": null
     },
     "terminales_activas": [
-        "F1",
         "8156",
-        "H",
-        "F2",
         "F3",
-        "6212"
+        "H",
+        "6212",
+        "F2",
+        "F1"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-02-27T21:29:55.992758",
+        "actualizado": "2026-02-27T19:33:45.604748",
         "frecuencia": "horaria"
     }
 }
