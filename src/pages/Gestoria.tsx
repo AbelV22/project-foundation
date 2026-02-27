@@ -1,18 +1,17 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import {
   ArrowLeft, RefreshCw, Euro, TrendingUp, TrendingDown,
   FileText, AlertTriangle, CheckCircle2, Clock, Calendar,
-  Car, BookOpen, ChevronRight, Info, Download, Zap,
+  Car, BookOpen, ChevronRight, Info, Download, Zap, Activity
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { motion, AnimatePresence } from "framer-motion";
 import {
-  useGestoria, calcularAmortizacion, calcularCuotaAutonomo,
+  useGestoria, calcularAmortizacion, RegimenFiscal,
   QuarterData, Vencimiento, LibroContable,
 } from "@/hooks/useGestoria";
 import { getItem, setItem } from "@/lib/storage";
-import { useEffect } from "react";
 
 // --- HELPERS ---
 
@@ -64,11 +63,11 @@ const urgenciaStyles: Record<Vencimiento['urgencia'], { dot: string; text: strin
 
 // --- TABS ---
 
-type Tab = 'resumen' | 'modelo130' | 'deducibles' | 'vencimientos' | 'libro';
+type Tab = 'resumen' | 'trimestres' | 'deducibles' | 'vencimientos' | 'libro';
 
 const TABS: { id: Tab; label: string; icon: string }[] = [
   { id: 'resumen', label: 'Resumen', icon: '📊' },
-  { id: 'modelo130', label: 'Modelo 130', icon: '📋' },
+  { id: 'trimestres', label: 'Impuestos', icon: '📋' },
   { id: 'deducibles', label: 'Deducibles', icon: '📁' },
   { id: 'vencimientos', label: 'Vencimientos', icon: '🗓️' },
   { id: 'libro', label: 'Libro', icon: '📚' },
@@ -76,43 +75,52 @@ const TABS: { id: Tab; label: string; icon: string }[] = [
 
 // === SECTION: RESUMEN ===
 
-function ResumenSection({ resumen, loading }: { resumen: ReturnType<typeof useGestoria>['resumen']; loading: boolean }) {
+function ResumenSection({
+  resumen, loading, regimen, setRegimen, beneficioModulos
+}: {
+  resumen: ReturnType<typeof useGestoria>['resumen'];
+  loading: boolean;
+  regimen: RegimenFiscal;
+  setRegimen: (r: RegimenFiscal) => void;
+  beneficioModulos: number;
+}) {
   if (loading) return <SectionSkeleton rows={4} />;
 
   const items = [
     {
-      label: 'Ingresos brutos',
+      label: 'Ingresos brutos (inc. IVA)',
       value: fmt(resumen.ingresosBrutos),
       color: 'text-emerald-400',
       icon: <TrendingUp className="h-4 w-4 text-emerald-400" />,
     },
     {
-      label: 'Gastos deducibles',
-      value: `-${fmt(resumen.gastosDeducibles)}`,
+      label: 'Gastos deducibles (base+IVA)',
+      value: `-${fmt(resumen.gastosTotales)}`,
       color: 'text-red-400',
       icon: <TrendingDown className="h-4 w-4 text-red-400" />,
     },
     {
-      label: 'Beneficio neto',
+      label: 'Beneficio neto (sujeto a IRPF)',
       value: fmt(resumen.beneficioNeto),
       color: resumen.beneficioNeto >= 0 ? 'text-primary' : 'text-red-400',
       icon: <Euro className="h-4 w-4 text-primary" />,
       separator: true,
+      sub: regimen === 'modulos' ? '(Módulo Anual Orientativo)' : '(Estimación Directa real)'
     },
     {
-      label: 'IRPF estimado (20%)',
+      label: 'IRPF anual progresivo',
       value: fmt(resumen.irpfEstimadoAnual),
       color: 'text-amber-400',
       icon: <FileText className="h-4 w-4 text-amber-400" />,
     },
     {
-      label: 'Ya pagado (Mod. 130)',
+      label: `Ya pagado (Mod. ${regimen === 'modulos' ? '131' : '130'})`,
       value: `-${fmt(resumen.irpfPagadoTrimestralmente)}`,
       color: 'text-slate-400',
       icon: <CheckCircle2 className="h-4 w-4 text-slate-400" />,
     },
     {
-      label: 'IRPF pendiente estimado',
+      label: 'IRPF pendiente',
       value: fmt(resumen.irpfPendiente),
       color: resumen.irpfPendiente > 0 ? 'text-red-400' : 'text-emerald-400',
       icon: <AlertTriangle className="h-4 w-4" />,
@@ -123,13 +131,64 @@ function ResumenSection({ resumen, loading }: { resumen: ReturnType<typeof useGe
       value: fmt(resumen.cuotaAutonoMensual),
       color: 'text-blue-400',
       icon: <Zap className="h-4 w-4 text-blue-400" />,
-      sub: `~${fmt(resumen.cuotaAutonoAnual)}/año`,
+      sub: `~${fmt(resumen.cuotaAutonoAnual)}/año (Tramos 2025)`,
     },
   ];
 
+  const beneficioDirecta = resumen.baseIngresosIRPF - resumen.gastosDeduciblesIRPF;
+  const isMejorModulos = beneficioModulos < beneficioDirecta;
+
   return (
-    <div className="space-y-3">
-      {/* Big number */}
+    <div className="space-y-4">
+      {/* Regimen Selector */}
+      <div className="rounded-2xl border border-border/50 bg-card/30 p-4 space-y-3">
+        <div className="flex items-center gap-2 mb-2">
+          <Activity className="h-4 w-4 text-primary" />
+          <span className="text-sm font-semibold">Configuración Fiscal</span>
+        </div>
+
+        <div className="grid grid-cols-2 gap-2 p-1 bg-muted/30 rounded-xl border border-border/30">
+          <button
+            onClick={() => setRegimen('directa')}
+            className={cn("px-3 py-2 text-xs font-semibold rounded-lg transition-all",
+              regimen === 'directa' ? "bg-background shadow-sm text-foreground border border-border/50" : "text-muted-foreground hover:text-foreground"
+            )}
+          >
+            Est. Directa
+          </button>
+          <button
+            onClick={() => setRegimen('modulos')}
+            className={cn("px-3 py-2 text-xs font-semibold rounded-lg transition-all",
+              regimen === 'modulos' ? "bg-background shadow-sm text-foreground border border-border/50" : "text-muted-foreground hover:text-foreground"
+            )}
+          >
+            Módulos
+          </button>
+        </div>
+
+        {/* Comparador */}
+        <div className="pt-2 border-t border-border/30">
+          <p className="text-xs text-muted-foreground mb-2">Rendimiento neto sujeto a retención (IRPF)</p>
+          <div className="flex items-center gap-2 text-xs mb-1">
+            <span className="w-16">Módulos:</span>
+            <div className="flex-1 h-2 bg-muted rounded-full overflow-hidden">
+              <div className="h-full bg-blue-400" style={{ width: `${Math.min(100, (beneficioModulos / Math.max(beneficioModulos, beneficioDirecta)) * 100)}%` }} />
+            </div>
+            <span className="font-mono">{fmt(beneficioModulos)}</span>
+          </div>
+          <div className="flex items-center gap-2 text-xs">
+            <span className="w-16">Directa:</span>
+            <div className="flex-1 h-2 bg-muted rounded-full overflow-hidden">
+              <div className="h-full bg-emerald-400" style={{ width: `${Math.min(100, (beneficioDirecta / Math.max(beneficioModulos, beneficioDirecta)) * 100)}%` }} />
+            </div>
+            <span className="font-mono">{fmt(beneficioDirecta)}</span>
+          </div>
+          <p className="text-[10px] text-muted-foreground mt-2 text-center flex gap-1 justify-center bg-muted/20 p-1.5 rounded-lg border border-border/20">
+            💡 Te conviene más tributar por <strong className={isMejorModulos ? "text-blue-400" : "text-emerald-400"}>{isMejorModulos ? 'Módulos' : 'E. Directa'}</strong>
+          </p>
+        </div>
+      </div>
+
       <div className="rounded-2xl border border-primary/20 bg-primary/5 p-5 text-center">
         <p className="text-xs text-muted-foreground uppercase tracking-wider mb-1">
           Beneficio neto {resumen.ano}
@@ -139,15 +198,12 @@ function ResumenSection({ resumen, loading }: { resumen: ReturnType<typeof useGe
         )}>
           {fmt(resumen.beneficioNeto)}
         </p>
-        {resumen.ingresosBrutos === 0 && (
-          <p className="text-xs text-muted-foreground mt-2">
-            Registra tus carreras para ver datos fiscales reales
-          </p>
-        )}
+        <p className="text-[10px] text-muted-foreground mt-2">
+          Incluye gastos prorrateados por deducibilidad
+        </p>
       </div>
 
-      {/* Detail rows */}
-      <div className="rounded-2xl border border-border/50 divide-y divide-border/40 overflow-hidden">
+      <div className="rounded-2xl border border-border/50 divide-y divide-border/40 overflow-hidden bg-card/10">
         {items.map((item, i) => (
           <div key={i}>
             {item.separator && i > 0 && (
@@ -167,21 +223,20 @@ function ResumenSection({ resumen, loading }: { resumen: ReturnType<typeof useGe
         ))}
       </div>
 
-      {/* Tax disclaimer */}
       <div className="rounded-xl bg-blue-500/10 border border-blue-500/20 p-3 flex gap-2">
         <Info className="h-4 w-4 text-blue-400 shrink-0 mt-0.5" />
         <p className="text-xs text-muted-foreground">
-          Los taxis están <strong className="text-foreground">exentos de IVA</strong> (art. 20.1.17 Ley IVA).
-          Estimación Directa Simplificada. Datos orientativos — consulta tu gestor/a.
+          Recuerda: El servicio de taxi devenga un <strong className="text-foreground">10% de IVA</strong>,
+          liquidable mediante el <strong className="text-foreground">Modelo 303</strong>.
         </p>
       </div>
     </div>
   );
 }
 
-// === SECTION: MODELO 130 ===
+// === SECTION: MODELOS TRIMESTRALES ===
 
-function Modelo130Section({ quarters, loading }: { quarters: QuarterData[]; loading: boolean }) {
+function TrimestresSection({ quarters, regimen, loading }: { quarters: QuarterData[]; regimen: RegimenFiscal; loading: boolean }) {
   const [expandedQ, setExpandedQ] = useState<number | null>(null);
   if (loading) return <SectionSkeleton rows={4} />;
 
@@ -189,17 +244,14 @@ function Modelo130Section({ quarters, loading }: { quarters: QuarterData[]; load
 
   return (
     <div className="space-y-3">
-      {/* Info box */}
       <div className="rounded-xl bg-amber-500/10 border border-amber-500/20 p-3 flex gap-2">
         <Info className="h-4 w-4 text-amber-400 shrink-0 mt-0.5" />
         <p className="text-xs text-muted-foreground">
-          <strong className="text-foreground">Modelo 130</strong> — Pago fraccionado trimestral del IRPF.
-          Fórmula: 20% × (ingresos acumulados − gastos deducibles acumulados) − pagos anteriores.
-          Mínimo a pagar: 0€.
+          <strong className="text-foreground">Modelo {regimen === 'modulos' ? '131' : '130'} (IRPF) + 303 (IVA)</strong>.
+          Vencen antes del 20 del mes siguiente al trimestre. (El Q4 el 30 de enero).
         </p>
       </div>
 
-      {/* Next deadline highlight */}
       {nextQ && (nextQ.status === 'urgente' || nextQ.status === 'proximo') && (
         <div className="rounded-2xl bg-amber-500/10 border border-amber-500/30 p-4 flex items-center gap-3">
           <AlertTriangle className="h-5 w-5 text-amber-400 shrink-0" />
@@ -209,18 +261,20 @@ function Modelo130Section({ quarters, loading }: { quarters: QuarterData[]; load
               {nextQ.label} — {nextQ.deadline} · {nextQ.daysLeft > 0 ? `en ${nextQ.daysLeft} días` : 'HOY'}
             </p>
           </div>
-          <p className="font-black text-lg font-mono text-amber-400">{fmt(nextQ.aPagar)}</p>
+          <div className="text-right">
+            <p className="font-black text-lg font-mono text-amber-400">{fmt(nextQ.aPagarIRPF + nextQ.aPagarIVA)}</p>
+            <p className="text-[10px] text-amber-400/80 font-semibold uppercase">TOTAL</p>
+          </div>
         </div>
       )}
 
-      {/* Quarter cards */}
       {quarters.map(q => {
         const style = quarterStyles[q.status];
         const isOpen = expandedQ === q.q;
         return (
           <div
             key={q.q}
-            className={cn("rounded-2xl border overflow-hidden", style.border)}
+            className={cn("rounded-2xl border overflow-hidden transition-colors", style.border, isOpen ? "bg-card/30" : "")}
           >
             <button
               className="w-full p-4 flex items-center gap-3 text-left"
@@ -241,9 +295,9 @@ function Modelo130Section({ quarters, loading }: { quarters: QuarterData[]; load
               </div>
               <div className="text-right shrink-0">
                 <p className={cn("font-black font-mono text-lg",
-                  q.aPagar > 0 ? 'text-amber-400' : 'text-emerald-400'
+                  (q.aPagarIRPF + q.aPagarIVA) > 0 ? 'text-amber-400' : 'text-emerald-400'
                 )}>
-                  {fmt(q.aPagar)}
+                  {fmt(q.aPagarIRPF + q.aPagarIVA)}
                 </p>
                 <p className="text-[10px] text-muted-foreground">a pagar</p>
               </div>
@@ -259,32 +313,51 @@ function Modelo130Section({ quarters, loading }: { quarters: QuarterData[]; load
                   transition={{ duration: 0.2 }}
                   className="overflow-hidden"
                 >
-                  <div className="px-4 pb-4 border-t border-border/30 pt-3 space-y-2">
-                    {[
-                      { label: 'Ingresos del trimestre', val: fmtDec(q.ingresos), positive: true },
-                      { label: 'Gastos deducibles trim.', val: `-${fmtDec(q.gastos)}` },
-                      { label: 'Base imponible acum.', val: fmtDec(q.baseImponible), separator: true },
-                      { label: 'Cuota bruta (20%)', val: fmtDec(q.cuotaBruta) },
-                      { label: '− Pagos anteriores (Mod.130)', val: `-${fmtDec(q.pagosAnteriores)}`, separator: true },
-                      { label: 'RESULTADO A INGRESAR', val: fmtDec(q.aPagar), big: true },
-                    ].map((row, i) => (
-                      <div key={i}>
-                        {row.separator && <div className="h-px bg-border/50 my-1" />}
-                        <div className="flex justify-between text-xs">
-                          <span className={cn("text-muted-foreground", row.big && "font-semibold text-foreground")}>
-                            {row.label}
-                          </span>
-                          <span className={cn("font-mono",
-                            row.big ? 'font-black text-sm text-amber-400' : 'text-foreground'
-                          )}>
-                            {row.val}
-                          </span>
+                  <div className="px-4 pb-4 border-t border-border/30 pt-4 space-y-4">
+                    {/* BLOQUE IVA */}
+                    <div className="space-y-2">
+                      <p className="text-[10px] uppercase font-bold tracking-wider text-muted-foreground">IVA (Modelo 303)</p>
+                      {[
+                        { label: 'IVA Repercutido (carreras)', val: fmtDec(q.ivaRepercutido) },
+                        { label: 'IVA Soportado (gastos)', val: `-${fmtDec(q.ivaSoportado)}` },
+                        { label: 'Total Mod. 303', val: fmtDec(q.aPagarIVA), separator: true }
+                      ].map((row, i) => (
+                        <div key={i}>
+                          {row.separator && <div className="h-px bg-border/50 my-1" />}
+                          <div className="flex justify-between text-xs">
+                            <span className="text-muted-foreground">{row.label}</span>
+                            <span className={row.separator ? "font-mono font-bold text-amber-400" : "font-mono text-foreground"}>{row.val}</span>
+                          </div>
                         </div>
-                      </div>
-                    ))}
-                    <p className="text-[10px] text-muted-foreground pt-2">
-                      Presenta en Sede Electrónica AEAT con certificado digital o Cl@ve
-                    </p>
+                      ))}
+                    </div>
+
+                    {/* BLOQUE IRPF */}
+                    <div className="space-y-2 pt-2 border-t border-border/30">
+                      <p className="text-[10px] uppercase font-bold tracking-wider text-muted-foreground">IRPF (Modelo {q.modeloIRPF})</p>
+                      {regimen === 'modulos' ? (
+                        <div className="flex justify-between text-xs">
+                          <span className="text-muted-foreground">Cuota fija trimestral</span>
+                          <span className="font-mono font-bold text-amber-400">{fmtDec(q.aPagarIRPF)}</span>
+                        </div>
+                      ) : (
+                        <>
+                          {[
+                            { label: 'Base ingresos (sin IVA)', val: fmtDec(q.ingresos) },
+                            { label: 'Base gastos deducibles', val: `-${fmtDec(q.gastos)}` },
+                            { label: 'Total Mod. 130', val: fmtDec(q.aPagarIRPF), separator: true },
+                          ].map((row, i) => (
+                            <div key={i}>
+                              {row.separator && <div className="h-px bg-border/50 my-1" />}
+                              <div className="flex justify-between text-xs">
+                                <span className="text-muted-foreground">{row.label}</span>
+                                <span className={row.separator ? "font-mono font-bold text-amber-400" : "font-mono text-foreground"}>{row.val}</span>
+                              </div>
+                            </div>
+                          ))}
+                        </>
+                      )}
+                    </div>
                   </div>
                 </motion.div>
               )}
@@ -474,8 +547,6 @@ function VencimientosSection({ vencimientos, loading }: {
   );
 }
 
-// === SECTION: LIBRO CONTABLE ===
-
 function LibroSection({ libro, ingresosBrutos, gastosDeducibles, loading }: {
   libro: LibroContable[];
   ingresosBrutos: number;
@@ -484,8 +555,8 @@ function LibroSection({ libro, ingresosBrutos, gastosDeducibles, loading }: {
 }) {
   if (loading) return <SectionSkeleton rows={12} />;
 
-  const mesesConDatos = libro.filter(m => m.ingresos > 0 || m.gastos > 0);
-  const maxIngr = Math.max(...libro.map(m => m.ingresos), 1);
+  const mesesConDatos = libro.filter(m => m.ingresoCount > 0 || m.gastoCount > 0);
+  const maxIngr = Math.max(...libro.map(m => m.ingresosBase + m.ivaRepercutido), 1);
 
   return (
     <div className="space-y-3">
@@ -493,43 +564,44 @@ function LibroSection({ libro, ingresosBrutos, gastosDeducibles, loading }: {
       <div className="rounded-xl border border-border/50 p-3 flex items-center gap-2 bg-card/50">
         <Download className="h-4 w-4 text-muted-foreground" />
         <p className="text-xs text-muted-foreground flex-1">
-          Para exportar a PDF, usa el menú compartir del navegador → "Imprimir" → "Guardar como PDF"
+          Libro de Ingresos y Gastos obligatorio para la Estimación Directa.
         </p>
       </div>
 
       {/* Year summary */}
       <div className="grid grid-cols-2 gap-2">
         <div className="rounded-xl border border-emerald-500/30 bg-emerald-500/5 p-3 text-center">
-          <p className="text-[10px] text-muted-foreground">Total ingresos</p>
+          <p className="text-[10px] text-muted-foreground">Total ingresado (inc. IVA)</p>
           <p className="font-black font-mono text-emerald-400">{fmt(ingresosBrutos)}</p>
         </div>
         <div className="rounded-xl border border-red-500/30 bg-red-500/5 p-3 text-center">
-          <p className="text-[10px] text-muted-foreground">Total deducibles</p>
+          <p className="text-[10px] text-muted-foreground">Total deducibles (base+IVA)</p>
           <p className="font-black font-mono text-red-400">{fmt(gastosDeducibles)}</p>
         </div>
       </div>
 
       {/* Monthly table */}
       {mesesConDatos.length > 0 ? (
-        <div className="rounded-2xl border border-border/50 overflow-hidden">
+        <div className="rounded-2xl border border-border/50 overflow-hidden bg-card/20">
           {/* Header */}
-          <div className="grid grid-cols-[1fr_80px_80px_72px] gap-0 px-4 py-2 bg-muted/30 border-b border-border/30">
+          <div className="grid grid-cols-[1fr_75px_70px_65px] gap-2 px-3 py-2 bg-muted/40 border-b border-border/30">
             <span className="text-[10px] text-muted-foreground font-semibold uppercase">Mes</span>
-            <span className="text-[10px] text-muted-foreground font-semibold uppercase text-right">Ingresos</span>
-            <span className="text-[10px] text-muted-foreground font-semibold uppercase text-right">Gastos</span>
+            <span className="text-[10px] text-muted-foreground font-semibold uppercase text-right">Base</span>
+            <span className="text-[10px] text-muted-foreground font-semibold uppercase text-right">IVA</span>
             <span className="text-[10px] text-muted-foreground font-semibold uppercase text-right">Neto</span>
           </div>
           <div className="divide-y divide-border/30">
             {libro.map((mes, idx) => {
-              const hasDatos = mes.ingresos > 0 || mes.gastos > 0;
-              const barWidth = maxIngr > 0 ? (mes.ingresos / maxIngr) * 100 : 0;
+              const hasDatos = mes.ingresoCount > 0 || mes.gastoCount > 0;
+              const bNeto = mes.ingresosBase - mes.gastosBase;
+              const barWidth = maxIngr > 0 ? ((mes.ingresosBase + mes.ivaRepercutido) / maxIngr) * 100 : 0;
               return (
-                <div key={idx} className={cn("px-4 py-2.5", !hasDatos && "opacity-30")}>
-                  <div className="grid grid-cols-[1fr_80px_80px_72px] gap-0 items-center">
-                    <div>
-                      <span className="text-xs font-medium">{mes.mes.split(' ')[0]}</span>
+                <div key={idx} className={cn("px-3 py-3", !hasDatos && "opacity-30")}>
+                  <div className="grid grid-cols-[1fr_75px_70px_65px] gap-2 items-center">
+                    <div className="overflow-hidden">
+                      <span className="text-xs font-semibold">{mes.mes.split(' ')[0]}</span>
                       {hasDatos && (
-                        <div className="mt-1 h-1 bg-muted rounded-full overflow-hidden w-full max-w-[80px]">
+                        <div className="mt-1.5 h-[3px] bg-muted/50 rounded-full w-full max-w-[80px]">
                           <div
                             className="h-full bg-emerald-400/60 rounded-full"
                             style={{ width: `${barWidth}%` }}
@@ -537,40 +609,31 @@ function LibroSection({ libro, ingresosBrutos, gastosDeducibles, loading }: {
                         </div>
                       )}
                     </div>
-                    <span className={cn("font-mono text-xs text-right", hasDatos ? "text-emerald-400" : "text-muted-foreground")}>
-                      {hasDatos ? fmt(mes.ingresos) : '—'}
-                    </span>
-                    <span className={cn("font-mono text-xs text-right", hasDatos ? "text-red-400" : "text-muted-foreground")}>
-                      {hasDatos ? fmt(mes.gastos) : '—'}
-                    </span>
+                    <div className="flex flex-col items-end">
+                      <span className="font-mono text-xs text-emerald-400">{hasDatos ? fmt(Math.round(mes.ingresosBase)) : '—'}</span>
+                      <span className="font-mono text-[10px] text-red-400">-{hasDatos ? fmt(Math.round(mes.gastosBase)) : '—'}</span>
+                    </div>
+                    <div className="flex flex-col items-end">
+                      <span className="font-mono text-xs text-emerald-400">{hasDatos ? fmt(Math.round(mes.ivaRepercutido)) : '—'}</span>
+                      <span className="font-mono text-[10px] text-red-400">-{hasDatos ? fmt(Math.round(mes.ivaSoportado)) : '—'}</span>
+                    </div>
                     <span className={cn("font-mono text-xs font-bold text-right",
-                      mes.beneficio >= 0 ? "text-primary" : "text-red-400",
+                      bNeto >= 0 ? "text-primary" : "text-red-400",
                       !hasDatos && "text-muted-foreground"
                     )}>
-                      {hasDatos ? fmt(mes.beneficio) : '—'}
+                      {hasDatos ? fmt(Math.round(bNeto)) : '—'}
                     </span>
                   </div>
                 </div>
               );
             })}
           </div>
-          {/* Total row */}
-          <div className="grid grid-cols-[1fr_80px_80px_72px] gap-0 px-4 py-3 bg-muted/30 border-t border-border/50">
-            <span className="text-xs font-bold uppercase text-foreground">TOTAL</span>
-            <span className="font-mono text-xs font-bold text-right text-emerald-400">{fmt(ingresosBrutos)}</span>
-            <span className="font-mono text-xs font-bold text-right text-red-400">{fmt(gastosDeducibles)}</span>
-            <span className={cn("font-mono text-xs font-black text-right",
-              (ingresosBrutos - gastosDeducibles) >= 0 ? "text-primary" : "text-red-400"
-            )}>
-              {fmt(ingresosBrutos - gastosDeducibles)}
-            </span>
-          </div>
         </div>
       ) : (
-        <div className="rounded-xl border border-border/50 p-8 text-center text-muted-foreground">
+        <div className="rounded-xl border border-border/50 p-8 text-center text-muted-foreground bg-card/20">
           <BookOpen className="h-8 w-8 mx-auto mb-2 opacity-30" />
           <p className="text-sm">Sin datos registrados</p>
-          <p className="text-xs mt-1">Registra carreras y gastos para ver el libro contable</p>
+          <p className="text-xs mt-1">Registra carreras y gastos para ver el libro</p>
         </div>
       )}
     </div>
@@ -700,8 +763,9 @@ function SectionSkeleton({ rows }: { rows: number }) {
 export default function Gestoria() {
   const [tab, setTab] = useState<Tab>('resumen');
   const {
+    carreras, gastos, regimen, setRegimen,
     resumen, quarters, gastosDeduciblesLista, libroContable,
-    vencimientos, loading, error, refresh, currentYear,
+    vencimientos, loading, error, refresh, currentYear, beneficioModulos
   } = useGestoria();
 
   const nextUrgent = vencimientos.find(v => v.urgencia === 'rojo' || v.urgencia === 'amarillo');
@@ -736,7 +800,7 @@ export default function Gestoria() {
             nextUrgent.urgencia === 'rojo' ? "bg-red-500/20 text-red-300" : "bg-amber-500/20 text-amber-300"
           )}>
             <AlertTriangle className="h-3.5 w-3.5 shrink-0" />
-            <span>{nextUrgent.titulo} · {nextUrgent.daysLeft > 0 ? `${nextUrgent.daysLeft} días` : '¡HOY!'}</span>
+            <span className="truncate">{nextUrgent.titulo} · {nextUrgent.daysLeft > 0 ? `${nextUrgent.daysLeft} días` : '¡HOY!'}</span>
           </div>
         )}
 
@@ -778,12 +842,12 @@ export default function Gestoria() {
           >
             {tab === 'resumen' && (
               <div className="space-y-4">
-                <ResumenSection resumen={resumen} loading={loading} />
+                <ResumenSection resumen={resumen} loading={loading} regimen={regimen} setRegimen={setRegimen} beneficioModulos={beneficioModulos} />
                 <AmortizacionWidget />
               </div>
             )}
-            {tab === 'modelo130' && (
-              <Modelo130Section quarters={quarters} loading={loading} />
+            {tab === 'trimestres' && (
+              <TrimestresSection quarters={quarters} regimen={regimen} loading={loading} />
             )}
             {tab === 'deducibles' && (
               <DeduciblesSection gastos={gastosDeduciblesLista} loading={loading} />
@@ -795,7 +859,7 @@ export default function Gestoria() {
               <LibroSection
                 libro={libroContable}
                 ingresosBrutos={resumen.ingresosBrutos}
-                gastosDeducibles={resumen.gastosDeducibles}
+                gastosDeducibles={resumen.gastosTotales}
                 loading={loading}
               />
             )}
