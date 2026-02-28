@@ -148,7 +148,7 @@ const Index = () => {
               onViewDemandForecast={() => setActiveTab("prediccion")}
             />
           )}
-          {activeTab === "vuelos" && <FlightsView />}
+          {activeTab === "vuelos" && <FlightsView onViewFlightList={() => setActiveTab("flightList")} />}
           {activeTab === "trenes" && (
             <TrainsFullDayView
               onBack={() => setActiveTab("dashboard")}

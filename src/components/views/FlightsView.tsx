@@ -1,5 +1,5 @@
-import { useState } from "react";
-import { Plane, Clock, Users, ArrowDown, RefreshCw } from "lucide-react";
+import { useState, useMemo } from "react";
+import { Plane, Clock, Users, ArrowDown, RefreshCw, List } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -21,7 +21,7 @@ const getTerminalType = (vuelo: VueloRaw): 't1' | 't2' | 't2c' | 'puente' => {
   const terminal = vuelo.terminal?.toUpperCase() || "";
   const codigosVuelo = vuelo.vuelo?.toUpperCase() || "";
   const origen = vuelo.origen?.toUpperCase() || "";
-  
+
   // T2C: EasyJet (terminal indica "T2C" o códigos EJU/EZY)
   if (terminal.includes("T2C") || terminal.includes("EASYJET")) {
     return "t2c";
@@ -29,22 +29,22 @@ const getTerminalType = (vuelo: VueloRaw): 't1' | 't2' | 't2c' | 'puente' => {
   if (codigosVuelo.includes("EJU") || codigosVuelo.includes("EZY")) {
     return "t2c";
   }
-  
+
   // Puente Aéreo: vuelos IBE desde Madrid (código IBE + origen Madrid)
   if (origen.includes("MADRID") && codigosVuelo.includes("IBE")) {
     return "puente";
   }
-  
+
   // T2A/T2B: Ryanair, Wizz, etc.
   if (terminal.includes("T2A") || terminal.includes("T2B")) {
     return "t2";
   }
-  
+
   // T1: resto de vuelos T1
   if (terminal.includes("T1")) {
     return "t1";
   }
-  
+
   // Default T2 para otros casos
   return "t2";
 };
@@ -59,11 +59,22 @@ const getEsperaReten = (terminalId: string, currentHour: number): number => {
   return isPeakHour ? base + 12 : base;
 };
 
-export function FlightsView() {
+interface FlightsViewProps {
+  onViewFlightList?: () => void;
+}
+
+export function FlightsView({ onViewFlightList }: FlightsViewProps) {
   // Use centralized data from context (cached & auto-refreshed)
   const { vuelos, loading, refresh } = useVuelos();
   const [selectedTerminal, setSelectedTerminal] = useState("all");
   const [chartType, setChartType] = useState<"vuelos" | "pasajeros">("pasajeros");
+  const [selectedDay, setSelectedDay] = useState<number>(0);
+
+  // Detect available days in data
+  const availableDays = useMemo(() => {
+    const days = new Set(vuelos.map(v => v.dia_relativo));
+    return Array.from(days).sort();
+  }, [vuelos]);
 
   if (loading) {
     return (
@@ -84,10 +95,10 @@ export function FlightsView() {
 
   const currentHour = new Date().getHours();
 
-  // Filtrar vuelos activos (no cancelados)
+  // FILTRO CRÍTICO: Solo vuelos del día seleccionado + no cancelados
   const vuelosActivos = vuelos.filter(v => {
     const estado = v.estado?.toLowerCase() || "";
-    return !estado.includes("cancelado");
+    return v.dia_relativo === selectedDay && !estado.includes("cancelado");
   });
 
   // Ordenar por hora
@@ -126,7 +137,7 @@ export function FlightsView() {
   for (let h = 0; h < 24; h++) {
     hourlyGroups[h] = { vuelos: 0, pax: 0 };
   }
-  
+
   vuelosSorted.forEach(v => {
     const hora = parseInt(v.hora?.split(":")[0] || "0", 10);
     const type = getTerminalType(v);
@@ -146,7 +157,7 @@ export function FlightsView() {
   // Filter flights by terminal
   const filterFlights = (allVuelos: VueloRaw[]) => {
     if (selectedTerminal === "all") return allVuelos;
-    
+
     return allVuelos.filter(v => {
       const type = getTerminalType(v);
       return type === selectedTerminal;
@@ -157,6 +168,39 @@ export function FlightsView() {
 
   return (
     <div className="space-y-6 animate-fade-in">
+      {/* Day Toggle + Flight List button */}
+      <div className="flex items-center justify-between">
+        <div className="flex gap-1 bg-muted rounded-lg p-1">
+          {availableDays.map(d => (
+            <Button
+              key={d}
+              variant={selectedDay === d ? "secondary" : "ghost"}
+              size="sm"
+              onClick={() => setSelectedDay(d)}
+              className="text-xs h-7 px-3"
+            >
+              {d === 0 ? "Hoy" : d === 1 ? "Mañana" : `+${d}d`}
+            </Button>
+          ))}
+        </div>
+        <div className="flex items-center gap-2">
+          <span className="text-xs text-muted-foreground font-mono">
+            {vuelosActivos.length} vuelos
+          </span>
+          {onViewFlightList && (
+            <Button
+              variant="outline"
+              size="sm"
+              onClick={onViewFlightList}
+              className="text-xs h-7 px-3 gap-1.5"
+            >
+              <List className="h-3.5 w-3.5" />
+              Ver por hora
+            </Button>
+          )}
+        </div>
+      </div>
+
       {/* Terminal Stats */}
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-4">
         {terminalStats.map((terminal) => (
@@ -207,24 +251,24 @@ export function FlightsView() {
             <AreaChart data={hourlyData}>
               <defs>
                 <linearGradient id="chartGradient" x1="0" y1="0" x2="0" y2="1">
-                  <stop offset="5%" stopColor={chartType === "vuelos" ? "#F97316" : "#3B82F6"} stopOpacity={0.3}/>
-                  <stop offset="95%" stopColor={chartType === "vuelos" ? "#F97316" : "#3B82F6"} stopOpacity={0}/>
+                  <stop offset="5%" stopColor={chartType === "vuelos" ? "#F97316" : "#3B82F6"} stopOpacity={0.3} />
+                  <stop offset="95%" stopColor={chartType === "vuelos" ? "#F97316" : "#3B82F6"} stopOpacity={0} />
                 </linearGradient>
               </defs>
-              <XAxis 
-                dataKey="hour" 
-                axisLine={false} 
+              <XAxis
+                dataKey="hour"
+                axisLine={false}
                 tickLine={false}
                 tick={{ fontSize: 10, fill: 'hsl(220, 10%, 55%)' }}
                 interval={2}
               />
-              <YAxis 
-                axisLine={false} 
+              <YAxis
+                axisLine={false}
                 tickLine={false}
                 tick={{ fontSize: 10, fill: 'hsl(220, 10%, 55%)' }}
                 tickFormatter={chartType === "pasajeros" ? (value) => `${(value / 1000).toFixed(0)}k` : undefined}
               />
-              <Tooltip 
+              <Tooltip
                 contentStyle={{
                   backgroundColor: 'hsl(var(--popover))',
                   border: '1px solid hsl(var(--border))',
@@ -236,11 +280,11 @@ export function FlightsView() {
                   chartType === "vuelos" ? "Vuelos" : "Pasajeros"
                 ]}
               />
-              <Area 
-                type="monotone" 
-                dataKey={chartType} 
+              <Area
+                type="monotone"
+                dataKey={chartType}
                 name={chartType === "vuelos" ? "Vuelos" : "Pasajeros"}
-                stroke={chartType === "vuelos" ? "#F97316" : "#3B82F6"} 
+                stroke={chartType === "vuelos" ? "#F97316" : "#3B82F6"}
                 strokeWidth={2}
                 fill="url(#chartGradient)"
               />
@@ -264,8 +308,8 @@ export function FlightsView() {
               onClick={() => setSelectedTerminal(tab.id)}
               className={cn(
                 "py-3 md:py-4 text-xs md:text-sm font-medium transition-colors border-b-2",
-                selectedTerminal === tab.id 
-                  ? `${tab.color} text-foreground bg-accent/30` 
+                selectedTerminal === tab.id
+                  ? `${tab.color} text-foreground bg-accent/30`
                   : "border-transparent text-muted-foreground hover:text-foreground hover:bg-accent/20"
               )}
             >

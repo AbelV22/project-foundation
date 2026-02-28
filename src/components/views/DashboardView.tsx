@@ -165,7 +165,10 @@ export function DashboardView({ onTerminalClick, onViewAllFlights, onViewAllEven
   const currentMinutes = currentHour * 60 + now.getMinutes();
 
   // Filter and sort flights
-  const vuelosActivos = vuelos.filter(v => !v.estado?.toLowerCase().includes("cancelado"));
+  // FILTRO CRÍTICO: Solo vuelos de HOY (dia_relativo === 0)
+  const vuelosActivos = vuelos.filter(v =>
+    v.dia_relativo === 0 && !v.estado?.toLowerCase().includes("cancelado")
+  );
   const vuelosSorted = [...vuelosActivos].sort((a, b) => {
     if (a.dia_relativo !== b.dia_relativo) return a.dia_relativo - b.dia_relativo;
     return parseHora(a.hora) - parseHora(b.hora);

@@ -110,8 +110,9 @@ export function FullDayView({ onBack, onTerminalClick, onViewFlightList }: FullD
   const now = new Date();
   const currentHour = now.getHours();
 
+  // FILTRO CRÍTICO: Solo vuelos de HOY (dia_relativo === 0) + no cancelados
   const vuelosActivos = useMemo(
-    () => vuelos.filter((v) => !v.estado?.toLowerCase().includes("cancelado")),
+    () => vuelos.filter((v) => v.dia_relativo === 0 && !v.estado?.toLowerCase().includes("cancelado")),
     [vuelos]
   );
 
