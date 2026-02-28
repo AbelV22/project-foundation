@@ -98,6 +98,22 @@
         },
         {
             "hora": "19:00",
+            "nombre": "Abel Matutes",
+            "naviera": "EUROLINEAS MARITIMAS S.A",
+            "terminal": "BALEARIA EUROLINEAS MARITIMAS SA ",
+            "terminal_codigo": "7332",
+            "eslora": 190.0,
+            "pax_estimados": 1000,
+            "puerto": "Palma de Mallorca",
+            "tipo": "llegada",
+            "estado": "Confirmada",
+            "bandera": "Espanya",
+            "imo": "9441130",
+            "mmsi": "224402000",
+            "fecha": "2026-02-28"
+        },
+        {
+            "hora": "19:00",
             "nombre": "Martin I Soler",
             "naviera": "EUROLINEAS MARITIMAS S.A",
             "terminal": "TERMINAL F1",
@@ -126,22 +142,6 @@
             "bandera": "Espanya",
             "imo": "9349772",
             "mmsi": "224588000",
-            "fecha": "2026-02-28"
-        },
-        {
-            "hora": "20:00",
-            "nombre": "Abel Matutes",
-            "naviera": "EUROLINEAS MARITIMAS S.A",
-            "terminal": "BALEARIA EUROLINEAS MARITIMAS SA ",
-            "terminal_codigo": "7332",
-            "eslora": 190.0,
-            "pax_estimados": 1000,
-            "puerto": "Palma de Mallorca",
-            "tipo": "llegada",
-            "estado": "Confirmada",
-            "bandera": "Espanya",
-            "imo": "9441130",
-            "mmsi": "224402000",
             "fecha": "2026-02-28"
         },
         {
@@ -344,26 +344,26 @@
         "total_llegadas": 10,
         "total_salidas": 11,
         "pax_estimados_hoy": 24000,
-        "proximo_desembarco": "19:00",
-        "proximo_barco": "Martin I Soler"
+        "proximo_desembarco": "07:43",
+        "proximo_barco": "Msc Splendida"
     },
     "terminales_activas": [
-        "F1",
-        "F2",
-        "7946",
-        "6995",
-        "7332",
-        "S",
         "F3",
-        "172133",
-        "B",
-        "8156",
+        "S",
+        "6995",
         "H",
-        "6212"
+        "8156",
+        "172133",
+        "7946",
+        "B",
+        "F1",
+        "6212",
+        "7332",
+        "F2"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-02-28T09:26:41.315542",
+        "actualizado": "2026-02-28T07:27:14.763513",
         "frecuencia": "horaria"
     }
 }
