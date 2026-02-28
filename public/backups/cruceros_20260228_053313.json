@@ -163,7 +163,7 @@
     ],
     "salidas": [
         {
-            "hora": "03:04",
+            "hora": "02:00",
             "nombre": "Msc Prelude V",
             "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
             "terminal": "TERMINAL CATALUNYA SA",
@@ -172,7 +172,7 @@
             "pax_estimados": 500,
             "puerto": "Valencia",
             "tipo": "salida",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Libèria",
             "imo": "9450325",
             "mmsi": "636022708",
@@ -344,26 +344,26 @@
         "total_llegadas": 10,
         "total_salidas": 11,
         "pax_estimados_hoy": 24000,
-        "proximo_desembarco": "06:00",
-        "proximo_barco": "Msc Flora"
+        "proximo_desembarco": null,
+        "proximo_barco": null
     },
     "terminales_activas": [
-        "6995",
-        "F3",
-        "H",
-        "172133",
-        "S",
-        "7332",
-        "F1",
         "F2",
-        "B",
+        "6995",
+        "S",
+        "172133",
+        "H",
         "7946",
+        "8156",
         "6212",
-        "8156"
+        "B",
+        "7332",
+        "F3",
+        "F1"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-02-28T05:33:13.792145",
+        "actualizado": "2026-02-27T23:25:52.362185",
         "frecuencia": "horaria"
     }
 }
