@@ -103,17 +103,20 @@ export function FullDayView({ onBack, onTerminalClick, onViewFlightList }: FullD
     return data;
   }, [vuelosActivos]);
 
-  // Count flights per hour and terminal
+  // Count flights per hour+day and terminal (key = "dia|hour" to distinguish today vs tomorrow)
   const countByHourAndTerminal = useMemo(() => {
-    const counts: Record<string, Record<number, number>> = { t1: {}, t2: {}, t2c: {}, puente: {} };
-    Object.entries(vuelosPorTerminal).forEach(([terminal, flights]) => {
-      flights.forEach((v) => {
+    const counts: Record<string, Record<string, number>> = { t1: {}, t2: {}, t2c: {}, puente: {} };
+    vuelos
+      .filter((v) => !v.estado?.toLowerCase().includes("cancelado"))
+      .forEach((v) => {
+        const type = getTerminalType(v);
+        if (!counts[type]) return;
         const hour = parseInt(v.hora?.split(":")[0] || "0", 10);
-        counts[terminal][hour] = (counts[terminal][hour] || 0) + 1;
+        const key = `${v.dia_relativo}|${hour}`;
+        counts[type][key] = (counts[type][key] || 0) + 1;
       });
-    });
     return counts;
-  }, [vuelosPorTerminal]);
+  }, [vuelos]);
 
   // Find max per terminal for intensity calculation
   const maxByTerminal = useMemo(() => {
@@ -166,17 +169,22 @@ export function FullDayView({ onBack, onTerminalClick, onViewFlightList }: FullD
   }, [vuelosActivos, currentHour, now]);
 
   // Generate hour rows - starting from 1 hour before current
+  // Slots that cross midnight belong to dia_relativo=1 (tomorrow)
   const hourRows = useMemo(() => {
-    const startHour = (currentHour - 1 + 24) % 24;
+    const startAbsolute = (currentHour - 1 + 24); // absolute hour from midnight today
     const hoursToShow = showAll24Hours ? 24 : 12;
     const rows = [];
 
     for (let i = 0; i < hoursToShow; i++) {
-      const hour = (startHour + i) % 24;
-      const t1Count = countByHourAndTerminal.t1[hour] || 0;
-      const t2Count = countByHourAndTerminal.t2[hour] || 0;
-      const puenteCount = countByHourAndTerminal.puente[hour] || 0;
-      const t2cCount = countByHourAndTerminal.t2c[hour] || 0;
+      const absolute = startAbsolute + i;
+      const hour = absolute % 24;
+      const dia = absolute >= 24 ? 1 : 0;
+      const key = `${dia}|${hour}`;
+
+      const t1Count = countByHourAndTerminal.t1[key] || 0;
+      const t2Count = countByHourAndTerminal.t2[key] || 0;
+      const puenteCount = countByHourAndTerminal.puente[key] || 0;
+      const t2cCount = countByHourAndTerminal.t2c[key] || 0;
 
       rows.push({
         hour,
@@ -185,7 +193,7 @@ export function FullDayView({ onBack, onTerminalClick, onViewFlightList }: FullD
         t2: t2Count,
         puente: puenteCount,
         t2c: t2cCount,
-        isCurrent: hour === currentHour,
+        isCurrent: hour === currentHour && dia === 0,
         t1Intensity: getIntensityLevel(t1Count, maxByTerminal.t1),
         t2Intensity: getIntensityLevel(t2Count, maxByTerminal.t2),
         puenteIntensity: getIntensityLevel(puenteCount, maxByTerminal.puente),
