@@ -4,7 +4,8 @@ import {
   ArrowLeft, RefreshCw, Euro, TrendingUp, TrendingDown,
   FileText, AlertTriangle, CheckCircle2, Clock, Calendar,
   Car, BookOpen, ChevronRight, Info, Download, Zap, Activity,
-  ChevronLeft, Wrench, Banknote, Shield,
+  ChevronLeft, Wrench, Banknote, Shield, Share2, Bell,
+  BellOff, ExternalLink, HelpCircle, FileSpreadsheet,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { motion, AnimatePresence } from "framer-motion";
@@ -13,6 +14,20 @@ import {
   QuarterData, Vencimiento, LibroContable,
 } from "@/hooks/useGestoria";
 import { getItem, setItem } from "@/lib/storage";
+import { toast } from "sonner";
+import {
+  generateModelo131, generateModelo130, generateModelo303,
+  generateResumenAnual, sharePDF, downloadPDF,
+} from "@/services/gestoria/pdfModelos";
+import {
+  exportLibroContableCSV, exportCarrerasCSV, exportGastosCSV,
+  exportResumenTrimestralCSV, shareCSV, downloadCSV,
+} from "@/services/gestoria/exportLibro";
+import {
+  scheduleVencimientoAlerts, requestNotificationPermission,
+  checkNotificationPermission, cancelAllGestoriaAlerts,
+} from "@/services/gestoria/localNotifications";
+import GuiaClavePin from "@/components/gestoria/GuiaClavePin";
 
 // --- HELPERS ---
 
@@ -64,7 +79,7 @@ const urgenciaStyles: Record<Vencimiento['urgencia'], { dot: string; text: strin
 
 // --- TABS ---
 
-type Tab = 'resumen' | 'trimestres' | 'deducibles' | 'vencimientos' | 'libro';
+type Tab = 'resumen' | 'trimestres' | 'deducibles' | 'vencimientos' | 'libro' | 'herramientas';
 
 const TABS: { id: Tab; label: string; icon: string }[] = [
   { id: 'resumen', label: 'Resumen', icon: '📊' },
@@ -72,6 +87,7 @@ const TABS: { id: Tab; label: string; icon: string }[] = [
   { id: 'deducibles', label: 'Deducibles', icon: '📁' },
   { id: 'vencimientos', label: 'Vencimientos', icon: '🗓️' },
   { id: 'libro', label: 'Libro', icon: '📚' },
+  { id: 'herramientas', label: 'Presenta', icon: '🚀' },
 ];
 
 // === SECTION: RESUMEN ===
@@ -274,7 +290,7 @@ function ResumenSection({
 
 // === SECTION: MODELOS TRIMESTRALES ===
 
-function TrimestresSection({ quarters, regimen, loading }: { quarters: QuarterData[]; regimen: RegimenFiscal; loading: boolean }) {
+function TrimestresSection({ quarters, regimen, loading, year }: { quarters: QuarterData[]; regimen: RegimenFiscal; loading: boolean; year: number }) {
   const [expandedQ, setExpandedQ] = useState<number | null>(null);
   if (loading) return <SectionSkeleton rows={4} />;
 
@@ -395,6 +411,46 @@ function TrimestresSection({ quarters, regimen, loading }: { quarters: QuarterDa
                           ))}
                         </>
                       )}
+                    </div>
+
+                    {/* DOWNLOAD BUTTONS */}
+                    <div className="pt-3 border-t border-border/30 flex gap-2">
+                      <button
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          try {
+                            const doc = regimen === 'modulos'
+                              ? generateModelo131(q, year)
+                              : generateModelo130(q, year, quarters.filter(pq => pq.q < q.q));
+                            sharePDF(doc, `Borrador_Mod${q.modeloIRPF}_${q.q}T_${year}.pdf`);
+                            toast.success(`Borrador Mod. ${q.modeloIRPF} generado`);
+                          } catch (err) {
+                            toast.error('Error generando PDF');
+                            console.error(err);
+                          }
+                        }}
+                        className="flex-1 flex items-center justify-center gap-1.5 py-2 rounded-lg bg-primary/10 text-primary text-xs font-semibold hover:bg-primary/20 transition-colors"
+                      >
+                        <Download className="h-3.5 w-3.5" />
+                        Mod. {q.modeloIRPF} + 303
+                      </button>
+                      <button
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          try {
+                            const doc = generateModelo303(q, year);
+                            sharePDF(doc, `Borrador_Mod303_${q.q}T_${year}.pdf`);
+                            toast.success('Borrador Mod. 303 generado');
+                          } catch (err) {
+                            toast.error('Error generando PDF');
+                            console.error(err);
+                          }
+                        }}
+                        className="flex items-center justify-center gap-1.5 py-2 px-3 rounded-lg bg-blue-500/10 text-blue-400 text-xs font-semibold hover:bg-blue-500/20 transition-colors"
+                      >
+                        <Download className="h-3.5 w-3.5" />
+                        Solo 303
+                      </button>
                     </div>
                   </div>
                 </motion.div>
@@ -600,11 +656,14 @@ function VencimientosSection({ vencimientos, loading, regimen }: {
   );
 }
 
-function LibroSection({ libro, ingresosBrutos, gastosDeducibles, loading }: {
+function LibroSection({ libro, ingresosBrutos, gastosDeducibles, loading, year, carreras, gastos }: {
   libro: LibroContable[];
   ingresosBrutos: number;
   gastosDeducibles: number;
   loading: boolean;
+  year: number;
+  carreras: ReturnType<typeof useGestoria>['carreras'];
+  gastos: ReturnType<typeof useGestoria>['gastos'];
 }) {
   if (loading) return <SectionSkeleton rows={12} />;
 
@@ -613,12 +672,49 @@ function LibroSection({ libro, ingresosBrutos, gastosDeducibles, loading }: {
 
   return (
     <div className="space-y-3">
-      {/* Export hint */}
-      <div className="rounded-xl border border-border/50 p-3 flex items-center gap-2 bg-card/50">
-        <Download className="h-4 w-4 text-muted-foreground" />
-        <p className="text-xs text-muted-foreground flex-1">
-          Libro de Ingresos y Gastos obligatorio para la Estimación Directa.
-        </p>
+      {/* Export buttons */}
+      <div className="rounded-xl border border-border/50 p-3 space-y-2 bg-card/50">
+        <div className="flex items-center gap-2">
+          <Download className="h-4 w-4 text-muted-foreground" />
+          <p className="text-xs text-muted-foreground flex-1">
+            Libro de Ingresos y Gastos · Exportar para tu archivo
+          </p>
+        </div>
+        <div className="grid grid-cols-3 gap-2">
+          <button
+            onClick={() => {
+              const csv = exportLibroContableCSV(libro, year);
+              shareCSV(csv, `Libro_Contable_${year}.csv`);
+              toast.success('Libro contable exportado');
+            }}
+            className="flex items-center justify-center gap-1 py-2 rounded-lg bg-emerald-500/10 text-emerald-400 text-[10px] font-semibold hover:bg-emerald-500/20 transition-colors"
+          >
+            <FileSpreadsheet className="h-3 w-3" />
+            Resumen
+          </button>
+          <button
+            onClick={() => {
+              const csv = exportCarrerasCSV(carreras, year);
+              shareCSV(csv, `Carreras_${year}.csv`);
+              toast.success('Carreras exportadas');
+            }}
+            className="flex items-center justify-center gap-1 py-2 rounded-lg bg-emerald-500/10 text-emerald-400 text-[10px] font-semibold hover:bg-emerald-500/20 transition-colors"
+          >
+            <FileSpreadsheet className="h-3 w-3" />
+            Ingresos
+          </button>
+          <button
+            onClick={() => {
+              const csv = exportGastosCSV(gastos, year);
+              shareCSV(csv, `Gastos_${year}.csv`);
+              toast.success('Gastos exportados');
+            }}
+            className="flex items-center justify-center gap-1 py-2 rounded-lg bg-emerald-500/10 text-emerald-400 text-[10px] font-semibold hover:bg-emerald-500/20 transition-colors"
+          >
+            <FileSpreadsheet className="h-3 w-3" />
+            Gastos
+          </button>
+        </div>
       </div>
 
       {/* Year summary */}
@@ -825,6 +921,269 @@ function AmortizacionWidget() {
   );
 }
 
+// === SECTION: HERRAMIENTAS (Presenta) ===
+
+function HerramientasSection({
+  quarters, resumen, libro, regimen, year, vencimientos, carreras, gastos,
+}: {
+  quarters: QuarterData[];
+  resumen: ReturnType<typeof useGestoria>['resumen'];
+  libro: LibroContable[];
+  regimen: RegimenFiscal;
+  year: number;
+  vencimientos: Vencimiento[];
+  carreras: ReturnType<typeof useGestoria>['carreras'];
+  gastos: ReturnType<typeof useGestoria>['gastos'];
+}) {
+  const [showGuia, setShowGuia] = useState(false);
+  const [notifEnabled, setNotifEnabled] = useState(false);
+  const [notifCount, setNotifCount] = useState(0);
+
+  useEffect(() => {
+    checkNotificationPermission().then(ok => setNotifEnabled(ok));
+  }, []);
+
+  const handleToggleNotifications = async () => {
+    if (notifEnabled) {
+      await cancelAllGestoriaAlerts();
+      setNotifEnabled(false);
+      setNotifCount(0);
+      toast.success('Alertas desactivadas');
+    } else {
+      const granted = await requestNotificationPermission();
+      if (granted) {
+        const count = await scheduleVencimientoAlerts(vencimientos);
+        setNotifEnabled(true);
+        setNotifCount(count);
+        toast.success(`${count} alertas programadas`);
+      } else {
+        toast.error('Permisos de notificación denegados');
+      }
+    }
+  };
+
+  if (showGuia) {
+    return <GuiaClavePin onClose={() => setShowGuia(false)} />;
+  }
+
+  return (
+    <div className="space-y-4">
+      {/* Hero */}
+      <div className="rounded-2xl border border-primary/30 bg-gradient-to-br from-primary/10 via-primary/5 to-transparent p-5 text-center">
+        <p className="text-3xl mb-2">🚀</p>
+        <h3 className="font-bold text-lg">Presenta tus modelos</h3>
+        <p className="text-xs text-muted-foreground mt-1">
+          Genera borradores, exporta datos y aprende a presentar en AEAT
+        </p>
+      </div>
+
+      {/* Guía Cl@ve */}
+      <button
+        onClick={() => setShowGuia(true)}
+        className="w-full rounded-2xl border border-amber-500/30 bg-amber-500/5 p-4 flex items-center gap-3 text-left hover:border-amber-500/50 transition-colors"
+      >
+        <div className="w-10 h-10 rounded-xl bg-amber-500/20 flex items-center justify-center shrink-0">
+          <HelpCircle className="h-5 w-5 text-amber-400" />
+        </div>
+        <div className="flex-1 min-w-0">
+          <p className="font-semibold text-sm">Guía: Presentar con Cl@ve PIN</p>
+          <p className="text-xs text-muted-foreground mt-0.5">
+            Paso a paso para presentar sin gestoría
+          </p>
+        </div>
+        <ChevronRight className="h-5 w-5 text-muted-foreground shrink-0" />
+      </button>
+
+      {/* PDF Borradores */}
+      <div className="rounded-2xl border border-border/50 bg-card/30 p-4 space-y-3">
+        <div className="flex items-center gap-2">
+          <FileText className="h-4 w-4 text-primary" />
+          <span className="text-sm font-semibold">Borradores PDF</span>
+        </div>
+        <p className="text-xs text-muted-foreground">
+          Descarga borradores pre-rellenados con tus datos. Copia los importes en la Sede Electrónica de AEAT.
+        </p>
+
+        <div className="space-y-2">
+          {quarters.map(q => (
+            <button
+              key={q.q}
+              onClick={() => {
+                try {
+                  const doc = regimen === 'modulos'
+                    ? generateModelo131(q, year)
+                    : generateModelo130(q, year, quarters.filter(pq => pq.q < q.q));
+                  sharePDF(doc, `Borrador_${q.q}T_${year}_Mod${q.modeloIRPF}+303.pdf`);
+                  toast.success(`Borrador ${q.q}T generado`);
+                } catch (err) {
+                  console.error(err);
+                  toast.error('Error generando PDF');
+                }
+              }}
+              className="w-full flex items-center justify-between p-3 rounded-xl border border-border/40 hover:border-primary/30 transition-colors"
+            >
+              <div className="flex items-center gap-2">
+                <FileText className="h-4 w-4 text-amber-400" />
+                <div className="text-left">
+                  <p className="text-xs font-semibold">{q.label}</p>
+                  <p className="text-[10px] text-muted-foreground">Mod. {q.modeloIRPF} + 303</p>
+                </div>
+              </div>
+              <div className="flex items-center gap-2">
+                <span className="font-mono text-xs font-bold text-amber-400">{fmt(q.aPagarIRPF + q.aPagarIVA)}</span>
+                <Download className="h-3.5 w-3.5 text-muted-foreground" />
+              </div>
+            </button>
+          ))}
+        </div>
+      </div>
+
+      {/* Resumen Anual PDF */}
+      <button
+        onClick={() => {
+          try {
+            const doc = generateResumenAnual(resumen, quarters, libro, regimen);
+            sharePDF(doc, `Resumen_Fiscal_${year}.pdf`);
+            toast.success('Resumen anual generado');
+          } catch (err) {
+            console.error(err);
+            toast.error('Error generando PDF');
+          }
+        }}
+        className="w-full rounded-2xl border border-purple-500/30 bg-purple-500/5 p-4 flex items-center gap-3 text-left hover:border-purple-500/50 transition-colors"
+      >
+        <div className="w-10 h-10 rounded-xl bg-purple-500/20 flex items-center justify-center shrink-0">
+          <FileText className="h-5 w-5 text-purple-400" />
+        </div>
+        <div className="flex-1 min-w-0">
+          <p className="font-semibold text-sm">Resumen Fiscal {year}</p>
+          <p className="text-xs text-muted-foreground mt-0.5">
+            PDF con todos los datos preparados para la Renta
+          </p>
+        </div>
+        <Download className="h-5 w-5 text-muted-foreground shrink-0" />
+      </button>
+
+      {/* CSV Exports */}
+      <div className="rounded-2xl border border-border/50 bg-card/30 p-4 space-y-3">
+        <div className="flex items-center gap-2">
+          <FileSpreadsheet className="h-4 w-4 text-emerald-400" />
+          <span className="text-sm font-semibold">Exportar datos (CSV)</span>
+        </div>
+        <p className="text-xs text-muted-foreground">
+          Compatible con Excel, Google Sheets y programas contables.
+        </p>
+        <div className="grid grid-cols-2 gap-2">
+          {[
+            {
+              label: 'Libro Contable',
+              sub: 'Resumen mensual',
+              action: () => {
+                shareCSV(exportLibroContableCSV(libro, year), `Libro_${year}.csv`);
+                toast.success('Libro exportado');
+              },
+            },
+            {
+              label: 'Carreras',
+              sub: `${carreras.length} registros`,
+              action: () => {
+                shareCSV(exportCarrerasCSV(carreras, year), `Carreras_${year}.csv`);
+                toast.success('Carreras exportadas');
+              },
+            },
+            {
+              label: 'Gastos',
+              sub: `${gastos.length} registros`,
+              action: () => {
+                shareCSV(exportGastosCSV(gastos, year), `Gastos_${year}.csv`);
+                toast.success('Gastos exportados');
+              },
+            },
+            {
+              label: 'Trimestres',
+              sub: 'Resumen fiscal',
+              action: () => {
+                shareCSV(exportResumenTrimestralCSV(quarters, resumen, year), `Trimestres_${year}.csv`);
+                toast.success('Trimestres exportados');
+              },
+            },
+          ].map(item => (
+            <button
+              key={item.label}
+              onClick={item.action}
+              className="p-3 rounded-xl border border-border/40 text-left hover:border-emerald-500/30 transition-colors"
+            >
+              <div className="flex items-center justify-between">
+                <span className="text-xs font-semibold">{item.label}</span>
+                <Download className="h-3 w-3 text-muted-foreground" />
+              </div>
+              <p className="text-[10px] text-muted-foreground mt-0.5">{item.sub}</p>
+            </button>
+          ))}
+        </div>
+      </div>
+
+      {/* Notification Toggle */}
+      <div className="rounded-2xl border border-border/50 bg-card/30 p-4 space-y-3">
+        <div className="flex items-center justify-between">
+          <div className="flex items-center gap-2">
+            <Bell className="h-4 w-4 text-blue-400" />
+            <span className="text-sm font-semibold">Alertas de Vencimientos</span>
+          </div>
+          <button
+            onClick={handleToggleNotifications}
+            className={cn(
+              "flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-semibold transition-colors",
+              notifEnabled
+                ? "bg-emerald-500/20 text-emerald-400"
+                : "bg-muted text-muted-foreground hover:bg-muted/80"
+            )}
+          >
+            {notifEnabled ? (
+              <>
+                <Bell className="h-3 w-3" />
+                Activas
+              </>
+            ) : (
+              <>
+                <BellOff className="h-3 w-3" />
+                Activar
+              </>
+            )}
+          </button>
+        </div>
+        <p className="text-xs text-muted-foreground">
+          {notifEnabled
+            ? `Recibirás alertas 15 y 3 días antes de cada vencimiento fiscal.${notifCount > 0 ? ` (${notifCount} programadas)` : ''}`
+            : 'Activa las notificaciones para no olvidar ningún vencimiento.'}
+        </p>
+      </div>
+
+      {/* External links */}
+      <div className="rounded-xl border border-border/50 p-3 space-y-2">
+        <p className="text-xs font-semibold text-muted-foreground">Enlaces útiles</p>
+        {[
+          { label: 'Sede Electrónica AEAT', url: 'https://sede.agenciatributaria.gob.es' },
+          { label: 'Registro Cl@ve', url: 'https://clave.gob.es/clave_Home/registro.html' },
+          { label: 'Cita previa AEAT', url: 'https://sede.agenciatributaria.gob.es/Sede/procedimientoini/GC07.shtml' },
+          { label: 'Seg. Social (Cambio tramo)', url: 'https://sede.seg-social.gob.es' },
+        ].map(link => (
+          <a
+            key={link.url}
+            href={link.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-2 text-xs text-primary hover:underline py-1"
+          >
+            <ExternalLink className="h-3 w-3 shrink-0" />
+            {link.label}
+          </a>
+        ))}
+      </div>
+    </div>
+  );
+}
+
 // === SKELETON ===
 
 function SectionSkeleton({ rows }: { rows: number }) {
@@ -843,11 +1202,18 @@ export default function Gestoria() {
   const [tab, setTab] = useState<Tab>('resumen');
   const [selectedYear, setSelectedYear] = useState<number>(new Date().getFullYear());
   const {
-    regimen, setRegimen,
+    carreras, gastos, regimen, setRegimen,
     resumen, quarters, gastosDeduciblesLista, libroContable,
     vencimientos, loading, error, refresh, currentYear, beneficioModulos,
     tramoInfo,
   } = useGestoria(selectedYear);
+
+  // Auto-schedule notifications when vencimientos load
+  useEffect(() => {
+    if (!loading && vencimientos.length > 0) {
+      scheduleVencimientoAlerts(vencimientos).catch(() => {});
+    }
+  }, [loading, vencimientos]);
 
   const nextUrgent = vencimientos.find(v => v.urgencia === 'rojo' || v.urgencia === 'amarillo');
 
@@ -945,7 +1311,7 @@ export default function Gestoria() {
               </div>
             )}
             {tab === 'trimestres' && (
-              <TrimestresSection quarters={quarters} regimen={regimen} loading={loading} />
+              <TrimestresSection quarters={quarters} regimen={regimen} loading={loading} year={selectedYear} />
             )}
             {tab === 'deducibles' && (
               <DeduciblesSection gastos={gastosDeduciblesLista} loading={loading} />
@@ -959,6 +1325,21 @@ export default function Gestoria() {
                 ingresosBrutos={resumen.ingresosBrutos}
                 gastosDeducibles={resumen.gastosTotales}
                 loading={loading}
+                year={selectedYear}
+                carreras={carreras}
+                gastos={gastos}
+              />
+            )}
+            {tab === 'herramientas' && (
+              <HerramientasSection
+                quarters={quarters}
+                resumen={resumen}
+                libro={libroContable}
+                regimen={regimen}
+                year={selectedYear}
+                vencimientos={vencimientos}
+                carreras={carreras}
+                gastos={gastos}
               />
             )}
           </motion.div>
