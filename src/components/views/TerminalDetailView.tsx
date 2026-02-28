@@ -117,17 +117,24 @@ export function TerminalDetailView({ terminalId, onBack }: TerminalDetailViewPro
     return { data, maxFlights };
   }, [todayFlights, currentHour]);
 
+  // Vuelos pendientes HOY (para el stat "Pendientes")
+  const todayUpcomingCount = useMemo(() => {
+    return terminalFlights.filter((v) => {
+      if (v.dia_relativo !== 0) return false;
+      if (haAlterizado(v.estado)) return false;
+      const vueloMin = parseHora(v.hora);
+      return vueloMin >= currentMinutes - 30;
+    }).length;
+  }, [terminalFlights, currentMinutes]);
+
+  // Lista próximos vuelos (hoy restantes + mañana), sin slice aquí
   const upcomingFlights = useMemo(() => {
-    return terminalFlights
-      .filter((v) => {
-        if (haAlterizado(v.estado)) return false;
-        // Future days are always upcoming
-        if (v.dia_relativo > 0) return true;
-        // Today: only show flights not yet landed (within 30 min past)
-        const vueloMin = parseHora(v.hora);
-        return vueloMin >= currentMinutes - 30;
-      })
-      .slice(0, 20);
+    return terminalFlights.filter((v) => {
+      if (haAlterizado(v.estado)) return false;
+      if (v.dia_relativo > 0) return true;
+      const vueloMin = parseHora(v.hora);
+      return vueloMin >= currentMinutes - 30;
+    });
   }, [terminalFlights, currentMinutes]);
 
   // Get real waiting time from geofencing data
@@ -215,8 +222,8 @@ export function TerminalDetailView({ terminalId, onBack }: TerminalDetailViewPro
               <p className="text-xs text-muted-foreground">Vuelos hoy</p>
             </div>
             <div className="flex-1 p-3 rounded-2xl bg-card border border-border/50">
-              <p className="text-2xl font-bold text-primary">{upcomingFlights.length}</p>
-              <p className="text-xs text-muted-foreground">Pendientes</p>
+              <p className="text-2xl font-bold text-primary">{todayUpcomingCount}</p>
+              <p className="text-xs text-muted-foreground">Pendientes hoy</p>
             </div>
             <div className="flex-1 p-3 rounded-2xl bg-card border border-border/50">
               {hasRealData && espera !== null ? (
@@ -313,7 +320,7 @@ export function TerminalDetailView({ terminalId, onBack }: TerminalDetailViewPro
                   <p className="text-xs text-muted-foreground mt-1">No hay llegadas próximas</p>
                 </motion.div>
               ) : (
-                upcomingFlights.map((flight, idx) => {
+                upcomingFlights.slice(0, 20).map((flight, idx) => {
                   const codigoPrincipal = flight.vuelo?.split("/")[0]?.trim() || flight.vuelo;
                   const origenCorto = flight.origen?.split("(")[0]?.trim() || flight.origen;
                   const isHighTicket = isLongHaul(flight.origen);
