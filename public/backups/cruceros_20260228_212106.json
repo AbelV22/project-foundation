@@ -129,7 +129,7 @@
             "fecha": "2026-02-28"
         },
         {
-            "hora": "19:36",
+            "hora": "19:30",
             "nombre": "Ciudad De Palma",
             "naviera": "TRASMED GLE S.L.",
             "terminal": "TERMINAL F2",
@@ -138,14 +138,14 @@
             "pax_estimados": 1000,
             "puerto": "Palma de Mallorca",
             "tipo": "llegada",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Espanya",
             "imo": "9349772",
             "mmsi": "224588000",
             "fecha": "2026-02-28"
         },
         {
-            "hora": "19:47",
+            "hora": "20:00",
             "nombre": "Abel Matutes",
             "naviera": "EUROLINEAS MARITIMAS S.A",
             "terminal": "TERMINAL F1",
@@ -154,7 +154,7 @@
             "pax_estimados": 1000,
             "puerto": "Palma de Mallorca",
             "tipo": "llegada",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Espanya",
             "imo": "9441130",
             "mmsi": "224402000",
@@ -408,25 +408,25 @@
         "total_llegadas": 11,
         "total_salidas": 14,
         "pax_estimados_hoy": 30500,
-        "proximo_desembarco": "22:00",
-        "proximo_barco": "Cruise Roma"
+        "proximo_desembarco": "19:30",
+        "proximo_barco": "Ciudad De Palma"
     },
     "terminales_activas": [
+        "6212",
         "F1",
-        "7946",
         "F2",
-        "B",
-        "172133",
         "S",
-        "H",
+        "7946",
         "F3",
         "6995",
-        "6212",
+        "B",
+        "H",
+        "172133",
         "8156"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-02-28T21:21:06.457324",
+        "actualizado": "2026-02-28T19:20:48.111846",
         "frecuencia": "horaria"
     }
 }
