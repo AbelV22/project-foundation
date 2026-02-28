@@ -58,7 +58,7 @@
             "pax_estimados": 2000,
             "puerto": "Valencia",
             "tipo": "llegada",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Itàlia",
             "imo": "9859557",
             "mmsi": "247383500",
@@ -94,22 +94,6 @@
             "bandera": "Bahames",
             "imo": "9172777",
             "mmsi": "311001141",
-            "fecha": "2026-02-28"
-        },
-        {
-            "hora": "15:19",
-            "nombre": "Ym Wind",
-            "naviera": "YANG MING MARINE TRANSPORT C.",
-            "terminal": "TERMINAL CATALUNYA SA",
-            "terminal_codigo": "6212",
-            "eslora": 368.0,
-            "pax_estimados": 6500,
-            "puerto": "Valencia",
-            "tipo": "llegada",
-            "estado": "Iniciada",
-            "bandera": "Singapur",
-            "imo": "9708461",
-            "mmsi": "563291300",
             "fecha": "2026-02-28"
         },
         {
@@ -211,23 +195,7 @@
             "fecha": "2026-02-28"
         },
         {
-            "hora": "13:44",
-            "nombre": "Msc Sixin",
-            "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
-            "terminal": "TERMINAL CATALUNYA SA",
-            "terminal_codigo": "6212",
-            "eslora": 0,
-            "pax_estimados": 500,
-            "puerto": "Gioia Tauro",
-            "tipo": "salida",
-            "estado": "Finalitzada",
-            "bandera": "Panamà",
-            "imo": "9839301",
-            "mmsi": "370711000",
-            "fecha": "2026-02-28"
-        },
-        {
-            "hora": "14:03",
+            "hora": "13:00",
             "nombre": "Eco Livorno",
             "naviera": "GRIMALDI LOGISTICA ESPAÑA SL",
             "terminal": "GRIMALDI TERMINAL BARCELONA SL",
@@ -236,7 +204,7 @@
             "pax_estimados": 2000,
             "puerto": "Savona",
             "tipo": "salida",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Itàlia",
             "imo": "9859557",
             "mmsi": "247383500",
@@ -388,29 +356,29 @@
         }
     ],
     "resumen": {
-        "total_cruceros": 17,
-        "total_llegadas": 11,
-        "total_salidas": 13,
-        "pax_estimados_hoy": 30500,
+        "total_cruceros": 15,
+        "total_llegadas": 10,
+        "total_salidas": 12,
+        "pax_estimados_hoy": 24000,
         "proximo_desembarco": "19:00",
         "proximo_barco": "Martin I Soler"
     },
     "terminales_activas": [
         "172133",
-        "H",
+        "F1",
         "F2",
         "F3",
+        "6212",
+        "H",
         "S",
-        "B",
         "7946",
         "6995",
-        "6212",
-        "F1",
+        "B",
         "8156"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-02-28T15:23:16.795374",
+        "actualizado": "2026-02-28T13:36:30.291635",
         "frecuencia": "horaria"
     }
 }
