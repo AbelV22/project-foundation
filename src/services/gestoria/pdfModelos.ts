@@ -462,19 +462,25 @@ export function downloadPDF(doc: jsPDF, filename: string) {
 }
 
 /**
- * openPDF — Abre el PDF en una nueva pestaña/visor del navegador.
- * Es el comportamiento "normal" que espera el usuario: ver el PDF
- * directamente en el visor integrado del browser, sin share sheet.
- * Si el popup está bloqueado, cae al download tradicional.
+ * openPDF — Abre el PDF en el visor del navegador (nueva pestaña).
+ * Usa un click programático en <a> sin atributo 'download', lo que
+ * hace que el browser lo abra inline en su visor PDF en vez de descargarlo.
+ * Este método NO es bloqueado por bloqueadores de popups (a diferencia
+ * de window.open). Si falla, cae al download tradicional.
  */
 export function openPDF(doc: jsPDF, filename: string): void {
   const blob = doc.output('blob');
   const url = URL.createObjectURL(blob);
-  const opened = window.open(url, '_blank');
-  if (!opened) {
-    // Popup bloqueado → descarga directa
-    doc.save(filename);
-  }
+
+  const a = document.createElement('a');
+  a.href = url;
+  a.target = '_blank';
+  a.rel = 'noopener noreferrer';
+  // Sin atributo 'download' → el browser abre el PDF inline (visor integrado)
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+
   // Liberar el object URL tras 30 s (suficiente para que el visor cargue)
   setTimeout(() => URL.revokeObjectURL(url), 30_000);
 }
