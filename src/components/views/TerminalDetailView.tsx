@@ -64,7 +64,7 @@ export function TerminalDetailView({ terminalId, onBack }: TerminalDetailViewPro
   const currentHour = now.getHours();
   const currentMinutes = currentHour * 60 + now.getMinutes();
 
-  // Filtrar vuelos activos de esta terminal
+  // Filtrar vuelos activos de esta terminal (todos los días, para lista próximos)
   const terminalFlights = useMemo(() => {
     return vuelos
       .filter((v) => !v.estado?.toLowerCase().includes("cancelado"))
@@ -74,6 +74,11 @@ export function TerminalDetailView({ terminalId, onBack }: TerminalDetailViewPro
         return parseHora(a.hora) - parseHora(b.hora);
       });
   }, [vuelos, terminalId]);
+
+  // Solo vuelos de HOY (dia_relativo=0) para conteo y gráfica
+  const todayFlights = useMemo(() => {
+    return terminalFlights.filter((v) => v.dia_relativo === 0);
+  }, [terminalFlights]);
 
   // Datos para el histograma - simple horizontal bars
   const hourlyData = useMemo(() => {
@@ -85,7 +90,7 @@ export function TerminalDetailView({ terminalId, onBack }: TerminalDetailViewPro
       hourlyGroups[h] = 0;
     }
 
-    terminalFlights.forEach((v) => {
+    todayFlights.forEach((v) => {
       const hora = parseInt(v.hora?.split(":")[0] || "0", 10);
       if (hourlyGroups[hora] !== undefined) {
         hourlyGroups[hora] += 1;
@@ -110,7 +115,7 @@ export function TerminalDetailView({ terminalId, onBack }: TerminalDetailViewPro
     }
 
     return { data, maxFlights };
-  }, [terminalFlights, currentHour]);
+  }, [todayFlights, currentHour]);
 
   const upcomingFlights = useMemo(() => {
     return terminalFlights
@@ -206,7 +211,7 @@ export function TerminalDetailView({ terminalId, onBack }: TerminalDetailViewPro
           {/* Stats Row */}
           <div className="flex gap-2">
             <div className="flex-1 p-3 rounded-2xl bg-card border border-border/50">
-              <p className="text-2xl font-bold" style={{ color: terminal.color }}>{terminalFlights.length}</p>
+              <p className="text-2xl font-bold" style={{ color: terminal.color }}>{todayFlights.length}</p>
               <p className="text-xs text-muted-foreground">Vuelos hoy</p>
             </div>
             <div className="flex-1 p-3 rounded-2xl bg-card border border-border/50">
