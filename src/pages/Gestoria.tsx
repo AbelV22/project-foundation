@@ -17,7 +17,7 @@ import { getItem, setItem } from "@/lib/storage";
 import { toast } from "sonner";
 import {
   generateModelo131, generateModelo130, generateModelo303,
-  generateResumenAnual, sharePDF, downloadPDF,
+  generateResumenAnual, openPDF, sharePDF, downloadPDF,
 } from "@/services/gestoria/pdfModelos";
 import {
   exportLibroContableCSV, exportCarrerasCSV, exportGastosCSV,
@@ -422,7 +422,7 @@ function TrimestresSection({ quarters, regimen, loading, year }: { quarters: Qua
                             const doc = regimen === 'modulos'
                               ? generateModelo131(q, year)
                               : generateModelo130(q, year, quarters.filter(pq => pq.q < q.q));
-                            sharePDF(doc, `Borrador_Mod${q.modeloIRPF}_${q.q}T_${year}.pdf`);
+                            openPDF(doc, `Borrador_Mod${q.modeloIRPF}_${q.q}T_${year}.pdf`);
                             toast.success(`Borrador Mod. ${q.modeloIRPF} generado`);
                           } catch (err) {
                             toast.error('Error generando PDF');
@@ -439,7 +439,7 @@ function TrimestresSection({ quarters, regimen, loading, year }: { quarters: Qua
                           e.stopPropagation();
                           try {
                             const doc = generateModelo303(q, year);
-                            sharePDF(doc, `Borrador_Mod303_${q.q}T_${year}.pdf`);
+                            openPDF(doc, `Borrador_Mod303_${q.q}T_${year}.pdf`);
                             toast.success('Borrador Mod. 303 generado');
                           } catch (err) {
                             toast.error('Error generando PDF');
@@ -1013,7 +1013,7 @@ function HerramientasSection({
                   const doc = regimen === 'modulos'
                     ? generateModelo131(q, year)
                     : generateModelo130(q, year, quarters.filter(pq => pq.q < q.q));
-                  sharePDF(doc, `Borrador_${q.q}T_${year}_Mod${q.modeloIRPF}+303.pdf`);
+                  openPDF(doc, `Borrador_${q.q}T_${year}_Mod${q.modeloIRPF}+303.pdf`);
                   toast.success(`Borrador ${q.q}T generado`);
                 } catch (err) {
                   console.error(err);
@@ -1043,7 +1043,7 @@ function HerramientasSection({
         onClick={() => {
           try {
             const doc = generateResumenAnual(resumen, quarters, libro, regimen);
-            sharePDF(doc, `Resumen_Fiscal_${year}.pdf`);
+            openPDF(doc, `Resumen_Fiscal_${year}.pdf`);
             toast.success('Resumen anual generado');
           } catch (err) {
             console.error(err);
