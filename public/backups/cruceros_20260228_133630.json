@@ -132,13 +132,13 @@
             "hora": "20:00",
             "nombre": "Abel Matutes",
             "naviera": "EUROLINEAS MARITIMAS S.A",
-            "terminal": "TERMINAL F1",
-            "terminal_codigo": "F1",
+            "terminal": "BALEARIA EUROLINEAS MARITIMAS SA ",
+            "terminal_codigo": "7332",
             "eslora": 190.0,
             "pax_estimados": 1000,
             "puerto": "Palma de Mallorca",
             "tipo": "llegada",
-            "estado": "Autoritzada",
+            "estado": "Confirmada",
             "bandera": "Espanya",
             "imo": "9441130",
             "mmsi": "224402000",
@@ -364,21 +364,22 @@
         "proximo_barco": "Martin I Soler"
     },
     "terminales_activas": [
-        "172133",
-        "F1",
-        "F2",
-        "F3",
-        "6212",
-        "H",
-        "S",
-        "7946",
         "6995",
+        "7332",
+        "6212",
+        "S",
+        "F2",
+        "172133",
+        "8156",
+        "F3",
         "B",
-        "8156"
+        "H",
+        "7946",
+        "F1"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-02-28T13:36:30.291635",
+        "actualizado": "2026-02-28T11:20:20.588925",
         "frecuencia": "horaria"
     }
 }
