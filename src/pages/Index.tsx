@@ -9,6 +9,7 @@ import { LicensesView } from "@/components/views/LicensesView";
 import { AlertsView } from "@/components/views/AlertsView";
 import { TerminalDetailView } from "@/components/views/TerminalDetailView";
 import { FullDayView } from "@/components/views/FullDayView";
+import { FlightListView } from "@/components/views/FlightListView";
 import { TrainsFullDayView } from "@/components/views/TrainsFullDayView";
 import { TrainsByCityView } from "@/components/views/TrainsByCityView";
 import { TrainsByOperatorView } from "@/components/views/TrainsByOperatorView";
@@ -32,6 +33,7 @@ const titles: Record<string, string> = {
   alertas: "Alertas",
   terminalDetail: "Detalle Terminal",
   fullDay: "Vista Día Completo",
+  flightList: "Lista de Vuelos",
   trainsFullDay: "Trenes Sants",
   trainsByCity: "Trenes por Ciudad",
   trainsByOperator: "Trenes por Operador",
@@ -167,7 +169,10 @@ const Index = () => {
             />
           )}
           {activeTab === "fullDay" && (
-            <FullDayView onBack={handleBackFromFullDay} />
+            <FullDayView onBack={handleBackFromFullDay} onViewFlightList={() => setActiveTab("flightList")} />
+          )}
+          {activeTab === "flightList" && (
+            <FlightListView onBack={() => setActiveTab("fullDay")} />
           )}
           {activeTab === "trainsFullDay" && (
             <TrainsFullDayView

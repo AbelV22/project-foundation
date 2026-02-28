@@ -1,6 +1,6 @@
 import { useState, useEffect, useMemo } from "react";
 import { cn } from "@/lib/utils";
-import { Plane, Clock } from "lucide-react";
+import { Plane, Clock, List } from "lucide-react";
 
 interface VueloRaw {
   hora: string;
@@ -16,6 +16,7 @@ interface VueloRaw {
 interface FullDayViewProps {
   onBack?: () => void;
   onTerminalClick?: (terminalId: string) => void;
+  onViewFlightList?: () => void;
 }
 
 const LONG_HAUL_ORIGINS = [
@@ -87,7 +88,7 @@ const terminalColors = {
   },
 };
 
-export function FullDayView({ onBack, onTerminalClick }: FullDayViewProps) {
+export function FullDayView({ onBack, onTerminalClick, onViewFlightList }: FullDayViewProps) {
   const [vuelos, setVuelos] = useState<VueloRaw[]>([]);
   const [loading, setLoading] = useState(true);
   const [showAll24Hours, setShowAll24Hours] = useState(false);
@@ -259,16 +260,27 @@ export function FullDayView({ onBack, onTerminalClick }: FullDayViewProps) {
             <Plane className="h-4 w-4 text-primary" />
             <span className="text-sm font-semibold">Llegadas por hora</span>
           </div>
-          <div className="flex items-center gap-3 text-[10px]">
-            <span className="flex items-center gap-1">
-              <span className="w-2 h-2 rounded-sm bg-green-500/40" /> Bajo
-            </span>
-            <span className="flex items-center gap-1">
-              <span className="w-2 h-2 rounded-sm bg-amber-500/70" /> Medio
-            </span>
-            <span className="flex items-center gap-1">
-              <span className="w-2 h-2 rounded-sm bg-red-500" /> Alto
-            </span>
+          <div className="flex items-center gap-2">
+            {onViewFlightList && (
+              <button
+                onClick={onViewFlightList}
+                className="flex items-center gap-1 text-[10px] text-primary hover:underline"
+              >
+                <List className="h-3 w-3" />
+                Ver lista
+              </button>
+            )}
+            <div className="flex items-center gap-3 text-[10px]">
+              <span className="flex items-center gap-1">
+                <span className="w-2 h-2 rounded-sm bg-green-500/40" /> Bajo
+              </span>
+              <span className="flex items-center gap-1">
+                <span className="w-2 h-2 rounded-sm bg-amber-500/70" /> Medio
+              </span>
+              <span className="flex items-center gap-1">
+                <span className="w-2 h-2 rounded-sm bg-red-500" /> Alto
+              </span>
+            </div>
           </div>
         </div>
       </div>

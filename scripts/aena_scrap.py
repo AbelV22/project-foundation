@@ -85,24 +85,93 @@ def parsear_fila_aena_v4(texto_fila, hora_detectada):
             break 
     return obj
 
+def _estado_priority(estado_str):
+    """Prioridad de estado AENA: mayor = más avanzado en el ciclo de vuelo."""
+    s = estado_str.upper()
+    if "FINALIZ" in s or "ATERRI" in s or "CINTA" in s:
+        return 4
+    if "SALA" in s:
+        return 3
+    if "RETRAS" in s:
+        return 2
+    if "HORA" in s:
+        return 1
+    return 0  # Programado / Cancelado / otros
+
+
 def limpiar_y_deduplicar(datos):
+    """
+    Deduplicación robusta por códigos de vuelo compartidos.
+    
+    AENA muestra hora programada + hora estimada en la misma fila.
+    El scraper captura ambas como filas independientes con tiempos distintos
+    pero los mismos códigos de vuelo. Esta función las fusiona.
+    """
     print(f"\n🧹 Procesando {len(datos)} vuelos crudos...")
-    unicos = {}
+    
+    # Índice: código_vuelo -> id del grupo al que pertenece
+    code_to_group = {}
+    # Lista de grupos (cada grupo = un vuelo físico real)
+    groups = []
+    
     for v in datos:
-        origen_clean = v['origen'].strip().upper()
-        clave = (v['dia_relativo'], v['hora'], v['vuelo'] if origen_clean == "N/A" else origen_clean)
-        if clave in unicos:
-            existente = unicos[clave]
-            existente['aerolinea'] = "Multicompania"
-            if v['vuelo'] != "N/A" and v['vuelo'] not in existente['vuelo']:
-                existente['vuelo'] = f"{existente['vuelo']} / {v['vuelo']}"
-            if "T2C" in v['terminal'] and "T2C" not in existente['terminal']:
-                 existente['terminal'] = v['terminal']
+        vuelo_str = v.get('vuelo', 'N/A').strip().upper()
+        dia = v.get('dia_relativo', 0)
+        
+        # Extraer códigos individuales
+        codigos = set()
+        if vuelo_str != "N/A":
+            for c in vuelo_str.split('/'):
+                c = c.strip()
+                if c and c != "N/A":
+                    codigos.add(c)
+        
+        # Buscar si algún código ya pertenece a un grupo existente del mismo día
+        grupo_destino = None
+        for code in codigos:
+            key = (dia, code)
+            if key in code_to_group:
+                grupo_destino = code_to_group[key]
+                break
+        
+        if grupo_destino is not None:
+            existente = groups[grupo_destino]
+            
+            # Fusionar códigos
+            codigos_existentes = set(c.strip() for c in existente['vuelo'].split('/') if c.strip() and c.strip() != "N/A")
+            todos = codigos_existentes.union(codigos)
+            if len(todos) > 0:
+                existente['vuelo'] = " / ".join(sorted(todos))
+            if len(todos) > 1:
+                existente['aerolinea'] = "Multicompania"
+            
+            # Resolver estado por prioridad (más avanzado gana)
+            if _estado_priority(v.get('estado', '')) > _estado_priority(existente.get('estado', '')):
+                existente['estado'] = v['estado']
+                existente['hora'] = v['hora']  # Hora asociada al estado más reciente
+            
+            # Mejorar datos incompletos
+            if "T2C" in v.get('terminal', '') and "T2C" not in existente.get('terminal', ''):
+                existente['terminal'] = v['terminal']
+            if existente.get('origen', '').strip() in ['N/A', '-', ''] and v.get('origen', '').strip() not in ['N/A', '-', '']:
+                existente['origen'] = v['origen']
+            if existente.get('sala', '').strip() in ['-', ''] and v.get('sala', '').strip() not in ['-', '']:
+                existente['sala'] = v['sala']
+            
+            # Registrar todos los nuevos códigos en el índice
+            for code in codigos:
+                code_to_group[(dia, code)] = grupo_destino
         else:
-            unicos[clave] = v
-    lista = list(unicos.values())
-    lista.sort(key=lambda x: (x['dia_relativo'], x['hora']))
-    return lista
+            # Nuevo grupo
+            group_id = len(groups)
+            groups.append(v)
+            for code in codigos:
+                code_to_group[(dia, code)] = group_id
+    
+    # Ordenar resultado
+    groups.sort(key=lambda x: (x['dia_relativo'], x['hora']))
+    print(f"✅ Resultado: {len(groups)} vuelos únicos (de {len(datos)} crudos)")
+    return groups
 
 # =============================================================================
 # 3. MOTOR TURBO (LÓGICA BIDIRECCIONAL + 50 CLICKS)
