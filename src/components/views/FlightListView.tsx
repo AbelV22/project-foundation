@@ -1,17 +1,8 @@
 import { useState, useEffect, useMemo, useRef } from "react";
 import { cn } from "@/lib/utils";
 import { Plane, Search, ExternalLink, ArrowLeft, ChevronDown, ChevronUp } from "lucide-react";
-
-interface VueloRaw {
-    hora: string;
-    vuelo: string;
-    aerolinea: string;
-    origen: string;
-    terminal: string;
-    sala: string;
-    estado: string;
-    dia_relativo: number;
-}
+import { deduplicateFlights } from "@/lib/flightUtils";
+import type { VueloRaw } from "@/lib/flightUtils";
 
 interface FlightListViewProps {
     onBack?: () => void;
@@ -50,7 +41,7 @@ export function FlightListView({ onBack }: FlightListViewProps) {
         fetch("/vuelos.json?t=" + Date.now())
             .then((res) => res.json())
             .then((data) => {
-                if (Array.isArray(data)) setVuelos(data);
+                if (Array.isArray(data)) setVuelos(deduplicateFlights(data));
                 setLoading(false);
             })
             .catch(() => setLoading(false));

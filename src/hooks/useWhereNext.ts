@@ -1,5 +1,6 @@
 import { useState, useEffect, useCallback } from 'react';
 import { useWaitingTimes, getZoneWaitingTime, getZoneHasRealData, getZoneTaxistasActivos } from './useWaitingTimes';
+import { deduplicateFlights } from '@/lib/flightUtils';
 
 interface ZoneRecommendation {
     zone: string;
@@ -85,8 +86,9 @@ export const useWhereNext = (currentLat?: number, currentLng?: number): UseWhere
             // Fetch FRESH flight data
             const flightsRes = await fetch('/vuelos.json?nocache=' + Date.now());
             if (!flightsRes.ok) throw new Error('Failed to fetch flights');
-            flightsData = await flightsRes.json();
-            console.log('[WhereNext] Loaded flights:', Array.isArray(flightsData) ? flightsData.length : 0);
+            const rawFlights = await flightsRes.json();
+            flightsData = deduplicateFlights(Array.isArray(rawFlights) ? rawFlights : []);
+            console.log('[WhereNext] Loaded flights:', flightsData.length);
         } catch (e) {
             console.error('[WhereNext] Flight fetch error:', e);
             errors.push('Error cargando vuelos');

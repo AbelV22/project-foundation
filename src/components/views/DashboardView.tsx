@@ -8,17 +8,8 @@ import { useNavigate } from "react-router-dom";
 import { getTrackingStatus, forceLocationCheck } from "@/services/location/AutoLocationService";
 import { ProfitWidget } from "@/components/widgets/ProfitWidget";
 import { useDemandForecast } from "@/hooks/useDemandForecast";
-// Tipos para vuelos.json (estructura real del scraper)
-interface VueloRaw {
-  hora: string;
-  vuelo: string;
-  aerolinea: string;
-  origen: string;
-  terminal: string;
-  sala: string;
-  estado: string;
-  dia_relativo: number;
-}
+import { deduplicateFlights, getTerminalType as getTermType, parseHora as parseH } from "@/lib/flightUtils";
+import type { VueloRaw } from "@/lib/flightUtils";
 
 interface TrenSants {
   hora: string;
@@ -40,26 +31,9 @@ interface DashboardViewProps {
   onViewDemandForecast?: () => void;
 }
 
-// Función para parsear hora "HH:MM" a minutos del día
-const parseHora = (hora: string): number => {
-  if (!hora) return 0;
-  const [h, m] = hora.split(":").map(Number);
-  return (h || 0) * 60 + (m || 0);
-};
-
-// Determinar tipo de terminal basado en los datos reales del scraper
-const getTerminalType = (vuelo: VueloRaw): 't1' | 't2' | 't2c' | 'puente' => {
-  const terminal = vuelo.terminal?.toUpperCase() || "";
-  const codigosVuelo = vuelo.vuelo?.toUpperCase() || "";
-  const origen = vuelo.origen?.toUpperCase() || "";
-
-  if (terminal.includes("T2C") || terminal.includes("EASYJET")) return "t2c";
-  if (codigosVuelo.includes("EJU") || codigosVuelo.includes("EZY")) return "t2c";
-  if (origen.includes("MADRID") && codigosVuelo.includes("IBE")) return "puente";
-  if (terminal.includes("T2A") || terminal.includes("T2B")) return "t2";
-  if (terminal.includes("T1")) return "t1";
-  return "t2";
-};
+// Re-export shared utils with local names for minimal diff
+const parseHora = parseH;
+const getTerminalType = getTermType;
 
 
 // Extraer tipo de tren limpio
@@ -135,7 +109,7 @@ export function DashboardView({ onTerminalClick, onViewAllFlights, onViewAllEven
       fetch("/trenes_sants.json?t=" + Date.now()).then(res => res.json()).catch(() => []),
       fetch("/analisis_licencias_taxi.json?t=" + Date.now()).then(res => res.json()).catch(() => null)
     ]).then(([vuelosData, trenesData, licenciasData]) => {
-      setVuelos(Array.isArray(vuelosData) ? vuelosData : []);
+      setVuelos(deduplicateFlights(Array.isArray(vuelosData) ? vuelosData : []));
       const uniqueTrenes = (trenesData as TrenSants[]).filter((tren, index, self) =>
         index === self.findIndex(t => t.hora === tren.hora && t.tren === tren.tren)
       );

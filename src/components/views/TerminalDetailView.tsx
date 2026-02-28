@@ -3,21 +3,12 @@ import { Plane, ArrowLeft, Globe, ChevronRight, Clock } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { motion, AnimatePresence } from "framer-motion";
 import { useWaitingTimes, getZoneWaitingTime, getZoneHasRealData } from "@/hooks/useWaitingTimes";
+import { deduplicateFlights, getTerminalType as getTermType, parseHora as parseH } from "@/lib/flightUtils";
+import type { VueloRaw } from "@/lib/flightUtils";
 
 interface TerminalDetailViewProps {
   terminalId: string;
   onBack: () => void;
-}
-
-interface VueloRaw {
-  hora: string;
-  vuelo: string;
-  aerolinea: string;
-  origen: string;
-  terminal: string;
-  sala: string;
-  estado: string;
-  dia_relativo: number;
 }
 
 const terminalConfig: Record<string, { name: string; color: string }> = {
@@ -42,24 +33,8 @@ const isLongHaul = (origen: string): boolean => {
   return LONG_HAUL_ORIGINS.some((lh) => origenUpper.includes(lh));
 };
 
-const parseHora = (hora: string): number => {
-  if (!hora) return 0;
-  const [h, m] = hora.split(":").map(Number);
-  return (h || 0) * 60 + (m || 0);
-};
-
-const getTerminalType = (vuelo: VueloRaw): "t1" | "t2" | "t2c" | "puente" => {
-  const terminal = vuelo.terminal?.toUpperCase() || "";
-  const codigosVuelo = vuelo.vuelo?.toUpperCase() || "";
-  const origen = vuelo.origen?.toUpperCase() || "";
-
-  if (terminal.includes("T2C") || terminal.includes("EASYJET")) return "t2c";
-  if (codigosVuelo.includes("EJU") || codigosVuelo.includes("EZY")) return "t2c";
-  if (origen.includes("MADRID") && codigosVuelo.includes("IBE")) return "puente";
-  if (terminal.includes("T2A") || terminal.includes("T2B")) return "t2";
-  if (terminal.includes("T1")) return "t1";
-  return "t2";
-};
+const parseHora = parseH;
+const getTerminalType = getTermType;
 
 // Map terminal IDs to zone slugs for geofencing data
 const terminalToZone: Record<string, string> = {
@@ -78,7 +53,7 @@ export function TerminalDetailView({ terminalId, onBack }: TerminalDetailViewPro
     fetch("/vuelos.json?t=" + Date.now())
       .then((res) => res.json())
       .then((data) => {
-        setVuelos(Array.isArray(data) ? data : []);
+        setVuelos(deduplicateFlights(Array.isArray(data) ? data : []));
         setLoading(false);
       })
       .catch(() => setLoading(false));

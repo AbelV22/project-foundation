@@ -9,6 +9,7 @@ import {
   aggregateFlightPax,
   aggregateTrainPax,
 } from '@/lib/passengerEstimation';
+import { deduplicateFlights } from '@/lib/flightUtils';
 
 // --- TYPES ---
 
@@ -243,7 +244,7 @@ export function useDemandForecast(): DemandForecastResult {
       if (flightsRes.ok) {
         const data = await flightsRes.json();
         if (Array.isArray(data)) {
-          setFlightsData(data);
+          setFlightsData(deduplicateFlights(data));
           quality.flights = true;
         }
       }

@@ -6,7 +6,10 @@
  * - Request deduplication
  * - Auto-refresh intervals
  * - Error handling
+ * - Flight deduplication (codeshare merging)
  */
+
+import { deduplicateFlights } from '@/lib/flightUtils';
 
 // Types
 export interface VueloRaw {
@@ -207,7 +210,7 @@ export async function getVuelos(): Promise<VueloRaw[]> {
     'vuelos',
     '/vuelos.json',
     CACHE_TTL.vuelos,
-    (data) => Array.isArray(data) ? data : []
+    (data) => deduplicateFlights(Array.isArray(data) ? data : [])
   );
 }
 

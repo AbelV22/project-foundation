@@ -7,47 +7,8 @@ import {
   AreaChart, Area, XAxis, YAxis, Tooltip, ResponsiveContainer
 } from "recharts";
 import { useVuelos } from "@/contexts/DataContext";
-import { VueloRaw } from "@/services/dataService";
-
-// Función para parsear hora "HH:MM" a minutos del día
-const parseHora = (hora: string): number => {
-  if (!hora) return 0;
-  const [h, m] = hora.split(":").map(Number);
-  return (h || 0) * 60 + (m || 0);
-};
-
-// Determinar tipo de terminal basado en los datos reales del scraper
-const getTerminalType = (vuelo: VueloRaw): 't1' | 't2' | 't2c' | 'puente' => {
-  const terminal = vuelo.terminal?.toUpperCase() || "";
-  const codigosVuelo = vuelo.vuelo?.toUpperCase() || "";
-  const origen = vuelo.origen?.toUpperCase() || "";
-
-  // T2C: EasyJet (terminal indica "T2C" o códigos EJU/EZY)
-  if (terminal.includes("T2C") || terminal.includes("EASYJET")) {
-    return "t2c";
-  }
-  if (codigosVuelo.includes("EJU") || codigosVuelo.includes("EZY")) {
-    return "t2c";
-  }
-
-  // Puente Aéreo: vuelos IBE desde Madrid (código IBE + origen Madrid)
-  if (origen.includes("MADRID") && codigosVuelo.includes("IBE")) {
-    return "puente";
-  }
-
-  // T2A/T2B: Ryanair, Wizz, etc.
-  if (terminal.includes("T2A") || terminal.includes("T2B")) {
-    return "t2";
-  }
-
-  // T1: resto de vuelos T1
-  if (terminal.includes("T1")) {
-    return "t1";
-  }
-
-  // Default T2 para otros casos
-  return "t2";
-};
+import { getTerminalType, parseHora } from "@/lib/flightUtils";
+import type { VueloRaw } from "@/lib/flightUtils";
 
 // Tiempos de retén estimados por terminal
 const getEsperaReten = (terminalId: string, currentHour: number): number => {

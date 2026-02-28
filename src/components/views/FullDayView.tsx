@@ -1,17 +1,8 @@
 import { useState, useEffect, useMemo } from "react";
 import { cn } from "@/lib/utils";
 import { Plane, Clock, List } from "lucide-react";
-
-interface VueloRaw {
-  hora: string;
-  vuelo: string;
-  aerolinea: string;
-  origen: string;
-  terminal: string;
-  sala: string;
-  estado: string;
-  dia_relativo: number;
-}
+import { deduplicateFlights, getTerminalType as getTermType } from "@/lib/flightUtils";
+import type { VueloRaw } from "@/lib/flightUtils";
 
 interface FullDayViewProps {
   onBack?: () => void;
@@ -33,17 +24,7 @@ const isLongHaul = (origen: string): boolean => {
   return LONG_HAUL_ORIGINS.some((lh) => origenUpper.includes(lh));
 };
 
-const getTerminalType = (vuelo: VueloRaw): "t1" | "t2" | "t2c" | "puente" => {
-  const terminal = vuelo.terminal?.toUpperCase() || "";
-  const codigosVuelo = vuelo.vuelo?.toUpperCase() || "";
-  const origen = vuelo.origen?.toUpperCase() || "";
-  if (terminal.includes("T2C") || terminal.includes("EASYJET")) return "t2c";
-  if (codigosVuelo.includes("EJU") || codigosVuelo.includes("EZY")) return "t2c";
-  if (origen.includes("MADRID") && codigosVuelo.includes("IBE")) return "puente";
-  if (terminal.includes("T2A") || terminal.includes("T2B")) return "t2";
-  if (terminal.includes("T1")) return "t1";
-  return "t2";
-};
+const getTerminalType = getTermType;
 
 // Intensity levels for heat coloring
 type IntensityLevel = "none" | "low" | "medium" | "high";
@@ -97,11 +78,8 @@ export function FullDayView({ onBack, onTerminalClick, onViewFlightList }: FullD
     fetch("/vuelos.json?t=" + Date.now())
       .then((res) => res.json())
       .then((data) => {
-        if (Array.isArray(data)) {
-          setVuelos(data);
-        } else if (data?.vuelos) {
-          setVuelos(data.vuelos);
-        }
+        const raw = Array.isArray(data) ? data : data?.vuelos || [];
+        setVuelos(deduplicateFlights(raw));
         setLoading(false);
       })
       .catch(() => setLoading(false));
