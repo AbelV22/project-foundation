@@ -454,13 +454,35 @@ export function generateResumenAnual(
 }
 
 // ==============================
-// DOWNLOAD / SHARE
+// DOWNLOAD / OPEN / SHARE
 // ==============================
 
 export function downloadPDF(doc: jsPDF, filename: string) {
   doc.save(filename);
 }
 
+/**
+ * openPDF — Abre el PDF en una nueva pestaña/visor del navegador.
+ * Es el comportamiento "normal" que espera el usuario: ver el PDF
+ * directamente en el visor integrado del browser, sin share sheet.
+ * Si el popup está bloqueado, cae al download tradicional.
+ */
+export function openPDF(doc: jsPDF, filename: string): void {
+  const blob = doc.output('blob');
+  const url = URL.createObjectURL(blob);
+  const opened = window.open(url, '_blank');
+  if (!opened) {
+    // Popup bloqueado → descarga directa
+    doc.save(filename);
+  }
+  // Liberar el object URL tras 30 s (suficiente para que el visor cargue)
+  setTimeout(() => URL.revokeObjectURL(url), 30_000);
+}
+
+/**
+ * sharePDF — Abre el share sheet del sistema (WhatsApp, email, etc.).
+ * Usar solo cuando el usuario quiere compartir explícitamente.
+ */
 export async function sharePDF(doc: jsPDF, filename: string, title?: string): Promise<void> {
   try {
     const blob = doc.output('blob');
