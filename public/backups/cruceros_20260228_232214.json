@@ -161,7 +161,7 @@
             "fecha": "2026-02-28"
         },
         {
-            "hora": "21:28",
+            "hora": "22:00",
             "nombre": "Cruise Roma",
             "naviera": "GRIMALDI EUROMED SPA",
             "terminal": "TERMINAL F3",
@@ -170,42 +170,10 @@
             "pax_estimados": 3000,
             "puerto": "Civitavecchia",
             "tipo": "llegada",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Itàlia",
             "imo": "9351476",
             "mmsi": "247219400",
-            "fecha": "2026-02-28"
-        },
-        {
-            "hora": "22:53",
-            "nombre": "Maersk Aegean",
-            "naviera": "MAERSK TANKERS HANDY",
-            "terminal": "MEROIL SA",
-            "terminal_codigo": "6995",
-            "eslora": 184.0,
-            "pax_estimados": 1000,
-            "puerto": "Fos-sur-Mer",
-            "tipo": "llegada",
-            "estado": "Iniciada",
-            "bandera": "Dinamarca",
-            "imo": "9636644",
-            "mmsi": "219682000",
-            "fecha": "2026-02-28"
-        },
-        {
-            "hora": "22:53",
-            "nombre": "Maersk Aegean",
-            "naviera": "MAERSK TANKERS HANDY",
-            "terminal": "TRADEBE PORT SERVICES SL",
-            "terminal_codigo": "7946",
-            "eslora": 184.0,
-            "pax_estimados": 1000,
-            "puerto": "Fos-sur-Mer",
-            "tipo": "llegada",
-            "estado": "Iniciada",
-            "bandera": "Dinamarca",
-            "imo": "9636644",
-            "mmsi": "219682000",
             "fecha": "2026-02-28"
         }
     ],
@@ -403,23 +371,7 @@
             "fecha": "2026-02-28"
         },
         {
-            "hora": "22:52",
-            "nombre": "Maersk Aegean",
-            "naviera": "ALFASHIP MARITIME SERVICES SL ",
-            "terminal": "",
-            "terminal_codigo": "",
-            "eslora": 184.0,
-            "pax_estimados": 1000,
-            "puerto": "Marghera",
-            "tipo": "salida",
-            "estado": "Iniciada",
-            "bandera": "Dinamarca",
-            "imo": "9636644",
-            "mmsi": "219682000",
-            "fecha": "2026-02-28"
-        },
-        {
-            "hora": "22:55",
+            "hora": "22:00",
             "nombre": "Maersk Aegean",
             "naviera": "ALFASHIP MARITIME SERVICES SL ",
             "terminal": "MEROIL SA",
@@ -435,7 +387,7 @@
             "fecha": "2026-02-28"
         },
         {
-            "hora": "22:55",
+            "hora": "22:00",
             "nombre": "Maersk Aegean",
             "naviera": "ALFASHIP MARITIME SERVICES SL ",
             "terminal": "TRADEBE PORT SERVICES SL",
@@ -453,28 +405,28 @@
     ],
     "resumen": {
         "total_cruceros": 18,
-        "total_llegadas": 13,
-        "total_salidas": 15,
-        "pax_estimados_hoy": 32500,
-        "proximo_desembarco": null,
-        "proximo_barco": null
+        "total_llegadas": 11,
+        "total_salidas": 14,
+        "pax_estimados_hoy": 30500,
+        "proximo_desembarco": "22:00",
+        "proximo_barco": "Cruise Roma"
     },
     "terminales_activas": [
-        "6212",
-        "172133",
         "F1",
-        "F3",
-        "H",
-        "S",
-        "6995",
         "7946",
-        "B",
         "F2",
+        "B",
+        "172133",
+        "S",
+        "H",
+        "F3",
+        "6995",
+        "6212",
         "8156"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-02-28T23:22:14.165465",
+        "actualizado": "2026-02-28T21:21:06.457324",
         "frecuencia": "horaria"
     }
 }
