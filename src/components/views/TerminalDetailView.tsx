@@ -3,7 +3,7 @@ import { Plane, ArrowLeft, Globe, ChevronRight, Clock } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { motion, AnimatePresence } from "framer-motion";
 import { useWaitingTimes, getZoneWaitingTime, getZoneHasRealData } from "@/hooks/useWaitingTimes";
-import { deduplicateFlights, getTerminalType as getTermType, parseHora as parseH } from "@/lib/flightUtils";
+import { deduplicateFlights, getTerminalType as getTermType, parseHora as parseH, haAlterizado } from "@/lib/flightUtils";
 import type { VueloRaw } from "@/lib/flightUtils";
 
 interface TerminalDetailViewProps {
@@ -115,8 +115,7 @@ export function TerminalDetailView({ terminalId, onBack }: TerminalDetailViewPro
   const upcomingFlights = useMemo(() => {
     return terminalFlights
       .filter((v) => {
-        const estado = v.estado?.toLowerCase() || "";
-        if (estado.includes("finalizado")) return false;
+        if (haAlterizado(v.estado)) return false;
         // Future days are always upcoming
         if (v.dia_relativo > 0) return true;
         // Today: only show flights not yet landed (within 30 min past)

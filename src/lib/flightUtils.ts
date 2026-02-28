@@ -52,6 +52,27 @@ export function parseHora(hora: string): number {
   return (h || 0) * 60 + (m || 0);
 }
 
+/**
+ * Returns true if the flight has ALREADY landed (not upcoming).
+ *
+ * AENA estado values that mean "already on ground":
+ *   - "Finalizado"  → baggage fully processed
+ *   - "Sala X"      → passengers in arrival hall (landed, still clearing)
+ *   - "Aterrizado"  → just touched down
+ *   - "Cinta X"     → luggage on baggage belt
+ *
+ * Only "En hora", "Programado", "Retrasado" count as upcoming.
+ */
+export function haAlterizado(estado: string): boolean {
+  const s = (estado || "").toLowerCase();
+  return (
+    s.includes("finalizado") ||
+    s.includes("sala") ||      // "Sala T1_G", "Sala A", "Sala B", etc.
+    s.includes("aterri") ||    // "Aterrizado"
+    s.includes("cinta")        // "Cinta 3", etc.
+  );
+}
+
 /** Extract individual flight codes from "VLG8245 / IBE5041 / ..." */
 function extractCodes(vuelo: string): string[] {
   if (!vuelo) return [];
@@ -172,6 +193,7 @@ export function deduplicateFlights(vuelos: VueloRaw[]): VueloRaw[] {
   }
 
   // ---- PHASE 2: Merge orphan codeshares into nearby parent flights ----
+  // Orphan = single code, no origin (e.g. "QFA8255" with origin "-")
   for (let i = 0; i < n; i++) {
     if (!isOrphan(vuelos[i])) continue;
 
@@ -185,7 +207,7 @@ export function deduplicateFlights(vuelos: VueloRaw[]): VueloRaw[] {
     for (let j = 0; j < n; j++) {
       if (i === j) continue;
       if (vuelos[j].dia_relativo !== orphanDia) continue;
-      if (isOrphan(vuelos[j])) continue; // don't merge orphan with orphan
+      if (isOrphan(vuelos[j])) continue;
       if (getTerminalType(vuelos[j]) !== orphanTerm) continue;
 
       const dist = Math.abs(parseHora(vuelos[j].hora) - orphanMin);
@@ -197,6 +219,38 @@ export function deduplicateFlights(vuelos: VueloRaw[]): VueloRaw[] {
 
     if (bestMatch >= 0) {
       uf.union(i, bestMatch);
+    }
+  }
+
+  // ---- PHASE 3: Merge single-code entries with same hora+origin+terminal ----
+  //
+  // Root cause: the AENA scraper extracts only ONE code per HTML row (breaks
+  // after the first match). When AENA lists VLG6249, QTR8138, IBE5135 and
+  // LVL5489 as separate rows for the same Zurich flight, each entry has 1 code
+  // and a non-empty origin. Since they share no codes, Phase 1 cannot merge
+  // them. Phase 3 catches this case.
+  //
+  // Safety: we require EXACT hora match (scheduled times are stable) and
+  // normalize the origin using its IATA code (3 letters in parentheses) so
+  // minor text differences ("PARIS /CDG" vs "PARIS/CDG") don't block the merge.
+  const iataOf = (origen: string) => origen?.match(/\(([A-Z]{3})\)/)?.[1] || origen?.toUpperCase().trim() || "?";
+
+  // Build a key → [index] map for single-code entries
+  const singleCodeKey: Record<string, number[]> = {};
+  for (let i = 0; i < n; i++) {
+    if (extractCodes(vuelos[i].vuelo).length !== 1) continue;
+    const v = vuelos[i];
+    const iata = iataOf(v.origen);
+    if (!iata || iata === "?") continue; // skip entries with no origin (handled by Phase 2)
+    const key = `${v.dia_relativo}|${v.hora}|${getTerminalType(v)}|${iata}`;
+    if (!singleCodeKey[key]) singleCodeKey[key] = [];
+    singleCodeKey[key].push(i);
+  }
+
+  for (const indices of Object.values(singleCodeKey)) {
+    if (indices.length < 2) continue;
+    for (let k = 1; k < indices.length; k++) {
+      uf.union(indices[0], indices[k]);
     }
   }
 

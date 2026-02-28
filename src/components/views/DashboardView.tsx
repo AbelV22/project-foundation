@@ -8,7 +8,7 @@ import { useNavigate } from "react-router-dom";
 import { getTrackingStatus, forceLocationCheck } from "@/services/location/AutoLocationService";
 import { ProfitWidget } from "@/components/widgets/ProfitWidget";
 import { useDemandForecast } from "@/hooks/useDemandForecast";
-import { deduplicateFlights, getTerminalType as getTermType, parseHora as parseH } from "@/lib/flightUtils";
+import { deduplicateFlights, getTerminalType as getTermType, parseHora as parseH, haAlterizado } from "@/lib/flightUtils";
 import type { VueloRaw } from "@/lib/flightUtils";
 
 interface TrenSants {
@@ -174,7 +174,8 @@ export function DashboardView({ onTerminalClick, onViewAllFlights, onViewAllEven
     const endMinutes = nowMinutes + 60;
 
     return terminalData[terminalId].vuelos.filter(v => {
-      if (v.estado?.toLowerCase().includes("finalizado")) return false;
+      // Excluir cualquier vuelo ya aterrizado: Finalizado, Sala X, Aterrizado, Cinta
+      if (haAlterizado(v.estado)) return false;
       const [h, m] = (v.hora || "00:00").split(":").map(Number);
       const vueloMinutes = h * 60 + m;
       return vueloMinutes >= nowMinutes && vueloMinutes < endMinutes;

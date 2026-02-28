@@ -1,7 +1,7 @@
 import { useState, useEffect, useMemo } from "react";
 import { cn } from "@/lib/utils";
 import { Plane, Clock, List } from "lucide-react";
-import { deduplicateFlights, getTerminalType as getTermType } from "@/lib/flightUtils";
+import { deduplicateFlights, getTerminalType as getTermType, haAlterizado } from "@/lib/flightUtils";
 import type { VueloRaw } from "@/lib/flightUtils";
 
 interface FullDayViewProps {
@@ -153,8 +153,7 @@ export function FullDayView({ onBack, onTerminalClick, onViewFlightList }: FullD
     return vuelosActivos
       .filter((v) => {
         if (!isLongHaul(v.origen)) return false;
-        const estado = v.estado?.toLowerCase() || "";
-        if (estado.includes("finalizado")) return false;
+        if (haAlterizado(v.estado)) return false;
         const [h, m] = (v.hora || "00:00").split(":").map(Number);
         const flightMin = h * 60 + m;
         return flightMin >= currentMinutes - 30 && flightMin <= twoHoursFromNow;
