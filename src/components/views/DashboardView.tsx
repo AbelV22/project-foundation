@@ -174,8 +174,7 @@ export function DashboardView({ onTerminalClick, onViewAllFlights, onViewAllEven
     const endMinutes = nowMinutes + 60;
 
     return terminalData[terminalId].vuelos.filter(v => {
-      // Excluir cualquier vuelo ya aterrizado: Finalizado, Sala X, Aterrizado, Cinta
-      if (haAlterizado(v.estado)) return false;
+      if ((v.estado || "").toLowerCase().includes("cancelado")) return false;
       const [h, m] = (v.hora || "00:00").split(":").map(Number);
       const vueloMinutes = h * 60 + m;
       return vueloMinutes >= nowMinutes && vueloMinutes < endMinutes;
