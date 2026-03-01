@@ -213,7 +213,7 @@ export function FullDayView({ onBack, onTerminalClick, onViewFlightList }: FullD
     return rows;
   }, [countByHourAndTerminal, currentHour, maxByTerminal, showAll24Hours]);
 
-  // Totals
+  // Totals (all of today, including already landed)
   const totals = useMemo(() => ({
     t1: vuelosPorTerminal.t1.length,
     t2: vuelosPorTerminal.t2.length,
@@ -221,6 +221,21 @@ export function FullDayView({ onBack, onTerminalClick, onViewFlightList }: FullD
     t2c: vuelosPorTerminal.t2c.length,
     total: vuelosActivos.length,
   }), [vuelosPorTerminal, vuelosActivos]);
+
+  // Pending (upcoming flights that haven't landed yet)
+  const pending = useMemo(() => {
+    const currentMinutes = currentHour * 60 + now.getMinutes();
+    const result = { t1: 0, t2: 0, puente: 0, t2c: 0 };
+    vuelosActivos.forEach((v) => {
+      if (haAlterizado(v.estado)) return;
+      const [h, m] = (v.hora || "00:00").split(":").map(Number);
+      if (h * 60 + m >= currentMinutes) {
+        const type = getTerminalType(v);
+        result[type]++;
+      }
+    });
+    return result;
+  }, [vuelosActivos, currentHour, now]);
 
   // Get badge style based on intensity
   const getBadgeStyle = (intensity: IntensityLevel, terminal: keyof typeof terminalColors) => {
@@ -358,20 +373,43 @@ export function FullDayView({ onBack, onTerminalClick, onViewFlightList }: FullD
         </button>
       </div>
 
-      {/* Footer Totals - 4 columns */}
-      <div className="flex-shrink-0 grid grid-cols-[50px_1fr_1fr_1fr_1fr] gap-1 px-3 py-2 bg-muted/50 border-t border-border">
-        <div className="text-[10px] font-bold text-muted-foreground text-center">Total</div>
-        <div className="text-center">
-          <span className="text-sm font-bold text-amber-500">{totals.t1}</span>
+      {/* Footer Totals - 2 rows: total hoy + pendientes */}
+      <div className="flex-shrink-0 bg-muted/50 border-t border-border">
+        {/* Total hoy */}
+        <div className="grid grid-cols-[50px_1fr_1fr_1fr_1fr] gap-1 px-3 pt-2 pb-0.5">
+          <div className="text-[9px] font-bold text-muted-foreground text-center leading-tight">
+            Total<br/>hoy
+          </div>
+          <div className="text-center">
+            <span className="text-sm font-bold text-amber-500">{totals.t1}</span>
+          </div>
+          <div className="text-center">
+            <span className="text-sm font-bold text-blue-500">{totals.t2}</span>
+          </div>
+          <div className="text-center">
+            <span className="text-sm font-bold text-purple-500">{totals.puente}</span>
+          </div>
+          <div className="text-center">
+            <span className="text-sm font-bold text-orange-500">{totals.t2c}</span>
+          </div>
         </div>
-        <div className="text-center">
-          <span className="text-sm font-bold text-blue-500">{totals.t2}</span>
-        </div>
-        <div className="text-center">
-          <span className="text-sm font-bold text-purple-500">{totals.puente}</span>
-        </div>
-        <div className="text-center">
-          <span className="text-sm font-bold text-orange-500">{totals.t2c}</span>
+        {/* Pendientes */}
+        <div className="grid grid-cols-[50px_1fr_1fr_1fr_1fr] gap-1 px-3 pt-0.5 pb-2">
+          <div className="text-[9px] font-semibold text-muted-foreground/70 text-center leading-tight">
+            Pend.
+          </div>
+          <div className="text-center">
+            <span className="text-xs font-semibold text-amber-500/70">{pending.t1}</span>
+          </div>
+          <div className="text-center">
+            <span className="text-xs font-semibold text-blue-500/70">{pending.t2}</span>
+          </div>
+          <div className="text-center">
+            <span className="text-xs font-semibold text-purple-500/70">{pending.puente}</span>
+          </div>
+          <div className="text-center">
+            <span className="text-xs font-semibold text-orange-500/70">{pending.t2c}</span>
+          </div>
         </div>
       </div>
 
