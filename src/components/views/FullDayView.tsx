@@ -180,10 +180,13 @@ export function FullDayView({ onBack, onTerminalClick, onViewFlightList }: FullD
       const dia = (startHour + i) >= 24 ? 1 : 0; // only 1 when we've actually crossed midnight
       const key = `${dia}|${hour}`;
 
-      const t1Count = countByHourAndTerminal.t1[key] || 0;
-      const t2Count = countByHourAndTerminal.t2[key] || 0;
-      const puenteCount = countByHourAndTerminal.puente[key] || 0;
-      const t2cCount = countByHourAndTerminal.t2c[key] || 0;
+      // Fallback to other day if primary day has no data for this slot
+      // (handles cases where scraper stores evening flights under wrong dia_relativo)
+      const altKey = `${1 - dia}|${hour}`;
+      const t1Count = countByHourAndTerminal.t1[key] || countByHourAndTerminal.t1[altKey] || 0;
+      const t2Count = countByHourAndTerminal.t2[key] || countByHourAndTerminal.t2[altKey] || 0;
+      const puenteCount = countByHourAndTerminal.puente[key] || countByHourAndTerminal.puente[altKey] || 0;
+      const t2cCount = countByHourAndTerminal.t2c[key] || countByHourAndTerminal.t2c[altKey] || 0;
 
       rows.push({
         hour,
