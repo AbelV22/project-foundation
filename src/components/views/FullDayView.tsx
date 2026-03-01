@@ -171,14 +171,13 @@ export function FullDayView({ onBack, onTerminalClick, onViewFlightList }: FullD
   // Generate hour rows - starting from 1 hour before current
   // Slots that cross midnight belong to dia_relativo=1 (tomorrow)
   const hourRows = useMemo(() => {
-    const startAbsolute = (currentHour - 1 + 24); // absolute hour from midnight today
+    const startHour = (currentHour - 1 + 24) % 24; // actual clock start hour (wraps correctly at midnight)
     const hoursToShow = showAll24Hours ? 24 : 12;
     const rows = [];
 
     for (let i = 0; i < hoursToShow; i++) {
-      const absolute = startAbsolute + i;
-      const hour = absolute % 24;
-      const dia = absolute >= 24 ? 1 : 0;
+      const hour = (startHour + i) % 24;
+      const dia = (startHour + i) >= 24 ? 1 : 0; // only 1 when we've actually crossed midnight
       const key = `${dia}|${hour}`;
 
       const t1Count = countByHourAndTerminal.t1[key] || 0;
