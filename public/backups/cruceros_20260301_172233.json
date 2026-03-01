@@ -10,7 +10,7 @@
             "pax_estimados": 3000,
             "puerto": "Gibraltar",
             "tipo": "llegada",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Regne Unit",
             "imo": "9228186",
             "mmsi": "235103357",
@@ -46,6 +46,22 @@
             "bandera": "Libèria",
             "imo": "9966946",
             "mmsi": "636023314",
+            "fecha": "2026-03-01"
+        },
+        {
+            "hora": "06:00",
+            "nombre": "Cma Cgm Cedrus",
+            "naviera": "CMA CGM",
+            "terminal": "TERMINAL CATALUNYA SA",
+            "terminal_codigo": "6212",
+            "eslora": 366.0,
+            "pax_estimados": 6500,
+            "puerto": "Valencia",
+            "tipo": "llegada",
+            "estado": "Autoritzada",
+            "bandera": "Malta",
+            "imo": "9938121",
+            "mmsi": "256615000",
             "fecha": "2026-03-01"
         },
         {
@@ -106,30 +122,14 @@
             "pax_estimados": 1000,
             "puerto": "Nador",
             "tipo": "llegada",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Itàlia",
             "imo": "8712518",
             "mmsi": "247163900",
             "fecha": "2026-03-01"
         },
         {
-            "hora": "16:25",
-            "nombre": "Cma Cgm Cedrus",
-            "naviera": "CMA CGM",
-            "terminal": "TERMINAL CATALUNYA SA",
-            "terminal_codigo": "6212",
-            "eslora": 366.0,
-            "pax_estimados": 6500,
-            "puerto": "Valencia",
-            "tipo": "llegada",
-            "estado": "Iniciada",
-            "bandera": "Malta",
-            "imo": "9938121",
-            "mmsi": "256615000",
-            "fecha": "2026-03-01"
-        },
-        {
-            "hora": "16:28",
+            "hora": "15:46",
             "nombre": "Abel Matutes",
             "naviera": "EUROLINEAS MARITIMAS S.A",
             "terminal": "TERMINAL F1",
@@ -243,7 +243,7 @@
             "fecha": "2026-03-01"
         },
         {
-            "hora": "16:27",
+            "hora": "15:45",
             "nombre": "Abel Matutes",
             "naviera": "BALEARIA EUROLINEAS MARITIMAS SA ",
             "terminal": "",
@@ -259,7 +259,7 @@
             "fecha": "2026-03-01"
         },
         {
-            "hora": "17:02",
+            "hora": "17:00",
             "nombre": "Sapphire Princess",
             "naviera": "OCEAN PORTS & SHIPPING SL",
             "terminal": "Terminal E (Adossat)",
@@ -268,26 +268,10 @@
             "pax_estimados": 3000,
             "puerto": "Gibraltar",
             "tipo": "salida",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Regne Unit",
             "imo": "9228186",
             "mmsi": "235103357",
-            "fecha": "2026-03-01"
-        },
-        {
-            "hora": "17:21",
-            "nombre": "Gnv Cristal",
-            "naviera": "TRANSCOMA BALEARES SA",
-            "terminal": "TERMINAL F2",
-            "terminal_codigo": "F2",
-            "eslora": 161.0,
-            "pax_estimados": 1000,
-            "puerto": "Sete",
-            "tipo": "salida",
-            "estado": "Finalitzada",
-            "bandera": "Itàlia",
-            "imo": "8712518",
-            "mmsi": "247163900",
             "fecha": "2026-03-01"
         },
         {
@@ -304,6 +288,22 @@
             "bandera": "Panamà",
             "imo": "9320099",
             "mmsi": "372497000",
+            "fecha": "2026-03-01"
+        },
+        {
+            "hora": "18:00",
+            "nombre": "Gnv Cristal",
+            "naviera": "TRANSCOMA BALEARES SA",
+            "terminal": "TERMINAL F2",
+            "terminal_codigo": "F2",
+            "eslora": 161.0,
+            "pax_estimados": 1000,
+            "puerto": "Sete",
+            "tipo": "salida",
+            "estado": "Iniciada",
+            "bandera": "Itàlia",
+            "imo": "8712518",
+            "mmsi": "247163900",
             "fecha": "2026-03-01"
         },
         {
@@ -376,21 +376,21 @@
         "total_llegadas": 10,
         "total_salidas": 13,
         "pax_estimados_hoy": 19000,
-        "proximo_desembarco": "18:00",
-        "proximo_barco": "Msc Laurence"
+        "proximo_desembarco": "15:46",
+        "proximo_barco": "Abel Matutes"
     },
     "terminales_activas": [
-        "H",
-        "E",
         "F1",
-        "8156",
         "6212",
+        "E",
+        "H",
+        "F2",
         "F3",
-        "F2"
+        "8156"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-03-01T17:22:33.363874",
+        "actualizado": "2026-03-01T15:23:59.292651",
         "frecuencia": "horaria"
     }
 }
