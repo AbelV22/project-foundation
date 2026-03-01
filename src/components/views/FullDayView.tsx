@@ -103,20 +103,29 @@ export function FullDayView({ onBack, onTerminalClick, onViewFlightList }: FullD
     return data;
   }, [vuelosActivos]);
 
-  // Count flights per hour+day and terminal (key = "dia|hour" to distinguish today vs tomorrow)
+  // Count flights per hour and terminal using window-based logic.
+  // Each flight is assigned to a slot only if it fits the correct half of the window:
+  //   - dia=0 flights → pre-midnight portion (hour >= windowStart)
+  //   - dia=1 flights → post-midnight portion (hour < windowStart)
+  // This avoids double-counting and never shows tomorrow's flights in today's slots.
   const countByHourAndTerminal = useMemo(() => {
-    const counts: Record<string, Record<string, number>> = { t1: {}, t2: {}, t2c: {}, puente: {} };
+    const windowStart = (currentHour - 1 + 24) % 24;
+    const counts: Record<string, Record<number, number>> = { t1: {}, t2: {}, t2c: {}, puente: {} };
     vuelos
       .filter((v) => !v.estado?.toLowerCase().includes("cancelado"))
       .forEach((v) => {
         const type = getTerminalType(v);
         if (!counts[type]) return;
         const hour = parseInt(v.hora?.split(":")[0] || "0", 10);
-        const key = `${v.dia_relativo}|${hour}`;
-        counts[type][key] = (counts[type][key] || 0) + 1;
+        const dia = v.dia_relativo;
+        const isPreMidnight = dia === 0 && hour >= windowStart;
+        const isPostMidnight = dia === 1 && hour < windowStart;
+        if (isPreMidnight || isPostMidnight) {
+          counts[type][hour] = (counts[type][hour] || 0) + 1;
+        }
       });
     return counts;
-  }, [vuelos]);
+  }, [vuelos, currentHour]);
 
   // Find max per terminal for intensity calculation
   const maxByTerminal = useMemo(() => {
@@ -177,16 +186,14 @@ export function FullDayView({ onBack, onTerminalClick, onViewFlightList }: FullD
 
     for (let i = 0; i < hoursToShow; i++) {
       const hour = (startHour + i) % 24;
-      const dia = (startHour + i) >= 24 ? 1 : 0; // only 1 when we've actually crossed midnight
-      const key = `${dia}|${hour}`;
+      const crossedMidnight = (startHour + i) >= 24;
 
-      // Fallback to other day if primary day has no data for this slot
-      // (handles cases where scraper stores evening flights under wrong dia_relativo)
-      const altKey = `${1 - dia}|${hour}`;
-      const t1Count = countByHourAndTerminal.t1[key] || countByHourAndTerminal.t1[altKey] || 0;
-      const t2Count = countByHourAndTerminal.t2[key] || countByHourAndTerminal.t2[altKey] || 0;
-      const puenteCount = countByHourAndTerminal.puente[key] || countByHourAndTerminal.puente[altKey] || 0;
-      const t2cCount = countByHourAndTerminal.t2c[key] || countByHourAndTerminal.t2c[altKey] || 0;
+      // Keys are plain clock hours — the window-based counting already ensures
+      // each hour maps to the correct day (no fallback needed, no risk of mixing days)
+      const t1Count = countByHourAndTerminal.t1[hour] || 0;
+      const t2Count = countByHourAndTerminal.t2[hour] || 0;
+      const puenteCount = countByHourAndTerminal.puente[hour] || 0;
+      const t2cCount = countByHourAndTerminal.t2c[hour] || 0;
 
       rows.push({
         hour,
@@ -195,7 +202,7 @@ export function FullDayView({ onBack, onTerminalClick, onViewFlightList }: FullD
         t2: t2Count,
         puente: puenteCount,
         t2c: t2cCount,
-        isCurrent: hour === currentHour && dia === 0,
+        isCurrent: hour === currentHour && !crossedMidnight,
         t1Intensity: getIntensityLevel(t1Count, maxByTerminal.t1),
         t2Intensity: getIntensityLevel(t2Count, maxByTerminal.t2),
         puenteIntensity: getIntensityLevel(puenteCount, maxByTerminal.puente),
