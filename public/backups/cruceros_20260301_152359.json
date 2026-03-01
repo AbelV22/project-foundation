@@ -113,7 +113,7 @@
             "fecha": "2026-03-01"
         },
         {
-            "hora": "15:18",
+            "hora": "14:50",
             "nombre": "Gnv Cristal",
             "naviera": "GRANDI NAVI VELOCI",
             "terminal": "TERMINAL F2",
@@ -122,7 +122,7 @@
             "pax_estimados": 1000,
             "puerto": "Nador",
             "tipo": "llegada",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Itàlia",
             "imo": "8712518",
             "mmsi": "247163900",
@@ -227,22 +227,6 @@
             "fecha": "2026-03-01"
         },
         {
-            "hora": "14:36",
-            "nombre": "Ym Wind",
-            "naviera": "YANG MING (SPAIN) SL",
-            "terminal": "TERMINAL CATALUNYA SA",
-            "terminal_codigo": "6212",
-            "eslora": 368.0,
-            "pax_estimados": 6500,
-            "puerto": "Genoa",
-            "tipo": "salida",
-            "estado": "Finalitzada",
-            "bandera": "Singapur",
-            "imo": "9708461",
-            "mmsi": "563291300",
-            "fecha": "2026-03-01"
-        },
-        {
             "hora": "15:45",
             "nombre": "Abel Matutes",
             "naviera": "BALEARIA EUROLINEAS MARITIMAS SA ",
@@ -300,7 +284,7 @@
             "pax_estimados": 1000,
             "puerto": "Sete",
             "tipo": "salida",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Itàlia",
             "imo": "8712518",
             "mmsi": "247163900",
@@ -372,25 +356,25 @@
         }
     ],
     "resumen": {
-        "total_cruceros": 13,
+        "total_cruceros": 12,
         "total_llegadas": 10,
-        "total_salidas": 13,
+        "total_salidas": 12,
         "pax_estimados_hoy": 19000,
-        "proximo_desembarco": "15:46",
-        "proximo_barco": "Abel Matutes"
+        "proximo_desembarco": "14:50",
+        "proximo_barco": "Gnv Cristal"
     },
     "terminales_activas": [
-        "F1",
-        "6212",
-        "E",
-        "H",
         "F2",
+        "6212",
+        "F1",
+        "E",
+        "8156",
         "F3",
-        "8156"
+        "H"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-03-01T15:23:59.292651",
+        "actualizado": "2026-03-01T13:39:11.350130",
         "frecuencia": "horaria"
     }
 }
