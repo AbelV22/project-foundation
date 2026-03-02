@@ -106,7 +106,7 @@
             "pax_estimados": 4500,
             "puerto": "Marseille",
             "tipo": "llegada",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Itàlia",
             "imo": "9781889",
             "mmsi": "247391900",
@@ -177,7 +177,7 @@
             "fecha": "2026-03-02"
         },
         {
-            "hora": "18:41",
+            "hora": "19:00",
             "nombre": "Abel Matutes",
             "naviera": "EUROLINEAS MARITIMAS S.A",
             "terminal": "TERMINAL F1",
@@ -186,7 +186,7 @@
             "pax_estimados": 1000,
             "puerto": "Alcudia",
             "tipo": "llegada",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Espanya",
             "imo": "9441130",
             "mmsi": "224402000",
@@ -339,7 +339,7 @@
             "fecha": "2026-03-02"
         },
         {
-            "hora": "18:46",
+            "hora": "18:00",
             "nombre": "Costa Smeralda",
             "naviera": "NOATUM MARITIME SPAIN SAU",
             "terminal": "Terminal E (Adossat)",
@@ -348,7 +348,7 @@
             "pax_estimados": 4500,
             "puerto": "La Goulette Nord (Halqueloued)",
             "tipo": "salida",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Itàlia",
             "imo": "9781889",
             "mmsi": "247391900",
@@ -364,7 +364,7 @@
             "pax_estimados": 1000,
             "puerto": "Alcudia",
             "tipo": "salida",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Espanya",
             "imo": "9441130",
             "mmsi": "224402000",
@@ -424,21 +424,21 @@
         "total_llegadas": 13,
         "total_salidas": 13,
         "pax_estimados_hoy": 15000,
-        "proximo_desembarco": "22:30",
-        "proximo_barco": "Ciudad De Palma"
+        "proximo_desembarco": "19:00",
+        "proximo_barco": "Abel Matutes"
     },
     "terminales_activas": [
         "6212",
-        "E",
-        "F1",
-        "F3",
-        "8156",
         "F2",
-        "6037"
+        "F1",
+        "8156",
+        "6037",
+        "F3",
+        "E"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-03-02T19:37:32.361433",
+        "actualizado": "2026-03-02T17:44:26.029968",
         "frecuencia": "horaria"
     }
 }
