@@ -97,6 +97,22 @@
             "fecha": "2026-03-02"
         },
         {
+            "hora": "07:30",
+            "nombre": "Costa Smeralda",
+            "naviera": "COSTA CROCIERE, S.P.A.",
+            "terminal": "Terminal E (Adossat)",
+            "terminal_codigo": "E",
+            "eslora": 337.0,
+            "pax_estimados": 4500,
+            "puerto": "Marseille",
+            "tipo": "llegada",
+            "estado": "Autoritzada",
+            "bandera": "Itàlia",
+            "imo": "9781889",
+            "mmsi": "247391900",
+            "fecha": "2026-03-02"
+        },
+        {
             "hora": "07:35",
             "nombre": "Eco Valencia",
             "naviera": "GRIMALDI EUROMED SPA",
@@ -110,22 +126,6 @@
             "bandera": "Itàlia",
             "imo": "9859533",
             "mmsi": "247383300",
-            "fecha": "2026-03-02"
-        },
-        {
-            "hora": "08:10",
-            "nombre": "Costa Smeralda",
-            "naviera": "COSTA CROCIERE, S.P.A.",
-            "terminal": "Terminal E (Adossat)",
-            "terminal_codigo": "E",
-            "eslora": 337.0,
-            "pax_estimados": 4500,
-            "puerto": "Marseille",
-            "tipo": "llegada",
-            "estado": "Iniciada",
-            "bandera": "Itàlia",
-            "imo": "9781889",
-            "mmsi": "247391900",
             "fecha": "2026-03-02"
         },
         {
@@ -332,7 +332,7 @@
             "pax_estimados": 4500,
             "puerto": "La Goulette Nord (Halqueloued)",
             "tipo": "salida",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Itàlia",
             "imo": "9781889",
             "mmsi": "247391900",
@@ -428,17 +428,17 @@
         "proximo_barco": "Msc Luanda Viii"
     },
     "terminales_activas": [
-        "6212",
+        "8156",
+        "F1",
         "6037",
         "F2",
-        "F1",
-        "8156",
+        "F3",
         "E",
-        "F3"
+        "6212"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-03-02T09:51:36.762282",
+        "actualizado": "2026-03-02T07:49:55.431646",
         "frecuencia": "horaria"
     }
 }
