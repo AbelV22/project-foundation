@@ -129,6 +129,38 @@
             "fecha": "2026-03-02"
         },
         {
+            "hora": "10:00",
+            "nombre": "Msc Luanda Viii",
+            "naviera": "MEDITERRANEAN SHIPPING CO",
+            "terminal": "TERMINAL CATALUNYA SA",
+            "terminal_codigo": "6212",
+            "eslora": 0,
+            "pax_estimados": 500,
+            "puerto": "Genoa",
+            "tipo": "llegada",
+            "estado": "Autoritzada",
+            "bandera": "Libèria",
+            "imo": "9301471",
+            "mmsi": "636024876",
+            "fecha": "2026-03-02"
+        },
+        {
+            "hora": "10:00",
+            "nombre": "Martin I Soler",
+            "naviera": "EUROLINEAS MARITIMAS S.A",
+            "terminal": "TERMINAL F2",
+            "terminal_codigo": "F2",
+            "eslora": 165.0,
+            "pax_estimados": 1000,
+            "puerto": "Alcudia",
+            "tipo": "llegada",
+            "estado": "Iniciada",
+            "bandera": "Espanya",
+            "imo": "9390367",
+            "mmsi": "224637000",
+            "fecha": "2026-03-02"
+        },
+        {
             "hora": "10:31",
             "nombre": "Gnv Sealand",
             "naviera": "GRANDI NAVI VELOCI",
@@ -142,22 +174,6 @@
             "bandera": "Itàlia",
             "imo": "9435454",
             "mmsi": "247265800",
-            "fecha": "2026-03-02"
-        },
-        {
-            "hora": "11:24",
-            "nombre": "Martin I Soler",
-            "naviera": "EUROLINEAS MARITIMAS S.A",
-            "terminal": "TERMINAL F2",
-            "terminal_codigo": "F2",
-            "eslora": 165.0,
-            "pax_estimados": 1000,
-            "puerto": "Alcudia",
-            "tipo": "llegada",
-            "estado": "Iniciada",
-            "bandera": "Espanya",
-            "imo": "9390367",
-            "mmsi": "224637000",
             "fecha": "2026-03-02"
         },
         {
@@ -243,6 +259,22 @@
             "fecha": "2026-03-02"
         },
         {
+            "hora": "09:59",
+            "nombre": "Martin I Soler",
+            "naviera": "BALEARIA EUROLINEAS MARITIMAS SA ",
+            "terminal": "TERMINAL F1",
+            "terminal_codigo": "F1",
+            "eslora": 165.0,
+            "pax_estimados": 1000,
+            "puerto": "Alger (Algiers)",
+            "tipo": "salida",
+            "estado": "Iniciada",
+            "bandera": "Espanya",
+            "imo": "9390367",
+            "mmsi": "224637000",
+            "fecha": "2026-03-02"
+        },
+        {
             "hora": "10:30",
             "nombre": "Gnv Sealand",
             "naviera": "TRANSCOMA BALEARES SA",
@@ -256,22 +288,6 @@
             "bandera": "Itàlia",
             "imo": "9435454",
             "mmsi": "247265800",
-            "fecha": "2026-03-02"
-        },
-        {
-            "hora": "11:23",
-            "nombre": "Martin I Soler",
-            "naviera": "BALEARIA EUROLINEAS MARITIMAS SA ",
-            "terminal": "TERMINAL F1",
-            "terminal_codigo": "F1",
-            "eslora": 165.0,
-            "pax_estimados": 1000,
-            "puerto": "Alger (Algiers)",
-            "tipo": "salida",
-            "estado": "Iniciada",
-            "bandera": "Espanya",
-            "imo": "9390367",
-            "mmsi": "224637000",
             "fecha": "2026-03-02"
         },
         {
@@ -404,25 +420,25 @@
         }
     ],
     "resumen": {
-        "total_cruceros": 10,
-        "total_llegadas": 12,
+        "total_cruceros": 11,
+        "total_llegadas": 13,
         "total_salidas": 13,
-        "pax_estimados_hoy": 14500,
-        "proximo_desembarco": "18:30",
-        "proximo_barco": "Ciudad De Palma"
+        "pax_estimados_hoy": 15000,
+        "proximo_desembarco": "10:00",
+        "proximo_barco": "Msc Luanda Viii"
     },
     "terminales_activas": [
+        "6212",
         "6037",
+        "F2",
+        "F1",
         "8156",
         "E",
-        "F2",
-        "6212",
-        "F3",
-        "F1"
+        "F3"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-03-02T11:32:17.444775",
+        "actualizado": "2026-03-02T09:51:36.762282",
         "frecuencia": "horaria"
     }
 }
