@@ -138,30 +138,14 @@
             "pax_estimados": 1000,
             "puerto": "Alcudia",
             "tipo": "llegada",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Espanya",
             "imo": "9390367",
             "mmsi": "224637000",
             "fecha": "2026-03-02"
         },
         {
-            "hora": "16:27",
-            "nombre": "Msc Laurence",
-            "naviera": "MEDITERRANEAN SHIPPING CO",
-            "terminal": "TERMINAL CATALUNYA SA",
-            "terminal_codigo": "6212",
-            "eslora": 0,
-            "pax_estimados": 500,
-            "puerto": "La Spezia",
-            "tipo": "llegada",
-            "estado": "Iniciada",
-            "bandera": "Panamà",
-            "imo": "9467419",
-            "mmsi": "371582000",
-            "fecha": "2026-03-02"
-        },
-        {
-            "hora": "16:42",
+            "hora": "17:00",
             "nombre": "Gnv Sealand",
             "naviera": "GRANDI NAVI VELOCI",
             "terminal": "TERMINAL F2",
@@ -227,6 +211,22 @@
             "fecha": "2026-03-02"
         },
         {
+            "hora": "08:00",
+            "nombre": "Msc Laurence",
+            "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
+            "terminal": "TERMINAL CATALUNYA SA",
+            "terminal_codigo": "6212",
+            "eslora": 0,
+            "pax_estimados": 500,
+            "puerto": "Valencia",
+            "tipo": "salida",
+            "estado": "Autoritzada",
+            "bandera": "Panamà",
+            "imo": "9467419",
+            "mmsi": "371582000",
+            "fecha": "2026-03-02"
+        },
+        {
             "hora": "08:11",
             "nombre": "Gnv Sealand",
             "naviera": "TRANSCOMA BALEARES SA",
@@ -252,7 +252,7 @@
             "pax_estimados": 1000,
             "puerto": "Alger (Algiers)",
             "tipo": "salida",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Espanya",
             "imo": "9390367",
             "mmsi": "224637000",
@@ -291,39 +291,7 @@
             "fecha": "2026-03-02"
         },
         {
-            "hora": "16:00",
-            "nombre": "Martin I Soler",
-            "naviera": "BALEARIA EUROLINEAS MARITIMAS SA ",
-            "terminal": "TERMINAL F2",
-            "terminal_codigo": "F2",
-            "eslora": 165.0,
-            "pax_estimados": 1000,
-            "puerto": "Alger (Algiers)",
-            "tipo": "salida",
-            "estado": "Finalitzada",
-            "bandera": "Espanya",
-            "imo": "9390367",
-            "mmsi": "224637000",
-            "fecha": "2026-03-02"
-        },
-        {
-            "hora": "16:29",
-            "nombre": "Msc Laurence",
-            "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
-            "terminal": "TERMINAL CATALUNYA SA",
-            "terminal_codigo": "6212",
-            "eslora": 0,
-            "pax_estimados": 500,
-            "puerto": "Valencia",
-            "tipo": "salida",
-            "estado": "Iniciada",
-            "bandera": "Panamà",
-            "imo": "9467419",
-            "mmsi": "371582000",
-            "fecha": "2026-03-02"
-        },
-        {
-            "hora": "16:41",
+            "hora": "16:59",
             "nombre": "Gnv Sealand",
             "naviera": "TRANSCOMA BALEARES SA",
             "terminal": "",
@@ -336,6 +304,22 @@
             "bandera": "Itàlia",
             "imo": "9435454",
             "mmsi": "247265800",
+            "fecha": "2026-03-02"
+        },
+        {
+            "hora": "17:00",
+            "nombre": "Martin I Soler",
+            "naviera": "BALEARIA EUROLINEAS MARITIMAS SA ",
+            "terminal": "TERMINAL F2",
+            "terminal_codigo": "F2",
+            "eslora": 165.0,
+            "pax_estimados": 1000,
+            "puerto": "Alger (Algiers)",
+            "tipo": "salida",
+            "estado": "Iniciada",
+            "bandera": "Espanya",
+            "imo": "9390367",
+            "mmsi": "224637000",
             "fecha": "2026-03-02"
         },
         {
@@ -421,24 +405,24 @@
     ],
     "resumen": {
         "total_cruceros": 11,
-        "total_llegadas": 13,
+        "total_llegadas": 12,
         "total_salidas": 13,
-        "pax_estimados_hoy": 15000,
-        "proximo_desembarco": "19:00",
-        "proximo_barco": "Abel Matutes"
+        "pax_estimados_hoy": 14500,
+        "proximo_desembarco": "17:00",
+        "proximo_barco": "Gnv Sealand"
     },
     "terminales_activas": [
-        "6212",
-        "F2",
         "F1",
-        "8156",
-        "6037",
+        "F2",
         "F3",
-        "E"
+        "6212",
+        "8156",
+        "E",
+        "6037"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-03-02T17:44:26.029968",
+        "actualizado": "2026-03-02T15:42:03.852732",
         "frecuencia": "horaria"
     }
 }
