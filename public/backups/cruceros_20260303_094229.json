@@ -17,6 +17,22 @@
             "fecha": "2026-03-03"
         },
         {
+            "hora": "06:00",
+            "nombre": "Msc Luanda Viii",
+            "naviera": "MEDITERRANEAN SHIPPING CO",
+            "terminal": "TERMINAL CATALUNYA SA",
+            "terminal_codigo": "6212",
+            "eslora": 0,
+            "pax_estimados": 500,
+            "puerto": "Genoa",
+            "tipo": "llegada",
+            "estado": "Autoritzada",
+            "bandera": "Libèria",
+            "imo": "9301471",
+            "mmsi": "636024876",
+            "fecha": "2026-03-03"
+        },
+        {
             "hora": "06:56",
             "nombre": "Eco Savona",
             "naviera": "GRIMALDI EUROMED SPA",
@@ -46,22 +62,6 @@
             "bandera": "Itàlia",
             "imo": "9781891",
             "mmsi": "247431200",
-            "fecha": "2026-03-03"
-        },
-        {
-            "hora": "09:32",
-            "nombre": "Msc Luanda Viii",
-            "naviera": "MEDITERRANEAN SHIPPING CO",
-            "terminal": "TERMINAL CATALUNYA SA",
-            "terminal_codigo": "6212",
-            "eslora": 0,
-            "pax_estimados": 500,
-            "puerto": "Genoa",
-            "tipo": "llegada",
-            "estado": "Iniciada",
-            "bandera": "Libèria",
-            "imo": "9301471",
-            "mmsi": "636024876",
             "fecha": "2026-03-03"
         },
         {
@@ -144,22 +144,6 @@
             "bandera": "Itàlia",
             "imo": "9435454",
             "mmsi": "247265800",
-            "fecha": "2026-03-03"
-        },
-        {
-            "hora": "07:45",
-            "nombre": "Msc Laurence",
-            "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
-            "terminal": "TERMINAL CATALUNYA SA",
-            "terminal_codigo": "6212",
-            "eslora": 0,
-            "pax_estimados": 500,
-            "puerto": "Valencia",
-            "tipo": "salida",
-            "estado": "Finalitzada",
-            "bandera": "Panamà",
-            "imo": "9467419",
-            "mmsi": "371582000",
             "fecha": "2026-03-03"
         },
         {
@@ -308,25 +292,25 @@
         }
     ],
     "resumen": {
-        "total_cruceros": 11,
+        "total_cruceros": 10,
         "total_llegadas": 8,
-        "total_salidas": 11,
+        "total_salidas": 10,
         "pax_estimados_hoy": 13000,
         "proximo_desembarco": "18:30",
         "proximo_barco": "Ciudad De Granada"
     },
     "terminales_activas": [
-        "F2",
-        "F1",
         "6212",
         "8156",
-        "D",
+        "F2",
         "F3",
-        "E"
+        "F1",
+        "E",
+        "D"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-03-03T09:42:29.922794",
+        "actualizado": "2026-03-03T07:42:39.538452",
         "frecuencia": "horaria"
     }
 }
