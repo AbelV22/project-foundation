@@ -161,7 +161,7 @@
             "fecha": "2026-03-04"
         },
         {
-            "hora": "13:28",
+            "hora": "12:00",
             "nombre": "Martin I Soler",
             "naviera": "EUROLINEAS MARITIMAS S.A",
             "terminal": "TERMINAL F1",
@@ -339,6 +339,22 @@
             "fecha": "2026-03-04"
         },
         {
+            "hora": "11:59",
+            "nombre": "Martin I Soler",
+            "naviera": "BALEARIA EUROLINEAS MARITIMAS SA ",
+            "terminal": "TERMINAL F2",
+            "terminal_codigo": "F2",
+            "eslora": 165.0,
+            "pax_estimados": 1000,
+            "puerto": "Alcudia",
+            "tipo": "salida",
+            "estado": "Iniciada",
+            "bandera": "Espanya",
+            "imo": "9390367",
+            "mmsi": "224637000",
+            "fecha": "2026-03-04"
+        },
+        {
             "hora": "13:00",
             "nombre": "Eco Valencia",
             "naviera": "GRIMALDI LOGISTICA ESPAÑA SL",
@@ -352,22 +368,6 @@
             "bandera": "Itàlia",
             "imo": "9859533",
             "mmsi": "247383300",
-            "fecha": "2026-03-04"
-        },
-        {
-            "hora": "13:27",
-            "nombre": "Martin I Soler",
-            "naviera": "BALEARIA EUROLINEAS MARITIMAS SA ",
-            "terminal": "TERMINAL F2",
-            "terminal_codigo": "F2",
-            "eslora": 165.0,
-            "pax_estimados": 1000,
-            "puerto": "Alcudia",
-            "tipo": "salida",
-            "estado": "Iniciada",
-            "bandera": "Espanya",
-            "imo": "9390367",
-            "mmsi": "224637000",
             "fecha": "2026-03-04"
         },
         {
@@ -584,21 +584,21 @@
         "total_llegadas": 19,
         "total_salidas": 17,
         "pax_estimados_hoy": 26000,
-        "proximo_desembarco": "17:15",
-        "proximo_barco": "Gnv Sealand"
+        "proximo_desembarco": "14:00",
+        "proximo_barco": "Cma Cgm Harmony"
     },
     "terminales_activas": [
-        "7083",
-        "F2",
-        "8156",
-        "6212",
-        "F3",
         "2398",
-        "F1"
+        "6212",
+        "7083",
+        "F3",
+        "F1",
+        "F2",
+        "8156"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-03-04T15:41:20.052001",
+        "actualizado": "2026-03-04T13:58:16.747802",
         "frecuencia": "horaria"
     }
 }
