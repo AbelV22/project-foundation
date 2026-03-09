@@ -17,6 +17,22 @@
             "fecha": "2026-03-09"
         },
         {
+            "hora": "06:00",
+            "nombre": "Msc Verona",
+            "naviera": "MEDITERRANEAN SHIPPING CO",
+            "terminal": "TERMINAL CATALUNYA SA",
+            "terminal_codigo": "6212",
+            "eslora": 366.0,
+            "pax_estimados": 6500,
+            "puerto": "Damietta",
+            "tipo": "llegada",
+            "estado": "Sol·licitada",
+            "bandera": "Libèria",
+            "imo": "9987287",
+            "mmsi": "636024514",
+            "fecha": "2026-03-09"
+        },
+        {
             "hora": "06:42",
             "nombre": "Viking Mars",
             "naviera": "VIKING OCEAN CRUISES SHIP",
@@ -271,22 +287,6 @@
             "imo": "9833187",
             "mmsi": "257800000",
             "fecha": "2026-03-09"
-        },
-        {
-            "hora": "23:30",
-            "nombre": "Hafnia Lynx",
-            "naviera": "HAFNIA MANAGEMENT A/S",
-            "terminal": "TRADEBE PORT SERVICES SL",
-            "terminal_codigo": "7946",
-            "eslora": 183.0,
-            "pax_estimados": 1000,
-            "puerto": "Aliaga",
-            "tipo": "llegada",
-            "estado": "Sol·licitada",
-            "bandera": "Singapur",
-            "imo": "9635808",
-            "mmsi": "563619000",
-            "fecha": "2026-03-09"
         }
     ],
     "salidas": [
@@ -384,6 +384,22 @@
             "bandera": "Itàlia",
             "imo": "9781889",
             "mmsi": "247391900",
+            "fecha": "2026-03-09"
+        },
+        {
+            "hora": "20:00",
+            "nombre": "Msc Verona",
+            "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
+            "terminal": "TERMINAL CATALUNYA SA",
+            "terminal_codigo": "6212",
+            "eslora": 366.0,
+            "pax_estimados": 6500,
+            "puerto": "Valencia",
+            "tipo": "salida",
+            "estado": "Sol·licitada",
+            "bandera": "Libèria",
+            "imo": "9987287",
+            "mmsi": "636024514",
             "fecha": "2026-03-09"
         },
         {
@@ -518,29 +534,28 @@
     "resumen": {
         "total_cruceros": 20,
         "total_llegadas": 18,
-        "total_salidas": 14,
-        "pax_estimados_hoy": 27000,
+        "total_salidas": 15,
+        "pax_estimados_hoy": 32500,
         "proximo_desembarco": "12:00",
         "proximo_barco": "Msc Yuxin"
     },
     "terminales_activas": [
+        "F3",
+        "6212",
+        "8156",
+        "C",
+        "E",
+        "B",
+        "2396",
+        "F1",
         "7083",
         "6154",
-        "F3",
-        "7946",
-        "F2",
         "A",
-        "8156",
-        "B",
-        "F1",
-        "6212",
-        "E",
-        "C",
-        "2396"
+        "F2"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-03-09T11:34:55.266773",
+        "actualizado": "2026-03-09T09:52:41.409319",
         "frecuencia": "horaria"
     }
 }
