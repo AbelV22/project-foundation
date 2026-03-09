@@ -138,7 +138,7 @@
             "pax_estimados": 1000,
             "puerto": "Savona",
             "tipo": "llegada",
-            "estado": "Autoritzada",
+            "estado": "Confirmada",
             "bandera": "Grècia",
             "imo": "9431850",
             "mmsi": "241812000",
@@ -154,7 +154,7 @@
             "pax_estimados": 1000,
             "puerto": "Savona",
             "tipo": "llegada",
-            "estado": "Autoritzada",
+            "estado": "Confirmada",
             "bandera": "Grècia",
             "imo": "9431850",
             "mmsi": "241812000",
@@ -202,7 +202,7 @@
             "pax_estimados": 500,
             "puerto": "La Spezia",
             "tipo": "llegada",
-            "estado": "Sol·licitada",
+            "estado": "Autoritzada",
             "bandera": "Libèria",
             "imo": "9358436",
             "mmsi": "636017608",
@@ -520,27 +520,27 @@
         "total_llegadas": 18,
         "total_salidas": 14,
         "pax_estimados_hoy": 27000,
-        "proximo_desembarco": "15:00",
-        "proximo_barco": "Neptune Tharros"
+        "proximo_desembarco": "12:00",
+        "proximo_barco": "Msc Yuxin"
     },
     "terminales_activas": [
-        "B",
-        "F2",
-        "8156",
-        "E",
-        "6212",
-        "C",
         "7083",
-        "7946",
-        "A",
         "6154",
         "F3",
-        "2396",
-        "F1"
+        "7946",
+        "F2",
+        "A",
+        "8156",
+        "B",
+        "F1",
+        "6212",
+        "E",
+        "C",
+        "2396"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-03-09T14:06:02.348872",
+        "actualizado": "2026-03-09T11:34:55.266773",
         "frecuencia": "horaria"
     }
 }
