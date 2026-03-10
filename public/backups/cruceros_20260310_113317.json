@@ -113,7 +113,7 @@
             "fecha": "2026-03-10"
         },
         {
-            "hora": "09:49",
+            "hora": "08:30",
             "nombre": "Msc Radiant Iii",
             "naviera": "MEDITERRANEAN SHIPPING CO",
             "terminal": "",
@@ -129,23 +129,7 @@
             "fecha": "2026-03-10"
         },
         {
-            "hora": "10:58",
-            "nombre": "Histria Narvi",
-            "naviera": "SHARAF SHIPPING AGENCY",
-            "terminal": "",
-            "terminal_codigo": "",
-            "eslora": 180.0,
-            "pax_estimados": 1000,
-            "puerto": "El Dekheila",
-            "tipo": "llegada",
-            "estado": "Iniciada",
-            "bandera": "Malta",
-            "imo": "9800829",
-            "mmsi": "256945000",
-            "fecha": "2026-03-10"
-        },
-        {
-            "hora": "11:01",
+            "hora": "09:30",
             "nombre": "Histria Narvi",
             "naviera": "SHARAF SHIPPING AGENCY",
             "terminal": "MILADERTO SL",
@@ -154,7 +138,7 @@
             "pax_estimados": 1000,
             "puerto": "El Dekheila",
             "tipo": "llegada",
-            "estado": "Iniciada",
+            "estado": "Confirmada",
             "bandera": "Malta",
             "imo": "9800829",
             "mmsi": "256945000",
@@ -355,6 +339,22 @@
             "fecha": "2026-03-10"
         },
         {
+            "hora": "08:29",
+            "nombre": "Msc Radiant Iii",
+            "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
+            "terminal": "TERMINAL CATALUNYA SA",
+            "terminal_codigo": "6212",
+            "eslora": 208.0,
+            "pax_estimados": 2000,
+            "puerto": "Alger (Algiers)",
+            "tipo": "salida",
+            "estado": "Iniciada",
+            "bandera": "Libèria",
+            "imo": "9235402",
+            "mmsi": "636016943",
+            "fecha": "2026-03-10"
+        },
+        {
             "hora": "09:00",
             "nombre": "Msc Hortense",
             "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
@@ -387,35 +387,19 @@
             "fecha": "2026-03-10"
         },
         {
-            "hora": "09:48",
-            "nombre": "Msc Radiant Iii",
-            "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
-            "terminal": "TERMINAL CATALUNYA SA",
-            "terminal_codigo": "6212",
-            "eslora": 208.0,
-            "pax_estimados": 2000,
-            "puerto": "Alger (Algiers)",
+            "hora": "09:29",
+            "nombre": "Histria Narvi",
+            "naviera": "ALFASHIP MARITIME SERVICES SL ",
+            "terminal": "",
+            "terminal_codigo": "",
+            "eslora": 180.0,
+            "pax_estimados": 1000,
+            "puerto": "Desconegut",
             "tipo": "salida",
-            "estado": "Iniciada",
-            "bandera": "Libèria",
-            "imo": "9235402",
-            "mmsi": "636016943",
-            "fecha": "2026-03-10"
-        },
-        {
-            "hora": "09:59",
-            "nombre": "Msc Potomac F",
-            "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
-            "terminal": "TERMINAL CATALUNYA SA",
-            "terminal_codigo": "6212",
-            "eslora": 149.0,
-            "pax_estimados": 500,
-            "puerto": "Alger (Algiers)",
-            "tipo": "salida",
-            "estado": "Finalitzada",
-            "bandera": "Libèria",
-            "imo": "9236274",
-            "mmsi": "636020662",
+            "estado": "Confirmada",
+            "bandera": "Malta",
+            "imo": "9800829",
+            "mmsi": "256945000",
             "fecha": "2026-03-10"
         },
         {
@@ -432,22 +416,6 @@
             "bandera": "Itàlia",
             "imo": "9859533",
             "mmsi": "247383300",
-            "fecha": "2026-03-10"
-        },
-        {
-            "hora": "11:00",
-            "nombre": "Histria Narvi",
-            "naviera": "ALFASHIP MARITIME SERVICES SL ",
-            "terminal": "",
-            "terminal_codigo": "",
-            "eslora": 180.0,
-            "pax_estimados": 1000,
-            "puerto": "Desconegut",
-            "tipo": "salida",
-            "estado": "Iniciada",
-            "bandera": "Malta",
-            "imo": "9800829",
-            "mmsi": "256945000",
             "fecha": "2026-03-10"
         },
         {
@@ -612,28 +580,28 @@
         }
     ],
     "resumen": {
-        "total_cruceros": 22,
-        "total_llegadas": 17,
-        "total_salidas": 21,
-        "pax_estimados_hoy": 29000,
+        "total_cruceros": 21,
+        "total_llegadas": 16,
+        "total_salidas": 20,
+        "pax_estimados_hoy": 28000,
         "proximo_desembarco": "12:00",
         "proximo_barco": "Cma Cgm Jules Verne"
     },
     "terminales_activas": [
-        "6212",
-        "B",
-        "0010",
-        "199896",
-        "F2",
-        "6037",
-        "8156",
-        "7946",
         "F3",
-        "F1"
+        "7946",
+        "0010",
+        "6037",
+        "F1",
+        "8156",
+        "F2",
+        "199896",
+        "B",
+        "6212"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-03-10T11:33:17.597856",
+        "actualizado": "2026-03-10T09:44:02.945225",
         "frecuencia": "horaria"
     }
 }
