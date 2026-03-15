@@ -71,7 +71,9 @@ export default function Admin() {
     const [zonaStats, setZonaStats] = useState<ZonaStats[]>([]);
     const [geofenceLogs, setGeofenceLogs] = useState<GeofenceLog[]>([]);
     const [loading, setLoading] = useState(false);
-    const [activeTab, setActiveTab] = useState<'stats' | 'logs'>('stats');
+    const [activeTab, setActiveTab] = useState<'stats' | 'logs' | 'analytics'>('stats');
+    const [analyticsData, setAnalyticsData] = useState<{ event_name: string; count: number }[]>([]);
+    const [featureRequests, setFeatureRequests] = useState<{ title: string; vote_count: number; status: string; category: string }[]>([]);
     const [testingModeActive, setTestingModeActive] = useState(false);
     const [deviceNameInput, setDeviceNameInput] = useState("");
     const [trackingStatus, setTrackingStatus] = useState<ReturnType<typeof getTrackingStatus> | null>(null);
@@ -168,6 +170,36 @@ export default function Admin() {
             }
 
             setZonaStats(Object.values(stats));
+
+            // Fetch analytics: top events last 7 days
+            const since7d = new Date(Date.now() - 7 * 24 * 60 * 60 * 1000).toISOString();
+            const { data: eventsRaw } = await supabase
+                .from("app_events")
+                .select("event_name")
+                .gte("created_at", since7d);
+
+            if (eventsRaw) {
+                const counts: Record<string, number> = {};
+                for (const e of eventsRaw) {
+                    counts[e.event_name] = (counts[e.event_name] || 0) + 1;
+                }
+                setAnalyticsData(
+                    Object.entries(counts)
+                        .map(([event_name, count]) => ({ event_name, count }))
+                        .sort((a, b) => b.count - a.count)
+                        .slice(0, 15)
+                );
+            }
+
+            // Fetch feature requests
+            const { data: features } = await supabase
+                .from("feature_requests")
+                .select("title, vote_count, status, category")
+                .order("vote_count", { ascending: false })
+                .limit(20);
+
+            if (features) setFeatureRequests(features);
+
         } catch (error) {
             console.error("Error fetching admin data:", error);
         } finally {
@@ -685,26 +717,113 @@ export default function Admin() {
                 <button
                     onClick={() => setActiveTab('stats')}
                     className={cn(
-                        "flex-1 py-2 px-4 rounded-lg font-medium text-sm transition-colors",
+                        "flex-1 py-2 px-3 rounded-lg font-medium text-sm transition-colors",
                         activeTab === 'stats'
                             ? "bg-primary text-black"
                             : "bg-white/5 text-muted-foreground hover:bg-white/10"
                     )}
                 >
-                    📊 Estadísticas
+                    📊 Stats
+                </button>
+                <button
+                    onClick={() => setActiveTab('analytics')}
+                    className={cn(
+                        "flex-1 py-2 px-3 rounded-lg font-medium text-sm transition-colors",
+                        activeTab === 'analytics'
+                            ? "bg-primary text-black"
+                            : "bg-white/5 text-muted-foreground hover:bg-white/10"
+                    )}
+                >
+                    📈 Usage
                 </button>
                 <button
                     onClick={() => setActiveTab('logs')}
                     className={cn(
-                        "flex-1 py-2 px-4 rounded-lg font-medium text-sm transition-colors",
+                        "flex-1 py-2 px-3 rounded-lg font-medium text-sm transition-colors",
                         activeTab === 'logs'
                             ? "bg-primary text-black"
                             : "bg-white/5 text-muted-foreground hover:bg-white/10"
                     )}
                 >
-                    📋 Developer Logs ({geofenceLogs.length})
+                    📋 Logs
                 </button>
             </div>
+
+            {activeTab === 'analytics' && (
+                <div className="space-y-6">
+                    {/* Feature usage heatmap */}
+                    <section>
+                        <h2 className="text-sm font-semibold text-muted-foreground uppercase mb-3">
+                            Pantallas más visitadas — últimos 7 días
+                        </h2>
+                        {analyticsData.length === 0 ? (
+                            <p className="text-sm text-muted-foreground bg-white/5 rounded-xl p-4 text-center">
+                                Sin datos aún. Los eventos se registran en tiempo real.
+                            </p>
+                        ) : (
+                            <div className="space-y-2">
+                                {analyticsData.map((ev, i) => {
+                                    const max = analyticsData[0]?.count || 1;
+                                    const pct = Math.round((ev.count / max) * 100);
+                                    const label = ev.event_name
+                                        .replace("tab_", "")
+                                        .replace(/_/g, " ");
+                                    return (
+                                        <div key={ev.event_name} className="bg-white/5 rounded-xl p-3">
+                                            <div className="flex items-center justify-between mb-1.5">
+                                                <span className="text-sm font-medium text-white capitalize">{label}</span>
+                                                <span className="text-xs text-primary font-bold tabular-nums">{ev.count.toLocaleString()}</span>
+                                            </div>
+                                            <div className="h-1.5 bg-white/10 rounded-full overflow-hidden">
+                                                <div
+                                                    className={cn("h-full rounded-full", i === 0 ? "bg-primary" : "bg-blue-400/70")}
+                                                    style={{ width: `${pct}%` }}
+                                                />
+                                            </div>
+                                        </div>
+                                    );
+                                })}
+                            </div>
+                        )}
+                    </section>
+
+                    {/* Feature requests */}
+                    <section>
+                        <h2 className="text-sm font-semibold text-muted-foreground uppercase mb-3">
+                            Top sugerencias de usuarios
+                        </h2>
+                        {featureRequests.length === 0 ? (
+                            <p className="text-sm text-muted-foreground bg-white/5 rounded-xl p-4 text-center">
+                                Sin sugerencias todavía.
+                            </p>
+                        ) : (
+                            <div className="space-y-2">
+                                {featureRequests.map((fr) => (
+                                    <div key={fr.title} className="bg-white/5 rounded-xl p-3 flex items-center gap-3">
+                                        <div className="flex flex-col items-center min-w-[40px] bg-white/5 rounded-lg px-2 py-1.5">
+                                            <span className="text-lg font-bold text-primary tabular-nums leading-none">{fr.vote_count}</span>
+                                            <span className="text-[9px] text-muted-foreground">votos</span>
+                                        </div>
+                                        <div className="flex-1 min-w-0">
+                                            <p className="text-sm font-medium text-white truncate">{fr.title}</p>
+                                            <p className="text-[10px] text-muted-foreground capitalize">{fr.category}</p>
+                                        </div>
+                                        <span className={cn(
+                                            "text-[10px] px-2 py-0.5 rounded-full border shrink-0",
+                                            fr.status === 'done'        ? "text-emerald-400 border-emerald-500/30 bg-emerald-500/10" :
+                                            fr.status === 'in_progress' ? "text-amber-400  border-amber-500/30  bg-amber-500/10"  :
+                                            fr.status === 'planned'     ? "text-blue-400   border-blue-500/30   bg-blue-500/10"   :
+                                                                          "text-slate-400  border-slate-500/30  bg-slate-500/10"
+                                        )}>
+                                            {fr.status === 'done' ? 'Listo' : fr.status === 'in_progress' ? 'En marcha' : fr.status === 'planned' ? 'Planificado' : 'Propuesto'}
+                                        </span>
+                                    </div>
+                                ))}
+                            </div>
+                        )}
+                    </section>
+                </div>
+            )}
 
             {activeTab === 'stats' ? (
                 <>

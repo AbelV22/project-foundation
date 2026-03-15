@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { cn } from "@/lib/utils";
 import { BottomNav } from "@/components/layout/BottomNav";
 import { Header } from "@/components/layout/Header";
@@ -18,9 +18,10 @@ import { QuickEarningsSheet } from "@/components/widgets/QuickEarningsSheet";
 import { WhereNextSheet } from "@/components/widgets/WhereNextSheet";
 import { EarningsView } from "@/components/views/EarningsView";
 import { ExpensesView } from "@/components/views/ExpensesView";
-import { OffersView } from "@/components/views/OffersView";
+import { CommunityView } from "@/components/views/CommunityView";
 import { DemandForecastView } from "@/components/views/DemandForecastView";
 import { AddExpenseSheet } from "@/components/widgets/AddExpenseSheet";
+import { useAnalytics } from "@/hooks/useAnalytics";
 
 const titles: Record<string, string> = {
   dashboard: "Inicio",
@@ -38,7 +39,7 @@ const titles: Record<string, string> = {
   trainsByCity: "Trenes por Ciudad",
   trainsByOperator: "Trenes por Operador",
   earnings: "Registro de Ingresos",
-  ofertas: "Ofertas Exclusivas",
+  comunidad: "Comunidad",
   prediccion: "Predicción de Demanda",
 };
 
@@ -47,6 +48,12 @@ const Index = () => {
   const [selectedTerminal, setSelectedTerminal] = useState<string | null>(null);
   const [selectedTrainCity, setSelectedTrainCity] = useState<string | null>(null);
   const [selectedTrainOperator, setSelectedTrainOperator] = useState<string | null>(null);
+  const { trackView } = useAnalytics();
+
+  // Track tab views for analytics
+  useEffect(() => {
+    trackView(activeTab);
+  }, [activeTab]);
 
   const handleTerminalClick = (terminalId: string) => {
     setSelectedTerminal(terminalId);
@@ -205,7 +212,7 @@ const Index = () => {
           {activeTab === "gastos" && (
             <ExpensesView onBack={() => setActiveTab("dashboard")} />
           )}
-          {activeTab === "ofertas" && <OffersView />}
+          {activeTab === "comunidad" && <CommunityView />}
           {activeTab === "prediccion" && (
             <DemandForecastView onBack={() => setActiveTab("dashboard")} />
           )}

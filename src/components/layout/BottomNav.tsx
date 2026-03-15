@@ -3,7 +3,7 @@ import {
   Plane,
   Train,
   Calendar,
-  BadgePercent
+  Users2
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 
@@ -13,11 +13,11 @@ interface BottomNavProps {
 }
 
 const navItems = [
-  { id: "dashboard", label: "Inicio", icon: LayoutDashboard, target: "dashboard" },
-  { id: "vuelos", label: "Vuelos", icon: Plane, target: "fullDay" },
-  { id: "trenes", label: "Trenes", icon: Train, target: "trainsFullDay" },
-  { id: "eventos", label: "Eventos", icon: Calendar, target: "eventos" },
-  { id: "ofertas", label: "Ofertas", icon: BadgePercent, target: "ofertas" },
+  { id: "dashboard", label: "Inicio",    icon: LayoutDashboard, target: "dashboard"    },
+  { id: "vuelos",    label: "Vuelos",    icon: Plane,           target: "fullDay"       },
+  { id: "trenes",    label: "Trenes",    icon: Train,           target: "trainsFullDay" },
+  { id: "eventos",   label: "Eventos",   icon: Calendar,        target: "eventos"       },
+  { id: "comunidad", label: "Comunidad", icon: Users2,          target: "comunidad"     },
 ];
 
 export function BottomNav({ activeTab, onTabChange }: BottomNavProps) {
