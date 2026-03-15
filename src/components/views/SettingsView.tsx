@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { ArrowLeft, Clock, Power, Save, Calculator, ChevronRight } from "lucide-react";
+import { ArrowLeft, Clock, Power, Save, Calculator, ChevronRight, UserCircle, LogOut, LogIn } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Switch } from "@/components/ui/switch";
@@ -8,6 +8,8 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { setProSchedule } from "@/services/native/proTracking";
 import { toast } from "sonner";
 import { getItem, setItem } from "@/lib/storage";
+import { supabase } from "@/integrations/supabase/client";
+import { AccountCreationDialog } from "@/components/AccountCreationDialog";
 
 const HOURS = Array.from({ length: 24 }, (_, i) => i);
 
@@ -17,6 +19,8 @@ export default function SettingsView() {
     const [startHour, setStartHour] = useState(8);
     const [endHour, setEndHour] = useState(20);
     const [loading, setLoading] = useState(true);
+    const [userEmail, setUserEmail] = useState<string | null>(null);
+    const [showAccountDialog, setShowAccountDialog] = useState(false);
 
     // Load initial state
     useEffect(() => {
@@ -30,6 +34,10 @@ export default function SettingsView() {
             if (storedSchedule !== null) setScheduleEnabled(storedSchedule === 'true');
             if (storedStart !== null) setStartHour(parseInt(storedStart));
             if (storedEnd !== null) setEndHour(parseInt(storedEnd));
+
+            // Load auth state
+            const { data: { user } } = await supabase.auth.getUser();
+            setUserEmail(user?.email ?? null);
 
             setLoading(false);
         };
@@ -64,6 +72,7 @@ export default function SettingsView() {
     if (loading) return <div className="p-8 text-center">Cargando...</div>;
 
     return (
+        <>
         <div className="min-h-screen bg-background p-4 md:p-8 space-y-6">
             <div className="flex items-center gap-4">
                 <Link to="/" className="inline-flex items-center text-sm text-muted-foreground hover:text-primary transition-colors">
@@ -164,7 +173,60 @@ export default function SettingsView() {
                         <ChevronRight className="h-5 w-5 text-muted-foreground group-hover:text-primary transition-colors shrink-0" />
                     </div>
                 </Link>
+
+                {/* Account */}
+                <div className="card-dashboard p-5 space-y-3">
+                    <div className="flex items-center gap-3">
+                        <div className="w-10 h-10 rounded-2xl bg-muted flex items-center justify-center shrink-0">
+                            <UserCircle className="h-5 w-5 text-muted-foreground" />
+                        </div>
+                        <div className="flex-1 min-w-0">
+                            <p className="font-semibold text-foreground text-sm">Tu cuenta</p>
+                            {userEmail ? (
+                                <p className="text-xs text-emerald-400 truncate">{userEmail}</p>
+                            ) : (
+                                <p className="text-xs text-muted-foreground">Sin cuenta — datos solo en este dispositivo</p>
+                            )}
+                        </div>
+                    </div>
+
+                    {userEmail ? (
+                        <Button
+                            variant="outline"
+                            size="sm"
+                            className="w-full text-xs"
+                            onClick={async () => {
+                                await supabase.auth.signOut();
+                                setUserEmail(null);
+                                toast.success("Sesión cerrada");
+                            }}
+                        >
+                            <LogOut className="h-3.5 w-3.5 mr-2" />
+                            Cerrar sesión
+                        </Button>
+                    ) : (
+                        <Button
+                            variant="outline"
+                            size="sm"
+                            className="w-full text-xs border-primary/30 text-primary hover:bg-primary/10"
+                            onClick={() => setShowAccountDialog(true)}
+                        >
+                            <LogIn className="h-3.5 w-3.5 mr-2" />
+                            Crear cuenta o iniciar sesión
+                        </Button>
+                    )}
+                </div>
             </div>
         </div>
+
+        <AccountCreationDialog
+            open={showAccountDialog}
+            onDone={() => {
+                setShowAccountDialog(false);
+                supabase.auth.getUser().then(({ data: { user } }) => setUserEmail(user?.email ?? null));
+            }}
+            onSkip={() => setShowAccountDialog(false)}
+        />
+        </>
     );
 }

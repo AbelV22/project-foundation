@@ -160,15 +160,27 @@ import SettingsView from "./components/views/SettingsView";
 import Gestoria from "./pages/Gestoria";
 
 import { LocationDisclosureDialog } from "@/components/LocationDisclosureDialog";
+import { OnboardingFlow } from "@/components/OnboardingFlow";
 import { getItem, setItem } from "@/lib/storage";
 import { DataProvider } from "@/contexts/DataContext";
 
 const App = () => {
   const [permissionDenied, setPermissionDenied] = useState(false);
   const [disclosureOpen, setDisclosureOpen] = useState(false);
+  const [showOnboarding, setShowOnboarding] = useState(false);
+  const [appReady, setAppReady] = useState(false);
 
   useEffect(() => {
     const checkDisclosure = async () => {
+      // Check onboarding first
+      const onboardingDone = await getItem('onboarding_completed');
+      if (!onboardingDone) {
+        setShowOnboarding(true);
+        setAppReady(true);
+        return;
+      }
+
+      setAppReady(true);
       const ack = await getItem('disclosure_ack');
       if (ack !== 'true' && Capacitor.isNativePlatform()) {
         setDisclosureOpen(true);
@@ -179,6 +191,16 @@ const App = () => {
     };
     checkDisclosure();
   }, []);
+
+  const handleOnboardingComplete = async () => {
+    setShowOnboarding(false);
+    const ack = await getItem('disclosure_ack');
+    if (ack !== 'true' && Capacitor.isNativePlatform()) {
+      setDisclosureOpen(true);
+    } else {
+      initializeNative(setPermissionDenied);
+    }
+  };
 
   const handleDisclosureAccept = async () => {
     await setItem('disclosure_ack', 'true');
@@ -194,11 +216,16 @@ const App = () => {
     }
   };
 
+  if (!appReady) return null;
+
   return (
     <QueryClientProvider client={queryClient}>
       <TooltipProvider>
         <Toaster />
         <Sonner />
+        {showOnboarding && (
+          <OnboardingFlow onComplete={handleOnboardingComplete} />
+        )}
         <LocationDisclosureDialog
           open={disclosureOpen}
           onAccept={handleDisclosureAccept}
