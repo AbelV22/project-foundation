@@ -106,7 +106,7 @@
             "pax_estimados": 1000,
             "puerto": "Ibiza",
             "tipo": "llegada",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Itàlia",
             "imo": "8712518",
             "mmsi": "247163900",
@@ -243,6 +243,22 @@
             "fecha": "2026-03-16"
         },
         {
+            "hora": "19:00",
+            "nombre": "Gnv Cristal",
+            "naviera": "TRANSCOMA BALEARES SA",
+            "terminal": "TERMINAL F2",
+            "terminal_codigo": "F2",
+            "eslora": 161.0,
+            "pax_estimados": 1000,
+            "puerto": "Mahon Menorca",
+            "tipo": "salida",
+            "estado": "Iniciada",
+            "bandera": "Itàlia",
+            "imo": "8712518",
+            "mmsi": "247163900",
+            "fecha": "2026-03-16"
+        },
+        {
             "hora": "21:30",
             "nombre": "Martin I Soler",
             "naviera": "BALEARIA EUROLINEAS MARITIMAS SA ",
@@ -256,22 +272,6 @@
             "bandera": "Espanya",
             "imo": "9390367",
             "mmsi": "224637000",
-            "fecha": "2026-03-16"
-        },
-        {
-            "hora": "21:30",
-            "nombre": "Gnv Cristal",
-            "naviera": "TRANSCOMA BALEARES SA",
-            "terminal": "TERMINAL F2",
-            "terminal_codigo": "F2",
-            "eslora": 161.0,
-            "pax_estimados": 1000,
-            "puerto": "Mahon Menorca",
-            "tipo": "salida",
-            "estado": "Finalitzada",
-            "bandera": "Itàlia",
-            "imo": "8712518",
-            "mmsi": "247163900",
             "fecha": "2026-03-16"
         },
         {
@@ -380,18 +380,18 @@
         "proximo_barco": "Msc Izmir F"
     },
     "terminales_activas": [
-        "8156",
         "F2",
-        "F1",
-        "F3",
         "7083",
-        "E",
         "0010",
-        "6212"
+        "F3",
+        "E",
+        "6212",
+        "F1",
+        "8156"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-03-16T21:40:20.158223",
+        "actualizado": "2026-03-16T19:52:20.886012",
         "frecuencia": "horaria"
     }
 }
