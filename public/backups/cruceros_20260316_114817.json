@@ -65,6 +65,22 @@
             "fecha": "2026-03-16"
         },
         {
+            "hora": "07:40",
+            "nombre": "Gnv Cristal",
+            "naviera": "GRANDI NAVI VELOCI",
+            "terminal": "TERMINAL F2",
+            "terminal_codigo": "F2",
+            "eslora": 161.0,
+            "pax_estimados": 1000,
+            "puerto": "Ibiza",
+            "tipo": "llegada",
+            "estado": "Autoritzada",
+            "bandera": "Itàlia",
+            "imo": "8712518",
+            "mmsi": "247163900",
+            "fecha": "2026-03-16"
+        },
+        {
             "hora": "07:42",
             "nombre": "Ciudad De Barcelona",
             "naviera": "TRASMED GLE S.L.",
@@ -110,38 +126,6 @@
             "bandera": "Itàlia",
             "imo": "9781889",
             "mmsi": "247391900",
-            "fecha": "2026-03-16"
-        },
-        {
-            "hora": "10:17",
-            "nombre": "Lng Merak",
-            "naviera": "MOL LNG SHIP MANAGEMENT PTE. LTD.",
-            "terminal": "",
-            "terminal_codigo": "",
-            "eslora": 295.0,
-            "pax_estimados": 3000,
-            "puerto": "Murmansk",
-            "tipo": "llegada",
-            "estado": "Fondeig Previ",
-            "bandera": "Hong Kong",
-            "imo": "9834301",
-            "mmsi": "477345800",
-            "fecha": "2026-03-16"
-        },
-        {
-            "hora": "10:42",
-            "nombre": "Gnv Cristal",
-            "naviera": "GRANDI NAVI VELOCI",
-            "terminal": "TERMINAL F2",
-            "terminal_codigo": "F2",
-            "eslora": 161.0,
-            "pax_estimados": 1000,
-            "puerto": "Ibiza",
-            "tipo": "llegada",
-            "estado": "Iniciada",
-            "bandera": "Itàlia",
-            "imo": "8712518",
-            "mmsi": "247163900",
             "fecha": "2026-03-16"
         },
         {
@@ -300,7 +284,7 @@
             "pax_estimados": 1000,
             "puerto": "Mahon Menorca",
             "tipo": "salida",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Itàlia",
             "imo": "8712518",
             "mmsi": "247163900",
@@ -452,26 +436,26 @@
         }
     ],
     "resumen": {
-        "total_cruceros": 16,
-        "total_llegadas": 14,
+        "total_cruceros": 15,
+        "total_llegadas": 13,
         "total_salidas": 14,
-        "pax_estimados_hoy": 22000,
+        "pax_estimados_hoy": 19000,
         "proximo_desembarco": "14:00",
         "proximo_barco": "Seaspan Bellwether"
     },
     "terminales_activas": [
-        "F3",
-        "F1",
-        "8156",
-        "0010",
         "7083",
         "6212",
+        "F3",
+        "F1",
+        "0010",
+        "8156",
         "E",
         "F2"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-03-16T11:48:17.022633",
+        "actualizado": "2026-03-16T10:06:42.304538",
         "frecuencia": "horaria"
     }
 }
