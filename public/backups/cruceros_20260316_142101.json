@@ -17,6 +17,38 @@
             "fecha": "2026-03-16"
         },
         {
+            "hora": "06:00",
+            "nombre": "Msc Elisabetta",
+            "naviera": "MEDITERRANEAN SHIPPING CO",
+            "terminal": "TERMINAL CATALUNYA SA",
+            "terminal_codigo": "6212",
+            "eslora": 0,
+            "pax_estimados": 500,
+            "puerto": "La Spezia",
+            "tipo": "llegada",
+            "estado": "Sol·licitada",
+            "bandera": "Libèria",
+            "imo": "9954747",
+            "mmsi": "636022721",
+            "fecha": "2026-03-16"
+        },
+        {
+            "hora": "06:00",
+            "nombre": "Msc Danit",
+            "naviera": "MEDITERRANEAN SHIPPING CO",
+            "terminal": "TERMINAL CATALUNYA SA",
+            "terminal_codigo": "6212",
+            "eslora": 0,
+            "pax_estimados": 500,
+            "puerto": "Valencia",
+            "tipo": "llegada",
+            "estado": "Sol·licitada",
+            "bandera": "Panamà",
+            "imo": "9404649",
+            "mmsi": "357051000",
+            "fecha": "2026-03-16"
+        },
+        {
             "hora": "07:34",
             "nombre": "Eco Adriatica",
             "naviera": "GRIMALDI EUROMED SPA",
@@ -113,7 +145,7 @@
             "fecha": "2026-03-16"
         },
         {
-            "hora": "12:17",
+            "hora": "14:00",
             "nombre": "Seaspan Bellwether",
             "naviera": "HYUNDAI MERCHANT MAR",
             "terminal": "APM TERMINALS BARCELONA, S.L.U.",
@@ -122,7 +154,7 @@
             "pax_estimados": 4500,
             "puerto": "Valencia",
             "tipo": "llegada",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Singapur",
             "imo": "9713363",
             "mmsi": "563285600",
@@ -211,6 +243,22 @@
             "fecha": "2026-03-16"
         },
         {
+            "hora": "05:00",
+            "nombre": "Msc Jiani",
+            "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
+            "terminal": "TERMINAL CATALUNYA SA",
+            "terminal_codigo": "6212",
+            "eslora": 172.0,
+            "pax_estimados": 1000,
+            "puerto": "Alger (Algiers)",
+            "tipo": "salida",
+            "estado": "Sol·licitada",
+            "bandera": "Libèria",
+            "imo": "9966934",
+            "mmsi": "636023100",
+            "fecha": "2026-03-16"
+        },
+        {
             "hora": "14:00",
             "nombre": "Eco Adriatica",
             "naviera": "GRIMALDI LOGISTICA ESPAÑA SL",
@@ -256,6 +304,38 @@
             "bandera": "Itàlia",
             "imo": "8712518",
             "mmsi": "247163900",
+            "fecha": "2026-03-16"
+        },
+        {
+            "hora": "20:00",
+            "nombre": "Msc Elisabetta",
+            "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
+            "terminal": "TERMINAL CATALUNYA SA",
+            "terminal_codigo": "6212",
+            "eslora": 0,
+            "pax_estimados": 500,
+            "puerto": "Valencia",
+            "tipo": "salida",
+            "estado": "Sol·licitada",
+            "bandera": "Libèria",
+            "imo": "9954747",
+            "mmsi": "636022721",
+            "fecha": "2026-03-16"
+        },
+        {
+            "hora": "20:00",
+            "nombre": "Msc Danit",
+            "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
+            "terminal": "TERMINAL CATALUNYA SA",
+            "terminal_codigo": "6212",
+            "eslora": 0,
+            "pax_estimados": 500,
+            "puerto": "Piraeus",
+            "tipo": "salida",
+            "estado": "Sol·licitada",
+            "bandera": "Panamà",
+            "imo": "9404649",
+            "mmsi": "357051000",
             "fecha": "2026-03-16"
         },
         {
@@ -372,26 +452,26 @@
         }
     ],
     "resumen": {
-        "total_cruceros": 13,
-        "total_llegadas": 12,
-        "total_salidas": 11,
-        "pax_estimados_hoy": 21000,
-        "proximo_desembarco": "18:15",
-        "proximo_barco": "Ciudad De Palma"
+        "total_cruceros": 16,
+        "total_llegadas": 14,
+        "total_salidas": 14,
+        "pax_estimados_hoy": 22000,
+        "proximo_desembarco": "14:00",
+        "proximo_barco": "Seaspan Bellwether"
     },
     "terminales_activas": [
-        "F1",
         "F3",
+        "F1",
         "8156",
-        "E",
-        "7083",
         "0010",
-        "F2",
-        "6212"
+        "7083",
+        "6212",
+        "E",
+        "F2"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-03-16T14:21:01.536109",
+        "actualizado": "2026-03-16T11:48:17.022633",
         "frecuencia": "horaria"
     }
 }
