@@ -33,23 +33,7 @@
             "fecha": "2026-03-17"
         },
         {
-            "hora": "06:43",
-            "nombre": "Hmm Green",
-            "naviera": "HYUNDAI MERCHANT MAR",
-            "terminal": "APM TERMINALS BARCELONA, S.L.U.",
-            "terminal_codigo": "7083",
-            "eslora": 274.0,
-            "pax_estimados": 3000,
-            "puerto": "Piraeus",
-            "tipo": "llegada",
-            "estado": "Iniciada",
-            "bandera": "Panamà",
-            "imo": "9998468",
-            "mmsi": "352005213",
-            "fecha": "2026-03-17"
-        },
-        {
-            "hora": "07:17",
+            "hora": "07:00",
             "nombre": "Eco Livorno",
             "naviera": "GRIMALDI EUROMED SPA",
             "terminal": "GRIMALDI TERMINAL BARCELONA SL",
@@ -58,7 +42,7 @@
             "pax_estimados": 2000,
             "puerto": "Valencia",
             "tipo": "llegada",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Itàlia",
             "imo": "9859557",
             "mmsi": "247383500",
@@ -94,6 +78,22 @@
             "bandera": "Malta",
             "imo": "9882516",
             "mmsi": "229685000",
+            "fecha": "2026-03-17"
+        },
+        {
+            "hora": "08:01",
+            "nombre": "Hmm Green",
+            "naviera": "HYUNDAI MERCHANT MAR",
+            "terminal": "APM TERMINALS BARCELONA, S.L.U.",
+            "terminal_codigo": "7083",
+            "eslora": 274.0,
+            "pax_estimados": 3000,
+            "puerto": "Piraeus",
+            "tipo": "llegada",
+            "estado": "Autoritzada",
+            "bandera": "Panamà",
+            "imo": "9998468",
+            "mmsi": "352005213",
             "fecha": "2026-03-17"
         },
         {
@@ -316,7 +316,7 @@
             "pax_estimados": 2000,
             "puerto": "Livorno",
             "tipo": "salida",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Itàlia",
             "imo": "9859557",
             "mmsi": "247383500",
@@ -472,25 +472,25 @@
         "total_llegadas": 17,
         "total_salidas": 12,
         "pax_estimados_hoy": 27500,
-        "proximo_desembarco": "08:00",
-        "proximo_barco": "Cma Cgm Apollon"
+        "proximo_desembarco": "06:00",
+        "proximo_barco": "Buala"
     },
     "terminales_activas": [
+        "6154",
+        "6212",
         "7946",
         "7332",
-        "7083",
-        "E",
-        "F2",
-        "6154",
         "F3",
         "F1",
+        "7083",
+        "E",
         "6995",
         "8156",
-        "6212"
+        "F2"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-03-17T07:53:28.755145",
+        "actualizado": "2026-03-17T05:59:37.600860",
         "frecuencia": "horaria"
     }
 }
