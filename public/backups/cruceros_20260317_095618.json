@@ -1,23 +1,7 @@
 {
     "llegadas": [
         {
-            "hora": "04:51",
-            "nombre": "Buala",
-            "naviera": "TMS TANKERS Ltd.",
-            "terminal": "",
-            "terminal_codigo": "",
-            "eslora": 249.0,
-            "pax_estimados": 2000,
-            "puerto": "Constanta",
-            "tipo": "llegada",
-            "estado": "Iniciada",
-            "bandera": "Illes Marshall",
-            "imo": "9433585",
-            "mmsi": "538003608",
-            "fecha": "2026-03-17"
-        },
-        {
-            "hora": "04:54",
+            "hora": "06:00",
             "nombre": "Buala",
             "naviera": "TMS TANKERS Ltd.",
             "terminal": "MEROIL SA",
@@ -26,14 +10,14 @@
             "pax_estimados": 2000,
             "puerto": "Constanta",
             "tipo": "llegada",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Illes Marshall",
             "imo": "9433585",
             "mmsi": "538003608",
             "fecha": "2026-03-17"
         },
         {
-            "hora": "04:54",
+            "hora": "06:00",
             "nombre": "Buala",
             "naviera": "TMS TANKERS Ltd.",
             "terminal": "TRADEBE PORT SERVICES SL",
@@ -42,7 +26,7 @@
             "pax_estimados": 2000,
             "puerto": "Constanta",
             "tipo": "llegada",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Illes Marshall",
             "imo": "9433585",
             "mmsi": "538003608",
@@ -81,6 +65,22 @@
             "fecha": "2026-03-17"
         },
         {
+            "hora": "07:30",
+            "nombre": "Aidabella",
+            "naviera": "AIDA CRUISES",
+            "terminal": "Terminal E (Adossat)",
+            "terminal_codigo": "E",
+            "eslora": 0,
+            "pax_estimados": 500,
+            "puerto": "Marseille",
+            "tipo": "llegada",
+            "estado": "Autoritzada",
+            "bandera": "Itàlia",
+            "imo": "9362542",
+            "mmsi": "247229700",
+            "fecha": "2026-03-17"
+        },
+        {
             "hora": "08:00",
             "nombre": "Cma Cgm Apollon",
             "naviera": "CMA CGM",
@@ -94,22 +94,6 @@
             "bandera": "Malta",
             "imo": "9882516",
             "mmsi": "229685000",
-            "fecha": "2026-03-17"
-        },
-        {
-            "hora": "08:21",
-            "nombre": "Aidabella",
-            "naviera": "AIDA CRUISES",
-            "terminal": "Terminal E (Adossat)",
-            "terminal_codigo": "E",
-            "eslora": 0,
-            "pax_estimados": 500,
-            "puerto": "Marseille",
-            "tipo": "llegada",
-            "estado": "Iniciada",
-            "bandera": "Itàlia",
-            "imo": "9362542",
-            "mmsi": "247229700",
             "fecha": "2026-03-17"
         },
         {
@@ -307,22 +291,6 @@
             "fecha": "2026-03-17"
         },
         {
-            "hora": "04:53",
-            "nombre": "Buala",
-            "naviera": "ALFASHIP MARITIME SERVICES SL ",
-            "terminal": "",
-            "terminal_codigo": "",
-            "eslora": 249.0,
-            "pax_estimados": 2000,
-            "puerto": "Singapore",
-            "tipo": "salida",
-            "estado": "Iniciada",
-            "bandera": "Illes Marshall",
-            "imo": "9433585",
-            "mmsi": "538003608",
-            "fecha": "2026-03-17"
-        },
-        {
             "hora": "08:00",
             "nombre": "Msc Loreto",
             "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
@@ -364,7 +332,7 @@
             "pax_estimados": 500,
             "puerto": "Palma de Mallorca",
             "tipo": "salida",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Itàlia",
             "imo": "9362542",
             "mmsi": "247229700",
@@ -501,28 +469,28 @@
     ],
     "resumen": {
         "total_cruceros": 19,
-        "total_llegadas": 18,
-        "total_salidas": 13,
-        "pax_estimados_hoy": 29500,
-        "proximo_desembarco": "11:00",
-        "proximo_barco": "Neptune Avra"
+        "total_llegadas": 17,
+        "total_salidas": 12,
+        "pax_estimados_hoy": 27500,
+        "proximo_desembarco": "08:00",
+        "proximo_barco": "Cma Cgm Apollon"
     },
     "terminales_activas": [
         "7946",
-        "F3",
-        "6995",
-        "6212",
-        "E",
-        "6154",
-        "F1",
-        "8156",
+        "7332",
         "7083",
+        "E",
         "F2",
-        "7332"
+        "6154",
+        "F3",
+        "F1",
+        "6995",
+        "8156",
+        "6212"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-03-17T09:56:18.062818",
+        "actualizado": "2026-03-17T07:53:28.755145",
         "frecuencia": "horaria"
     }
 }
