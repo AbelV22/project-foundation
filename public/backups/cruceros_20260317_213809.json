@@ -138,7 +138,7 @@
             "pax_estimados": 1000,
             "puerto": "Alger (Algiers)",
             "tipo": "llegada",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Libèria",
             "imo": "9966934",
             "mmsi": "636023100",
@@ -419,22 +419,6 @@
             "fecha": "2026-03-17"
         },
         {
-            "hora": "21:00",
-            "nombre": "Msc Jiani",
-            "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
-            "terminal": "TERMINAL CATALUNYA SA",
-            "terminal_codigo": "6212",
-            "eslora": 172.0,
-            "pax_estimados": 1000,
-            "puerto": "Alger (Algiers)",
-            "tipo": "salida",
-            "estado": "Finalitzada",
-            "bandera": "Libèria",
-            "imo": "9966934",
-            "mmsi": "636023100",
-            "fecha": "2026-03-17"
-        },
-        {
             "hora": "21:30",
             "nombre": "Martin I Soler",
             "naviera": "BALEARIA EUROLINEAS MARITIMAS SA ",
@@ -518,27 +502,27 @@
     "resumen": {
         "total_cruceros": 18,
         "total_llegadas": 18,
-        "total_salidas": 14,
+        "total_salidas": 13,
         "pax_estimados_hoy": 29500,
         "proximo_desembarco": null,
         "proximo_barco": null
     },
     "terminales_activas": [
-        "8156",
-        "6212",
-        "E",
-        "F3",
         "F1",
-        "6154",
         "7083",
+        "6212",
         "TC",
-        "6995",
+        "F2",
+        "F3",
+        "E",
         "7946",
-        "F2"
+        "6154",
+        "8156",
+        "6995"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-03-17T21:38:09.041558",
+        "actualizado": "2026-03-17T19:54:08.842210",
         "frecuencia": "horaria"
     }
 }
