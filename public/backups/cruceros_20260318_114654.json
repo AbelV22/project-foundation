@@ -65,6 +65,38 @@
             "fecha": "2026-03-18"
         },
         {
+            "hora": "06:00",
+            "nombre": "Msc Amihan F",
+            "naviera": "MEDITERRANEAN SHIPPING CO",
+            "terminal": "TERMINAL CATALUNYA SA",
+            "terminal_codigo": "6212",
+            "eslora": 0,
+            "pax_estimados": 500,
+            "puerto": "Gioia Tauro",
+            "tipo": "llegada",
+            "estado": "Sol·licitada",
+            "bandera": "Libèria",
+            "imo": "9449687",
+            "mmsi": "636021438",
+            "fecha": "2026-03-18"
+        },
+        {
+            "hora": "06:00",
+            "nombre": "Msc Carlotta",
+            "naviera": "MEDITERRANEAN SHIPPING CO",
+            "terminal": "TERMINAL CATALUNYA SA",
+            "terminal_codigo": "6212",
+            "eslora": 0,
+            "pax_estimados": 500,
+            "puerto": "Valencia",
+            "tipo": "llegada",
+            "estado": "Sol·licitada",
+            "bandera": "Libèria",
+            "imo": "9756731",
+            "mmsi": "636018106",
+            "fecha": "2026-03-18"
+        },
+        {
             "hora": "07:28",
             "nombre": "Eco Adriatica",
             "naviera": "GRIMALDI EUROMED SPA",
@@ -110,22 +142,6 @@
             "bandera": "Libèria",
             "imo": "9127021",
             "mmsi": "636017878",
-            "fecha": "2026-03-18"
-        },
-        {
-            "hora": "18:00",
-            "nombre": "Msc Amihan F",
-            "naviera": "MEDITERRANEAN SHIPPING CO",
-            "terminal": "TERMINAL CATALUNYA SA",
-            "terminal_codigo": "6212",
-            "eslora": 0,
-            "pax_estimados": 500,
-            "puerto": "Gioia Tauro",
-            "tipo": "llegada",
-            "estado": "Autoritzada",
-            "bandera": "Libèria",
-            "imo": "9449687",
-            "mmsi": "636021438",
             "fecha": "2026-03-18"
         },
         {
@@ -388,6 +404,38 @@
         },
         {
             "hora": "20:00",
+            "nombre": "Msc Amihan F",
+            "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
+            "terminal": "TERMINAL CATALUNYA SA",
+            "terminal_codigo": "6212",
+            "eslora": 0,
+            "pax_estimados": 500,
+            "puerto": "Alger (Algiers)",
+            "tipo": "salida",
+            "estado": "Sol·licitada",
+            "bandera": "Libèria",
+            "imo": "9449687",
+            "mmsi": "636021438",
+            "fecha": "2026-03-18"
+        },
+        {
+            "hora": "20:00",
+            "nombre": "Msc Carlotta",
+            "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
+            "terminal": "TERMINAL CATALUNYA SA",
+            "terminal_codigo": "6212",
+            "eslora": 0,
+            "pax_estimados": 500,
+            "puerto": "Livorno",
+            "tipo": "salida",
+            "estado": "Sol·licitada",
+            "bandera": "Libèria",
+            "imo": "9756731",
+            "mmsi": "636018106",
+            "fecha": "2026-03-18"
+        },
+        {
+            "hora": "20:00",
             "nombre": "Msc Gaeta Ii",
             "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
             "terminal": "TERMINAL CATALUNYA SA",
@@ -516,26 +564,26 @@
         }
     ],
     "resumen": {
-        "total_cruceros": 18,
-        "total_llegadas": 15,
-        "total_salidas": 17,
-        "pax_estimados_hoy": 16500,
+        "total_cruceros": 19,
+        "total_llegadas": 16,
+        "total_salidas": 19,
+        "pax_estimados_hoy": 17000,
         "proximo_desembarco": "13:00",
         "proximo_barco": "Msc Izmir F"
     },
     "terminales_activas": [
-        "8192",
-        "F3",
-        "0010",
         "8156",
+        "F3",
         "7083",
-        "F1",
         "F2",
-        "6212"
+        "F1",
+        "0010",
+        "6212",
+        "8192"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-03-18T11:46:54.459485",
+        "actualizado": "2026-03-18T09:56:04.010784",
         "frecuencia": "horaria"
     }
 }
