@@ -74,7 +74,7 @@
             "pax_estimados": 1000,
             "puerto": "Marseille",
             "tipo": "llegada",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Tunísia",
             "imo": "9207998",
             "mmsi": "672747000",
@@ -110,6 +110,22 @@
             "bandera": "Libèria",
             "imo": "9842085",
             "mmsi": "636019213",
+            "fecha": "2026-03-19"
+        },
+        {
+            "hora": "06:00",
+            "nombre": "Msc Jordan Iii",
+            "naviera": "MEDITERRANEAN SHIPPING CO",
+            "terminal": "TERMINAL CATALUNYA SA",
+            "terminal_codigo": "6212",
+            "eslora": 237.0,
+            "pax_estimados": 2000,
+            "puerto": "Sines",
+            "tipo": "llegada",
+            "estado": "Autoritzada",
+            "bandera": "Panamà",
+            "imo": "8918980",
+            "mmsi": "355194000",
             "fecha": "2026-03-19"
         },
         {
@@ -174,22 +190,6 @@
             "bandera": "Libèria",
             "imo": "9864215",
             "mmsi": "636023645",
-            "fecha": "2026-03-19"
-        },
-        {
-            "hora": "15:55",
-            "nombre": "Msc Jordan Iii",
-            "naviera": "MEDITERRANEAN SHIPPING CO",
-            "terminal": "TERMINAL CATALUNYA SA",
-            "terminal_codigo": "6212",
-            "eslora": 237.0,
-            "pax_estimados": 2000,
-            "puerto": "Sines",
-            "tipo": "llegada",
-            "estado": "Iniciada",
-            "bandera": "Panamà",
-            "imo": "8918980",
-            "mmsi": "355194000",
             "fecha": "2026-03-19"
         },
         {
@@ -419,7 +419,7 @@
             "fecha": "2026-03-19"
         },
         {
-            "hora": "14:26",
+            "hora": "15:00",
             "nombre": "Amilcar",
             "naviera": "ROMEU Y CIA SA",
             "terminal": "TERMINAL PORT NOU SA",
@@ -428,7 +428,7 @@
             "pax_estimados": 1000,
             "puerto": "Rades/Tunis",
             "tipo": "salida",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Tunísia",
             "imo": "9207998",
             "mmsi": "672747000",
@@ -588,7 +588,7 @@
             "pax_estimados": 2000,
             "puerto": "Valencia",
             "tipo": "salida",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Panamà",
             "imo": "8918980",
             "mmsi": "355194000",
@@ -600,23 +600,23 @@
         "total_llegadas": 18,
         "total_salidas": 19,
         "pax_estimados_hoy": 22500,
-        "proximo_desembarco": "15:55",
-        "proximo_barco": "Msc Jordan Iii"
+        "proximo_desembarco": "18:00",
+        "proximo_barco": "Msc Rita V"
     },
     "terminales_activas": [
-        "6212",
         "E",
-        "8192",
-        "TC",
-        "F1",
-        "F3",
-        "8156",
         "F2",
-        "2398"
+        "TC",
+        "8192",
+        "6212",
+        "F1",
+        "8156",
+        "2398",
+        "F3"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-03-19T15:55:13.483083",
+        "actualizado": "2026-03-19T14:08:02.689870",
         "frecuencia": "horaria"
     }
 }
