@@ -145,7 +145,7 @@
             "fecha": "2026-03-19"
         },
         {
-            "hora": "10:23",
+            "hora": "09:15",
             "nombre": "Eco Savona",
             "naviera": "GRIMALDI EUROMED SPA",
             "terminal": "GRIMALDI TERMINAL BARCELONA SL",
@@ -154,26 +154,10 @@
             "pax_estimados": 2000,
             "puerto": "Valencia",
             "tipo": "llegada",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Itàlia",
             "imo": "9859569",
             "mmsi": "247383600",
-            "fecha": "2026-03-19"
-        },
-        {
-            "hora": "11:58",
-            "nombre": "Msc Nicola Mastro",
-            "naviera": "MEDITERRANEAN SHIPPING CO",
-            "terminal": "TERMINAL CATALUNYA SA",
-            "terminal_codigo": "6212",
-            "eslora": 0,
-            "pax_estimados": 500,
-            "puerto": "Valencia",
-            "tipo": "llegada",
-            "estado": "Iniciada",
-            "bandera": "Libèria",
-            "imo": "9930064",
-            "mmsi": "636022605",
             "fecha": "2026-03-19"
         },
         {
@@ -226,6 +210,22 @@
         },
         {
             "hora": "19:00",
+            "nombre": "Martin I Soler",
+            "naviera": "EUROLINEAS MARITIMAS S.A",
+            "terminal": "BALEARIA EUROLINEAS MARITIMAS SA ",
+            "terminal_codigo": "7332",
+            "eslora": 165.0,
+            "pax_estimados": 1000,
+            "puerto": "Alcudia",
+            "tipo": "llegada",
+            "estado": "Confirmada",
+            "bandera": "Espanya",
+            "imo": "9390367",
+            "mmsi": "224637000",
+            "fecha": "2026-03-19"
+        },
+        {
+            "hora": "19:00",
             "nombre": "Ciudad De Barcelona",
             "naviera": "TRASMED GLE S.L.",
             "terminal": "TERMINAL F2",
@@ -238,22 +238,6 @@
             "bandera": "Espanya",
             "imo": "9506289",
             "mmsi": "225416000",
-            "fecha": "2026-03-19"
-        },
-        {
-            "hora": "19:00",
-            "nombre": "Martin I Soler",
-            "naviera": "EUROLINEAS MARITIMAS S.A",
-            "terminal": "LEPANT/TRUCK CENTER",
-            "terminal_codigo": "TC",
-            "eslora": 165.0,
-            "pax_estimados": 1000,
-            "puerto": "Alcudia",
-            "tipo": "llegada",
-            "estado": "Autoritzada",
-            "bandera": "Espanya",
-            "imo": "9390367",
-            "mmsi": "224637000",
             "fecha": "2026-03-19"
         },
         {
@@ -524,7 +508,7 @@
             "pax_estimados": 2000,
             "puerto": "Savona",
             "tipo": "salida",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Itàlia",
             "imo": "9859569",
             "mmsi": "247383600",
@@ -534,13 +518,13 @@
             "hora": "21:30",
             "nombre": "Martin I Soler",
             "naviera": "BALEARIA EUROLINEAS MARITIMAS SA ",
-            "terminal": "LEPANT/TRUCK CENTER",
-            "terminal_codigo": "TC",
+            "terminal": "BALEARIA EUROLINEAS MARITIMAS SA ",
+            "terminal_codigo": "7332",
             "eslora": 165.0,
             "pax_estimados": 1000,
             "puerto": "Alcudia",
             "tipo": "salida",
-            "estado": "Autoritzada",
+            "estado": "Confirmada",
             "bandera": "Espanya",
             "imo": "9390367",
             "mmsi": "224637000",
@@ -612,27 +596,27 @@
         }
     ],
     "resumen": {
-        "total_cruceros": 24,
-        "total_llegadas": 18,
+        "total_cruceros": 23,
+        "total_llegadas": 17,
         "total_salidas": 20,
-        "pax_estimados_hoy": 22500,
-        "proximo_desembarco": "11:58",
-        "proximo_barco": "Msc Nicola Mastro"
+        "pax_estimados_hoy": 22000,
+        "proximo_desembarco": "14:00",
+        "proximo_barco": "Zenith Lumos"
     },
     "terminales_activas": [
-        "6212",
         "E",
-        "2398",
+        "8156",
+        "7332",
         "F2",
-        "F1",
-        "F3",
+        "2398",
+        "6212",
         "8192",
-        "TC",
-        "8156"
+        "F1",
+        "F3"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-03-19T11:35:54.676542",
+        "actualizado": "2026-03-19T09:43:44.198927",
         "frecuencia": "horaria"
     }
 }
