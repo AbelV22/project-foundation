@@ -1,7 +1,7 @@
 {
     "llegadas": [
         {
-            "hora": "00:56",
+            "hora": "00:15",
             "nombre": "Cruise Roma",
             "naviera": "GRIMALDI EUROMED SPA",
             "terminal": "TERMINAL F3",
@@ -10,14 +10,14 @@
             "pax_estimados": 3000,
             "puerto": "Porto Torres",
             "tipo": "llegada",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Itàlia",
             "imo": "9351476",
             "mmsi": "247219400",
             "fecha": "2026-03-20"
         },
         {
-            "hora": "01:27",
+            "hora": "01:00",
             "nombre": "Eco Livorno",
             "naviera": "GRIMALDI EUROMED SPA",
             "terminal": "GRIMALDI TERMINAL BARCELONA SL",
@@ -26,14 +26,14 @@
             "pax_estimados": 2000,
             "puerto": "Savona",
             "tipo": "llegada",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Itàlia",
             "imo": "9859557",
             "mmsi": "247383500",
             "fecha": "2026-03-20"
         },
         {
-            "hora": "03:40",
+            "hora": "03:00",
             "nombre": "Neptune Avra",
             "naviera": "NEPTUNE LINES SHIPPING",
             "terminal": "SETRAM",
@@ -42,14 +42,14 @@
             "pax_estimados": 1000,
             "puerto": "Tanger Med",
             "tipo": "llegada",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Illes Marshall",
             "imo": "8807155",
             "mmsi": "538009923",
             "fecha": "2026-03-20"
         },
         {
-            "hora": "03:40",
+            "hora": "03:00",
             "nombre": "Neptune Avra",
             "naviera": "NEPTUNE LINES SHIPPING",
             "terminal": "AUTOTERMINAL SA",
@@ -58,7 +58,7 @@
             "pax_estimados": 1000,
             "puerto": "Tanger Med",
             "tipo": "llegada",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Illes Marshall",
             "imo": "8807155",
             "mmsi": "538009923",
@@ -268,7 +268,7 @@
             "pax_estimados": 2000,
             "puerto": "Valencia",
             "tipo": "salida",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Itàlia",
             "imo": "9859557",
             "mmsi": "247383500",
@@ -460,7 +460,7 @@
             "pax_estimados": 3000,
             "puerto": "Civitavecchia",
             "tipo": "salida",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Itàlia",
             "imo": "9351476",
             "mmsi": "247219400",
@@ -472,23 +472,23 @@
         "total_llegadas": 16,
         "total_salidas": 13,
         "pax_estimados_hoy": 17000,
-        "proximo_desembarco": "06:00",
-        "proximo_barco": "Msc Mombasa"
+        "proximo_desembarco": null,
+        "proximo_barco": null
     },
     "terminales_activas": [
-        "2396",
-        "6212",
-        "F2",
         "F1",
+        "7083",
+        "2396",
         "F3",
         "8156",
-        "7083",
+        "6154",
+        "F2",
         "H",
-        "6154"
+        "6212"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-03-20T05:52:22.071065",
+        "actualizado": "2026-03-19T23:30:31.234552",
         "frecuencia": "horaria"
     }
 }
