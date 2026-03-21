@@ -196,6 +196,22 @@
     "salidas": [
         {
             "hora": "02:00",
+            "nombre": "Msc Carlotta",
+            "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
+            "terminal": "TERMINAL CATALUNYA SA",
+            "terminal_codigo": "6212",
+            "eslora": 0,
+            "pax_estimados": 500,
+            "puerto": "Genoa",
+            "tipo": "salida",
+            "estado": "Iniciada",
+            "bandera": "Libèria",
+            "imo": "9756731",
+            "mmsi": "636018106",
+            "fecha": "2026-03-21"
+        },
+        {
+            "hora": "02:00",
             "nombre": "Msc Rita V",
             "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
             "terminal": "TERMINAL CATALUNYA SA",
@@ -307,22 +323,6 @@
             "fecha": "2026-03-21"
         },
         {
-            "hora": "12:31",
-            "nombre": "Msc Carlotta",
-            "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
-            "terminal": "TERMINAL CATALUNYA SA",
-            "terminal_codigo": "6212",
-            "eslora": 0,
-            "pax_estimados": 500,
-            "puerto": "Genoa",
-            "tipo": "salida",
-            "estado": "Finalitzada",
-            "bandera": "Libèria",
-            "imo": "9756731",
-            "mmsi": "636018106",
-            "fecha": "2026-03-21"
-        },
-        {
             "hora": "13:00",
             "nombre": "Msc Izmir F",
             "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
@@ -408,26 +408,26 @@
         "total_llegadas": 12,
         "total_salidas": 13,
         "pax_estimados_hoy": 22000,
-        "proximo_desembarco": "19:00",
-        "proximo_barco": "Martin I Soler"
+        "proximo_desembarco": "12:00",
+        "proximo_barco": "Msc Faith"
     },
     "terminales_activas": [
-        "B",
-        "E",
-        "F3",
-        "7083",
-        "TC",
-        "F2",
-        "F1",
-        "6212",
         "6154",
+        "7083",
+        "E",
         "2396",
+        "8156",
+        "F1",
+        "B",
+        "6212",
+        "TC",
         "H",
-        "8156"
+        "F2",
+        "F3"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-03-21T13:42:37.374918",
+        "actualizado": "2026-03-21T11:23:50.117915",
         "frecuencia": "horaria"
     }
 }
