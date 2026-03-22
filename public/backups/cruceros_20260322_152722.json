@@ -97,7 +97,7 @@
             "fecha": "2026-03-22"
         },
         {
-            "hora": "08:39",
+            "hora": "08:00",
             "nombre": "Abel Matutes",
             "naviera": "EUROLINEAS MARITIMAS S.A",
             "terminal": "LEPANT/TRUCK CENTER",
@@ -129,6 +129,22 @@
             "fecha": "2026-03-22"
         },
         {
+            "hora": "12:30",
+            "nombre": "Abel Matutes",
+            "naviera": "EUROLINEAS MARITIMAS S.A",
+            "terminal": "LEPANT/TRUCK CENTER",
+            "terminal_codigo": "TC",
+            "eslora": 190.0,
+            "pax_estimados": 1000,
+            "puerto": "Palma de Mallorca",
+            "tipo": "llegada",
+            "estado": "Iniciada",
+            "bandera": "Espanya",
+            "imo": "9441130",
+            "mmsi": "224402000",
+            "fecha": "2026-03-22"
+        },
+        {
             "hora": "13:00",
             "nombre": "Martin I Soler",
             "naviera": "EUROLINEAS MARITIMAS S.A",
@@ -142,22 +158,6 @@
             "bandera": "Espanya",
             "imo": "9390367",
             "mmsi": "224637000",
-            "fecha": "2026-03-22"
-        },
-        {
-            "hora": "13:08",
-            "nombre": "Abel Matutes",
-            "naviera": "EUROLINEAS MARITIMAS S.A",
-            "terminal": "LEPANT/TRUCK CENTER",
-            "terminal_codigo": "TC",
-            "eslora": 190.0,
-            "pax_estimados": 1000,
-            "puerto": "Palma de Mallorca",
-            "tipo": "llegada",
-            "estado": "Iniciada",
-            "bandera": "Espanya",
-            "imo": "9441130",
-            "mmsi": "224402000",
             "fecha": "2026-03-22"
         },
         {
@@ -195,6 +195,22 @@
             "fecha": "2026-03-22"
         },
         {
+            "hora": "07:59",
+            "nombre": "Abel Matutes",
+            "naviera": "BALEARIA EUROLINEAS MARITIMAS SA ",
+            "terminal": "LEPANT/TRUCK CENTER",
+            "terminal_codigo": "TC",
+            "eslora": 190.0,
+            "pax_estimados": 1000,
+            "puerto": "Palma de Mallorca",
+            "tipo": "salida",
+            "estado": "Iniciada",
+            "bandera": "Espanya",
+            "imo": "9441130",
+            "mmsi": "224402000",
+            "fecha": "2026-03-22"
+        },
+        {
             "hora": "08:38",
             "nombre": "Msc Faith",
             "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
@@ -208,22 +224,6 @@
             "bandera": "Libèria",
             "imo": "9842085",
             "mmsi": "636019213",
-            "fecha": "2026-03-22"
-        },
-        {
-            "hora": "08:38",
-            "nombre": "Abel Matutes",
-            "naviera": "BALEARIA EUROLINEAS MARITIMAS SA ",
-            "terminal": "LEPANT/TRUCK CENTER",
-            "terminal_codigo": "TC",
-            "eslora": 190.0,
-            "pax_estimados": 1000,
-            "puerto": "Palma de Mallorca",
-            "tipo": "salida",
-            "estado": "Iniciada",
-            "bandera": "Espanya",
-            "imo": "9441130",
-            "mmsi": "224402000",
             "fecha": "2026-03-22"
         },
         {
@@ -243,6 +243,22 @@
             "fecha": "2026-03-22"
         },
         {
+            "hora": "12:29",
+            "nombre": "Abel Matutes",
+            "naviera": "BALEARIA EUROLINEAS MARITIMAS SA ",
+            "terminal": "LEPANT/TRUCK CENTER",
+            "terminal_codigo": "TC",
+            "eslora": 190.0,
+            "pax_estimados": 1000,
+            "puerto": "Palma de Mallorca",
+            "tipo": "salida",
+            "estado": "Iniciada",
+            "bandera": "Espanya",
+            "imo": "9441130",
+            "mmsi": "224402000",
+            "fecha": "2026-03-22"
+        },
+        {
             "hora": "12:59",
             "nombre": "Martin I Soler",
             "naviera": "BALEARIA EUROLINEAS MARITIMAS SA ",
@@ -256,22 +272,6 @@
             "bandera": "Espanya",
             "imo": "9390367",
             "mmsi": "224637000",
-            "fecha": "2026-03-22"
-        },
-        {
-            "hora": "13:07",
-            "nombre": "Abel Matutes",
-            "naviera": "BALEARIA EUROLINEAS MARITIMAS SA ",
-            "terminal": "LEPANT/TRUCK CENTER",
-            "terminal_codigo": "TC",
-            "eslora": 190.0,
-            "pax_estimados": 1000,
-            "puerto": "Palma de Mallorca",
-            "tipo": "salida",
-            "estado": "Iniciada",
-            "bandera": "Espanya",
-            "imo": "9441130",
-            "mmsi": "224402000",
             "fecha": "2026-03-22"
         },
         {
@@ -476,19 +476,19 @@
         "proximo_barco": "Martin I Soler"
     },
     "terminales_activas": [
-        "H",
-        "E",
-        "B",
-        "F1",
-        "TC",
         "6212",
         "F2",
+        "TC",
+        "B",
         "7083",
-        "F3"
+        "F1",
+        "F3",
+        "H",
+        "E"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-03-22T15:27:22.732495",
+        "actualizado": "2026-03-22T13:44:12.750255",
         "frecuencia": "horaria"
     }
 }
