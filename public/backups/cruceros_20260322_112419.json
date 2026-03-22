@@ -49,6 +49,22 @@
             "fecha": "2026-03-22"
         },
         {
+            "hora": "06:15",
+            "nombre": "Msc Verona",
+            "naviera": "MEDITERRANEAN SHIPPING CO",
+            "terminal": "TERMINAL CATALUNYA SA",
+            "terminal_codigo": "6212",
+            "eslora": 366.0,
+            "pax_estimados": 6500,
+            "puerto": "Damietta",
+            "tipo": "llegada",
+            "estado": "Autoritzada",
+            "bandera": "Libèria",
+            "imo": "9987287",
+            "mmsi": "636024514",
+            "fecha": "2026-03-22"
+        },
+        {
             "hora": "07:16",
             "nombre": "Marguerite A",
             "naviera": "ARKAS CONTAINER TRANSPORT SA",
@@ -110,22 +126,6 @@
             "bandera": "Espanya",
             "imo": "9441130",
             "mmsi": "224402000",
-            "fecha": "2026-03-22"
-        },
-        {
-            "hora": "10:47",
-            "nombre": "Msc Verona",
-            "naviera": "MEDITERRANEAN SHIPPING CO",
-            "terminal": "TERMINAL CATALUNYA SA",
-            "terminal_codigo": "6212",
-            "eslora": 366.0,
-            "pax_estimados": 6500,
-            "puerto": "Damietta",
-            "tipo": "llegada",
-            "estado": "Iniciada",
-            "bandera": "Libèria",
-            "imo": "9987287",
-            "mmsi": "636024514",
             "fecha": "2026-03-22"
         },
         {
@@ -460,19 +460,19 @@
         "proximo_barco": "Martin I Soler"
     },
     "terminales_activas": [
+        "E",
+        "F2",
+        "6212",
+        "F3",
         "7083",
+        "H",
         "F1",
         "B",
-        "6212",
-        "E",
-        "F3",
-        "H",
-        "F2",
         "TC"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-03-22T11:24:19.970700",
+        "actualizado": "2026-03-22T09:33:01.416884",
         "frecuencia": "horaria"
     }
 }
