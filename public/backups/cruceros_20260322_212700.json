@@ -138,7 +138,7 @@
             "pax_estimados": 1000,
             "puerto": "Alcudia",
             "tipo": "llegada",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Espanya",
             "imo": "9390367",
             "mmsi": "224637000",
@@ -170,7 +170,7 @@
             "pax_estimados": 1000,
             "puerto": "Alcudia",
             "tipo": "llegada",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Espanya",
             "imo": "9390367",
             "mmsi": "224637000",
@@ -252,7 +252,7 @@
             "pax_estimados": 1000,
             "puerto": "Alcudia",
             "tipo": "salida",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Espanya",
             "imo": "9390367",
             "mmsi": "224637000",
@@ -316,7 +316,7 @@
             "pax_estimados": 1000,
             "puerto": "Alcudia",
             "tipo": "salida",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Espanya",
             "imo": "9390367",
             "mmsi": "224637000",
@@ -419,7 +419,7 @@
             "fecha": "2026-03-22"
         },
         {
-            "hora": "21:35",
+            "hora": "21:30",
             "nombre": "Martin I Soler",
             "naviera": "BALEARIA EUROLINEAS MARITIMAS SA ",
             "terminal": "TERMINAL F1",
@@ -428,7 +428,7 @@
             "pax_estimados": 1000,
             "puerto": "Alcudia",
             "tipo": "salida",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Espanya",
             "imo": "9390367",
             "mmsi": "224637000",
@@ -476,19 +476,19 @@
         "proximo_barco": null
     },
     "terminales_activas": [
-        "F2",
-        "E",
-        "TC",
-        "F1",
-        "6212",
         "H",
         "F3",
         "B",
-        "7083"
+        "E",
+        "F2",
+        "6212",
+        "TC",
+        "7083",
+        "F1"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-03-22T21:27:00.240269",
+        "actualizado": "2026-03-22T19:26:04.682660",
         "frecuencia": "horaria"
     }
 }
