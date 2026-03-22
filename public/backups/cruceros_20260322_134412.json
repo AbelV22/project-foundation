@@ -129,6 +129,22 @@
             "fecha": "2026-03-22"
         },
         {
+            "hora": "11:30",
+            "nombre": "Martin I Soler",
+            "naviera": "EUROLINEAS MARITIMAS S.A",
+            "terminal": "",
+            "terminal_codigo": "",
+            "eslora": 165.0,
+            "pax_estimados": 1000,
+            "puerto": "Alcudia",
+            "tipo": "llegada",
+            "estado": "Iniciada",
+            "bandera": "Espanya",
+            "imo": "9390367",
+            "mmsi": "224637000",
+            "fecha": "2026-03-22"
+        },
+        {
             "hora": "12:30",
             "nombre": "Abel Matutes",
             "naviera": "EUROLINEAS MARITIMAS S.A",
@@ -142,22 +158,6 @@
             "bandera": "Espanya",
             "imo": "9441130",
             "mmsi": "224402000",
-            "fecha": "2026-03-22"
-        },
-        {
-            "hora": "13:00",
-            "nombre": "Martin I Soler",
-            "naviera": "EUROLINEAS MARITIMAS S.A",
-            "terminal": "",
-            "terminal_codigo": "",
-            "eslora": 165.0,
-            "pax_estimados": 1000,
-            "puerto": "Alcudia",
-            "tipo": "llegada",
-            "estado": "Iniciada",
-            "bandera": "Espanya",
-            "imo": "9390367",
-            "mmsi": "224637000",
             "fecha": "2026-03-22"
         },
         {
@@ -227,19 +227,19 @@
             "fecha": "2026-03-22"
         },
         {
-            "hora": "11:44",
-            "nombre": "Msc Izmir F",
-            "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
-            "terminal": "TERMINAL CATALUNYA SA",
-            "terminal_codigo": "6212",
-            "eslora": 0,
-            "pax_estimados": 500,
-            "puerto": "Alger (Algiers)",
+            "hora": "11:29",
+            "nombre": "Martin I Soler",
+            "naviera": "BALEARIA EUROLINEAS MARITIMAS SA ",
+            "terminal": "TERMINAL F1",
+            "terminal_codigo": "F1",
+            "eslora": 165.0,
+            "pax_estimados": 1000,
+            "puerto": "Alcudia",
             "tipo": "salida",
-            "estado": "Finalitzada",
-            "bandera": "Libèria",
-            "imo": "9127021",
-            "mmsi": "636017878",
+            "estado": "Iniciada",
+            "bandera": "Espanya",
+            "imo": "9390367",
+            "mmsi": "224637000",
             "fecha": "2026-03-22"
         },
         {
@@ -256,22 +256,6 @@
             "bandera": "Espanya",
             "imo": "9441130",
             "mmsi": "224402000",
-            "fecha": "2026-03-22"
-        },
-        {
-            "hora": "12:59",
-            "nombre": "Martin I Soler",
-            "naviera": "BALEARIA EUROLINEAS MARITIMAS SA ",
-            "terminal": "TERMINAL F1",
-            "terminal_codigo": "F1",
-            "eslora": 165.0,
-            "pax_estimados": 1000,
-            "puerto": "Alcudia",
-            "tipo": "salida",
-            "estado": "Iniciada",
-            "bandera": "Espanya",
-            "imo": "9390367",
-            "mmsi": "224637000",
             "fecha": "2026-03-22"
         },
         {
@@ -468,27 +452,27 @@
         }
     ],
     "resumen": {
-        "total_cruceros": 15,
+        "total_cruceros": 14,
         "total_llegadas": 11,
-        "total_salidas": 18,
+        "total_salidas": 17,
         "pax_estimados_hoy": 24500,
-        "proximo_desembarco": "15:45",
+        "proximo_desembarco": "11:30",
         "proximo_barco": "Martin I Soler"
     },
     "terminales_activas": [
-        "6212",
-        "F2",
-        "TC",
-        "B",
         "7083",
         "F1",
+        "B",
+        "6212",
+        "E",
         "F3",
         "H",
-        "E"
+        "F2",
+        "TC"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-03-22T13:44:12.750255",
+        "actualizado": "2026-03-22T11:24:19.970700",
         "frecuencia": "horaria"
     }
 }
