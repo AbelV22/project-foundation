@@ -179,7 +179,7 @@
     ],
     "salidas": [
         {
-            "hora": "02:07",
+            "hora": "01:30",
             "nombre": "Cruise Barcelona",
             "naviera": "GRIMALDI LOGISTICA ESPAÑA SL",
             "terminal": "TERMINAL F3",
@@ -188,7 +188,7 @@
             "pax_estimados": 500,
             "puerto": "Civitavecchia",
             "tipo": "salida",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Itàlia",
             "imo": "9351488",
             "mmsi": "247243600",
@@ -456,23 +456,23 @@
         "total_llegadas": 11,
         "total_salidas": 17,
         "pax_estimados_hoy": 24500,
-        "proximo_desembarco": "06:00",
-        "proximo_barco": "Msc Cedar Ii"
+        "proximo_desembarco": null,
+        "proximo_barco": null
     },
     "terminales_activas": [
         "7083",
-        "B",
-        "F3",
-        "H",
-        "E",
         "F1",
-        "F2",
+        "TC",
         "6212",
-        "TC"
+        "F3",
+        "E",
+        "H",
+        "B",
+        "F2"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-03-22T05:54:00.909066",
+        "actualizado": "2026-03-21T23:26:04.354364",
         "frecuencia": "horaria"
     }
 }
