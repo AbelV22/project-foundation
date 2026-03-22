@@ -58,7 +58,7 @@
             "pax_estimados": 1000,
             "puerto": "Valencia",
             "tipo": "llegada",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Malta",
             "imo": "9305893",
             "mmsi": "215416000",
@@ -161,7 +161,7 @@
             "fecha": "2026-03-22"
         },
         {
-            "hora": "17:01",
+            "hora": "15:45",
             "nombre": "Martin I Soler",
             "naviera": "EUROLINEAS MARITIMAS S.A",
             "terminal": "TERMINAL F1",
@@ -275,39 +275,7 @@
             "fecha": "2026-03-22"
         },
         {
-            "hora": "15:29",
-            "nombre": "Zenith Lumos",
-            "naviera": "OCEAN NETWORK EXPRESS SPAIN SA",
-            "terminal": "TERMINAL CATALUNYA SA",
-            "terminal_codigo": "6212",
-            "eslora": 366.0,
-            "pax_estimados": 6500,
-            "puerto": "Genoa",
-            "tipo": "salida",
-            "estado": "Finalitzada",
-            "bandera": "Libèria",
-            "imo": "9864215",
-            "mmsi": "636023645",
-            "fecha": "2026-03-22"
-        },
-        {
-            "hora": "16:25",
-            "nombre": "Marguerite A",
-            "naviera": "ARKAS SPAIN SA",
-            "terminal": "APM TERMINALS BARCELONA, S.L.U.",
-            "terminal_codigo": "7083",
-            "eslora": 184.0,
-            "pax_estimados": 1000,
-            "puerto": "Fos-sur-Mer",
-            "tipo": "salida",
-            "estado": "Finalitzada",
-            "bandera": "Malta",
-            "imo": "9305893",
-            "mmsi": "215416000",
-            "fecha": "2026-03-22"
-        },
-        {
-            "hora": "17:00",
+            "hora": "15:44",
             "nombre": "Martin I Soler",
             "naviera": "BALEARIA EUROLINEAS MARITIMAS SA ",
             "terminal": "",
@@ -371,6 +339,22 @@
             "fecha": "2026-03-22"
         },
         {
+            "hora": "18:00",
+            "nombre": "Marguerite A",
+            "naviera": "ARKAS SPAIN SA",
+            "terminal": "APM TERMINALS BARCELONA, S.L.U.",
+            "terminal_codigo": "7083",
+            "eslora": 184.0,
+            "pax_estimados": 1000,
+            "puerto": "Fos-sur-Mer",
+            "tipo": "salida",
+            "estado": "Iniciada",
+            "bandera": "Malta",
+            "imo": "9305893",
+            "mmsi": "215416000",
+            "fecha": "2026-03-22"
+        },
+        {
             "hora": "20:00",
             "nombre": "Msc Cedar Ii",
             "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
@@ -416,6 +400,22 @@
             "bandera": "Portugal",
             "imo": "9770737",
             "mmsi": "255805869",
+            "fecha": "2026-03-22"
+        },
+        {
+            "hora": "21:00",
+            "nombre": "Zenith Lumos",
+            "naviera": "OCEAN NETWORK EXPRESS SPAIN SA",
+            "terminal": "TERMINAL CATALUNYA SA",
+            "terminal_codigo": "6212",
+            "eslora": 366.0,
+            "pax_estimados": 6500,
+            "puerto": "Genoa",
+            "tipo": "salida",
+            "estado": "Iniciada",
+            "bandera": "Libèria",
+            "imo": "9864215",
+            "mmsi": "636023645",
             "fecha": "2026-03-22"
         },
         {
@@ -472,23 +472,23 @@
         "total_llegadas": 11,
         "total_salidas": 18,
         "pax_estimados_hoy": 24500,
-        "proximo_desembarco": null,
-        "proximo_barco": null
+        "proximo_desembarco": "15:45",
+        "proximo_barco": "Martin I Soler"
     },
     "terminales_activas": [
-        "E",
-        "F3",
-        "7083",
-        "TC",
-        "F1",
-        "6212",
         "H",
+        "E",
         "B",
-        "F2"
+        "F1",
+        "TC",
+        "6212",
+        "F2",
+        "7083",
+        "F3"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-03-22T17:25:35.851110",
+        "actualizado": "2026-03-22T15:27:22.732495",
         "frecuencia": "horaria"
     }
 }
