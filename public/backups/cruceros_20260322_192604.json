@@ -74,7 +74,7 @@
             "pax_estimados": 4500,
             "puerto": "Marseille",
             "tipo": "llegada",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Itàlia",
             "imo": "9781891",
             "mmsi": "247431200",
@@ -90,7 +90,7 @@
             "pax_estimados": 3000,
             "puerto": "Valencia",
             "tipo": "llegada",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Panamà",
             "imo": "9320099",
             "mmsi": "372497000",
@@ -323,7 +323,7 @@
             "fecha": "2026-03-22"
         },
         {
-            "hora": "18:17",
+            "hora": "18:00",
             "nombre": "Viking Saturn",
             "naviera": "A PEREZ Y CIA SL",
             "terminal": "Terminal B (Maremagnum)",
@@ -332,30 +332,14 @@
             "pax_estimados": 2000,
             "puerto": "Sete",
             "tipo": "salida",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Noruega",
             "imo": "9845922",
             "mmsi": "258024000",
             "fecha": "2026-03-22"
         },
         {
-            "hora": "18:20",
-            "nombre": "Msc Orchestra",
-            "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
-            "terminal": "ADOSSAT/TERMINAL H",
-            "terminal_codigo": "H",
-            "eslora": 294.0,
-            "pax_estimados": 3000,
-            "puerto": "Marseille",
-            "tipo": "salida",
-            "estado": "Finalitzada",
-            "bandera": "Panamà",
-            "imo": "9320099",
-            "mmsi": "372497000",
-            "fecha": "2026-03-22"
-        },
-        {
-            "hora": "18:38",
+            "hora": "18:00",
             "nombre": "Costa Toscana",
             "naviera": "NOATUM MARITIME SPAIN SAU",
             "terminal": "Terminal E (Adossat)",
@@ -364,10 +348,26 @@
             "pax_estimados": 4500,
             "puerto": "Cagliari",
             "tipo": "salida",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Itàlia",
             "imo": "9781891",
             "mmsi": "247431200",
+            "fecha": "2026-03-22"
+        },
+        {
+            "hora": "18:00",
+            "nombre": "Msc Orchestra",
+            "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
+            "terminal": "ADOSSAT/TERMINAL H",
+            "terminal_codigo": "H",
+            "eslora": 294.0,
+            "pax_estimados": 3000,
+            "puerto": "Marseille",
+            "tipo": "salida",
+            "estado": "Iniciada",
+            "bandera": "Panamà",
+            "imo": "9320099",
+            "mmsi": "372497000",
             "fecha": "2026-03-22"
         },
         {
@@ -476,19 +476,19 @@
         "proximo_barco": null
     },
     "terminales_activas": [
-        "H",
-        "F3",
-        "B",
         "E",
-        "F2",
-        "6212",
-        "TC",
+        "F3",
         "7083",
-        "F1"
+        "TC",
+        "F1",
+        "6212",
+        "H",
+        "B",
+        "F2"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-03-22T19:26:04.682660",
+        "actualizado": "2026-03-22T17:25:35.851110",
         "frecuencia": "horaria"
     }
 }
