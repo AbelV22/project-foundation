@@ -60,7 +60,7 @@ def obtener_trenes():
 
         # 2. LLAMAR API JSON DIRECTAMENTE (sin interacción con UI)
         print("📡 Llamando API JSON de horarios AV/LD Llegadas...")
-        whitelist = ["AVE", "AVLO", "OUIGO", "IRYO", "ALVIA", "EUROMED", "INTERCITY", "TGV", "LD", "MD", "AVANT"]
+        whitelist = ["AVE", "AVLO", "OUIGO", "IRYO", "ALVIA", "EUROMED", "INTERCITY", "TGV", "LD"]
         page_num = 0
         max_pages = 20
 

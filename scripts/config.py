@@ -84,8 +84,8 @@ VALIDATION = {
     
     # Whitelist de trenes válidos
     'train_whitelist': [
-        "AVE", "AVLO", "OUIGO", "IRYO", "ALVIA", 
-        "EUROMED", "INTERCITY", "TGV", "LD", "MD", "AVANT"
+        "AVE", "AVLO", "OUIGO", "IRYO", "ALVIA",
+        "EUROMED", "INTERCITY", "TGV", "LD"
     ],
 }
 
