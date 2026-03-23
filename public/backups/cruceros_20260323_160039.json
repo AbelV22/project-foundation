@@ -138,7 +138,7 @@
             "pax_estimados": 1000,
             "puerto": "Ibiza",
             "tipo": "llegada",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Itàlia",
             "imo": "8712518",
             "mmsi": "247163900",
@@ -243,7 +243,7 @@
             "fecha": "2026-03-23"
         },
         {
-            "hora": "15:10",
+            "hora": "15:00",
             "nombre": "Gnv Cristal",
             "naviera": "TRANSCOMA BALEARES SA",
             "terminal": "TERMINAL F2",
@@ -252,7 +252,7 @@
             "pax_estimados": 1000,
             "puerto": "Sete",
             "tipo": "salida",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Itàlia",
             "imo": "8712518",
             "mmsi": "247163900",
@@ -428,16 +428,16 @@
         "proximo_barco": "Ciudad De Palma"
     },
     "terminales_activas": [
-        "F1",
-        "8156",
         "6212",
+        "F1",
         "F3",
         "E",
+        "8156",
         "F2"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-03-23T16:00:39.602655",
+        "actualizado": "2026-03-23T14:15:43.847669",
         "frecuencia": "horaria"
     }
 }
