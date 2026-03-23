@@ -58,15 +58,16 @@ def obtener_trenes():
 
         # 2. NAVEGACIÓN
         print("👆 Configurando filtros...")
-        # Espera explicita a la pestaña
+        # Primero seleccionar Radio Button AV/LD (antes de cambiar de pestaña)
+        radios = wait.until(lambda d: d.find_elements(By.CSS_SELECTOR, "input[type='radio']"))
+        if len(radios) > 1: click_js(driver, radios[1])
+        time.sleep(1)
+
+        # Cambiar a pestaña Llegadas
         tab_llegadas = wait.until(EC.element_to_be_clickable((By.CSS_SELECTOR, "a[href='#tab-llegadas']")))
         click_js(driver, tab_llegadas)
-        time.sleep(2)
+        time.sleep(1)
 
-        # Seleccionar Radio Button (Larga Distancia)
-        radios = driver.find_elements(By.CSS_SELECTOR, "input[type='radio']")
-        if len(radios) > 1: click_js(driver, radios[1])
-        
         # Botón Consultar
         btn_consultar = driver.find_element(By.CSS_SELECTOR, "input[value='Consultar']")
         click_js(driver, btn_consultar)
@@ -117,7 +118,15 @@ def obtener_trenes():
         print("👀 Procesando filas extraídas...")
         filas = driver.find_elements(By.CSS_SELECTOR, "#horas-trenes-estacion-llegadas tbody tr")
         print(f"📊 Filas encontradas en HTML: {len(filas)}")
-        
+
+        # Debug: mostrar las primeras filas para diagnóstico
+        for i, fila in enumerate(filas[:3]):
+            try:
+                celdas = fila.find_elements(By.TAG_NAME, "td")
+                texts = [c.text.strip()[:30] for c in celdas]
+                print(f"   DEBUG fila {i}: {texts}")
+            except: pass
+
         whitelist = ["AVE", "AVLO", "OUIGO", "IRYO", "ALVIA", "EUROMED", "INTERCITY", "TGV", "LD", "MD", "AVANT"]
 
         for fila in filas:
@@ -125,18 +134,44 @@ def obtener_trenes():
                 celdas = fila.find_elements(By.TAG_NAME, "td")
                 if len(celdas) < 3: continue
 
-                hora_raw = celdas[0].text.strip()
+                # HORA: La celda tiene 2 spans (programada y estimada/real).
+                # Usamos los spans internos porque .text los concatena sin separador.
+                hora_spans = celdas[0].find_elements(By.CSS_SELECTOR, "div > span")
+                if len(hora_spans) >= 2 and hora_spans[1].text.strip():
+                    hora_real = hora_spans[1].text.strip()  # Hora real/estimada
+                elif hora_spans:
+                    hora_real = hora_spans[0].text.strip()  # Solo hora programada
+                else:
+                    hora_real = limpiar_hora(celdas[0].text.strip())  # Fallback
+
+                # ORIGEN
                 origen = celdas[1].text.strip()
-                tipo_raw = celdas[2].text.strip().upper()
-                via = celdas[3].text.strip() if len(celdas) > 3 else "-"
-                
-                # Limpieza
-                hora_real = limpiar_hora(hora_raw)
+
+                # TREN: La celda tiene 2 spans (tipo y número).
+                tren_spans = celdas[2].find_elements(By.CSS_SELECTOR, "div > span")
+                if tren_spans:
+                    tipo_raw = tren_spans[0].text.strip().upper()
+                    tren_num = tren_spans[1].text.strip() if len(tren_spans) > 1 else ""
+                else:
+                    tipo_raw = celdas[2].text.strip().upper()
+                    tren_num = ""
+
                 tipo_limpio = limpiar_nombre_tren(tipo_raw)
+                if tren_num:
+                    tipo_limpio = f"{tipo_limpio} {tren_num}"
+
+                # VÍA: El número está en un span dentro de un div.
+                if len(celdas) > 3:
+                    via_span = celdas[3].find_elements(By.CSS_SELECTOR, "div > span")
+                    via = via_span[0].text.strip() if via_span else celdas[3].text.strip()
+                    if not via:
+                        via = "-"
+                else:
+                    via = "-"
 
                 # Validaciones
                 if not re.match(r"\d{2}:\d{2}", hora_real): continue
-                
+
                 # Filtros
                 es_valido = any(marca in tipo_limpio for marca in whitelist)
                 if "RODALIES" in tipo_raw or "CERCANIAS" in tipo_raw: es_valido = False
