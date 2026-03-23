@@ -20,202 +20,174 @@ logger = setup_logger('ADIF_Scraper')
 URL_ADIF = URLS.get('adif', "https://www.adif.es/w/71801-barcelona-sants?pageFromPlid=335")
 OUTPUT_FILE = str(OUTPUT_FILES.get('trenes_sants', os.path.join(os.getcwd(), "public", "trenes_sants.json")))
 
-def click_js(driver, elemento):
-    driver.execute_script("arguments[0].click();", elemento)
-
-def limpiar_hora(texto_hora):
-    """Si hay salto de línea (12:00\n12:10), nos quedamos con la última."""
-    if not texto_hora: return ""
-    partes = texto_hora.split('\n')
-    return partes[-1].strip()
-
 def limpiar_nombre_tren(texto_sucio):
-    # Convierte "RF - AVE 03662" en "AVE 03662"
+    # Convierte "RF - AVE" en "AVE", "IL - IRYO" en "IRYO", etc.
     texto = texto_sucio.replace('\n', ' ')
     limpio = re.sub(r'^(RF|RI|MD|R\d+|IL)\s*-\s*', '', texto)
     return limpio.strip()
 
 def obtener_trenes():
-    print("🚀 Iniciando Scraper de Trenes Sants (Modo GitHub Actions)...")
-    
+    print("🚀 Iniciando Scraper de Trenes Sants (API directa)...")
+
     options = Options()
     options.add_argument('--headless')
     options.add_argument('--no-sandbox')
     options.add_argument('--disable-dev-shm-usage')
     options.add_argument('--window-size=1920,1080')
     options.add_argument("user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36")
-    
+
     driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=options)
     datos = []
 
     try:
+        # 1. CARGAR PÁGINA PARA OBTENER TOKEN DE AUTENTICACIÓN
+        print("🔑 Obteniendo token de autenticación...")
         driver.get(URL_ADIF)
-        wait = WebDriverWait(driver, 20) # Aumentado tiempo de espera inicial
-        
-        # 1. MATAR COOKIES (Crítico para que no tapen el botón de cargar)
-        try: driver.execute_script("var b=document.querySelector('#onetrust-banner-sdk'); if(b) b.remove();")
-        except: pass
-
-        # 2. NAVEGACIÓN (usando JS directo para compatibilidad con headless)
-        print("👆 Configurando filtros...")
-
-        # Esperar a que carguen los radio buttons
+        wait = WebDriverWait(driver, 20)
         wait.until(lambda d: d.find_elements(By.CSS_SELECTOR, "input[type='radio']"))
 
-        # Seleccionar AV/LD radio y pestaña Llegadas via JS con dispatch de eventos
-        driver.execute_script("""
-            // 1. Seleccionar radio AV/LD
-            var radios = document.querySelectorAll("input[type='radio']");
-            if (radios.length > 1) {
-                radios[1].checked = true;
-                radios[1].dispatchEvent(new Event('change', {bubbles: true}));
-                radios[1].dispatchEvent(new Event('click', {bubbles: true}));
-            }
-            // 2. Activar pestaña Llegadas
-            var tab = document.querySelector("a[href='#tab-llegadas']");
-            if (tab) tab.click();
+        # Extraer p_p_auth del HTML de la página
+        auth_token = driver.execute_script("""
+            var html = document.documentElement.innerHTML;
+            var match = html.match(/p_p_auth=([^"'&]+)/);
+            return match ? match[1] : null;
         """)
-        time.sleep(2)
 
-        # Botón Consultar
-        btn_consultar = wait.until(EC.element_to_be_clickable((By.CSS_SELECTOR, "input[value='Consultar']")))
-        click_js(driver, btn_consultar)
-        print("⏳ Consulta enviada. Esperando tabla...")
-        time.sleep(6)
+        if not auth_token:
+            print("❌ No se pudo obtener el token p_p_auth")
+            sys.exit(1)
 
-        # Verificar que la tabla de llegadas tiene contenido
-        tabla_info = driver.execute_script("""
-            var tabla = document.querySelector('#horas-trenes-estacion-llegadas');
-            if (!tabla) return 'tabla_no_encontrada';
-            var filas = tabla.querySelectorAll('tbody tr');
-            var primerTexto = filas.length > 0 ? filas[0].textContent.trim().substring(0, 60) : '';
-            return 'filas=' + filas.length + ' texto=' + primerTexto;
-        """)
-        print(f"   Verificación tabla: {tabla_info}")
+        print(f"   Token obtenido: {auth_token}")
 
-        # 3. CARGAR TODOS LOS TRENES (click en "Cargar más" via JS)
-        print("🔄 Cargando todos los trenes...")
-        max_clicks = 20  # Seguridad anti-loop infinito
+        # 2. LLAMAR API DIRECTAMENTE (sin interacción con UI)
+        print("📡 Llamando API de horarios AV/LD Llegadas...")
+        whitelist = ["AVE", "AVLO", "OUIGO", "IRYO", "ALVIA", "EUROMED", "INTERCITY", "TGV", "LD", "MD", "AVANT"]
+        page_num = 0
+        max_pages = 20
 
-        for click_num in range(max_clicks):
-            try:
-                # Contar filas antes del click
-                filas_antes = driver.execute_script(
-                    "return document.querySelectorAll('#horas-trenes-estacion-llegadas tbody tr').length;"
-                )
+        while page_num < max_pages:
+            # Llamar la API via fetch desde el contexto del navegador (mismas cookies/sesión)
+            api_result = driver.execute_script("""
+                var auth = arguments[0];
+                var pageNum = arguments[1];
+                var url = window.location.pathname +
+                    '?p_p_id=servicios_estacion_ServiciosEstacionPortlet' +
+                    '&p_p_lifecycle=2&p_p_state=normal&p_p_mode=view' +
+                    '&p_p_resource_id=%2FconsultarHorario' +
+                    '&p_p_cacheability=cacheLevelPage' +
+                    '&assetEntryId=3067212' +
+                    '&p_p_auth=' + auth +
+                    '&_servicios_estacion_ServiciosEstacionPortlet_searchType=proximasLlegadas' +
+                    '&_servicios_estacion_ServiciosEstacionPortlet_trafficType=avldmd' +
+                    '&_servicios_estacion_ServiciosEstacionPortlet_numPage=' + pageNum +
+                    '&_servicios_estacion_ServiciosEstacionPortlet_commuterNetwork=RODALIES_CATALUNYA' +
+                    '&_servicios_estacion_ServiciosEstacionPortlet_stationCode=71801';
 
-                # Buscar y clickar el botón
-                resultado = driver.execute_script("""
-                    var btn = document.querySelector('#tabla-horas-trenes-llegadas-load-more input');
-                    if (!btn) return 'no_btn';
-                    btn.click();
-                    return 'clicked';
-                """)
+                var xhr = new XMLHttpRequest();
+                xhr.open('GET', url, false);  // Síncrono
+                xhr.send();
 
-                if resultado == 'no_btn':
-                    print("   ✅ No hay más botones de carga.")
-                    break
+                if (xhr.status !== 200) return {error: 'HTTP ' + xhr.status};
 
-                print(f"   ⬇️ Clic {click_num + 1} en 'Cargar más' (filas: {filas_antes})...")
-                time.sleep(3.5)
+                // Parsear el HTML de respuesta
+                var parser = new DOMParser();
+                var doc = parser.parseFromString(xhr.responseText, 'text/html');
+                var filas = doc.querySelectorAll('tbody tr');
+                var resultado = [];
 
-                # Contar filas después del click
-                filas_despues = driver.execute_script(
-                    "return document.querySelectorAll('#horas-trenes-estacion-llegadas tbody tr').length;"
-                )
+                for (var i = 0; i < filas.length; i++) {
+                    var celdas = filas[i].querySelectorAll('td');
+                    if (celdas.length < 3) continue;
 
-                if filas_despues <= filas_antes:
-                    print(f"   ✅ No se cargaron más filas ({filas_despues}). Fin.")
-                    break
+                    // HORA: 2 spans (programada y estimada/real)
+                    var horaSpans = celdas[0].querySelectorAll('div > span');
+                    var hora1 = horaSpans[0] ? horaSpans[0].textContent.trim() : '';
+                    var hora2 = horaSpans.length > 1 ? horaSpans[1].textContent.trim() : '';
 
-            except Exception as e:
-                print(f"   ⚠️ Error en bucle de carga: {e}")
+                    // ORIGEN
+                    var origen = celdas[1].textContent.trim();
+
+                    // TREN: 2 spans (tipo y número)
+                    var trenSpans = celdas[2].querySelectorAll('div > span');
+                    var trenTipo = trenSpans[0] ? trenSpans[0].textContent.trim() : celdas[2].textContent.trim();
+                    var trenNum = trenSpans.length > 1 ? trenSpans[1].textContent.trim() : '';
+
+                    // VÍA
+                    var viaSpan = celdas.length > 3 ? celdas[3].querySelector('div > span') : null;
+                    var via = viaSpan ? viaSpan.textContent.trim() : '';
+
+                    resultado.push({
+                        hora1: hora1, hora2: hora2,
+                        origen: origen,
+                        trenTipo: trenTipo, trenNum: trenNum,
+                        via: via
+                    });
+                }
+                return {filas: resultado, html_length: xhr.responseText.length};
+            """, auth_token, page_num)
+
+            if isinstance(api_result, dict) and 'error' in api_result:
+                print(f"   ❌ Error API página {page_num}: {api_result['error']}")
                 break
 
-        # 4. EXTRACCIÓN VIA JAVASCRIPT (evita problemas de .text vacío en headless)
-        print("👀 Extrayendo datos via JavaScript...")
-        filas_raw = driver.execute_script("""
-            var filas = document.querySelectorAll('#horas-trenes-estacion-llegadas tbody tr');
-            var resultado = [];
-            for (var i = 0; i < filas.length; i++) {
-                var celdas = filas[i].querySelectorAll('td');
-                if (celdas.length < 3) continue;
+            filas_pagina = api_result.get('filas', [])
+            print(f"   📄 Página {page_num}: {len(filas_pagina)} filas (HTML: {api_result.get('html_length', 0)} bytes)")
 
-                // HORA: 2 spans (programada y estimada/real)
-                var horaSpans = celdas[0].querySelectorAll('div > span');
-                var hora1 = horaSpans[0] ? horaSpans[0].textContent.trim() : '';
-                var hora2 = horaSpans.length > 1 ? horaSpans[1].textContent.trim() : '';
+            if not filas_pagina:
+                print("   ✅ No hay más resultados.")
+                break
 
-                // ORIGEN
-                var origen = celdas[1].textContent.trim();
+            # Debug: mostrar primera fila de cada página
+            if filas_pagina:
+                print(f"      Muestra: {filas_pagina[0]}")
 
-                // TREN: 2 spans (tipo y número)
-                var trenSpans = celdas[2].querySelectorAll('div > span');
-                var trenTipo = trenSpans[0] ? trenSpans[0].textContent.trim() : celdas[2].textContent.trim();
-                var trenNum = trenSpans.length > 1 ? trenSpans[1].textContent.trim() : '';
+            # Procesar filas
+            for fila in filas_pagina:
+                try:
+                    hora_real = fila.get('hora2', '') or fila.get('hora1', '')
+                    origen = fila.get('origen', '')
+                    tipo_raw = fila.get('trenTipo', '').upper()
+                    tren_num = fila.get('trenNum', '')
+                    via = fila.get('via', '') or "-"
 
-                // VÍA
-                var viaSpan = celdas.length > 3 ? celdas[3].querySelector('div > span') : null;
-                var via = viaSpan ? viaSpan.textContent.trim() : '';
+                    tipo_limpio = limpiar_nombre_tren(tipo_raw)
+                    if tren_num:
+                        tipo_limpio = f"{tipo_limpio} {tren_num}"
 
-                resultado.push({
-                    hora1: hora1, hora2: hora2,
-                    origen: origen,
-                    trenTipo: trenTipo, trenNum: trenNum,
-                    via: via
-                });
-            }
-            return resultado;
-        """)
+                    # Validaciones
+                    if not re.match(r"\d{2}:\d{2}", hora_real):
+                        continue
 
-        print(f"📊 Filas extraídas: {len(filas_raw)}")
-        if filas_raw and len(filas_raw) > 0:
-            print(f"   DEBUG fila 0: {filas_raw[0]}")
-            if len(filas_raw) > 1:
-                print(f"   DEBUG fila 1: {filas_raw[1]}")
+                    # Filtros
+                    es_valido = any(marca in tipo_limpio for marca in whitelist)
+                    if "RODALIES" in tipo_raw or "CERCANIAS" in tipo_raw:
+                        es_valido = False
 
-        whitelist = ["AVE", "AVLO", "OUIGO", "IRYO", "ALVIA", "EUROMED", "INTERCITY", "TGV", "LD", "MD", "AVANT"]
+                    if es_valido:
+                        datos.append({
+                            "hora": hora_real,
+                            "origen": origen,
+                            "tren": tipo_limpio,
+                            "via": via
+                        })
+                except:
+                    continue
 
-        for fila in filas_raw:
-            try:
-                # HORA: preferir hora real/estimada (hora2), sino programada (hora1)
-                hora_real = fila.get('hora2', '') or fila.get('hora1', '')
-                origen = fila.get('origen', '')
-                tipo_raw = fila.get('trenTipo', '').upper()
-                tren_num = fila.get('trenNum', '')
-                via = fila.get('via', '') or "-"
+            page_num += 1
 
-                tipo_limpio = limpiar_nombre_tren(tipo_raw)
-                if tren_num:
-                    tipo_limpio = f"{tipo_limpio} {tren_num}"
-
-                # Validaciones
-                if not re.match(r"\d{2}:\d{2}", hora_real): continue
-
-                # Filtros
-                es_valido = any(marca in tipo_limpio for marca in whitelist)
-                if "RODALIES" in tipo_raw or "CERCANIAS" in tipo_raw: es_valido = False
-
-                if es_valido:
-                    datos.append({
-                        "hora": hora_real,
-                        "origen": origen,
-                        "tren": tipo_limpio,
-                        "via": via
-                    })
-            except: continue
+        print(f"🚄 Total trenes válidos extraídos: {len(datos)}")
 
     except Exception as e:
         print(f"❌ Error crítico: {e}")
-        # Opcional: Imprimir el HTML si falla para debuggear en los logs de GitHub
-        # print(driver.page_source[:1000]) 
+        import traceback
+        traceback.print_exc()
     finally:
         driver.quit()
 
-    # 5. GUARDADO SEGURO (No sobrescribe si datos son inválidos)
+    # 3. GUARDADO SEGURO (No sobrescribe si datos son inválidos)
     if datos:
         datos.sort(key=lambda x: x['hora'])
-        
+
         # Usar safe_save_json para validar antes de sobrescribir
         success, message = safe_save_json(
             filepath=OUTPUT_FILE,
@@ -224,13 +196,12 @@ def obtener_trenes():
             min_items=LIMITS.get('min_trains_valid', 5),
             backup=True
         )
-        
+
         if success:
             logger.info(f"💾 {message}")
             logger.info(f"   Último tren: {datos[-1]['hora']} - {datos[-1]['tren']}")
         else:
             logger.error(message)
-            # Salir con código de error pero SIN sobrescribir datos existentes
             sys.exit(1)
     else:
         logger.warning("⚠️ No se han extraído datos válidos. Archivo existente NO modificado.")
