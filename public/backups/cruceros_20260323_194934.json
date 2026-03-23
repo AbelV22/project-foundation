@@ -106,7 +106,7 @@
             "pax_estimados": 4500,
             "puerto": "Marseille",
             "tipo": "llegada",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Itàlia",
             "imo": "9781889",
             "mmsi": "247391900",
@@ -145,6 +145,22 @@
             "fecha": "2026-03-23"
         },
         {
+            "hora": "18:15",
+            "nombre": "Ciudad De Palma",
+            "naviera": "TRASMED GLE S.L.",
+            "terminal": "TERMINAL F2",
+            "terminal_codigo": "F2",
+            "eslora": 186.0,
+            "pax_estimados": 1000,
+            "puerto": "Palma de Mallorca",
+            "tipo": "llegada",
+            "estado": "Autoritzada",
+            "bandera": "Espanya",
+            "imo": "9349772",
+            "mmsi": "224588000",
+            "fecha": "2026-03-23"
+        },
+        {
             "hora": "18:30",
             "nombre": "Msc Julie",
             "naviera": "MEDITERRANEAN SHIPPING CO",
@@ -161,23 +177,7 @@
             "fecha": "2026-03-23"
         },
         {
-            "hora": "18:30",
-            "nombre": "Ciudad De Palma",
-            "naviera": "TRASMED GLE S.L.",
-            "terminal": "TERMINAL F2",
-            "terminal_codigo": "F2",
-            "eslora": 186.0,
-            "pax_estimados": 1000,
-            "puerto": "Palma de Mallorca",
-            "tipo": "llegada",
-            "estado": "Iniciada",
-            "bandera": "Espanya",
-            "imo": "9349772",
-            "mmsi": "224588000",
-            "fecha": "2026-03-23"
-        },
-        {
-            "hora": "18:34",
+            "hora": "19:00",
             "nombre": "Martin I Soler",
             "naviera": "EUROLINEAS MARITIMAS S.A",
             "terminal": "TERMINAL F1",
@@ -186,14 +186,14 @@
             "pax_estimados": 1000,
             "puerto": "Alcudia",
             "tipo": "llegada",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Espanya",
             "imo": "9390367",
             "mmsi": "224637000",
             "fecha": "2026-03-23"
         },
         {
-            "hora": "19:32",
+            "hora": "19:30",
             "nombre": "Abel Matutes",
             "naviera": "EUROLINEAS MARITIMAS S.A",
             "terminal": "TERMINAL F1",
@@ -202,7 +202,7 @@
             "pax_estimados": 1000,
             "puerto": "Palma de Mallorca",
             "tipo": "llegada",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Espanya",
             "imo": "9441130",
             "mmsi": "224402000",
@@ -259,7 +259,7 @@
             "fecha": "2026-03-23"
         },
         {
-            "hora": "18:36",
+            "hora": "18:00",
             "nombre": "Costa Smeralda",
             "naviera": "NOATUM MARITIME SPAIN SAU",
             "terminal": "Terminal E (Adossat)",
@@ -268,7 +268,7 @@
             "pax_estimados": 4500,
             "puerto": "La Goulette Nord (Halqueloued)",
             "tipo": "salida",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Itàlia",
             "imo": "9781889",
             "mmsi": "247391900",
@@ -348,7 +348,7 @@
             "pax_estimados": 1000,
             "puerto": "Alcudia",
             "tipo": "salida",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Espanya",
             "imo": "9390367",
             "mmsi": "224637000",
@@ -396,7 +396,7 @@
             "pax_estimados": 1000,
             "puerto": "Palma de Mallorca",
             "tipo": "salida",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Espanya",
             "imo": "9441130",
             "mmsi": "224402000",
@@ -412,7 +412,7 @@
             "pax_estimados": 1000,
             "puerto": "Palma de Mallorca",
             "tipo": "salida",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Espanya",
             "imo": "9349772",
             "mmsi": "224588000",
@@ -424,20 +424,20 @@
         "total_llegadas": 13,
         "total_salidas": 13,
         "pax_estimados_hoy": 27000,
-        "proximo_desembarco": null,
-        "proximo_barco": null
+        "proximo_desembarco": "18:15",
+        "proximo_barco": "Ciudad De Palma"
     },
     "terminales_activas": [
-        "E",
         "6212",
+        "E",
+        "8156",
         "F1",
-        "F2",
         "F3",
-        "8156"
+        "F2"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-03-23T19:49:34.604587",
+        "actualizado": "2026-03-23T17:50:42.694164",
         "frecuencia": "horaria"
     }
 }
