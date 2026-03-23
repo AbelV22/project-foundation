@@ -95,11 +95,16 @@ def obtener_trenes():
 
         # 3. CARGAR TODOS LOS TRENES (click en "Cargar más" via JS)
         print("🔄 Cargando todos los trenes...")
-        intentos_fallidos = 0
+        max_clicks = 20  # Seguridad anti-loop infinito
 
-        while True:
+        for click_num in range(max_clicks):
             try:
-                # Usar JS para comprobar y clickar el botón (funciona aunque no sea "visible" en headless)
+                # Contar filas antes del click
+                filas_antes = driver.execute_script(
+                    "return document.querySelectorAll('#horas-trenes-estacion-llegadas tbody tr').length;"
+                )
+
+                # Buscar y clickar el botón
                 resultado = driver.execute_script("""
                     var btn = document.querySelector('#tabla-horas-trenes-llegadas-load-more input');
                     if (!btn) return 'no_btn';
@@ -111,16 +116,21 @@ def obtener_trenes():
                     print("   ✅ No hay más botones de carga.")
                     break
 
-                print("   ⬇️ Clic en 'Cargar más'...")
+                print(f"   ⬇️ Clic {click_num + 1} en 'Cargar más' (filas: {filas_antes})...")
                 time.sleep(3.5)
-                intentos_fallidos = 0
+
+                # Contar filas después del click
+                filas_despues = driver.execute_script(
+                    "return document.querySelectorAll('#horas-trenes-estacion-llegadas tbody tr').length;"
+                )
+
+                if filas_despues <= filas_antes:
+                    print(f"   ✅ No se cargaron más filas ({filas_despues}). Fin.")
+                    break
 
             except Exception as e:
                 print(f"   ⚠️ Error en bucle de carga: {e}")
-                intentos_fallidos += 1
-                if intentos_fallidos > 3:
-                    print("   ⚠️ Demasiados intentos. Saliendo del bucle.")
-                    break
+                break
 
         # 4. EXTRACCIÓN VIA JAVASCRIPT (evita problemas de .text vacío en headless)
         print("👀 Extrayendo datos via JavaScript...")
