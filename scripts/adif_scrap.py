@@ -93,8 +93,16 @@ def obtener_trenes():
                 }
             """, auth_token, page_num)
 
-            if isinstance(api_result, dict) and 'error' in api_result:
-                print(f"   ❌ Error API página {page_num}: {api_result['error']}")
+            if not isinstance(api_result, dict):
+                print(f"   ❌ Respuesta inesperada página {page_num}: {type(api_result)} = {str(api_result)[:100]}")
+                break
+
+            # Debug: mostrar keys de la respuesta
+            if page_num == 0:
+                print(f"   Respuesta keys: {list(api_result.keys())}")
+
+            if 'horarios' not in api_result:
+                print(f"   ❌ Sin horarios en respuesta: {str(api_result)[:200]}")
                 break
 
             horarios = api_result.get('horarios', [])
