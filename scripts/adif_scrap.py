@@ -56,118 +56,128 @@ def obtener_trenes():
         try: driver.execute_script("var b=document.querySelector('#onetrust-banner-sdk'); if(b) b.remove();")
         except: pass
 
-        # 2. NAVEGACIÓN
+        # 2. NAVEGACIÓN (usando JS directo para compatibilidad con headless)
         print("👆 Configurando filtros...")
-        # Primero seleccionar Radio Button AV/LD (antes de cambiar de pestaña)
-        radios = wait.until(lambda d: d.find_elements(By.CSS_SELECTOR, "input[type='radio']"))
-        if len(radios) > 1: click_js(driver, radios[1])
-        time.sleep(1)
 
-        # Cambiar a pestaña Llegadas
-        tab_llegadas = wait.until(EC.element_to_be_clickable((By.CSS_SELECTOR, "a[href='#tab-llegadas']")))
-        click_js(driver, tab_llegadas)
-        time.sleep(1)
+        # Esperar a que carguen los radio buttons
+        wait.until(lambda d: d.find_elements(By.CSS_SELECTOR, "input[type='radio']"))
+
+        # Seleccionar AV/LD radio y pestaña Llegadas via JS con dispatch de eventos
+        driver.execute_script("""
+            // 1. Seleccionar radio AV/LD
+            var radios = document.querySelectorAll("input[type='radio']");
+            if (radios.length > 1) {
+                radios[1].checked = true;
+                radios[1].dispatchEvent(new Event('change', {bubbles: true}));
+                radios[1].dispatchEvent(new Event('click', {bubbles: true}));
+            }
+            // 2. Activar pestaña Llegadas
+            var tab = document.querySelector("a[href='#tab-llegadas']");
+            if (tab) tab.click();
+        """)
+        time.sleep(2)
 
         # Botón Consultar
-        btn_consultar = driver.find_element(By.CSS_SELECTOR, "input[value='Consultar']")
+        btn_consultar = wait.until(EC.element_to_be_clickable((By.CSS_SELECTOR, "input[value='Consultar']")))
         click_js(driver, btn_consultar)
         print("⏳ Consulta enviada. Esperando tabla...")
-        time.sleep(6) # Damos tiempo a la carga inicial
+        time.sleep(6)
 
-        # 3. BUCLE "PAC-MAN" MEJORADO
-        print("🔄 Buscando trenes ocultos (Scroll infinito)...")
+        # Verificar que la tabla de llegadas tiene contenido
+        tabla_info = driver.execute_script("""
+            var tabla = document.querySelector('#horas-trenes-estacion-llegadas');
+            if (!tabla) return 'tabla_no_encontrada';
+            var filas = tabla.querySelectorAll('tbody tr');
+            var primerTexto = filas.length > 0 ? filas[0].textContent.trim().substring(0, 60) : '';
+            return 'filas=' + filas.length + ' texto=' + primerTexto;
+        """)
+        print(f"   Verificación tabla: {tabla_info}")
+
+        # 3. CARGAR TODOS LOS TRENES (click en "Cargar más" via JS)
+        print("🔄 Cargando todos los trenes...")
         intentos_fallidos = 0
-        
+
         while True:
             try:
-                # Scroll al fondo de la página
-                driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
-                time.sleep(1.5)
+                # Usar JS para comprobar y clickar el botón (funciona aunque no sea "visible" en headless)
+                resultado = driver.execute_script("""
+                    var btn = document.querySelector('#tabla-horas-trenes-llegadas-load-more input');
+                    if (!btn) return 'no_btn';
+                    btn.click();
+                    return 'clicked';
+                """)
 
-                # Buscamos el botón específico
-                botones_carga = driver.find_elements(By.CSS_SELECTOR, "#tabla-horas-trenes-llegadas-load-more input")
-                
-                if botones_carga:
-                    boton = botones_carga[0]
-                    # Truco: Scroll específico al elemento para asegurar que es "clickable"
-                    driver.execute_script("arguments[0].scrollIntoView(true);", boton)
-                    time.sleep(0.5)
-                    
-                    if boton.is_displayed():
-                        print("   ⬇️ Clic en 'Cargar más'...")
-                        click_js(driver, boton)
-                        time.sleep(3.5) # Espera para que carguen filas
-                        intentos_fallidos = 0 # Reiniciar contador
-                    else:
-                        print("   ⚠️ Botón detectado pero no visible. Reintentando scroll...")
-                        intentos_fallidos += 1
-                else:
+                if resultado == 'no_btn':
                     print("   ✅ No hay más botones de carga.")
                     break
-                
-                # Seguridad para no buclear infinito si se atasca
-                if intentos_fallidos > 3:
-                    print("   ⚠️ Demasiados intentos fallidos. Saliendo del bucle.")
-                    break
+
+                print("   ⬇️ Clic en 'Cargar más'...")
+                time.sleep(3.5)
+                intentos_fallidos = 0
 
             except Exception as e:
                 print(f"   ⚠️ Error en bucle de carga: {e}")
-                break
+                intentos_fallidos += 1
+                if intentos_fallidos > 3:
+                    print("   ⚠️ Demasiados intentos. Saliendo del bucle.")
+                    break
 
-        # 4. EXTRACCIÓN Y LIMPIEZA
-        print("👀 Procesando filas extraídas...")
-        filas = driver.find_elements(By.CSS_SELECTOR, "#horas-trenes-estacion-llegadas tbody tr")
-        print(f"📊 Filas encontradas en HTML: {len(filas)}")
+        # 4. EXTRACCIÓN VIA JAVASCRIPT (evita problemas de .text vacío en headless)
+        print("👀 Extrayendo datos via JavaScript...")
+        filas_raw = driver.execute_script("""
+            var filas = document.querySelectorAll('#horas-trenes-estacion-llegadas tbody tr');
+            var resultado = [];
+            for (var i = 0; i < filas.length; i++) {
+                var celdas = filas[i].querySelectorAll('td');
+                if (celdas.length < 3) continue;
 
-        # Debug: mostrar las primeras filas para diagnóstico
-        for i, fila in enumerate(filas[:3]):
-            try:
-                celdas = fila.find_elements(By.TAG_NAME, "td")
-                texts = [c.text.strip()[:30] for c in celdas]
-                print(f"   DEBUG fila {i}: {texts}")
-            except: pass
+                // HORA: 2 spans (programada y estimada/real)
+                var horaSpans = celdas[0].querySelectorAll('div > span');
+                var hora1 = horaSpans[0] ? horaSpans[0].textContent.trim() : '';
+                var hora2 = horaSpans.length > 1 ? horaSpans[1].textContent.trim() : '';
+
+                // ORIGEN
+                var origen = celdas[1].textContent.trim();
+
+                // TREN: 2 spans (tipo y número)
+                var trenSpans = celdas[2].querySelectorAll('div > span');
+                var trenTipo = trenSpans[0] ? trenSpans[0].textContent.trim() : celdas[2].textContent.trim();
+                var trenNum = trenSpans.length > 1 ? trenSpans[1].textContent.trim() : '';
+
+                // VÍA
+                var viaSpan = celdas.length > 3 ? celdas[3].querySelector('div > span') : null;
+                var via = viaSpan ? viaSpan.textContent.trim() : '';
+
+                resultado.push({
+                    hora1: hora1, hora2: hora2,
+                    origen: origen,
+                    trenTipo: trenTipo, trenNum: trenNum,
+                    via: via
+                });
+            }
+            return resultado;
+        """)
+
+        print(f"📊 Filas extraídas: {len(filas_raw)}")
+        if filas_raw and len(filas_raw) > 0:
+            print(f"   DEBUG fila 0: {filas_raw[0]}")
+            if len(filas_raw) > 1:
+                print(f"   DEBUG fila 1: {filas_raw[1]}")
 
         whitelist = ["AVE", "AVLO", "OUIGO", "IRYO", "ALVIA", "EUROMED", "INTERCITY", "TGV", "LD", "MD", "AVANT"]
 
-        for fila in filas:
+        for fila in filas_raw:
             try:
-                celdas = fila.find_elements(By.TAG_NAME, "td")
-                if len(celdas) < 3: continue
-
-                # HORA: La celda tiene 2 spans (programada y estimada/real).
-                # Usamos los spans internos porque .text los concatena sin separador.
-                hora_spans = celdas[0].find_elements(By.CSS_SELECTOR, "div > span")
-                if len(hora_spans) >= 2 and hora_spans[1].text.strip():
-                    hora_real = hora_spans[1].text.strip()  # Hora real/estimada
-                elif hora_spans:
-                    hora_real = hora_spans[0].text.strip()  # Solo hora programada
-                else:
-                    hora_real = limpiar_hora(celdas[0].text.strip())  # Fallback
-
-                # ORIGEN
-                origen = celdas[1].text.strip()
-
-                # TREN: La celda tiene 2 spans (tipo y número).
-                tren_spans = celdas[2].find_elements(By.CSS_SELECTOR, "div > span")
-                if tren_spans:
-                    tipo_raw = tren_spans[0].text.strip().upper()
-                    tren_num = tren_spans[1].text.strip() if len(tren_spans) > 1 else ""
-                else:
-                    tipo_raw = celdas[2].text.strip().upper()
-                    tren_num = ""
+                # HORA: preferir hora real/estimada (hora2), sino programada (hora1)
+                hora_real = fila.get('hora2', '') or fila.get('hora1', '')
+                origen = fila.get('origen', '')
+                tipo_raw = fila.get('trenTipo', '').upper()
+                tren_num = fila.get('trenNum', '')
+                via = fila.get('via', '') or "-"
 
                 tipo_limpio = limpiar_nombre_tren(tipo_raw)
                 if tren_num:
                     tipo_limpio = f"{tipo_limpio} {tren_num}"
-
-                # VÍA: El número está en un span dentro de un div.
-                if len(celdas) > 3:
-                    via_span = celdas[3].find_elements(By.CSS_SELECTOR, "div > span")
-                    via = via_span[0].text.strip() if via_span else celdas[3].text.strip()
-                    if not via:
-                        via = "-"
-                else:
-                    via = "-"
 
                 # Validaciones
                 if not re.match(r"\d{2}:\d{2}", hora_real): continue
