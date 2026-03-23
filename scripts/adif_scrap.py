@@ -65,29 +65,32 @@ def obtener_trenes():
         max_pages = 20
 
         while page_num < max_pages:
-            # Llamar la API via fetch desde el contexto del navegador
+            # Llamar la API via XHR síncrono desde el contexto del navegador
             api_result = driver.execute_script("""
-                return (async function() {
-                    var auth = arguments[0];
-                    var pageNum = arguments[1];
-                    var url = '/w/71801-barcelona-sants' +
-                        '?p_p_id=servicios_estacion_ServiciosEstacionPortlet' +
-                        '&p_p_lifecycle=2&p_p_state=normal&p_p_mode=view' +
-                        '&p_p_resource_id=%2FconsultarHorario' +
-                        '&p_p_cacheability=cacheLevelPage' +
-                        '&assetEntryId=3067212' +
-                        '&p_p_auth=' + auth +
-                        '&_servicios_estacion_ServiciosEstacionPortlet_searchType=proximasLlegadas' +
-                        '&_servicios_estacion_ServiciosEstacionPortlet_trafficType=avldmd' +
-                        '&_servicios_estacion_ServiciosEstacionPortlet_numPage=' + pageNum +
-                        '&_servicios_estacion_ServiciosEstacionPortlet_commuterNetwork=RODALIES_CATALUNYA' +
-                        '&_servicios_estacion_ServiciosEstacionPortlet_stationCode=71801';
+                var auth = arguments[0];
+                var pageNum = arguments[1];
+                var url = '/w/71801-barcelona-sants' +
+                    '?p_p_id=servicios_estacion_ServiciosEstacionPortlet' +
+                    '&p_p_lifecycle=2&p_p_state=normal&p_p_mode=view' +
+                    '&p_p_resource_id=%2FconsultarHorario' +
+                    '&p_p_cacheability=cacheLevelPage' +
+                    '&assetEntryId=3067212' +
+                    '&p_p_auth=' + auth +
+                    '&_servicios_estacion_ServiciosEstacionPortlet_searchType=proximasLlegadas' +
+                    '&_servicios_estacion_ServiciosEstacionPortlet_trafficType=avldmd' +
+                    '&_servicios_estacion_ServiciosEstacionPortlet_numPage=' + pageNum +
+                    '&_servicios_estacion_ServiciosEstacionPortlet_commuterNetwork=RODALIES_CATALUNYA' +
+                    '&_servicios_estacion_ServiciosEstacionPortlet_stationCode=71801';
 
-                    var resp = await fetch(url);
-                    if (!resp.ok) return {error: 'HTTP ' + resp.status};
-                    var data = await resp.json();
-                    return data;
-                })();
+                var xhr = new XMLHttpRequest();
+                xhr.open('GET', url, false);
+                xhr.send();
+                if (xhr.status !== 200) return {error: 'HTTP ' + xhr.status};
+                try {
+                    return JSON.parse(xhr.responseText);
+                } catch(e) {
+                    return {error: 'JSON parse: ' + e.message, raw: xhr.responseText.substring(0, 200)};
+                }
             """, auth_token, page_num)
 
             if isinstance(api_result, dict) and 'error' in api_result:
