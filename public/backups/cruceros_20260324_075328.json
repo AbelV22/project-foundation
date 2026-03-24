@@ -33,7 +33,7 @@
             "fecha": "2026-03-24"
         },
         {
-            "hora": "07:50",
+            "hora": "07:00",
             "nombre": "Silver Shadow",
             "naviera": "SILVERSEA CRUISES",
             "terminal": "Terminal A (WTC)",
@@ -42,7 +42,7 @@
             "pax_estimados": 1000,
             "puerto": "Malaga",
             "tipo": "llegada",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Bahames",
             "imo": "9192167",
             "mmsi": "308628000",
@@ -188,7 +188,7 @@
             "pax_estimados": 1000,
             "puerto": "Sete",
             "tipo": "salida",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Bahames",
             "imo": "9192167",
             "mmsi": "308628000",
@@ -312,23 +312,23 @@
         "total_llegadas": 8,
         "total_salidas": 11,
         "pax_estimados_hoy": 8000,
-        "proximo_desembarco": "18:15",
-        "proximo_barco": "Ciudad De Palma"
+        "proximo_desembarco": "06:00",
+        "proximo_barco": "Msc Emilie"
     },
     "terminales_activas": [
-        "A",
-        "F3",
-        "F1",
-        "7946",
         "6995",
-        "6212",
-        "8156",
+        "F1",
+        "F3",
         "F2",
-        "7332"
+        "7332",
+        "8156",
+        "6212",
+        "A",
+        "7946"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-03-24T07:53:28.796412",
+        "actualizado": "2026-03-24T05:59:56.462138",
         "frecuencia": "horaria"
     }
 }
