@@ -1,6 +1,22 @@
 {
     "llegadas": [
         {
+            "hora": "06:00",
+            "nombre": "Msc Emilie",
+            "naviera": "MEDITERRANEAN SHIPPING CO",
+            "terminal": "TERMINAL CATALUNYA SA",
+            "terminal_codigo": "6212",
+            "eslora": 0,
+            "pax_estimados": 500,
+            "puerto": "Djen-Djen",
+            "tipo": "llegada",
+            "estado": "Sol·licitada",
+            "bandera": "Libèria",
+            "imo": "9334832",
+            "mmsi": "636020695",
+            "fecha": "2026-03-24"
+        },
+        {
             "hora": "07:26",
             "nombre": "Eco Adriatica",
             "naviera": "GRIMALDI EUROMED SPA",
@@ -66,6 +82,22 @@
         },
         {
             "hora": "19:00",
+            "nombre": "Martin I Soler",
+            "naviera": "EUROLINEAS MARITIMAS S.A",
+            "terminal": "BALEARIA EUROLINEAS MARITIMAS SA ",
+            "terminal_codigo": "7332",
+            "eslora": 165.0,
+            "pax_estimados": 1000,
+            "puerto": "Alcudia",
+            "tipo": "llegada",
+            "estado": "Confirmada",
+            "bandera": "Espanya",
+            "imo": "9390367",
+            "mmsi": "224637000",
+            "fecha": "2026-03-24"
+        },
+        {
+            "hora": "19:00",
             "nombre": "Ciudad De Barcelona",
             "naviera": "TRASMED GLE S.L.",
             "terminal": "TERMINAL F2",
@@ -78,22 +110,6 @@
             "bandera": "Espanya",
             "imo": "9506289",
             "mmsi": "225416000",
-            "fecha": "2026-03-24"
-        },
-        {
-            "hora": "19:00",
-            "nombre": "Martin I Soler",
-            "naviera": "EUROLINEAS MARITIMAS S.A",
-            "terminal": "LEPANT/TRUCK CENTER",
-            "terminal_codigo": "TC",
-            "eslora": 165.0,
-            "pax_estimados": 1000,
-            "puerto": "Alcudia",
-            "tipo": "llegada",
-            "estado": "Autoritzada",
-            "bandera": "Espanya",
-            "imo": "9390367",
-            "mmsi": "224637000",
             "fecha": "2026-03-24"
         },
         {
@@ -180,6 +196,22 @@
         },
         {
             "hora": "20:00",
+            "nombre": "Msc Emilie",
+            "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
+            "terminal": "TERMINAL CATALUNYA SA",
+            "terminal_codigo": "6212",
+            "eslora": 0,
+            "pax_estimados": 500,
+            "puerto": "Bejaia (ex Bougie)",
+            "tipo": "salida",
+            "estado": "Sol·licitada",
+            "bandera": "Libèria",
+            "imo": "9334832",
+            "mmsi": "636020695",
+            "fecha": "2026-03-24"
+        },
+        {
+            "hora": "20:00",
             "nombre": "Msc Julie",
             "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
             "terminal": "TERMINAL CATALUNYA SA",
@@ -198,13 +230,13 @@
             "hora": "21:30",
             "nombre": "Martin I Soler",
             "naviera": "BALEARIA EUROLINEAS MARITIMAS SA ",
-            "terminal": "LEPANT/TRUCK CENTER",
-            "terminal_codigo": "TC",
+            "terminal": "BALEARIA EUROLINEAS MARITIMAS SA ",
+            "terminal_codigo": "7332",
             "eslora": 165.0,
             "pax_estimados": 1000,
             "puerto": "Alcudia",
             "tipo": "salida",
-            "estado": "Autoritzada",
+            "estado": "Confirmada",
             "bandera": "Espanya",
             "imo": "9390367",
             "mmsi": "224637000",
@@ -276,27 +308,27 @@
         }
     ],
     "resumen": {
-        "total_cruceros": 9,
-        "total_llegadas": 7,
-        "total_salidas": 10,
-        "pax_estimados_hoy": 7500,
+        "total_cruceros": 10,
+        "total_llegadas": 8,
+        "total_salidas": 11,
+        "pax_estimados_hoy": 8000,
         "proximo_desembarco": "18:15",
         "proximo_barco": "Ciudad De Palma"
     },
     "terminales_activas": [
         "6995",
-        "F1",
-        "TC",
-        "F2",
-        "8156",
+        "7332",
         "A",
-        "7946",
+        "F2",
+        "F1",
+        "8156",
         "F3",
+        "7946",
         "6212"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-03-24T11:45:34.744164",
+        "actualizado": "2026-03-24T09:56:23.719758",
         "frecuencia": "horaria"
     }
 }
