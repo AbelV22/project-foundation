@@ -10,7 +10,7 @@
             "pax_estimados": 2000,
             "puerto": "Valencia",
             "tipo": "llegada",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Itàlia",
             "imo": "9859600",
             "mmsi": "247384100",
@@ -33,22 +33,6 @@
             "fecha": "2026-03-24"
         },
         {
-            "hora": "17:45",
-            "nombre": "Cruise Barcelona",
-            "naviera": "GRIMALDI EUROMED SPA",
-            "terminal": "TERMINAL F3",
-            "terminal_codigo": "F3",
-            "eslora": 0,
-            "pax_estimados": 500,
-            "puerto": "Civitavecchia",
-            "tipo": "llegada",
-            "estado": "Autoritzada",
-            "bandera": "Itàlia",
-            "imo": "9351488",
-            "mmsi": "247243600",
-            "fecha": "2026-03-24"
-        },
-        {
             "hora": "18:15",
             "nombre": "Ciudad De Palma",
             "naviera": "TRASMED GLE S.L.",
@@ -62,6 +46,22 @@
             "bandera": "Espanya",
             "imo": "9349772",
             "mmsi": "224588000",
+            "fecha": "2026-03-24"
+        },
+        {
+            "hora": "18:30",
+            "nombre": "Cruise Barcelona",
+            "naviera": "GRIMALDI EUROMED SPA",
+            "terminal": "TERMINAL F3",
+            "terminal_codigo": "F3",
+            "eslora": 0,
+            "pax_estimados": 500,
+            "puerto": "Civitavecchia",
+            "tipo": "llegada",
+            "estado": "Autoritzada",
+            "bandera": "Itàlia",
+            "imo": "9351488",
+            "mmsi": "247243600",
             "fecha": "2026-03-24"
         },
         {
@@ -115,7 +115,7 @@
     ],
     "salidas": [
         {
-            "hora": "11:35",
+            "hora": "11:00",
             "nombre": "Eco Adriatica",
             "naviera": "GRIMALDI LOGISTICA ESPAÑA SL",
             "terminal": "GRIMALDI TERMINAL BARCELONA SL",
@@ -124,7 +124,7 @@
             "pax_estimados": 2000,
             "puerto": "Livorno",
             "tipo": "salida",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Itàlia",
             "imo": "9859600",
             "mmsi": "247384100",
@@ -280,23 +280,23 @@
         "total_llegadas": 7,
         "total_salidas": 10,
         "pax_estimados_hoy": 7500,
-        "proximo_desembarco": "17:45",
-        "proximo_barco": "Cruise Barcelona"
+        "proximo_desembarco": "18:15",
+        "proximo_barco": "Ciudad De Palma"
     },
     "terminales_activas": [
-        "7946",
         "6995",
-        "6212",
-        "8156",
-        "F3",
         "F1",
-        "F2",
         "TC",
-        "A"
+        "F2",
+        "8156",
+        "A",
+        "7946",
+        "F3",
+        "6212"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-03-24T14:19:17.832063",
+        "actualizado": "2026-03-24T11:45:34.744164",
         "frecuencia": "horaria"
     }
 }
