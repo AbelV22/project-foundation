@@ -33,7 +33,7 @@
             "fecha": "2026-03-25"
         },
         {
-            "hora": "05:26",
+            "hora": "05:00",
             "nombre": "Gnv Cristal",
             "naviera": "GRANDI NAVI VELOCI",
             "terminal": "TERMINAL F2",
@@ -42,7 +42,7 @@
             "pax_estimados": 1000,
             "puerto": "Sete",
             "tipo": "llegada",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Itàlia",
             "imo": "8712518",
             "mmsi": "247163900",
@@ -179,22 +179,6 @@
     ],
     "salidas": [
         {
-            "hora": "03:40",
-            "nombre": "Msc Julie",
-            "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
-            "terminal": "TERMINAL CATALUNYA SA",
-            "terminal_codigo": "6212",
-            "eslora": 0,
-            "pax_estimados": 500,
-            "puerto": "Genoa",
-            "tipo": "salida",
-            "estado": "Finalitzada",
-            "bandera": "Portugal",
-            "imo": "9704996",
-            "mmsi": "255806498",
-            "fecha": "2026-03-25"
-        },
-        {
             "hora": "05:00",
             "nombre": "Eco Valencia",
             "naviera": "GRIMALDI LOGISTICA ESPAÑA SL",
@@ -220,7 +204,7 @@
             "pax_estimados": 1000,
             "puerto": "Nador",
             "tipo": "salida",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Itàlia",
             "imo": "8712518",
             "mmsi": "247163900",
@@ -356,26 +340,26 @@
         }
     ],
     "resumen": {
-        "total_cruceros": 12,
+        "total_cruceros": 11,
         "total_llegadas": 11,
-        "total_salidas": 11,
+        "total_salidas": 10,
         "pax_estimados_hoy": 14000,
-        "proximo_desembarco": "07:00",
-        "proximo_barco": "Eco Savona"
+        "proximo_desembarco": null,
+        "proximo_barco": null
     },
     "terminales_activas": [
         "F2",
         "6212",
         "E",
-        "F3",
-        "0010",
         "F1",
-        "7332",
-        "8156"
+        "F3",
+        "8156",
+        "0010",
+        "7332"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-03-25T06:01:11.138242",
+        "actualizado": "2026-03-24T23:32:41.672426",
         "frecuencia": "horaria"
     }
 }
