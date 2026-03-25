@@ -177,22 +177,6 @@
             "fecha": "2026-03-25"
         },
         {
-            "hora": "22:28",
-            "nombre": "Aldebaran",
-            "naviera": "SUPER-ECO TANKERS MGMT INC-LIB",
-            "terminal": "",
-            "terminal_codigo": "",
-            "eslora": 183.0,
-            "pax_estimados": 1000,
-            "puerto": "Civitavecchia",
-            "tipo": "llegada",
-            "estado": "Confirmada",
-            "bandera": "Bahames",
-            "imo": "9723007",
-            "mmsi": "311000232",
-            "fecha": "2026-03-25"
-        },
-        {
             "hora": "22:30",
             "nombre": "Aldebaran",
             "naviera": "SUPER-ECO TANKERS MGMT INC-LIB",
@@ -355,22 +339,6 @@
             "fecha": "2026-03-25"
         },
         {
-            "hora": "22:29",
-            "nombre": "Aldebaran",
-            "naviera": "ITALMAR 3000 SL",
-            "terminal": "",
-            "terminal_codigo": "",
-            "eslora": 183.0,
-            "pax_estimados": 1000,
-            "puerto": "Lavera",
-            "tipo": "salida",
-            "estado": "Confirmada",
-            "bandera": "Bahames",
-            "imo": "9723007",
-            "mmsi": "311000232",
-            "fecha": "2026-03-25"
-        },
-        {
             "hora": "22:30",
             "nombre": "Ciudad De Palma",
             "naviera": "GRIMALDI LOGISTICA ESPAÑA SL",
@@ -405,26 +373,26 @@
     ],
     "resumen": {
         "total_cruceros": 13,
-        "total_llegadas": 13,
-        "total_salidas": 12,
-        "pax_estimados_hoy": 16000,
-        "proximo_desembarco": "22:28",
+        "total_llegadas": 12,
+        "total_salidas": 11,
+        "pax_estimados_hoy": 15000,
+        "proximo_desembarco": "22:30",
         "proximo_barco": "Aldebaran"
     },
     "terminales_activas": [
-        "E",
-        "F1",
-        "TC",
-        "F2",
-        "6212",
         "F3",
+        "F1",
+        "E",
         "6995",
         "8156",
-        "0010"
+        "TC",
+        "0010",
+        "6212",
+        "F2"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-03-25T21:39:56.798128",
+        "actualizado": "2026-03-25T19:47:16.925297",
         "frecuencia": "horaria"
     }
 }
