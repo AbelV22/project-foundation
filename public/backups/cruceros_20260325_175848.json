@@ -175,22 +175,6 @@
             "imo": "9351476",
             "mmsi": "247219400",
             "fecha": "2026-03-25"
-        },
-        {
-            "hora": "22:30",
-            "nombre": "Aldebaran",
-            "naviera": "SUPER-ECO TANKERS MGMT INC-LIB",
-            "terminal": "MEROIL SA",
-            "terminal_codigo": "6995",
-            "eslora": 183.0,
-            "pax_estimados": 1000,
-            "puerto": "Civitavecchia",
-            "tipo": "llegada",
-            "estado": "Sol·licitada",
-            "bandera": "Bahames",
-            "imo": "9723007",
-            "mmsi": "311000232",
-            "fecha": "2026-03-25"
         }
     ],
     "salidas": [
@@ -372,27 +356,26 @@
         }
     ],
     "resumen": {
-        "total_cruceros": 13,
-        "total_llegadas": 12,
+        "total_cruceros": 12,
+        "total_llegadas": 11,
         "total_salidas": 11,
-        "pax_estimados_hoy": 15000,
+        "pax_estimados_hoy": 14000,
         "proximo_desembarco": "18:15",
         "proximo_barco": "Ciudad De Palma"
     },
     "terminales_activas": [
-        "TC",
-        "E",
-        "6212",
-        "8156",
-        "0010",
         "F1",
-        "6995",
+        "6212",
+        "0010",
         "F2",
-        "F3"
+        "TC",
+        "F3",
+        "8156",
+        "E"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-03-25T17:58:48.231185",
+        "actualizado": "2026-03-25T16:10:25.492769",
         "frecuencia": "horaria"
     }
 }
