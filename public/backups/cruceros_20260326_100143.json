@@ -81,22 +81,6 @@
             "fecha": "2026-03-26"
         },
         {
-            "hora": "09:30",
-            "nombre": "Aldebaran",
-            "naviera": "SUPER-ECO TANKERS MGMT INC-LIB",
-            "terminal": "MEROIL SA",
-            "terminal_codigo": "6995",
-            "eslora": 183.0,
-            "pax_estimados": 1000,
-            "puerto": "Civitavecchia",
-            "tipo": "llegada",
-            "estado": "Fondeig Previ",
-            "bandera": "Bahames",
-            "imo": "9723007",
-            "mmsi": "311000232",
-            "fecha": "2026-03-26"
-        },
-        {
             "hora": "09:45",
             "nombre": "Costa Fascinosa",
             "naviera": "COSTA CROCIERE, S.P.A.",
@@ -224,22 +208,6 @@
             "bandera": "Itàlia",
             "imo": "9859557",
             "mmsi": "247383500",
-            "fecha": "2026-03-26"
-        },
-        {
-            "hora": "09:29",
-            "nombre": "Aldebaran",
-            "naviera": "ITALMAR 3000 SL",
-            "terminal": "",
-            "terminal_codigo": "",
-            "eslora": 183.0,
-            "pax_estimados": 1000,
-            "puerto": "Lavera",
-            "tipo": "salida",
-            "estado": "Fondeig Previ",
-            "bandera": "Bahames",
-            "imo": "9723007",
-            "mmsi": "311000232",
             "fecha": "2026-03-26"
         },
         {
@@ -372,27 +340,26 @@
         }
     ],
     "resumen": {
-        "total_cruceros": 13,
-        "total_llegadas": 13,
-        "total_salidas": 10,
-        "pax_estimados_hoy": 18500,
-        "proximo_desembarco": "13:00",
-        "proximo_barco": "Eco Valencia"
+        "total_cruceros": 12,
+        "total_llegadas": 12,
+        "total_salidas": 9,
+        "pax_estimados_hoy": 17500,
+        "proximo_desembarco": "09:45",
+        "proximo_barco": "Costa Fascinosa"
     },
     "terminales_activas": [
-        "8156",
-        "7332",
-        "E",
-        "F1",
-        "F3",
-        "6995",
         "2398",
+        "F1",
+        "6212",
+        "7332",
+        "8156",
+        "F3",
         "F2",
-        "6212"
+        "E"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-03-26T10:01:43.691640",
+        "actualizado": "2026-03-26T08:02:02.617347",
         "frecuencia": "horaria"
     }
 }
