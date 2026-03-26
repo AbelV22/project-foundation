@@ -58,7 +58,7 @@
             "pax_estimados": 1000,
             "puerto": "Sagunto",
             "tipo": "llegada",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Tunísia",
             "imo": "9208007",
             "mmsi": "672704000",
@@ -275,7 +275,7 @@
             "fecha": "2026-03-26"
         },
         {
-            "hora": "17:05",
+            "hora": "18:00",
             "nombre": "Elyssa",
             "naviera": "ROMEU Y CIA SA",
             "terminal": "TERMINAL PORT NOU SA",
@@ -284,7 +284,7 @@
             "pax_estimados": 1000,
             "puerto": "Rades/Tunis",
             "tipo": "salida",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Tunísia",
             "imo": "9208007",
             "mmsi": "672704000",
@@ -396,21 +396,21 @@
         "proximo_barco": "Ciudad De Palma"
     },
     "terminales_activas": [
-        "E",
-        "7946",
-        "F1",
-        "8192",
-        "TC",
-        "6995",
-        "F2",
         "2398",
+        "F2",
+        "7946",
+        "6212",
+        "8192",
         "F3",
+        "E",
+        "6995",
+        "F1",
         "8156",
-        "6212"
+        "TC"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-03-26T18:00:16.627483",
+        "actualizado": "2026-03-26T16:11:24.340859",
         "frecuencia": "horaria"
     }
 }
