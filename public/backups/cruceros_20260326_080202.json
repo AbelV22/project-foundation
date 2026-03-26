@@ -34,6 +34,22 @@
         },
         {
             "hora": "06:00",
+            "nombre": "Elyssa",
+            "naviera": "COTUNAV",
+            "terminal": "TERMINAL PORT NOU SA",
+            "terminal_codigo": "2398",
+            "eslora": 193.0,
+            "pax_estimados": 1000,
+            "puerto": "Sagunto",
+            "tipo": "llegada",
+            "estado": "Autoritzada",
+            "bandera": "Tunísia",
+            "imo": "9208007",
+            "mmsi": "672704000",
+            "fecha": "2026-03-26"
+        },
+        {
+            "hora": "06:00",
             "nombre": "Msc Amelia",
             "naviera": "MEDITERRANEAN SHIPPING CO",
             "terminal": "TERMINAL CATALUNYA SA",
@@ -62,22 +78,6 @@
             "bandera": "Singapur",
             "imo": "9934371",
             "mmsi": "563290800",
-            "fecha": "2026-03-26"
-        },
-        {
-            "hora": "07:25",
-            "nombre": "Elyssa",
-            "naviera": "COTUNAV",
-            "terminal": "TERMINAL PORT NOU SA",
-            "terminal_codigo": "2398",
-            "eslora": 193.0,
-            "pax_estimados": 1000,
-            "puerto": "Sagunto",
-            "tipo": "llegada",
-            "estado": "Iniciada",
-            "bandera": "Tunísia",
-            "imo": "9208007",
-            "mmsi": "672704000",
             "fecha": "2026-03-26"
         },
         {
@@ -220,7 +220,7 @@
             "pax_estimados": 1000,
             "puerto": "Rades/Tunis",
             "tipo": "salida",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Tunísia",
             "imo": "9208007",
             "mmsi": "672704000",
@@ -348,18 +348,18 @@
         "proximo_barco": "Costa Fascinosa"
     },
     "terminales_activas": [
-        "2398",
-        "F1",
-        "6212",
-        "7332",
-        "8156",
         "F3",
-        "F2",
-        "E"
+        "6212",
+        "2398",
+        "7332",
+        "F1",
+        "E",
+        "8156",
+        "F2"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-03-26T08:02:02.617347",
+        "actualizado": "2026-03-26T06:12:35.169699",
         "frecuencia": "horaria"
     }
 }
