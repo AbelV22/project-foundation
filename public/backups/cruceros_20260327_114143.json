@@ -18,6 +18,22 @@
         },
         {
             "hora": "06:00",
+            "nombre": "Senator",
+            "naviera": "SIDRA DENIZCILIK VE TICARET",
+            "terminal": "TERMINAL PORT NOU SA",
+            "terminal_codigo": "2398",
+            "eslora": 181.0,
+            "pax_estimados": 1000,
+            "puerto": "Mersin",
+            "tipo": "llegada",
+            "estado": "Sol·licitada",
+            "bandera": "Panamà",
+            "imo": "9117612",
+            "mmsi": "370240000",
+            "fecha": "2026-03-27"
+        },
+        {
+            "hora": "06:00",
             "nombre": "Msc Vega",
             "naviera": "MEDITERRANEAN SHIPPING CO",
             "terminal": "TERMINAL CATALUNYA SA",
@@ -46,6 +62,22 @@
             "bandera": "Panamà",
             "imo": "9309461",
             "mmsi": "354315000",
+            "fecha": "2026-03-27"
+        },
+        {
+            "hora": "06:00",
+            "nombre": "Msc Giulia",
+            "naviera": "MEDITERRANEAN SHIPPING CO",
+            "terminal": "TERMINAL CATALUNYA SA",
+            "terminal_codigo": "6212",
+            "eslora": 0,
+            "pax_estimados": 500,
+            "puerto": "Genoa",
+            "tipo": "llegada",
+            "estado": "Autoritzada",
+            "bandera": "Portugal",
+            "imo": "9770737",
+            "mmsi": "255805869",
             "fecha": "2026-03-27"
         },
         {
@@ -97,22 +129,6 @@
             "fecha": "2026-03-27"
         },
         {
-            "hora": "10:52",
-            "nombre": "Msc Giulia",
-            "naviera": "MEDITERRANEAN SHIPPING CO",
-            "terminal": "TERMINAL CATALUNYA SA",
-            "terminal_codigo": "6212",
-            "eslora": 0,
-            "pax_estimados": 500,
-            "puerto": "Genoa",
-            "tipo": "llegada",
-            "estado": "Iniciada",
-            "bandera": "Portugal",
-            "imo": "9770737",
-            "mmsi": "255805869",
-            "fecha": "2026-03-27"
-        },
-        {
             "hora": "16:00",
             "nombre": "Eco Adriatica",
             "naviera": "GRIMALDI EUROMED SPA",
@@ -146,6 +162,22 @@
         },
         {
             "hora": "19:00",
+            "nombre": "Martin I Soler",
+            "naviera": "EUROLINEAS MARITIMAS S.A",
+            "terminal": "BALEARIA EUROLINEAS MARITIMAS SA ",
+            "terminal_codigo": "7332",
+            "eslora": 165.0,
+            "pax_estimados": 1000,
+            "puerto": "Alcudia",
+            "tipo": "llegada",
+            "estado": "Confirmada",
+            "bandera": "Espanya",
+            "imo": "9390367",
+            "mmsi": "224637000",
+            "fecha": "2026-03-27"
+        },
+        {
+            "hora": "19:00",
             "nombre": "Ciudad De Barcelona",
             "naviera": "TRASMED GLE S.L.",
             "terminal": "TERMINAL F2",
@@ -158,22 +190,6 @@
             "bandera": "Espanya",
             "imo": "9506289",
             "mmsi": "225416000",
-            "fecha": "2026-03-27"
-        },
-        {
-            "hora": "19:00",
-            "nombre": "Martin I Soler",
-            "naviera": "EUROLINEAS MARITIMAS S.A",
-            "terminal": "LEPANT/TRUCK CENTER",
-            "terminal_codigo": "TC",
-            "eslora": 165.0,
-            "pax_estimados": 1000,
-            "puerto": "Alcudia",
-            "tipo": "llegada",
-            "estado": "Autoritzada",
-            "bandera": "Espanya",
-            "imo": "9390367",
-            "mmsi": "224637000",
             "fecha": "2026-03-27"
         },
         {
@@ -193,7 +209,7 @@
             "fecha": "2026-03-27"
         },
         {
-            "hora": "23:40",
+            "hora": "20:30",
             "nombre": "Cruise Roma",
             "naviera": "GRIMALDI EUROMED SPA",
             "terminal": "TERMINAL F3",
@@ -364,7 +380,7 @@
             "pax_estimados": 500,
             "puerto": "Valencia",
             "tipo": "salida",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Portugal",
             "imo": "9770737",
             "mmsi": "255805869",
@@ -422,13 +438,13 @@
             "hora": "22:00",
             "nombre": "Martin I Soler",
             "naviera": "BALEARIA EUROLINEAS MARITIMAS SA ",
-            "terminal": "LEPANT/TRUCK CENTER",
-            "terminal_codigo": "TC",
+            "terminal": "BALEARIA EUROLINEAS MARITIMAS SA ",
+            "terminal_codigo": "7332",
             "eslora": 165.0,
             "pax_estimados": 1000,
             "puerto": "Ciudadela",
             "tipo": "salida",
-            "estado": "Autoritzada",
+            "estado": "Confirmada",
             "bandera": "Espanya",
             "imo": "9390367",
             "mmsi": "224637000",
@@ -465,31 +481,49 @@
             "imo": "9349772",
             "mmsi": "224588000",
             "fecha": "2026-03-27"
+        },
+        {
+            "hora": "23:59",
+            "nombre": "Cruise Roma",
+            "naviera": "GRIMALDI LOGISTICA ESPAÑA SL",
+            "terminal": "TERMINAL F3",
+            "terminal_codigo": "F3",
+            "eslora": 254.0,
+            "pax_estimados": 3000,
+            "puerto": "Porto Torres",
+            "tipo": "salida",
+            "estado": "Autoritzada",
+            "bandera": "Itàlia",
+            "imo": "9351476",
+            "mmsi": "247219400",
+            "fecha": "2026-03-27"
         }
     ],
     "resumen": {
-        "total_cruceros": 16,
-        "total_llegadas": 13,
-        "total_salidas": 16,
-        "pax_estimados_hoy": 25000,
+        "total_cruceros": 17,
+        "total_llegadas": 14,
+        "total_salidas": 17,
+        "pax_estimados_hoy": 26000,
         "proximo_desembarco": "16:00",
         "proximo_barco": "Eco Adriatica"
     },
     "terminales_activas": [
+        "8192",
         "F1",
-        "TC",
-        "F2",
-        "8156",
-        "0010",
         "H",
-        "F3",
-        "D",
         "6212",
-        "8192"
+        "0010",
+        "TC",
+        "2398",
+        "7332",
+        "8156",
+        "F2",
+        "F3",
+        "D"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-03-27T11:41:43.891803",
+        "actualizado": "2026-03-27T09:55:11.066703",
         "frecuencia": "horaria"
     }
 }
