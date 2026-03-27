@@ -1,7 +1,7 @@
 {
     "llegadas": [
         {
-            "hora": "05:29",
+            "hora": "04:45",
             "nombre": "Aidacosma",
             "naviera": "AIDA CRUISES",
             "terminal": "Terminal D (Adossat)",
@@ -10,7 +10,7 @@
             "pax_estimados": 4500,
             "puerto": "Marseille",
             "tipo": "llegada",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Itàlia",
             "imo": "9781877",
             "mmsi": "247435300",
@@ -195,6 +195,22 @@
     ],
     "salidas": [
         {
+            "hora": "00:30",
+            "nombre": "Cruise Barcelona",
+            "naviera": "GRIMALDI LOGISTICA ESPAÑA SL",
+            "terminal": "TERMINAL F3",
+            "terminal_codigo": "F3",
+            "eslora": 0,
+            "pax_estimados": 500,
+            "puerto": "Porto Torres",
+            "tipo": "salida",
+            "estado": "Iniciada",
+            "bandera": "Itàlia",
+            "imo": "9351488",
+            "mmsi": "247243600",
+            "fecha": "2026-03-27"
+        },
+        {
             "hora": "01:00",
             "nombre": "Msc Emilie",
             "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
@@ -208,38 +224,6 @@
             "bandera": "Libèria",
             "imo": "9334832",
             "mmsi": "636020695",
-            "fecha": "2026-03-27"
-        },
-        {
-            "hora": "01:21",
-            "nombre": "Cruise Barcelona",
-            "naviera": "GRIMALDI LOGISTICA ESPAÑA SL",
-            "terminal": "TERMINAL F3",
-            "terminal_codigo": "F3",
-            "eslora": 0,
-            "pax_estimados": 500,
-            "puerto": "Porto Torres",
-            "tipo": "salida",
-            "estado": "Finalitzada",
-            "bandera": "Itàlia",
-            "imo": "9351488",
-            "mmsi": "247243600",
-            "fecha": "2026-03-27"
-        },
-        {
-            "hora": "01:56",
-            "nombre": "Martin I Soler",
-            "naviera": "BALEARIA EUROLINEAS MARITIMAS SA ",
-            "terminal": "LEPANT/TRUCK CENTER",
-            "terminal_codigo": "TC",
-            "eslora": 165.0,
-            "pax_estimados": 1000,
-            "puerto": "Alcudia",
-            "tipo": "salida",
-            "estado": "Finalitzada",
-            "bandera": "Espanya",
-            "imo": "9390367",
-            "mmsi": "224637000",
             "fecha": "2026-03-27"
         },
         {
@@ -268,7 +252,7 @@
             "pax_estimados": 4500,
             "puerto": "Palma de Mallorca",
             "tipo": "salida",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Itàlia",
             "imo": "9781877",
             "mmsi": "247435300",
@@ -470,28 +454,27 @@
     "resumen": {
         "total_cruceros": 17,
         "total_llegadas": 12,
-        "total_salidas": 17,
+        "total_salidas": 16,
         "pax_estimados_hoy": 16500,
-        "proximo_desembarco": "06:42",
-        "proximo_barco": "Msc World Europa"
+        "proximo_desembarco": null,
+        "proximo_barco": null
     },
     "terminales_activas": [
-        "8156",
-        "F1",
-        "D",
-        "H",
-        "7332",
-        "6212",
-        "TC",
-        "0010",
         "F2",
         "2398",
+        "8156",
+        "D",
+        "H",
+        "F1",
         "8192",
-        "F3"
+        "6212",
+        "F3",
+        "7332",
+        "0010"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-03-27T06:12:28.858670",
+        "actualizado": "2026-03-26T23:33:20.527509",
         "frecuencia": "horaria"
     }
 }
