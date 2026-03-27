@@ -227,6 +227,22 @@
     ],
     "salidas": [
         {
+            "hora": "01:00",
+            "nombre": "Msc Emilie",
+            "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
+            "terminal": "TERMINAL CATALUNYA SA",
+            "terminal_codigo": "6212",
+            "eslora": 0,
+            "pax_estimados": 500,
+            "puerto": "Bejaia (ex Bougie)",
+            "tipo": "salida",
+            "estado": "Iniciada",
+            "bandera": "Libèria",
+            "imo": "9334832",
+            "mmsi": "636020695",
+            "fecha": "2026-03-27"
+        },
+        {
             "hora": "01:21",
             "nombre": "Cruise Barcelona",
             "naviera": "GRIMALDI LOGISTICA ESPAÑA SL",
@@ -256,22 +272,6 @@
             "bandera": "Espanya",
             "imo": "9390367",
             "mmsi": "224637000",
-            "fecha": "2026-03-27"
-        },
-        {
-            "hora": "08:33",
-            "nombre": "Msc Emilie",
-            "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
-            "terminal": "TERMINAL CATALUNYA SA",
-            "terminal_codigo": "6212",
-            "eslora": 0,
-            "pax_estimados": 500,
-            "puerto": "Bejaia (ex Bougie)",
-            "tipo": "salida",
-            "estado": "Finalitzada",
-            "bandera": "Libèria",
-            "imo": "9334832",
-            "mmsi": "636020695",
             "fecha": "2026-03-27"
         },
         {
@@ -508,22 +508,22 @@
         "proximo_barco": "Eco Adriatica"
     },
     "terminales_activas": [
-        "8192",
-        "F1",
         "H",
-        "6212",
-        "0010",
-        "TC",
         "2398",
-        "7332",
-        "8156",
+        "6212",
         "F2",
+        "0010",
         "F3",
-        "D"
+        "F1",
+        "D",
+        "8156",
+        "8192",
+        "7332",
+        "TC"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-03-27T09:55:11.066703",
+        "actualizado": "2026-03-27T07:59:50.480041",
         "frecuencia": "horaria"
     }
 }
