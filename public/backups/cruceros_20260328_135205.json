@@ -97,6 +97,22 @@
             "fecha": "2026-03-28"
         },
         {
+            "hora": "11:42",
+            "nombre": "Costa Pacifica",
+            "naviera": "COSTA CROCIERE, S.P.A.",
+            "terminal": "Terminal E (Adossat)",
+            "terminal_codigo": "E",
+            "eslora": 0,
+            "pax_estimados": 500,
+            "puerto": "Cadiz",
+            "tipo": "llegada",
+            "estado": "Autoritzada",
+            "bandera": "Itàlia",
+            "imo": "9378498",
+            "mmsi": "247258100",
+            "fecha": "2026-03-28"
+        },
+        {
             "hora": "11:50",
             "nombre": "Jadrana",
             "naviera": "TAILWIND SHIPPING LINES",
@@ -110,22 +126,6 @@
             "bandera": "Portugal",
             "imo": "9619385",
             "mmsi": "255805572",
-            "fecha": "2026-03-28"
-        },
-        {
-            "hora": "12:21",
-            "nombre": "Costa Pacifica",
-            "naviera": "COSTA CROCIERE, S.P.A.",
-            "terminal": "Terminal E (Adossat)",
-            "terminal_codigo": "E",
-            "eslora": 0,
-            "pax_estimados": 500,
-            "puerto": "Cadiz",
-            "tipo": "llegada",
-            "estado": "Iniciada",
-            "bandera": "Itàlia",
-            "imo": "9378498",
-            "mmsi": "247258100",
             "fecha": "2026-03-28"
         },
         {
@@ -259,22 +259,6 @@
             "fecha": "2026-03-28"
         },
         {
-            "hora": "12:52",
-            "nombre": "One Fruition",
-            "naviera": "OCEAN NETWORK EXPRESS SPAIN SA",
-            "terminal": "TERMINAL CATALUNYA SA",
-            "terminal_codigo": "6212",
-            "eslora": 366.0,
-            "pax_estimados": 6500,
-            "puerto": "Genoa",
-            "tipo": "salida",
-            "estado": "Finalitzada",
-            "bandera": "Singapur",
-            "imo": "9934371",
-            "mmsi": "563290800",
-            "fecha": "2026-03-28"
-        },
-        {
             "hora": "13:00",
             "nombre": "Eco Livorno",
             "naviera": "GRIMALDI LOGISTICA ESPAÑA SL",
@@ -332,7 +316,7 @@
             "pax_estimados": 500,
             "puerto": "Marseille",
             "tipo": "salida",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Itàlia",
             "imo": "9378498",
             "mmsi": "247258100",
@@ -388,29 +372,29 @@
         }
     ],
     "resumen": {
-        "total_cruceros": 15,
+        "total_cruceros": 14,
         "total_llegadas": 11,
-        "total_salidas": 13,
+        "total_salidas": 12,
         "pax_estimados_hoy": 25500,
-        "proximo_desembarco": "18:15",
-        "proximo_barco": "Ciudad De Palma"
+        "proximo_desembarco": "11:42",
+        "proximo_barco": "Costa Pacifica"
     },
     "terminales_activas": [
-        "8156",
-        "F2",
-        "E",
-        "6212",
-        "F3",
-        "6995",
         "0010",
-        "H",
-        "A",
+        "6212",
+        "8156",
         "F1",
-        "8192"
+        "A",
+        "6995",
+        "E",
+        "F2",
+        "H",
+        "8192",
+        "F3"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-03-28T13:52:05.191009",
+        "actualizado": "2026-03-28T11:29:05.127970",
         "frecuencia": "horaria"
     }
 }
