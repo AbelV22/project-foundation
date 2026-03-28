@@ -161,7 +161,7 @@
             "fecha": "2026-03-28"
         },
         {
-            "hora": "20:41",
+            "hora": "19:00",
             "nombre": "Martin I Soler",
             "naviera": "EUROLINEAS MARITIMAS S.A",
             "terminal": "TERMINAL F1",
@@ -170,7 +170,7 @@
             "pax_estimados": 1000,
             "puerto": "Alcudia",
             "tipo": "llegada",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Espanya",
             "imo": "9390367",
             "mmsi": "224637000",
@@ -364,7 +364,7 @@
             "pax_estimados": 1000,
             "puerto": "Alcudia",
             "tipo": "salida",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Espanya",
             "imo": "9390367",
             "mmsi": "224637000",
@@ -396,21 +396,21 @@
         "proximo_barco": null
     },
     "terminales_activas": [
-        "6212",
-        "A",
-        "E",
-        "F1",
-        "8156",
         "F3",
+        "6995",
+        "F1",
+        "H",
+        "8156",
+        "6212",
+        "F2",
+        "E",
         "0010",
         "8192",
-        "F2",
-        "6995",
-        "H"
+        "A"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-03-28T21:29:53.275965",
+        "actualizado": "2026-03-28T19:30:07.948212",
         "frecuencia": "horaria"
     }
 }
