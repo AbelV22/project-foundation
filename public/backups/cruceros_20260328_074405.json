@@ -26,10 +26,26 @@
             "pax_estimados": 3000,
             "puerto": "Civitavecchia",
             "tipo": "llegada",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Itàlia",
             "imo": "9351476",
             "mmsi": "247219400",
+            "fecha": "2026-03-28"
+        },
+        {
+            "hora": "06:00",
+            "nombre": "Viking Vesta",
+            "naviera": "VIKING OCEAN CRUISES SHIP",
+            "terminal": "Terminal A (WTC)",
+            "terminal_codigo": "A",
+            "eslora": 228.0,
+            "pax_estimados": 2000,
+            "puerto": "Malaga",
+            "tipo": "llegada",
+            "estado": "Autoritzada",
+            "bandera": "Noruega",
+            "imo": "9852444",
+            "mmsi": "257944000",
             "fecha": "2026-03-28"
         },
         {
@@ -65,23 +81,7 @@
             "fecha": "2026-03-28"
         },
         {
-            "hora": "07:02",
-            "nombre": "Viking Vesta",
-            "naviera": "VIKING OCEAN CRUISES SHIP",
-            "terminal": "Terminal A (WTC)",
-            "terminal_codigo": "A",
-            "eslora": 228.0,
-            "pax_estimados": 2000,
-            "puerto": "Malaga",
-            "tipo": "llegada",
-            "estado": "Iniciada",
-            "bandera": "Noruega",
-            "imo": "9852444",
-            "mmsi": "257944000",
-            "fecha": "2026-03-28"
-        },
-        {
-            "hora": "07:16",
+            "hora": "07:00",
             "nombre": "Eco Livorno",
             "naviera": "GRIMALDI EUROMED SPA",
             "terminal": "GRIMALDI TERMINAL BARCELONA SL",
@@ -90,14 +90,14 @@
             "pax_estimados": 2000,
             "puerto": "Valencia",
             "tipo": "llegada",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Itàlia",
             "imo": "9859557",
             "mmsi": "247383500",
             "fecha": "2026-03-28"
         },
         {
-            "hora": "07:34",
+            "hora": "07:00",
             "nombre": "Msc Splendida",
             "naviera": "MSC CRUISES S.A.",
             "terminal": "ADOSSAT/TERMINAL H",
@@ -106,7 +106,7 @@
             "pax_estimados": 4500,
             "puerto": "La Goulette Nord (Halqueloued)",
             "tipo": "llegada",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Panamà",
             "imo": "9359806",
             "mmsi": "357698000",
@@ -211,6 +211,22 @@
             "fecha": "2026-03-28"
         },
         {
+            "hora": "02:00",
+            "nombre": "Cruise Roma",
+            "naviera": "GRIMALDI LOGISTICA ESPAÑA SL",
+            "terminal": "TERMINAL F3",
+            "terminal_codigo": "F3",
+            "eslora": 254.0,
+            "pax_estimados": 3000,
+            "puerto": "Porto Torres",
+            "tipo": "salida",
+            "estado": "Iniciada",
+            "bandera": "Itàlia",
+            "imo": "9351476",
+            "mmsi": "247219400",
+            "fecha": "2026-03-28"
+        },
+        {
             "hora": "04:56",
             "nombre": "Msc Giulia",
             "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
@@ -227,22 +243,6 @@
             "fecha": "2026-03-28"
         },
         {
-            "hora": "05:47",
-            "nombre": "Cruise Roma",
-            "naviera": "GRIMALDI LOGISTICA ESPAÑA SL",
-            "terminal": "TERMINAL F3",
-            "terminal_codigo": "F3",
-            "eslora": 254.0,
-            "pax_estimados": 3000,
-            "puerto": "Porto Torres",
-            "tipo": "salida",
-            "estado": "Finalitzada",
-            "bandera": "Itàlia",
-            "imo": "9351476",
-            "mmsi": "247219400",
-            "fecha": "2026-03-28"
-        },
-        {
             "hora": "13:00",
             "nombre": "Eco Livorno",
             "naviera": "GRIMALDI LOGISTICA ESPAÑA SL",
@@ -252,7 +252,7 @@
             "pax_estimados": 2000,
             "puerto": "Savona",
             "tipo": "salida",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Itàlia",
             "imo": "9859557",
             "mmsi": "247383500",
@@ -284,7 +284,7 @@
             "pax_estimados": 4500,
             "puerto": "Marseille",
             "tipo": "salida",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Panamà",
             "imo": "9359806",
             "mmsi": "357698000",
@@ -360,24 +360,24 @@
         "total_llegadas": 11,
         "total_salidas": 11,
         "pax_estimados_hoy": 25500,
-        "proximo_desembarco": "11:42",
-        "proximo_barco": "Costa Pacifica"
+        "proximo_desembarco": "06:00",
+        "proximo_barco": "Viking Vesta"
     },
     "terminales_activas": [
-        "8156",
-        "F1",
         "6995",
+        "A",
+        "8156",
         "F3",
-        "6212",
         "E",
-        "F2",
         "0010",
+        "F2",
         "H",
-        "A"
+        "6212",
+        "F1"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-03-28T07:44:05.466547",
+        "actualizado": "2026-03-28T05:57:25.578394",
         "frecuencia": "horaria"
     }
 }
