@@ -1,38 +1,6 @@
 {
     "llegadas": [
         {
-            "hora": "00:34",
-            "nombre": "Atlas",
-            "naviera": "SUPER-ECO TANKERS MGMT INC-LIB",
-            "terminal": "",
-            "terminal_codigo": "",
-            "eslora": 183.0,
-            "pax_estimados": 1000,
-            "puerto": "Agio Theodoroi",
-            "tipo": "llegada",
-            "estado": "Iniciada",
-            "bandera": "Bahames",
-            "imo": "9538177",
-            "mmsi": "311000134",
-            "fecha": "2026-03-28"
-        },
-        {
-            "hora": "01:12",
-            "nombre": "Cruise Roma",
-            "naviera": "GRIMALDI EUROMED SPA",
-            "terminal": "TERMINAL F3",
-            "terminal_codigo": "F3",
-            "eslora": 254.0,
-            "pax_estimados": 3000,
-            "puerto": "Civitavecchia",
-            "tipo": "llegada",
-            "estado": "Iniciada",
-            "bandera": "Itàlia",
-            "imo": "9351476",
-            "mmsi": "247219400",
-            "fecha": "2026-03-28"
-        },
-        {
             "hora": "06:00",
             "nombre": "Viking Vesta",
             "naviera": "VIKING OCEAN CRUISES SHIP",
@@ -179,38 +147,6 @@
     ],
     "salidas": [
         {
-            "hora": "00:33",
-            "nombre": "Atlas",
-            "naviera": "NEXT MARITIME SL",
-            "terminal": "EXOLUM CORPORATION, SA",
-            "terminal_codigo": "0010",
-            "eslora": 183.0,
-            "pax_estimados": 1000,
-            "puerto": "Cartagena",
-            "tipo": "salida",
-            "estado": "Iniciada",
-            "bandera": "Bahames",
-            "imo": "9538177",
-            "mmsi": "311000134",
-            "fecha": "2026-03-28"
-        },
-        {
-            "hora": "00:35",
-            "nombre": "Atlas",
-            "naviera": "NEXT MARITIME SL",
-            "terminal": "",
-            "terminal_codigo": "",
-            "eslora": 183.0,
-            "pax_estimados": 1000,
-            "puerto": "Cartagena",
-            "tipo": "salida",
-            "estado": "Iniciada",
-            "bandera": "Bahames",
-            "imo": "9538177",
-            "mmsi": "311000134",
-            "fecha": "2026-03-28"
-        },
-        {
             "hora": "02:00",
             "nombre": "Cruise Roma",
             "naviera": "GRIMALDI LOGISTICA ESPAÑA SL",
@@ -220,26 +156,10 @@
             "pax_estimados": 3000,
             "puerto": "Porto Torres",
             "tipo": "salida",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Itàlia",
             "imo": "9351476",
             "mmsi": "247219400",
-            "fecha": "2026-03-28"
-        },
-        {
-            "hora": "04:56",
-            "nombre": "Msc Giulia",
-            "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
-            "terminal": "TERMINAL CATALUNYA SA",
-            "terminal_codigo": "6212",
-            "eslora": 0,
-            "pax_estimados": 500,
-            "puerto": "Valencia",
-            "tipo": "salida",
-            "estado": "Finalitzada",
-            "bandera": "Portugal",
-            "imo": "9770737",
-            "mmsi": "255805869",
             "fecha": "2026-03-28"
         },
         {
@@ -356,28 +276,27 @@
         }
     ],
     "resumen": {
-        "total_cruceros": 13,
-        "total_llegadas": 11,
-        "total_salidas": 11,
-        "pax_estimados_hoy": 25500,
-        "proximo_desembarco": "06:00",
-        "proximo_barco": "Viking Vesta"
+        "total_cruceros": 11,
+        "total_llegadas": 9,
+        "total_salidas": 8,
+        "pax_estimados_hoy": 21500,
+        "proximo_desembarco": null,
+        "proximo_barco": null
     },
     "terminales_activas": [
-        "6995",
-        "A",
+        "E",
         "8156",
         "F3",
-        "E",
-        "0010",
+        "6995",
         "F2",
-        "H",
+        "A",
         "6212",
+        "H",
         "F1"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-03-28T05:57:25.578394",
+        "actualizado": "2026-03-27T23:32:47.513462",
         "frecuencia": "horaria"
     }
 }
