@@ -90,7 +90,7 @@
             "pax_estimados": 4500,
             "puerto": "La Goulette Nord (Halqueloued)",
             "tipo": "llegada",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Panamà",
             "imo": "9359806",
             "mmsi": "357698000",
@@ -122,7 +122,7 @@
             "pax_estimados": 500,
             "puerto": "Cadiz",
             "tipo": "llegada",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Itàlia",
             "imo": "9378498",
             "mmsi": "247258100",
@@ -145,7 +145,7 @@
             "fecha": "2026-03-28"
         },
         {
-            "hora": "18:51",
+            "hora": "18:15",
             "nombre": "Ciudad De Palma",
             "naviera": "TRASMED GLE S.L.",
             "terminal": "TERMINAL F2",
@@ -154,7 +154,7 @@
             "pax_estimados": 1000,
             "puerto": "Palma de Mallorca",
             "tipo": "llegada",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Espanya",
             "imo": "9349772",
             "mmsi": "224588000",
@@ -307,7 +307,7 @@
             "fecha": "2026-03-28"
         },
         {
-            "hora": "18:37",
+            "hora": "18:00",
             "nombre": "Msc Splendida",
             "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
             "terminal": "ADOSSAT/TERMINAL H",
@@ -316,14 +316,14 @@
             "pax_estimados": 4500,
             "puerto": "Marseille",
             "tipo": "salida",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Panamà",
             "imo": "9359806",
             "mmsi": "357698000",
             "fecha": "2026-03-28"
         },
         {
-            "hora": "19:25",
+            "hora": "19:00",
             "nombre": "Costa Pacifica",
             "naviera": "NOATUM MARITIME SPAIN SAU",
             "terminal": "Terminal E (Adossat)",
@@ -332,7 +332,7 @@
             "pax_estimados": 500,
             "puerto": "Marseille",
             "tipo": "salida",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Itàlia",
             "imo": "9378498",
             "mmsi": "247258100",
@@ -380,7 +380,7 @@
             "pax_estimados": 1000,
             "puerto": "Palma de Mallorca",
             "tipo": "salida",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Espanya",
             "imo": "9349772",
             "mmsi": "224588000",
@@ -392,25 +392,25 @@
         "total_llegadas": 11,
         "total_salidas": 13,
         "pax_estimados_hoy": 25500,
-        "proximo_desembarco": null,
-        "proximo_barco": null
+        "proximo_desembarco": "18:15",
+        "proximo_barco": "Ciudad De Palma"
     },
     "terminales_activas": [
-        "F3",
-        "6995",
-        "F1",
         "H",
         "8156",
-        "6212",
-        "F2",
         "E",
-        "0010",
+        "6995",
+        "F2",
+        "F1",
+        "F3",
+        "6212",
+        "A",
         "8192",
-        "A"
+        "0010"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-03-28T19:30:07.948212",
+        "actualizado": "2026-03-28T17:29:19.154989",
         "frecuencia": "horaria"
     }
 }
