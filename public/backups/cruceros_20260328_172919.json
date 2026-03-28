@@ -129,22 +129,6 @@
             "fecha": "2026-03-28"
         },
         {
-            "hora": "16:47",
-            "nombre": "Merito",
-            "naviera": "MEDITERRANEAN SHIPPING CO",
-            "terminal": "TERMINAL CATALUNYA SA",
-            "terminal_codigo": "6212",
-            "eslora": 150.0,
-            "pax_estimados": 1000,
-            "puerto": "Oran",
-            "tipo": "llegada",
-            "estado": "Iniciada",
-            "bandera": "Malta",
-            "imo": "9167942",
-            "mmsi": "249096000",
-            "fecha": "2026-03-28"
-        },
-        {
             "hora": "18:15",
             "nombre": "Ciudad De Palma",
             "naviera": "TRASMED GLE S.L.",
@@ -174,6 +158,22 @@
             "bandera": "Espanya",
             "imo": "9390367",
             "mmsi": "224637000",
+            "fecha": "2026-03-28"
+        },
+        {
+            "hora": "19:30",
+            "nombre": "Merito",
+            "naviera": "MEDITERRANEAN SHIPPING CO",
+            "terminal": "TERMINAL CATALUNYA SA",
+            "terminal_codigo": "6212",
+            "eslora": 150.0,
+            "pax_estimados": 1000,
+            "puerto": "Oran",
+            "tipo": "llegada",
+            "estado": "Autoritzada",
+            "bandera": "Malta",
+            "imo": "9167942",
+            "mmsi": "249096000",
             "fecha": "2026-03-28"
         }
     ],
@@ -396,21 +396,21 @@
         "proximo_barco": "Ciudad De Palma"
     },
     "terminales_activas": [
-        "H",
+        "A",
         "8156",
         "E",
+        "0010",
+        "F3",
         "6995",
+        "H",
+        "6212",
         "F2",
         "F1",
-        "F3",
-        "6212",
-        "A",
-        "8192",
-        "0010"
+        "8192"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-03-28T17:29:19.154989",
+        "actualizado": "2026-03-28T15:31:12.944908",
         "frecuencia": "horaria"
     }
 }
