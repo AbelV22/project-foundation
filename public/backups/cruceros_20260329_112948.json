@@ -90,7 +90,7 @@
             "pax_estimados": 500,
             "puerto": "Porto Torres",
             "tipo": "llegada",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Itàlia",
             "imo": "9351488",
             "mmsi": "247243600",
@@ -161,19 +161,19 @@
             "fecha": "2026-03-29"
         },
         {
-            "hora": "12:31",
-            "nombre": "Msc Barcelona",
-            "naviera": "MEDITERRANEAN SHIPPING CO",
-            "terminal": "TERMINAL CATALUNYA SA",
-            "terminal_codigo": "6212",
-            "eslora": 0,
-            "pax_estimados": 500,
-            "puerto": "Freeport, Grand Bahama",
+            "hora": "13:30",
+            "nombre": "Martin I Soler",
+            "naviera": "EUROLINEAS MARITIMAS S.A",
+            "terminal": "LEPANT/TRUCK CENTER",
+            "terminal_codigo": "TC",
+            "eslora": 165.0,
+            "pax_estimados": 1000,
+            "puerto": "Alcudia",
             "tipo": "llegada",
-            "estado": "Iniciada",
-            "bandera": "Malta",
-            "imo": "9480186",
-            "mmsi": "256573000",
+            "estado": "Autoritzada",
+            "bandera": "Espanya",
+            "imo": "9390367",
+            "mmsi": "224637000",
             "fecha": "2026-03-29"
         },
         {
@@ -193,19 +193,19 @@
             "fecha": "2026-03-29"
         },
         {
-            "hora": "16:00",
-            "nombre": "Martin I Soler",
-            "naviera": "EUROLINEAS MARITIMAS S.A",
-            "terminal": "LEPANT/TRUCK CENTER",
-            "terminal_codigo": "TC",
-            "eslora": 165.0,
-            "pax_estimados": 1000,
-            "puerto": "Alcudia",
+            "hora": "18:00",
+            "nombre": "Msc Barcelona",
+            "naviera": "MEDITERRANEAN SHIPPING CO",
+            "terminal": "TERMINAL CATALUNYA SA",
+            "terminal_codigo": "6212",
+            "eslora": 0,
+            "pax_estimados": 500,
+            "puerto": "Freeport, Grand Bahama",
             "tipo": "llegada",
             "estado": "Autoritzada",
-            "bandera": "Espanya",
-            "imo": "9390367",
-            "mmsi": "224637000",
+            "bandera": "Malta",
+            "imo": "9480186",
+            "mmsi": "256573000",
             "fecha": "2026-03-29"
         },
         {
@@ -275,6 +275,22 @@
             "fecha": "2026-03-29"
         },
         {
+            "hora": "06:58",
+            "nombre": "Cruise Barcelona",
+            "naviera": "GRIMALDI LOGISTICA ESPAÑA SL",
+            "terminal": "TERMINAL F3",
+            "terminal_codigo": "F3",
+            "eslora": 0,
+            "pax_estimados": 500,
+            "puerto": "Civitavecchia",
+            "tipo": "salida",
+            "estado": "Iniciada",
+            "bandera": "Itàlia",
+            "imo": "9351488",
+            "mmsi": "247243600",
+            "fecha": "2026-03-29"
+        },
+        {
             "hora": "09:51",
             "nombre": "Jadrana",
             "naviera": "MARTICO SL",
@@ -291,22 +307,6 @@
             "fecha": "2026-03-29"
         },
         {
-            "hora": "11:18",
-            "nombre": "Merito",
-            "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
-            "terminal": "TERMINAL CATALUNYA SA",
-            "terminal_codigo": "6212",
-            "eslora": 150.0,
-            "pax_estimados": 1000,
-            "puerto": "Oran",
-            "tipo": "salida",
-            "estado": "Finalitzada",
-            "bandera": "Malta",
-            "imo": "9167942",
-            "mmsi": "249096000",
-            "fecha": "2026-03-29"
-        },
-        {
             "hora": "11:29",
             "nombre": "Abel Matutes",
             "naviera": "BALEARIA EUROLINEAS MARITIMAS SA ",
@@ -320,22 +320,6 @@
             "bandera": "Espanya",
             "imo": "9441130",
             "mmsi": "224402000",
-            "fecha": "2026-03-29"
-        },
-        {
-            "hora": "11:46",
-            "nombre": "Cruise Barcelona",
-            "naviera": "GRIMALDI LOGISTICA ESPAÑA SL",
-            "terminal": "TERMINAL F3",
-            "terminal_codigo": "F3",
-            "eslora": 0,
-            "pax_estimados": 500,
-            "puerto": "Civitavecchia",
-            "tipo": "salida",
-            "estado": "Finalitzada",
-            "bandera": "Itàlia",
-            "imo": "9351488",
-            "mmsi": "247243600",
             "fecha": "2026-03-29"
         },
         {
@@ -384,6 +368,22 @@
             "bandera": "Noruega",
             "imo": "9852444",
             "mmsi": "257944000",
+            "fecha": "2026-03-29"
+        },
+        {
+            "hora": "17:30",
+            "nombre": "Merito",
+            "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
+            "terminal": "TERMINAL CATALUNYA SA",
+            "terminal_codigo": "6212",
+            "eslora": 150.0,
+            "pax_estimados": 1000,
+            "puerto": "Oran",
+            "tipo": "salida",
+            "estado": "Iniciada",
+            "bandera": "Malta",
+            "imo": "9167942",
+            "mmsi": "249096000",
             "fecha": "2026-03-29"
         },
         {
@@ -524,20 +524,20 @@
         "proximo_barco": "Abel Matutes"
     },
     "terminales_activas": [
+        "F3",
         "H",
-        "F1",
-        "6212",
-        "C",
+        "F2",
         "A",
         "TC",
+        "C",
+        "8156",
+        "6212",
         "E",
-        "F2",
-        "F3",
-        "8156"
+        "F1"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-03-29T11:29:48.557173",
+        "actualizado": "2026-03-29T09:37:10.793290",
         "frecuencia": "horaria"
     }
 }
