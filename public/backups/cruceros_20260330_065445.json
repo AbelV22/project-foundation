@@ -65,7 +65,7 @@
             "fecha": "2026-03-30"
         },
         {
-            "hora": "06:40",
+            "hora": "06:15",
             "nombre": "Costa Fascinosa",
             "naviera": "COSTA CROCIERE, S.P.A.",
             "terminal": "Terminal D (Adossat)",
@@ -74,7 +74,7 @@
             "pax_estimados": 500,
             "puerto": "Savona",
             "tipo": "llegada",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Itàlia",
             "imo": "9479864",
             "mmsi": "247313500",
@@ -211,22 +211,6 @@
     ],
     "salidas": [
         {
-            "hora": "01:52",
-            "nombre": "Ciudad De Palma",
-            "naviera": "GRIMALDI LOGISTICA ESPAÑA SL",
-            "terminal": "TERMINAL F2",
-            "terminal_codigo": "F2",
-            "eslora": 186.0,
-            "pax_estimados": 1000,
-            "puerto": "Palma de Mallorca",
-            "tipo": "salida",
-            "estado": "Finalitzada",
-            "bandera": "Espanya",
-            "imo": "9349772",
-            "mmsi": "224588000",
-            "fecha": "2026-03-30"
-        },
-        {
             "hora": "14:00",
             "nombre": "Msc Barcelona",
             "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
@@ -284,7 +268,7 @@
             "pax_estimados": 500,
             "puerto": "Marseille",
             "tipo": "salida",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Itàlia",
             "imo": "9479864",
             "mmsi": "247313500",
@@ -438,26 +422,26 @@
     "resumen": {
         "total_cruceros": 16,
         "total_llegadas": 13,
-        "total_salidas": 14,
+        "total_salidas": 13,
         "pax_estimados_hoy": 19000,
-        "proximo_desembarco": "07:00",
-        "proximo_barco": "Eco Valencia"
+        "proximo_desembarco": null,
+        "proximo_barco": null
     },
     "terminales_activas": [
-        "D",
-        "F3",
-        "E",
-        "6154",
-        "F2",
-        "6212",
-        "7332",
-        "172133",
         "8156",
-        "F1"
+        "6212",
+        "172133",
+        "F2",
+        "7332",
+        "D",
+        "E",
+        "F1",
+        "6154",
+        "F3"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-03-30T06:54:45.765446",
+        "actualizado": "2026-03-29T23:33:24.428891",
         "frecuencia": "horaria"
     }
 }
