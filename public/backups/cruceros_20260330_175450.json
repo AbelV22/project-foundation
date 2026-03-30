@@ -26,7 +26,7 @@
             "pax_estimados": 500,
             "puerto": "Savona",
             "tipo": "llegada",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Itàlia",
             "imo": "9479864",
             "mmsi": "247313500",
@@ -74,7 +74,7 @@
             "pax_estimados": 4500,
             "puerto": "Marseille",
             "tipo": "llegada",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Itàlia",
             "imo": "9781889",
             "mmsi": "247391900",
@@ -243,7 +243,7 @@
             "fecha": "2026-03-30"
         },
         {
-            "hora": "17:35",
+            "hora": "17:30",
             "nombre": "Costa Fascinosa",
             "naviera": "NOATUM MARITIME SPAIN SAU",
             "terminal": "Terminal D (Adossat)",
@@ -252,10 +252,26 @@
             "pax_estimados": 500,
             "puerto": "Marseille",
             "tipo": "salida",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Itàlia",
             "imo": "9479864",
             "mmsi": "247313500",
+            "fecha": "2026-03-30"
+        },
+        {
+            "hora": "18:00",
+            "nombre": "Costa Smeralda",
+            "naviera": "NOATUM MARITIME SPAIN SAU",
+            "terminal": "Terminal E (Adossat)",
+            "terminal_codigo": "E",
+            "eslora": 337.0,
+            "pax_estimados": 4500,
+            "puerto": "Palma de Mallorca",
+            "tipo": "salida",
+            "estado": "Iniciada",
+            "bandera": "Itàlia",
+            "imo": "9781889",
+            "mmsi": "247391900",
             "fecha": "2026-03-30"
         },
         {
@@ -272,22 +288,6 @@
             "bandera": "Libèria",
             "imo": "9323493",
             "mmsi": "636023306",
-            "fecha": "2026-03-30"
-        },
-        {
-            "hora": "18:22",
-            "nombre": "Costa Smeralda",
-            "naviera": "NOATUM MARITIME SPAIN SAU",
-            "terminal": "Terminal E (Adossat)",
-            "terminal_codigo": "E",
-            "eslora": 337.0,
-            "pax_estimados": 4500,
-            "puerto": "Palma de Mallorca",
-            "tipo": "salida",
-            "estado": "Finalitzada",
-            "bandera": "Itàlia",
-            "imo": "9781889",
-            "mmsi": "247391900",
             "fecha": "2026-03-30"
         },
         {
@@ -380,20 +380,20 @@
         "proximo_barco": "Msc Radiant Iii"
     },
     "terminales_activas": [
-        "F3",
-        "172133",
-        "F1",
-        "D",
-        "8156",
         "6212",
-        "F2",
-        "6154",
+        "172133",
         "TC",
-        "E"
+        "E",
+        "6154",
+        "F1",
+        "8156",
+        "F3",
+        "D",
+        "F2"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-03-30T17:54:50.073237",
+        "actualizado": "2026-03-30T16:05:48.241974",
         "frecuencia": "horaria"
     }
 }
