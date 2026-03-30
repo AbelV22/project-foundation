@@ -58,7 +58,7 @@
             "pax_estimados": 3000,
             "puerto": "Civitavecchia",
             "tipo": "llegada",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Itàlia",
             "imo": "9351476",
             "mmsi": "247219400",
@@ -122,7 +122,7 @@
             "pax_estimados": 1000,
             "puerto": "Palma de Mallorca",
             "tipo": "llegada",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Espanya",
             "imo": "9349772",
             "mmsi": "224588000",
@@ -174,22 +174,6 @@
             "bandera": "Xipre",
             "imo": "9019054",
             "mmsi": "210133000",
-            "fecha": "2026-03-30"
-        },
-        {
-            "hora": "22:58",
-            "nombre": "Msc Agna Ii",
-            "naviera": "MEDITERRANEAN SHIPPING CO",
-            "terminal": "TERMINAL CATALUNYA SA",
-            "terminal_codigo": "6212",
-            "eslora": 0,
-            "pax_estimados": 500,
-            "puerto": "Alger (Algiers)",
-            "tipo": "llegada",
-            "estado": "Iniciada",
-            "bandera": "Portugal",
-            "imo": "9509774",
-            "mmsi": "255806099",
             "fecha": "2026-03-30"
         }
     ],
@@ -308,6 +292,22 @@
         },
         {
             "hora": "21:30",
+            "nombre": "Cruise Roma",
+            "naviera": "GRIMALDI LOGISTICA ESPAÑA SL",
+            "terminal": "TERMINAL F3",
+            "terminal_codigo": "F3",
+            "eslora": 254.0,
+            "pax_estimados": 3000,
+            "puerto": "Civitavecchia",
+            "tipo": "salida",
+            "estado": "Iniciada",
+            "bandera": "Itàlia",
+            "imo": "9351476",
+            "mmsi": "247219400",
+            "fecha": "2026-03-30"
+        },
+        {
+            "hora": "21:30",
             "nombre": "Denia Ciutat Creativa",
             "naviera": "BALEARIA EUROLINEAS MARITIMAS SA ",
             "terminal": "LEPANT/TRUCK CENTER",
@@ -320,22 +320,6 @@
             "bandera": "Xipre",
             "imo": "9019054",
             "mmsi": "210133000",
-            "fecha": "2026-03-30"
-        },
-        {
-            "hora": "21:40",
-            "nombre": "Cruise Roma",
-            "naviera": "GRIMALDI LOGISTICA ESPAÑA SL",
-            "terminal": "TERMINAL F3",
-            "terminal_codigo": "F3",
-            "eslora": 254.0,
-            "pax_estimados": 3000,
-            "puerto": "Civitavecchia",
-            "tipo": "salida",
-            "estado": "Finalitzada",
-            "bandera": "Itàlia",
-            "imo": "9351476",
-            "mmsi": "247219400",
             "fecha": "2026-03-30"
         },
         {
@@ -371,7 +355,7 @@
             "fecha": "2026-03-30"
         },
         {
-            "hora": "22:31",
+            "hora": "22:30",
             "nombre": "Ciudad De Palma",
             "naviera": "GRIMALDI LOGISTICA ESPAÑA SL",
             "terminal": "TERMINAL F2",
@@ -380,7 +364,7 @@
             "pax_estimados": 1000,
             "puerto": "Palma de Mallorca",
             "tipo": "salida",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Espanya",
             "imo": "9349772",
             "mmsi": "224588000",
@@ -388,28 +372,28 @@
         }
     ],
     "resumen": {
-        "total_cruceros": 15,
-        "total_llegadas": 12,
+        "total_cruceros": 14,
+        "total_llegadas": 11,
         "total_salidas": 12,
-        "pax_estimados_hoy": 18000,
-        "proximo_desembarco": "22:58",
-        "proximo_barco": "Msc Agna Ii"
+        "pax_estimados_hoy": 17500,
+        "proximo_desembarco": "20:09",
+        "proximo_barco": "Msc Radiant Iii"
     },
     "terminales_activas": [
-        "F3",
-        "F1",
-        "172133",
-        "F2",
         "D",
-        "6212",
-        "TC",
+        "172133",
+        "F1",
         "6154",
+        "TC",
+        "E",
         "8156",
-        "E"
+        "F2",
+        "F3",
+        "6212"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-03-30T21:42:02.631324",
+        "actualizado": "2026-03-30T19:55:25.637923",
         "frecuencia": "horaria"
     }
 }
