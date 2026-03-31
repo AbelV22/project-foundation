@@ -65,6 +65,22 @@
             "fecha": "2026-03-31"
         },
         {
+            "hora": "16:00",
+            "nombre": "Tivy Gold",
+            "naviera": "Golden-Agri Stena Pte Ltd",
+            "terminal": "RECEPTORA DE LIQUIDOS SA",
+            "terminal_codigo": "2252",
+            "eslora": 176.0,
+            "pax_estimados": 1000,
+            "puerto": "Malta (Valetta)",
+            "tipo": "llegada",
+            "estado": "Sol·licitada",
+            "bandera": "Libèria",
+            "imo": "9251559",
+            "mmsi": "636022541",
+            "fecha": "2026-03-31"
+        },
+        {
             "hora": "18:15",
             "nombre": "Ciudad De Palma",
             "naviera": "TRASMED GLE S.L.",
@@ -324,26 +340,27 @@
         }
     ],
     "resumen": {
-        "total_cruceros": 11,
-        "total_llegadas": 10,
+        "total_cruceros": 12,
+        "total_llegadas": 11,
         "total_salidas": 10,
-        "pax_estimados_hoy": 9500,
+        "pax_estimados_hoy": 10500,
         "proximo_desembarco": "13:00",
         "proximo_barco": "Eco Savona"
     },
     "terminales_activas": [
-        "F1",
-        "8156",
-        "F3",
-        "TC",
         "E",
+        "F2",
         "6154",
         "6212",
-        "F2"
+        "F3",
+        "F1",
+        "2252",
+        "TC",
+        "8156"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-03-31T11:50:21.073961",
+        "actualizado": "2026-03-31T10:05:52.386281",
         "frecuencia": "horaria"
     }
 }
