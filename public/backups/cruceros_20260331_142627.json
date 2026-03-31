@@ -49,7 +49,7 @@
             "fecha": "2026-03-31"
         },
         {
-            "hora": "13:24",
+            "hora": "13:00",
             "nombre": "Eco Savona",
             "naviera": "GRIMALDI EUROMED SPA",
             "terminal": "GRIMALDI TERMINAL BARCELONA SL",
@@ -58,7 +58,7 @@
             "pax_estimados": 2000,
             "puerto": "Valencia",
             "tipo": "llegada",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Itàlia",
             "imo": "9859569",
             "mmsi": "247383600",
@@ -176,22 +176,6 @@
             "bandera": "Panamà",
             "imo": "9463205",
             "mmsi": "373124000",
-            "fecha": "2026-03-31"
-        },
-        {
-            "hora": "13:43",
-            "nombre": "Atlas",
-            "naviera": "NEXT MARITIME SL",
-            "terminal": "",
-            "terminal_codigo": "",
-            "eslora": 183.0,
-            "pax_estimados": 1000,
-            "puerto": "Cartagena",
-            "tipo": "salida",
-            "estado": "Finalitzada",
-            "bandera": "Bahames",
-            "imo": "9538177",
-            "mmsi": "311000134",
             "fecha": "2026-03-31"
         },
         {
@@ -340,26 +324,26 @@
         }
     ],
     "resumen": {
-        "total_cruceros": 12,
+        "total_cruceros": 11,
         "total_llegadas": 10,
-        "total_salidas": 11,
+        "total_salidas": 10,
         "pax_estimados_hoy": 9500,
-        "proximo_desembarco": "18:15",
-        "proximo_barco": "Ciudad De Palma"
+        "proximo_desembarco": "13:00",
+        "proximo_barco": "Eco Savona"
     },
     "terminales_activas": [
-        "F3",
-        "F2",
         "F1",
-        "TC",
-        "6212",
         "8156",
+        "F3",
+        "TC",
         "E",
-        "6154"
+        "6154",
+        "6212",
+        "F2"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-03-31T14:26:27.199758",
+        "actualizado": "2026-03-31T11:50:21.073961",
         "frecuencia": "horaria"
     }
 }
