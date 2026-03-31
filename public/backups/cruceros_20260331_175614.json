@@ -42,7 +42,7 @@
             "pax_estimados": 500,
             "puerto": "Tangier",
             "tipo": "llegada",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Itàlia",
             "imo": "9479852",
             "mmsi": "247311100",
@@ -65,7 +65,7 @@
             "fecha": "2026-03-31"
         },
         {
-            "hora": "18:39",
+            "hora": "18:15",
             "nombre": "Ciudad De Palma",
             "naviera": "TRASMED GLE S.L.",
             "terminal": "TERMINAL F2",
@@ -74,7 +74,7 @@
             "pax_estimados": 1000,
             "puerto": "Palma de Mallorca",
             "tipo": "llegada",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Espanya",
             "imo": "9349772",
             "mmsi": "224588000",
@@ -195,7 +195,7 @@
             "fecha": "2026-03-31"
         },
         {
-            "hora": "18:14",
+            "hora": "18:00",
             "nombre": "Costa Favolosa",
             "naviera": "NOATUM MARITIME SPAIN SAU",
             "terminal": "Terminal E (Adossat)",
@@ -204,7 +204,7 @@
             "pax_estimados": 500,
             "puerto": "Marseille",
             "tipo": "salida",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Itàlia",
             "imo": "9479852",
             "mmsi": "247311100",
@@ -316,7 +316,7 @@
             "pax_estimados": 1000,
             "puerto": "Palma de Mallorca",
             "tipo": "salida",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Espanya",
             "imo": "9349772",
             "mmsi": "224588000",
@@ -344,22 +344,22 @@
         "total_llegadas": 10,
         "total_salidas": 11,
         "pax_estimados_hoy": 9500,
-        "proximo_desembarco": "18:39",
+        "proximo_desembarco": "18:15",
         "proximo_barco": "Ciudad De Palma"
     },
     "terminales_activas": [
-        "E",
-        "TC",
-        "F1",
-        "6154",
         "8156",
-        "6212",
         "F3",
-        "F2"
+        "F2",
+        "6212",
+        "6154",
+        "TC",
+        "E",
+        "F1"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-03-31T17:56:14.436291",
+        "actualizado": "2026-03-31T16:05:23.191654",
         "frecuencia": "horaria"
     }
 }
