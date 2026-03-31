@@ -33,7 +33,7 @@
             "fecha": "2026-03-31"
         },
         {
-            "hora": "07:23",
+            "hora": "06:45",
             "nombre": "Costa Favolosa",
             "naviera": "COSTA CROCIERE, S.P.A.",
             "terminal": "Terminal E (Adossat)",
@@ -42,7 +42,7 @@
             "pax_estimados": 500,
             "puerto": "Tangier",
             "tipo": "llegada",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Itàlia",
             "imo": "9479852",
             "mmsi": "247311100",
@@ -204,7 +204,7 @@
             "pax_estimados": 500,
             "puerto": "Marseille",
             "tipo": "salida",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Itàlia",
             "imo": "9479852",
             "mmsi": "247311100",
@@ -344,23 +344,23 @@
         "total_llegadas": 11,
         "total_salidas": 10,
         "pax_estimados_hoy": 10500,
-        "proximo_desembarco": "13:00",
-        "proximo_barco": "Eco Savona"
+        "proximo_desembarco": "06:45",
+        "proximo_barco": "Costa Favolosa"
     },
     "terminales_activas": [
-        "7332",
-        "E",
-        "F1",
-        "8156",
-        "6212",
-        "F3",
-        "2252",
         "6154",
+        "F3",
+        "7332",
+        "2252",
+        "E",
+        "8156",
+        "F1",
+        "6212",
         "F2"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-03-31T08:08:39.062562",
+        "actualizado": "2026-03-31T06:16:15.407043",
         "frecuencia": "horaria"
     }
 }
