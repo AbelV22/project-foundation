@@ -1,7 +1,7 @@
 {
     "llegadas": [
         {
-            "hora": "01:14",
+            "hora": "00:00",
             "nombre": "Msc Athos",
             "naviera": "MEDITERRANEAN SHIPPING CO",
             "terminal": "TERMINAL CATALUNYA SA",
@@ -10,14 +10,14 @@
             "pax_estimados": 500,
             "puerto": "La Spezia",
             "tipo": "llegada",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Malta",
             "imo": "9618317",
             "mmsi": "256871000",
             "fecha": "2026-03-31"
         },
         {
-            "hora": "05:20",
+            "hora": "05:30",
             "nombre": "Ciudad De Granada",
             "naviera": "TRASMED GLE S.L.",
             "terminal": "TERMINAL F2",
@@ -26,7 +26,7 @@
             "pax_estimados": 1000,
             "puerto": "Mahon Menorca",
             "tipo": "llegada",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Espanya",
             "imo": "9217125",
             "mmsi": "224600000",
@@ -236,7 +236,7 @@
             "pax_estimados": 500,
             "puerto": "Valencia",
             "tipo": "salida",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Malta",
             "imo": "9618317",
             "mmsi": "256871000",
@@ -300,7 +300,7 @@
             "pax_estimados": 1000,
             "puerto": "Ibiza",
             "tipo": "salida",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Espanya",
             "imo": "9217125",
             "mmsi": "224600000",
@@ -344,23 +344,23 @@
         "total_llegadas": 11,
         "total_salidas": 10,
         "pax_estimados_hoy": 10500,
-        "proximo_desembarco": "06:45",
-        "proximo_barco": "Costa Favolosa"
+        "proximo_desembarco": null,
+        "proximo_barco": null
     },
     "terminales_activas": [
-        "6154",
-        "F3",
-        "7332",
-        "2252",
-        "E",
-        "8156",
-        "F1",
         "6212",
-        "F2"
+        "8156",
+        "F3",
+        "F1",
+        "F2",
+        "E",
+        "2252",
+        "7332",
+        "6154"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-03-31T06:16:15.407043",
+        "actualizado": "2026-03-30T23:35:35.026039",
         "frecuencia": "horaria"
     }
 }
