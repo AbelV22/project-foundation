@@ -65,6 +65,22 @@
             "fecha": "2026-04-01"
         },
         {
+            "hora": "11:00",
+            "nombre": "Sylvia",
+            "naviera": "BUNGE S.A",
+            "terminal": "ERGRANSA SA",
+            "terminal_codigo": "2256",
+            "eslora": 229.0,
+            "pax_estimados": 2000,
+            "puerto": "Cartagena",
+            "tipo": "llegada",
+            "estado": "Autoritzada",
+            "bandera": "Illes Marshall",
+            "imo": "9471264",
+            "mmsi": "538009402",
+            "fecha": "2026-04-01"
+        },
+        {
             "hora": "12:24",
             "nombre": "Eco Valencia",
             "naviera": "GRIMALDI EUROMED SPA",
@@ -129,39 +145,7 @@
             "fecha": "2026-04-01"
         },
         {
-            "hora": "19:32",
-            "nombre": "Sylvia",
-            "naviera": "BUNGE S.A",
-            "terminal": "ERGRANSA SA",
-            "terminal_codigo": "2256",
-            "eslora": 229.0,
-            "pax_estimados": 2000,
-            "puerto": "Cartagena",
-            "tipo": "llegada",
-            "estado": "Iniciada",
-            "bandera": "Illes Marshall",
-            "imo": "9471264",
-            "mmsi": "538009402",
-            "fecha": "2026-04-01"
-        },
-        {
-            "hora": "19:56",
-            "nombre": "Abel Matutes",
-            "naviera": "EUROLINEAS MARITIMAS S.A",
-            "terminal": "TERMINAL F1",
-            "terminal_codigo": "F1",
-            "eslora": 190.0,
-            "pax_estimados": 1000,
-            "puerto": "Palma de Mallorca",
-            "tipo": "llegada",
-            "estado": "Iniciada",
-            "bandera": "Espanya",
-            "imo": "9441130",
-            "mmsi": "224402000",
-            "fecha": "2026-04-01"
-        },
-        {
-            "hora": "19:58",
+            "hora": "19:00",
             "nombre": "Ciudad De Granada",
             "naviera": "TRASMED GLE S.L.",
             "terminal": "TERMINAL F2",
@@ -170,10 +154,26 @@
             "pax_estimados": 1000,
             "puerto": "Ibiza",
             "tipo": "llegada",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Espanya",
             "imo": "9217125",
             "mmsi": "224600000",
+            "fecha": "2026-04-01"
+        },
+        {
+            "hora": "19:30",
+            "nombre": "Abel Matutes",
+            "naviera": "EUROLINEAS MARITIMAS S.A",
+            "terminal": "TERMINAL F1",
+            "terminal_codigo": "F1",
+            "eslora": 190.0,
+            "pax_estimados": 1000,
+            "puerto": "Palma de Mallorca",
+            "tipo": "llegada",
+            "estado": "Autoritzada",
+            "bandera": "Espanya",
+            "imo": "9441130",
+            "mmsi": "224402000",
             "fecha": "2026-04-01"
         },
         {
@@ -412,7 +412,7 @@
             "pax_estimados": 1000,
             "puerto": "Ibiza",
             "tipo": "salida",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Xipre",
             "imo": "9019054",
             "mmsi": "210133000",
@@ -428,7 +428,7 @@
             "pax_estimados": 1000,
             "puerto": "Palma de Mallorca",
             "tipo": "salida",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Espanya",
             "imo": "9441130",
             "mmsi": "224402000",
@@ -444,7 +444,7 @@
             "pax_estimados": 1000,
             "puerto": "Mahon Menorca",
             "tipo": "salida",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Espanya",
             "imo": "9217125",
             "mmsi": "224600000",
@@ -504,25 +504,25 @@
         "total_llegadas": 13,
         "total_salidas": 18,
         "pax_estimados_hoy": 21000,
-        "proximo_desembarco": "19:58",
-        "proximo_barco": "Ciudad De Granada"
+        "proximo_desembarco": "18:45",
+        "proximo_barco": "Ciudad De Palma"
     },
     "terminales_activas": [
-        "2252",
-        "6154",
         "2256",
         "B",
-        "6212",
         "F2",
-        "F3",
         "6995",
         "F1",
+        "8156",
+        "6154",
+        "6212",
         "2398",
-        "8156"
+        "F3",
+        "2252"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-04-01T19:57:32.047729",
+        "actualizado": "2026-04-01T17:51:44.266678",
         "frecuencia": "horaria"
     }
 }
