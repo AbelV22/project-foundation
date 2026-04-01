@@ -90,7 +90,7 @@
             "pax_estimados": 1000,
             "puerto": "Rades/Tunis",
             "tipo": "llegada",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Tunísia",
             "imo": "9208007",
             "mmsi": "672704000",
@@ -110,6 +110,22 @@
             "bandera": "Espanya",
             "imo": "9349772",
             "mmsi": "224588000",
+            "fecha": "2026-04-01"
+        },
+        {
+            "hora": "19:00",
+            "nombre": "Denia Ciutat Creativa",
+            "naviera": "EUROLINEAS MARITIMAS S.A",
+            "terminal": "TERMINAL F1",
+            "terminal_codigo": "F1",
+            "eslora": 150.0,
+            "pax_estimados": 1000,
+            "puerto": "Ibiza",
+            "tipo": "llegada",
+            "estado": "Autoritzada",
+            "bandera": "Xipre",
+            "imo": "9019054",
+            "mmsi": "210133000",
             "fecha": "2026-04-01"
         },
         {
@@ -161,23 +177,7 @@
             "fecha": "2026-04-01"
         },
         {
-            "hora": "21:00",
-            "nombre": "Denia Ciutat Creativa",
-            "naviera": "EUROLINEAS MARITIMAS S.A",
-            "terminal": "TERMINAL F1",
-            "terminal_codigo": "F1",
-            "eslora": 150.0,
-            "pax_estimados": 1000,
-            "puerto": "Ibiza",
-            "tipo": "llegada",
-            "estado": "Iniciada",
-            "bandera": "Xipre",
-            "imo": "9019054",
-            "mmsi": "210133000",
-            "fecha": "2026-04-01"
-        },
-        {
-            "hora": "21:30",
+            "hora": "20:00",
             "nombre": "Cruise Roma",
             "naviera": "GRIMALDI EUROMED SPA",
             "terminal": "TERMINAL F3",
@@ -186,7 +186,7 @@
             "pax_estimados": 3000,
             "puerto": "Porto Torres",
             "tipo": "llegada",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Itàlia",
             "imo": "9351476",
             "mmsi": "247219400",
@@ -372,6 +372,22 @@
         },
         {
             "hora": "20:00",
+            "nombre": "Elyssa",
+            "naviera": "ROMEU Y CIA SA",
+            "terminal": "TERMINAL PORT NOU SA",
+            "terminal_codigo": "2398",
+            "eslora": 193.0,
+            "pax_estimados": 1000,
+            "puerto": "Rades/Tunis",
+            "tipo": "salida",
+            "estado": "Iniciada",
+            "bandera": "Tunísia",
+            "imo": "9208007",
+            "mmsi": "672704000",
+            "fecha": "2026-04-01"
+        },
+        {
+            "hora": "20:00",
             "nombre": "Eco Valencia",
             "naviera": "GRIMALDI LOGISTICA ESPAÑA SL",
             "terminal": "GRIMALDI TERMINAL BARCELONA SL",
@@ -384,22 +400,6 @@
             "bandera": "Itàlia",
             "imo": "9859533",
             "mmsi": "247383300",
-            "fecha": "2026-04-01"
-        },
-        {
-            "hora": "21:38",
-            "nombre": "Elyssa",
-            "naviera": "ROMEU Y CIA SA",
-            "terminal": "TERMINAL PORT NOU SA",
-            "terminal_codigo": "2398",
-            "eslora": 193.0,
-            "pax_estimados": 1000,
-            "puerto": "Rades/Tunis",
-            "tipo": "salida",
-            "estado": "Finalitzada",
-            "bandera": "Tunísia",
-            "imo": "9208007",
-            "mmsi": "672704000",
             "fecha": "2026-04-01"
         },
         {
@@ -492,7 +492,7 @@
             "pax_estimados": 3000,
             "puerto": "Civitavecchia",
             "tipo": "salida",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Itàlia",
             "imo": "9351476",
             "mmsi": "247219400",
@@ -504,25 +504,25 @@
         "total_llegadas": 13,
         "total_salidas": 18,
         "pax_estimados_hoy": 21000,
-        "proximo_desembarco": "22:00",
-        "proximo_barco": "Tivy Gold"
+        "proximo_desembarco": "19:58",
+        "proximo_barco": "Ciudad De Granada"
     },
     "terminales_activas": [
-        "F2",
-        "8156",
-        "2256",
-        "2398",
-        "6212",
         "2252",
-        "B",
-        "F3",
-        "F1",
         "6154",
-        "6995"
+        "2256",
+        "B",
+        "6212",
+        "F2",
+        "F3",
+        "6995",
+        "F1",
+        "2398",
+        "8156"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-04-01T21:41:58.367533",
+        "actualizado": "2026-04-01T19:57:32.047729",
         "frecuencia": "horaria"
     }
 }
