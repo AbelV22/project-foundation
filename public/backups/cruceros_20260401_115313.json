@@ -10,7 +10,7 @@
             "pax_estimados": 1000,
             "puerto": "Ibiza",
             "tipo": "llegada",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Espanya",
             "imo": "9390367",
             "mmsi": "224637000",
@@ -97,7 +97,7 @@
             "fecha": "2026-04-01"
         },
         {
-            "hora": "12:24",
+            "hora": "13:00",
             "nombre": "Eco Valencia",
             "naviera": "GRIMALDI EUROMED SPA",
             "terminal": "GRIMALDI TERMINAL BARCELONA SL",
@@ -106,7 +106,7 @@
             "pax_estimados": 2000,
             "puerto": "Valencia",
             "tipo": "llegada",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Itàlia",
             "imo": "9859533",
             "mmsi": "247383300",
@@ -268,7 +268,7 @@
             "pax_estimados": 1000,
             "puerto": "Alcudia",
             "tipo": "salida",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Espanya",
             "imo": "9390367",
             "mmsi": "224637000",
@@ -339,7 +339,7 @@
             "fecha": "2026-04-01"
         },
         {
-            "hora": "11:56",
+            "hora": "11:00",
             "nombre": "Martin I Soler",
             "naviera": "BALEARIA EUROLINEAS MARITIMAS SA ",
             "terminal": "TERMINAL F1",
@@ -348,7 +348,7 @@
             "pax_estimados": 1000,
             "puerto": "Alcudia",
             "tipo": "salida",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Espanya",
             "imo": "9390367",
             "mmsi": "224637000",
@@ -412,7 +412,7 @@
             "pax_estimados": 2000,
             "puerto": "Savona",
             "tipo": "salida",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Itàlia",
             "imo": "9859533",
             "mmsi": "247383300",
@@ -520,26 +520,26 @@
         "total_llegadas": 15,
         "total_salidas": 17,
         "pax_estimados_hoy": 25000,
-        "proximo_desembarco": "12:00",
-        "proximo_barco": "Elyssa"
+        "proximo_desembarco": "11:00",
+        "proximo_barco": "Sylvia"
     },
     "terminales_activas": [
-        "2396",
-        "6154",
-        "6212",
-        "2398",
-        "B",
-        "8156",
-        "F2",
         "2252",
+        "8156",
+        "6212",
         "F1",
+        "B",
+        "6995",
+        "2396",
+        "2398",
+        "6154",
+        "F2",
         "2256",
-        "F3",
-        "6995"
+        "F3"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-04-01T11:53:13.030864",
+        "actualizado": "2026-04-01T10:06:10.099252",
         "frecuencia": "horaria"
     }
 }
