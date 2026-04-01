@@ -58,7 +58,7 @@
             "pax_estimados": 500,
             "puerto": "Alicante",
             "tipo": "llegada",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Bahames",
             "imo": "9682875",
             "mmsi": "311000396",
@@ -113,7 +113,7 @@
             "fecha": "2026-04-01"
         },
         {
-            "hora": "18:45",
+            "hora": "18:15",
             "nombre": "Ciudad De Palma",
             "naviera": "TRASMED GLE S.L.",
             "terminal": "TERMINAL F2",
@@ -122,7 +122,7 @@
             "pax_estimados": 1000,
             "puerto": "Palma de Mallorca",
             "tipo": "llegada",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Espanya",
             "imo": "9349772",
             "mmsi": "224588000",
@@ -355,7 +355,7 @@
             "fecha": "2026-04-01"
         },
         {
-            "hora": "17:56",
+            "hora": "17:00",
             "nombre": "Harmony Of The Seas",
             "naviera": "BALEARES CONSIGNATARIOS SLU",
             "terminal": "Terminal B (Maremagnum)",
@@ -364,7 +364,7 @@
             "pax_estimados": 500,
             "puerto": "Cadiz",
             "tipo": "salida",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Bahames",
             "imo": "9682875",
             "mmsi": "311000396",
@@ -460,7 +460,7 @@
             "pax_estimados": 1000,
             "puerto": "Palma de Mallorca",
             "tipo": "salida",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Espanya",
             "imo": "9349772",
             "mmsi": "224588000",
@@ -504,25 +504,25 @@
         "total_llegadas": 13,
         "total_salidas": 18,
         "pax_estimados_hoy": 21000,
-        "proximo_desembarco": "18:45",
+        "proximo_desembarco": "18:15",
         "proximo_barco": "Ciudad De Palma"
     },
     "terminales_activas": [
         "2256",
-        "B",
         "F2",
-        "6995",
-        "F1",
-        "8156",
-        "6154",
         "6212",
+        "B",
+        "F1",
         "2398",
-        "F3",
-        "2252"
+        "2252",
+        "6154",
+        "8156",
+        "6995",
+        "F3"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-04-01T17:51:44.266678",
+        "actualizado": "2026-04-01T16:06:19.985288",
         "frecuencia": "horaria"
     }
 }
