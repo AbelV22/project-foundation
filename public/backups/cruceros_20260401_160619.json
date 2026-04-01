@@ -113,6 +113,38 @@
             "fecha": "2026-04-01"
         },
         {
+            "hora": "18:00",
+            "nombre": "Sunbelt Spirit",
+            "naviera": "NEPTUNE LINES SHIPPING",
+            "terminal": "SETRAM",
+            "terminal_codigo": "2396",
+            "eslora": 212.0,
+            "pax_estimados": 2000,
+            "puerto": "Fos-sur-Mer",
+            "tipo": "llegada",
+            "estado": "Sol·licitada",
+            "bandera": "Illes Marshall",
+            "imo": "9233246",
+            "mmsi": "538001657",
+            "fecha": "2026-04-01"
+        },
+        {
+            "hora": "18:00",
+            "nombre": "Sunbelt Spirit",
+            "naviera": "NEPTUNE LINES SHIPPING",
+            "terminal": "AUTOTERMINAL SA",
+            "terminal_codigo": "6154",
+            "eslora": 212.0,
+            "pax_estimados": 2000,
+            "puerto": "Fos-sur-Mer",
+            "tipo": "llegada",
+            "estado": "Sol·licitada",
+            "bandera": "Illes Marshall",
+            "imo": "9233246",
+            "mmsi": "538001657",
+            "fecha": "2026-04-01"
+        },
+        {
             "hora": "18:15",
             "nombre": "Ciudad De Palma",
             "naviera": "TRASMED GLE S.L.",
@@ -339,22 +371,6 @@
             "fecha": "2026-04-01"
         },
         {
-            "hora": "16:10",
-            "nombre": "Gold Kochav",
-            "naviera": "A PEREZ Y CIA SL",
-            "terminal": "AUTOTERMINAL SA",
-            "terminal_codigo": "6154",
-            "eslora": 199.0,
-            "pax_estimados": 1000,
-            "puerto": "Livorno",
-            "tipo": "salida",
-            "estado": "Finalitzada",
-            "bandera": "Panamà",
-            "imo": "9463205",
-            "mmsi": "373124000",
-            "fecha": "2026-04-01"
-        },
-        {
             "hora": "17:00",
             "nombre": "Harmony Of The Seas",
             "naviera": "BALEARES CONSIGNATARIOS SLU",
@@ -501,28 +517,29 @@
     ],
     "resumen": {
         "total_cruceros": 19,
-        "total_llegadas": 13,
-        "total_salidas": 18,
-        "pax_estimados_hoy": 21000,
-        "proximo_desembarco": "18:15",
-        "proximo_barco": "Ciudad De Palma"
+        "total_llegadas": 15,
+        "total_salidas": 17,
+        "pax_estimados_hoy": 25000,
+        "proximo_desembarco": "18:00",
+        "proximo_barco": "Sunbelt Spirit"
     },
     "terminales_activas": [
-        "2256",
         "F2",
         "6212",
-        "B",
-        "F1",
         "2398",
-        "2252",
-        "6154",
-        "8156",
         "6995",
-        "F3"
+        "2252",
+        "8156",
+        "2256",
+        "2396",
+        "B",
+        "F3",
+        "F1",
+        "6154"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-04-01T16:06:19.985288",
+        "actualizado": "2026-04-01T14:28:20.609752",
         "frecuencia": "horaria"
     }
 }
