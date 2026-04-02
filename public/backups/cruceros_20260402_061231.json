@@ -211,38 +211,6 @@
     ],
     "salidas": [
         {
-            "hora": "00:40",
-            "nombre": "Cruise Roma",
-            "naviera": "GRIMALDI LOGISTICA ESPAÑA SL",
-            "terminal": "TERMINAL F3",
-            "terminal_codigo": "F3",
-            "eslora": 254.0,
-            "pax_estimados": 3000,
-            "puerto": "Civitavecchia",
-            "tipo": "salida",
-            "estado": "Finalitzada",
-            "bandera": "Itàlia",
-            "imo": "9351476",
-            "mmsi": "247219400",
-            "fecha": "2026-04-02"
-        },
-        {
-            "hora": "01:23",
-            "nombre": "Msc Gabriella",
-            "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
-            "terminal": "TERMINAL CATALUNYA SA",
-            "terminal_codigo": "6212",
-            "eslora": 335.0,
-            "pax_estimados": 4500,
-            "puerto": "Livorno",
-            "tipo": "salida",
-            "estado": "Finalitzada",
-            "bandera": "Libèria",
-            "imo": "9978975",
-            "mmsi": "636025760",
-            "fecha": "2026-04-02"
-        },
-        {
             "hora": "14:00",
             "nombre": "Eco Adriatica",
             "naviera": "GRIMALDI LOGISTICA ESPAÑA SL",
@@ -420,24 +388,24 @@
         }
     ],
     "resumen": {
-        "total_cruceros": 15,
+        "total_cruceros": 13,
         "total_llegadas": 13,
-        "total_salidas": 13,
+        "total_salidas": 11,
         "pax_estimados_hoy": 16500,
-        "proximo_desembarco": "07:00",
-        "proximo_barco": "Eco Adriatica"
+        "proximo_desembarco": null,
+        "proximo_barco": null
     },
     "terminales_activas": [
-        "6212",
-        "7332",
         "F2",
-        "8156",
+        "7332",
         "F1",
-        "F3"
+        "8156",
+        "F3",
+        "6212"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-04-02T06:12:31.131403",
+        "actualizado": "2026-04-01T23:36:27.552812",
         "frecuencia": "horaria"
     }
 }
