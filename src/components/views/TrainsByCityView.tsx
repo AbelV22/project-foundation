@@ -1,87 +1,20 @@
 import { useState, useEffect, useMemo } from "react";
 import { ArrowLeft, Train, Clock, MapPin, RefreshCw } from "lucide-react";
 import { cn } from "@/lib/utils";
-
-interface TrenSants {
-  hora: string;
-  origen: string;
-  tren: string;
-  via: string;
-}
+import {
+  type TrenSants,
+  getCiudad,
+  getTipoTren,
+  getNumeroTren,
+  getTrenColor,
+  getTrenBgColor,
+  normalizeTrenesResponse,
+} from "@/lib/trainUtils";
 
 interface TrainsByCityViewProps {
   city: string;
   onBack?: () => void;
 }
-
-// Extraer primera palabra del origen (ciudad)
-const getCiudad = (origen: string): string => {
-  if (!origen) return "";
-  const lower = origen.toLowerCase();
-  if (lower.includes("madrid")) return "Madrid";
-  if (lower.includes("sevilla")) return "Sevilla";
-  if (lower.includes("málaga")) return "Málaga";
-  if (lower.includes("valència") || lower.includes("valencia")) return "València";
-  if (lower.includes("alacant") || lower.includes("alicante")) return "Alicante";
-  if (lower.includes("figueres")) return "Figueres";
-  if (lower.includes("paris")) return "París";
-  if (lower.includes("marseille")) return "Marsella";
-  if (lower.includes("donostia") || lower.includes("san sebastián")) return "Donostia";
-  if (lower.includes("zaragoza")) return "Zaragoza";
-  if (lower.includes("granada")) return "Granada";
-  if (lower.includes("córdoba")) return "Córdoba";
-  if (lower.includes("lyon")) return "Lyon";
-  if (lower.includes("cádiz")) return "Cádiz";
-  if (lower.includes("girona")) return "Girona";
-  if (lower.includes("camp de tarragona")) return "Tarragona";
-  return origen.split(" ")[0].split("-")[0];
-};
-
-// Extraer tipo de tren limpio
-const getTipoTren = (tren: string): string => {
-  if (!tren) return "";
-  const tipo = tren.split("\n")[0].trim();
-  if (tipo.includes("IRYO") || tipo.includes("IL -")) return "IRYO";
-  if (tipo.includes("OUIGO")) return "OUIGO";
-  if (tipo.includes("TGV")) return "TGV";
-  return tipo;
-};
-
-// Extraer número de tren
-const getNumeroTren = (tren: string): string => {
-  if (!tren) return "";
-  const parts = tren.split("\n");
-  return parts.length > 1 ? parts[1].trim() : "";
-};
-
-// Color por tipo de tren
-const getTrenColor = (tren: string): string => {
-  const tipo = getTipoTren(tren);
-  switch (tipo) {
-    case "AVE": return "text-red-500";
-    case "IRYO": return "text-purple-500";
-    case "OUIGO": return "text-pink-500";
-    case "EUROMED": return "text-blue-500";
-    case "ALVIA": return "text-teal-500";
-    case "TGV": return "text-indigo-500";
-    case "INTERCITY": return "text-orange-500";
-    default: return "text-emerald-500";
-  }
-};
-
-const getTrenBgColor = (tren: string): string => {
-  const tipo = getTipoTren(tren);
-  switch (tipo) {
-    case "AVE": return "bg-red-500/10";
-    case "IRYO": return "bg-purple-500/10";
-    case "OUIGO": return "bg-pink-500/10";
-    case "EUROMED": return "bg-blue-500/10";
-    case "ALVIA": return "bg-teal-500/10";
-    case "TGV": return "bg-indigo-500/10";
-    case "INTERCITY": return "bg-orange-500/10";
-    default: return "bg-emerald-500/10";
-  }
-};
 
 export function TrainsByCityView({ city, onBack }: TrainsByCityViewProps) {
   const [trenes, setTrenes] = useState<TrenSants[]>([]);
@@ -91,13 +24,10 @@ export function TrainsByCityView({ city, onBack }: TrainsByCityViewProps) {
   useEffect(() => {
     fetch("/trenes_sants.json?t=" + Date.now())
       .then(res => res.json())
-      .then((data: TrenSants[]) => {
-        // Eliminar duplicados
-        const uniqueTrenes = data.filter((tren, index, self) =>
-          index === self.findIndex(t => t.hora === tren.hora && t.tren === tren.tren)
-        );
+      .then((data: unknown) => {
+        const { trenes: uniqueTrenes, updateTime } = normalizeTrenesResponse(data);
         setTrenes(uniqueTrenes);
-        setLastUpdate(new Date().toLocaleTimeString('es-ES', { hour: '2-digit', minute: '2-digit' }));
+        setLastUpdate(updateTime || new Date().toLocaleTimeString('es-ES', { hour: '2-digit', minute: '2-digit' }));
         setLoading(false);
       })
       .catch(() => setLoading(false));
@@ -178,7 +108,7 @@ export function TrainsByCityView({ city, onBack }: TrainsByCityViewProps) {
         </div>
         <div className="bg-card rounded-xl p-3 border border-border text-center">
           <span className="block font-display font-bold text-lg text-foreground">
-            {proximoTren ? proximoTren.hora.split("\n")[0] : "--:--"}
+            {proximoTren ? proximoTren.hora : "--:--"}
           </span>
           <span className="text-[10px] text-muted-foreground">Próximo</span>
         </div>
@@ -203,12 +133,12 @@ export function TrainsByCityView({ city, onBack }: TrainsByCityViewProps) {
                 key={tipo}
                 className={cn(
                   "flex items-center gap-2 px-3 py-2 rounded-lg",
-                  getTrenBgColor(tipo.includes("IRYO") ? "IL - IRYO" : tipo)
+                  getTrenBgColor(tipo)
                 )}
               >
                 <span className={cn(
                   "font-display font-bold text-sm",
-                  getTrenColor(tipo.includes("IRYO") ? "IL - IRYO" : tipo)
+                  getTrenColor(tipo)
                 )}>
                   {tipo}
                 </span>
@@ -238,8 +168,7 @@ export function TrainsByCityView({ city, onBack }: TrainsByCityViewProps) {
             </div>
           ) : (
             trenesFiltered.map((tren, idx) => {
-              const horaLimpia = tren.hora.split("\n")[0];
-              const [h, m] = horaLimpia.split(":").map(Number);
+              const [h, m] = (tren.hora || "00:00").split(":").map(Number);
               const trenMinutes = h * 60 + m;
               const isPast = trenMinutes < currentMinutes - 5;
               const isInminente = trenMinutes >= currentMinutes && trenMinutes <= currentMinutes + 15;
@@ -257,7 +186,7 @@ export function TrainsByCityView({ city, onBack }: TrainsByCityViewProps) {
                     "font-display font-bold text-lg w-14",
                     isInminente ? "text-amber-400" : "text-emerald-400"
                   )}>
-                    {horaLimpia}
+                    {tren.hora}
                   </span>
                   <div className="flex-1 flex flex-col gap-1">
                     <div className="flex items-center gap-2">

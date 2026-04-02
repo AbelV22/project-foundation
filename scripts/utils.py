@@ -89,17 +89,27 @@ class DataValidator:
         return True, "OK"
     
     @staticmethod
-    def validate_train_data(data: List[Dict]) -> tuple[bool, str]:
-        """Valida estructura de datos de trenes."""
-        if not data:
+    def validate_train_data(data) -> tuple[bool, str]:
+        """Valida estructura de datos de trenes. Accepts list or {trenes: [...], meta: {...}}."""
+        # Support wrapped format
+        if isinstance(data, dict):
+            if 'trenes' not in data:
+                return False, "Formato dict sin clave 'trenes'"
+            trains = data['trenes']
+        elif isinstance(data, list):
+            trains = data
+        else:
+            return False, f"Tipo inesperado: {type(data)}"
+
+        if not trains:
             return False, "Lista de trenes vacía"
-        
+
         required_fields = ['hora', 'tren']
-        for i, tren in enumerate(data[:5]):
+        for i, tren in enumerate(trains[:5]):
             for field in required_fields:
                 if field not in tren or not tren[field]:
                     return False, f"Tren {i} sin campo '{field}'"
-        
+
         return True, "OK"
     
     @staticmethod
@@ -208,10 +218,14 @@ class SafeWriter:
                     return False, "❌ Lista vacía - NO SE SOBRESCRIBE"
                 if min_items and len(new_data) < min_items:
                     return False, f"❌ Solo {len(new_data)} items (mínimo: {min_items}) - NO SE SOBRESCRIBE"
-            
+
             elif isinstance(new_data, dict):
                 if len(new_data) == 0:
                     return False, "❌ Diccionario vacío - NO SE SOBRESCRIBE"
+                # Support wrapped format {trenes: [...], meta: {...}}
+                inner_list = new_data.get('trenes') or new_data.get('data')
+                if isinstance(inner_list, list) and min_items and len(inner_list) < min_items:
+                    return False, f"❌ Solo {len(inner_list)} items (mínimo: {min_items}) - NO SE SOBRESCRIBE"
             
             # Validación específica
             if validator_func:

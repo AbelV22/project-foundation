@@ -1,5 +1,5 @@
 import { useState, useCallback } from "react";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import {
   Plane,
   Train,
@@ -7,7 +7,6 @@ import {
   MapPin,
   TrendingUp,
   ChevronRight,
-  ChevronLeft,
   Ship,
   Clock,
   Users,
@@ -21,30 +20,122 @@ import { cn } from "@/lib/utils";
 import { setItem } from "@/lib/storage";
 import { AccountCreationDialog } from "@/components/AccountCreationDialog";
 
-/* ─── Slide data ─── */
+/* ═══════════════════════════════════════════════════════════════
+   Phone Frame — wraps mockups in a realistic device bezel
+   ═══════════════════════════════════════════════════════════════ */
 
-interface SlideData {
-  id: string;
-  title: string;
-  subtitle: string;
-  description: string;
-  gradient: string;
-  accentColor: string;
-  dotColor: string;
-  illustration: React.ReactNode;
+function PhoneFrame({
+  children,
+  glowColor,
+}: {
+  children: React.ReactNode;
+  glowColor: string;
+}) {
+  return (
+    <div className="relative w-full flex items-center justify-center">
+      {/* Ambient glow behind device */}
+      <div
+        className={cn(
+          "absolute w-[280px] h-[280px] rounded-full blur-[80px] opacity-20",
+          glowColor
+        )}
+      />
+      {/* Device frame */}
+      <div className="relative w-[300px] rounded-[2.5rem] bg-card/90 border border-border/60 shadow-2xl shadow-black/30 overflow-hidden backdrop-blur-sm">
+        {/* Notch */}
+        <div className="flex justify-center pt-2 pb-1">
+          <div className="w-20 h-1 rounded-full bg-border/40" />
+        </div>
+        {/* Screen content */}
+        <div className="px-0 pb-3">{children}</div>
+      </div>
+    </div>
+  );
 }
 
-/* Mini-components for rich visual previews */
+/* ═══════════════════════════════════════════════════════════════
+   Welcome Illustration — floating constellation
+   ═══════════════════════════════════════════════════════════════ */
+
+function WelcomeIllustration() {
+  const orbitIcons = [
+    { icon: Plane, color: "text-blue-400", bg: "bg-blue-500/15", label: "Vuelos", x: -90, y: -50, delay: 0 },
+    { icon: Train, color: "text-emerald-400", bg: "bg-emerald-500/15", label: "Trenes", x: 90, y: -50, delay: 0.6 },
+    { icon: Calendar, color: "text-purple-400", bg: "bg-purple-500/15", label: "Eventos", x: -100, y: 55, delay: 1.2 },
+    { icon: TrendingUp, color: "text-orange-400", bg: "bg-orange-500/15", label: "Ingresos", x: 100, y: 55, delay: 1.8 },
+    { icon: MapPin, color: "text-rose-400", bg: "bg-rose-500/15", label: "Radar", x: 0, y: 100, delay: 2.4 },
+  ];
+
+  return (
+    <div className="relative w-[300px] h-[300px] flex items-center justify-center mx-auto">
+      {/* Central taxi icon */}
+      <motion.div
+        initial={{ scale: 0, opacity: 0 }}
+        animate={{ scale: 1, opacity: 1 }}
+        transition={{ type: "spring", stiffness: 200, damping: 18, delay: 0.1 }}
+        className="relative z-10"
+      >
+        {/* Pulsing glow */}
+        <motion.div
+          animate={{ scale: [1, 1.3, 1], opacity: [0.3, 0.1, 0.3] }}
+          transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+          className="absolute inset-0 rounded-[28px] bg-yellow-400/30 blur-xl"
+        />
+        <div className="w-24 h-24 rounded-[28px] bg-gradient-to-br from-yellow-400 to-yellow-600 flex items-center justify-center shadow-glow-lg relative z-10">
+          <span className="text-5xl">🚕</span>
+        </div>
+      </motion.div>
+
+      {/* Orbiting feature icons */}
+      {orbitIcons.map((item) => (
+        <motion.div
+          key={item.label}
+          initial={{ opacity: 0, scale: 0 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ type: "spring", stiffness: 180, damping: 15, delay: 0.3 + item.delay * 0.15 }}
+          className="absolute z-20"
+          style={{ left: `calc(50% + ${item.x}px - 24px)`, top: `calc(50% + ${item.y}px - 24px)` }}
+        >
+          <motion.div
+            animate={{ y: [0, -6, 0] }}
+            transition={{ duration: 3 + item.delay * 0.2, repeat: Infinity, ease: "easeInOut", delay: item.delay * 0.3 }}
+          >
+            <div
+              className={cn(
+                "w-12 h-12 rounded-2xl flex items-center justify-center backdrop-blur-sm border border-white/10 shadow-lg",
+                item.bg
+              )}
+            >
+              <item.icon className={cn("h-5 w-5", item.color)} />
+            </div>
+          </motion.div>
+        </motion.div>
+      ))}
+
+      {/* Subtle connecting lines (decorative) */}
+      <div className="absolute inset-0 z-0">
+        <svg className="w-full h-full opacity-[0.04]" viewBox="0 0 300 300">
+          <circle cx="150" cy="150" r="70" fill="none" stroke="white" strokeWidth="1" strokeDasharray="4 4" />
+          <circle cx="150" cy="150" r="120" fill="none" stroke="white" strokeWidth="0.5" strokeDasharray="2 6" />
+        </svg>
+      </div>
+    </div>
+  );
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   Feature Mockups — render inside PhoneFrame
+   ═══════════════════════════════════════════════════════════════ */
 
 function FlightsMockup() {
   const flights = [
-    { code: "VY 6234", origin: "Roma FCO", time: "10:25", pax: 186, status: "Aterrizando" },
-    { code: "FR 5991", origin: "Londres STN", time: "10:40", pax: 189, status: "En ruta" },
-    { code: "LH 1127", origin: "Frankfurt", time: "10:55", pax: 142, status: "En ruta" },
+    { code: "VY 6234", origin: "Roma FCO", time: "10:25", pax: 186, status: "Aterrizando", statusColor: "bg-emerald-500/15 text-emerald-400" },
+    { code: "FR 5991", origin: "Londres STN", time: "10:40", pax: 189, status: "En ruta", statusColor: "bg-blue-500/15 text-blue-400" },
+    { code: "LH 1127", origin: "Frankfurt", time: "10:55", pax: 142, status: "En ruta", statusColor: "bg-blue-500/15 text-blue-400" },
   ];
   return (
-    <div className="w-full max-w-[280px] mx-auto">
-      <div className="rounded-2xl bg-card/80 backdrop-blur border border-border/50 overflow-hidden shadow-2xl shadow-blue-500/5">
+    <PhoneFrame glowColor="bg-blue-500">
+      <div className="rounded-xl bg-card/60 overflow-hidden mx-3">
         <div className="px-4 py-2.5 bg-blue-500/10 border-b border-border/30 flex items-center justify-between">
           <div className="flex items-center gap-2">
             <Plane className="h-3.5 w-3.5 text-blue-400" />
@@ -52,13 +143,13 @@ function FlightsMockup() {
           </div>
           <span className="text-[10px] text-muted-foreground">10:00 - 11:00</span>
         </div>
-        <div className="divide-y divide-border/30">
+        <div className="divide-y divide-border/20">
           {flights.map((f, i) => (
             <motion.div
               key={f.code}
-              initial={{ opacity: 0, x: 20 }}
+              initial={{ opacity: 0, x: 15 }}
               animate={{ opacity: 1, x: 0 }}
-              transition={{ delay: 0.4 + i * 0.15, duration: 0.4 }}
+              transition={{ delay: 0.5 + i * 0.12, duration: 0.35 }}
               className="px-4 py-2.5 flex items-center gap-3"
             >
               <div className="flex-1 min-w-0">
@@ -73,10 +164,7 @@ function FlightsMockup() {
                   <span className="text-[10px] text-muted-foreground">{f.pax}</span>
                 </div>
               </div>
-              <span className={cn(
-                "text-[10px] font-medium px-2 py-0.5 rounded-full",
-                i === 0 ? "bg-emerald-500/15 text-emerald-400" : "bg-blue-500/15 text-blue-400"
-              )}>
+              <span className={cn("text-[9px] font-medium px-2 py-0.5 rounded-full", f.statusColor)}>
                 {f.status}
               </span>
             </motion.div>
@@ -85,72 +173,69 @@ function FlightsMockup() {
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ delay: 0.9 }}
-          className="px-4 py-2 bg-blue-500/5 border-t border-border/30 flex items-center justify-between"
+          transition={{ delay: 0.95 }}
+          className="px-4 py-2 bg-blue-500/5 border-t border-border/20 flex items-center justify-between"
         >
           <span className="text-[10px] text-blue-400 font-medium">+9 vuelos esta hora</span>
           <ChevronRight className="h-3 w-3 text-blue-400" />
         </motion.div>
       </div>
-    </div>
+    </PhoneFrame>
   );
 }
 
 function TrainsMockup() {
   const trains = [
-    { type: "AVE", dest: "Madrid", time: "10:15", operator: "Renfe", platform: "8" },
-    { type: "AVLO", dest: "Zaragoza", time: "10:35", operator: "Renfe", platform: "5" },
-    { type: "Ouigo", dest: "Madrid", time: "11:00", operator: "Ouigo", platform: "3" },
+    { type: "AVE", dest: "Madrid", time: "10:15", color: "bg-red-500/20 text-red-400" },
+    { type: "IRYO", dest: "Zaragoza", time: "10:35", color: "bg-purple-500/20 text-purple-400" },
+    { type: "Ouigo", dest: "Madrid", time: "11:00", color: "bg-pink-500/20 text-pink-400" },
   ];
   return (
-    <div className="w-full max-w-[280px] mx-auto">
-      <div className="rounded-2xl bg-card/80 backdrop-blur border border-border/50 overflow-hidden shadow-2xl shadow-emerald-500/5">
+    <PhoneFrame glowColor="bg-emerald-500">
+      <div className="rounded-xl bg-card/60 overflow-hidden mx-3">
         <div className="px-4 py-2.5 bg-emerald-500/10 border-b border-border/30 flex items-center justify-between">
           <div className="flex items-center gap-2">
             <Train className="h-3.5 w-3.5 text-emerald-400" />
-            <span className="text-xs font-semibold text-emerald-400">Sants - Salidas</span>
+            <span className="text-xs font-semibold text-emerald-400">Sants - Llegadas</span>
           </div>
           <span className="text-[10px] text-muted-foreground">Hoy</span>
         </div>
-        <div className="divide-y divide-border/30">
+        <div className="divide-y divide-border/20">
           {trains.map((t, i) => (
             <motion.div
               key={t.time}
-              initial={{ opacity: 0, x: 20 }}
+              initial={{ opacity: 0, x: 15 }}
               animate={{ opacity: 1, x: 0 }}
-              transition={{ delay: 0.4 + i * 0.15, duration: 0.4 }}
+              transition={{ delay: 0.5 + i * 0.12, duration: 0.35 }}
               className="px-4 py-2.5 flex items-center gap-3"
             >
-              <div className={cn(
-                "w-10 h-6 rounded-md flex items-center justify-center text-[9px] font-bold",
-                i === 2 ? "bg-pink-500/20 text-pink-400" : "bg-emerald-500/15 text-emerald-400"
-              )}>
+              <div className={cn("w-11 h-6 rounded-md flex items-center justify-center text-[9px] font-bold", t.color)}>
                 {t.type}
               </div>
               <div className="flex-1 min-w-0">
                 <span className="text-xs font-semibold text-foreground">{t.dest}</span>
                 <div className="flex items-center gap-2 mt-0.5">
+                  <Clock className="h-2.5 w-2.5 text-muted-foreground" />
                   <span className="text-[10px] text-muted-foreground">{t.time}</span>
-                  <span className="text-[10px] text-muted-foreground">Via {t.platform}</span>
                 </div>
               </div>
             </motion.div>
           ))}
         </div>
       </div>
-    </div>
+    </PhoneFrame>
   );
 }
 
 function EventsMockup() {
   const events = [
-    { name: "FC Barcelona vs Real Madrid", type: "Futbol", icon: "⚽", color: "text-blue-400", bg: "bg-blue-500/15" },
-    { name: "Primavera Sound", type: "Festival", icon: "🎵", color: "text-purple-400", bg: "bg-purple-500/15" },
-    { name: "MSC Grandiosa", type: "Crucero", icon: "🚢", color: "text-cyan-400", bg: "bg-cyan-500/15" },
+    { name: "FC Barcelona vs Real Madrid", type: "Fútbol", icon: "⚽", color: "text-blue-400" },
+    { name: "Primavera Sound", type: "Festival", icon: "🎵", color: "text-purple-400" },
+    { name: "MSC Grandiosa", type: "Crucero", icon: "🚢", color: "text-cyan-400" },
   ];
   return (
-    <div className="w-full max-w-[280px] mx-auto">
-      <div className="rounded-2xl bg-card/80 backdrop-blur border border-border/50 overflow-hidden shadow-2xl shadow-purple-500/5">
+    <PhoneFrame glowColor="bg-purple-500">
+      <div className="rounded-xl bg-card/60 overflow-hidden mx-3">
         <div className="px-4 py-2.5 bg-purple-500/10 border-b border-border/30 flex items-center justify-between">
           <div className="flex items-center gap-2">
             <Calendar className="h-3.5 w-3.5 text-purple-400" />
@@ -158,13 +243,13 @@ function EventsMockup() {
           </div>
           <span className="text-[10px] text-muted-foreground">3 eventos</span>
         </div>
-        <div className="divide-y divide-border/30">
+        <div className="divide-y divide-border/20">
           {events.map((e, i) => (
             <motion.div
               key={e.name}
-              initial={{ opacity: 0, x: 20 }}
+              initial={{ opacity: 0, x: 15 }}
               animate={{ opacity: 1, x: 0 }}
-              transition={{ delay: 0.4 + i * 0.15, duration: 0.4 }}
+              transition={{ delay: 0.5 + i * 0.12, duration: 0.35 }}
               className="px-4 py-3 flex items-center gap-3"
             >
               <span className="text-lg">{e.icon}</span>
@@ -176,7 +261,7 @@ function EventsMockup() {
           ))}
         </div>
       </div>
-    </div>
+    </PhoneFrame>
   );
 }
 
@@ -184,9 +269,9 @@ function EarningsMockup() {
   const bars = [65, 45, 80, 55, 90, 70, 85];
   const days = ["L", "M", "X", "J", "V", "S", "D"];
   return (
-    <div className="w-full max-w-[280px] mx-auto">
-      <div className="rounded-2xl bg-card/80 backdrop-blur border border-border/50 overflow-hidden shadow-2xl shadow-orange-500/5">
-        <div className="px-4 py-3 border-b border-border/30">
+    <PhoneFrame glowColor="bg-orange-500">
+      <div className="rounded-xl bg-card/60 overflow-hidden mx-3">
+        <div className="px-4 py-3 border-b border-border/20">
           <div className="flex items-center justify-between">
             <div>
               <span className="text-[10px] text-muted-foreground">Esta semana</span>
@@ -194,7 +279,7 @@ function EarningsMockup() {
                 <motion.span
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
-                  transition={{ delay: 0.3 }}
+                  transition={{ delay: 0.4 }}
                   className="text-xl font-bold text-foreground"
                 >
                   1.247
@@ -205,7 +290,7 @@ function EarningsMockup() {
             <motion.div
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
-              transition={{ delay: 0.5 }}
+              transition={{ delay: 0.6 }}
               className="flex items-center gap-1 bg-emerald-500/15 px-2 py-1 rounded-full"
             >
               <TrendingUp className="h-3 w-3 text-emerald-400" />
@@ -220,7 +305,7 @@ function EarningsMockup() {
                 <motion.div
                   initial={{ height: 0 }}
                   animate={{ height: `${h}%` }}
-                  transition={{ delay: 0.4 + i * 0.08, duration: 0.5, ease: "easeOut" }}
+                  transition={{ delay: 0.5 + i * 0.07, duration: 0.5, ease: "easeOut" }}
                   className={cn(
                     "w-full rounded-md min-h-[4px]",
                     i === 4 ? "bg-orange-400" : "bg-orange-400/30"
@@ -232,7 +317,7 @@ function EarningsMockup() {
           </div>
         </div>
       </div>
-    </div>
+    </PhoneFrame>
   );
 }
 
@@ -243,8 +328,8 @@ function RadarMockup() {
     { name: "Sants", taxis: 8, wait: "15 min", active: false },
   ];
   return (
-    <div className="w-full max-w-[280px] mx-auto">
-      <div className="rounded-2xl bg-card/80 backdrop-blur border border-border/50 overflow-hidden shadow-2xl shadow-rose-500/5">
+    <PhoneFrame glowColor="bg-rose-500">
+      <div className="rounded-xl bg-card/60 overflow-hidden mx-3">
         <div className="px-4 py-2.5 bg-rose-500/10 border-b border-border/30 flex items-center justify-between">
           <div className="flex items-center gap-2">
             <div className="relative">
@@ -262,23 +347,23 @@ function RadarMockup() {
             <span className="text-[10px] text-emerald-400">En vivo</span>
           </div>
         </div>
-        <div className="p-3 space-y-2">
+        <div className="p-2.5 space-y-1.5">
           {zones.map((z, i) => (
             <motion.div
               key={z.name}
-              initial={{ opacity: 0, y: 10 }}
+              initial={{ opacity: 0, y: 8 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.4 + i * 0.15 }}
+              transition={{ delay: 0.5 + i * 0.12 }}
               className={cn(
-                "rounded-xl p-3 border flex items-center justify-between",
+                "rounded-xl p-2.5 border flex items-center justify-between",
                 z.active
                   ? "border-rose-500/40 bg-rose-500/10"
-                  : "border-border/30 bg-muted/20"
+                  : "border-border/20 bg-muted/20"
               )}
             >
-              <div className="flex items-center gap-3">
+              <div className="flex items-center gap-2.5">
                 <div className={cn(
-                  "w-10 h-10 rounded-lg flex items-center justify-center font-bold text-sm",
+                  "w-9 h-9 rounded-lg flex items-center justify-center font-bold text-xs",
                   z.active ? "bg-rose-500/20 text-rose-400" : "bg-muted/40 text-foreground"
                 )}>
                   {z.name}
@@ -287,7 +372,7 @@ function RadarMockup() {
                   <div className="flex items-center gap-1.5">
                     <span className="text-xs font-semibold text-foreground">{z.wait}</span>
                     {z.active && (
-                      <span className="text-[9px] bg-rose-500/20 text-rose-400 px-1.5 py-0.5 rounded-full font-medium">
+                      <span className="text-[8px] bg-rose-500/20 text-rose-400 px-1.5 py-0.5 rounded-full font-medium">
                         Aqui
                       </span>
                     )}
@@ -295,134 +380,123 @@ function RadarMockup() {
                   <span className="text-[10px] text-muted-foreground">{z.taxis} taxis</span>
                 </div>
               </div>
-              <Clock className="h-3.5 w-3.5 text-muted-foreground" />
+              <Clock className="h-3 w-3 text-muted-foreground" />
             </motion.div>
           ))}
         </div>
       </div>
-    </div>
+    </PhoneFrame>
   );
 }
 
-/* Hero illustration for welcome slide */
-function WelcomeIllustration() {
-  const features = [
-    { icon: Plane, label: "Vuelos", color: "text-blue-400", bg: "bg-blue-500/15" },
-    { icon: Train, label: "Trenes", color: "text-emerald-400", bg: "bg-emerald-500/15" },
-    { icon: BarChart3, label: "Ingresos", color: "text-orange-400", bg: "bg-orange-500/15" },
-    { icon: MapPin, label: "Radar", color: "text-rose-400", bg: "bg-rose-500/15" },
-  ];
+/* ═══════════════════════════════════════════════════════════════
+   Slide data
+   ═══════════════════════════════════════════════════════════════ */
 
-  return (
-    <div className="w-full max-w-[280px] mx-auto">
-      {/* App icon + brand */}
-      <motion.div
-        initial={{ scale: 0.8, opacity: 0 }}
-        animate={{ scale: 1, opacity: 1 }}
-        transition={{ type: "spring", stiffness: 200, damping: 20, delay: 0.1 }}
-        className="flex flex-col items-center mb-6"
-      >
-        <div className="w-20 h-20 rounded-[22px] bg-gradient-to-br from-yellow-400 to-yellow-600 flex items-center justify-center shadow-lg shadow-yellow-500/20 mb-3">
-          <span className="text-4xl">🚕</span>
-        </div>
-      </motion.div>
-
-      {/* Feature grid */}
-      <div className="grid grid-cols-4 gap-2">
-        {features.map((f, i) => (
-          <motion.div
-            key={f.label}
-            initial={{ opacity: 0, y: 15 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.3 + i * 0.1 }}
-            className="flex flex-col items-center gap-1.5"
-          >
-            <div className={cn("w-12 h-12 rounded-xl flex items-center justify-center", f.bg)}>
-              <f.icon className={cn("h-5 w-5", f.color)} />
-            </div>
-            <span className="text-[10px] text-muted-foreground font-medium">{f.label}</span>
-          </motion.div>
-        ))}
-      </div>
-    </div>
-  );
+interface SlideData {
+  id: string;
+  tagline: string;
+  body: string;
+  accentColor: string;
+  accentBar: string;
+  illustration: React.ReactNode;
 }
-
-/* ─── Slides ─── */
 
 const slides: SlideData[] = [
   {
     id: "welcome",
-    title: "iTaxiBcn",
-    subtitle: "La app inteligente para\ntaxistas de Barcelona",
-    description:
-      "Vuelos, trenes, eventos, ingresos y radar de zonas.\nTodo lo que necesitas en un solo lugar.",
-    gradient: "from-yellow-500/20 via-yellow-600/5 to-transparent",
+    tagline: "Tu copiloto en Barcelona",
+    body: "Vuelos, trenes, eventos y radar.\nTodo en un toque.",
     accentColor: "text-yellow-400",
-    dotColor: "bg-yellow-400",
+    accentBar: "bg-yellow-400",
     illustration: <WelcomeIllustration />,
   },
   {
     id: "vuelos",
-    title: "Vuelos en Tiempo Real",
-    subtitle: "Llegadas T1 y T2 al momento",
-    description:
-      "Consulta pasajeros, hora de aterrizaje y terminal. Anticípate a los picos de demanda.",
-    gradient: "from-blue-500/15 via-blue-600/5 to-transparent",
+    tagline: "Pasajeros aterrizando",
+    body: "Llegadas en tiempo real de T1 y T2.\nAnticipa los picos de demanda.",
     accentColor: "text-blue-400",
-    dotColor: "bg-blue-400",
+    accentBar: "bg-blue-400",
     illustration: <FlightsMockup />,
   },
   {
     id: "trenes",
-    title: "Trenes de Sants",
-    subtitle: "AVE, AVLO, Ouigo y mas",
-    description:
-      "Horarios completos filtrados por ciudad o compañia. Sabe cuando llega la demanda a Sants.",
-    gradient: "from-emerald-500/15 via-emerald-600/5 to-transparent",
+    tagline: "Sants al momento",
+    body: "AVE, IRYO y Ouigo.\nSabes cuándo llega la demanda.",
     accentColor: "text-emerald-400",
-    dotColor: "bg-emerald-400",
+    accentBar: "bg-emerald-400",
     illustration: <TrainsMockup />,
   },
   {
     id: "eventos",
-    title: "Eventos y Cruceros",
-    subtitle: "El pulso de Barcelona",
-    description:
-      "Conciertos, partidos, ferias y cruceros en el puerto. Estate donde esta la demanda.",
-    gradient: "from-purple-500/15 via-purple-600/5 to-transparent",
+    tagline: "El pulso de la ciudad",
+    body: "Partidos, conciertos y cruceros.\nEstate donde hay demanda.",
     accentColor: "text-purple-400",
-    dotColor: "bg-purple-400",
+    accentBar: "bg-purple-400",
     illustration: <EventsMockup />,
   },
   {
     id: "ingresos",
-    title: "Controla tu Dinero",
-    subtitle: "Ingresos, gastos y tendencias",
-    description:
-      "Registra carreras con un toque. Ve tu evolucion diaria, semanal y mensual al instante.",
-    gradient: "from-orange-500/15 via-orange-600/5 to-transparent",
+    tagline: "Tu dinero, controlado",
+    body: "Registra carreras con un toque.\nVe tu evolución al instante.",
     accentColor: "text-orange-400",
-    dotColor: "bg-orange-400",
+    accentBar: "bg-orange-400",
     illustration: <EarningsMockup />,
   },
   {
     id: "radar",
-    title: "Radar de Zonas",
-    subtitle: "Tiempos de espera en vivo",
-    description:
-      "Detecta automaticamente tu zona y registra el tiempo. Ve cuantos taxis hay en cada punto.",
-    gradient: "from-rose-500/15 via-rose-600/5 to-transparent",
+    tagline: "Tu zona, en vivo",
+    body: "Taxis y tiempos de espera.\nDetección automática.",
     accentColor: "text-rose-400",
-    dotColor: "bg-rose-400",
+    accentBar: "bg-rose-400",
     illustration: <RadarMockup />,
   },
 ];
 
-/* ─── Swipe threshold ─── */
+/* ═══════════════════════════════════════════════════════════════
+   Segmented Progress Bar
+   ═══════════════════════════════════════════════════════════════ */
+
+function SegmentedProgress({
+  total,
+  current,
+  accentBar,
+}: {
+  total: number;
+  current: number;
+  accentBar: string;
+}) {
+  return (
+    <div className="flex gap-1.5 w-full">
+      {Array.from({ length: total }).map((_, i) => (
+        <div
+          key={i}
+          className="flex-1 h-1 rounded-full overflow-hidden bg-white/10"
+        >
+          <motion.div
+            className={cn("h-full rounded-full", accentBar)}
+            initial={false}
+            animate={{
+              width: i < current ? "100%" : i === current ? "100%" : "0%",
+              opacity: i <= current ? 1 : 0,
+            }}
+            transition={{ duration: 0.4, ease: "easeInOut" }}
+          />
+        </div>
+      ))}
+    </div>
+  );
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   Swipe config
+   ═══════════════════════════════════════════════════════════════ */
+
 const SWIPE_THRESHOLD = 50;
 
-/* ─── Main Component ─── */
+/* ═══════════════════════════════════════════════════════════════
+   Main Component
+   ═══════════════════════════════════════════════════════════════ */
 
 interface OnboardingFlowProps {
   onComplete: () => void;
@@ -430,33 +504,20 @@ interface OnboardingFlowProps {
 
 export function OnboardingFlow({ onComplete }: OnboardingFlowProps) {
   const [current, setCurrent] = useState(0);
-  const [direction, setDirection] = useState(1);
   const [showAccount, setShowAccount] = useState(false);
   const isLast = current === slides.length - 1;
   const slide = slides[current];
-  const progress = ((current + 1) / slides.length) * 100;
-
-  const goTo = useCallback(
-    (index: number) => {
-      if (index === current) return;
-      setDirection(index > current ? 1 : -1);
-      setCurrent(index);
-    },
-    [current]
-  );
 
   const handleNext = useCallback(() => {
     if (isLast) {
       setShowAccount(true);
     } else {
-      setDirection(1);
       setCurrent((c) => c + 1);
     }
   }, [isLast]);
 
   const handlePrev = useCallback(() => {
     if (current > 0) {
-      setDirection(-1);
       setCurrent((c) => c - 1);
     }
   }, [current]);
@@ -474,156 +535,155 @@ export function OnboardingFlow({ onComplete }: OnboardingFlowProps) {
   return (
     <>
       <div className="fixed inset-0 z-50 bg-background flex flex-col overflow-hidden select-none">
-        {/* Background gradient */}
-        <motion.div
-          key={slide.id + "-bg"}
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          transition={{ duration: 0.6 }}
-          className={cn(
-            "absolute inset-0 bg-gradient-to-b pointer-events-none",
-            slide.gradient
-          )}
-        />
+        {/* Background ambient glow */}
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={slide.id + "-bg"}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.5 }}
+            className="absolute inset-0 pointer-events-none"
+          >
+            <div className={cn(
+              "absolute top-0 left-1/2 -translate-x-1/2 w-[500px] h-[400px] rounded-full blur-[120px] opacity-[0.07]",
+              slide.accentBar
+            )} />
+          </motion.div>
+        </AnimatePresence>
 
-        {/* Top bar: progress + skip */}
-        <div className="relative z-10 px-6 pt-safe">
-          <div className="flex items-center justify-between pt-4 mb-3">
-            {/* Step counter */}
-            <span className="text-xs text-muted-foreground font-medium tabular-nums">
-              {current + 1} / {slides.length}
-            </span>
-
-            {/* Skip */}
-            <button
-              onClick={handleSkip}
-              className="text-xs text-muted-foreground hover:text-foreground transition-colors py-1.5 px-3 rounded-lg hover:bg-muted/50 -mr-2"
-            >
-              Saltar
-            </button>
-          </div>
-
-          {/* Progress bar */}
-          <div className="h-1 bg-muted/40 rounded-full overflow-hidden">
-            <motion.div
-              className={cn("h-full rounded-full", slide.dotColor)}
-              initial={false}
-              animate={{ width: `${progress}%` }}
-              transition={{ duration: 0.4, ease: "easeInOut" }}
-            />
-          </div>
-        </div>
-
-        {/* Slide content - swipeable area */}
+        {/* ── Illustration zone (top 58%) ── */}
         <div
-          className="flex-1 flex flex-col relative z-10 overflow-hidden"
+          className="relative z-10 flex-[1.3] flex items-center justify-center overflow-hidden"
           onTouchStart={(e) => {
-            const touch = e.touches[0];
-            (e.currentTarget as any)._touchStartX = touch.clientX;
+            (e.currentTarget as any)._touchStartX = e.touches[0].clientX;
           }}
           onTouchEnd={(e) => {
             const startX = (e.currentTarget as any)._touchStartX;
             if (startX == null) return;
-            const endX = e.changedTouches[0].clientX;
-            const diff = endX - startX;
+            const diff = e.changedTouches[0].clientX - startX;
             if (diff < -SWIPE_THRESHOLD && !isLast) handleNext();
             else if (diff > SWIPE_THRESHOLD && current > 0) handlePrev();
           }}
         >
-          {/* Use key to force remount on slide change + motion for enter animation */}
-          <motion.div
-            key={slide.id}
-            initial={{ opacity: 0, x: direction * 60 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.3, ease: [0.25, 0.46, 0.45, 0.94] }}
-            className="flex-1 flex flex-col items-center px-6 pt-6"
-          >
-            {/* Illustration area */}
-            <div className="flex-1 flex items-center justify-center w-full min-h-0 pb-2">
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={slide.id}
+              initial={{ opacity: 0, y: 30, scale: 0.95 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              exit={{ opacity: 0, y: -15, scale: 0.97 }}
+              transition={{ duration: 0.35, ease: [0.25, 0.46, 0.45, 0.94] }}
+              className="w-full flex items-center justify-center px-6"
+            >
               {slide.illustration}
-            </div>
+            </motion.div>
+          </AnimatePresence>
 
-            {/* Text content - fixed height area at bottom */}
-            <div className="w-full max-w-sm text-center pb-2 space-y-2">
-              <h1 className="text-2xl font-bold text-foreground leading-tight">
-                {slide.title}
-              </h1>
-
-              <p className={cn("text-sm font-semibold whitespace-pre-line leading-snug", slide.accentColor)}>
-                {slide.subtitle}
-              </p>
-
-              <p className="text-sm text-muted-foreground leading-relaxed whitespace-pre-line">
-                {slide.description}
-              </p>
-            </div>
-          </motion.div>
+          {/* Gradient fade into text zone */}
+          <div className="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-t from-background to-transparent pointer-events-none" />
         </div>
 
-        {/* Bottom controls */}
-        <div className="relative z-10 px-6 pb-safe">
-          <div className="pb-6 space-y-4">
-            {/* Dots */}
-            <div className="flex items-center justify-center gap-1.5">
-              {slides.map((s, i) => (
-                <button
-                  key={s.id}
-                  onClick={() => goTo(i)}
-                  className={cn(
-                    "rounded-full transition-all duration-300",
-                    i === current
-                      ? cn("w-7 h-2", slide.dotColor)
-                      : "w-2 h-2 bg-muted-foreground/25 hover:bg-muted-foreground/40"
-                  )}
-                />
-              ))}
-            </div>
-
-            {/* Buttons */}
-            <div className="flex gap-3">
-              {current > 0 && (
-                <Button
-                  variant="outline"
-                  onClick={handlePrev}
-                  size="lg"
-                  className="px-4 border-border/50"
+        {/* ── Text + Controls zone (bottom 42%) ── */}
+        <div className="relative z-10 flex-1 flex flex-col px-8 pt-2 pb-safe">
+          {/* Text content */}
+          <div className="flex-1 flex flex-col justify-center">
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={slide.id + "-text"}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.25 }}
+                className="space-y-2"
+              >
+                {/* Tagline */}
+                <motion.h1
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.15, duration: 0.3 }}
+                  className="font-display text-[28px] font-bold text-foreground leading-tight"
                 >
-                  <ChevronLeft className="h-4 w-4" />
-                </Button>
-              )}
+                  {slide.tagline}
+                </motion.h1>
+
+                {/* Body */}
+                <motion.p
+                  initial={{ opacity: 0, y: 8 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.25, duration: 0.3 }}
+                  className="text-[15px] text-muted-foreground leading-relaxed whitespace-pre-line"
+                >
+                  {slide.body}
+                </motion.p>
+              </motion.div>
+            </AnimatePresence>
+          </div>
+
+          {/* Bottom controls */}
+          <div className="space-y-4 pb-6">
+            {/* Segmented progress */}
+            <SegmentedProgress
+              total={slides.length}
+              current={current}
+              accentBar={slide.accentBar}
+            />
+
+            {/* CTA Button */}
+            {isLast ? (
+              <Button
+                onClick={handleNext}
+                size="lg"
+                className="w-full h-14 rounded-2xl text-[15px] font-bold bg-gradient-to-r from-yellow-400 to-yellow-500 hover:from-yellow-300 hover:to-yellow-400 text-black shadow-lg shadow-yellow-500/25 relative overflow-hidden"
+              >
+                {/* Shimmer overlay */}
+                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent animate-shimmer bg-[length:200%_100%]" />
+                <span className="relative flex items-center gap-2">
+                  <Zap className="h-4.5 w-4.5" />
+                  Empezar ahora
+                </span>
+              </Button>
+            ) : (
               <Button
                 onClick={handleNext}
                 size="lg"
                 className={cn(
-                  "flex-1 flex items-center justify-center gap-2 text-sm font-semibold h-12 rounded-xl",
-                  isLast && "bg-gradient-to-r from-yellow-500 to-yellow-600 hover:from-yellow-400 hover:to-yellow-500 text-black shadow-lg shadow-yellow-500/20"
+                  "w-full h-14 rounded-2xl text-[15px] font-semibold",
+                  "bg-white/10 hover:bg-white/15 text-foreground border border-white/10 backdrop-blur-sm"
                 )}
               >
-                {isLast ? (
-                  <>
-                    <Zap className="h-4 w-4" />
-                    Empezar
-                  </>
-                ) : (
-                  <>
-                    Siguiente
-                    <ChevronRight className="h-4 w-4" />
-                  </>
-                )}
+                <span className="flex items-center gap-2">
+                  Continuar
+                  <ChevronRight className="h-4 w-4" />
+                </span>
               </Button>
-            </div>
+            )}
 
+            {/* Skip link */}
+            {!isLast && (
+              <button
+                onClick={handleSkip}
+                className="w-full text-center text-xs text-muted-foreground/50 hover:text-muted-foreground transition-colors py-1"
+              >
+                Saltar introducción
+              </button>
+            )}
+
+            {/* Welcome tagline */}
             {current === 0 && (
-              <p className="text-center text-[11px] text-muted-foreground/70">
-                Hecha por y para taxistas con licencia VT en Barcelona
-              </p>
+              <motion.p
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 0.6 }}
+                className="text-center text-[11px] text-muted-foreground/40"
+              >
+                Hecha por y para taxistas de Barcelona
+              </motion.p>
             )}
           </div>
         </div>
       </div>
 
-      {/* Account creation */}
+      {/* Account creation dialog */}
       <AccountCreationDialog
         open={showAccount}
         onDone={handleAccountDone}

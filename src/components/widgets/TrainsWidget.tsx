@@ -1,75 +1,32 @@
 import { useState, useEffect } from "react";
 import { Train, Clock, MapPin, Calendar, RefreshCw } from "lucide-react";
 import { cn } from "@/lib/utils";
-
-interface TrenSants {
-  hora: string;
-  origen: string;
-  tren: string;
-  via: string;
-}
+import {
+  type TrenSants,
+  getCiudad,
+  getTipoTren,
+  getTrenColor,
+  normalizeTrenesResponse,
+} from "@/lib/trainUtils";
 
 interface TrainsWidgetProps {
   onViewFullDay?: () => void;
 }
 
-// Extraer primera palabra del origen (ciudad)
-const getCiudad = (origen: string): string => {
-  if (!origen) return "";
-  // Casos especiales
-  if (origen.toLowerCase().includes("madrid")) return "Madrid";
-  if (origen.toLowerCase().includes("sevilla")) return "Sevilla";
-  if (origen.toLowerCase().includes("málaga")) return "Málaga";
-  if (origen.toLowerCase().includes("valència") || origen.toLowerCase().includes("valencia")) return "València";
-  if (origen.toLowerCase().includes("alacant") || origen.toLowerCase().includes("alicante")) return "Alicante";
-  if (origen.toLowerCase().includes("figueres")) return "Figueres";
-  if (origen.toLowerCase().includes("paris")) return "París";
-  if (origen.toLowerCase().includes("marseille")) return "Marsella";
-  if (origen.toLowerCase().includes("donostia") || origen.toLowerCase().includes("san sebastián")) return "Donostia";
-  // Default: primera palabra
-  return origen.split(" ")[0].split("-")[0];
-};
-
-// Extraer tipo de tren limpio
-const getTipoTren = (tren: string): string => {
-  if (!tren) return "";
-  const tipo = tren.split("\n")[0].trim();
-  if (tipo.includes("IRYO") || tipo.includes("IL -")) return "IRYO";
-  if (tipo.includes("OUIGO")) return "OUIGO";
-  if (tipo.includes("TGV")) return "TGV";
-  return tipo;
-};
-
-// Color por tipo de tren
-const getTrenColor = (tren: string): string => {
-  const tipo = getTipoTren(tren);
-  switch (tipo) {
-    case "AVE": return "text-red-500";
-    case "IRYO": return "text-purple-500";
-    case "OUIGO": return "text-pink-500";
-    case "EUROMED": return "text-blue-500";
-    case "ALVIA": return "text-teal-500";
-    case "TGV": return "text-indigo-500";
-    case "INTERCITY": return "text-orange-500";
-    default: return "text-emerald-500";
-  }
-};
-
 export function TrainsWidget({ onViewFullDay }: TrainsWidgetProps) {
   const [trenes, setTrenes] = useState<TrenSants[]>([]);
   const [loading, setLoading] = useState(true);
   const [updateTime, setUpdateTime] = useState<string>("");
+  const [dataUpdateTime, setDataUpdateTime] = useState<string>("");
 
   useEffect(() => {
     const fetchTrenes = () => {
       fetch("/trenes_sants.json?t=" + Date.now())
         .then(res => res.json())
-        .then((data: TrenSants[]) => {
-          // Eliminar duplicados (mismo hora + tren)
-          const uniqueTrenes = data.filter((tren, index, self) =>
-            index === self.findIndex(t => t.hora === tren.hora && t.tren === tren.tren)
-          );
+        .then((data: unknown) => {
+          const { trenes: uniqueTrenes, updateTime: dataTime } = normalizeTrenesResponse(data);
           setTrenes(uniqueTrenes);
+          if (dataTime) setDataUpdateTime(dataTime);
           setUpdateTime(new Date().toLocaleTimeString('es-ES', { hour: '2-digit', minute: '2-digit' }));
           setLoading(false);
         })
@@ -182,7 +139,7 @@ export function TrainsWidget({ onViewFullDay }: TrainsWidgetProps) {
       <div className="flex items-center justify-between pt-1 border-t border-border/50">
         <div className="flex items-center gap-1 text-[10px] text-muted-foreground">
           <Clock className="h-2.5 w-2.5" />
-          <span>Actualizado {updateTime}</span>
+          <span>Datos: {dataUpdateTime || updateTime}</span>
         </div>
         <div className="text-[10px] text-muted-foreground">
           {trenes.length} trenes hoy

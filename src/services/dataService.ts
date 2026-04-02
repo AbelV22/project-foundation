@@ -26,12 +26,8 @@ export interface VueloRaw {
 export interface TrenSants {
   hora: string;
   tren: string;
-  operador: string;
   origen: string;
-  destino: string;
   via: string;
-  estado: string;
-  tipo: string;
 }
 
 export interface CrucerosData {

@@ -3,6 +3,7 @@ import os
 import time
 import json
 import re
+from datetime import datetime
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.chrome.service import Service
@@ -60,9 +61,9 @@ def obtener_trenes():
 
         # 2. LLAMAR API JSON DIRECTAMENTE (sin interacción con UI)
         print("📡 Llamando API JSON de horarios AV/LD Llegadas...")
-        whitelist = ["AVE", "AVLO", "OUIGO", "IRYO", "ALVIA", "EUROMED", "INTERCITY", "TGV", "LD"]
+        whitelist = VALIDATION.get('train_whitelist', ["AVE", "AVLO", "OUIGO", "IRYO", "ALVIA", "EUROMED", "INTERCITY", "TGV", "LD"])
         page_num = 0
-        max_pages = 20
+        max_pages = LIMITS.get('max_api_pages', 20)
 
         while page_num < max_pages:
             # Llamar la API via XHR síncrono desde el contexto del navegador
@@ -122,7 +123,10 @@ def obtener_trenes():
                 try:
                     tipo_raw = h.get('trenDatosOp', '').upper()
                     tren_num = h.get('tren', '')
-                    hora_real = h.get('horaEstado', '') or h.get('hora', '')
+                    # Use scheduled hora as primary; horaEstado may be empty or unreliable
+                    hora_programada = h.get('hora', '')
+                    hora_estado = h.get('horaEstado', '')
+                    hora_real = hora_programada or hora_estado
                     origen = h.get('estacion', '')
                     via = h.get('via', '') or "-"
 
@@ -132,10 +136,11 @@ def obtener_trenes():
 
                     # Validaciones
                     if not re.match(r"\d{2}:\d{2}", hora_real):
+                        logger.debug(f"Hora inválida descartada: '{hora_real}' para tren {tipo_limpio}")
                         continue
 
                     # Filtros
-                    es_valido = any(marca in tipo_limpio for marca in whitelist)
+                    es_valido = any(marca in tipo_limpio.upper() for marca in whitelist)
                     if h.get('isCercanias', False):
                         es_valido = False
                     if "RODALIES" in tipo_raw or "CERCANIAS" in tipo_raw:
@@ -148,7 +153,8 @@ def obtener_trenes():
                             "tren": tipo_limpio,
                             "via": via
                         })
-                except:
+                except Exception as e:
+                    logger.warning(f"Error procesando tren: {e} - datos: {h}")
                     continue
 
             page_num += 1
@@ -166,10 +172,20 @@ def obtener_trenes():
     if datos:
         datos.sort(key=lambda x: x['hora'])
 
+        # Wrap in object with metadata for frontend
+        output = {
+            "trenes": datos,
+            "meta": {
+                "update_time": datetime.now().strftime("%H:%M"),
+                "updated_at": datetime.now().isoformat(),
+                "total": len(datos)
+            }
+        }
+
         # Usar safe_save_json para validar antes de sobrescribir
         success, message = safe_save_json(
             filepath=OUTPUT_FILE,
-            data=datos,
+            data=output,
             data_type='trains',
             min_items=LIMITS.get('min_trains_valid', 5),
             backup=True

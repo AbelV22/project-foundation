@@ -10,13 +10,7 @@ import { ProfitWidget } from "@/components/widgets/ProfitWidget";
 import { useDemandForecast } from "@/hooks/useDemandForecast";
 import { deduplicateFlights, getTerminalType as getTermType, parseHora as parseH, haAlterizado } from "@/lib/flightUtils";
 import type { VueloRaw } from "@/lib/flightUtils";
-
-interface TrenSants {
-  hora: string;
-  origen: string;
-  tren: string;
-  via: string;
-}
+import { type TrenSants, getCiudad, getTipoTren, getTrenColor as getTrenColorShared, normalizeTrenesResponse } from "@/lib/trainUtils";
 
 interface DashboardViewProps {
   onTerminalClick?: (terminalId: string) => void;
@@ -36,38 +30,8 @@ const parseHora = parseH;
 const getTerminalType = getTermType;
 
 
-// Extraer tipo de tren limpio
-const getTipoTren = (tren: string): string => {
-  if (!tren) return "";
-  const tipo = tren.split("\n")[0].trim();
-  if (tipo.includes("IRYO") || tipo.includes("IL -")) return "IRYO";
-  if (tipo.includes("OUIGO")) return "OUIGO";
-  if (tipo.includes("TGV")) return "TGV";
-  return tipo;
-};
-
-// Color por tipo de tren
-const getTrenColorClass = (tren: string): string => {
-  const tipo = getTipoTren(tren);
-  switch (tipo) {
-    case "AVE": return "text-red-400";
-    case "IRYO": return "text-purple-400";
-    case "OUIGO": return "text-pink-400";
-    case "TGV": return "text-indigo-400";
-    default: return "text-muted-foreground";
-  }
-};
-
-// Extraer ciudad
-const getCiudad = (origen: string): string => {
-  if (!origen) return "";
-  if (origen.toLowerCase().includes("madrid")) return "Madrid";
-  if (origen.toLowerCase().includes("sevilla")) return "Sevilla";
-  if (origen.toLowerCase().includes("málaga")) return "Málaga";
-  if (origen.toLowerCase().includes("valència") || origen.toLowerCase().includes("valencia")) return "València";
-  if (origen.toLowerCase().includes("paris")) return "París";
-  return origen.split(" ")[0].split("-")[0];
-};
+// Alias for local usage - dashboard uses slightly different shade for muted fallback
+const getTrenColorClass = (tren: string): string => getTrenColorShared(tren);
 
 interface LicenciasData {
   metadata: { precio_mercado_referencia: number };
@@ -110,9 +74,7 @@ export function DashboardView({ onTerminalClick, onViewAllFlights, onViewAllEven
       fetch("/analisis_licencias_taxi.json?t=" + Date.now()).then(res => res.json()).catch(() => null)
     ]).then(([vuelosData, trenesData, licenciasData]) => {
       setVuelos(deduplicateFlights(Array.isArray(vuelosData) ? vuelosData : []));
-      const uniqueTrenes = (trenesData as TrenSants[]).filter((tren, index, self) =>
-        index === self.findIndex(t => t.hora === tren.hora && t.tren === tren.tren)
-      );
+      const { trenes: uniqueTrenes } = normalizeTrenesResponse(trenesData);
       setTrenes(uniqueTrenes);
       setLicencias(licenciasData);
       setLoading(false);

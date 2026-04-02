@@ -1,85 +1,21 @@
 import { useState, useEffect, useMemo } from "react";
 import { ArrowLeft, Train, RefreshCw, Flame, Clock, MapPin, ChevronRight } from "lucide-react";
 import { cn } from "@/lib/utils";
-
-interface TrenSants {
-  hora: string;
-  origen: string;
-  tren: string;
-  via: string;
-}
+import {
+  type TrenSants,
+  getCiudad,
+  getTipoTren,
+  getNumeroTren,
+  getTrenColor,
+  getTrenBgColor,
+  normalizeTrenesResponse,
+} from "@/lib/trainUtils";
 
 interface TrainsFullDayViewProps {
   onBack?: () => void;
   onCityClick?: (city: string) => void;
   onOperatorClick?: (operator: string) => void;
 }
-
-// Extraer primera palabra del origen (ciudad)
-const getCiudad = (origen: string): string => {
-  if (!origen) return "";
-  const lower = origen.toLowerCase();
-  if (lower.includes("madrid")) return "Madrid";
-  if (lower.includes("sevilla")) return "Sevilla";
-  if (lower.includes("málaga")) return "Málaga";
-  if (lower.includes("valència") || lower.includes("valencia")) return "València";
-  if (lower.includes("alacant") || lower.includes("alicante")) return "Alicante";
-  if (lower.includes("figueres")) return "Figueres";
-  if (lower.includes("paris")) return "París";
-  if (lower.includes("marseille")) return "Marsella";
-  if (lower.includes("donostia") || lower.includes("san sebastián")) return "Donostia";
-  if (lower.includes("zaragoza")) return "Zaragoza";
-  if (lower.includes("granada")) return "Granada";
-  if (lower.includes("córdoba")) return "Córdoba";
-  return origen.split(" ")[0].split("-")[0];
-};
-
-// Extraer tipo de tren limpio (primera parte antes del \n)
-const getTipoTren = (tren: string): string => {
-  if (!tren) return "";
-  const tipo = tren.split("\n")[0].trim();
-  if (tipo.includes("IRYO") || tipo.includes("IL -")) return "IRYO";
-  if (tipo.includes("OUIGO")) return "OUIGO";
-  if (tipo.includes("TGV")) return "TGV";
-  if (tipo.includes("AVE")) return "AVE";
-  return tipo;
-};
-
-// Extraer número de tren (segunda parte después del \n)
-const getNumeroTren = (tren: string): string => {
-  if (!tren) return "";
-  const parts = tren.split("\n");
-  return parts.length > 1 ? parts[1].trim() : "";
-};
-
-// Color por tipo de tren
-const getTrenColor = (tren: string): string => {
-  const tipo = getTipoTren(tren);
-  switch (tipo) {
-    case "AVE": return "text-red-500";
-    case "IRYO": return "text-purple-500";
-    case "OUIGO": return "text-pink-500";
-    case "EUROMED": return "text-blue-500";
-    case "ALVIA": return "text-teal-500";
-    case "TGV": return "text-indigo-500";
-    case "INTERCITY": return "text-orange-500";
-    default: return "text-emerald-500";
-  }
-};
-
-const getTrenBgColor = (tren: string): string => {
-  const tipo = getTipoTren(tren);
-  switch (tipo) {
-    case "AVE": return "bg-red-500/10";
-    case "IRYO": return "bg-purple-500/10";
-    case "OUIGO": return "bg-pink-500/10";
-    case "EUROMED": return "bg-blue-500/10";
-    case "ALVIA": return "bg-teal-500/10";
-    case "TGV": return "bg-indigo-500/10";
-    case "INTERCITY": return "bg-orange-500/10";
-    default: return "bg-emerald-500/10";
-  }
-};
 
 // Generar array de 23 horas empezando 30 minutos antes de la hora actual
 // Formato compacto: solo muestra la hora inicio (eliminada la última franja)
@@ -101,20 +37,9 @@ export function TrainsFullDayView({ onBack, onCityClick, onOperatorClick }: Trai
   useEffect(() => {
     fetch("/trenes_sants.json?t=" + Date.now())
       .then(res => res.json())
-      .then((data: TrenSants[] | { trenes: TrenSants[], meta?: { update_time?: string } }) => {
-        let trenesData: TrenSants[];
-        if (Array.isArray(data)) {
-          trenesData = data;
-        } else {
-          trenesData = data.trenes || [];
-          if (data.meta?.update_time) {
-            setFileUpdateTime(data.meta.update_time);
-          }
-        }
-        // Eliminar duplicados (mismo hora + tren)
-        const uniqueTrenes = trenesData.filter((tren, index, self) =>
-          index === self.findIndex(t => t.hora === tren.hora && t.tren === tren.tren)
-        );
+      .then((data: unknown) => {
+        const { trenes: uniqueTrenes, updateTime } = normalizeTrenesResponse(data);
+        if (updateTime) setFileUpdateTime(updateTime);
         setTrenes(uniqueTrenes);
         setLastUpdate(new Date().toLocaleTimeString('es-ES', { hour: '2-digit', minute: '2-digit' }));
         setLoading(false);
@@ -315,12 +240,12 @@ export function TrainsFullDayView({ onBack, onCityClick, onOperatorClick }: Trai
                     onClick={() => onOperatorClick?.(tipo)}
                     className={cn(
                       "w-full flex items-center justify-between px-2 py-1.5 rounded-lg cursor-pointer hover:ring-2 hover:ring-offset-1 hover:ring-offset-background transition-all group",
-                      getTrenBgColor(tipo.includes("IRYO") ? "IL - IRYO" : tipo)
+                      getTrenBgColor(tipo)
                     )}
                   >
                     <span className={cn(
                       "font-display font-bold text-xs",
-                      getTrenColor(tipo.includes("IRYO") ? "IL - IRYO" : tipo)
+                      getTrenColor(tipo)
                     )}>
                       {tipo}
                     </span>
