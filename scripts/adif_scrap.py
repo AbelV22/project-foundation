@@ -168,8 +168,23 @@ def obtener_trenes():
     finally:
         driver.quit()
 
-    # 3. GUARDADO SEGURO (No sobrescribe si datos son inválidos)
+    # 3. DEDUPLICAR + GUARDADO SEGURO
     if datos:
+        # Deduplicar por hora+tren (la API puede devolver el mismo tren
+        # múltiples veces, una por cada tipo de tráfico AV/LD/MD)
+        seen = set()
+        datos_unicos = []
+        for d in datos:
+            key = (d['hora'], d['tren'])
+            if key not in seen:
+                seen.add(key)
+                datos_unicos.append(d)
+
+        dupes_removed = len(datos) - len(datos_unicos)
+        if dupes_removed > 0:
+            logger.info(f"🔄 Eliminados {dupes_removed} duplicados ({len(datos)} -> {len(datos_unicos)})")
+
+        datos = datos_unicos
         datos.sort(key=lambda x: x['hora'])
 
         # Wrap in object with metadata for frontend
