@@ -10,7 +10,7 @@
             "pax_estimados": 2000,
             "puerto": "Savona",
             "tipo": "llegada",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Itàlia",
             "imo": "9859600",
             "mmsi": "247384100",
@@ -46,38 +46,6 @@
             "bandera": "Portugal",
             "imo": "9466960",
             "mmsi": "255806034",
-            "fecha": "2026-04-02"
-        },
-        {
-            "hora": "15:08",
-            "nombre": "Tivy Gold",
-            "naviera": "Golden-Agri Stena Pte Ltd",
-            "terminal": "",
-            "terminal_codigo": "",
-            "eslora": 176.0,
-            "pax_estimados": 1000,
-            "puerto": "Augusta",
-            "tipo": "llegada",
-            "estado": "Iniciada",
-            "bandera": "Libèria",
-            "imo": "9251559",
-            "mmsi": "636022541",
-            "fecha": "2026-04-02"
-        },
-        {
-            "hora": "15:11",
-            "nombre": "Tivy Gold",
-            "naviera": "Golden-Agri Stena Pte Ltd",
-            "terminal": "RECEPTORA DE LIQUIDOS SA",
-            "terminal_codigo": "2252",
-            "eslora": 176.0,
-            "pax_estimados": 1000,
-            "puerto": "Augusta",
-            "tipo": "llegada",
-            "estado": "Iniciada",
-            "bandera": "Libèria",
-            "imo": "9251559",
-            "mmsi": "636022541",
             "fecha": "2026-04-02"
         },
         {
@@ -195,23 +163,7 @@
             "fecha": "2026-04-02"
         },
         {
-            "hora": "15:10",
-            "nombre": "Tivy Gold",
-            "naviera": "IBERICA MARITIMA BARCELONA SA",
-            "terminal": "",
-            "terminal_codigo": "",
-            "eslora": 176.0,
-            "pax_estimados": 1000,
-            "puerto": "Patras",
-            "tipo": "salida",
-            "estado": "Iniciada",
-            "bandera": "Libèria",
-            "imo": "9251559",
-            "mmsi": "636022541",
-            "fecha": "2026-04-02"
-        },
-        {
-            "hora": "16:10",
+            "hora": "14:00",
             "nombre": "Eco Adriatica",
             "naviera": "GRIMALDI LOGISTICA ESPAÑA SL",
             "terminal": "GRIMALDI TERMINAL BARCELONA SL",
@@ -220,7 +172,7 @@
             "pax_estimados": 2000,
             "puerto": "Valencia",
             "tipo": "salida",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Itàlia",
             "imo": "9859600",
             "mmsi": "247384100",
@@ -324,25 +276,24 @@
         }
     ],
     "resumen": {
-        "total_cruceros": 11,
-        "total_llegadas": 10,
-        "total_salidas": 10,
-        "pax_estimados_hoy": 10000,
+        "total_cruceros": 10,
+        "total_llegadas": 8,
+        "total_salidas": 9,
+        "pax_estimados_hoy": 8000,
         "proximo_desembarco": "18:15",
         "proximo_barco": "Ciudad De Palma"
     },
     "terminales_activas": [
-        "6212",
-        "2252",
-        "F1",
-        "F2",
         "8156",
+        "F1",
+        "F3",
         "TC",
-        "F3"
+        "6212",
+        "F2"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-04-02T16:01:07.297654",
+        "actualizado": "2026-04-02T14:21:56.259420",
         "frecuencia": "horaria"
     }
 }
