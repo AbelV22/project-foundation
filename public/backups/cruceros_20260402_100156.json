@@ -81,7 +81,7 @@
             "fecha": "2026-04-02"
         },
         {
-            "hora": "10:04",
+            "hora": "08:00",
             "nombre": "Martin I Soler",
             "naviera": "EUROLINEAS MARITIMAS S.A",
             "terminal": "LEPANT/TRUCK CENTER",
@@ -90,7 +90,7 @@
             "pax_estimados": 1000,
             "puerto": "Mahon Menorca",
             "tipo": "llegada",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Espanya",
             "imo": "9390367",
             "mmsi": "224637000",
@@ -323,22 +323,6 @@
             "fecha": "2026-04-02"
         },
         {
-            "hora": "20:00",
-            "nombre": "Denia Ciutat Creativa",
-            "naviera": "BALEARIA EUROLINEAS MARITIMAS SA ",
-            "terminal": "TERMINAL F1",
-            "terminal_codigo": "F1",
-            "eslora": 150.0,
-            "pax_estimados": 1000,
-            "puerto": "Nador",
-            "tipo": "salida",
-            "estado": "Autoritzada",
-            "bandera": "Xipre",
-            "imo": "9019054",
-            "mmsi": "210133000",
-            "fecha": "2026-04-02"
-        },
-        {
             "hora": "21:30",
             "nombre": "Martin I Soler",
             "naviera": "BALEARIA EUROLINEAS MARITIMAS SA ",
@@ -348,10 +332,26 @@
             "pax_estimados": 1000,
             "puerto": "Alcudia",
             "tipo": "salida",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Espanya",
             "imo": "9390367",
             "mmsi": "224637000",
+            "fecha": "2026-04-02"
+        },
+        {
+            "hora": "22:00",
+            "nombre": "Denia Ciutat Creativa",
+            "naviera": "BALEARIA EUROLINEAS MARITIMAS SA ",
+            "terminal": "TERMINAL F1",
+            "terminal_codigo": "F1",
+            "eslora": 150.0,
+            "pax_estimados": 1000,
+            "puerto": "Ibiza",
+            "tipo": "salida",
+            "estado": "Autoritzada",
+            "bandera": "Xipre",
+            "imo": "9019054",
+            "mmsi": "210133000",
             "fecha": "2026-04-02"
         },
         {
@@ -424,20 +424,20 @@
         "total_llegadas": 13,
         "total_salidas": 13,
         "pax_estimados_hoy": 16500,
-        "proximo_desembarco": "10:04",
-        "proximo_barco": "Martin I Soler"
+        "proximo_desembarco": "12:00",
+        "proximo_barco": "Msc Jasper Viii"
     },
     "terminales_activas": [
-        "TC",
-        "F1",
-        "F2",
         "F3",
+        "F1",
+        "6212",
+        "TC",
         "8156",
-        "6212"
+        "F2"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-04-02T10:01:56.887911",
+        "actualizado": "2026-04-02T08:06:45.193954",
         "frecuencia": "horaria"
     }
 }
