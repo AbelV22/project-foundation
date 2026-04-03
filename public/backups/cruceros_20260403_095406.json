@@ -26,7 +26,7 @@
             "pax_estimados": 1000,
             "puerto": "Sete",
             "tipo": "llegada",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Itàlia",
             "imo": "8712518",
             "mmsi": "247163900",
@@ -211,7 +211,7 @@
             "fecha": "2026-04-03"
         },
         {
-            "hora": "10:11",
+            "hora": "09:00",
             "nombre": "Gnv Cristal",
             "naviera": "TRANSCOMA BALEARES SA",
             "terminal": "TERMINAL F2",
@@ -220,7 +220,7 @@
             "pax_estimados": 1000,
             "puerto": "Nador",
             "tipo": "salida",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Itàlia",
             "imo": "8712518",
             "mmsi": "247163900",
@@ -396,17 +396,17 @@
         "proximo_barco": "Cma Cgm Alexander Von Humboldt"
     },
     "terminales_activas": [
-        "6212",
+        "E",
         "F1",
-        "F3",
-        "D",
-        "H",
         "F2",
-        "E"
+        "6212",
+        "D",
+        "F3",
+        "H"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-04-03T09:54:06.774130",
+        "actualizado": "2026-04-03T08:02:12.806874",
         "frecuencia": "horaria"
     }
 }
