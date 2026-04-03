@@ -65,7 +65,7 @@
             "fecha": "2026-04-03"
         },
         {
-            "hora": "07:13",
+            "hora": "06:15",
             "nombre": "Costa Fascinosa",
             "naviera": "COSTA CROCIERE, S.P.A.",
             "terminal": "Terminal D (Adossat)",
@@ -74,14 +74,14 @@
             "pax_estimados": 500,
             "puerto": "Savona",
             "tipo": "llegada",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Itàlia",
             "imo": "9479864",
             "mmsi": "247313500",
             "fecha": "2026-04-03"
         },
         {
-            "hora": "07:33",
+            "hora": "06:42",
             "nombre": "Msc World Europa",
             "naviera": "MSC CRUISES S.A.",
             "terminal": "ADOSSAT/TERMINAL H",
@@ -90,7 +90,7 @@
             "pax_estimados": 500,
             "puerto": "Malta (Valetta)",
             "tipo": "llegada",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Malta",
             "imo": "9837420",
             "mmsi": "256070000",
@@ -252,7 +252,7 @@
             "pax_estimados": 500,
             "puerto": "Marseille",
             "tipo": "salida",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Itàlia",
             "imo": "9479864",
             "mmsi": "247313500",
@@ -284,7 +284,7 @@
             "pax_estimados": 500,
             "puerto": "Marseille",
             "tipo": "salida",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Malta",
             "imo": "9837420",
             "mmsi": "256070000",
@@ -392,21 +392,21 @@
         "total_llegadas": 12,
         "total_salidas": 12,
         "pax_estimados_hoy": 21000,
-        "proximo_desembarco": "12:00",
-        "proximo_barco": "Cma Cgm Alexander Von Humboldt"
+        "proximo_desembarco": "06:15",
+        "proximo_barco": "Costa Fascinosa"
     },
     "terminales_activas": [
-        "E",
-        "F1",
-        "F2",
-        "6212",
-        "D",
         "F3",
-        "H"
+        "E",
+        "D",
+        "6212",
+        "H",
+        "F1",
+        "F2"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-04-03T08:02:12.806874",
+        "actualizado": "2026-04-03T06:11:49.972218",
         "frecuencia": "horaria"
     }
 }
