@@ -97,7 +97,7 @@
             "fecha": "2026-04-03"
         },
         {
-            "hora": "14:54",
+            "hora": "12:00",
             "nombre": "Cma Cgm Alexander Von Humboldt",
             "naviera": "CMA CGM",
             "terminal": "TERMINAL CATALUNYA SA",
@@ -106,7 +106,7 @@
             "pax_estimados": 6500,
             "puerto": "Valencia",
             "tipo": "llegada",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Malta",
             "imo": "9454448",
             "mmsi": "215219000",
@@ -392,21 +392,21 @@
         "total_llegadas": 12,
         "total_salidas": 12,
         "pax_estimados_hoy": 21000,
-        "proximo_desembarco": "14:54",
+        "proximo_desembarco": "12:00",
         "proximo_barco": "Cma Cgm Alexander Von Humboldt"
     },
     "terminales_activas": [
+        "6212",
+        "D",
+        "F2",
         "F1",
         "E",
-        "F3",
-        "F2",
-        "D",
         "H",
-        "6212"
+        "F3"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-04-03T14:01:35.008114",
+        "actualizado": "2026-04-03T11:37:37.343977",
         "frecuencia": "horaria"
     }
 }
