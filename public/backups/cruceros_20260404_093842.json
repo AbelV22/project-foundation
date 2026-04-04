@@ -65,6 +65,38 @@
             "fecha": "2026-04-04"
         },
         {
+            "hora": "05:58",
+            "nombre": "Seasalvia",
+            "naviera": "THENAMARIS SHIPS MANAGEMENT",
+            "terminal": "",
+            "terminal_codigo": "",
+            "eslora": 183.0,
+            "pax_estimados": 1000,
+            "puerto": "Aliaga",
+            "tipo": "llegada",
+            "estado": "Autoritzada",
+            "bandera": "Malta",
+            "imo": "9629550",
+            "mmsi": "229319000",
+            "fecha": "2026-04-04"
+        },
+        {
+            "hora": "06:00",
+            "nombre": "Seasalvia",
+            "naviera": "THENAMARIS SHIPS MANAGEMENT",
+            "terminal": "DECAL ESPAÑA SA",
+            "terminal_codigo": "6037",
+            "eslora": 183.0,
+            "pax_estimados": 1000,
+            "puerto": "Aliaga",
+            "tipo": "llegada",
+            "estado": "Autoritzada",
+            "bandera": "Malta",
+            "imo": "9629550",
+            "mmsi": "229319000",
+            "fecha": "2026-04-04"
+        },
+        {
             "hora": "06:00",
             "nombre": "Msc Amihan F",
             "naviera": "MEDITERRANEAN SHIPPING CO",
@@ -145,38 +177,6 @@
             "fecha": "2026-04-04"
         },
         {
-            "hora": "09:13",
-            "nombre": "Seasalvia",
-            "naviera": "THENAMARIS SHIPS MANAGEMENT",
-            "terminal": "",
-            "terminal_codigo": "",
-            "eslora": 183.0,
-            "pax_estimados": 1000,
-            "puerto": "Aliaga",
-            "tipo": "llegada",
-            "estado": "Iniciada",
-            "bandera": "Malta",
-            "imo": "9629550",
-            "mmsi": "229319000",
-            "fecha": "2026-04-04"
-        },
-        {
-            "hora": "09:16",
-            "nombre": "Seasalvia",
-            "naviera": "THENAMARIS SHIPS MANAGEMENT",
-            "terminal": "DECAL ESPAÑA SA",
-            "terminal_codigo": "6037",
-            "eslora": 183.0,
-            "pax_estimados": 1000,
-            "puerto": "Aliaga",
-            "tipo": "llegada",
-            "estado": "Iniciada",
-            "bandera": "Malta",
-            "imo": "9629550",
-            "mmsi": "229319000",
-            "fecha": "2026-04-04"
-        },
-        {
             "hora": "11:00",
             "nombre": "Sunbelt Spirit",
             "naviera": "NEPTUNE LINES SHIPPING",
@@ -228,13 +228,13 @@
             "hora": "19:00",
             "nombre": "Martin I Soler",
             "naviera": "EUROLINEAS MARITIMAS S.A",
-            "terminal": "LEPANT/TRUCK CENTER",
-            "terminal_codigo": "TC",
+            "terminal": "BALEARIA EUROLINEAS MARITIMAS SA ",
+            "terminal_codigo": "7332",
             "eslora": 165.0,
             "pax_estimados": 1000,
             "puerto": "Alcudia",
             "tipo": "llegada",
-            "estado": "Autoritzada",
+            "estado": "Confirmada",
             "bandera": "Espanya",
             "imo": "9390367",
             "mmsi": "224637000",
@@ -291,6 +291,22 @@
             "fecha": "2026-04-04"
         },
         {
+            "hora": "05:59",
+            "nombre": "Seasalvia",
+            "naviera": "ALFASHIP MARITIME SERVICES SL ",
+            "terminal": "",
+            "terminal_codigo": "",
+            "eslora": 183.0,
+            "pax_estimados": 1000,
+            "puerto": "Malta (Valetta)",
+            "tipo": "salida",
+            "estado": "Autoritzada",
+            "bandera": "Malta",
+            "imo": "9629550",
+            "mmsi": "229319000",
+            "fecha": "2026-04-04"
+        },
+        {
             "hora": "08:47",
             "nombre": "Zim Virginia",
             "naviera": "A PEREZ Y CIA SL",
@@ -304,22 +320,6 @@
             "bandera": "Israel",
             "imo": "9231808",
             "mmsi": "428002000",
-            "fecha": "2026-04-04"
-        },
-        {
-            "hora": "09:15",
-            "nombre": "Seasalvia",
-            "naviera": "ALFASHIP MARITIME SERVICES SL ",
-            "terminal": "",
-            "terminal_codigo": "",
-            "eslora": 183.0,
-            "pax_estimados": 1000,
-            "puerto": "Malta (Valetta)",
-            "tipo": "salida",
-            "estado": "Iniciada",
-            "bandera": "Malta",
-            "imo": "9629550",
-            "mmsi": "229319000",
             "fecha": "2026-04-04"
         },
         {
@@ -440,26 +440,26 @@
         "total_llegadas": 17,
         "total_salidas": 10,
         "pax_estimados_hoy": 25500,
-        "proximo_desembarco": "11:00",
-        "proximo_barco": "Sunbelt Spirit"
+        "proximo_desembarco": "08:45",
+        "proximo_barco": "Zim Virginia"
     },
     "terminales_activas": [
-        "8156",
-        "TC",
-        "6154",
-        "D",
-        "6037",
-        "F3",
         "H",
         "E",
-        "2252",
+        "6037",
+        "6154",
         "6212",
+        "8156",
+        "D",
+        "F1",
+        "2252",
         "7083",
-        "F1"
+        "F3",
+        "7332"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-04-04T09:38:42.175386",
+        "actualizado": "2026-04-04T07:48:40.311735",
         "frecuencia": "horaria"
     }
 }
