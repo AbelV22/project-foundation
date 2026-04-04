@@ -178,6 +178,22 @@
         },
         {
             "hora": "11:00",
+            "nombre": "Sunbelt Spirit",
+            "naviera": "NEPTUNE LINES SHIPPING",
+            "terminal": "AUTOTERMINAL SA",
+            "terminal_codigo": "6154",
+            "eslora": 212.0,
+            "pax_estimados": 2000,
+            "puerto": "Fos-sur-Mer",
+            "tipo": "llegada",
+            "estado": "Autoritzada",
+            "bandera": "Illes Marshall",
+            "imo": "9233246",
+            "mmsi": "538001657",
+            "fecha": "2026-04-04"
+        },
+        {
+            "hora": "11:00",
             "nombre": "Leonidas Z",
             "naviera": "HAPAG-LLOYD,A.G.",
             "terminal": "APM TERMINALS BARCELONA, S.L.U.",
@@ -190,22 +206,6 @@
             "bandera": "Illes Marshall",
             "imo": "9963528",
             "mmsi": "538010119",
-            "fecha": "2026-04-04"
-        },
-        {
-            "hora": "11:43",
-            "nombre": "Sunbelt Spirit",
-            "naviera": "NEPTUNE LINES SHIPPING",
-            "terminal": "AUTOTERMINAL SA",
-            "terminal_codigo": "6154",
-            "eslora": 212.0,
-            "pax_estimados": 2000,
-            "puerto": "Fos-sur-Mer",
-            "tipo": "llegada",
-            "estado": "Iniciada",
-            "bandera": "Illes Marshall",
-            "imo": "9233246",
-            "mmsi": "538001657",
             "fecha": "2026-04-04"
         },
         {
@@ -440,26 +440,26 @@
         "total_llegadas": 17,
         "total_salidas": 10,
         "pax_estimados_hoy": 25500,
-        "proximo_desembarco": "11:43",
+        "proximo_desembarco": "11:00",
         "proximo_barco": "Sunbelt Spirit"
     },
     "terminales_activas": [
         "8156",
-        "F3",
-        "6212",
-        "7083",
-        "E",
-        "F1",
-        "H",
         "TC",
         "6154",
-        "2252",
         "D",
-        "6037"
+        "6037",
+        "F3",
+        "H",
+        "E",
+        "2252",
+        "6212",
+        "7083",
+        "F1"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-04-04T11:29:37.173649",
+        "actualizado": "2026-04-04T09:38:42.175386",
         "frecuencia": "horaria"
     }
 }
