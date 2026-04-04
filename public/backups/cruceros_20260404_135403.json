@@ -177,6 +177,22 @@
             "fecha": "2026-04-04"
         },
         {
+            "hora": "11:00",
+            "nombre": "Leonidas Z",
+            "naviera": "HAPAG-LLOYD,A.G.",
+            "terminal": "APM TERMINALS BARCELONA, S.L.U.",
+            "terminal_codigo": "7083",
+            "eslora": 186.0,
+            "pax_estimados": 1000,
+            "puerto": "Livorno",
+            "tipo": "llegada",
+            "estado": "Autoritzada",
+            "bandera": "Illes Marshall",
+            "imo": "9963528",
+            "mmsi": "538010119",
+            "fecha": "2026-04-04"
+        },
+        {
             "hora": "11:43",
             "nombre": "Sunbelt Spirit",
             "naviera": "NEPTUNE LINES SHIPPING",
@@ -193,23 +209,7 @@
             "fecha": "2026-04-04"
         },
         {
-            "hora": "13:06",
-            "nombre": "Leonidas Z",
-            "naviera": "HAPAG-LLOYD,A.G.",
-            "terminal": "APM TERMINALS BARCELONA, S.L.U.",
-            "terminal_codigo": "7083",
-            "eslora": 186.0,
-            "pax_estimados": 1000,
-            "puerto": "Livorno",
-            "tipo": "llegada",
-            "estado": "Iniciada",
-            "bandera": "Illes Marshall",
-            "imo": "9963528",
-            "mmsi": "538010119",
-            "fecha": "2026-04-04"
-        },
-        {
-            "hora": "13:32",
+            "hora": "14:00",
             "nombre": "Costa Deliziosa",
             "naviera": "COSTA CROCIERE, S.P.A.",
             "terminal": "Terminal D (Adossat)",
@@ -218,7 +218,7 @@
             "pax_estimados": 3000,
             "puerto": "Las Palmas",
             "tipo": "llegada",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Itàlia",
             "imo": "9398917",
             "mmsi": "247282900",
@@ -380,7 +380,7 @@
             "pax_estimados": 3000,
             "puerto": "Marseille",
             "tipo": "salida",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Itàlia",
             "imo": "9398917",
             "mmsi": "247282900",
@@ -440,26 +440,26 @@
         "total_llegadas": 17,
         "total_salidas": 10,
         "pax_estimados_hoy": 25500,
-        "proximo_desembarco": "19:00",
-        "proximo_barco": "Martin I Soler"
+        "proximo_desembarco": "11:43",
+        "proximo_barco": "Sunbelt Spirit"
     },
     "terminales_activas": [
-        "TC",
+        "8156",
+        "F3",
+        "6212",
+        "7083",
+        "E",
+        "F1",
         "H",
+        "TC",
+        "6154",
         "2252",
         "D",
-        "8156",
-        "6154",
-        "F3",
-        "F1",
-        "7083",
-        "6037",
-        "E",
-        "6212"
+        "6037"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-04-04T13:54:03.773509",
+        "actualizado": "2026-04-04T11:29:37.173649",
         "frecuencia": "horaria"
     }
 }
