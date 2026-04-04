@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { RefreshCw, Plane, Train, Ship, Users, Clock, ChevronRight, TrendingUp, Calendar, Settings, Euro, MapPin, Navigation, Anchor } from "lucide-react";
+import { RefreshCw, Plane, Train, Ship, Users, Clock, ChevronRight, TrendingUp, Calendar, Settings, Euro, MapPin, Navigation, Anchor, Receipt } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useEvents } from "@/hooks/useEvents";
 import { useCruises } from "@/hooks/useCruises";
@@ -23,6 +23,7 @@ interface DashboardViewProps {
   onViewEarnings?: () => void;
   onViewExpenses?: () => void;
   onViewDemandForecast?: () => void;
+  onViewTickets?: () => void;
 }
 
 // Re-export shared utils with local names for minimal diff
@@ -37,7 +38,7 @@ interface LicenciasData {
   metadata: { precio_mercado_referencia: number };
 }
 
-export function DashboardView({ onTerminalClick, onViewAllFlights, onViewAllEvents, onViewFullDay, onViewTrainsFullDay, onViewCruises, onViewLicenses, onViewEarnings, onViewExpenses, onViewDemandForecast }: DashboardViewProps) {
+export function DashboardView({ onTerminalClick, onViewAllFlights, onViewAllEvents, onViewFullDay, onViewTrainsFullDay, onViewCruises, onViewLicenses, onViewEarnings, onViewExpenses, onViewDemandForecast, onViewTickets }: DashboardViewProps) {
   const [vuelos, setVuelos] = useState<VueloRaw[]>([]);
   const [trenes, setTrenes] = useState<TrenSants[]>([]);
   const [licencias, setLicencias] = useState<LicenciasData | null>(null);
@@ -554,6 +555,21 @@ export function DashboardView({ onTerminalClick, onViewAllFlights, onViewAllEven
             onViewExpenses={onViewExpenses}
           />
         </div>
+
+        {/* Ticket Taxitronic Widget */}
+        <button
+          onClick={onViewTickets}
+          className="col-span-2 card-glass-hover flex items-center gap-3 p-3 text-left group transition-all duration-200"
+        >
+          <div className="w-10 h-10 rounded-full bg-amber-500/10 border border-amber-500/20 flex items-center justify-center flex-shrink-0">
+            <Receipt className="h-5 w-5 text-amber-400" />
+          </div>
+          <div className="flex-1 min-w-0">
+            <p className="text-sm font-semibold text-white">Tickets Taxitronic</p>
+            <p className="text-[10px] text-muted-foreground">Sube tu ticket de fin de día y extrae km, ingresos y carreras</p>
+          </div>
+          <ChevronRight className="h-4 w-4 text-muted-foreground/50 group-hover:text-amber-400 transition-colors flex-shrink-0" />
+        </button>
       </div>
 
       {/* Hidden Admin Access - Triple tap on version to access */}

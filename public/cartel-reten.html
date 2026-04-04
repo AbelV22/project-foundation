@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>iTaxiBcn - Cartel Reten Aeropuerto</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+  html { -webkit-print-color-adjust: exact; print-color-adjust: exact; color-adjust: exact; }
+
+  body {
+    font-family: -apple-system, 'Inter', 'Helvetica Neue', system-ui, sans-serif;
+    background: #e5e5e5;
+    display: flex; flex-direction: column; align-items: center;
+    padding: 24px; -webkit-font-smoothing: antialiased;
+  }
+
+  .no-print { margin-bottom: 20px; }
+  .btn-download {
+    background: #1d1d1f; color: #fff; border: none;
+    padding: 14px 40px; font-size: 14px; font-weight: 600;
+    border-radius: 980px; cursor: pointer; font-family: inherit;
+  }
+  .btn-download:hover { background: #333; }
+
+  .page {
+    width: 210mm; height: 297mm;
+    background: #0a0e13; color: #f5f5f7;
+    position: relative; overflow: hidden;
+    display: flex; flex-direction: column;
+  }
+
+  /* ══ Header ══ */
+  .header {
+    padding: 7mm 14mm 0;
+    display: flex; align-items: center; gap: 3.5mm;
+  }
+  .logo-icon { width: 12mm; height: 12mm; border-radius: 3mm; overflow: hidden; flex-shrink: 0; }
+  .logo-icon img { width: 100%; height: 100%; object-fit: cover; }
+  .logo-wordmark { font-size: 6.5mm; font-weight: 700; letter-spacing: -0.04em; color: #f5f5f7; }
+
+  /* ══ Hero Split ══ */
+  .hero-split {
+    padding: 5mm 14mm 0;
+    display: flex; align-items: center; gap: 7mm;
+    flex-shrink: 0;
+  }
+
+  .hero-text { flex: 1; }
+  .hero-text .pain-line {
+    font-size: 5.5mm; color: #ffffff; font-weight: 500;
+    margin-bottom: 2.5mm; line-height: 1.25;
+  }
+  .hero-text h1 {
+    font-size: 13.5mm; font-weight: 800;
+    letter-spacing: -0.04em; line-height: 1.06;
+    color: #FACC15;
+  }
+  .hero-text .subtitle {
+    font-size: 4mm; color: #a1a1aa;
+    margin-top: 3.5mm; line-height: 1.4;
+  }
+  .hero-meta {
+    display: flex; align-items: center; gap: 3.5mm;
+    margin-top: 3.5mm;
+  }
+  .gratis-badge {
+    display: inline-flex; align-items: center; gap: 1.5mm;
+    padding: 2mm 5mm;
+    background: rgba(250,204,21,0.12);
+    border: 0.3mm solid rgba(250,204,21,0.25);
+    border-radius: 980px;
+    font-size: 3mm; font-weight: 600; color: #FACC15;
+    letter-spacing: 0.04em; text-transform: uppercase;
+  }
+  .gratis-dot { width: 2mm; height: 2mm; background: #22c55e; border-radius: 50%; }
+  .social-proof { font-size: 3mm; color: #a1a1aa; }
+  .social-proof strong { color: #f5f5f7; font-weight: 600; }
+
+  /* ══ Phone Mockup ══ */
+  .phone-mockup {
+    width: 66mm; height: 118mm;
+    background: #1a1f27;
+    border-radius: 7mm;
+    border: 0.7mm solid rgba(255,255,255,0.12);
+    padding: 4.5mm 3.5mm 3.5mm;
+    flex-shrink: 0;
+    display: flex; flex-direction: column;
+    overflow: hidden;
+    box-shadow: 0 4px 30px rgba(0,0,0,0.5);
+  }
+  .phone-status {
+    display: flex; justify-content: space-between; align-items: center;
+    font-size: 2mm; color: #86868b; padding: 0 1.5mm 2mm; flex-shrink: 0;
+  }
+  .phone-status .time { font-weight: 600; color: #f5f5f7; }
+  .phone-header {
+    display: flex; align-items: center; gap: 2mm;
+    padding: 0 1.5mm 2mm; flex-shrink: 0;
+  }
+  .phone-header .ph-logo {
+    width: 4.5mm; height: 4.5mm; border-radius: 1.2mm;
+    background: #FACC15; display: flex; align-items: center; justify-content: center;
+  }
+  .phone-header .ph-logo svg { width: 2.8mm; height: 2.8mm; stroke: #0a0e13; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+  .phone-header .ph-title { font-size: 2.8mm; font-weight: 700; color: #f5f5f7; }
+  .ph-section {
+    display: flex; align-items: center; gap: 2mm;
+    padding: 1.5mm 1.5mm 1mm; flex-shrink: 0;
+  }
+  .ph-section span { font-size: 2.4mm; font-weight: 600; color: #f5f5f7; }
+  .ph-live {
+    font-size: 1.8mm; font-weight: 600; color: #22c55e;
+    background: rgba(34,197,94,0.12);
+    padding: 0.5mm 2mm; border-radius: 980px;
+  }
+  .terminal-grid {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 1.8mm; padding: 1.2mm; flex-shrink: 0;
+  }
+  .terminal-card {
+    background: rgba(255,255,255,0.04);
+    border: 0.2mm solid rgba(255,255,255,0.08);
+    border-radius: 2.2mm; padding: 2.2mm 2.5mm;
+  }
+  .tc-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1mm; }
+  .tc-name { font-size: 2.2mm; font-weight: 700; color: #f5f5f7; }
+  .tc-wait { font-size: 1.7mm; font-weight: 600; padding: 0.3mm 1.5mm; border-radius: 980px; }
+  .tc-wait-green { background: rgba(34,197,94,0.15); color: #22c55e; }
+  .tc-wait-amber { background: rgba(245,158,11,0.15); color: #F59E0B; }
+  .tc-wait-red { background: rgba(239,68,68,0.15); color: #EF4444; }
+  .tc-flights { font-size: 6.5mm; font-weight: 800; color: #f5f5f7; font-variant-numeric: tabular-nums; line-height: 1; }
+  .tc-label { font-size: 1.6mm; color: #86868b; margin-top: 0.3mm; }
+  .tc-users { display: flex; align-items: center; gap: 0.8mm; margin-top: 1mm; font-size: 1.5mm; color: #86868b; }
+  .tc-users .dot-live { width: 1.2mm; height: 1.2mm; background: #22c55e; border-radius: 50%; }
+
+  .ph-trains {
+    padding: 1.2mm;
+    display: flex; flex-direction: column; gap: 1mm;
+    flex: 1; overflow: hidden;
+  }
+  .train-row {
+    display: flex; align-items: center; gap: 1.8mm;
+    background: rgba(255,255,255,0.03);
+    border: 0.15mm solid rgba(255,255,255,0.06);
+    border-radius: 1.5mm; padding: 1.8mm 2.2mm;
+  }
+  .tr-time { font-size: 2.2mm; font-weight: 700; color: #f5f5f7; font-variant-numeric: tabular-nums; min-width: 7.5mm; }
+  .tr-origin { font-size: 2mm; color: #86868b; flex: 1; }
+  .tr-badge { font-size: 1.5mm; font-weight: 700; padding: 0.3mm 1.3mm; border-radius: 0.7mm; text-transform: uppercase; }
+  .badge-ave { background: rgba(139,92,246,0.2); color: #a78bfa; }
+  .badge-iryo { background: rgba(239,68,68,0.2); color: #f87171; }
+  .badge-ouigo { background: rgba(59,130,246,0.2); color: #60a5fa; }
+
+  /* ══ Radar Highlight ══ */
+  .radar-highlight {
+    margin: 6mm 14mm 0;
+    padding: 5mm 6mm;
+    background: rgba(250,204,21,0.06);
+    border: 0.3mm solid rgba(250,204,21,0.2);
+    border-radius: 4mm;
+    display: flex; align-items: center; gap: 5mm;
+  }
+  .radar-icon-big {
+    width: 14mm; height: 14mm; min-width: 14mm;
+    border-radius: 50%;
+    background: rgba(250,204,21,0.15);
+    display: flex; align-items: center; justify-content: center;
+  }
+  .radar-icon-big svg { width: 7.5mm; height: 7.5mm; stroke: #FACC15; fill: none; stroke-width: 1.75; stroke-linecap: round; stroke-linejoin: round; }
+  .radar-content { flex: 1; }
+  .radar-content h3 {
+    font-size: 4.5mm; font-weight: 700; color: #FACC15;
+    letter-spacing: -0.02em;
+  }
+  .radar-content p {
+    font-size: 3.2mm; color: #a1a1aa; margin-top: 1.5mm; line-height: 1.35;
+  }
+  .radar-example {
+    display: flex; gap: 3mm; margin-top: 3mm;
+  }
+  .radar-chip {
+    display: flex; align-items: center; gap: 1.5mm;
+    padding: 1.5mm 3.5mm;
+    background: rgba(255,255,255,0.05);
+    border: 0.2mm solid rgba(255,255,255,0.08);
+    border-radius: 2mm;
+    font-size: 2.8mm; font-weight: 600; color: #f5f5f7;
+  }
+  .radar-chip .chip-dot {
+    width: 2mm; height: 2mm; border-radius: 50%;
+  }
+  .chip-green { background: #22c55e; }
+  .chip-amber { background: #F59E0B; }
+  .chip-red { background: #EF4444; }
+
+  /* ══ Features ══ */
+  .features-strip {
+    padding: 5mm 14mm 0;
+  }
+  .features-strip-label {
+    font-size: 3mm; font-weight: 600; color: #86868b;
+    text-transform: uppercase; letter-spacing: 0.08em;
+    margin-bottom: 3mm;
+  }
+  .features-row {
+    display: grid; grid-template-columns: repeat(7, 1fr);
+    gap: 2.5mm;
+  }
+  .feat-item {
+    text-align: center;
+    background: rgba(255,255,255,0.03);
+    border: 0.2mm solid rgba(255,255,255,0.06);
+    border-radius: 3mm;
+    padding: 3.5mm 1.5mm;
+  }
+  .feat-item .fi-icon {
+    width: 9mm; height: 9mm; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    margin: 0 auto 1.5mm;
+  }
+  .feat-item .fi-icon svg {
+    width: 4.5mm; height: 4.5mm; fill: none;
+    stroke-width: 1.75; stroke-linecap: round; stroke-linejoin: round;
+  }
+  .feat-item h3 { font-size: 2.6mm; font-weight: 600; color: #f5f5f7; line-height: 1.2; }
+
+  .ic-f { background: rgba(59,130,246,0.15); }
+  .ic-f svg { stroke: #3B82F6; }
+  .ic-t { background: rgba(16,185,129,0.15); }
+  .ic-t svg { stroke: #10B981; }
+  .ic-c { background: rgba(139,92,246,0.15); }
+  .ic-c svg { stroke: #8B5CF6; }
+  .ic-e { background: rgba(249,115,22,0.15); }
+  .ic-e svg { stroke: #F97316; }
+  .ic-m { background: rgba(34,197,94,0.15); }
+  .ic-m svg { stroke: #22c55e; }
+  .ic-a { background: rgba(250,204,21,0.15); }
+  .ic-a svg { stroke: #FACC15; }
+  .ic-r { background: rgba(250,204,21,0.15); }
+  .ic-r svg { stroke: #FACC15; }
+
+  /* ══ Promo teaser ══ */
+  .promo-teaser {
+    margin: 4mm 14mm 0;
+    padding: 3.5mm 5mm;
+    background: linear-gradient(135deg, rgba(250,204,21,0.08), rgba(249,115,22,0.06));
+    border: 0.2mm dashed rgba(250,204,21,0.3);
+    border-radius: 3mm;
+    display: flex; align-items: center; gap: 3mm;
+  }
+  .promo-teaser svg {
+    width: 5.5mm; height: 5.5mm; stroke: #FACC15; fill: none;
+    stroke-width: 1.75; stroke-linecap: round; stroke-linejoin: round;
+    flex-shrink: 0;
+  }
+  .promo-teaser span {
+    font-size: 3mm; color: #FACC15; font-weight: 600;
+    letter-spacing: -0.01em;
+  }
+  .promo-teaser .promo-sub {
+    font-weight: 400; color: #a1a1aa;
+  }
+
+  /* ══ CTA ══ */
+  .cta-section {
+    margin-top: auto;
+    padding: 0 14mm 6mm;
+  }
+  .cta-box {
+    display: flex; align-items: center; gap: 6mm;
+    background: rgba(255,255,255,0.03);
+    border: 0.2mm solid rgba(255,255,255,0.08);
+    border-radius: 5mm;
+    padding: 5mm 6mm;
+  }
+  .qr-wrapper { flex-shrink: 0; text-align: center; }
+  .qr-frame {
+    width: 35mm; height: 35mm; background: #fff;
+    border-radius: 3mm; padding: 2mm;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .qr-frame img { width: 100%; height: 100%; border-radius: 1.5mm; }
+  .qr-caption { font-size: 2.5mm; color: #86868b; margin-top: 2mm; }
+
+  .cta-text { flex: 1; }
+  .cta-text .cta-headline { font-size: 4.8mm; font-weight: 600; color: #f5f5f7; }
+  .cta-text .cta-url { font-size: 8mm; font-weight: 700; letter-spacing: -0.03em; color: #f5f5f7; margin-top: 1.5mm; }
+  .cta-url .dot { color: #FACC15; }
+  .cta-text .cta-desc { font-size: 3mm; color: #a1a1aa; margin-top: 2mm; line-height: 1.4; }
+  .cta-pills { display: flex; gap: 2.5mm; margin-top: 2.5mm; }
+  .pill { padding: 1.5mm 4.5mm; border-radius: 980px; font-size: 2.5mm; font-weight: 600; }
+  .pill-gold { background: #FACC15; color: #000; }
+  .pill-outline { background: transparent; border: 0.25mm solid rgba(255,255,255,0.15); color: #86868b; }
+
+  /* ══ Footer ══ */
+  .footer {
+    padding: 3mm 14mm;
+    display: flex; justify-content: space-between; align-items: center;
+    font-size: 2.4mm; color: #48484a;
+    border-top: 0.2mm solid rgba(255,255,255,0.06);
+  }
+
+  /* ══ Print ══ */
+  @media print {
+    html, body { width: 210mm; height: 297mm; margin: 0 !important; padding: 0 !important; background: none !important; overflow: hidden; }
+    .no-print { display: none !important; }
+    .page { width: 210mm !important; height: 297mm !important; min-height: 297mm !important; max-height: 297mm !important; margin: 0 !important; box-shadow: none !important; border-radius: 0 !important; page-break-inside: avoid !important; -webkit-page-break-inside: avoid !important; }
+    @page { size: A4 portrait; margin: 0; }
+  }
+  @media screen {
+    .page { box-shadow: 0 20px 80px rgba(0,0,0,0.4); border-radius: 3mm; }
+  }
+</style>
+</head>
+<body>
+
+<div class="no-print">
+  <button class="btn-download" onclick="window.print()">Descargar PDF</button>
+</div>
+
+<div class="page">
+
+  <!-- Header -->
+  <div class="header">
+    <div class="logo-icon"><img src="logo-itaxibcn.png" alt="iTaxiBcn"></div>
+    <div class="logo-wordmark">iTaxiBcn</div>
+  </div>
+
+  <!-- Hero -->
+  <div class="hero-split">
+    <div class="hero-text">
+      <div class="pain-line">Hay taxistas que ya no<br>esperan a ciegas.</div>
+      <h1>Mientras<br>esperas, ellos<br>ya saben lo<br>que viene.</h1>
+      <p class="subtitle">Vuelos en directo, tiempos de espera<br>reales, trenes, cruceros, eventos...<br>todo en tu movil.</p>
+      <div class="hero-meta">
+        <div class="gratis-badge"><span class="gratis-dot"></span> 100% Gratuita</div>
+        <div class="social-proof">Hecha <strong>por taxistas</strong></div>
+      </div>
+    </div>
+
+    <!-- Phone mockup -->
+    <div class="phone-mockup">
+      <div class="phone-status"><span class="time">14:32</span><span>4G&nbsp; 87%</span></div>
+      <div class="phone-header">
+        <div class="ph-logo"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.2c.4-.3.6-.7.5-1.2z"/></svg></div>
+        <span class="ph-title">iTaxiBcn</span>
+      </div>
+      <div class="ph-section"><span>Aeropuerto</span><span class="ph-live">En vivo</span></div>
+      <div class="terminal-grid">
+        <div class="terminal-card">
+          <div class="tc-header"><span class="tc-name">T1</span><span class="tc-wait tc-wait-amber">52 min</span></div>
+          <div class="tc-flights">7</div><div class="tc-label">vuelos prox. 60m</div>
+          <div class="tc-users"><span class="dot-live"></span> 14 taxistas</div>
+        </div>
+        <div class="terminal-card">
+          <div class="tc-header"><span class="tc-name">T2</span><span class="tc-wait tc-wait-green">28 min</span></div>
+          <div class="tc-flights">4</div><div class="tc-label">vuelos prox. 60m</div>
+          <div class="tc-users"><span class="dot-live"></span> 8 taxistas</div>
+        </div>
+        <div class="terminal-card">
+          <div class="tc-header"><span class="tc-name">Puente</span><span class="tc-wait tc-wait-green">15 min</span></div>
+          <div class="tc-flights">3</div><div class="tc-label">vuelos prox. 60m</div>
+          <div class="tc-users"><span class="dot-live"></span> 5 taxistas</div>
+        </div>
+        <div class="terminal-card">
+          <div class="tc-header"><span class="tc-name">T2C</span><span class="tc-wait tc-wait-red">1h 20m</span></div>
+          <div class="tc-flights">2</div><div class="tc-label">vuelos prox. 60m</div>
+          <div class="tc-users"><span class="dot-live"></span> 22 taxistas</div>
+        </div>
+      </div>
+      <div class="ph-section"><span>Sants</span><span class="ph-live">3/hora</span></div>
+      <div class="ph-trains">
+        <div class="train-row"><span class="tr-time">14:45</span><span class="tr-origin">Madrid</span><span class="tr-badge badge-ave">AVE</span></div>
+        <div class="train-row"><span class="tr-time">15:10</span><span class="tr-origin">Sevilla</span><span class="tr-badge badge-iryo">IRYO</span></div>
+        <div class="train-row"><span class="tr-time">15:35</span><span class="tr-origin">Paris</span><span class="tr-badge badge-ouigo">TGV</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- RADAR HIGHLIGHT — star feature -->
+  <div class="radar-highlight">
+    <div class="radar-icon-big">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+    </div>
+    <div class="radar-content">
+      <h3>&iquest;Cuanto se espera ahora mismo?</h3>
+      <p>Consulta el tiempo de espera real antes de hacer cola. Datos de la comunidad, al momento.</p>
+      <div class="radar-example">
+        <div class="radar-chip"><span class="chip-dot chip-green"></span> T2: 28 min</div>
+        <div class="radar-chip"><span class="chip-dot chip-amber"></span> T1: 52 min</div>
+        <div class="radar-chip"><span class="chip-dot chip-red"></span> T2C: 1h 20m</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Features — compact single row -->
+  <div class="features-strip">
+    <div class="features-strip-label">Y mucho mas</div>
+    <div class="features-row">
+      <div class="feat-item">
+        <div class="fi-icon ic-f"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.2c.4-.3.6-.7.5-1.2z"/></svg></div>
+        <h3>Vuelos</h3>
+      </div>
+      <div class="feat-item">
+        <div class="fi-icon ic-t"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><rect width="16" height="16" x="4" y="3" rx="2"/><path d="M4 11h16"/><path d="M12 3v8"/><path d="m8 19-2 3"/><path d="m18 22-2-3"/><path d="M8 15h0"/><path d="M16 15h0"/></svg></div>
+        <h3>Trenes</h3>
+      </div>
+      <div class="feat-item">
+        <div class="fi-icon ic-c"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M2 21c.6.5 1.2 1 2.5 1 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1 .6.5 1.2 1 2.5 1 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1"/><path d="M19.38 20A11.6 11.6 0 0 0 21 14l-9-4-9 4c0 2.9.94 5.34 2.81 7.76"/><path d="M19 13V7a2 2 0 0 0-2-2H7a2 2 0 0 0-2 2v6"/><path d="M12 10v4"/><path d="M12 2v3"/></svg></div>
+        <h3>Cruceros</h3>
+      </div>
+      <div class="feat-item">
+        <div class="fi-icon ic-e"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><rect width="18" height="18" x="3" y="4" rx="2" ry="2"/><line x1="16" x2="16" y1="2" y2="6"/><line x1="8" x2="8" y1="2" y2="6"/><line x1="3" x2="21" y1="10" y2="10"/></svg></div>
+        <h3>Eventos</h3>
+      </div>
+      <div class="feat-item">
+        <div class="fi-icon ic-m"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 12V7H5a2 2 0 0 1 0-4h14v4"/><path d="M3 5v14a2 2 0 0 0 2 2h16v-5"/><path d="M18 12a2 2 0 0 0 0 4h4v-4Z"/></svg></div>
+        <h3>Ingresos</h3>
+      </div>
+      <div class="feat-item">
+        <div class="fi-icon ic-a"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/><path d="M5 3v4"/><path d="M19 17v4"/><path d="M3 5h4"/><path d="M17 19h4"/></svg></div>
+        <h3>&iquest;Donde<br>voy?</h3>
+      </div>
+      <div class="feat-item">
+        <div class="fi-icon ic-r"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg></div>
+        <h3>Radar</h3>
+      </div>
+    </div>
+  </div>
+
+  <!-- Promo teaser -->
+  <div class="promo-teaser">
+    <!-- Lucide: Gift -->
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><polyline points="20 12 20 22 4 22 4 12"/><rect width="20" height="5" x="2" y="7"/><line x1="12" x2="12" y1="22" y2="7"/><path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"/><path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"/></svg>
+    <span>Proximamente: promociones y ventajas exclusivas <span class="promo-sub">solo para usuarios de la app</span></span>
+  </div>
+
+  <!-- CTA -->
+  <div class="cta-section">
+    <div class="cta-box">
+      <div class="qr-wrapper">
+        <div class="qr-frame">
+          <img src="https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=https://itaxibcn.com&color=1d1d1f&bgcolor=ffffff&format=svg" alt="QR itaxibcn.com">
+        </div>
+        <div class="qr-caption">Escanea con tu movil</div>
+      </div>
+      <div class="cta-text">
+        <div class="cta-headline">Escanea y pruebala ahora mismo</div>
+        <div class="cta-url">itaxibcn<span class="dot">.</span>com</div>
+        <div class="cta-desc">Abre en el movil, entra con Google y ya esta.<br>Ni descargas ni historias. En 10 segundos estas dentro.</div>
+        <div class="cta-pills">
+          <span class="pill pill-gold">Descarga gratuita</span>
+          <span class="pill pill-outline">Android y Web</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <div class="footer">
+    <span>soporte@itaxibcn.com</span>
+    <span>Hecho por y para taxistas de Barcelona</span>
+    <span>@iTaxiBcn</span>
+  </div>
+</div>
+
+</body>
+</html>

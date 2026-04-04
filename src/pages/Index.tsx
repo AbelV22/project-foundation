@@ -21,6 +21,8 @@ import { ExpensesView } from "@/components/views/ExpensesView";
 import { CommunityView } from "@/components/views/CommunityView";
 import { DemandForecastView } from "@/components/views/DemandForecastView";
 import { AddExpenseSheet } from "@/components/widgets/AddExpenseSheet";
+import { TicketScanSheet } from "@/components/widgets/TicketScanSheet";
+import { TicketsView } from "@/components/views/TicketsView";
 import { useAnalytics } from "@/hooks/useAnalytics";
 
 const titles: Record<string, string> = {
@@ -39,6 +41,7 @@ const titles: Record<string, string> = {
   trainsByCity: "Trenes por Ciudad",
   trainsByOperator: "Trenes por Operador",
   earnings: "Registro de Ingresos",
+  tickets: "Tickets Taxitronic",
   comunidad: "Comunidad",
   prediccion: "Predicción de Demanda",
 };
@@ -153,6 +156,7 @@ const Index = () => {
               onViewEarnings={() => setActiveTab("earnings")}
               onViewExpenses={() => setActiveTab("gastos")}
               onViewDemandForecast={() => setActiveTab("prediccion")}
+              onViewTickets={() => setActiveTab("tickets")}
             />
           )}
           {activeTab === "vuelos" && <FlightsView onViewFlightList={() => setActiveTab("flightList")} />}
@@ -209,6 +213,9 @@ const Index = () => {
           {activeTab === "earnings" && (
             <EarningsView onBack={() => setActiveTab("dashboard")} />
           )}
+          {activeTab === "tickets" && (
+            <TicketsView onBack={() => setActiveTab("dashboard")} />
+          )}
           {activeTab === "gastos" && (
             <ExpensesView onBack={() => setActiveTab("dashboard")} />
           )}
@@ -225,6 +232,7 @@ const Index = () => {
           <WhereNextSheet />
           <QuickEarningsSheet />
           <AddExpenseSheet />
+          <TicketScanSheet />
         </>
       )}
     </div>
