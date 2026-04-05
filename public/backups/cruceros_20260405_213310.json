@@ -186,7 +186,7 @@
             "pax_estimados": 1000,
             "puerto": "Palma de Mallorca",
             "tipo": "llegada",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Espanya",
             "imo": "9441130",
             "mmsi": "224402000",
@@ -234,7 +234,7 @@
             "pax_estimados": 1000,
             "puerto": "Palma de Mallorca",
             "tipo": "llegada",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Espanya",
             "imo": "9441130",
             "mmsi": "224402000",
@@ -254,22 +254,6 @@
             "bandera": "Malta",
             "imo": "9938145",
             "mmsi": "256611000",
-            "fecha": "2026-04-05"
-        },
-        {
-            "hora": "22:20",
-            "nombre": "Msc Ghana",
-            "naviera": "MEDITERRANEAN SHIPPING CO",
-            "terminal": "TERMINAL CATALUNYA SA",
-            "terminal_codigo": "6212",
-            "eslora": 260.0,
-            "pax_estimados": 3000,
-            "puerto": "Genoa",
-            "tipo": "llegada",
-            "estado": "Iniciada",
-            "bandera": "Libèria",
-            "imo": "9974503",
-            "mmsi": "636025251",
             "fecha": "2026-04-05"
         }
     ],
@@ -396,7 +380,7 @@
             "pax_estimados": 1000,
             "puerto": "Palma de Mallorca",
             "tipo": "salida",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Espanya",
             "imo": "9441130",
             "mmsi": "224402000",
@@ -444,7 +428,7 @@
             "pax_estimados": 1000,
             "puerto": "Palma de Mallorca",
             "tipo": "salida",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Espanya",
             "imo": "9441130",
             "mmsi": "224402000",
@@ -531,7 +515,7 @@
             "fecha": "2026-04-05"
         },
         {
-            "hora": "21:37",
+            "hora": "21:30",
             "nombre": "Martin I Soler",
             "naviera": "BALEARIA EUROLINEAS MARITIMAS SA ",
             "terminal": "LEPANT/TRUCK CENTER",
@@ -540,14 +524,14 @@
             "pax_estimados": 1000,
             "puerto": "Alcudia",
             "tipo": "salida",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Espanya",
             "imo": "9390367",
             "mmsi": "224637000",
             "fecha": "2026-04-05"
         },
         {
-            "hora": "22:09",
+            "hora": "22:15",
             "nombre": "Abel Matutes",
             "naviera": "BALEARIA EUROLINEAS MARITIMAS SA ",
             "terminal": "TERMINAL F1",
@@ -556,7 +540,7 @@
             "pax_estimados": 1000,
             "puerto": "Palma de Mallorca",
             "tipo": "salida",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Espanya",
             "imo": "9441130",
             "mmsi": "224402000",
@@ -580,30 +564,30 @@
         }
     ],
     "resumen": {
-        "total_cruceros": 22,
-        "total_llegadas": 17,
+        "total_cruceros": 21,
+        "total_llegadas": 16,
         "total_salidas": 19,
-        "pax_estimados_hoy": 33000,
-        "proximo_desembarco": "22:20",
-        "proximo_barco": "Msc Ghana"
+        "pax_estimados_hoy": 30000,
+        "proximo_desembarco": null,
+        "proximo_barco": null
     },
     "terminales_activas": [
-        "8156",
+        "F3",
         "F2",
         "H",
-        "F1",
-        "E",
-        "TC",
-        "0010",
         "6212",
-        "6037",
-        "F3",
         "7083",
-        "6154"
+        "0010",
+        "F1",
+        "8156",
+        "6154",
+        "E",
+        "6037",
+        "TC"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-04-05T21:33:10.574574",
+        "actualizado": "2026-04-05T19:34:08.251815",
         "frecuencia": "horaria"
     }
 }
