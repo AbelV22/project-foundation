@@ -17,38 +17,6 @@
             "fecha": "2026-04-05"
         },
         {
-            "hora": "01:19",
-            "nombre": "Cruise Barcelona",
-            "naviera": "GRIMALDI EUROMED SPA",
-            "terminal": "TERMINAL F3",
-            "terminal_codigo": "F3",
-            "eslora": 0,
-            "pax_estimados": 500,
-            "puerto": "Porto Torres",
-            "tipo": "llegada",
-            "estado": "Iniciada",
-            "bandera": "Itàlia",
-            "imo": "9351488",
-            "mmsi": "247243600",
-            "fecha": "2026-04-05"
-        },
-        {
-            "hora": "02:40",
-            "nombre": "Zim Virginia",
-            "naviera": "ZIM INTEGRATED SHIPPING SERV.",
-            "terminal": "TERMINAL CATALUNYA SA",
-            "terminal_codigo": "6212",
-            "eslora": 294.0,
-            "pax_estimados": 3000,
-            "puerto": "Valencia",
-            "tipo": "llegada",
-            "estado": "Iniciada",
-            "bandera": "Israel",
-            "imo": "9231808",
-            "mmsi": "428002000",
-            "fecha": "2026-04-05"
-        },
-        {
             "hora": "06:00",
             "nombre": "Msc Allegra",
             "naviera": "MEDITERRANEAN SHIPPING CO",
@@ -97,6 +65,22 @@
             "fecha": "2026-04-05"
         },
         {
+            "hora": "06:30",
+            "nombre": "Ciudad De Granada",
+            "naviera": "TRASMED GLE S.L.",
+            "terminal": "TERMINAL F2",
+            "terminal_codigo": "F2",
+            "eslora": 172.0,
+            "pax_estimados": 1000,
+            "puerto": "Mahon Menorca",
+            "tipo": "llegada",
+            "estado": "Autoritzada",
+            "bandera": "Espanya",
+            "imo": "9217125",
+            "mmsi": "224600000",
+            "fecha": "2026-04-05"
+        },
+        {
             "hora": "06:48",
             "nombre": "Costa Toscana",
             "naviera": "COSTA CROCIERE, S.P.A.",
@@ -110,22 +94,6 @@
             "bandera": "Itàlia",
             "imo": "9781891",
             "mmsi": "247431200",
-            "fecha": "2026-04-05"
-        },
-        {
-            "hora": "06:48",
-            "nombre": "Ciudad De Granada",
-            "naviera": "TRASMED GLE S.L.",
-            "terminal": "TERMINAL F2",
-            "terminal_codigo": "F2",
-            "eslora": 172.0,
-            "pax_estimados": 1000,
-            "puerto": "Mahon Menorca",
-            "tipo": "llegada",
-            "estado": "Iniciada",
-            "bandera": "Espanya",
-            "imo": "9217125",
-            "mmsi": "224600000",
             "fecha": "2026-04-05"
         },
         {
@@ -243,7 +211,7 @@
     ],
     "salidas": [
         {
-            "hora": "01:33",
+            "hora": "00:00",
             "nombre": "Msc Yuxin",
             "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
             "terminal": "TERMINAL CATALUNYA SA",
@@ -252,7 +220,7 @@
             "pax_estimados": 500,
             "puerto": "Bejaia (ex Bougie)",
             "tipo": "salida",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Libèria",
             "imo": "9966946",
             "mmsi": "636023314",
@@ -275,7 +243,7 @@
             "fecha": "2026-04-05"
         },
         {
-            "hora": "02:27",
+            "hora": "02:00",
             "nombre": "Leonidas Z",
             "naviera": "HAPAG LLOYD SPAIN SL",
             "terminal": "APM TERMINALS BARCELONA, S.L.U.",
@@ -284,42 +252,10 @@
             "pax_estimados": 1000,
             "puerto": "Caucedo",
             "tipo": "salida",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Illes Marshall",
             "imo": "9963528",
             "mmsi": "538010119",
-            "fecha": "2026-04-05"
-        },
-        {
-            "hora": "02:39",
-            "nombre": "Zim Virginia",
-            "naviera": "A PEREZ Y CIA SL",
-            "terminal": "",
-            "terminal_codigo": "",
-            "eslora": 294.0,
-            "pax_estimados": 3000,
-            "puerto": "Damietta",
-            "tipo": "salida",
-            "estado": "Iniciada",
-            "bandera": "Israel",
-            "imo": "9231808",
-            "mmsi": "428002000",
-            "fecha": "2026-04-05"
-        },
-        {
-            "hora": "02:42",
-            "nombre": "Zim Virginia",
-            "naviera": "A PEREZ Y CIA SL",
-            "terminal": "TERMINAL CATALUNYA SA",
-            "terminal_codigo": "6212",
-            "eslora": 294.0,
-            "pax_estimados": 3000,
-            "puerto": "Damietta",
-            "tipo": "salida",
-            "estado": "Iniciada",
-            "bandera": "Israel",
-            "imo": "9231808",
-            "mmsi": "428002000",
             "fecha": "2026-04-05"
         },
         {
@@ -348,7 +284,7 @@
             "pax_estimados": 1000,
             "puerto": "Mahon Menorca",
             "tipo": "salida",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Espanya",
             "imo": "9217125",
             "mmsi": "224600000",
@@ -548,30 +484,29 @@
         }
     ],
     "resumen": {
-        "total_cruceros": 20,
-        "total_llegadas": 15,
-        "total_salidas": 19,
-        "pax_estimados_hoy": 27000,
-        "proximo_desembarco": "06:48",
-        "proximo_barco": "Costa Toscana"
+        "total_cruceros": 18,
+        "total_llegadas": 13,
+        "total_salidas": 17,
+        "pax_estimados_hoy": 23500,
+        "proximo_desembarco": null,
+        "proximo_barco": null
     },
     "terminales_activas": [
-        "6154",
-        "H",
-        "6212",
+        "8156",
         "E",
         "7083",
-        "F2",
-        "0010",
         "6037",
-        "8156",
-        "F1",
+        "F2",
+        "6212",
         "TC",
-        "F3"
+        "0010",
+        "F1",
+        "6154",
+        "H"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-04-05T06:14:08.118906",
+        "actualizado": "2026-04-04T23:31:56.918727",
         "frecuencia": "horaria"
     }
 }
