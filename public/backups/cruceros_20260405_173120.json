@@ -154,7 +154,7 @@
             "pax_estimados": 3000,
             "puerto": "Valencia",
             "tipo": "llegada",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Panamà",
             "imo": "9320099",
             "mmsi": "372497000",
@@ -467,7 +467,7 @@
             "fecha": "2026-04-05"
         },
         {
-            "hora": "18:07",
+            "hora": "18:00",
             "nombre": "Msc Orchestra",
             "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
             "terminal": "ADOSSAT/TERMINAL H",
@@ -476,7 +476,7 @@
             "pax_estimados": 3000,
             "puerto": "Marseille",
             "tipo": "salida",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Panamà",
             "imo": "9320099",
             "mmsi": "372497000",
@@ -568,26 +568,26 @@
         "total_llegadas": 16,
         "total_salidas": 19,
         "pax_estimados_hoy": 30000,
-        "proximo_desembarco": "18:00",
-        "proximo_barco": "Cma Cgm Grace Bay"
+        "proximo_desembarco": "15:48",
+        "proximo_barco": "Msc Danit"
     },
     "terminales_activas": [
-        "7083",
-        "E",
-        "H",
         "6154",
-        "6037",
-        "6212",
-        "TC",
-        "0010",
-        "F1",
-        "F3",
         "8156",
+        "6212",
+        "6037",
+        "TC",
+        "H",
+        "F3",
+        "F1",
+        "7083",
+        "0010",
+        "E",
         "F2"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-04-05T17:31:20.106621",
+        "actualizado": "2026-04-05T15:33:18.192256",
         "frecuencia": "horaria"
     }
 }
