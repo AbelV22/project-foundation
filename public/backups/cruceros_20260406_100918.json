@@ -147,22 +147,6 @@
             "fecha": "2026-04-06"
         },
         {
-            "hora": "09:30",
-            "nombre": "Cma Cgm Fort Bourbon",
-            "naviera": "CMA CGM IBERICA SAU",
-            "terminal": "APM TERMINALS BARCELONA, S.L.U.",
-            "terminal_codigo": "7083",
-            "eslora": 268.0,
-            "pax_estimados": 3000,
-            "puerto": "Valencia",
-            "tipo": "salida",
-            "estado": "Finalitzada",
-            "bandera": "França",
-            "imo": "9966752",
-            "mmsi": "228466800",
-            "fecha": "2026-04-06"
-        },
-        {
             "hora": "10:00",
             "nombre": "Sylvia",
             "naviera": "ALFASHIP MARITIME SERVICES SL ",
@@ -308,24 +292,23 @@
         }
     ],
     "resumen": {
-        "total_cruceros": 12,
+        "total_cruceros": 11,
         "total_llegadas": 8,
-        "total_salidas": 11,
+        "total_salidas": 10,
         "pax_estimados_hoy": 12500,
         "proximo_desembarco": "18:15",
         "proximo_barco": "Ciudad De Palma"
     },
     "terminales_activas": [
-        "2256",
-        "E",
-        "7083",
-        "F2",
+        "F1",
         "6212",
-        "F1"
+        "2256",
+        "F2",
+        "E"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-04-06T10:09:18.704252",
+        "actualizado": "2026-04-06T08:22:18.767053",
         "frecuencia": "horaria"
     }
 }
