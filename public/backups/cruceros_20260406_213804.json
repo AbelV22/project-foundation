@@ -106,7 +106,7 @@
             "pax_estimados": 1000,
             "puerto": "Palma de Mallorca",
             "tipo": "llegada",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Espanya",
             "imo": "9349772",
             "mmsi": "224588000",
@@ -122,7 +122,7 @@
             "pax_estimados": 1000,
             "puerto": "Alcudia",
             "tipo": "llegada",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Espanya",
             "imo": "9390367",
             "mmsi": "224637000",
@@ -138,7 +138,7 @@
             "pax_estimados": 1000,
             "puerto": "Palma de Mallorca",
             "tipo": "llegada",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Espanya",
             "imo": "9441130",
             "mmsi": "224402000",
@@ -176,6 +176,22 @@
             "bandera": "Illes Marshall",
             "imo": "9471264",
             "mmsi": "538009402",
+            "fecha": "2026-04-06"
+        },
+        {
+            "hora": "14:00",
+            "nombre": "Msc Ghana",
+            "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
+            "terminal": "TERMINAL CATALUNYA SA",
+            "terminal_codigo": "6212",
+            "eslora": 260.0,
+            "pax_estimados": 3000,
+            "puerto": "Valencia",
+            "tipo": "salida",
+            "estado": "Iniciada",
+            "bandera": "Libèria",
+            "imo": "9974503",
+            "mmsi": "636025251",
             "fecha": "2026-04-06"
         },
         {
@@ -243,23 +259,7 @@
             "fecha": "2026-04-06"
         },
         {
-            "hora": "20:47",
-            "nombre": "Msc Ghana",
-            "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
-            "terminal": "TERMINAL CATALUNYA SA",
-            "terminal_codigo": "6212",
-            "eslora": 260.0,
-            "pax_estimados": 3000,
-            "puerto": "Valencia",
-            "tipo": "salida",
-            "estado": "Finalitzada",
-            "bandera": "Libèria",
-            "imo": "9974503",
-            "mmsi": "636025251",
-            "fecha": "2026-04-06"
-        },
-        {
-            "hora": "22:02",
+            "hora": "21:30",
             "nombre": "Martin I Soler",
             "naviera": "BALEARIA EUROLINEAS MARITIMAS SA ",
             "terminal": "TERMINAL F1",
@@ -268,30 +268,14 @@
             "pax_estimados": 1000,
             "puerto": "Alcudia",
             "tipo": "salida",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Espanya",
             "imo": "9390367",
             "mmsi": "224637000",
             "fecha": "2026-04-06"
         },
         {
-            "hora": "22:26",
-            "nombre": "Ciudad De Palma",
-            "naviera": "GRIMALDI LOGISTICA ESPAÑA SL",
-            "terminal": "TERMINAL F2",
-            "terminal_codigo": "F2",
-            "eslora": 186.0,
-            "pax_estimados": 1000,
-            "puerto": "Palma de Mallorca",
-            "tipo": "salida",
-            "estado": "Finalitzada",
-            "bandera": "Espanya",
-            "imo": "9349772",
-            "mmsi": "224588000",
-            "fecha": "2026-04-06"
-        },
-        {
-            "hora": "22:27",
+            "hora": "22:15",
             "nombre": "Abel Matutes",
             "naviera": "BALEARIA EUROLINEAS MARITIMAS SA ",
             "terminal": "TERMINAL F1",
@@ -300,7 +284,7 @@
             "pax_estimados": 1000,
             "puerto": "Palma de Mallorca",
             "tipo": "salida",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Espanya",
             "imo": "9441130",
             "mmsi": "224402000",
@@ -321,6 +305,22 @@
             "imo": "9217125",
             "mmsi": "224600000",
             "fecha": "2026-04-06"
+        },
+        {
+            "hora": "22:30",
+            "nombre": "Ciudad De Palma",
+            "naviera": "GRIMALDI LOGISTICA ESPAÑA SL",
+            "terminal": "TERMINAL F2",
+            "terminal_codigo": "F2",
+            "eslora": 186.0,
+            "pax_estimados": 1000,
+            "puerto": "Palma de Mallorca",
+            "tipo": "salida",
+            "estado": "Iniciada",
+            "bandera": "Espanya",
+            "imo": "9349772",
+            "mmsi": "224588000",
+            "fecha": "2026-04-06"
         }
     ],
     "resumen": {
@@ -332,16 +332,16 @@
         "proximo_barco": null
     },
     "terminales_activas": [
+        "F2",
+        "2256",
         "7083",
         "E",
-        "F1",
         "6212",
-        "F2",
-        "2256"
+        "F1"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-04-06T21:38:04.972556",
+        "actualizado": "2026-04-06T19:52:54.455286",
         "frecuencia": "horaria"
     }
 }
