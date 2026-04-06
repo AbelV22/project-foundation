@@ -65,7 +65,7 @@
             "fecha": "2026-04-06"
         },
         {
-            "hora": "08:13",
+            "hora": "07:30",
             "nombre": "Costa Smeralda",
             "naviera": "COSTA CROCIERE, S.P.A.",
             "terminal": "Terminal E (Adossat)",
@@ -74,7 +74,7 @@
             "pax_estimados": 4500,
             "puerto": "Marseille",
             "tipo": "llegada",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Itàlia",
             "imo": "9781889",
             "mmsi": "247391900",
@@ -188,7 +188,7 @@
             "pax_estimados": 4500,
             "puerto": "La Goulette Nord (Halqueloued)",
             "tipo": "salida",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Itàlia",
             "imo": "9781889",
             "mmsi": "247391900",
@@ -296,19 +296,19 @@
         "total_llegadas": 8,
         "total_salidas": 10,
         "pax_estimados_hoy": 12500,
-        "proximo_desembarco": "18:15",
-        "proximo_barco": "Ciudad De Palma"
+        "proximo_desembarco": "07:30",
+        "proximo_barco": "Costa Smeralda"
     },
     "terminales_activas": [
-        "F1",
-        "6212",
         "2256",
         "F2",
+        "6212",
+        "F1",
         "E"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-04-06T08:22:18.767053",
+        "actualizado": "2026-04-06T06:54:12.592768",
         "frecuencia": "horaria"
     }
 }
