@@ -81,22 +81,6 @@
             "fecha": "2026-04-06"
         },
         {
-            "hora": "16:31",
-            "nombre": "Cma Cgm Grace Bay",
-            "naviera": "CMA CGM",
-            "terminal": "TERMINAL CATALUNYA SA",
-            "terminal_codigo": "6212",
-            "eslora": 366.0,
-            "pax_estimados": 6500,
-            "puerto": "Valencia",
-            "tipo": "llegada",
-            "estado": "Iniciada",
-            "bandera": "Malta",
-            "imo": "9938145",
-            "mmsi": "256611000",
-            "fecha": "2026-04-06"
-        },
-        {
             "hora": "18:15",
             "nombre": "Ciudad De Palma",
             "naviera": "TRASMED GLE S.L.",
@@ -147,6 +131,22 @@
     ],
     "salidas": [
         {
+            "hora": "08:00",
+            "nombre": "Msc Danit",
+            "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
+            "terminal": "TERMINAL CATALUNYA SA",
+            "terminal_codigo": "6212",
+            "eslora": 0,
+            "pax_estimados": 500,
+            "puerto": "Valencia",
+            "tipo": "salida",
+            "estado": "Iniciada",
+            "bandera": "Panamà",
+            "imo": "9404649",
+            "mmsi": "357051000",
+            "fecha": "2026-04-06"
+        },
+        {
             "hora": "09:30",
             "nombre": "Cma Cgm Fort Bourbon",
             "naviera": "CMA CGM IBERICA SAU",
@@ -192,22 +192,6 @@
             "bandera": "Libèria",
             "imo": "9974503",
             "mmsi": "636025251",
-            "fecha": "2026-04-06"
-        },
-        {
-            "hora": "14:38",
-            "nombre": "Msc Danit",
-            "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
-            "terminal": "TERMINAL CATALUNYA SA",
-            "terminal_codigo": "6212",
-            "eslora": 0,
-            "pax_estimados": 500,
-            "puerto": "Valencia",
-            "tipo": "salida",
-            "estado": "Finalitzada",
-            "bandera": "Panamà",
-            "imo": "9404649",
-            "mmsi": "357051000",
             "fecha": "2026-04-06"
         },
         {
@@ -324,24 +308,24 @@
         }
     ],
     "resumen": {
-        "total_cruceros": 13,
-        "total_llegadas": 9,
+        "total_cruceros": 12,
+        "total_llegadas": 8,
         "total_salidas": 11,
-        "pax_estimados_hoy": 19000,
-        "proximo_desembarco": "16:31",
-        "proximo_barco": "Cma Cgm Grace Bay"
+        "pax_estimados_hoy": 12500,
+        "proximo_desembarco": "18:15",
+        "proximo_barco": "Ciudad De Palma"
     },
     "terminales_activas": [
-        "E",
         "F2",
-        "F1",
         "6212",
+        "E",
         "2256",
+        "F1",
         "7083"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-04-06T15:48:45.690366",
+        "actualizado": "2026-04-06T14:10:33.180153",
         "frecuencia": "horaria"
     }
 }
