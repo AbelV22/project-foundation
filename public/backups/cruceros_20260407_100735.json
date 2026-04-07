@@ -17,6 +17,22 @@
             "fecha": "2026-04-07"
         },
         {
+            "hora": "04:00",
+            "nombre": "Flex Vigilant",
+            "naviera": "FLEX LNG Ltd.",
+            "terminal": "ENAGAS TRANSPORTE SAU",
+            "terminal_codigo": "8192",
+            "eslora": 297.0,
+            "pax_estimados": 3000,
+            "puerto": "Cameron",
+            "tipo": "llegada",
+            "estado": "Autoritzada",
+            "bandera": "Illes Marshall",
+            "imo": "9862475",
+            "mmsi": "538009179",
+            "fecha": "2026-04-07"
+        },
+        {
             "hora": "06:00",
             "nombre": "Msc Everest Viii",
             "naviera": "MEDITERRANEAN SHIPPING CO",
@@ -49,6 +65,22 @@
             "fecha": "2026-04-07"
         },
         {
+            "hora": "06:00",
+            "nombre": "Msc Leandra V",
+            "naviera": "MEDITERRANEAN SHIPPING CO",
+            "terminal": "TERMINAL CATALUNYA SA",
+            "terminal_codigo": "6212",
+            "eslora": 294.0,
+            "pax_estimados": 3000,
+            "puerto": "Valencia",
+            "tipo": "llegada",
+            "estado": "Sol·licitada",
+            "bandera": "Portugal",
+            "imo": "9313943",
+            "mmsi": "255803590",
+            "fecha": "2026-04-07"
+        },
+        {
             "hora": "07:11",
             "nombre": "Costa Fascinosa",
             "naviera": "COSTA CROCIERE, S.P.A.",
@@ -62,22 +94,6 @@
             "bandera": "Itàlia",
             "imo": "9479864",
             "mmsi": "247313500",
-            "fecha": "2026-04-07"
-        },
-        {
-            "hora": "09:54",
-            "nombre": "Flex Vigilant",
-            "naviera": "FLEX LNG Ltd.",
-            "terminal": "ENAGAS TRANSPORTE SAU",
-            "terminal_codigo": "8192",
-            "eslora": 297.0,
-            "pax_estimados": 3000,
-            "puerto": "Cameron",
-            "tipo": "llegada",
-            "estado": "Iniciada",
-            "bandera": "Illes Marshall",
-            "imo": "9862475",
-            "mmsi": "538009179",
             "fecha": "2026-04-07"
         },
         {
@@ -259,6 +275,22 @@
             "fecha": "2026-04-07"
         },
         {
+            "hora": "20:00",
+            "nombre": "Msc Leandra V",
+            "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
+            "terminal": "TERMINAL CATALUNYA SA",
+            "terminal_codigo": "6212",
+            "eslora": 294.0,
+            "pax_estimados": 3000,
+            "puerto": "Gioia Tauro",
+            "tipo": "salida",
+            "estado": "Sol·licitada",
+            "bandera": "Portugal",
+            "imo": "9313943",
+            "mmsi": "255803590",
+            "fecha": "2026-04-07"
+        },
+        {
             "hora": "21:30",
             "nombre": "Martin I Soler",
             "naviera": "BALEARIA EUROLINEAS MARITIMAS SA ",
@@ -340,26 +372,26 @@
         }
     ],
     "resumen": {
-        "total_cruceros": 13,
-        "total_llegadas": 10,
-        "total_salidas": 11,
-        "pax_estimados_hoy": 19000,
+        "total_cruceros": 14,
+        "total_llegadas": 11,
+        "total_salidas": 12,
+        "pax_estimados_hoy": 22000,
         "proximo_desembarco": "12:00",
         "proximo_barco": "Msc Niovi Viii"
     },
     "terminales_activas": [
-        "7332",
-        "F1",
-        "8192",
-        "6212",
-        "D",
         "0010",
+        "8192",
+        "D",
+        "6212",
+        "7332",
         "F3",
-        "F2"
+        "F2",
+        "F1"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-04-07T10:07:35.504568",
+        "actualizado": "2026-04-07T08:13:00.160711",
         "frecuencia": "horaria"
     }
 }
