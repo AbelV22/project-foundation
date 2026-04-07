@@ -81,7 +81,7 @@
             "fecha": "2026-04-07"
         },
         {
-            "hora": "07:11",
+            "hora": "06:30",
             "nombre": "Costa Fascinosa",
             "naviera": "COSTA CROCIERE, S.P.A.",
             "terminal": "Terminal D (Adossat)",
@@ -90,7 +90,7 @@
             "pax_estimados": 500,
             "puerto": "Savona",
             "tipo": "llegada",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Itàlia",
             "imo": "9479864",
             "mmsi": "247313500",
@@ -220,7 +220,7 @@
             "pax_estimados": 500,
             "puerto": "Marseille",
             "tipo": "salida",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Itàlia",
             "imo": "9479864",
             "mmsi": "247313500",
@@ -376,22 +376,22 @@
         "total_llegadas": 11,
         "total_salidas": 12,
         "pax_estimados_hoy": 22000,
-        "proximo_desembarco": "12:00",
-        "proximo_barco": "Msc Niovi Viii"
+        "proximo_desembarco": "06:30",
+        "proximo_barco": "Costa Fascinosa"
     },
     "terminales_activas": [
-        "0010",
-        "8192",
-        "D",
-        "6212",
         "7332",
+        "8192",
+        "F1",
         "F3",
+        "6212",
+        "D",
         "F2",
-        "F1"
+        "0010"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-04-07T08:13:00.160711",
+        "actualizado": "2026-04-07T06:18:53.773347",
         "frecuencia": "horaria"
     }
 }
