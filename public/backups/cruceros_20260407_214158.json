@@ -90,7 +90,7 @@
             "pax_estimados": 1000,
             "puerto": "Palma de Mallorca",
             "tipo": "llegada",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Espanya",
             "imo": "9349772",
             "mmsi": "224588000",
@@ -106,7 +106,7 @@
             "pax_estimados": 1000,
             "puerto": "Mahon Menorca",
             "tipo": "llegada",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Espanya",
             "imo": "9217125",
             "mmsi": "224600000",
@@ -227,22 +227,6 @@
             "fecha": "2026-04-07"
         },
         {
-            "hora": "21:17",
-            "nombre": "Tivy Gold",
-            "naviera": "IBERICA MARITIMA BARCELONA SA",
-            "terminal": "",
-            "terminal_codigo": "",
-            "eslora": 176.0,
-            "pax_estimados": 1000,
-            "puerto": "Patras",
-            "tipo": "salida",
-            "estado": "Finalitzada",
-            "bandera": "Libèria",
-            "imo": "9251559",
-            "mmsi": "636022541",
-            "fecha": "2026-04-07"
-        },
-        {
             "hora": "21:30",
             "nombre": "Martin I Soler",
             "naviera": "BALEARIA EUROLINEAS MARITIMAS SA ",
@@ -259,7 +243,7 @@
             "fecha": "2026-04-07"
         },
         {
-            "hora": "22:12",
+            "hora": "21:30",
             "nombre": "Cruise Barcelona",
             "naviera": "GRIMALDI LOGISTICA ESPAÑA SL",
             "terminal": "TERMINAL F3",
@@ -268,10 +252,26 @@
             "pax_estimados": 500,
             "puerto": "Porto Torres",
             "tipo": "salida",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Itàlia",
             "imo": "9351488",
             "mmsi": "247243600",
+            "fecha": "2026-04-07"
+        },
+        {
+            "hora": "22:00",
+            "nombre": "Ciudad De Granada",
+            "naviera": "GRIMALDI LOGISTICA ESPAÑA SL",
+            "terminal": "TERMINAL F2",
+            "terminal_codigo": "F2",
+            "eslora": 172.0,
+            "pax_estimados": 1000,
+            "puerto": "Ibiza",
+            "tipo": "salida",
+            "estado": "Iniciada",
+            "bandera": "Espanya",
+            "imo": "9217125",
+            "mmsi": "224600000",
             "fecha": "2026-04-07"
         },
         {
@@ -291,23 +291,7 @@
             "fecha": "2026-04-07"
         },
         {
-            "hora": "22:27",
-            "nombre": "Ciudad De Granada",
-            "naviera": "GRIMALDI LOGISTICA ESPAÑA SL",
-            "terminal": "TERMINAL F2",
-            "terminal_codigo": "F2",
-            "eslora": 172.0,
-            "pax_estimados": 1000,
-            "puerto": "Ibiza",
-            "tipo": "salida",
-            "estado": "Finalitzada",
-            "bandera": "Espanya",
-            "imo": "9217125",
-            "mmsi": "224600000",
-            "fecha": "2026-04-07"
-        },
-        {
-            "hora": "22:33",
+            "hora": "22:30",
             "nombre": "Ciudad De Palma",
             "naviera": "GRIMALDI LOGISTICA ESPAÑA SL",
             "terminal": "TERMINAL F2",
@@ -316,7 +300,7 @@
             "pax_estimados": 1000,
             "puerto": "Palma de Mallorca",
             "tipo": "salida",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Espanya",
             "imo": "9349772",
             "mmsi": "224588000",
@@ -324,25 +308,25 @@
         }
     ],
     "resumen": {
-        "total_cruceros": 13,
+        "total_cruceros": 12,
         "total_llegadas": 9,
-        "total_salidas": 11,
+        "total_salidas": 10,
         "pax_estimados_hoy": 14500,
         "proximo_desembarco": null,
         "proximo_barco": null
     },
     "terminales_activas": [
-        "D",
-        "8192",
-        "F3",
-        "6212",
         "F1",
+        "F3",
         "F2",
-        "0010"
+        "8192",
+        "0010",
+        "6212",
+        "D"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-04-07T21:41:58.001846",
+        "actualizado": "2026-04-07T19:56:52.407624",
         "frecuencia": "horaria"
     }
 }
