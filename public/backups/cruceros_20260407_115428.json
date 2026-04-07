@@ -1,6 +1,22 @@
 {
     "llegadas": [
         {
+            "hora": "00:00",
+            "nombre": "Msc Levante F",
+            "naviera": "MEDITERRANEAN SHIPPING CO",
+            "terminal": "TERMINAL CATALUNYA SA",
+            "terminal_codigo": "6212",
+            "eslora": 0,
+            "pax_estimados": 500,
+            "puerto": "Oran",
+            "tipo": "llegada",
+            "estado": "Autoritzada",
+            "bandera": "Panamà",
+            "imo": "9330264",
+            "mmsi": "352898711",
+            "fecha": "2026-04-07"
+        },
+        {
             "hora": "06:00",
             "nombre": "Msc Everest Viii",
             "naviera": "MEDITERRANEAN SHIPPING CO",
@@ -65,6 +81,22 @@
             "fecha": "2026-04-07"
         },
         {
+            "hora": "12:00",
+            "nombre": "Msc Niovi Viii",
+            "naviera": "MEDITERRANEAN SHIPPING CO",
+            "terminal": "TERMINAL CATALUNYA SA",
+            "terminal_codigo": "6212",
+            "eslora": 300.0,
+            "pax_estimados": 4500,
+            "puerto": "Freeport, Grand Bahama",
+            "tipo": "llegada",
+            "estado": "Sol·licitada",
+            "bandera": "Libèria",
+            "imo": "9290488",
+            "mmsi": "636022795",
+            "fecha": "2026-04-07"
+        },
+        {
             "hora": "18:15",
             "nombre": "Ciudad De Palma",
             "naviera": "TRASMED GLE S.L.",
@@ -100,13 +132,13 @@
             "hora": "19:00",
             "nombre": "Martin I Soler",
             "naviera": "EUROLINEAS MARITIMAS S.A",
-            "terminal": "TERMINAL F1",
-            "terminal_codigo": "F1",
+            "terminal": "BALEARIA EUROLINEAS MARITIMAS SA ",
+            "terminal_codigo": "7332",
             "eslora": 165.0,
             "pax_estimados": 1000,
             "puerto": "Alcudia",
             "tipo": "llegada",
-            "estado": "Autoritzada",
+            "estado": "Confirmada",
             "bandera": "Espanya",
             "imo": "9390367",
             "mmsi": "224637000",
@@ -211,16 +243,32 @@
             "fecha": "2026-04-07"
         },
         {
+            "hora": "20:00",
+            "nombre": "Msc Levante F",
+            "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
+            "terminal": "TERMINAL CATALUNYA SA",
+            "terminal_codigo": "6212",
+            "eslora": 0,
+            "pax_estimados": 500,
+            "puerto": "Oran",
+            "tipo": "salida",
+            "estado": "Autoritzada",
+            "bandera": "Panamà",
+            "imo": "9330264",
+            "mmsi": "352898711",
+            "fecha": "2026-04-07"
+        },
+        {
             "hora": "21:30",
             "nombre": "Martin I Soler",
             "naviera": "BALEARIA EUROLINEAS MARITIMAS SA ",
-            "terminal": "TERMINAL F1",
-            "terminal_codigo": "F1",
+            "terminal": "BALEARIA EUROLINEAS MARITIMAS SA ",
+            "terminal_codigo": "7332",
             "eslora": 165.0,
             "pax_estimados": 1000,
             "puerto": "Alcudia",
             "tipo": "salida",
-            "estado": "Autoritzada",
+            "estado": "Confirmada",
             "bandera": "Espanya",
             "imo": "9390367",
             "mmsi": "224637000",
@@ -292,25 +340,26 @@
         }
     ],
     "resumen": {
-        "total_cruceros": 11,
-        "total_llegadas": 8,
-        "total_salidas": 10,
-        "pax_estimados_hoy": 14000,
-        "proximo_desembarco": "18:15",
-        "proximo_barco": "Ciudad De Palma"
+        "total_cruceros": 13,
+        "total_llegadas": 10,
+        "total_salidas": 11,
+        "pax_estimados_hoy": 19000,
+        "proximo_desembarco": "12:00",
+        "proximo_barco": "Msc Niovi Viii"
     },
     "terminales_activas": [
-        "F2",
-        "D",
-        "F3",
-        "0010",
+        "7332",
         "F1",
         "8192",
-        "6212"
+        "6212",
+        "D",
+        "0010",
+        "F3",
+        "F2"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-04-07T11:54:28.871725",
+        "actualizado": "2026-04-07T10:07:35.504568",
         "frecuencia": "horaria"
     }
 }
