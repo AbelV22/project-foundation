@@ -154,7 +154,7 @@
             "pax_estimados": 3000,
             "puerto": "Civitavecchia",
             "tipo": "llegada",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Itàlia",
             "imo": "9351476",
             "mmsi": "247219400",
@@ -170,7 +170,7 @@
             "pax_estimados": 1000,
             "puerto": "Ibiza",
             "tipo": "llegada",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Espanya",
             "imo": "9506289",
             "mmsi": "225416000",
@@ -403,6 +403,38 @@
             "fecha": "2026-04-08"
         },
         {
+            "hora": "22:00",
+            "nombre": "Ciudad De Barcelona",
+            "naviera": "GRIMALDI LOGISTICA ESPAÑA SL",
+            "terminal": "TERMINAL F2",
+            "terminal_codigo": "F2",
+            "eslora": 176.0,
+            "pax_estimados": 1000,
+            "puerto": "Mahon Menorca",
+            "tipo": "salida",
+            "estado": "Iniciada",
+            "bandera": "Espanya",
+            "imo": "9506289",
+            "mmsi": "225416000",
+            "fecha": "2026-04-08"
+        },
+        {
+            "hora": "22:00",
+            "nombre": "Cruise Roma",
+            "naviera": "GRIMALDI LOGISTICA ESPAÑA SL",
+            "terminal": "TERMINAL F3",
+            "terminal_codigo": "F3",
+            "eslora": 254.0,
+            "pax_estimados": 3000,
+            "puerto": "Civitavecchia",
+            "tipo": "salida",
+            "estado": "Iniciada",
+            "bandera": "Itàlia",
+            "imo": "9351476",
+            "mmsi": "247219400",
+            "fecha": "2026-04-08"
+        },
+        {
             "hora": "22:15",
             "nombre": "Abel Matutes",
             "naviera": "BALEARIA EUROLINEAS MARITIMAS SA ",
@@ -416,38 +448,6 @@
             "bandera": "Espanya",
             "imo": "9441130",
             "mmsi": "224402000",
-            "fecha": "2026-04-08"
-        },
-        {
-            "hora": "22:19",
-            "nombre": "Cruise Roma",
-            "naviera": "GRIMALDI LOGISTICA ESPAÑA SL",
-            "terminal": "TERMINAL F3",
-            "terminal_codigo": "F3",
-            "eslora": 254.0,
-            "pax_estimados": 3000,
-            "puerto": "Civitavecchia",
-            "tipo": "salida",
-            "estado": "Finalitzada",
-            "bandera": "Itàlia",
-            "imo": "9351476",
-            "mmsi": "247219400",
-            "fecha": "2026-04-08"
-        },
-        {
-            "hora": "22:23",
-            "nombre": "Ciudad De Barcelona",
-            "naviera": "GRIMALDI LOGISTICA ESPAÑA SL",
-            "terminal": "TERMINAL F2",
-            "terminal_codigo": "F2",
-            "eslora": 176.0,
-            "pax_estimados": 1000,
-            "puerto": "Mahon Menorca",
-            "tipo": "salida",
-            "estado": "Finalitzada",
-            "bandera": "Espanya",
-            "imo": "9506289",
-            "mmsi": "225416000",
             "fecha": "2026-04-08"
         },
         {
@@ -472,20 +472,20 @@
         "total_llegadas": 15,
         "total_salidas": 14,
         "pax_estimados_hoy": 20500,
-        "proximo_desembarco": null,
-        "proximo_barco": null
+        "proximo_desembarco": "20:36",
+        "proximo_barco": "Msc Lucy"
     },
     "terminales_activas": [
-        "F2",
         "8156",
-        "F1",
         "6212",
+        "F2",
         "8192",
+        "F1",
         "F3"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-04-08T21:41:16.765970",
+        "actualizado": "2026-04-08T19:58:50.756777",
         "frecuencia": "horaria"
     }
 }
