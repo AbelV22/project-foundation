@@ -2,6 +2,22 @@
     "llegadas": [
         {
             "hora": "06:00",
+            "nombre": "Msc Niovi Viii",
+            "naviera": "MEDITERRANEAN SHIPPING CO",
+            "terminal": "TERMINAL CATALUNYA SA",
+            "terminal_codigo": "6212",
+            "eslora": 300.0,
+            "pax_estimados": 4500,
+            "puerto": "Freeport, Grand Bahama",
+            "tipo": "llegada",
+            "estado": "Autoritzada",
+            "bandera": "Libèria",
+            "imo": "9290488",
+            "mmsi": "636022795",
+            "fecha": "2026-04-08"
+        },
+        {
+            "hora": "06:00",
             "nombre": "Msc Mexico V",
             "naviera": "MEDITERRANEAN SHIPPING CO",
             "terminal": "TERMINAL CATALUNYA SA",
@@ -94,22 +110,6 @@
             "bandera": "Libèria",
             "imo": "9313929",
             "mmsi": "636025832",
-            "fecha": "2026-04-08"
-        },
-        {
-            "hora": "06:29",
-            "nombre": "Msc Niovi Viii",
-            "naviera": "MEDITERRANEAN SHIPPING CO",
-            "terminal": "TERMINAL CATALUNYA SA",
-            "terminal_codigo": "6212",
-            "eslora": 300.0,
-            "pax_estimados": 4500,
-            "puerto": "Freeport, Grand Bahama",
-            "tipo": "llegada",
-            "estado": "Iniciada",
-            "bandera": "Libèria",
-            "imo": "9290488",
-            "mmsi": "636022795",
             "fecha": "2026-04-08"
         },
         {
@@ -316,7 +316,7 @@
             "pax_estimados": 4500,
             "puerto": "Gioia Tauro",
             "tipo": "salida",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Libèria",
             "imo": "9290488",
             "mmsi": "636022795",
@@ -472,21 +472,21 @@
         "total_llegadas": 16,
         "total_salidas": 13,
         "pax_estimados_hoy": 23500,
-        "proximo_desembarco": "06:29",
-        "proximo_barco": "Msc Niovi Viii"
+        "proximo_desembarco": null,
+        "proximo_barco": null
     },
     "terminales_activas": [
-        "7946",
-        "8192",
-        "F2",
-        "6212",
         "8156",
         "F1",
-        "F3"
+        "F2",
+        "F3",
+        "7946",
+        "8192",
+        "6212"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-04-08T06:21:00.932748",
+        "actualizado": "2026-04-07T23:37:14.159321",
         "frecuencia": "horaria"
     }
 }
