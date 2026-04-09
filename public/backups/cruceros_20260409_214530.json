@@ -186,7 +186,7 @@
             "pax_estimados": 1000,
             "puerto": "Mahon Menorca",
             "tipo": "llegada",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Espanya",
             "imo": "9506289",
             "mmsi": "225416000",
@@ -225,7 +225,7 @@
             "fecha": "2026-04-09"
         },
         {
-            "hora": "22:16",
+            "hora": "21:45",
             "nombre": "Cruise Barcelona",
             "naviera": "GRIMALDI EUROMED SPA",
             "terminal": "TERMINAL F3",
@@ -234,7 +234,7 @@
             "pax_estimados": 500,
             "puerto": "Porto Torres",
             "tipo": "llegada",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Itàlia",
             "imo": "9351488",
             "mmsi": "247243600",
@@ -272,6 +272,22 @@
             "bandera": "Libèria",
             "imo": "9966934",
             "mmsi": "636023100",
+            "fecha": "2026-04-09"
+        },
+        {
+            "hora": "07:30",
+            "nombre": "Msc Lucy",
+            "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
+            "terminal": "TERMINAL CATALUNYA SA",
+            "terminal_codigo": "6212",
+            "eslora": 0,
+            "pax_estimados": 500,
+            "puerto": "Valencia",
+            "tipo": "salida",
+            "estado": "Iniciada",
+            "bandera": "Panamà",
+            "imo": "9289104",
+            "mmsi": "371059000",
             "fecha": "2026-04-09"
         },
         {
@@ -387,22 +403,6 @@
             "fecha": "2026-04-09"
         },
         {
-            "hora": "20:57",
-            "nombre": "Msc Lucy",
-            "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
-            "terminal": "TERMINAL CATALUNYA SA",
-            "terminal_codigo": "6212",
-            "eslora": 0,
-            "pax_estimados": 500,
-            "puerto": "Valencia",
-            "tipo": "salida",
-            "estado": "Finalitzada",
-            "bandera": "Panamà",
-            "imo": "9289104",
-            "mmsi": "371059000",
-            "fecha": "2026-04-09"
-        },
-        {
             "hora": "21:30",
             "nombre": "Martin I Soler",
             "naviera": "BALEARIA EUROLINEAS MARITIMAS SA ",
@@ -419,6 +419,22 @@
             "fecha": "2026-04-09"
         },
         {
+            "hora": "22:00",
+            "nombre": "Ciudad De Barcelona",
+            "naviera": "GRIMALDI LOGISTICA ESPAÑA SL",
+            "terminal": "TERMINAL F2",
+            "terminal_codigo": "F2",
+            "eslora": 176.0,
+            "pax_estimados": 1000,
+            "puerto": "Ibiza",
+            "tipo": "salida",
+            "estado": "Iniciada",
+            "bandera": "Espanya",
+            "imo": "9506289",
+            "mmsi": "225416000",
+            "fecha": "2026-04-09"
+        },
+        {
             "hora": "22:15",
             "nombre": "Abel Matutes",
             "naviera": "BALEARIA EUROLINEAS MARITIMAS SA ",
@@ -432,22 +448,6 @@
             "bandera": "Espanya",
             "imo": "9441130",
             "mmsi": "224402000",
-            "fecha": "2026-04-09"
-        },
-        {
-            "hora": "22:24",
-            "nombre": "Ciudad De Barcelona",
-            "naviera": "GRIMALDI LOGISTICA ESPAÑA SL",
-            "terminal": "TERMINAL F2",
-            "terminal_codigo": "F2",
-            "eslora": 176.0,
-            "pax_estimados": 1000,
-            "puerto": "Ibiza",
-            "tipo": "salida",
-            "estado": "Finalitzada",
-            "bandera": "Espanya",
-            "imo": "9506289",
-            "mmsi": "225416000",
             "fecha": "2026-04-09"
         },
         {
@@ -472,24 +472,24 @@
         "total_llegadas": 15,
         "total_salidas": 14,
         "pax_estimados_hoy": 19000,
-        "proximo_desembarco": "22:16",
+        "proximo_desembarco": "21:45",
         "proximo_barco": "Cruise Barcelona"
     },
     "terminales_activas": [
-        "S",
-        "E",
         "H",
+        "F2",
+        "E",
+        "TC",
+        "7946",
         "F3",
         "6212",
-        "F1",
-        "TC",
+        "S",
         "8156",
-        "F2",
-        "7946"
+        "F1"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-04-09T21:45:30.535879",
+        "actualizado": "2026-04-09T20:02:05.005673",
         "frecuencia": "horaria"
     }
 }
