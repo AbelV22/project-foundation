@@ -26,7 +26,7 @@
             "pax_estimados": 2000,
             "puerto": "Savona",
             "tipo": "llegada",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Itàlia",
             "imo": "9859600",
             "mmsi": "247384100",
@@ -339,7 +339,7 @@
             "fecha": "2026-04-09"
         },
         {
-            "hora": "11:53",
+            "hora": "12:00",
             "nombre": "Eco Adriatica",
             "naviera": "GRIMALDI LOGISTICA ESPAÑA SL",
             "terminal": "GRIMALDI TERMINAL BARCELONA SL",
@@ -348,7 +348,7 @@
             "pax_estimados": 2000,
             "puerto": "Valencia",
             "tipo": "salida",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Itàlia",
             "imo": "9859600",
             "mmsi": "247384100",
@@ -472,24 +472,24 @@
         "total_llegadas": 15,
         "total_salidas": 14,
         "pax_estimados_hoy": 19000,
-        "proximo_desembarco": "18:15",
-        "proximo_barco": "Ciudad De Palma"
+        "proximo_desembarco": "12:00",
+        "proximo_barco": "Ym Willpower"
     },
     "terminales_activas": [
-        "F3",
-        "TC",
-        "F2",
-        "8156",
-        "F1",
-        "H",
         "7946",
-        "S",
         "6212",
-        "E"
+        "F1",
+        "E",
+        "H",
+        "S",
+        "TC",
+        "8156",
+        "F2",
+        "F3"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-04-09T14:54:23.543170",
+        "actualizado": "2026-04-09T11:54:56.346638",
         "frecuencia": "horaria"
     }
 }
