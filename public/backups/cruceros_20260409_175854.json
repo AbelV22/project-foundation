@@ -74,7 +74,7 @@
             "pax_estimados": 1000,
             "puerto": "Valencia",
             "tipo": "llegada",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Illes Marshall",
             "imo": "9200940",
             "mmsi": "538012045",
@@ -161,6 +161,22 @@
             "fecha": "2026-04-09"
         },
         {
+            "hora": "18:15",
+            "nombre": "Ciudad De Palma",
+            "naviera": "TRASMED GLE S.L.",
+            "terminal": "TERMINAL F2",
+            "terminal_codigo": "F2",
+            "eslora": 186.0,
+            "pax_estimados": 1000,
+            "puerto": "Palma de Mallorca",
+            "tipo": "llegada",
+            "estado": "Autoritzada",
+            "bandera": "Espanya",
+            "imo": "9349772",
+            "mmsi": "224588000",
+            "fecha": "2026-04-09"
+        },
+        {
             "hora": "18:30",
             "nombre": "Ciudad De Barcelona",
             "naviera": "TRASMED GLE S.L.",
@@ -174,22 +190,6 @@
             "bandera": "Espanya",
             "imo": "9506289",
             "mmsi": "225416000",
-            "fecha": "2026-04-09"
-        },
-        {
-            "hora": "18:45",
-            "nombre": "Ciudad De Palma",
-            "naviera": "TRASMED GLE S.L.",
-            "terminal": "TERMINAL F2",
-            "terminal_codigo": "F2",
-            "eslora": 186.0,
-            "pax_estimados": 1000,
-            "puerto": "Palma de Mallorca",
-            "tipo": "llegada",
-            "estado": "Iniciada",
-            "bandera": "Espanya",
-            "imo": "9349772",
-            "mmsi": "224588000",
             "fecha": "2026-04-09"
         },
         {
@@ -371,7 +371,7 @@
             "fecha": "2026-04-09"
         },
         {
-            "hora": "18:14",
+            "hora": "18:00",
             "nombre": "Azamara Journey",
             "naviera": "BALEARES CONSIGNATARIOS SLU",
             "terminal": "Terminal Sud",
@@ -380,7 +380,7 @@
             "pax_estimados": 1000,
             "puerto": "Palamos",
             "tipo": "salida",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Illes Marshall",
             "imo": "9200940",
             "mmsi": "538012045",
@@ -460,7 +460,7 @@
             "pax_estimados": 1000,
             "puerto": "Palma de Mallorca",
             "tipo": "salida",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Espanya",
             "imo": "9349772",
             "mmsi": "224588000",
@@ -472,24 +472,24 @@
         "total_llegadas": 15,
         "total_salidas": 14,
         "pax_estimados_hoy": 19000,
-        "proximo_desembarco": "18:30",
-        "proximo_barco": "Ciudad De Barcelona"
+        "proximo_desembarco": "18:15",
+        "proximo_barco": "Ciudad De Palma"
     },
     "terminales_activas": [
-        "F1",
-        "6212",
-        "F2",
+        "S",
+        "TC",
         "F3",
-        "E",
+        "8156",
+        "6212",
+        "F1",
+        "F2",
         "H",
         "7946",
-        "8156",
-        "TC",
-        "S"
+        "E"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-04-09T17:58:54.078992",
+        "actualizado": "2026-04-09T16:18:02.215227",
         "frecuencia": "horaria"
     }
 }
