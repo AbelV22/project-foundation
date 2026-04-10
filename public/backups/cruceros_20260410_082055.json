@@ -275,22 +275,6 @@
             "fecha": "2026-04-10"
         },
         {
-            "hora": "08:07",
-            "nombre": "Msc Allegra",
-            "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
-            "terminal": "TERMINAL CATALUNYA SA",
-            "terminal_codigo": "6212",
-            "eslora": 0,
-            "pax_estimados": 500,
-            "puerto": "Gioia Tauro",
-            "tipo": "salida",
-            "estado": "Finalitzada",
-            "bandera": "Libèria",
-            "imo": "9897028",
-            "mmsi": "636020600",
-            "fecha": "2026-04-10"
-        },
-        {
             "hora": "15:00",
             "nombre": "Jal Kaveri",
             "naviera": "ALFASHIP MARITIME SERVICES SL ",
@@ -516,31 +500,31 @@
         }
     ],
     "resumen": {
-        "total_cruceros": 19,
+        "total_cruceros": 18,
         "total_llegadas": 14,
-        "total_salidas": 18,
+        "total_salidas": 17,
         "pax_estimados_hoy": 24000,
-        "proximo_desembarco": "12:30",
-        "proximo_barco": "Costa Fascinosa"
+        "proximo_desembarco": "06:58",
+        "proximo_barco": "Hmm Leaf"
     },
     "terminales_activas": [
+        "H",
+        "F2",
+        "D",
+        "7332",
+        "F1",
+        "8156",
         "C",
         "A",
-        "F3",
-        "7332",
-        "H",
         "7946",
-        "8156",
-        "B",
+        "F3",
         "6212",
-        "F1",
         "7083",
-        "F2",
-        "D"
+        "B"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-04-10T08:20:55.604673",
+        "actualizado": "2026-04-10T06:52:53.838834",
         "frecuencia": "horaria"
     }
 }
