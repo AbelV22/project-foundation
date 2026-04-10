@@ -1,7 +1,7 @@
 {
     "llegadas": [
         {
-            "hora": "05:21",
+            "hora": "04:45",
             "nombre": "Aidacosma",
             "naviera": "AIDA CRUISES",
             "terminal": "Terminal D (Adossat)",
@@ -10,14 +10,14 @@
             "pax_estimados": 4500,
             "puerto": "Ajaccio",
             "tipo": "llegada",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Itàlia",
             "imo": "9781877",
             "mmsi": "247435300",
             "fecha": "2026-04-10"
         },
         {
-            "hora": "05:58",
+            "hora": "05:00",
             "nombre": "Seven Seas Splendor",
             "naviera": "REGENT SEVEN SEAS CRUISES INC",
             "terminal": "Terminal C (Sant Bertran)",
@@ -26,7 +26,7 @@
             "pax_estimados": 2000,
             "puerto": "Toulon",
             "tipo": "llegada",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Illes Marshall",
             "imo": "9807085",
             "mmsi": "538007673",
@@ -65,7 +65,7 @@
             "fecha": "2026-04-10"
         },
         {
-            "hora": "06:49",
+            "hora": "06:00",
             "nombre": "Seven Seas Voyager",
             "naviera": "REGENT SEVEN SEAS CRUISES INC",
             "terminal": "Terminal B (Maremagnum)",
@@ -74,30 +74,14 @@
             "pax_estimados": 2000,
             "puerto": "Palma de Mallorca",
             "tipo": "llegada",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Bahames",
             "imo": "9247144",
             "mmsi": "311513000",
             "fecha": "2026-04-10"
         },
         {
-            "hora": "06:58",
-            "nombre": "Hmm Leaf",
-            "naviera": "HYUNDAI MERCHANT MAR",
-            "terminal": "APM TERMINALS BARCELONA, S.L.U.",
-            "terminal_codigo": "7083",
-            "eslora": 282.0,
-            "pax_estimados": 3000,
-            "puerto": "Piraeus",
-            "tipo": "llegada",
-            "estado": "Iniciada",
-            "bandera": "Panamà",
-            "imo": "1015959",
-            "mmsi": "352005740",
-            "fecha": "2026-04-10"
-        },
-        {
-            "hora": "07:30",
+            "hora": "06:42",
             "nombre": "Msc World Europa",
             "naviera": "MSC CRUISES S.A.",
             "terminal": "ADOSSAT/TERMINAL H",
@@ -106,10 +90,26 @@
             "pax_estimados": 500,
             "puerto": "Malta (Valetta)",
             "tipo": "llegada",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Malta",
             "imo": "9837420",
             "mmsi": "256070000",
+            "fecha": "2026-04-10"
+        },
+        {
+            "hora": "08:00",
+            "nombre": "Hmm Leaf",
+            "naviera": "HYUNDAI MERCHANT MAR",
+            "terminal": "APM TERMINALS BARCELONA, S.L.U.",
+            "terminal_codigo": "7083",
+            "eslora": 282.0,
+            "pax_estimados": 3000,
+            "puerto": "Piraeus",
+            "tipo": "llegada",
+            "estado": "Autoritzada",
+            "bandera": "Panamà",
+            "imo": "1015959",
+            "mmsi": "352005740",
             "fecha": "2026-04-10"
         },
         {
@@ -227,7 +227,7 @@
     ],
     "salidas": [
         {
-            "hora": "01:38",
+            "hora": "02:00",
             "nombre": "Cruise Barcelona",
             "naviera": "GRIMALDI LOGISTICA ESPAÑA SL",
             "terminal": "TERMINAL F3",
@@ -236,26 +236,10 @@
             "pax_estimados": 500,
             "puerto": "Civitavecchia",
             "tipo": "salida",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Itàlia",
             "imo": "9351488",
             "mmsi": "247243600",
-            "fecha": "2026-04-10"
-        },
-        {
-            "hora": "03:59",
-            "nombre": "Msc Levante F",
-            "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
-            "terminal": "TERMINAL CATALUNYA SA",
-            "terminal_codigo": "6212",
-            "eslora": 0,
-            "pax_estimados": 500,
-            "puerto": "Oran",
-            "tipo": "salida",
-            "estado": "Finalitzada",
-            "bandera": "Panamà",
-            "imo": "9330264",
-            "mmsi": "352898711",
             "fecha": "2026-04-10"
         },
         {
@@ -300,7 +284,7 @@
             "pax_estimados": 2000,
             "puerto": "Palamos",
             "tipo": "salida",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Bahames",
             "imo": "9247144",
             "mmsi": "311513000",
@@ -316,7 +300,7 @@
             "pax_estimados": 4500,
             "puerto": "Palma de Mallorca",
             "tipo": "salida",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Itàlia",
             "imo": "9781877",
             "mmsi": "247435300",
@@ -348,7 +332,7 @@
             "pax_estimados": 500,
             "puerto": "Marseille",
             "tipo": "salida",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Malta",
             "imo": "9837420",
             "mmsi": "256070000",
@@ -380,7 +364,7 @@
             "pax_estimados": 2000,
             "puerto": "Mahon Menorca",
             "tipo": "salida",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Illes Marshall",
             "imo": "9807085",
             "mmsi": "538007673",
@@ -412,7 +396,7 @@
             "pax_estimados": 3000,
             "puerto": "Algeciras",
             "tipo": "salida",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Panamà",
             "imo": "1015959",
             "mmsi": "352005740",
@@ -500,31 +484,31 @@
         }
     ],
     "resumen": {
-        "total_cruceros": 18,
+        "total_cruceros": 17,
         "total_llegadas": 14,
-        "total_salidas": 17,
+        "total_salidas": 16,
         "pax_estimados_hoy": 24000,
-        "proximo_desembarco": "06:58",
-        "proximo_barco": "Hmm Leaf"
+        "proximo_desembarco": null,
+        "proximo_barco": null
     },
     "terminales_activas": [
+        "B",
+        "7946",
         "H",
-        "F2",
+        "6212",
+        "A",
+        "8156",
+        "F1",
         "D",
         "7332",
-        "F1",
-        "8156",
-        "C",
-        "A",
-        "7946",
-        "F3",
-        "6212",
         "7083",
-        "B"
+        "F2",
+        "C",
+        "F3"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-04-10T06:52:53.838834",
+        "actualizado": "2026-04-09T23:37:32.380125",
         "frecuencia": "horaria"
     }
 }
