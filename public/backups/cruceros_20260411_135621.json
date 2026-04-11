@@ -65,6 +65,22 @@
             "fecha": "2026-04-11"
         },
         {
+            "hora": "05:45",
+            "nombre": "Msc Mexico V",
+            "naviera": "MEDITERRANEAN SHIPPING CO",
+            "terminal": "TERMINAL CATALUNYA SA",
+            "terminal_codigo": "6212",
+            "eslora": 294.0,
+            "pax_estimados": 3000,
+            "puerto": "Fos-sur-Mer",
+            "tipo": "llegada",
+            "estado": "Autoritzada",
+            "bandera": "Libèria",
+            "imo": "9231779",
+            "mmsi": "636015496",
+            "fecha": "2026-04-11"
+        },
+        {
             "hora": "05:48",
             "nombre": "Msc Fantasia",
             "naviera": "MSC CRUISES S.A.",
@@ -142,22 +158,6 @@
             "bandera": "Malta",
             "imo": "9629550",
             "mmsi": "229319000",
-            "fecha": "2026-04-11"
-        },
-        {
-            "hora": "13:38",
-            "nombre": "Msc Mexico V",
-            "naviera": "MEDITERRANEAN SHIPPING CO",
-            "terminal": "TERMINAL CATALUNYA SA",
-            "terminal_codigo": "6212",
-            "eslora": 294.0,
-            "pax_estimados": 3000,
-            "puerto": "Fos-sur-Mer",
-            "tipo": "llegada",
-            "estado": "Iniciada",
-            "bandera": "Libèria",
-            "imo": "9231779",
-            "mmsi": "636015496",
             "fecha": "2026-04-11"
         },
         {
@@ -460,7 +460,7 @@
             "pax_estimados": 3000,
             "puerto": "Valencia",
             "tipo": "salida",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Libèria",
             "imo": "9231779",
             "mmsi": "636015496",
@@ -536,29 +536,29 @@
         "total_llegadas": 17,
         "total_salidas": 16,
         "pax_estimados_hoy": 22500,
-        "proximo_desembarco": "17:30",
-        "proximo_barco": "Gnv Altair"
+        "proximo_desembarco": "12:00",
+        "proximo_barco": "Seasalvia"
     },
     "terminales_activas": [
-        "6154",
-        "H",
+        "7946",
+        "6037",
         "172133",
+        "C",
         "F1",
         "F3",
-        "F2",
-        "C",
-        "6037",
-        "8156",
         "0010",
-        "E",
-        "7946",
         "TC",
+        "6154",
         "2396",
-        "6212"
+        "F2",
+        "E",
+        "6212",
+        "8156",
+        "H"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-04-11T13:56:21.622489",
+        "actualizado": "2026-04-11T11:30:36.762976",
         "frecuencia": "horaria"
     }
 }
