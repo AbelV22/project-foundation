@@ -209,7 +209,7 @@
             "fecha": "2026-04-11"
         },
         {
-            "hora": "22:10",
+            "hora": "22:30",
             "nombre": "Cruise Barcelona",
             "naviera": "GRIMALDI EUROMED SPA",
             "terminal": "TERMINAL F3",
@@ -218,26 +218,10 @@
             "pax_estimados": 500,
             "puerto": "Civitavecchia",
             "tipo": "llegada",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Itàlia",
             "imo": "9351488",
             "mmsi": "247243600",
-            "fecha": "2026-04-11"
-        },
-        {
-            "hora": "22:58",
-            "nombre": "Zim Pacific",
-            "naviera": "ZIM INTEGRATED SHIPPING SERV.",
-            "terminal": "",
-            "terminal_codigo": "",
-            "eslora": 262.0,
-            "pax_estimados": 3000,
-            "puerto": "Genoa",
-            "tipo": "llegada",
-            "estado": "Autoritzada",
-            "bandera": "Libèria",
-            "imo": "9440837",
-            "mmsi": "636021362",
             "fecha": "2026-04-11"
         },
         {
@@ -483,22 +467,6 @@
             "fecha": "2026-04-11"
         },
         {
-            "hora": "20:35",
-            "nombre": "Sylvia",
-            "naviera": "ALFASHIP MARITIME SERVICES SL ",
-            "terminal": "ERGRANSA SA",
-            "terminal_codigo": "2256",
-            "eslora": 229.0,
-            "pax_estimados": 2000,
-            "puerto": "Desconegut",
-            "tipo": "salida",
-            "estado": "Finalitzada",
-            "bandera": "Illes Marshall",
-            "imo": "9471264",
-            "mmsi": "538009402",
-            "fecha": "2026-04-11"
-        },
-        {
             "hora": "22:00",
             "nombre": "Hatay",
             "naviera": "ALFASHIP MARITIME SERVICES SL ",
@@ -512,22 +480,6 @@
             "bandera": "Panamà",
             "imo": "9354258",
             "mmsi": "352003675",
-            "fecha": "2026-04-11"
-        },
-        {
-            "hora": "22:59",
-            "nombre": "Zim Pacific",
-            "naviera": "A PEREZ Y CIA SL",
-            "terminal": "",
-            "terminal_codigo": "",
-            "eslora": 262.0,
-            "pax_estimados": 3000,
-            "puerto": "Valencia",
-            "tipo": "salida",
-            "estado": "Autoritzada",
-            "bandera": "Libèria",
-            "imo": "9440837",
-            "mmsi": "636021362",
             "fecha": "2026-04-11"
         },
         {
@@ -548,32 +500,31 @@
         }
     ],
     "resumen": {
-        "total_cruceros": 22,
-        "total_llegadas": 16,
-        "total_salidas": 18,
-        "pax_estimados_hoy": 23500,
-        "proximo_desembarco": "22:10",
+        "total_cruceros": 21,
+        "total_llegadas": 15,
+        "total_salidas": 16,
+        "pax_estimados_hoy": 20500,
+        "proximo_desembarco": "22:30",
         "proximo_barco": "Cruise Barcelona"
     },
     "terminales_activas": [
-        "E",
-        "0010",
+        "8156",
         "172133",
-        "6212",
         "H",
+        "TC",
+        "F3",
+        "6037",
         "C",
         "7946",
-        "F3",
+        "6212",
         "F1",
-        "8156",
+        "0010",
         "F2",
-        "TC",
-        "2256",
-        "6037"
+        "E"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-04-11T21:33:59.227596",
+        "actualizado": "2026-04-11T19:34:55.670174",
         "frecuencia": "horaria"
     }
 }
