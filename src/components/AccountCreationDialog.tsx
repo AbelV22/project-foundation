@@ -73,7 +73,7 @@ export function AccountCreationDialog({ open, onDone, onSkip }: AccountCreationD
     setLoading(true);
 
     try {
-      const { error: signUpError } = await supabase.auth.signUp({
+      const { data, error: signUpError } = await supabase.auth.signUp({
         email: email.trim().toLowerCase(),
         password,
       });
@@ -87,9 +87,14 @@ export function AccountCreationDialog({ open, onDone, onSkip }: AccountCreationD
         return;
       }
 
+      if (!data.session) {
+        setError("No se pudo crear la sesión. Inténtalo de nuevo.");
+        return;
+      }
+
       setSuccess(true);
       toast.success("¡Cuenta creada!", {
-        description: "Revisa tu email para confirmar tu cuenta.",
+        description: "Tu cuenta está lista. Tus datos se sincronizarán automáticamente.",
       });
 
       setTimeout(() => {
@@ -129,7 +134,7 @@ export function AccountCreationDialog({ open, onDone, onSkip }: AccountCreationD
             <div>
               <h3 className="text-lg font-bold text-foreground">¡Cuenta creada!</h3>
               <p className="text-sm text-muted-foreground mt-1">
-                Revisa tu email para confirmar.
+                Tus datos se sincronizarán automáticamente.
               </p>
             </div>
           </motion.div>

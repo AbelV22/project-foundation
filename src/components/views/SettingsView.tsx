@@ -42,6 +42,12 @@ export default function SettingsView() {
             setLoading(false);
         };
         loadSettings();
+
+        // Keep auth state reactive
+        const { data: { subscription } } = supabase.auth.onAuthStateChange((_event, session) => {
+            setUserEmail(session?.user?.email ?? null);
+        });
+        return () => subscription.unsubscribe();
     }, []);
 
     const handleSave = async () => {

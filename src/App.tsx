@@ -23,6 +23,7 @@ import {
 } from "./services/native/proTracking";
 import { ensureBatteryOptimizationExcluded } from "./services/native/batteryOptimization";
 import { ErrorBoundary } from "./components/ErrorBoundary";
+import { supabase } from "@/integrations/supabase/client";
 import Index from "./pages/Index";
 import Admin from "./pages/Admin";
 import NotFound from "./pages/NotFound";
@@ -169,6 +170,14 @@ const App = () => {
   const [disclosureOpen, setDisclosureOpen] = useState(false);
   const [showOnboarding, setShowOnboarding] = useState(false);
   const [appReady, setAppReady] = useState(false);
+
+  // Global auth state listener
+  useEffect(() => {
+    const { data: { subscription } } = supabase.auth.onAuthStateChange((event, session) => {
+      console.log('[Auth]', event, session?.user?.email ?? 'no user');
+    });
+    return () => subscription.unsubscribe();
+  }, []);
 
   useEffect(() => {
     const checkDisclosure = async () => {
