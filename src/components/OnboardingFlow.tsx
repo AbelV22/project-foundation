@@ -19,6 +19,7 @@ import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { setItem } from "@/lib/storage";
 import { AccountCreationDialog } from "@/components/AccountCreationDialog";
+import logoItaxiBcn from "@/assets/logo-itaxibcn.png";
 
 /* ═══════════════════════════════════════════════════════════════
    Phone Frame — wraps mockups in a realistic device bezel
@@ -36,15 +37,17 @@ function PhoneFrame({
       {/* Ambient glow behind device */}
       <div
         className={cn(
-          "absolute w-[280px] h-[280px] rounded-full blur-[80px] opacity-20",
+          "absolute w-[260px] h-[260px] rounded-full blur-[90px] opacity-15",
           glowColor
         )}
       />
       {/* Device frame */}
-      <div className="relative w-[300px] rounded-[2.5rem] bg-card/90 border border-border/60 shadow-2xl shadow-black/30 overflow-hidden backdrop-blur-sm">
-        {/* Notch */}
-        <div className="flex justify-center pt-2 pb-1">
-          <div className="w-20 h-1 rounded-full bg-border/40" />
+      <div className="relative w-[300px] rounded-[2.5rem] bg-gradient-to-b from-card/95 to-card/80 border border-white/[0.08] shadow-[0_25px_60px_-12px_rgba(0,0,0,0.5)] overflow-hidden backdrop-blur-sm">
+        {/* Top highlight edge */}
+        <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/15 to-transparent" />
+        {/* Dynamic Island */}
+        <div className="flex justify-center pt-2.5 pb-1.5">
+          <div className="w-24 h-[18px] rounded-full bg-black/80 border border-white/[0.04]" />
         </div>
         {/* Screen content */}
         <div className="px-0 pb-3">{children}</div>
@@ -59,31 +62,56 @@ function PhoneFrame({
 
 function WelcomeIllustration() {
   const orbitIcons = [
-    { icon: Plane, color: "text-blue-400", bg: "bg-blue-500/15", label: "Vuelos", x: -90, y: -50, delay: 0 },
-    { icon: Train, color: "text-emerald-400", bg: "bg-emerald-500/15", label: "Trenes", x: 90, y: -50, delay: 0.6 },
-    { icon: Calendar, color: "text-purple-400", bg: "bg-purple-500/15", label: "Eventos", x: -100, y: 55, delay: 1.2 },
-    { icon: TrendingUp, color: "text-orange-400", bg: "bg-orange-500/15", label: "Ingresos", x: 100, y: 55, delay: 1.8 },
-    { icon: MapPin, color: "text-rose-400", bg: "bg-rose-500/15", label: "Radar", x: 0, y: 100, delay: 2.4 },
+    { icon: Plane, color: "text-blue-400", bg: "bg-blue-500/20", border: "border-blue-500/20", label: "Vuelos", x: -95, y: -55, delay: 0 },
+    { icon: Train, color: "text-emerald-400", bg: "bg-emerald-500/20", border: "border-emerald-500/20", label: "Trenes", x: 95, y: -55, delay: 0.6 },
+    { icon: Ship, color: "text-cyan-400", bg: "bg-cyan-500/20", border: "border-cyan-500/20", label: "Cruceros", x: -105, y: 50, delay: 1.2 },
+    { icon: TrendingUp, color: "text-orange-400", bg: "bg-orange-500/20", border: "border-orange-500/20", label: "Ingresos", x: 105, y: 50, delay: 1.8 },
+    { icon: MapPin, color: "text-rose-400", bg: "bg-rose-500/20", border: "border-rose-500/20", label: "Radar", x: 0, y: 108, delay: 2.4 },
   ];
 
   return (
-    <div className="relative w-[300px] h-[300px] flex items-center justify-center mx-auto">
-      {/* Central taxi icon */}
+    <div className="relative w-[320px] h-[360px] flex flex-col items-center justify-center mx-auto">
+      {/* Central logo */}
       <motion.div
         initial={{ scale: 0, opacity: 0 }}
         animate={{ scale: 1, opacity: 1 }}
-        transition={{ type: "spring", stiffness: 200, damping: 18, delay: 0.1 }}
-        className="relative z-10"
+        transition={{ type: "spring", stiffness: 180, damping: 16, delay: 0.1 }}
+        className="relative z-10 flex flex-col items-center"
       >
-        {/* Pulsing glow */}
+        {/* Outer glow ring */}
         <motion.div
-          animate={{ scale: [1, 1.3, 1], opacity: [0.3, 0.1, 0.3] }}
-          transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute inset-0 rounded-[28px] bg-yellow-400/30 blur-xl"
+          animate={{ scale: [1, 1.15, 1], opacity: [0.15, 0.05, 0.15] }}
+          transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+          className="absolute -inset-4 rounded-[36px] bg-yellow-400/20 blur-2xl"
         />
-        <div className="w-24 h-24 rounded-[28px] bg-gradient-to-br from-yellow-400 to-yellow-600 flex items-center justify-center shadow-glow-lg relative z-10">
-          <span className="text-5xl">🚕</span>
+        {/* Inner glow */}
+        <motion.div
+          animate={{ opacity: [0.4, 0.2, 0.4] }}
+          transition={{ duration: 3, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
+          className="absolute -inset-1 rounded-[32px] bg-yellow-500/15 blur-lg"
+        />
+        {/* Logo image */}
+        <div className="relative z-10 w-28 h-28 rounded-[30px] overflow-hidden shadow-2xl shadow-yellow-500/20 ring-1 ring-white/10">
+          <img
+            src={logoItaxiBcn}
+            alt="iTaxi BCN"
+            className="w-full h-full object-cover"
+          />
         </div>
+        {/* Brand name */}
+        <motion.div
+          initial={{ opacity: 0, y: 8 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.4, duration: 0.4 }}
+          className="mt-4 flex flex-col items-center"
+        >
+          <span className="font-display text-xl font-bold text-foreground tracking-tight">
+            iTaxi BCN
+          </span>
+          <span className="text-[11px] text-muted-foreground/60 mt-0.5">
+            Barcelona
+          </span>
+        </motion.div>
       </motion.div>
 
       {/* Orbiting feature icons */}
@@ -94,29 +122,33 @@ function WelcomeIllustration() {
           animate={{ opacity: 1, scale: 1 }}
           transition={{ type: "spring", stiffness: 180, damping: 15, delay: 0.3 + item.delay * 0.15 }}
           className="absolute z-20"
-          style={{ left: `calc(50% + ${item.x}px - 24px)`, top: `calc(50% + ${item.y}px - 24px)` }}
+          style={{ left: `calc(50% + ${item.x}px - 22px)`, top: `calc(45% + ${item.y}px - 22px)` }}
         >
           <motion.div
-            animate={{ y: [0, -6, 0] }}
-            transition={{ duration: 3 + item.delay * 0.2, repeat: Infinity, ease: "easeInOut", delay: item.delay * 0.3 }}
+            animate={{ y: [0, -5, 0] }}
+            transition={{ duration: 3.5 + item.delay * 0.2, repeat: Infinity, ease: "easeInOut", delay: item.delay * 0.3 }}
           >
             <div
               className={cn(
-                "w-12 h-12 rounded-2xl flex items-center justify-center backdrop-blur-sm border border-white/10 shadow-lg",
-                item.bg
+                "w-11 h-11 rounded-xl flex items-center justify-center backdrop-blur-md border shadow-lg shadow-black/20",
+                item.bg,
+                item.border
               )}
             >
-              <item.icon className={cn("h-5 w-5", item.color)} />
+              <item.icon className={cn("h-4.5 w-4.5", item.color)} />
             </div>
+            <span className={cn("block text-center text-[8px] font-medium mt-1 opacity-60", item.color)}>
+              {item.label}
+            </span>
           </motion.div>
         </motion.div>
       ))}
 
-      {/* Subtle connecting lines (decorative) */}
-      <div className="absolute inset-0 z-0">
-        <svg className="w-full h-full opacity-[0.04]" viewBox="0 0 300 300">
-          <circle cx="150" cy="150" r="70" fill="none" stroke="white" strokeWidth="1" strokeDasharray="4 4" />
-          <circle cx="150" cy="150" r="120" fill="none" stroke="white" strokeWidth="0.5" strokeDasharray="2 6" />
+      {/* Decorative orbital rings */}
+      <div className="absolute inset-0 z-0 flex items-center justify-center" style={{ top: "-10px" }}>
+        <svg className="w-[300px] h-[300px] opacity-[0.04]" viewBox="0 0 300 300">
+          <circle cx="150" cy="150" r="75" fill="none" stroke="white" strokeWidth="1" strokeDasharray="3 5" />
+          <circle cx="150" cy="150" r="125" fill="none" stroke="white" strokeWidth="0.5" strokeDasharray="2 8" />
         </svg>
       </div>
     </div>
@@ -407,8 +439,8 @@ const slides: SlideData[] = [
     id: "welcome",
     tagline: "Tu copiloto en Barcelona",
     body: "Vuelos, trenes, eventos y radar.\nTodo en un toque.",
-    accentColor: "text-yellow-400",
-    accentBar: "bg-yellow-400",
+    accentColor: "text-amber-400",
+    accentBar: "bg-amber-400",
     illustration: <WelcomeIllustration />,
   },
   {
@@ -633,10 +665,10 @@ export function OnboardingFlow({ onComplete }: OnboardingFlowProps) {
               <Button
                 onClick={handleNext}
                 size="lg"
-                className="w-full h-14 rounded-2xl text-[15px] font-bold bg-gradient-to-r from-yellow-400 to-yellow-500 hover:from-yellow-300 hover:to-yellow-400 text-black shadow-lg shadow-yellow-500/25 relative overflow-hidden"
+                className="w-full h-14 rounded-2xl text-[15px] font-bold bg-gradient-to-r from-yellow-400 via-amber-400 to-yellow-500 hover:from-yellow-300 hover:via-amber-300 hover:to-yellow-400 text-black shadow-lg shadow-yellow-500/30 relative overflow-hidden ring-1 ring-yellow-300/30"
               >
                 {/* Shimmer overlay */}
-                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent animate-shimmer bg-[length:200%_100%]" />
+                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/25 to-transparent animate-shimmer bg-[length:200%_100%]" />
                 <span className="relative flex items-center gap-2">
                   <Zap className="h-4.5 w-4.5" />
                   Empezar ahora
@@ -648,7 +680,7 @@ export function OnboardingFlow({ onComplete }: OnboardingFlowProps) {
                 size="lg"
                 className={cn(
                   "w-full h-14 rounded-2xl text-[15px] font-semibold",
-                  "bg-white/10 hover:bg-white/15 text-foreground border border-white/10 backdrop-blur-sm"
+                  "bg-white/[0.08] hover:bg-white/[0.12] text-foreground border border-white/[0.12] backdrop-blur-md shadow-lg shadow-black/10"
                 )}
               >
                 <span className="flex items-center gap-2">
@@ -670,14 +702,17 @@ export function OnboardingFlow({ onComplete }: OnboardingFlowProps) {
 
             {/* Welcome tagline */}
             {current === 0 && (
-              <motion.p
+              <motion.div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.6 }}
-                className="text-center text-[11px] text-muted-foreground/40"
+                className="flex justify-center"
               >
-                Hecha por y para taxistas de Barcelona
-              </motion.p>
+                <span className="inline-flex items-center gap-1.5 text-[10px] text-muted-foreground/50 bg-white/[0.03] border border-white/[0.06] rounded-full px-3 py-1">
+                  <Shield className="h-2.5 w-2.5" />
+                  Hecha por y para taxistas de Barcelona
+                </span>
+              </motion.div>
             )}
           </div>
         </div>
