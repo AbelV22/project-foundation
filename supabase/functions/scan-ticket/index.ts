@@ -31,21 +31,29 @@ Deno.serve(async (req) => {
     // Strip data URL prefix if present
     const base64Data = image_base64.replace(/^data:image\/\w+;base64,/, '');
 
-    const prompt = `Eres un experto en leer tickets de taxímetro Taxitronic.
-Esta imagen es un ticket de fin de día de un taxista de Barcelona.
+    const prompt = `Eres un experto en leer tickets de taximetro Taxitronic de Barcelona.
 
-Extrae EXACTAMENTE estos 3 datos:
+IMPORTANTE: Los tickets tienen DOS secciones:
+1. SECCION SUPERIOR (sin prefijo): Son los TOTALES ACUMULADOS historicos. NO leas estos datos.
+2. SECCION INFERIOR (con prefijo "P"): Son los datos PARCIALES DEL DIA. LEE SOLO ESTOS.
 
-1. **km_totales**: Kilómetros totales del día. Busca: "KM TOTALES", "KM RECORRIDOS", "TOTAL KM", "KILOMETROS", o la linea que muestre km totales.
-2. **ingresos_totales**: Recaudación total en euros. Busca: "TOTAL RECAUDACION", "IMPORTE TOTAL", "TOTAL €", "TOTAL", o el importe total del día.
-3. **num_carreras**: Número de servicios/carreras. Busca: "SERVICIOS", "NUM SERVICIOS", "CARRERAS", "TOTAL SERVICIOS", o el conteo de servicios.
+Las lineas del dia empiezan con "P" (de Parcial):
+- "P No de servs" o "P Num. Servicios" = numero de carreras del dia
+- "P Total" = ingresos totales del dia en euros
+- "P Dist. Total" = kilometros totales del dia
+
+Extrae SOLO los datos de la seccion "P" (parcial/diaria):
+
+1. **num_carreras**: El valor de "P No de servs" (numero entero)
+2. **ingresos_totales**: El valor de "P Total" (en euros)
+3. **km_totales**: El valor de "P Dist. Total" (en km)
 
 REGLAS:
-- Los tickets usan coma como decimal: "1.234,56" → devuelve 1234.56
-- Los puntos son separadores de miles: "1.234" km → devuelve 1234
-- Si un dato NO aparece claramente en el ticket, devuelve null
-- NO inventes datos. Solo extrae lo que ves en la imagen
-- Devuelve SOLO el JSON, sin explicaciones ni markdown
+- La coma es separador decimal: "316,25" = 316.25
+- El punto es separador de miles: "1.234,56" = 1234.56
+- Si un campo no esta visible, devuelve null
+- NO uses los valores de la seccion superior (sin "P"), son acumulados historicos
+- Devuelve SOLO JSON, sin markdown ni explicaciones
 
 {"km_totales": number|null, "ingresos_totales": number|null, "num_carreras": number|null}`;
 
