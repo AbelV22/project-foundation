@@ -1,11 +1,11 @@
-import { serve } from "https://deno.land/std@0.168.0/http/server.ts"
+import "jsr:@supabase/functions-js/edge-runtime.d.ts";
 
 const corsHeaders = {
   'Access-Control-Allow-Origin': '*',
   'Access-Control-Allow-Headers': 'authorization, x-client-info, apikey, content-type',
 };
 
-serve(async (req) => {
+Deno.serve(async (req) => {
   if (req.method === 'OPTIONS') {
     return new Response('ok', { headers: corsHeaders });
   }
@@ -31,20 +31,22 @@ serve(async (req) => {
     // Strip data URL prefix if present
     const base64Data = image_base64.replace(/^data:image\/\w+;base64,/, '');
 
-    const prompt = `Analiza esta imagen de un ticket de taxímetro Taxitronic de fin de día.
-Extrae los siguientes datos del ticket:
+    const prompt = `Eres un experto en leer tickets de taxímetro Taxitronic.
+Esta imagen es un ticket de fin de día de un taxista de Barcelona.
 
-1. **km_totales**: Kilómetros totales recorridos en el día (busca "KM", "KILOMETROS", "TOTAL KM" o similar)
-2. **ingresos_totales**: Ingresos/recaudación total del día en euros (busca "TOTAL", "RECAUDACION", "IMPORTE TOTAL" o similar)
-3. **num_carreras**: Número total de carreras/servicios realizados (busca "SERVICIOS", "CARRERAS", "NUM. SERVICIOS" o similar)
+Extrae EXACTAMENTE estos 3 datos:
 
-IMPORTANTE:
-- Los valores numéricos pueden usar coma como separador decimal (ej: 1.234,56)
-- Si no encuentras un dato, devuelve null para ese campo
-- Solo devuelve números, sin unidades ni símbolos de moneda
-- Convierte comas decimales a puntos (ej: 1234.56)
+1. **km_totales**: Kilómetros totales del día. Busca: "KM TOTALES", "KM RECORRIDOS", "TOTAL KM", "KILOMETROS", o la linea que muestre km totales.
+2. **ingresos_totales**: Recaudación total en euros. Busca: "TOTAL RECAUDACION", "IMPORTE TOTAL", "TOTAL €", "TOTAL", o el importe total del día.
+3. **num_carreras**: Número de servicios/carreras. Busca: "SERVICIOS", "NUM SERVICIOS", "CARRERAS", "TOTAL SERVICIOS", o el conteo de servicios.
 
-Responde SOLO con un JSON válido, sin markdown ni explicaciones:
+REGLAS:
+- Los tickets usan coma como decimal: "1.234,56" → devuelve 1234.56
+- Los puntos son separadores de miles: "1.234" km → devuelve 1234
+- Si un dato NO aparece claramente en el ticket, devuelve null
+- NO inventes datos. Solo extrae lo que ves en la imagen
+- Devuelve SOLO el JSON, sin explicaciones ni markdown
+
 {"km_totales": number|null, "ingresos_totales": number|null, "num_carreras": number|null}`;
 
     const geminiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`;
@@ -73,10 +75,16 @@ Responde SOLO con un JSON válido, sin markdown ni explicaciones:
 
     if (!geminiResponse.ok) {
       const errText = await geminiResponse.text();
-      console.error('Gemini API error:', errText);
+      console.error('Gemini API error:', geminiResponse.status, errText);
       return new Response(
-        JSON.stringify({ error: 'AI vision processing failed', details: errText }),
-        { status: 502, headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
+        JSON.stringify({
+          error: 'AI vision processing failed',
+          details: `Status ${geminiResponse.status}`,
+          km_totales: null,
+          ingresos_totales: null,
+          num_carreras: null,
+        }),
+        { status: 200, headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
       );
     }
 
@@ -103,11 +111,18 @@ Responde SOLO con un JSON válido, sin markdown ni explicaciones:
       );
     }
 
+    // Sanitize values - ensure they are numbers or null
+    const sanitize = (val: unknown): number | null => {
+      if (val === null || val === undefined) return null;
+      const num = Number(val);
+      return isNaN(num) || num < 0 ? null : num;
+    };
+
     return new Response(
       JSON.stringify({
-        km_totales: parsed.km_totales ?? null,
-        ingresos_totales: parsed.ingresos_totales ?? null,
-        num_carreras: parsed.num_carreras ?? null,
+        km_totales: sanitize(parsed.km_totales),
+        ingresos_totales: sanitize(parsed.ingresos_totales),
+        num_carreras: sanitize(parsed.num_carreras),
         raw_response: rawText,
       }),
       { headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
@@ -116,8 +131,13 @@ Responde SOLO con un JSON válido, sin markdown ni explicaciones:
   } catch (err) {
     console.error('scan-ticket error:', err);
     return new Response(
-      JSON.stringify({ error: err.message }),
-      { status: 500, headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
+      JSON.stringify({
+        error: err.message,
+        km_totales: null,
+        ingresos_totales: null,
+        num_carreras: null,
+      }),
+      { status: 200, headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
     );
   }
 });

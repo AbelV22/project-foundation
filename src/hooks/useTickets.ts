@@ -2,6 +2,38 @@ import { useState, useEffect, useCallback } from 'react';
 import { supabase } from '@/integrations/supabase/client';
 import { getOrCreateDeviceId } from '@/lib/deviceId';
 
+/**
+ * Compress and resize an image to reduce payload for OCR.
+ * Targets ~800px max dimension and JPEG quality 0.7 (~100-200KB output).
+ */
+function compressImage(base64: string, maxDim = 800, quality = 0.7): Promise<string> {
+    return new Promise((resolve) => {
+        const img = new Image();
+        img.onload = () => {
+            const canvas = document.createElement('canvas');
+            let { width, height } = img;
+
+            if (width > maxDim || height > maxDim) {
+                if (width > height) {
+                    height = Math.round((height * maxDim) / width);
+                    width = maxDim;
+                } else {
+                    width = Math.round((width * maxDim) / height);
+                    height = maxDim;
+                }
+            }
+
+            canvas.width = width;
+            canvas.height = height;
+            const ctx = canvas.getContext('2d')!;
+            ctx.drawImage(img, 0, 0, width, height);
+            resolve(canvas.toDataURL('image/jpeg', quality));
+        };
+        img.onerror = () => resolve(base64); // fallback to original
+        img.src = base64;
+    });
+}
+
 export interface TicketRecord {
     id: string;
     device_id: string;
@@ -147,13 +179,22 @@ export const useTickets = (): UseTicketsResult => {
     const scanTicket = useCallback(async (imageBase64: string): Promise<ScanResult | null> => {
         setScanning(true);
         try {
+            // Compress image for faster OCR (800px, quality 0.7)
+            const compressed = await compressImage(imageBase64, 1200, 0.8);
+            console.log('[useTickets] Image compressed for OCR');
+
             const response = await supabase.functions.invoke('scan-ticket', {
-                body: { image_base64: imageBase64 },
+                body: { image_base64: compressed },
             });
 
-            if (response.error) throw response.error;
+            if (response.error) {
+                console.error('[useTickets] Scan response error:', response.error);
+                throw response.error;
+            }
 
-            return response.data as ScanResult;
+            const data = response.data as ScanResult;
+            console.log('[useTickets] Scan result:', data);
+            return data;
         } catch (err) {
             console.error('[useTickets] Scan error:', err);
             setError(err instanceof Error ? err : new Error('Failed to scan ticket'));

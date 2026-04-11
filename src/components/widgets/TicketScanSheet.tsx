@@ -44,8 +44,14 @@ export function TicketScanSheet() {
             setImagePreview(base64);
             setImageBase64(base64);
 
-            // Auto-scan
-            const result = await scanTicket(base64);
+            // Auto-scan with retry
+            let result = await scanTicket(base64);
+            if (!result) {
+                // Retry once on failure
+                console.log('[TicketScan] Retrying scan...');
+                result = await scanTicket(base64);
+            }
+
             if (result) {
                 if (result.km_totales !== null) setKmTotales(String(result.km_totales));
                 if (result.ingresos_totales !== null) setIngresosTotales(String(result.ingresos_totales));
@@ -53,17 +59,29 @@ export function TicketScanSheet() {
                 setRawResponse(result.raw_response || null);
                 setScanned(true);
 
-                if (result.error) {
+                const fieldsFound = [result.km_totales, result.ingresos_totales, result.num_carreras].filter(v => v !== null).length;
+
+                if (result.error || fieldsFound === 0) {
+                    toast({
+                        title: "No se pudo leer el ticket",
+                        description: "Introduce los datos manualmente.",
+                        variant: "destructive",
+                    });
+                } else if (fieldsFound < 3) {
                     toast({
                         title: "Lectura parcial",
-                        description: "No se pudieron leer todos los datos. Revisa y completa manualmente.",
-                        variant: "destructive",
+                        description: "Algunos datos no se pudieron leer. Revisa y completa.",
+                    });
+                } else {
+                    toast({
+                        title: "Ticket leído correctamente",
+                        description: "Revisa los datos antes de guardar.",
                     });
                 }
             } else {
                 toast({
-                    title: "Error de lectura",
-                    description: "No se pudo leer el ticket. Introduce los datos manualmente.",
+                    title: "Error de conexión",
+                    description: "No se pudo analizar la foto. Introduce los datos manualmente.",
                     variant: "destructive",
                 });
                 setScanned(true);
