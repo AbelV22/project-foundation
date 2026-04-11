@@ -17,9 +17,8 @@ import { LocationDiagnosticsPanel } from "@/components/LocationDiagnosticsPanel"
 import { NativeDebugLogsPanel } from "@/components/NativeDebugLogsPanel";
 import { UserPresenceTimeline } from "@/components/admin/UserPresenceTimeline";
 
-// Admin password - loaded from environment variable for security
-// Set VITE_ADMIN_PASSWORD in your .env file
-const ADMIN_PASSWORD = import.meta.env.VITE_ADMIN_PASSWORD || "";
+// Admin password verified server-side via Supabase RPC
+// No password stored in the client bundle
 
 interface RegistroReten {
     id: string;
@@ -110,14 +109,25 @@ export default function Admin() {
         }
     }, []);
 
-    const handleLogin = (e: React.FormEvent) => {
+    const handleLogin = async (e: React.FormEvent) => {
         e.preventDefault();
-        if (password === ADMIN_PASSWORD) {
-            setIsAuthenticated(true);
-            sessionStorage.setItem("admin_auth", "true");
-            setError("");
-        } else {
-            setError("Contraseña incorrecta");
+        setError("");
+        try {
+            const { data, error: rpcError } = await supabase.rpc('fn_verify_admin_password', {
+                p_password: password,
+            });
+            if (rpcError) {
+                setError("Error de conexión. Inténtalo de nuevo.");
+                return;
+            }
+            if (data === true) {
+                setIsAuthenticated(true);
+                sessionStorage.setItem("admin_auth", "true");
+            } else {
+                setError("Contraseña incorrecta");
+            }
+        } catch {
+            setError("Error de conexión. Inténtalo de nuevo.");
         }
     };
 
