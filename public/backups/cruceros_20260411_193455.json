@@ -17,6 +17,38 @@
             "fecha": "2026-04-11"
         },
         {
+            "hora": "03:00",
+            "nombre": "Neptune Tharros",
+            "naviera": "NEPTUNE LINES SHIPPING",
+            "terminal": "SETRAM",
+            "terminal_codigo": "2396",
+            "eslora": 183.0,
+            "pax_estimados": 1000,
+            "puerto": "Civitavecchia",
+            "tipo": "llegada",
+            "estado": "Sol·licitada",
+            "bandera": "Grècia",
+            "imo": "9431850",
+            "mmsi": "241812000",
+            "fecha": "2026-04-11"
+        },
+        {
+            "hora": "03:00",
+            "nombre": "Neptune Tharros",
+            "naviera": "NEPTUNE LINES SHIPPING",
+            "terminal": "AUTOTERMINAL SA",
+            "terminal_codigo": "6154",
+            "eslora": 183.0,
+            "pax_estimados": 1000,
+            "puerto": "Civitavecchia",
+            "tipo": "llegada",
+            "estado": "Sol·licitada",
+            "bandera": "Grècia",
+            "imo": "9431850",
+            "mmsi": "241812000",
+            "fecha": "2026-04-11"
+        },
+        {
             "hora": "04:29",
             "nombre": "Msc Jiani",
             "naviera": "MEDITERRANEAN SHIPPING CO",
@@ -42,7 +74,7 @@
             "pax_estimados": 500,
             "puerto": "Valencia",
             "tipo": "llegada",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Panamà",
             "imo": "9359791",
             "mmsi": "370648000",
@@ -177,7 +209,7 @@
             "fecha": "2026-04-11"
         },
         {
-            "hora": "19:12",
+            "hora": "19:00",
             "nombre": "Martin I Soler",
             "naviera": "EUROLINEAS MARITIMAS S.A",
             "terminal": "TERMINAL F1",
@@ -186,14 +218,14 @@
             "pax_estimados": 1000,
             "puerto": "Alcudia",
             "tipo": "llegada",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Espanya",
             "imo": "9390367",
             "mmsi": "224637000",
             "fecha": "2026-04-11"
         },
         {
-            "hora": "19:23",
+            "hora": "20:00",
             "nombre": "Abel Matutes",
             "naviera": "EUROLINEAS MARITIMAS S.A",
             "terminal": "LEPANT/TRUCK CENTER",
@@ -202,7 +234,7 @@
             "pax_estimados": 1000,
             "puerto": "Palma de Mallorca",
             "tipo": "llegada",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Espanya",
             "imo": "9441130",
             "mmsi": "224402000",
@@ -404,6 +436,22 @@
         },
         {
             "hora": "19:00",
+            "nombre": "Carnival Glory",
+            "naviera": "BALEARES CONSIGNATARIOS SLU",
+            "terminal": "Terminal E (Adossat)",
+            "terminal_codigo": "E",
+            "eslora": 0,
+            "pax_estimados": 500,
+            "puerto": "Alicante",
+            "tipo": "salida",
+            "estado": "Iniciada",
+            "bandera": "Panamà",
+            "imo": "9198367",
+            "mmsi": "357659000",
+            "fecha": "2026-04-11"
+        },
+        {
+            "hora": "19:00",
             "nombre": "Msc Mexico V",
             "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
             "terminal": "TERMINAL CATALUNYA SA",
@@ -419,23 +467,7 @@
             "fecha": "2026-04-11"
         },
         {
-            "hora": "19:11",
-            "nombre": "Carnival Glory",
-            "naviera": "BALEARES CONSIGNATARIOS SLU",
-            "terminal": "Terminal E (Adossat)",
-            "terminal_codigo": "E",
-            "eslora": 0,
-            "pax_estimados": 500,
-            "puerto": "Alicante",
-            "tipo": "salida",
-            "estado": "Finalitzada",
-            "bandera": "Panamà",
-            "imo": "9198367",
-            "mmsi": "357659000",
-            "fecha": "2026-04-11"
-        },
-        {
-            "hora": "19:18",
+            "hora": "19:00",
             "nombre": "Msc Fantasia",
             "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
             "terminal": "Terminal C (Sant Bertran)",
@@ -444,7 +476,7 @@
             "pax_estimados": 500,
             "puerto": "Marseille",
             "tipo": "salida",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Panamà",
             "imo": "9359791",
             "mmsi": "370648000",
@@ -500,31 +532,33 @@
         }
     ],
     "resumen": {
-        "total_cruceros": 21,
-        "total_llegadas": 15,
+        "total_cruceros": 22,
+        "total_llegadas": 17,
         "total_salidas": 16,
-        "pax_estimados_hoy": 20500,
-        "proximo_desembarco": "22:30",
-        "proximo_barco": "Cruise Barcelona"
+        "pax_estimados_hoy": 22500,
+        "proximo_desembarco": "18:45",
+        "proximo_barco": "Ciudad De Palma"
     },
     "terminales_activas": [
-        "8156",
-        "172133",
-        "H",
-        "TC",
-        "F3",
         "6037",
+        "172133",
+        "8156",
         "C",
         "7946",
-        "6212",
+        "2396",
+        "F3",
+        "F2",
+        "6154",
+        "E",
         "F1",
         "0010",
-        "F2",
-        "E"
+        "6212",
+        "TC",
+        "H"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-04-11T19:34:55.670174",
+        "actualizado": "2026-04-11T17:31:51.083403",
         "frecuencia": "horaria"
     }
 }
