@@ -10,6 +10,7 @@ import {
   Cloud,
   Smartphone,
   RefreshCw,
+  LogIn,
 } from "lucide-react";
 import {
   Dialog,
@@ -58,13 +59,14 @@ export function AccountCreationDialog({ open, onDone, onSkip }: AccountCreationD
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [mode, setMode] = useState<"register" | "login">("register");
 
-  const handleRegister = async () => {
+  const handleSubmit = async () => {
     if (!email.trim() || !password.trim()) {
       setError("Rellena email y contraseña");
       return;
     }
-    if (password.length < 6) {
+    if (mode === "register" && password.length < 6) {
       setError("La contraseña debe tener al menos 6 caracteres");
       return;
     }
@@ -73,29 +75,50 @@ export function AccountCreationDialog({ open, onDone, onSkip }: AccountCreationD
     setLoading(true);
 
     try {
-      const { data, error: signUpError } = await supabase.auth.signUp({
-        email: email.trim().toLowerCase(),
-        password,
-      });
+      if (mode === "register") {
+        const { data, error: signUpError } = await supabase.auth.signUp({
+          email: email.trim().toLowerCase(),
+          password,
+        });
 
-      if (signUpError) {
-        if (signUpError.message.includes("already registered")) {
-          setError("Este email ya está registrado. Prueba a iniciar sesión.");
-        } else {
-          setError(signUpError.message);
+        if (signUpError) {
+          if (signUpError.message.includes("already registered")) {
+            setError("Este email ya está registrado. Prueba a iniciar sesión.");
+          } else {
+            setError(signUpError.message);
+          }
+          return;
         }
-        return;
-      }
 
-      if (!data.session) {
-        setError("No se pudo crear la sesión. Inténtalo de nuevo.");
-        return;
-      }
+        if (!data.session) {
+          setError("No se pudo crear la sesión. Inténtalo de nuevo.");
+          return;
+        }
 
-      setSuccess(true);
-      toast.success("¡Cuenta creada!", {
-        description: "Tu cuenta está lista. Tus datos se sincronizarán automáticamente.",
-      });
+        setSuccess(true);
+        toast.success("¡Cuenta creada!", {
+          description: "Tu cuenta está lista. Tus datos se sincronizarán automáticamente.",
+        });
+      } else {
+        const { error: signInError } = await supabase.auth.signInWithPassword({
+          email: email.trim().toLowerCase(),
+          password,
+        });
+
+        if (signInError) {
+          if (signInError.message.includes("Invalid login")) {
+            setError("Email o contraseña incorrectos.");
+          } else {
+            setError(signInError.message);
+          }
+          return;
+        }
+
+        setSuccess(true);
+        toast.success("¡Sesión iniciada!", {
+          description: "Bienvenido de vuelta.",
+        });
+      }
 
       setTimeout(() => {
         onDone();
@@ -108,7 +131,12 @@ export function AccountCreationDialog({ open, onDone, onSkip }: AccountCreationD
   };
 
   const handleKeyDown = (e: React.KeyboardEvent) => {
-    if (e.key === "Enter") handleRegister();
+    if (e.key === "Enter") handleSubmit();
+  };
+
+  const switchMode = () => {
+    setMode(mode === "register" ? "login" : "register");
+    setError(null);
   };
 
   return (
@@ -132,7 +160,9 @@ export function AccountCreationDialog({ open, onDone, onSkip }: AccountCreationD
               <CheckCircle2 className="h-8 w-8 text-emerald-400" />
             </motion.div>
             <div>
-              <h3 className="text-lg font-bold text-foreground">¡Cuenta creada!</h3>
+              <h3 className="text-lg font-bold text-foreground">
+                {mode === "register" ? "¡Cuenta creada!" : "¡Sesión iniciada!"}
+              </h3>
               <p className="text-sm text-muted-foreground mt-1">
                 Tus datos se sincronizarán automáticamente.
               </p>
@@ -149,33 +179,37 @@ export function AccountCreationDialog({ open, onDone, onSkip }: AccountCreationD
                   transition={{ type: "spring", stiffness: 200, damping: 20 }}
                   className="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center mb-3"
                 >
-                  <span className="text-2xl">🔐</span>
+                  <span className="text-2xl">{mode === "register" ? "🔐" : "👋"}</span>
                 </motion.div>
                 <DialogTitle className="text-lg font-bold leading-tight">
-                  Crea tu cuenta
+                  {mode === "register" ? "Crea tu cuenta" : "Iniciar sesión"}
                 </DialogTitle>
                 <DialogDescription className="text-xs text-muted-foreground mt-1">
-                  Opcional — puedes hacerlo mas tarde
+                  {mode === "register"
+                    ? "Opcional — puedes hacerlo mas tarde"
+                    : "Accede con tu cuenta existente"}
                 </DialogDescription>
               </div>
 
-              {/* Benefits */}
-              <div className="space-y-2">
-                {benefits.map((b, i) => (
-                  <motion.div
-                    key={b.text}
-                    initial={{ opacity: 0, x: -10 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: 0.15 + i * 0.08 }}
-                    className="flex items-center gap-2.5"
-                  >
-                    <div className={cn("w-7 h-7 rounded-lg flex items-center justify-center shrink-0", b.bg)}>
-                      <b.icon className={cn("h-3.5 w-3.5", b.color)} />
-                    </div>
-                    <span className="text-[11px] text-muted-foreground leading-tight">{b.text}</span>
-                  </motion.div>
-                ))}
-              </div>
+              {/* Benefits - only on register */}
+              {mode === "register" && (
+                <div className="space-y-2">
+                  {benefits.map((b, i) => (
+                    <motion.div
+                      key={b.text}
+                      initial={{ opacity: 0, x: -10 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ delay: 0.15 + i * 0.08 }}
+                      className="flex items-center gap-2.5"
+                    >
+                      <div className={cn("w-7 h-7 rounded-lg flex items-center justify-center shrink-0", b.bg)}>
+                        <b.icon className={cn("h-3.5 w-3.5", b.color)} />
+                      </div>
+                      <span className="text-[11px] text-muted-foreground leading-tight">{b.text}</span>
+                    </motion.div>
+                  ))}
+                </div>
+              )}
             </div>
 
             {/* Form */}
@@ -212,7 +246,7 @@ export function AccountCreationDialog({ open, onDone, onSkip }: AccountCreationD
                   <Input
                     id="ob-password"
                     type={showPassword ? "text" : "password"}
-                    placeholder="Minimo 6 caracteres"
+                    placeholder={mode === "register" ? "Minimo 6 caracteres" : "Tu contraseña"}
                     value={password}
                     onChange={(e) => {
                       setPassword(e.target.value);
@@ -246,7 +280,7 @@ export function AccountCreationDialog({ open, onDone, onSkip }: AccountCreationD
               )}
 
               <Button
-                onClick={handleRegister}
+                onClick={handleSubmit}
                 disabled={loading}
                 className="w-full h-12 rounded-xl font-semibold text-sm mt-1 shadow-lg shadow-primary/10"
                 size="default"
@@ -254,15 +288,34 @@ export function AccountCreationDialog({ open, onDone, onSkip }: AccountCreationD
                 {loading ? (
                   <span className="flex items-center gap-2">
                     <span className="h-4 w-4 border-2 border-current border-t-transparent rounded-full animate-spin" />
-                    Creando cuenta...
+                    {mode === "register" ? "Creando cuenta..." : "Iniciando sesión..."}
                   </span>
                 ) : (
                   <span className="flex items-center gap-2">
-                    Crear cuenta
-                    <ArrowRight className="h-4 w-4" />
+                    {mode === "register" ? (
+                      <>
+                        Crear cuenta
+                        <ArrowRight className="h-4 w-4" />
+                      </>
+                    ) : (
+                      <>
+                        <LogIn className="h-4 w-4" />
+                        Iniciar sesión
+                      </>
+                    )}
                   </span>
                 )}
               </Button>
+
+              {/* Toggle register/login */}
+              <button
+                onClick={switchMode}
+                className="w-full text-xs text-primary/80 hover:text-primary transition-colors py-2 text-center rounded-xl hover:bg-primary/5"
+              >
+                {mode === "register"
+                  ? "¿Ya tienes cuenta? Inicia sesión"
+                  : "¿No tienes cuenta? Créala aquí"}
+              </button>
 
               <button
                 onClick={onSkip}
