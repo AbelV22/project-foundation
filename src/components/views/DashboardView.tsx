@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { RefreshCw, Plane, Train, Ship, Users, Clock, ChevronRight, TrendingUp, Calendar, Settings, Euro, MapPin, Navigation, Anchor, Receipt } from "lucide-react";
+import { RefreshCw, Plane, Train, Ship, Users, Clock, ChevronRight, TrendingUp, Calendar, Euro, MapPin, Navigation, Anchor, Receipt } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useEvents } from "@/hooks/useEvents";
 import { useCruises } from "@/hooks/useCruises";
@@ -197,12 +197,9 @@ export function DashboardView({ onTerminalClick, onViewAllFlights, onViewAllEven
 
   return (
     <div className="space-y-3 pb-16">
-      {/* Header with Settings */}
-      <div className="flex items-center justify-between px-1 pt-1 animate-slide-down" style={{ animationDelay: '50ms', animationFillMode: 'backwards' }}>
+      {/* Header */}
+      <div className="flex items-center px-1 pt-1 animate-slide-down" style={{ animationDelay: '50ms', animationFillMode: 'backwards' }}>
         <h2 className="text-xl font-display font-bold text-foreground">iTaxi BCN</h2>
-        <button onClick={() => navigate('/settings')} className="p-2 rounded-full hover:bg-muted/50 active:scale-95 transition-all duration-150">
-          <Settings className="h-5 w-5 text-muted-foreground" />
-        </button>
       </div>
 
       {/* === LOCATION STATUS WIDGET (visible when testing mode is on) === */}
