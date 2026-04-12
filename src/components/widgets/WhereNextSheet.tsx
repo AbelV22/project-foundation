@@ -110,9 +110,9 @@ export function WhereNextSheet() {
                 </button>
             </DrawerTrigger>
 
-            <DrawerContent className="bg-slate-900 border-slate-700 max-h-[85vh]">
+            <DrawerContent className="bg-card border-border max-h-[85vh]">
                 <DrawerHeader className="text-center pb-2">
-                    <DrawerTitle className="text-white text-xl flex items-center justify-center gap-2">
+                    <DrawerTitle className="text-foreground text-xl flex items-center justify-center gap-2">
                         <Sparkles className="h-5 w-5 text-emerald-400" />
                         ¿A Dónde Voy?
                     </DrawerTitle>
@@ -122,7 +122,7 @@ export function WhereNextSheet() {
 
                     {/* Data Status Bar */}
                     {dataStatus.lastUpdate && (
-                        <div className="flex items-center justify-center gap-3 mt-2 text-[10px] text-white/40">
+                        <div className="flex items-center justify-center gap-3 mt-2 text-[10px] text-muted-foreground/50">
                             <span>✈️ {dataStatus.flightsLoaded} vuelos</span>
                             <span>🚂 {dataStatus.trainsLoaded} trenes</span>
                             <span>⏱️ {dataStatus.lastUpdate.toLocaleTimeString('es-ES', { hour: '2-digit', minute: '2-digit' })}</span>
@@ -149,7 +149,7 @@ export function WhereNextSheet() {
                     ) : recommendations.length === 0 ? (
                         <div className="flex flex-col items-center justify-center py-8 gap-2 text-center">
                             <AlertCircle className="h-8 w-8 text-amber-400" />
-                            <span className="text-sm text-white/70">No hay datos para mostrar</span>
+                            <span className="text-sm text-foreground/70">No hay datos para mostrar</span>
                             <span className="text-xs text-muted-foreground">Prueba a actualizar</span>
                         </div>
                     ) : (
@@ -161,12 +161,12 @@ export function WhereNextSheet() {
                                     getScoreBg(bestOption.score)
                                 )}>
                                     <div className="flex items-start gap-3">
-                                        <div className="h-12 w-12 rounded-xl bg-white/10 flex items-center justify-center text-emerald-400">
+                                        <div className="h-12 w-12 rounded-xl bg-foreground/10 flex items-center justify-center text-emerald-400">
                                             {getTypeIcon(bestOption.type)}
                                         </div>
                                         <div className="flex-1">
                                             <div className="flex items-center gap-2">
-                                                <span className="font-semibold text-white text-lg">{bestOption.zoneName}</span>
+                                                <span className="font-semibold text-foreground text-lg">{bestOption.zoneName}</span>
                                                 <span className={cn("text-xs font-bold px-1.5 py-0.5 rounded", getScoreBg(bestOption.score), getScoreColor(bestOption.score))}>
                                                     {bestOption.score}
                                                 </span>
@@ -175,18 +175,18 @@ export function WhereNextSheet() {
                                                 🏆 Mejor opción ahora
                                             </p>
 
-                                            <div className="flex flex-wrap items-center gap-2 mt-2 text-xs text-white/70">
-                                                <span className="flex items-center gap-1 bg-white/5 px-2 py-0.5 rounded">
+                                            <div className="flex flex-wrap items-center gap-2 mt-2 text-xs text-foreground/70">
+                                                <span className="flex items-center gap-1 bg-foreground/5 px-2 py-0.5 rounded">
                                                     <Navigation className="h-3 w-3" />
                                                     {bestOption.distance} min
                                                 </span>
                                                 {bestOption.waitingTime !== null ? (
-                                                    <span className="flex items-center gap-1 bg-white/5 px-2 py-0.5 rounded">
+                                                    <span className="flex items-center gap-1 bg-foreground/5 px-2 py-0.5 rounded">
                                                         <Clock className="h-3 w-3" />
                                                         ~{bestOption.waitingTime}' espera
                                                     </span>
                                                 ) : (
-                                                    <span className="flex items-center gap-1 bg-white/5 px-2 py-0.5 rounded text-white/40">
+                                                    <span className="flex items-center gap-1 bg-foreground/5 px-2 py-0.5 rounded text-muted-foreground/50">
                                                         <Clock className="h-3 w-3" />
                                                         Sin datos
                                                     </span>
@@ -204,14 +204,14 @@ export function WhereNextSheet() {
                                                     </span>
                                                 )}
                                                 {bestOption.taxistas > 0 && (
-                                                    <span className="flex items-center gap-1 bg-white/5 px-2 py-0.5 rounded">
+                                                    <span className="flex items-center gap-1 bg-foreground/5 px-2 py-0.5 rounded">
                                                         <Users className="h-3 w-3" />
                                                         {bestOption.taxistas} taxis
                                                     </span>
                                                 )}
                                             </div>
 
-                                            <p className="text-xs text-white/50 mt-2">
+                                            <p className="text-xs text-muted-foreground/60 mt-2">
                                                 {bestOption.reason}
                                             </p>
                                         </div>
@@ -221,9 +221,9 @@ export function WhereNextSheet() {
 
                             {/* Divider */}
                             <div className="flex items-center gap-2 px-1">
-                                <div className="flex-1 h-px bg-white/10" />
+                                <div className="flex-1 h-px bg-foreground/10" />
                                 <span className="text-[10px] text-muted-foreground uppercase tracking-wider">Alternativas</span>
-                                <div className="flex-1 h-px bg-white/10" />
+                                <div className="flex-1 h-px bg-foreground/10" />
                             </div>
 
                             {/* Other Options */}
@@ -231,25 +231,25 @@ export function WhereNextSheet() {
                                 {recommendations.slice(1).map((rec) => (
                                     <div
                                         key={rec.zone}
-                                        className="p-3 rounded-xl bg-slate-800/50 border border-white/5 hover:border-white/10 transition-all"
+                                        className="p-3 rounded-xl bg-muted/20 border border-border/30 hover:border-border/50 transition-all"
                                     >
                                         <div className="flex items-center gap-3">
-                                            <div className="h-10 w-10 rounded-lg bg-white/5 flex items-center justify-center text-white/60">
+                                            <div className="h-10 w-10 rounded-lg bg-foreground/5 flex items-center justify-center text-muted-foreground">
                                                 {getTypeIcon(rec.type)}
                                             </div>
                                             <div className="flex-1 min-w-0">
                                                 <div className="flex items-center justify-between">
-                                                    <span className="font-medium text-white text-sm">{rec.zoneName}</span>
-                                                    <span className={cn("text-xs font-semibold px-1.5 py-0.5 rounded bg-white/5", getScoreColor(rec.score))}>
+                                                    <span className="font-medium text-foreground text-sm">{rec.zoneName}</span>
+                                                    <span className={cn("text-xs font-semibold px-1.5 py-0.5 rounded bg-foreground/5", getScoreColor(rec.score))}>
                                                         {rec.score}
                                                     </span>
                                                 </div>
-                                                <div className="flex items-center gap-2 mt-1 text-[10px] text-white/50 flex-wrap">
+                                                <div className="flex items-center gap-2 mt-1 text-[10px] text-muted-foreground/60 flex-wrap">
                                                     <span>{rec.distance} min</span>
                                                     {rec.waitingTime !== null ? (
                                                         <span>~{rec.waitingTime}' espera</span>
                                                     ) : (
-                                                        <span className="text-white/30">Sin datos</span>
+                                                        <span className="text-muted-foreground/40">Sin datos</span>
                                                     )}
                                                     {(rec.upcomingFlights > 0 || rec.upcomingTrains > 0) && (
                                                         <span className="text-primary">
@@ -260,7 +260,7 @@ export function WhereNextSheet() {
                                                     )}
                                                 </div>
                                             </div>
-                                            <ChevronRight className="h-4 w-4 text-white/20" />
+                                            <ChevronRight className="h-4 w-4 text-muted-foreground/30" />
                                         </div>
                                     </div>
                                 ))}

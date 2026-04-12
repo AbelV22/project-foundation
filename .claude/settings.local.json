@@ -50,7 +50,9 @@
       "Bash(ls -la /Users/abelvazquezsantisteban/Documents/Proyectos/iTaxi/project-foundation/public/pwa-* /Users/abelvazquezsantisteban/Documents/Proyectos/iTaxi/project-foundation/public/favicon* /Users/abelvazquezsantisteban/Documents/Proyectos/iTaxi/project-foundation/public/logo*)",
       "mcp__supabase__apply_migration",
       "Bash(sips -z 192 192 \"/Users/abelvazquezsantisteban/Documents/Proyectos/iTaxi/project-foundation/public/logo-itaxibcn.png\" --out \"/Users/abelvazquezsantisteban/Documents/Proyectos/iTaxi/project-foundation/public/pwa-192x192.png\")",
-      "Bash(sips -z 512 512 \"/Users/abelvazquezsantisteban/Documents/Proyectos/iTaxi/project-foundation/public/logo-itaxibcn.png\" --out \"/Users/abelvazquezsantisteban/Documents/Proyectos/iTaxi/project-foundation/public/pwa-512x512.png\")"
+      "Bash(sips -z 512 512 \"/Users/abelvazquezsantisteban/Documents/Proyectos/iTaxi/project-foundation/public/logo-itaxibcn.png\" --out \"/Users/abelvazquezsantisteban/Documents/Proyectos/iTaxi/project-foundation/public/pwa-512x512.png\")",
+      "Bash(grep -E \"^\\\\s+[a-z_]+:\\\\s*\\\\{$\" /Users/abelvazquezsantisteban/Documents/Proyectos/iTaxi/project-foundation/src/integrations/supabase/types.ts)",
+      "mcp__supabase__deploy_edge_function"
     ]
   }
 }

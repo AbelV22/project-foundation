@@ -120,7 +120,8 @@ export const useExpenses = () => {
         liters?: number,
         notes?: string,
         isRecurring: boolean = false,
-        recurrencePattern?: RecurrencePattern
+        recurrencePattern?: RecurrencePattern,
+        receiptPhotoUrl?: string
     ): Promise<boolean> => {
         try {
             setError(null);
@@ -139,6 +140,7 @@ export const useExpenses = () => {
                     notes: notes || null,
                     is_recurring: isRecurring,
                     recurrence_pattern: recurrencePattern || null,
+                    receipt_photo_url: receiptPhotoUrl || null,
                 })
                 .select()
                 .single();

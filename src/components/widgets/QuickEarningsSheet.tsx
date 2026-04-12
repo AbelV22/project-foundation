@@ -129,9 +129,9 @@ export function QuickEarningsSheet({ currentZone }: QuickEarningsSheetProps) {
                 </button>
             </DrawerTrigger>
 
-            <DrawerContent className="bg-slate-900 border-slate-700">
+            <DrawerContent className="bg-card border-border">
                 <DrawerHeader className="text-center pb-2">
-                    <DrawerTitle className="text-white text-xl flex items-center justify-center gap-2">
+                    <DrawerTitle className="text-foreground text-xl flex items-center justify-center gap-2">
                         <Euro className="h-5 w-5 text-primary" />
                         Añadir Carrera
                     </DrawerTitle>
@@ -153,7 +153,7 @@ export function QuickEarningsSheet({ currentZone }: QuickEarningsSheetProps) {
                                     "h-14 rounded-xl font-mono text-lg font-bold transition-all active:scale-95",
                                     selectedAmount === amount
                                         ? "bg-primary text-white shadow-lg shadow-primary/30"
-                                        : "bg-slate-800 text-white/80 hover:bg-slate-700"
+                                        : "bg-muted/30 text-foreground/80 hover:bg-muted/50"
                                 )}
                             >
                                 {amount}€
@@ -170,7 +170,7 @@ export function QuickEarningsSheet({ currentZone }: QuickEarningsSheetProps) {
                             value={customAmount}
                             onChange={(e) => handleCustomAmount(e.target.value)}
                             className={cn(
-                                "w-full h-12 px-4 rounded-xl bg-slate-800 text-white font-mono text-lg placeholder:text-slate-500 focus:outline-none focus:ring-2",
+                                "w-full h-12 px-4 rounded-xl bg-muted/30 text-foreground font-mono text-lg placeholder:text-muted-foreground/70 focus:outline-none focus:ring-2",
                                 customAmount ? "ring-2 ring-primary" : "focus:ring-primary"
                             )}
                         />
@@ -191,7 +191,7 @@ export function QuickEarningsSheet({ currentZone }: QuickEarningsSheetProps) {
                                         "flex-1 h-9 rounded-lg text-sm font-medium transition-all",
                                         propina === tip
                                             ? "bg-emerald-500 text-white"
-                                            : "bg-slate-800 text-white/70 hover:bg-slate-700"
+                                            : "bg-muted/30 text-foreground/70 hover:bg-muted/50"
                                     )}
                                 >
                                     {tip === 0 ? "Sin" : `+${tip}€`}
@@ -208,7 +208,7 @@ export function QuickEarningsSheet({ currentZone }: QuickEarningsSheetProps) {
                                 "flex-1 h-11 rounded-xl flex items-center justify-center gap-2 font-medium transition-all",
                                 metodoPago === 'efectivo'
                                     ? "bg-emerald-500/20 text-emerald-400 ring-1 ring-emerald-500"
-                                    : "bg-slate-800 text-white/60 hover:bg-slate-700"
+                                    : "bg-muted/30 text-foreground/60 hover:bg-muted/50"
                             )}
                         >
                             <Banknote className="h-4 w-4" />
@@ -220,7 +220,7 @@ export function QuickEarningsSheet({ currentZone }: QuickEarningsSheetProps) {
                                 "flex-1 h-11 rounded-xl flex items-center justify-center gap-2 font-medium transition-all",
                                 metodoPago === 'tarjeta'
                                     ? "bg-blue-500/20 text-blue-400 ring-1 ring-blue-500"
-                                    : "bg-slate-800 text-white/60 hover:bg-slate-700"
+                                    : "bg-muted/30 text-foreground/60 hover:bg-muted/50"
                             )}
                         >
                             <CreditCard className="h-4 w-4" />
@@ -254,7 +254,7 @@ export function QuickEarningsSheet({ currentZone }: QuickEarningsSheetProps) {
                                                 setStartKm(val);
                                             }
                                         }}
-                                        className="bg-slate-800 border-slate-700 text-white"
+                                        className="bg-muted/30 border-border text-foreground"
                                     />
                                 </div>
                                 <div className="space-y-1">
@@ -270,7 +270,7 @@ export function QuickEarningsSheet({ currentZone }: QuickEarningsSheetProps) {
                                                 setEndKm(val);
                                             }
                                         }}
-                                        className="bg-slate-800 border-slate-700 text-white"
+                                        className="bg-muted/30 border-border text-foreground"
                                     />
                                 </div>
                             </div>

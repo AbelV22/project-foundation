@@ -162,9 +162,9 @@ export function TicketScanSheet() {
                 </button>
             </DrawerTrigger>
 
-            <DrawerContent className="bg-slate-900 border-slate-700 max-h-[90vh]">
+            <DrawerContent className="bg-card border-border max-h-[90vh]">
                 <DrawerHeader className="text-center pb-2">
-                    <DrawerTitle className="text-white text-xl flex items-center justify-center gap-2">
+                    <DrawerTitle className="text-foreground text-xl flex items-center justify-center gap-2">
                         <Receipt className="h-5 w-5 text-amber-400" />
                         Ticket Taxitronic
                     </DrawerTitle>
@@ -181,7 +181,7 @@ export function TicketScanSheet() {
                             type="date"
                             value={fecha}
                             onChange={(e) => setFecha(e.target.value)}
-                            className="bg-slate-800 border-slate-700 text-white"
+                            className="bg-muted/30 border-border text-foreground"
                         />
                     </div>
 
@@ -189,10 +189,10 @@ export function TicketScanSheet() {
                     {!imagePreview ? (
                         <button
                             onClick={() => fileInputRef.current?.click()}
-                            className="w-full h-40 rounded-xl border-2 border-dashed border-slate-600 flex flex-col items-center justify-center gap-3 hover:border-amber-500/50 hover:bg-slate-800/50 transition-all"
+                            className="w-full h-40 rounded-xl border-2 border-dashed border-border/50 flex flex-col items-center justify-center gap-3 hover:border-amber-500/50 hover:bg-muted/20 transition-all"
                         >
-                            <Camera className="h-10 w-10 text-slate-500" />
-                            <span className="text-sm text-slate-400">Toca para hacer foto del ticket</span>
+                            <Camera className="h-10 w-10 text-muted-foreground/70" />
+                            <span className="text-sm text-muted-foreground">Toca para hacer foto del ticket</span>
                         </button>
                     ) : (
                         <div className="relative">
@@ -202,9 +202,9 @@ export function TicketScanSheet() {
                                 className="w-full h-40 object-cover rounded-xl"
                             />
                             {scanning && (
-                                <div className="absolute inset-0 bg-black/60 rounded-xl flex flex-col items-center justify-center gap-2">
+                                <div className="absolute inset-0 bg-background/80 rounded-xl flex flex-col items-center justify-center gap-2">
                                     <Loader2 className="h-8 w-8 text-amber-400 animate-spin" />
-                                    <span className="text-sm text-white">Analizando ticket...</span>
+                                    <span className="text-sm text-foreground">Analizando ticket...</span>
                                 </div>
                             )}
                             <button
@@ -214,7 +214,7 @@ export function TicketScanSheet() {
                                     setScanned(false);
                                     if (fileInputRef.current) fileInputRef.current.value = '';
                                 }}
-                                className="absolute top-2 right-2 h-8 w-8 rounded-full bg-black/60 flex items-center justify-center text-white hover:bg-black/80"
+                                className="absolute top-2 right-2 h-8 w-8 rounded-full bg-background/80 flex items-center justify-center text-foreground hover:bg-background/90"
                             >
                                 ×
                             </button>
@@ -257,7 +257,7 @@ export function TicketScanSheet() {
                                             }
                                         }}
                                         className={cn(
-                                            "bg-slate-800 border-slate-700 text-white font-mono",
+                                            "bg-muted/30 border-border text-foreground font-mono",
                                             kmTotales && "border-amber-500/50"
                                         )}
                                     />
@@ -278,7 +278,7 @@ export function TicketScanSheet() {
                                             }
                                         }}
                                         className={cn(
-                                            "bg-slate-800 border-slate-700 text-white font-mono",
+                                            "bg-muted/30 border-border text-foreground font-mono",
                                             ingresosTotales && "border-amber-500/50"
                                         )}
                                     />
@@ -299,7 +299,7 @@ export function TicketScanSheet() {
                                             }
                                         }}
                                         className={cn(
-                                            "bg-slate-800 border-slate-700 text-white font-mono",
+                                            "bg-muted/30 border-border text-foreground font-mono",
                                             numCarreras && "border-amber-500/50"
                                         )}
                                     />
