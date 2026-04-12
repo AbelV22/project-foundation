@@ -283,6 +283,12 @@
             "via": "-"
         },
         {
+            "hora": "20:02",
+            "origen": "Pamplona / Iruña",
+            "tren": "INTERCITY 00563",
+            "via": "-"
+        },
+        {
             "hora": "20:33",
             "origen": "Figueres-Vilafant",
             "tren": "AVE 03292",
@@ -340,7 +346,7 @@
             "hora": "21:59",
             "origen": "Madrid Puerta de Atocha Almudena Grandes",
             "tren": "AVE 03191",
-            "via": "-"
+            "via": "5"
         },
         {
             "hora": "22:04",
@@ -358,7 +364,7 @@
             "hora": "22:46",
             "origen": "Sevilla Santa Justa",
             "tren": "IRYO 06013",
-            "via": "-"
+            "via": "3"
         },
         {
             "hora": "22:59",
@@ -370,6 +376,12 @@
             "hora": "23:20",
             "origen": "Madrid Puerta de Atocha Almudena Grandes",
             "tren": "AVE 03193",
+            "via": "5"
+        },
+        {
+            "hora": "23:25",
+            "origen": "Alacant / Alicante Terminal",
+            "tren": "INTERCITY 01402",
             "via": "-"
         },
         {
@@ -379,15 +391,27 @@
             "via": "-"
         },
         {
+            "hora": "23:34",
+            "origen": "Miranda de Ebro",
+            "tren": "ALVIA 11621",
+            "via": "-"
+        },
+        {
             "hora": "23:47",
             "origen": "Madrid Puerta de Atocha Almudena Grandes",
             "tren": "AVE 03403",
-            "via": "-"
+            "via": "2"
+        },
+        {
+            "hora": "23:58",
+            "origen": "Madrid Puerta de Atocha Almudena Grandes",
+            "tren": "IRYO 06211",
+            "via": "4"
         }
     ],
     "meta": {
-        "update_time": "22:21",
-        "updated_at": "2026-04-12T22:21:55.860446",
-        "total": 64
+        "update_time": "20:23",
+        "updated_at": "2026-04-12T20:23:11.370156",
+        "total": 68
     }
 }
