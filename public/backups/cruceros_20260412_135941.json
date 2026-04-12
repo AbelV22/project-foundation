@@ -74,7 +74,7 @@
             "pax_estimados": 500,
             "puerto": "Alicante",
             "tipo": "llegada",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Itàlia",
             "imo": "9479852",
             "mmsi": "247311100",
@@ -161,7 +161,7 @@
             "fecha": "2026-04-12"
         },
         {
-            "hora": "13:34",
+            "hora": "11:30",
             "nombre": "Martin I Soler",
             "naviera": "EUROLINEAS MARITIMAS S.A",
             "terminal": "",
@@ -387,23 +387,7 @@
             "fecha": "2026-04-12"
         },
         {
-            "hora": "13:07",
-            "nombre": "Costa Favolosa",
-            "naviera": "NOATUM MARITIME SPAIN SAU",
-            "terminal": "Terminal D (Adossat)",
-            "terminal_codigo": "D",
-            "eslora": 0,
-            "pax_estimados": 500,
-            "puerto": "Savona",
-            "tipo": "salida",
-            "estado": "Finalitzada",
-            "bandera": "Itàlia",
-            "imo": "9479852",
-            "mmsi": "247311100",
-            "fecha": "2026-04-12"
-        },
-        {
-            "hora": "13:33",
+            "hora": "11:29",
             "nombre": "Martin I Soler",
             "naviera": "BALEARIA EUROLINEAS MARITIMAS SA ",
             "terminal": "TERMINAL F1",
@@ -416,6 +400,22 @@
             "bandera": "Espanya",
             "imo": "9390367",
             "mmsi": "224637000",
+            "fecha": "2026-04-12"
+        },
+        {
+            "hora": "13:00",
+            "nombre": "Costa Favolosa",
+            "naviera": "NOATUM MARITIME SPAIN SAU",
+            "terminal": "Terminal D (Adossat)",
+            "terminal_codigo": "D",
+            "eslora": 0,
+            "pax_estimados": 500,
+            "puerto": "Savona",
+            "tipo": "salida",
+            "estado": "Iniciada",
+            "bandera": "Itàlia",
+            "imo": "9479852",
+            "mmsi": "247311100",
             "fecha": "2026-04-12"
         },
         {
@@ -604,21 +604,21 @@
         "proximo_barco": "Martin I Soler"
     },
     "terminales_activas": [
-        "D",
-        "F1",
-        "F3",
         "6212",
-        "H",
-        "0010",
-        "6037",
-        "F2",
-        "TC",
+        "F1",
         "E",
-        "A"
+        "TC",
+        "A",
+        "F3",
+        "H",
+        "6037",
+        "D",
+        "0010",
+        "F2"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-04-12T13:59:41.025865",
+        "actualizado": "2026-04-12T11:34:13.798077",
         "frecuencia": "horaria"
     }
 }
