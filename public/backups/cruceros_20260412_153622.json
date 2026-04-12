@@ -17,6 +17,22 @@
             "fecha": "2026-04-12"
         },
         {
+            "hora": "00:28",
+            "nombre": "Zim Pacific",
+            "naviera": "ZIM INTEGRATED SHIPPING SERV.",
+            "terminal": "TERMINAL CATALUNYA SA",
+            "terminal_codigo": "6212",
+            "eslora": 262.0,
+            "pax_estimados": 3000,
+            "puerto": "Genoa",
+            "tipo": "llegada",
+            "estado": "Iniciada",
+            "bandera": "Libèria",
+            "imo": "9440837",
+            "mmsi": "636021362",
+            "fecha": "2026-04-12"
+        },
+        {
             "hora": "05:09",
             "nombre": "Seasalvia",
             "naviera": "THENAMARIS SHIPS MANAGEMENT",
@@ -161,23 +177,7 @@
             "fecha": "2026-04-12"
         },
         {
-            "hora": "15:29",
-            "nombre": "Zim Pacific",
-            "naviera": "ZIM INTEGRATED SHIPPING SERV.",
-            "terminal": "TERMINAL CATALUNYA SA",
-            "terminal_codigo": "6212",
-            "eslora": 262.0,
-            "pax_estimados": 3000,
-            "puerto": "Genoa",
-            "tipo": "llegada",
-            "estado": "Iniciada",
-            "bandera": "Libèria",
-            "imo": "9440837",
-            "mmsi": "636021362",
-            "fecha": "2026-04-12"
-        },
-        {
-            "hora": "16:13",
+            "hora": "15:45",
             "nombre": "Martin I Soler",
             "naviera": "EUROLINEAS MARITIMAS S.A",
             "terminal": "TERMINAL F1",
@@ -272,6 +272,22 @@
             "bandera": "Libèria",
             "imo": "9231779",
             "mmsi": "636015496",
+            "fecha": "2026-04-12"
+        },
+        {
+            "hora": "00:27",
+            "nombre": "Zim Pacific",
+            "naviera": "A PEREZ Y CIA SL",
+            "terminal": "",
+            "terminal_codigo": "",
+            "eslora": 262.0,
+            "pax_estimados": 3000,
+            "puerto": "Valencia",
+            "tipo": "salida",
+            "estado": "Iniciada",
+            "bandera": "Libèria",
+            "imo": "9440837",
+            "mmsi": "636021362",
             "fecha": "2026-04-12"
         },
         {
@@ -403,23 +419,7 @@
             "fecha": "2026-04-12"
         },
         {
-            "hora": "15:28",
-            "nombre": "Zim Pacific",
-            "naviera": "A PEREZ Y CIA SL",
-            "terminal": "",
-            "terminal_codigo": "",
-            "eslora": 262.0,
-            "pax_estimados": 3000,
-            "puerto": "Valencia",
-            "tipo": "salida",
-            "estado": "Iniciada",
-            "bandera": "Libèria",
-            "imo": "9440837",
-            "mmsi": "636021362",
-            "fecha": "2026-04-12"
-        },
-        {
-            "hora": "15:31",
+            "hora": "14:00",
             "nombre": "Zim Pacific",
             "naviera": "A PEREZ Y CIA SL",
             "terminal": "TERMINAL CATALUNYA SA",
@@ -435,7 +435,7 @@
             "fecha": "2026-04-12"
         },
         {
-            "hora": "16:12",
+            "hora": "15:44",
             "nombre": "Martin I Soler",
             "naviera": "BALEARIA EUROLINEAS MARITIMAS SA ",
             "terminal": "",
@@ -600,25 +600,25 @@
         "total_llegadas": 16,
         "total_salidas": 21,
         "pax_estimados_hoy": 32000,
-        "proximo_desembarco": "16:13",
+        "proximo_desembarco": "15:45",
         "proximo_barco": "Martin I Soler"
     },
     "terminales_activas": [
+        "D",
         "F1",
         "F3",
-        "E",
-        "H",
-        "TC",
-        "D",
         "6212",
+        "H",
+        "0010",
         "6037",
         "F2",
-        "A",
-        "0010"
+        "TC",
+        "E",
+        "A"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-04-12T15:36:22.067259",
+        "actualizado": "2026-04-12T13:59:41.025865",
         "frecuencia": "horaria"
     }
 }
