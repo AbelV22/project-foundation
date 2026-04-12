@@ -50,6 +50,22 @@
         },
         {
             "hora": "06:00",
+            "nombre": "Msc Everest Viii",
+            "naviera": "MEDITERRANEAN SHIPPING CO",
+            "terminal": "TERMINAL CATALUNYA SA",
+            "terminal_codigo": "6212",
+            "eslora": 334.0,
+            "pax_estimados": 4500,
+            "puerto": "Valencia",
+            "tipo": "llegada",
+            "estado": "Autoritzada",
+            "bandera": "Xipre",
+            "imo": "9286231",
+            "mmsi": "210644000",
+            "fecha": "2026-04-12"
+        },
+        {
+            "hora": "06:00",
             "nombre": "Msc Candice",
             "naviera": "MEDITERRANEAN SHIPPING CO",
             "terminal": "TERMINAL CATALUNYA SA",
@@ -142,22 +158,6 @@
             "bandera": "Malta",
             "imo": "9072446",
             "mmsi": "249054000",
-            "fecha": "2026-04-12"
-        },
-        {
-            "hora": "11:19",
-            "nombre": "Msc Everest Viii",
-            "naviera": "MEDITERRANEAN SHIPPING CO",
-            "terminal": "TERMINAL CATALUNYA SA",
-            "terminal_codigo": "6212",
-            "eslora": 334.0,
-            "pax_estimados": 4500,
-            "puerto": "Valencia",
-            "tipo": "llegada",
-            "estado": "Iniciada",
-            "bandera": "Xipre",
-            "imo": "9286231",
-            "mmsi": "210644000",
             "fecha": "2026-04-12"
         },
         {
@@ -600,25 +600,25 @@
         "total_llegadas": 16,
         "total_salidas": 21,
         "pax_estimados_hoy": 32000,
-        "proximo_desembarco": "15:45",
+        "proximo_desembarco": "11:30",
         "proximo_barco": "Martin I Soler"
     },
     "terminales_activas": [
-        "6212",
-        "F1",
-        "E",
-        "TC",
         "A",
+        "F1",
+        "0010",
         "F3",
-        "H",
+        "6212",
         "6037",
         "D",
-        "0010",
-        "F2"
+        "H",
+        "F2",
+        "TC",
+        "E"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-04-12T11:34:13.798077",
+        "actualizado": "2026-04-12T09:45:12.744823",
         "frecuencia": "horaria"
     }
 }
