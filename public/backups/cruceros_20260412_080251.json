@@ -129,7 +129,23 @@
             "fecha": "2026-04-12"
         },
         {
-            "hora": "08:49",
+            "hora": "08:00",
+            "nombre": "Marella Explorer 2",
+            "naviera": "MARELLA CRUISES LTD",
+            "terminal": "Terminal A (WTC)",
+            "terminal_codigo": "A",
+            "eslora": 246.0,
+            "pax_estimados": 2000,
+            "puerto": "Toulon",
+            "tipo": "llegada",
+            "estado": "Autoritzada",
+            "bandera": "Malta",
+            "imo": "9072446",
+            "mmsi": "249054000",
+            "fecha": "2026-04-12"
+        },
+        {
+            "hora": "08:00",
             "nombre": "Abel Matutes",
             "naviera": "EUROLINEAS MARITIMAS S.A",
             "terminal": "LEPANT/TRUCK CENTER",
@@ -142,22 +158,6 @@
             "bandera": "Espanya",
             "imo": "9441130",
             "mmsi": "224402000",
-            "fecha": "2026-04-12"
-        },
-        {
-            "hora": "08:52",
-            "nombre": "Marella Explorer 2",
-            "naviera": "MARELLA CRUISES LTD",
-            "terminal": "Terminal A (WTC)",
-            "terminal_codigo": "A",
-            "eslora": 246.0,
-            "pax_estimados": 2000,
-            "puerto": "Toulon",
-            "tipo": "llegada",
-            "estado": "Iniciada",
-            "bandera": "Malta",
-            "imo": "9072446",
-            "mmsi": "249054000",
             "fecha": "2026-04-12"
         },
         {
@@ -339,7 +339,7 @@
             "fecha": "2026-04-12"
         },
         {
-            "hora": "08:48",
+            "hora": "07:59",
             "nombre": "Abel Matutes",
             "naviera": "BALEARIA EUROLINEAS MARITIMAS SA ",
             "terminal": "LEPANT/TRUCK CENTER",
@@ -460,7 +460,7 @@
             "pax_estimados": 2000,
             "puerto": "Valencia",
             "tipo": "salida",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Malta",
             "imo": "9072446",
             "mmsi": "249054000",
@@ -584,25 +584,25 @@
         "total_llegadas": 16,
         "total_salidas": 20,
         "pax_estimados_hoy": 32000,
-        "proximo_desembarco": "08:49",
-        "proximo_barco": "Abel Matutes"
+        "proximo_desembarco": "06:23",
+        "proximo_barco": "Costa Favolosa"
     },
     "terminales_activas": [
-        "E",
+        "F2",
         "D",
-        "F1",
-        "6037",
-        "H",
         "TC",
+        "F1",
+        "H",
+        "E",
+        "6037",
         "A",
-        "0010",
         "F3",
         "6212",
-        "F2"
+        "0010"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-04-12T08:02:51.136804",
+        "actualizado": "2026-04-12T06:23:05.586839",
         "frecuencia": "horaria"
     }
 }
