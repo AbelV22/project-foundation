@@ -24,6 +24,7 @@ interface DashboardViewProps {
   onViewExpenses?: () => void;
   onViewDemandForecast?: () => void;
   onViewTickets?: () => void;
+  onViewImet?: () => void;
 }
 
 // Re-export shared utils with local names for minimal diff
@@ -35,10 +36,11 @@ const getTerminalType = getTermType;
 const getTrenColorClass = (tren: string): string => getTrenColorShared(tren);
 
 interface LicenciasData {
-  metadata: { precio_mercado_referencia: number };
+  ticker?: { current_price: number };
+  metadata?: { precio_mercado_referencia: number };
 }
 
-export function DashboardView({ onTerminalClick, onViewAllFlights, onViewAllEvents, onViewFullDay, onViewTrainsFullDay, onViewCruises, onViewLicenses, onViewEarnings, onViewExpenses, onViewDemandForecast, onViewTickets }: DashboardViewProps) {
+export function DashboardView({ onTerminalClick, onViewAllFlights, onViewAllEvents, onViewFullDay, onViewTrainsFullDay, onViewCruises, onViewLicenses, onViewEarnings, onViewExpenses, onViewDemandForecast, onViewTickets, onViewImet }: DashboardViewProps) {
   const [vuelos, setVuelos] = useState<VueloRaw[]>([]);
   const [trenes, setTrenes] = useState<TrenSants[]>([]);
   const [licencias, setLicencias] = useState<LicenciasData | null>(null);

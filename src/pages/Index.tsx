@@ -23,6 +23,7 @@ import { DemandForecastView } from "@/components/views/DemandForecastView";
 import { AddExpenseSheet } from "@/components/widgets/AddExpenseSheet";
 import { TicketScanSheet } from "@/components/widgets/TicketScanSheet";
 import { TicketsView } from "@/components/views/TicketsView";
+import { ImetCalendarView } from "@/components/views/ImetCalendarView";
 import { useAnalytics } from "@/hooks/useAnalytics";
 
 const titles: Record<string, string> = {
@@ -44,6 +45,7 @@ const titles: Record<string, string> = {
   tickets: "Tickets Taxitronic",
   comunidad: "Comunidad",
   prediccion: "Predicción de Demanda",
+  imet: "Calendario IMET",
 };
 
 const Index = () => {
@@ -157,6 +159,7 @@ const Index = () => {
               onViewExpenses={() => setActiveTab("gastos")}
               onViewDemandForecast={() => setActiveTab("prediccion")}
               onViewTickets={() => setActiveTab("tickets")}
+              onViewImet={() => setActiveTab("imet")}
             />
           )}
           {activeTab === "vuelos" && <FlightsView onViewFlightList={() => setActiveTab("flightList")} />}
@@ -216,6 +219,9 @@ const Index = () => {
           {activeTab === "comunidad" && <CommunityView />}
           {activeTab === "prediccion" && (
             <DemandForecastView onBack={() => setActiveTab("dashboard")} />
+          )}
+          {activeTab === "imet" && (
+            <ImetCalendarView onBack={() => setActiveTab("dashboard")} />
           )}
         </div>
       </main>

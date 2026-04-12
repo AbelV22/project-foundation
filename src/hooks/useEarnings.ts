@@ -3,6 +3,7 @@ import { supabase } from '@/integrations/supabase/client';
 import { getOrCreateDeviceId } from '@/lib/deviceId';
 
 export type RideCategory = 'airport' | 'train_station' | 'event' | 'street' | 'app' | 'other';
+export type RideSource = 'street' | 'stand' | 'freenow' | 'picmi' | 'cabify' | 'app' | 'other';
 export type ShiftType = 'morning' | 'afternoon' | 'night';
 
 export interface CarreraRecord {
@@ -122,11 +123,12 @@ export const useEarnings = (): UseEarningsResult => {
         importe: number,
         propina: number = 0,
         metodoPago: 'efectivo' | 'tarjeta' = 'efectivo',
-        zona?: string
+        zona?: string,
+        rideSource?: RideSource
     ): Promise<boolean> => {
         try {
             const deviceId = getOrCreateDeviceId();
-            console.log('[useEarnings] Adding carrera:', { importe, propina, metodoPago, zona, deviceId });
+            console.log('[useEarnings] Adding carrera:', { importe, propina, metodoPago, zona, rideSource, deviceId });
 
             const { data, error: insertError } = await supabase
                 .from('registros_carreras')
@@ -136,6 +138,7 @@ export const useEarnings = (): UseEarningsResult => {
                     propina: propina || 0,
                     metodo_pago: metodoPago,
                     zona: zona || null,
+                    ride_source: rideSource || 'street',
                 })
                 .select()
                 .single();

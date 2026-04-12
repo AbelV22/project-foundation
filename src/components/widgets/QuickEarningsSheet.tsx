@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Euro, CreditCard, Banknote, Check, Plus, ChevronDown } from "lucide-react";
+import { Euro, CreditCard, Banknote, Check, Plus, ChevronDown, MapPin, Smartphone, Navigation } from "lucide-react";
 import { cn } from "@/lib/utils";
 import {
     Drawer,
@@ -12,7 +12,7 @@ import {
 } from "@/components/ui/drawer";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { useEarnings, RideCategory } from "@/hooks/useEarnings";
+import { useEarnings, RideCategory, RideSource } from "@/hooks/useEarnings";
 import { useToast } from "@/hooks/use-toast";
 import {
     Collapsible,
@@ -33,6 +33,7 @@ export function QuickEarningsSheet({ currentZone }: QuickEarningsSheetProps) {
     const [customAmount, setCustomAmount] = useState<string>("");
     const [propina, setPropina] = useState<number>(0);
     const [metodoPago, setMetodoPago] = useState<'efectivo' | 'tarjeta'>('efectivo');
+    const [rideSource, setRideSource] = useState<RideSource>('street');
     const [showAdvanced, setShowAdvanced] = useState(false);
     const [startKm, setStartKm] = useState<string>("");
     const [endKm, setEndKm] = useState<string>("");
@@ -89,7 +90,8 @@ export function QuickEarningsSheet({ currentZone }: QuickEarningsSheetProps) {
             amount,
             propina,
             metodoPago,
-            currentZone || undefined
+            currentZone || undefined,
+            rideSource
         );
         setSaving(false);
 
@@ -103,6 +105,7 @@ export function QuickEarningsSheet({ currentZone }: QuickEarningsSheetProps) {
             setCustomAmount("");
             setPropina(0);
             setMetodoPago('efectivo');
+            setRideSource('street');
             setStartKm("");
             setEndKm("");
             setShowAdvanced(false);
@@ -226,6 +229,33 @@ export function QuickEarningsSheet({ currentZone }: QuickEarningsSheetProps) {
                             <CreditCard className="h-4 w-4" />
                             Tarjeta
                         </button>
+                    </div>
+
+                    {/* Ride Source */}
+                    <div className="space-y-1.5">
+                        <span className="text-xs text-muted-foreground">Origen:</span>
+                        <div className="grid grid-cols-4 gap-1.5">
+                            {([
+                                { value: 'street' as RideSource, label: 'Calle', icon: Navigation },
+                                { value: 'stand' as RideSource, label: 'Parada', icon: MapPin },
+                                { value: 'freenow' as RideSource, label: 'FreeNow', icon: Smartphone },
+                                { value: 'picmi' as RideSource, label: 'Picmi', icon: Smartphone },
+                            ]).map((src) => (
+                                <button
+                                    key={src.value}
+                                    onClick={() => setRideSource(src.value)}
+                                    className={cn(
+                                        "h-9 rounded-lg text-[11px] font-medium transition-all flex items-center justify-center gap-1",
+                                        rideSource === src.value
+                                            ? "bg-primary/20 text-primary ring-1 ring-primary"
+                                            : "bg-muted/30 text-foreground/60 hover:bg-muted/50"
+                                    )}
+                                >
+                                    <src.icon className="h-3 w-3" />
+                                    {src.label}
+                                </button>
+                            ))}
+                        </div>
                     </div>
 
                     {/* Advanced Options - Collapsible */}
