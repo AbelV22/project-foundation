@@ -74,7 +74,7 @@
             "pax_estimados": 4500,
             "puerto": "Marseille",
             "tipo": "llegada",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Itàlia",
             "imo": "9781891",
             "mmsi": "247431200",
@@ -241,7 +241,7 @@
             "fecha": "2026-04-12"
         },
         {
-            "hora": "20:54",
+            "hora": "20:01",
             "nombre": "Gnv Altair",
             "naviera": "GRANDI NAVI VELOCI",
             "terminal": "TERMINAL F1",
@@ -483,6 +483,22 @@
             "fecha": "2026-04-12"
         },
         {
+            "hora": "18:00",
+            "nombre": "Costa Toscana",
+            "naviera": "NOATUM MARITIME SPAIN SAU",
+            "terminal": "Terminal E (Adossat)",
+            "terminal_codigo": "E",
+            "eslora": 337.0,
+            "pax_estimados": 4500,
+            "puerto": "Cagliari",
+            "tipo": "salida",
+            "estado": "Iniciada",
+            "bandera": "Itàlia",
+            "imo": "9781891",
+            "mmsi": "247431200",
+            "fecha": "2026-04-12"
+        },
+        {
             "hora": "18:23",
             "nombre": "Msc Orchestra",
             "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
@@ -496,22 +512,6 @@
             "bandera": "Panamà",
             "imo": "9320099",
             "mmsi": "372497000",
-            "fecha": "2026-04-12"
-        },
-        {
-            "hora": "18:33",
-            "nombre": "Costa Toscana",
-            "naviera": "NOATUM MARITIME SPAIN SAU",
-            "terminal": "Terminal E (Adossat)",
-            "terminal_codigo": "E",
-            "eslora": 337.0,
-            "pax_estimados": 4500,
-            "puerto": "Cagliari",
-            "tipo": "salida",
-            "estado": "Finalitzada",
-            "bandera": "Itàlia",
-            "imo": "9781891",
-            "mmsi": "247431200",
             "fecha": "2026-04-12"
         },
         {
@@ -531,7 +531,7 @@
             "fecha": "2026-04-12"
         },
         {
-            "hora": "20:53",
+            "hora": "20:00",
             "nombre": "Gnv Altair",
             "naviera": "TRANSCOMA BALEARES SA",
             "terminal": "TERMINAL F2",
@@ -600,25 +600,25 @@
         "total_llegadas": 16,
         "total_salidas": 21,
         "pax_estimados_hoy": 32000,
-        "proximo_desembarco": "20:54",
-        "proximo_barco": "Gnv Altair"
+        "proximo_desembarco": "17:45",
+        "proximo_barco": "Msc Meline"
     },
     "terminales_activas": [
-        "6037",
-        "0010",
-        "F3",
-        "D",
+        "TC",
         "F1",
+        "0010",
+        "D",
+        "6212",
+        "6037",
+        "H",
+        "F3",
         "F2",
         "A",
-        "E",
-        "6212",
-        "TC",
-        "H"
+        "E"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-04-12T19:39:27.204677",
+        "actualizado": "2026-04-12T17:35:03.267173",
         "frecuencia": "horaria"
     }
 }
