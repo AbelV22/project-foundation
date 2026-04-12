@@ -55,7 +55,7 @@ const STEPS_CLAVE: Step[] = [
     details: [
       'Ve a sede.agenciatributaria.gob.es',
       'Busca el modelo que quieres presentar (130, 131, 303...)',
-      'Pulsa "Presentación del modelo XXX"',
+      'Pulsa "Presentación" del modelo que necesites',
       'Te pedirá identificarte: elige "Cl@ve PIN"',
       'Abre la app Cl@ve en tu móvil, obtén el PIN y escríbelo en la web',
     ],

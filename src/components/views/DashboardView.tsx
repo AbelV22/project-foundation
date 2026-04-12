@@ -152,9 +152,9 @@ export function DashboardView({ onTerminalClick, onViewAllFlights, onViewAllEven
     { id: "t2c", name: "T2C Easy", vuelosEstaHora: getVuelosProximos60Min("t2c"), espera: getZoneWaitingTime(waitingTimes, "T2C_EASY"), hasRealData: getZoneHasRealData(waitingTimes, "T2C_EASY"), contribuidores: getZoneTaxistasActivos(waitingTimes, "T2C_EASY") },
   ];
 
-  // License price data
-  const precioLicencia = licencias?.metadata?.precio_mercado_referencia || 168212;
-  const precioK = (precioLicencia / 1000).toFixed(0);
+  // License price data — same source as LicensePriceWidget (web_feed.json → ticker.current_price)
+  const precioLicencia = licencias?.ticker?.current_price || null;
+  const precioK = precioLicencia ? (precioLicencia / 1000).toFixed(0) : "—";
 
   // Today's top event
   const topEvent = events[0];

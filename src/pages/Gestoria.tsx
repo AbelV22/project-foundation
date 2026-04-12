@@ -149,7 +149,7 @@ function ResumenSection({
       value: fmt(resumen.cuotaAutonoMensual),
       color: 'text-blue-400',
       icon: <Zap className="h-4 w-4 text-blue-400" />,
-      sub: `~${fmt(resumen.cuotaAutonoAnual)}/año (Tramos 2025)`,
+      sub: `~${fmt(resumen.cuotaAutonoAnual)}/año (Tramos 2026)`,
     },
   ];
 
@@ -253,7 +253,7 @@ function ResumenSection({
       <div className="rounded-xl border border-border/50 bg-card/30 p-4">
         <div className="flex items-center gap-2 mb-3">
           <Shield className="h-4 w-4 text-blue-400" />
-          <span className="text-sm font-semibold">Cuota Autónomo (RETA 2025-2026)</span>
+          <span className="text-sm font-semibold">Cuota Autónomo (RETA 2026)</span>
         </div>
         <div className="flex items-center gap-3 mb-2">
           <div className="flex-1 h-2 bg-muted rounded-full overflow-hidden">

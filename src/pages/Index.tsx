@@ -204,12 +204,6 @@ const Index = () => {
               onBack={handleBackFromTrainsByOperator}
             />
           )}
-          {activeTab === "trainsByOperator" && selectedTrainOperator && (
-            <TrainsByOperatorView
-              operator={selectedTrainOperator}
-              onBack={handleBackFromTrainsByOperator}
-            />
-          )}
           {activeTab === "earnings" && (
             <EarningsView onBack={() => setActiveTab("dashboard")} />
           )}
