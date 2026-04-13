@@ -10,7 +10,7 @@
             "pax_estimados": 3000,
             "puerto": "Porto Torres",
             "tipo": "llegada",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Itàlia",
             "imo": "9351476",
             "mmsi": "247219400",
@@ -113,6 +113,22 @@
             "fecha": "2026-04-13"
         },
         {
+            "hora": "19:00",
+            "nombre": "Martin I Soler",
+            "naviera": "EUROLINEAS MARITIMAS S.A",
+            "terminal": "LEPANT/TRUCK CENTER",
+            "terminal_codigo": "TC",
+            "eslora": 165.0,
+            "pax_estimados": 1000,
+            "puerto": "Alcudia",
+            "tipo": "llegada",
+            "estado": "Autoritzada",
+            "bandera": "Espanya",
+            "imo": "9390367",
+            "mmsi": "224637000",
+            "fecha": "2026-04-13"
+        },
+        {
             "hora": "19:01",
             "nombre": "Ciudad De Palma",
             "naviera": "TRASMED GLE S.L.",
@@ -174,22 +190,6 @@
             "bandera": "Itàlia",
             "imo": "9859600",
             "mmsi": "247384100",
-            "fecha": "2026-04-13"
-        },
-        {
-            "hora": "22:36",
-            "nombre": "Martin I Soler",
-            "naviera": "EUROLINEAS MARITIMAS S.A",
-            "terminal": "LEPANT/TRUCK CENTER",
-            "terminal_codigo": "TC",
-            "eslora": 165.0,
-            "pax_estimados": 1000,
-            "puerto": "Alcudia",
-            "tipo": "llegada",
-            "estado": "Iniciada",
-            "bandera": "Espanya",
-            "imo": "9390367",
-            "mmsi": "224637000",
             "fecha": "2026-04-13"
         }
     ],
@@ -355,6 +355,38 @@
             "fecha": "2026-04-13"
         },
         {
+            "hora": "21:30",
+            "nombre": "Cruise Roma",
+            "naviera": "GRIMALDI LOGISTICA ESPAÑA SL",
+            "terminal": "TERMINAL F3",
+            "terminal_codigo": "F3",
+            "eslora": 254.0,
+            "pax_estimados": 3000,
+            "puerto": "Porto Torres",
+            "tipo": "salida",
+            "estado": "Iniciada",
+            "bandera": "Itàlia",
+            "imo": "9351476",
+            "mmsi": "247219400",
+            "fecha": "2026-04-13"
+        },
+        {
+            "hora": "21:30",
+            "nombre": "Martin I Soler",
+            "naviera": "BALEARIA EUROLINEAS MARITIMAS SA ",
+            "terminal": "LEPANT/TRUCK CENTER",
+            "terminal_codigo": "TC",
+            "eslora": 165.0,
+            "pax_estimados": 1000,
+            "puerto": "Alcudia",
+            "tipo": "salida",
+            "estado": "Autoritzada",
+            "bandera": "Espanya",
+            "imo": "9390367",
+            "mmsi": "224637000",
+            "fecha": "2026-04-13"
+        },
+        {
             "hora": "21:45",
             "nombre": "Gnv Altair",
             "naviera": "TRANSCOMA BALEARES SA",
@@ -368,22 +400,6 @@
             "bandera": "Itàlia",
             "imo": "9222534",
             "mmsi": "247057100",
-            "fecha": "2026-04-13"
-        },
-        {
-            "hora": "21:50",
-            "nombre": "Cruise Roma",
-            "naviera": "GRIMALDI LOGISTICA ESPAÑA SL",
-            "terminal": "TERMINAL F3",
-            "terminal_codigo": "F3",
-            "eslora": 254.0,
-            "pax_estimados": 3000,
-            "puerto": "Porto Torres",
-            "tipo": "salida",
-            "estado": "Finalitzada",
-            "bandera": "Itàlia",
-            "imo": "9351476",
-            "mmsi": "247219400",
             "fecha": "2026-04-13"
         },
         {
@@ -435,22 +451,6 @@
             "fecha": "2026-04-13"
         },
         {
-            "hora": "22:38",
-            "nombre": "Martin I Soler",
-            "naviera": "BALEARIA EUROLINEAS MARITIMAS SA ",
-            "terminal": "LEPANT/TRUCK CENTER",
-            "terminal_codigo": "TC",
-            "eslora": 165.0,
-            "pax_estimados": 1000,
-            "puerto": "Alcudia",
-            "tipo": "salida",
-            "estado": "Iniciada",
-            "bandera": "Espanya",
-            "imo": "9390367",
-            "mmsi": "224637000",
-            "fecha": "2026-04-13"
-        },
-        {
             "hora": "23:59",
             "nombre": "Eco Adriatica",
             "naviera": "GRIMALDI LOGISTICA ESPAÑA SL",
@@ -472,24 +472,24 @@
         "total_llegadas": 12,
         "total_salidas": 17,
         "pax_estimados_hoy": 18500,
-        "proximo_desembarco": "22:36",
-        "proximo_barco": "Martin I Soler"
+        "proximo_desembarco": "21:00",
+        "proximo_barco": "Eco Adriatica"
     },
     "terminales_activas": [
-        "F2",
         "8156",
-        "7946",
-        "6212",
-        "TC",
+        "F1",
+        "F2",
         "0010",
-        "8192",
-        "F3",
         "E",
-        "F1"
+        "TC",
+        "F3",
+        "8192",
+        "6212",
+        "7946"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-04-13T21:50:50.292286",
+        "actualizado": "2026-04-13T20:05:19.398243",
         "frecuencia": "horaria"
     }
 }
