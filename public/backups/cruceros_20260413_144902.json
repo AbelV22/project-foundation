@@ -1,6 +1,22 @@
 {
     "llegadas": [
         {
+            "hora": "00:15",
+            "nombre": "Msc Gabriella",
+            "naviera": "MEDITERRANEAN SHIPPING CO",
+            "terminal": "TERMINAL CATALUNYA SA",
+            "terminal_codigo": "6212",
+            "eslora": 335.0,
+            "pax_estimados": 4500,
+            "puerto": "La Spezia",
+            "tipo": "llegada",
+            "estado": "Autoritzada",
+            "bandera": "Libèria",
+            "imo": "9978975",
+            "mmsi": "636025760",
+            "fecha": "2026-04-13"
+        },
+        {
             "hora": "00:51",
             "nombre": "Cruise Roma",
             "naviera": "GRIMALDI EUROMED SPA",
@@ -468,28 +484,28 @@
         }
     ],
     "resumen": {
-        "total_cruceros": 17,
-        "total_llegadas": 12,
+        "total_cruceros": 18,
+        "total_llegadas": 13,
         "total_salidas": 17,
-        "pax_estimados_hoy": 18500,
+        "pax_estimados_hoy": 23000,
         "proximo_desembarco": "17:01",
         "proximo_barco": "Gnv Altair"
     },
     "terminales_activas": [
-        "F2",
-        "8192",
-        "F3",
-        "0010",
-        "E",
-        "F1",
         "TC",
+        "6212",
+        "F1",
         "8156",
         "7946",
-        "6212"
+        "F3",
+        "0010",
+        "8192",
+        "E",
+        "F2"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-04-13T14:49:02.691017",
+        "actualizado": "2026-04-13T12:03:25.585038",
         "frecuencia": "horaria"
     }
 }
