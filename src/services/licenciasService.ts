@@ -197,7 +197,8 @@ interface RawAnalisis {
     valor_mediano_por_fuente: Record<string, number>;
     valor_mediano_por_dia: Record<string, number>;
   };
-  detalle_ofertas: RawOfertaAnalisis[];
+  detalle_ofertas?: RawOfertaAnalisis[];
+  todas_ofertas?: RawOfertaAnalisis[];
 }
 
 interface RawOfertaAnalisis {
@@ -573,7 +574,8 @@ export async function obtenerAnalisisMercado(): Promise<AnalisisMercado> {
 
   // Parse ofertas from both sources
   const ofertasWebFeed = parsearOfertasWebFeed(webFeed.market_depth.all_offers, fuentes);
-  const ofertasAnalisis = parsearOfertasAnalisis(analisis.detalle_ofertas, fuentes);
+  const rawOfertasAnalisis = analisis.detalle_ofertas || analisis.todas_ofertas || [];
+  const ofertasAnalisis = parsearOfertasAnalisis(rawOfertasAnalisis, fuentes);
 
   // Merge and deduplicate ofertas (by precio_neto + fuente)
   const ofertasMap = new Map<string, LicenciaOferta>();
