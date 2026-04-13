@@ -33,19 +33,19 @@
             "fecha": "2026-04-13"
         },
         {
-            "hora": "04:21",
-            "nombre": "Msc Potomac F",
+            "hora": "01:00",
+            "nombre": "Msc Barcelona",
             "naviera": "MEDITERRANEAN SHIPPING CO",
             "terminal": "TERMINAL CATALUNYA SA",
             "terminal_codigo": "6212",
-            "eslora": 149.0,
+            "eslora": 0,
             "pax_estimados": 500,
-            "puerto": "Aliaga",
+            "puerto": "Genoa",
             "tipo": "llegada",
-            "estado": "Iniciada",
-            "bandera": "Libèria",
-            "imo": "9236274",
-            "mmsi": "636020662",
+            "estado": "Autoritzada",
+            "bandera": "Malta",
+            "imo": "9480186",
+            "mmsi": "256573000",
             "fecha": "2026-04-13"
         },
         {
@@ -97,7 +97,7 @@
             "fecha": "2026-04-13"
         },
         {
-            "hora": "07:06",
+            "hora": "06:30",
             "nombre": "Ciudad De Barcelona",
             "naviera": "TRASMED GLE S.L.",
             "terminal": "TERMINAL F2",
@@ -106,7 +106,7 @@
             "pax_estimados": 1000,
             "puerto": "Alcudia",
             "tipo": "llegada",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Espanya",
             "imo": "9506289",
             "mmsi": "225416000",
@@ -126,22 +126,6 @@
             "bandera": "Itàlia",
             "imo": "9781889",
             "mmsi": "247391900",
-            "fecha": "2026-04-13"
-        },
-        {
-            "hora": "07:47",
-            "nombre": "Msc Barcelona",
-            "naviera": "MEDITERRANEAN SHIPPING CO",
-            "terminal": "TERMINAL CATALUNYA SA",
-            "terminal_codigo": "6212",
-            "eslora": 0,
-            "pax_estimados": 500,
-            "puerto": "Genoa",
-            "tipo": "llegada",
-            "estado": "Iniciada",
-            "bandera": "Malta",
-            "imo": "9480186",
-            "mmsi": "256573000",
             "fecha": "2026-04-13"
         },
         {
@@ -227,38 +211,6 @@
     ],
     "salidas": [
         {
-            "hora": "04:23",
-            "nombre": "Msc Potomac F",
-            "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
-            "terminal": "TERMINAL CATALUNYA SA",
-            "terminal_codigo": "6212",
-            "eslora": 149.0,
-            "pax_estimados": 500,
-            "puerto": "Alger (Algiers)",
-            "tipo": "salida",
-            "estado": "Iniciada",
-            "bandera": "Libèria",
-            "imo": "9236274",
-            "mmsi": "636020662",
-            "fecha": "2026-04-13"
-        },
-        {
-            "hora": "04:59",
-            "nombre": "Zim Pacific",
-            "naviera": "A PEREZ Y CIA SL",
-            "terminal": "TERMINAL CATALUNYA SA",
-            "terminal_codigo": "6212",
-            "eslora": 262.0,
-            "pax_estimados": 3000,
-            "puerto": "Valencia",
-            "tipo": "salida",
-            "estado": "Finalitzada",
-            "bandera": "Libèria",
-            "imo": "9440837",
-            "mmsi": "636021362",
-            "fecha": "2026-04-13"
-        },
-        {
             "hora": "07:30",
             "nombre": "Msc Everest Viii",
             "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
@@ -316,7 +268,7 @@
             "pax_estimados": 500,
             "puerto": "Valencia",
             "tipo": "salida",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Malta",
             "imo": "9480186",
             "mmsi": "256573000",
@@ -476,7 +428,7 @@
             "pax_estimados": 1000,
             "puerto": "Mahon Menorca",
             "tipo": "salida",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Espanya",
             "imo": "9506289",
             "mmsi": "225416000",
@@ -500,27 +452,27 @@
         }
     ],
     "resumen": {
-        "total_cruceros": 18,
-        "total_llegadas": 14,
-        "total_salidas": 17,
-        "pax_estimados_hoy": 29500,
-        "proximo_desembarco": "07:30",
-        "proximo_barco": "Costa Smeralda"
+        "total_cruceros": 16,
+        "total_llegadas": 13,
+        "total_salidas": 15,
+        "pax_estimados_hoy": 29000,
+        "proximo_desembarco": null,
+        "proximo_barco": null
     },
     "terminales_activas": [
-        "7332",
-        "F3",
-        "8156",
-        "7946",
-        "6212",
-        "0010",
         "F2",
+        "7946",
         "F1",
+        "6212",
+        "7332",
+        "0010",
+        "8156",
+        "F3",
         "E"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-04-13T07:13:13.106607",
+        "actualizado": "2026-04-12T23:35:29.392978",
         "frecuencia": "horaria"
     }
 }
