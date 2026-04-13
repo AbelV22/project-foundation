@@ -31,10 +31,10 @@ logger = setup_logger('Licencia_Procesador_V2')
 # =============================================================================
 # CONFIGURACIÓN Y CONSTANTES
 # =============================================================================
-FILE_INPUT_RAW = 'licencias_totales.json'
-FILE_HISTORY = 'public/history_stats.csv'
-FILE_OUTPUT_WEB = 'public/web_feed.json'
-FILE_OUTPUT_ANALYSIS = 'public/analisis_licencias_taxi.json'
+FILE_INPUT_RAW = str(OUTPUT_FILES.get('licencias_raw', 'licencias_totales.json'))
+FILE_HISTORY = str(OUTPUT_FILES.get('licencias_history', 'public/history_stats.csv'))
+FILE_OUTPUT_WEB = str(OUTPUT_FILES.get('licencias_web_feed', 'public/web_feed.json'))
+FILE_OUTPUT_ANALYSIS = str(OUTPUT_FILES.get('licencias_analysis', 'public/analisis_licencias_taxi.json'))
 
 # Precios Base de Vehículos (actualizados 2026)
 PRECIOS_BASE = {

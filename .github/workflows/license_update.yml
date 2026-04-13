@@ -46,14 +46,12 @@ jobs:
         env:
           SCRAPER_API_KEY: ${{ secrets.SCRAPER_API_KEY }}
         run: |
-          cd scripts
-          python licencia_scrap_v2.py || python licencia_scrap.py
+          python scripts/licencia_scrap_v2.py || python scripts/licencia_scrap.py
         # Intenta v2 primero, fallback a v1 si falla
 
       - name: 📊 Ejecutar Procesado V2
         run: |
-          cd scripts
-          python procesado_licen_v2.py || python procesado_licen.py
+          python scripts/procesado_licen_v2.py || python scripts/procesado_licen.py
         # Intenta v2 primero, fallback a v1 si falla
 
       - name: 🔍 Verificar outputs

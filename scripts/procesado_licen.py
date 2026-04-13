@@ -16,9 +16,9 @@ logger = setup_logger('Licencia_Procesador')
 # =============================================================================
 # CONFIGURACIÓN Y CONSTANTES
 # =============================================================================
-FILE_INPUT_RAW = 'licencias_totales.json' # Tu output del scraper
-FILE_HISTORY = 'public/history_stats.csv'     # Base de datos histórica
-FILE_OUTPUT_WEB = 'public/web_feed.json'      # Lo que lee tu web
+FILE_INPUT_RAW = str(OUTPUT_FILES.get('licencias_raw', 'licencias_totales.json'))
+FILE_HISTORY = str(OUTPUT_FILES.get('licencias_history', 'public/history_stats.csv'))
+FILE_OUTPUT_WEB = str(OUTPUT_FILES.get('licencias_web_feed', 'public/web_feed.json'))
 
 # Precios Base (Tu lógica corregida con VITO > MERCEDES)
 PRECIOS_BASE = {
