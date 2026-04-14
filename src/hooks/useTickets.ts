@@ -4,33 +4,64 @@ import { getOrCreateDeviceId } from '@/lib/deviceId';
 
 /**
  * Compress and resize an image to reduce payload for OCR.
- * Targets ~800px max dimension and JPEG quality 0.7 (~100-200KB output).
+ * With timeout fallback for mobile browsers that may stall.
  */
-function compressImage(base64: string, maxDim = 800, quality = 0.7): Promise<string> {
+function compressImage(base64: string, maxDim = 1200, quality = 0.8): Promise<string> {
     return new Promise((resolve) => {
-        const img = new Image();
-        img.onload = () => {
-            const canvas = document.createElement('canvas');
-            let { width, height } = img;
+        // Timeout: if compression takes >5s, send original
+        const timeout = setTimeout(() => {
+            console.warn('[compressImage] Timeout, using original');
+            resolve(base64);
+        }, 5000);
 
-            if (width > maxDim || height > maxDim) {
-                if (width > height) {
-                    height = Math.round((height * maxDim) / width);
-                    width = maxDim;
-                } else {
-                    width = Math.round((width * maxDim) / height);
-                    height = maxDim;
+        try {
+            const img = new Image();
+            img.crossOrigin = 'anonymous';
+            img.onload = () => {
+                try {
+                    const canvas = document.createElement('canvas');
+                    let { width, height } = img;
+
+                    if (width > maxDim || height > maxDim) {
+                        if (width > height) {
+                            height = Math.round((height * maxDim) / width);
+                            width = maxDim;
+                        } else {
+                            width = Math.round((width * maxDim) / height);
+                            height = maxDim;
+                        }
+                    }
+
+                    canvas.width = width;
+                    canvas.height = height;
+                    const ctx = canvas.getContext('2d');
+                    if (!ctx) {
+                        clearTimeout(timeout);
+                        resolve(base64);
+                        return;
+                    }
+                    ctx.drawImage(img, 0, 0, width, height);
+                    const result = canvas.toDataURL('image/jpeg', quality);
+                    clearTimeout(timeout);
+                    console.log(`[compressImage] ${width}x${height}, ${Math.round(result.length / 1024)}KB`);
+                    resolve(result);
+                } catch (e) {
+                    console.error('[compressImage] Canvas error:', e);
+                    clearTimeout(timeout);
+                    resolve(base64);
                 }
-            }
-
-            canvas.width = width;
-            canvas.height = height;
-            const ctx = canvas.getContext('2d')!;
-            ctx.drawImage(img, 0, 0, width, height);
-            resolve(canvas.toDataURL('image/jpeg', quality));
-        };
-        img.onerror = () => resolve(base64); // fallback to original
-        img.src = base64;
+            };
+            img.onerror = () => {
+                console.warn('[compressImage] Image load error, using original');
+                clearTimeout(timeout);
+                resolve(base64);
+            };
+            img.src = base64;
+        } catch (e) {
+            console.error('[compressImage] Error:', e);
+            clearTimeout(timeout);
+            resolve(base64);
+        }
     });
 }
 
@@ -179,17 +210,28 @@ export const useTickets = (): UseTicketsResult => {
     const scanTicket = useCallback(async (imageBase64: string): Promise<ScanResult | null> => {
         setScanning(true);
         try {
-            // Compress image for faster OCR (800px, quality 0.7)
-            const compressed = await compressImage(imageBase64, 1200, 0.8);
-            console.log('[useTickets] Image compressed for OCR');
+            // Compress image for faster OCR
+            console.log('[useTickets] Compressing image...');
+            const compressed = await compressImage(imageBase64);
+            console.log('[useTickets] Sending to scan-ticket...');
 
             const response = await supabase.functions.invoke('scan-ticket', {
                 body: { image_base64: compressed },
             });
 
+            console.log('[useTickets] Response:', { error: response.error, hasData: !!response.data });
+
+            // supabase.functions.invoke returns { data, error }
+            // error is set for non-2xx OR network failures
             if (response.error) {
-                console.error('[useTickets] Scan response error:', response.error);
-                throw response.error;
+                // FunctionsHttpError has context
+                const msg = response.error?.message || 'Unknown error';
+                console.error('[useTickets] Function error:', msg, response.error);
+                // If we got data despite error (e.g. edge function returned 200 with error field)
+                if (response.data && typeof response.data === 'object') {
+                    return response.data as ScanResult;
+                }
+                throw new Error(msg);
             }
 
             const data = response.data as ScanResult;
