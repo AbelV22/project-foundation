@@ -24,6 +24,7 @@ import { AddExpenseSheet } from "@/components/widgets/AddExpenseSheet";
 import { TicketScanSheet } from "@/components/widgets/TicketScanSheet";
 import { TicketsView } from "@/components/views/TicketsView";
 import { ImetCalendarView } from "@/components/views/ImetCalendarView";
+import { JobBoardView } from "@/components/views/JobBoardView";
 import { useAnalytics } from "@/hooks/useAnalytics";
 
 const titles: Record<string, string> = {
@@ -46,6 +47,7 @@ const titles: Record<string, string> = {
   comunidad: "Comunidad",
   prediccion: "Predicción de Demanda",
   imet: "Calendario IMET",
+  jobboard: "Bolsa de Trabajo",
 };
 
 const Index = () => {
@@ -160,6 +162,7 @@ const Index = () => {
               onViewDemandForecast={() => setActiveTab("prediccion")}
               onViewTickets={() => setActiveTab("tickets")}
               onViewImet={() => setActiveTab("imet")}
+              onViewJobBoard={() => setActiveTab("jobboard")}
             />
           )}
           {activeTab === "vuelos" && <FlightsView onViewFlightList={() => setActiveTab("flightList")} />}
@@ -222,6 +225,9 @@ const Index = () => {
           )}
           {activeTab === "imet" && (
             <ImetCalendarView onBack={() => setActiveTab("dashboard")} />
+          )}
+          {activeTab === "jobboard" && (
+            <JobBoardView onBack={() => setActiveTab("dashboard")} />
           )}
         </div>
       </main>

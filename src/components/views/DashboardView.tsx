@@ -25,6 +25,7 @@ interface DashboardViewProps {
   onViewDemandForecast?: () => void;
   onViewTickets?: () => void;
   onViewImet?: () => void;
+  onViewJobBoard?: () => void;
 }
 
 // Re-export shared utils with local names for minimal diff
@@ -40,7 +41,7 @@ interface LicenciasData {
   metadata?: { precio_mercado_referencia: number };
 }
 
-export function DashboardView({ onTerminalClick, onViewAllFlights, onViewAllEvents, onViewFullDay, onViewTrainsFullDay, onViewCruises, onViewLicenses, onViewEarnings, onViewExpenses, onViewDemandForecast, onViewTickets, onViewImet }: DashboardViewProps) {
+export function DashboardView({ onTerminalClick, onViewAllFlights, onViewAllEvents, onViewFullDay, onViewTrainsFullDay, onViewCruises, onViewLicenses, onViewEarnings, onViewExpenses, onViewDemandForecast, onViewTickets, onViewImet, onViewJobBoard }: DashboardViewProps) {
   const [vuelos, setVuelos] = useState<VueloRaw[]>([]);
   const [trenes, setTrenes] = useState<TrenSants[]>([]);
   const [licencias, setLicencias] = useState<LicenciasData | null>(null);
@@ -564,10 +565,40 @@ export function DashboardView({ onTerminalClick, onViewAllFlights, onViewAllEven
             <Receipt className="h-5 w-5 text-amber-400" />
           </div>
           <div className="flex-1 min-w-0">
-            <p className="text-sm font-semibold text-white">Tickets Taxitronic</p>
+            <p className="text-sm font-semibold text-foreground">Tickets Taxitronic</p>
             <p className="text-[10px] text-muted-foreground">Sube tu ticket de fin de día y extrae km, ingresos y carreras</p>
           </div>
           <ChevronRight className="h-4 w-4 text-muted-foreground/50 group-hover:text-amber-400 transition-colors flex-shrink-0" />
+        </button>
+
+        {/* Bolsa de Trabajo */}
+        <button
+          onClick={onViewJobBoard}
+          className="card-glass-hover flex items-center gap-3 p-3 text-left group transition-all duration-200"
+        >
+          <div className="w-10 h-10 rounded-full bg-blue-500/10 border border-blue-500/20 flex items-center justify-center flex-shrink-0">
+            <span className="text-lg">📋</span>
+          </div>
+          <div className="flex-1 min-w-0">
+            <p className="text-sm font-semibold text-foreground">Bolsa de Trabajo</p>
+            <p className="text-[10px] text-muted-foreground">Conductores y licencias</p>
+          </div>
+          <ChevronRight className="h-4 w-4 text-muted-foreground/50 group-hover:text-blue-400 transition-colors flex-shrink-0" />
+        </button>
+
+        {/* Calendario IMET */}
+        <button
+          onClick={onViewImet}
+          className="card-glass-hover flex items-center gap-3 p-3 text-left group transition-all duration-200"
+        >
+          <div className="w-10 h-10 rounded-full bg-purple-500/10 border border-purple-500/20 flex items-center justify-center flex-shrink-0">
+            <span className="text-lg">🔧</span>
+          </div>
+          <div className="flex-1 min-w-0">
+            <p className="text-sm font-semibold text-foreground">Calendario IMET</p>
+            <p className="text-[10px] text-muted-foreground">ITV, seguro, taxímetro</p>
+          </div>
+          <ChevronRight className="h-4 w-4 text-muted-foreground/50 group-hover:text-purple-400 transition-colors flex-shrink-0" />
         </button>
       </div>
 
