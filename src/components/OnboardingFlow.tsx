@@ -616,7 +616,7 @@ export function OnboardingFlow({ onComplete }: OnboardingFlowProps) {
         </div>
 
         {/* ── Text + Controls zone (bottom 42%) ── */}
-        <div className="relative z-10 flex-1 flex flex-col px-8 pt-2 pb-safe">
+        <div className="relative z-10 flex-1 flex flex-col px-8 pt-2" style={{ paddingBottom: 'calc(env(safe-area-inset-bottom, 0px) + 1.5rem)' }}>
           {/* Text content */}
           <div className="flex-1 flex flex-col justify-center">
             <AnimatePresence mode="wait">
@@ -652,7 +652,7 @@ export function OnboardingFlow({ onComplete }: OnboardingFlowProps) {
           </div>
 
           {/* Bottom controls */}
-          <div className="space-y-4 pb-6">
+          <div className="space-y-4 pb-20">
             {/* Segmented progress */}
             <SegmentedProgress
               total={slides.length}

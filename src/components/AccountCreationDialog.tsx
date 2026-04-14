@@ -142,7 +142,8 @@ export function AccountCreationDialog({ open, onDone, onSkip }: AccountCreationD
   return (
     <Dialog open={open}>
       <DialogContent
-        className="max-w-[92%] md:max-w-sm rounded-3xl border-border/50 p-0 overflow-hidden"
+        className="max-w-[92%] md:max-w-sm rounded-3xl border-border/50 p-0 overflow-y-auto"
+        style={{ maxHeight: 'calc(100dvh - env(safe-area-inset-bottom, 0px) - 2rem)' }}
         onPointerDownOutside={(e) => e.preventDefault()}
       >
         {success ? (
