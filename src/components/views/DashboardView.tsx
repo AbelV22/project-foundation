@@ -571,36 +571,68 @@ export function DashboardView({ onTerminalClick, onViewAllFlights, onViewAllEven
           <ChevronRight className="h-4 w-4 text-muted-foreground/50 group-hover:text-amber-400 transition-colors flex-shrink-0" />
         </button>
 
-        {/* Bolsa de Trabajo */}
-        <button
-          onClick={onViewJobBoard}
-          className="card-glass-hover flex items-center gap-3 p-3 text-left group transition-all duration-200"
-        >
-          <div className="w-10 h-10 rounded-full bg-blue-500/10 border border-blue-500/20 flex items-center justify-center flex-shrink-0">
-            <span className="text-lg">📋</span>
-          </div>
-          <div className="flex-1 min-w-0">
-            <p className="text-sm font-semibold text-foreground">Bolsa de Trabajo</p>
-            <p className="text-[10px] text-muted-foreground">Conductores y licencias</p>
-          </div>
-          <ChevronRight className="h-4 w-4 text-muted-foreground/50 group-hover:text-blue-400 transition-colors flex-shrink-0" />
-        </button>
-
-        {/* Calendario IMET */}
-        <button
-          onClick={onViewImet}
-          className="card-glass-hover flex items-center gap-3 p-3 text-left group transition-all duration-200"
-        >
-          <div className="w-10 h-10 rounded-full bg-purple-500/10 border border-purple-500/20 flex items-center justify-center flex-shrink-0">
-            <span className="text-lg">🔧</span>
-          </div>
-          <div className="flex-1 min-w-0">
-            <p className="text-sm font-semibold text-foreground">Calendario IMET</p>
-            <p className="text-[10px] text-muted-foreground">ITV, seguro, taxímetro</p>
-          </div>
-          <ChevronRight className="h-4 w-4 text-muted-foreground/50 group-hover:text-purple-400 transition-colors flex-shrink-0" />
-        </button>
       </div>
+
+      {/* === HERRAMIENTAS PRO === */}
+      <section className="space-y-2 animate-fade-in-up" style={{ animationDelay: '500ms', animationFillMode: 'backwards' }}>
+        <div className="flex items-center gap-2 px-1">
+          <span className="text-xs font-semibold text-muted-foreground uppercase tracking-wider">Herramientas</span>
+        </div>
+
+        <div className="grid grid-cols-2 gap-2">
+          {/* Bolsa de Trabajo — Card Premium */}
+          <button
+            onClick={onViewJobBoard}
+            className="card-glass-hover relative overflow-hidden p-4 text-left group transition-all duration-300 active:scale-[0.97]"
+          >
+            {/* Decorative gradient */}
+            <div className="absolute top-0 right-0 w-20 h-20 bg-gradient-to-bl from-blue-500/10 to-transparent rounded-bl-3xl pointer-events-none" />
+            <div className="relative">
+              <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-blue-500/20 to-cyan-500/10 border border-blue-500/20 flex items-center justify-center mb-3 group-hover:scale-110 transition-transform duration-300">
+                <span className="text-2xl">🤝</span>
+              </div>
+              <h3 className="text-sm font-bold text-foreground mb-0.5">Bolsa de Trabajo</h3>
+              <p className="text-[10px] text-muted-foreground leading-relaxed">
+                Encuentra conductor o taxi para trabajar
+              </p>
+              <div className="flex items-center gap-1 mt-2">
+                <span className="text-[9px] bg-blue-500/10 text-blue-400 px-1.5 py-0.5 rounded-full border border-blue-500/20 font-medium">
+                  Conductores
+                </span>
+                <span className="text-[9px] bg-emerald-500/10 text-emerald-400 px-1.5 py-0.5 rounded-full border border-emerald-500/20 font-medium">
+                  Licencias
+                </span>
+              </div>
+            </div>
+          </button>
+
+          {/* Calendario IMET — Card Premium */}
+          <button
+            onClick={onViewImet}
+            className="card-glass-hover relative overflow-hidden p-4 text-left group transition-all duration-300 active:scale-[0.97]"
+          >
+            {/* Decorative gradient */}
+            <div className="absolute top-0 right-0 w-20 h-20 bg-gradient-to-bl from-purple-500/10 to-transparent rounded-bl-3xl pointer-events-none" />
+            <div className="relative">
+              <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-purple-500/20 to-pink-500/10 border border-purple-500/20 flex items-center justify-center mb-3 group-hover:scale-110 transition-transform duration-300">
+                <span className="text-2xl">📋</span>
+              </div>
+              <h3 className="text-sm font-bold text-foreground mb-0.5">Calendario IMET</h3>
+              <p className="text-[10px] text-muted-foreground leading-relaxed">
+                Controla ITV, seguro y revisiones
+              </p>
+              <div className="flex items-center gap-1 mt-2">
+                <span className="text-[9px] bg-purple-500/10 text-purple-400 px-1.5 py-0.5 rounded-full border border-purple-500/20 font-medium">
+                  🔧 ITV
+                </span>
+                <span className="text-[9px] bg-pink-500/10 text-pink-400 px-1.5 py-0.5 rounded-full border border-pink-500/20 font-medium">
+                  🛡️ Seguro
+                </span>
+              </div>
+            </div>
+          </button>
+        </div>
+      </section>
 
       {/* Hidden Admin Access - Triple tap on version to access */}
       <button

@@ -26,31 +26,33 @@ export interface SmartAlert {
     created_at: string;
 }
 
-// --- BASELINE THRESHOLDS ---
+// --- FALLBACK BASELINES (used when no real data yet) ---
 // Based on typical BCN airport/Sants patterns by hour of day
-// These represent "normal" levels — alerts fire when significantly above
 
-const HOURLY_FLIGHT_BASELINES: Record<number, number> = {
+const FALLBACK_FLIGHT_BASELINES: Record<number, number> = {
     0: 1, 1: 0, 2: 0, 3: 0, 4: 0, 5: 1,
     6: 3, 7: 5, 8: 7, 9: 8, 10: 9, 11: 8,
     12: 7, 13: 8, 14: 9, 15: 8, 16: 7, 17: 8,
     18: 9, 19: 10, 20: 9, 21: 8, 22: 6, 23: 3,
 };
 
-const HOURLY_PAX_BASELINES: Record<number, number> = {
-    0: 50, 1: 0, 2: 0, 3: 0, 4: 0, 5: 100,
-    6: 300, 7: 500, 8: 700, 9: 800, 10: 900, 11: 800,
-    12: 700, 13: 800, 14: 900, 15: 800, 16: 700, 17: 800,
-    18: 900, 19: 1000, 20: 900, 21: 800, 22: 500, 23: 200,
-};
-
-// Demand score baseline by hour (what's "normal")
-const HOURLY_DEMAND_BASELINES: Record<number, number> = {
+const FALLBACK_DEMAND_BASELINES: Record<number, number> = {
     0: 25, 1: 20, 2: 20, 3: 20, 4: 20, 5: 25,
     6: 35, 7: 40, 8: 45, 9: 50, 10: 50, 11: 45,
     12: 45, 13: 50, 14: 50, 15: 45, 16: 45, 17: 50,
     18: 55, 19: 55, 20: 50, 21: 45, 22: 35, 23: 30,
 };
+
+// Minimum samples needed to trust real baselines over fallbacks
+const MIN_BASELINE_SAMPLES = 3;
+
+interface ZoneBaseline {
+    avg_flights: number;
+    avg_pax: number;
+    avg_trains: number;
+    avg_demand_score: number;
+    sample_count: number;
+}
 
 // How much above baseline triggers an alert (multiplier)
 const SPIKE_THRESHOLD = 1.5;    // 50% above normal = notable
@@ -67,6 +69,7 @@ function alertDedupeKey(type: AlertType, zone: string | null, hour: number): str
 export function useSmartAlerts() {
     const [alerts, setAlerts] = useState<SmartAlert[]>([]);
     const [loading, setLoading] = useState(true);
+    const [realBaselines, setRealBaselines] = useState<Record<string, ZoneBaseline>>({});
     const recentKeysRef = useRef<Set<string>>(new Set());
     const lastCheckRef = useRef<number>(0);
 
@@ -74,6 +77,52 @@ export function useSmartAlerts() {
     const { weather, isRaining, isRainAlert } = useWeather();
 
     const deviceId = getOrCreateDeviceId();
+
+    // Fetch real baselines for current day/hour
+    const fetchBaselines = useCallback(async () => {
+        try {
+            const now = new Date();
+            const { data, error } = await supabase
+                .from('transport_hourly_baselines')
+                .select('*')
+                .eq('day_of_week', now.getDay())
+                .eq('hour_of_day', now.getHours());
+
+            if (error) throw error;
+            const map: Record<string, ZoneBaseline> = {};
+            for (const row of (data || [])) {
+                map[row.zone] = {
+                    avg_flights: Number(row.avg_flights),
+                    avg_pax: Number(row.avg_pax),
+                    avg_trains: Number(row.avg_trains),
+                    avg_demand_score: Number(row.avg_demand_score),
+                    sample_count: row.sample_count,
+                };
+            }
+            setRealBaselines(map);
+        } catch (err) {
+            console.error('[useSmartAlerts] Baseline fetch error:', err);
+        }
+    }, []);
+
+    // Helper: get baseline for a zone, use real data if available
+    const getBaseline = useCallback((zone: string, hourNum: number) => {
+        const real = realBaselines[zone];
+        if (real && real.sample_count >= MIN_BASELINE_SAMPLES) {
+            return {
+                flights: real.avg_flights,
+                demand: real.avg_demand_score,
+                isReal: true,
+                samples: real.sample_count,
+            };
+        }
+        return {
+            flights: FALLBACK_FLIGHT_BASELINES[hourNum] || 5,
+            demand: FALLBACK_DEMAND_BASELINES[hourNum] || 40,
+            isReal: false,
+            samples: 0,
+        };
+    }, [realBaselines]);
 
     // Fetch existing active alerts from DB
     const fetchAlerts = useCallback(async () => {
@@ -203,12 +252,13 @@ export function useSmartAlerts() {
 
         if (!currentHour) return;
 
-        const baselineFlights = HOURLY_FLIGHT_BASELINES[currentHourNum] || 5;
-        const baselinePax = HOURLY_PAX_BASELINES[currentHourNum] || 500;
-        const baselineDemand = HOURLY_DEMAND_BASELINES[currentHourNum] || 40;
-
         // Check each zone in current hour
         for (const zone of currentHour.zones) {
+            const baseline = getBaseline(zone.zone, currentHourNum);
+            const baselineFlights = baseline.flights;
+            const baselineDemand = baseline.demand;
+            const dataSource = baseline.isReal ? `(basado en ${baseline.samples} muestras reales)` : '(estimación)';
+
             // 1. FLIGHT PEAK — unusually high flight arrivals
             if (zone.type === 'airport' && zone.flightCount > 0) {
                 const ratio = zone.flightCount / Math.max(baselineFlights, 1);
@@ -216,16 +266,17 @@ export function useSmartAlerts() {
                     createAlert({
                         alert_type: 'flight_peak',
                         title: `Pico de vuelos en ${zone.zoneName}`,
-                        description: `${zone.flightCount} vuelos llegando (lo normal son ${baselineFlights}). ~${zone.taxiPax} pasajeros de taxi estimados.`,
+                        description: `${zone.flightCount} vuelos llegando (lo normal son ${Math.round(baselineFlights)}) ${dataSource}. ~${zone.taxiPax} pasajeros de taxi estimados.`,
                         emoji: '✈️',
                         severity: 'critical',
                         zone: zone.zone,
                         demand_score: zone.demandScore,
                         metadata: {
                             flight_count: zone.flightCount,
-                            baseline: baselineFlights,
+                            baseline: Math.round(baselineFlights),
                             ratio: Math.round(ratio * 100) / 100,
                             taxi_pax: zone.taxiPax,
+                            real_baseline: baseline.isReal,
                         },
                     });
                 } else if (ratio >= SPIKE_THRESHOLD && zone.flightCount >= 3) {
@@ -340,12 +391,19 @@ export function useSmartAlerts() {
                 });
             }
         }
-    }, [currentHour, activeEvents, upcomingCruises, isRainBoost, isRaining, weather, weatherMultiplier, createAlert]);
+    }, [currentHour, activeEvents, upcomingCruises, isRainBoost, isRaining, weather, weatherMultiplier, createAlert, getBaseline]);
 
     // Initial fetch
     useEffect(() => {
         fetchAlerts();
-    }, [fetchAlerts]);
+        fetchBaselines();
+    }, [fetchAlerts, fetchBaselines]);
+
+    // Refresh baselines every hour
+    useEffect(() => {
+        const interval = setInterval(fetchBaselines, 60 * 60 * 1000);
+        return () => clearInterval(interval);
+    }, [fetchBaselines]);
 
     // Run anomaly detection when forecast updates
     useEffect(() => {

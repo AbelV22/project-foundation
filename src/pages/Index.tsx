@@ -26,6 +26,7 @@ import { TicketsView } from "@/components/views/TicketsView";
 import { ImetCalendarView } from "@/components/views/ImetCalendarView";
 import { JobBoardView } from "@/components/views/JobBoardView";
 import { useAnalytics } from "@/hooks/useAnalytics";
+import { useBaselineCollector } from "@/hooks/useBaselineCollector";
 
 const titles: Record<string, string> = {
   dashboard: "Inicio",
@@ -56,6 +57,9 @@ const Index = () => {
   const [selectedTrainCity, setSelectedTrainCity] = useState<string | null>(null);
   const [selectedTrainOperator, setSelectedTrainOperator] = useState<string | null>(null);
   const { trackView } = useAnalytics();
+
+  // Silently collect hourly transport baselines
+  useBaselineCollector();
 
   // Track tab views for analytics
   useEffect(() => {
