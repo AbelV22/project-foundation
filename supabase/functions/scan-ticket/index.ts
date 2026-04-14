@@ -76,7 +76,7 @@ REGLAS:
         }],
         generationConfig: {
           temperature: 0.1,
-          maxOutputTokens: 256,
+          maxOutputTokens: 1024,
         }
       })
     });
@@ -97,7 +97,10 @@ REGLAS:
     }
 
     const geminiData = await geminiResponse.json();
-    const rawText = geminiData?.candidates?.[0]?.content?.parts?.[0]?.text || '';
+    // gemini-2.5-flash may return multiple parts (thinking + response)
+    // Get the last text part which contains the actual answer
+    const parts = geminiData?.candidates?.[0]?.content?.parts || [];
+    const rawText = parts.filter((p: any) => p.text).map((p: any) => p.text).pop() || '';
 
     // Parse JSON from response (strip any markdown code fences)
     const jsonMatch = rawText.replace(/```json\n?/g, '').replace(/```\n?/g, '').trim();
