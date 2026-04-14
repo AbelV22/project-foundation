@@ -81,6 +81,22 @@
             "fecha": "2026-04-14"
         },
         {
+            "hora": "06:00",
+            "nombre": "Msc Tianjin",
+            "naviera": "MEDITERRANEAN SHIPPING CO",
+            "terminal": "TERMINAL CATALUNYA SA",
+            "terminal_codigo": "6212",
+            "eslora": 323.0,
+            "pax_estimados": 4500,
+            "puerto": "Freeport, Grand Bahama",
+            "tipo": "llegada",
+            "estado": "Sol·licitada",
+            "bandera": "Libèria",
+            "imo": "9285471",
+            "mmsi": "636019332",
+            "fecha": "2026-04-14"
+        },
+        {
             "hora": "07:29",
             "nombre": "Eco Savona",
             "naviera": "GRIMALDI EUROMED SPA",
@@ -484,26 +500,26 @@
         }
     ],
     "resumen": {
-        "total_cruceros": 17,
-        "total_llegadas": 13,
+        "total_cruceros": 18,
+        "total_llegadas": 14,
         "total_salidas": 17,
-        "pax_estimados_hoy": 17000,
+        "pax_estimados_hoy": 21500,
         "proximo_desembarco": "18:15",
         "proximo_barco": "Ciudad De Palma"
     },
     "terminales_activas": [
-        "F3",
-        "6212",
-        "D",
-        "8156",
-        "0010",
-        "TC",
+        "F2",
         "F1",
-        "F2"
+        "6212",
+        "0010",
+        "F3",
+        "TC",
+        "D",
+        "8156"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-04-14T14:50:52.107510",
+        "actualizado": "2026-04-14T11:56:40.032951",
         "frecuencia": "horaria"
     }
 }
