@@ -26,7 +26,7 @@
             "pax_estimados": 4500,
             "puerto": "La Spezia",
             "tipo": "llegada",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Libèria",
             "imo": "9978975",
             "mmsi": "636025760",
@@ -46,6 +46,22 @@
             "bandera": "Libèria",
             "imo": "9305855",
             "mmsi": "636025516",
+            "fecha": "2026-04-14"
+        },
+        {
+            "hora": "06:00",
+            "nombre": "Msc Ira Ii",
+            "naviera": "MEDITERRANEAN SHIPPING CO",
+            "terminal": "TERMINAL CATALUNYA SA",
+            "terminal_codigo": "6212",
+            "eslora": 0,
+            "pax_estimados": 500,
+            "puerto": "Alger (Algiers)",
+            "tipo": "llegada",
+            "estado": "Autoritzada",
+            "bandera": "Libèria",
+            "imo": "9323493",
+            "mmsi": "636023306",
             "fecha": "2026-04-14"
         },
         {
@@ -161,7 +177,7 @@
             "fecha": "2026-04-14"
         },
         {
-            "hora": "20:04",
+            "hora": "20:45",
             "nombre": "Gnv Altair",
             "naviera": "GRANDI NAVI VELOCI",
             "terminal": "TERMINAL F2",
@@ -170,26 +186,10 @@
             "pax_estimados": 500,
             "puerto": "Ibiza",
             "tipo": "llegada",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Itàlia",
             "imo": "9222534",
             "mmsi": "247057100",
-            "fecha": "2026-04-14"
-        },
-        {
-            "hora": "20:59",
-            "nombre": "Msc Ira Ii",
-            "naviera": "MEDITERRANEAN SHIPPING CO",
-            "terminal": "TERMINAL CATALUNYA SA",
-            "terminal_codigo": "6212",
-            "eslora": 0,
-            "pax_estimados": 500,
-            "puerto": "Alger (Algiers)",
-            "tipo": "llegada",
-            "estado": "Iniciada",
-            "bandera": "Libèria",
-            "imo": "9323493",
-            "mmsi": "636023306",
             "fecha": "2026-04-14"
         },
         {
@@ -323,6 +323,22 @@
             "fecha": "2026-04-14"
         },
         {
+            "hora": "14:00",
+            "nombre": "Msc Gabriella",
+            "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
+            "terminal": "TERMINAL CATALUNYA SA",
+            "terminal_codigo": "6212",
+            "eslora": 335.0,
+            "pax_estimados": 4500,
+            "puerto": "Valencia",
+            "tipo": "salida",
+            "estado": "Iniciada",
+            "bandera": "Libèria",
+            "imo": "9978975",
+            "mmsi": "636025760",
+            "fecha": "2026-04-14"
+        },
+        {
             "hora": "17:56",
             "nombre": "Costa Fascinosa",
             "naviera": "NOATUM MARITIME SPAIN SAU",
@@ -339,19 +355,19 @@
             "fecha": "2026-04-14"
         },
         {
-            "hora": "19:08",
-            "nombre": "Msc Gabriella",
+            "hora": "20:00",
+            "nombre": "Msc Ira Ii",
             "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
             "terminal": "TERMINAL CATALUNYA SA",
             "terminal_codigo": "6212",
-            "eslora": 335.0,
-            "pax_estimados": 4500,
-            "puerto": "Valencia",
+            "eslora": 0,
+            "pax_estimados": 500,
+            "puerto": "Alger (Algiers)",
             "tipo": "salida",
-            "estado": "Finalitzada",
+            "estado": "Autoritzada",
             "bandera": "Libèria",
-            "imo": "9978975",
-            "mmsi": "636025760",
+            "imo": "9323493",
+            "mmsi": "636023306",
             "fecha": "2026-04-14"
         },
         {
@@ -368,22 +384,6 @@
             "bandera": "Libèria",
             "imo": "9975583",
             "mmsi": "636024895",
-            "fecha": "2026-04-14"
-        },
-        {
-            "hora": "21:01",
-            "nombre": "Msc Ira Ii",
-            "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
-            "terminal": "TERMINAL CATALUNYA SA",
-            "terminal_codigo": "6212",
-            "eslora": 0,
-            "pax_estimados": 500,
-            "puerto": "Alger (Algiers)",
-            "tipo": "salida",
-            "estado": "Iniciada",
-            "bandera": "Libèria",
-            "imo": "9323493",
-            "mmsi": "636023306",
             "fecha": "2026-04-14"
         },
         {
@@ -476,7 +476,7 @@
             "pax_estimados": 500,
             "puerto": "Mahon Menorca",
             "tipo": "salida",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Itàlia",
             "imo": "9222534",
             "mmsi": "247057100",
@@ -488,22 +488,22 @@
         "total_llegadas": 13,
         "total_salidas": 17,
         "pax_estimados_hoy": 17000,
-        "proximo_desembarco": "20:59",
-        "proximo_barco": "Msc Ira Ii"
+        "proximo_desembarco": "18:38",
+        "proximo_barco": "Ciudad De Palma"
     },
     "terminales_activas": [
         "F2",
-        "F1",
-        "6212",
+        "8156",
         "F3",
+        "6212",
         "TC",
-        "D",
         "0010",
-        "8156"
+        "F1",
+        "D"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-04-14T20:05:07.748426",
+        "actualizado": "2026-04-14T18:05:08.159570",
         "frecuencia": "horaria"
     }
 }
