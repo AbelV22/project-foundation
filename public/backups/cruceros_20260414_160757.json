@@ -177,7 +177,7 @@
             "fecha": "2026-04-14"
         },
         {
-            "hora": "20:45",
+            "hora": "18:40",
             "nombre": "Gnv Altair",
             "naviera": "GRANDI NAVI VELOCI",
             "terminal": "TERMINAL F2",
@@ -403,6 +403,22 @@
             "fecha": "2026-04-14"
         },
         {
+            "hora": "21:45",
+            "nombre": "Gnv Altair",
+            "naviera": "TRANSCOMA BALEARES SA",
+            "terminal": "TERMINAL F2",
+            "terminal_codigo": "F2",
+            "eslora": 0,
+            "pax_estimados": 500,
+            "puerto": "Mahon Menorca",
+            "tipo": "salida",
+            "estado": "Autoritzada",
+            "bandera": "Itàlia",
+            "imo": "9222534",
+            "mmsi": "247057100",
+            "fecha": "2026-04-14"
+        },
+        {
             "hora": "22:00",
             "nombre": "Ciudad De Barcelona",
             "naviera": "GRIMALDI LOGISTICA ESPAÑA SL",
@@ -465,22 +481,6 @@
             "imo": "9390367",
             "mmsi": "224637000",
             "fecha": "2026-04-14"
-        },
-        {
-            "hora": "23:59",
-            "nombre": "Gnv Altair",
-            "naviera": "TRANSCOMA BALEARES SA",
-            "terminal": "TERMINAL F2",
-            "terminal_codigo": "F2",
-            "eslora": 0,
-            "pax_estimados": 500,
-            "puerto": "Mahon Menorca",
-            "tipo": "salida",
-            "estado": "Autoritzada",
-            "bandera": "Itàlia",
-            "imo": "9222534",
-            "mmsi": "247057100",
-            "fecha": "2026-04-14"
         }
     ],
     "resumen": {
@@ -492,18 +492,18 @@
         "proximo_barco": "Ciudad De Palma"
     },
     "terminales_activas": [
-        "0010",
-        "6212",
         "F3",
-        "F2",
-        "F1",
+        "6212",
         "D",
         "8156",
-        "TC"
+        "0010",
+        "TC",
+        "F1",
+        "F2"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-04-14T16:07:57.358113",
+        "actualizado": "2026-04-14T14:50:52.107510",
         "frecuencia": "horaria"
     }
 }
