@@ -49,6 +49,22 @@
             "fecha": "2026-04-15"
         },
         {
+            "hora": "06:00",
+            "nombre": "Msc Mette",
+            "naviera": "MEDITERRANEAN SHIPPING CO",
+            "terminal": "TERMINAL CATALUNYA SA",
+            "terminal_codigo": "6212",
+            "eslora": 0,
+            "pax_estimados": 500,
+            "puerto": "Valencia",
+            "tipo": "llegada",
+            "estado": "Sol·licitada",
+            "bandera": "Libèria",
+            "imo": "9936630",
+            "mmsi": "636023084",
+            "fecha": "2026-04-15"
+        },
+        {
             "hora": "06:45",
             "nombre": "Msc Leandra V",
             "naviera": "MEDITERRANEAN SHIPPING CO",
@@ -307,22 +323,6 @@
             "fecha": "2026-04-15"
         },
         {
-            "hora": "08:19",
-            "nombre": "Msc Jiani",
-            "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
-            "terminal": "",
-            "terminal_codigo": "",
-            "eslora": 172.0,
-            "pax_estimados": 1000,
-            "puerto": "Bejaia (ex Bougie)",
-            "tipo": "salida",
-            "estado": "Finalitzada",
-            "bandera": "Libèria",
-            "imo": "9966934",
-            "mmsi": "636023100",
-            "fecha": "2026-04-15"
-        },
-        {
             "hora": "14:00",
             "nombre": "Hmm Forest",
             "naviera": "MARITIME AGENCY HMM SPAIN SL",
@@ -368,6 +368,22 @@
             "bandera": "Libèria",
             "imo": "9449687",
             "mmsi": "636021438",
+            "fecha": "2026-04-15"
+        },
+        {
+            "hora": "20:00",
+            "nombre": "Msc Mette",
+            "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
+            "terminal": "TERMINAL CATALUNYA SA",
+            "terminal_codigo": "6212",
+            "eslora": 0,
+            "pax_estimados": 500,
+            "puerto": "Fos-sur-Mer",
+            "tipo": "salida",
+            "estado": "Sol·licitada",
+            "bandera": "Libèria",
+            "imo": "9936630",
+            "mmsi": "636023084",
             "fecha": "2026-04-15"
         },
         {
@@ -501,28 +517,28 @@
     ],
     "resumen": {
         "total_cruceros": 18,
-        "total_llegadas": 16,
+        "total_llegadas": 17,
         "total_salidas": 15,
-        "pax_estimados_hoy": 25500,
-        "proximo_desembarco": "12:00",
-        "proximo_barco": "Neptune Tharros"
+        "pax_estimados_hoy": 26000,
+        "proximo_desembarco": "07:51",
+        "proximo_barco": "Eco Adriatica"
     },
     "terminales_activas": [
+        "8156",
         "7083",
         "F2",
-        "F3",
-        "6154",
-        "2396",
-        "7946",
-        "F1",
-        "TC",
-        "0010",
         "6212",
-        "8156"
+        "2396",
+        "F1",
+        "0010",
+        "7946",
+        "6154",
+        "F3",
+        "TC"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-04-15T08:27:17.247030",
+        "actualizado": "2026-04-15T06:54:29.301210",
         "frecuencia": "horaria"
     }
 }
