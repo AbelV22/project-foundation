@@ -323,22 +323,6 @@
             "fecha": "2026-04-16"
         },
         {
-            "hora": "08:37",
-            "nombre": "Msc Tianjin",
-            "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
-            "terminal": "TERMINAL CATALUNYA SA",
-            "terminal_codigo": "6212",
-            "eslora": 323.0,
-            "pax_estimados": 4500,
-            "puerto": "Gioia Tauro",
-            "tipo": "salida",
-            "estado": "Finalitzada",
-            "bandera": "Libèria",
-            "imo": "9285471",
-            "mmsi": "636019332",
-            "fecha": "2026-04-16"
-        },
-        {
             "hora": "13:45",
             "nombre": "Msc Ruth F",
             "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
@@ -352,6 +336,22 @@
             "bandera": "Libèria",
             "imo": "9212034",
             "mmsi": "636025361",
+            "fecha": "2026-04-16"
+        },
+        {
+            "hora": "14:30",
+            "nombre": "Msc Tianjin",
+            "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
+            "terminal": "TERMINAL CATALUNYA SA",
+            "terminal_codigo": "6212",
+            "eslora": 323.0,
+            "pax_estimados": 4500,
+            "puerto": "Gioia Tauro",
+            "tipo": "salida",
+            "estado": "Iniciada",
+            "bandera": "Libèria",
+            "imo": "9285471",
+            "mmsi": "636019332",
             "fecha": "2026-04-16"
         },
         {
@@ -600,25 +600,25 @@
         "total_llegadas": 17,
         "total_salidas": 20,
         "pax_estimados_hoy": 28000,
-        "proximo_desembarco": "12:00",
-        "proximo_barco": "Msc Candice"
+        "proximo_desembarco": "09:36",
+        "proximo_barco": "Amilcar"
     },
     "terminales_activas": [
-        "D",
-        "F2",
-        "6212",
-        "7332",
-        "H",
-        "F3",
-        "F1",
-        "C",
         "E",
+        "H",
         "8156",
+        "D",
+        "F1",
+        "F2",
+        "7332",
+        "F3",
+        "C",
+        "6212",
         "2398"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-04-16T10:15:36.463687",
+        "actualizado": "2026-04-16T08:27:14.911003",
         "frecuencia": "horaria"
     }
 }
