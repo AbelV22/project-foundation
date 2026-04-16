@@ -34,6 +34,22 @@
         },
         {
             "hora": "06:00",
+            "nombre": "Amilcar",
+            "naviera": "COTUNAV",
+            "terminal": "TERMINAL PORT NOU SA",
+            "terminal_codigo": "2398",
+            "eslora": 193.0,
+            "pax_estimados": 1000,
+            "puerto": "Marseille",
+            "tipo": "llegada",
+            "estado": "Autoritzada",
+            "bandera": "Tunísia",
+            "imo": "9207998",
+            "mmsi": "672747000",
+            "fecha": "2026-04-16"
+        },
+        {
+            "hora": "06:00",
             "nombre": "America",
             "naviera": "MEDITERRANEAN SHIPPING CO",
             "terminal": "TERMINAL CATALUNYA SA",
@@ -81,6 +97,22 @@
             "fecha": "2026-04-16"
         },
         {
+            "hora": "06:00",
+            "nombre": "Msc Levante F",
+            "naviera": "MEDITERRANEAN SHIPPING CO",
+            "terminal": "TERMINAL CATALUNYA SA",
+            "terminal_codigo": "6212",
+            "eslora": 0,
+            "pax_estimados": 500,
+            "puerto": "Oran",
+            "tipo": "llegada",
+            "estado": "Sol·licitada",
+            "bandera": "Panamà",
+            "imo": "9330264",
+            "mmsi": "352898711",
+            "fecha": "2026-04-16"
+        },
+        {
             "hora": "07:20",
             "nombre": "Sky Princess",
             "naviera": "PRINCESS CRUISES",
@@ -110,22 +142,6 @@
             "bandera": "Panamà",
             "imo": "9359791",
             "mmsi": "370648000",
-            "fecha": "2026-04-16"
-        },
-        {
-            "hora": "09:36",
-            "nombre": "Amilcar",
-            "naviera": "COTUNAV",
-            "terminal": "TERMINAL PORT NOU SA",
-            "terminal_codigo": "2398",
-            "eslora": 193.0,
-            "pax_estimados": 1000,
-            "puerto": "Marseille",
-            "tipo": "llegada",
-            "estado": "Iniciada",
-            "bandera": "Tunísia",
-            "imo": "9207998",
-            "mmsi": "672747000",
             "fecha": "2026-04-16"
         },
         {
@@ -412,7 +428,7 @@
             "pax_estimados": 1000,
             "puerto": "Rades/Tunis",
             "tipo": "salida",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Tunísia",
             "imo": "9207998",
             "mmsi": "672747000",
@@ -496,6 +512,22 @@
             "bandera": "Libèria",
             "imo": "9987328",
             "mmsi": "636025011",
+            "fecha": "2026-04-16"
+        },
+        {
+            "hora": "20:00",
+            "nombre": "Msc Levante F",
+            "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
+            "terminal": "TERMINAL CATALUNYA SA",
+            "terminal_codigo": "6212",
+            "eslora": 0,
+            "pax_estimados": 500,
+            "puerto": "Oran",
+            "tipo": "salida",
+            "estado": "Sol·licitada",
+            "bandera": "Panamà",
+            "imo": "9330264",
+            "mmsi": "352898711",
             "fecha": "2026-04-16"
         },
         {
@@ -596,29 +628,29 @@
         }
     ],
     "resumen": {
-        "total_cruceros": 22,
-        "total_llegadas": 17,
-        "total_salidas": 20,
-        "pax_estimados_hoy": 28000,
-        "proximo_desembarco": "09:36",
-        "proximo_barco": "Amilcar"
+        "total_cruceros": 23,
+        "total_llegadas": 18,
+        "total_salidas": 21,
+        "pax_estimados_hoy": 28500,
+        "proximo_desembarco": "07:20",
+        "proximo_barco": "Sky Princess"
     },
     "terminales_activas": [
-        "E",
         "H",
-        "8156",
         "D",
+        "F3",
+        "6212",
+        "7332",
         "F1",
         "F2",
-        "7332",
-        "F3",
-        "C",
-        "6212",
-        "2398"
+        "2398",
+        "8156",
+        "E",
+        "C"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-04-16T08:27:14.911003",
+        "actualizado": "2026-04-16T06:56:17.883888",
         "frecuencia": "horaria"
     }
 }
