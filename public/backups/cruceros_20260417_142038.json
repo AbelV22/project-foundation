@@ -129,23 +129,7 @@
             "fecha": "2026-04-17"
         },
         {
-            "hora": "13:14",
-            "nombre": "Costa Fascinosa",
-            "naviera": "COSTA CROCIERE, S.P.A.",
-            "terminal": "Terminal A (WTC)",
-            "terminal_codigo": "A",
-            "eslora": 0,
-            "pax_estimados": 500,
-            "puerto": "Savona",
-            "tipo": "llegada",
-            "estado": "Iniciada",
-            "bandera": "Itàlia",
-            "imo": "9479864",
-            "mmsi": "247313500",
-            "fecha": "2026-04-17"
-        },
-        {
-            "hora": "13:58",
+            "hora": "12:00",
             "nombre": "Msc San Francisco",
             "naviera": "MEDITERRANEAN SHIPPING CO",
             "terminal": "TERMINAL CATALUNYA SA",
@@ -154,10 +138,26 @@
             "pax_estimados": 6500,
             "puerto": "Anvers",
             "tipo": "llegada",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Libèria",
             "imo": "9987328",
             "mmsi": "636025011",
+            "fecha": "2026-04-17"
+        },
+        {
+            "hora": "12:30",
+            "nombre": "Costa Fascinosa",
+            "naviera": "COSTA CROCIERE, S.P.A.",
+            "terminal": "Terminal A (WTC)",
+            "terminal_codigo": "A",
+            "eslora": 0,
+            "pax_estimados": 500,
+            "puerto": "Savona",
+            "tipo": "llegada",
+            "estado": "Autoritzada",
+            "bandera": "Itàlia",
+            "imo": "9479864",
+            "mmsi": "247313500",
             "fecha": "2026-04-17"
         },
         {
@@ -444,7 +444,7 @@
             "pax_estimados": 500,
             "puerto": "Marseille",
             "tipo": "salida",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Itàlia",
             "imo": "9479864",
             "mmsi": "247313500",
@@ -600,24 +600,24 @@
         "total_llegadas": 18,
         "total_salidas": 19,
         "pax_estimados_hoy": 31000,
-        "proximo_desembarco": "16:00",
-        "proximo_barco": "Msc Cedar Ii"
+        "proximo_desembarco": "12:00",
+        "proximo_barco": "Msc San Francisco"
     },
     "terminales_activas": [
-        "E",
-        "6154",
-        "A",
         "H",
-        "F2",
-        "F1",
         "8156",
         "6212",
+        "A",
+        "E",
+        "F2",
+        "F1",
         "F3",
-        "2396"
+        "2396",
+        "6154"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-04-17T14:20:38.365493",
+        "actualizado": "2026-04-17T11:52:34.745048",
         "frecuencia": "horaria"
     }
 }
