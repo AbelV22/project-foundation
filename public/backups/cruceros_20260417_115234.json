@@ -145,6 +145,22 @@
             "fecha": "2026-04-17"
         },
         {
+            "hora": "12:00",
+            "nombre": "Msc Mette",
+            "naviera": "MEDITERRANEAN SHIPPING CO",
+            "terminal": "TERMINAL CATALUNYA SA",
+            "terminal_codigo": "6212",
+            "eslora": 0,
+            "pax_estimados": 500,
+            "puerto": "Valencia",
+            "tipo": "llegada",
+            "estado": "Autoritzada",
+            "bandera": "Libèria",
+            "imo": "9936630",
+            "mmsi": "636023084",
+            "fecha": "2026-04-17"
+        },
+        {
             "hora": "12:30",
             "nombre": "Costa Fascinosa",
             "naviera": "COSTA CROCIERE, S.P.A.",
@@ -177,23 +193,7 @@
             "fecha": "2026-04-17"
         },
         {
-            "hora": "17:45",
-            "nombre": "Msc Mette",
-            "naviera": "MEDITERRANEAN SHIPPING CO",
-            "terminal": "TERMINAL CATALUNYA SA",
-            "terminal_codigo": "6212",
-            "eslora": 0,
-            "pax_estimados": 500,
-            "puerto": "Valencia",
-            "tipo": "llegada",
-            "estado": "Autoritzada",
-            "bandera": "Libèria",
-            "imo": "9936630",
-            "mmsi": "636023084",
-            "fecha": "2026-04-17"
-        },
-        {
-            "hora": "18:00",
+            "hora": "16:00",
             "nombre": "Zim Asia",
             "naviera": "ZIM INTEGRATED SHIPPING SERV.",
             "terminal": "TERMINAL CATALUNYA SA",
@@ -202,10 +202,26 @@
             "pax_estimados": 3000,
             "puerto": "Valencia",
             "tipo": "llegada",
-            "estado": "Confirmada",
+            "estado": "Sol·licitada",
             "bandera": "Libèria",
             "imo": "9464716",
             "mmsi": "636021664",
+            "fecha": "2026-04-17"
+        },
+        {
+            "hora": "18:00",
+            "nombre": "Msc Oak F",
+            "naviera": "MEDITERRANEAN SHIPPING CO",
+            "terminal": "TERMINAL CATALUNYA SA",
+            "terminal_codigo": "6212",
+            "eslora": 0,
+            "pax_estimados": 500,
+            "puerto": "Oran",
+            "tipo": "llegada",
+            "estado": "Sol·licitada",
+            "bandera": "Libèria",
+            "imo": "9373917",
+            "mmsi": "636016702",
             "fecha": "2026-04-17"
         },
         {
@@ -596,28 +612,28 @@
         }
     ],
     "resumen": {
-        "total_cruceros": 21,
-        "total_llegadas": 18,
+        "total_cruceros": 22,
+        "total_llegadas": 19,
         "total_salidas": 19,
-        "pax_estimados_hoy": 31000,
+        "pax_estimados_hoy": 31500,
         "proximo_desembarco": "12:00",
         "proximo_barco": "Msc San Francisco"
     },
     "terminales_activas": [
-        "H",
-        "8156",
-        "6212",
-        "A",
-        "E",
-        "F2",
-        "F1",
         "F3",
         "2396",
-        "6154"
+        "H",
+        "6154",
+        "8156",
+        "F2",
+        "F1",
+        "6212",
+        "E",
+        "A"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-04-17T11:52:34.745048",
+        "actualizado": "2026-04-17T10:14:15.770455",
         "frecuencia": "horaria"
     }
 }
