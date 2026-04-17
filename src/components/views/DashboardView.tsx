@@ -75,7 +75,7 @@ export function DashboardView({ onTerminalClick, onViewAllFlights, onViewAllEven
     Promise.all([
       fetch("/vuelos.json?t=" + Date.now()).then(res => res.json()).catch(() => []),
       fetch("/trenes_sants.json?t=" + Date.now()).then(res => res.json()).catch(() => []),
-      fetch("/analisis_licencias_taxi.json?t=" + Date.now()).then(res => res.json()).catch(() => null)
+      fetch("/web_feed.json?t=" + Date.now()).then(res => res.json()).catch(() => null)
     ]).then(([vuelosData, trenesData, licenciasData]) => {
       setVuelos(deduplicateFlights(Array.isArray(vuelosData) ? vuelosData : []));
       const { trenes: uniqueTrenes } = normalizeTrenesResponse(trenesData);

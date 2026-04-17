@@ -54,8 +54,8 @@ export const useWaitingTimes = (): UseWaitingTimesResult => {
                     return durationMinutes >= 5; // Exclude waits shorter than 5 minutes
                 });
 
-                // Only show real data if we have at least 3 completed waits
-                const hasRealData = completedWaits.length >= 3;
+                // Only show real data if we have at least 5 completed waits
+                const hasRealData = completedWaits.length >= 5;
                 let avgWait: number | null = null;
 
                 if (hasRealData) {
