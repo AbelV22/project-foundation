@@ -1,5 +1,8 @@
+import { useState } from "react";
 import { useTickets } from "@/hooks/useTickets";
-import { ArrowLeft, Calendar, Receipt, Route, Euro, Car, TrendingUp, BarChart3 } from "lucide-react";
+import { useAuth } from "@/hooks/useAuth";
+import { AccountCreationDialog } from "@/components/AccountCreationDialog";
+import { ArrowLeft, Calendar, Receipt, Route, Euro, Car, TrendingUp, BarChart3, UserPlus, Cloud } from "lucide-react";
 import { format } from "date-fns";
 import { es } from "date-fns/locale";
 import { cn } from "@/lib/utils";
@@ -9,13 +12,57 @@ interface TicketsViewProps {
 }
 
 export function TicketsView({ onBack }: TicketsViewProps) {
+    const { isAuthenticated, loading: authLoading } = useAuth();
     const { tickets, stats, loading } = useTickets();
+    const [accountDialogOpen, setAccountDialogOpen] = useState(false);
 
-    if (loading) {
+    if (loading || authLoading) {
         return (
             <div className="flex flex-col items-center justify-center min-h-[50vh] space-y-4">
                 <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-amber-500"></div>
                 <p className="text-muted-foreground text-sm">Cargando tickets...</p>
+            </div>
+        );
+    }
+
+    if (!isAuthenticated) {
+        return (
+            <div className="space-y-4 pb-20 animate-fade-in">
+                <div className="flex items-center gap-3 mb-6">
+                    <button
+                        onClick={onBack}
+                        className="p-2 rounded-full bg-slate-800/50 hover:bg-slate-700/50 transition-colors"
+                    >
+                        <ArrowLeft className="h-5 w-5 text-white" />
+                    </button>
+                    <div>
+                        <h2 className="text-xl font-bold text-white">Tickets Taxitronic</h2>
+                    </div>
+                </div>
+                <button
+                    onClick={() => setAccountDialogOpen(true)}
+                    className="w-full card-glass p-4 text-left group hover:border-primary/50 transition-all"
+                >
+                    <div className="flex items-start gap-3">
+                        <div className="w-10 h-10 rounded-xl bg-primary/15 flex items-center justify-center shrink-0">
+                            <UserPlus className="h-5 w-5 text-primary" />
+                        </div>
+                        <div className="flex-1">
+                            <h3 className="text-sm font-semibold text-foreground mb-1">
+                                Crea una cuenta para escanear tus tickets
+                            </h3>
+                            <p className="text-xs text-muted-foreground leading-snug">
+                                <Cloud className="inline h-3 w-3 mr-0.5 -mt-0.5" />
+                                Tus tickets de fin de día quedan sincronizados y sólo tú los ves.
+                            </p>
+                        </div>
+                    </div>
+                </button>
+                <AccountCreationDialog
+                    open={accountDialogOpen}
+                    onDone={() => setAccountDialogOpen(false)}
+                    onSkip={() => setAccountDialogOpen(false)}
+                />
             </div>
         );
     }

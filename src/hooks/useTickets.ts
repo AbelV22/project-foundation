@@ -1,6 +1,7 @@
 import { useState, useEffect, useCallback } from 'react';
 import { supabase } from '@/integrations/supabase/client';
 import { getOrCreateDeviceId } from '@/lib/deviceId';
+import { useAuth } from '@/hooks/useAuth';
 
 /**
  * Compress and resize an image to reduce payload for OCR.
@@ -122,6 +123,7 @@ const emptyStats: TicketStats = {
 };
 
 export const useTickets = (): UseTicketsResult => {
+    const { user, isAuthenticated, loading: authLoading } = useAuth();
     const [tickets, setTickets] = useState<TicketRecord[]>([]);
     const [stats, setStats] = useState<TicketStats>(emptyStats);
     const [loading, setLoading] = useState(true);
@@ -129,14 +131,23 @@ export const useTickets = (): UseTicketsResult => {
     const [error, setError] = useState<Error | null>(null);
 
     const fetchTickets = useCallback(async () => {
+        // Same user-scoping guard as earnings/expenses: unregistered users
+        // see nothing so one user's daily-totals don't leak to others.
+        if (!isAuthenticated) {
+            setTickets([]);
+            setStats(emptyStats);
+            setError(null);
+            setLoading(false);
+            return;
+        }
         try {
-            const deviceId = getOrCreateDeviceId();
             const monthAgo = new Date(Date.now() - 30 * 24 * 60 * 60 * 1000).toISOString();
 
+            // RLS scopes reads to auth.uid(); no device_id filter so the
+            // same account sees its tickets across devices.
             const { data, error: fetchError } = await supabase
                 .from('ticket_diario')
                 .select('*')
-                .eq('device_id', deviceId)
                 .gte('created_at', monthAgo)
                 .order('fecha', { ascending: false });
 
@@ -173,13 +184,18 @@ export const useTickets = (): UseTicketsResult => {
         } finally {
             setLoading(false);
         }
-    }, []);
+    }, [isAuthenticated]);
 
     const uploadPhoto = useCallback(async (imageBase64: string): Promise<string | null> => {
+        if (!isAuthenticated || !user) {
+            setError(new Error('Debes iniciar sesión para subir fotos de tickets'));
+            return null;
+        }
         try {
-            const deviceId = getOrCreateDeviceId();
+            // Scope the storage path by user_id so uploads from different
+            // accounts can't collide and one user can't list another's files.
             const timestamp = Date.now();
-            const fileName = `${deviceId}/${timestamp}.jpg`;
+            const fileName = `${user.id}/${timestamp}.jpg`;
 
             // Convert base64 to blob
             const base64Data = imageBase64.replace(/^data:image\/\w+;base64,/, '');
@@ -205,7 +221,7 @@ export const useTickets = (): UseTicketsResult => {
             console.error('[useTickets] Upload error:', err);
             return null;
         }
-    }, []);
+    }, [isAuthenticated, user]);
 
     const scanTicket = useCallback(async (imageBase64: string): Promise<ScanResult | null> => {
         setScanning(true);
@@ -254,12 +270,17 @@ export const useTickets = (): UseTicketsResult => {
         foto_url: string | null;
         datos_raw: any;
     }): Promise<boolean> => {
+        if (!isAuthenticated || !user) {
+            setError(new Error('Debes iniciar sesión para guardar tickets'));
+            return false;
+        }
         try {
             const deviceId = getOrCreateDeviceId();
 
             const { error: insertError } = await supabase
                 .from('ticket_diario')
                 .insert({
+                    user_id: user.id,
                     device_id: deviceId,
                     ...data,
                 });
@@ -273,11 +294,13 @@ export const useTickets = (): UseTicketsResult => {
             setError(err instanceof Error ? err : new Error('Failed to save ticket'));
             return false;
         }
-    }, [fetchTickets]);
+    }, [fetchTickets, isAuthenticated, user]);
 
     useEffect(() => {
+        // Wait for auth to resolve so we don't briefly query as anon.
+        if (authLoading) return;
         fetchTickets();
-    }, [fetchTickets]);
+    }, [fetchTickets, authLoading]);
 
     return { tickets, stats, loading, scanning, error, scanTicket, saveTicket, uploadPhoto, refresh: fetchTickets };
 };
