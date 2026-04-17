@@ -64,7 +64,7 @@ const EMPTY_STATS: EarningsStats = {
 };
 
 export const useEarnings = (): UseEarningsResult => {
-    const { isAuthenticated, loading: authLoading } = useAuth();
+    const { user, isAuthenticated, loading: authLoading } = useAuth();
     const [carreras, setCarreras] = useState<CarreraRecord[]>([]);
     const [stats, setStats] = useState<EarningsStats>(EMPTY_STATS);
     const [loading, setLoading] = useState(true);
@@ -82,13 +82,13 @@ export const useEarnings = (): UseEarningsResult => {
             return;
         }
         try {
-            const deviceId = getOrCreateDeviceId();
+            // RLS scopes the read to auth.uid(); no device_id filter needed —
+            // that lets the same account see its data across devices.
             const weekAgo = new Date(Date.now() - 7 * 24 * 60 * 60 * 1000).toISOString();
 
             const { data, error: fetchError } = await supabase
                 .from('registros_carreras')
                 .select('*')
-                .eq('device_id', deviceId)
                 .gte('created_at', weekAgo)
                 .order('created_at', { ascending: false });
 
@@ -142,17 +142,18 @@ export const useEarnings = (): UseEarningsResult => {
     ): Promise<boolean> => {
         // Block writes from unregistered users. UI should prompt for
         // account creation before reaching this path, but guard here too.
-        if (!isAuthenticated) {
+        if (!isAuthenticated || !user) {
             setError(new Error('Debes iniciar sesión para registrar carreras'));
             return false;
         }
         try {
             const deviceId = getOrCreateDeviceId();
-            console.log('[useEarnings] Adding carrera:', { importe, propina, metodoPago, zona, rideSource, deviceId });
+            console.log('[useEarnings] Adding carrera:', { importe, propina, metodoPago, zona, rideSource, deviceId, userId: user.id });
 
             const { data, error: insertError } = await supabase
                 .from('registros_carreras')
                 .insert({
+                    user_id: user.id,
                     device_id: deviceId,
                     importe,
                     propina: propina || 0,
@@ -182,7 +183,7 @@ export const useEarnings = (): UseEarningsResult => {
             setError(err instanceof Error ? err : new Error('Failed to add carrera'));
             return false;
         }
-    }, [fetchCarreras, isAuthenticated]);
+    }, [fetchCarreras, isAuthenticated, user]);
 
     useEffect(() => {
         // Wait for auth state to resolve before the first fetch so

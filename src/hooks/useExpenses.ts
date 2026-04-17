@@ -73,7 +73,7 @@ export const EXPENSE_SUBCATEGORIES = {
  * Hook for managing expenses
  */
 export const useExpenses = () => {
-    const { isAuthenticated, loading: authLoading } = useAuth();
+    const { user, isAuthenticated, loading: authLoading } = useAuth();
     const [expenses, setExpenses] = useState<Expense[]>([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState<string | null>(null);
@@ -91,12 +91,11 @@ export const useExpenses = () => {
         try {
             setLoading(true);
             setError(null);
-            const deviceId = getOrCreateDeviceId();
-
+            // RLS scopes reads to auth.uid(); device_id filter removed so
+            // the user sees their expenses across devices.
             let query = supabase
                 .from('expenses')
                 .select('*')
-                .eq('device_id', deviceId)
                 .order('timestamp', { ascending: false });
 
             if (startDate) {
@@ -133,18 +132,19 @@ export const useExpenses = () => {
         recurrencePattern?: RecurrencePattern,
         receiptPhotoUrl?: string
     ): Promise<boolean> => {
-        if (!isAuthenticated) {
+        if (!isAuthenticated || !user) {
             setError('Debes iniciar sesión para registrar gastos');
             return false;
         }
         try {
             setError(null);
             const deviceId = getOrCreateDeviceId();
-            console.log('[useExpenses] Adding expense:', { category, amount, subcategory, deviceId });
+            console.log('[useExpenses] Adding expense:', { category, amount, subcategory, deviceId, userId: user.id });
 
             const { data, error: insertError } = await supabase
                 .from('expenses')
                 .insert({
+                    user_id: user.id,
                     device_id: deviceId,
                     category,
                     amount,
@@ -174,7 +174,7 @@ export const useExpenses = () => {
             setError(err instanceof Error ? err.message : 'Error al agregar gasto');
             return false;
         }
-    }, [fetchExpenses, isAuthenticated]);
+    }, [fetchExpenses, isAuthenticated, user]);
 
     const deleteExpense = useCallback(async (id: string): Promise<boolean> => {
         if (!isAuthenticated) {
@@ -183,13 +183,11 @@ export const useExpenses = () => {
         }
         try {
             setError(null);
-            const deviceId = getOrCreateDeviceId();
-
+            // RLS guards the delete — policy enforces user_id = auth.uid().
             const { error: deleteError } = await supabase
                 .from('expenses')
                 .delete()
-                .eq('id', id)
-                .eq('device_id', deviceId);
+                .eq('id', id);
 
             if (deleteError) {
                 console.error('[useExpenses] Delete error:', deleteError);

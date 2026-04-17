@@ -18,6 +18,7 @@ export type Database = {
         Row: {
           id: string
           device_id: string
+          user_id: string | null
           timestamp: string
           category: string
           subcategory: string | null
@@ -33,6 +34,7 @@ export type Database = {
         Insert: {
           id?: string
           device_id: string
+          user_id?: string | null
           timestamp?: string
           category: string
           subcategory?: string | null
@@ -48,6 +50,7 @@ export type Database = {
         Update: {
           id?: string
           device_id?: string
+          user_id?: string | null
           timestamp?: string
           category?: string
           subcategory?: string | null
@@ -147,29 +150,35 @@ export type Database = {
         Row: {
           created_at: string
           device_id: string
+          user_id: string | null
           id: string
           importe: number
           metodo_pago: string
           propina: number
           zona: string | null
+          ride_source: string | null
         }
         Insert: {
           created_at?: string
           device_id: string
+          user_id?: string | null
           id?: string
           importe: number
           metodo_pago?: string
           propina?: number
           zona?: string | null
+          ride_source?: string | null
         }
         Update: {
           created_at?: string
           device_id?: string
+          user_id?: string | null
           id?: string
           importe?: number
           metodo_pago?: string
           propina?: number
           zona?: string | null
+          ride_source?: string | null
         }
         Relationships: []
       }
