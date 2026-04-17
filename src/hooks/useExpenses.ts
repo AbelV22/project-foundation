@@ -1,6 +1,7 @@
 import { useState, useEffect, useCallback } from 'react';
 import { supabase } from '@/integrations/supabase/client';
 import { getOrCreateDeviceId } from '@/lib/deviceId';
+import { useAuth } from '@/hooks/useAuth';
 
 export type ExpenseCategory = 'fuel' | 'maintenance' | 'operating' | 'other';
 export type RecurrencePattern = 'daily' | 'weekly' | 'monthly' | 'yearly';
@@ -72,12 +73,21 @@ export const EXPENSE_SUBCATEGORIES = {
  * Hook for managing expenses
  */
 export const useExpenses = () => {
+    const { isAuthenticated, loading: authLoading } = useAuth();
     const [expenses, setExpenses] = useState<Expense[]>([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState<string | null>(null);
     const [dailySummary, setDailySummary] = useState<DailyExpensesSummary[]>([]);
 
     const fetchExpenses = useCallback(async (startDate?: Date, endDate?: Date) => {
+        // Same leak-prevention guard as useEarnings: never surface expense
+        // rows to unregistered users, since device_id is shared/unstable.
+        if (!isAuthenticated) {
+            setExpenses([]);
+            setError(null);
+            setLoading(false);
+            return;
+        }
         try {
             setLoading(true);
             setError(null);
@@ -110,7 +120,7 @@ export const useExpenses = () => {
         } finally {
             setLoading(false);
         }
-    }, []);
+    }, [isAuthenticated]);
 
     const addExpense = useCallback(async (
         category: ExpenseCategory,
@@ -123,6 +133,10 @@ export const useExpenses = () => {
         recurrencePattern?: RecurrencePattern,
         receiptPhotoUrl?: string
     ): Promise<boolean> => {
+        if (!isAuthenticated) {
+            setError('Debes iniciar sesión para registrar gastos');
+            return false;
+        }
         try {
             setError(null);
             const deviceId = getOrCreateDeviceId();
@@ -160,9 +174,13 @@ export const useExpenses = () => {
             setError(err instanceof Error ? err.message : 'Error al agregar gasto');
             return false;
         }
-    }, [fetchExpenses]);
+    }, [fetchExpenses, isAuthenticated]);
 
     const deleteExpense = useCallback(async (id: string): Promise<boolean> => {
+        if (!isAuthenticated) {
+            setError('Debes iniciar sesión para eliminar gastos');
+            return false;
+        }
         try {
             setError(null);
             const deviceId = getOrCreateDeviceId();
@@ -188,7 +206,7 @@ export const useExpenses = () => {
             setError(err instanceof Error ? err.message : 'Error al eliminar gasto');
             return false;
         }
-    }, [fetchExpenses]);
+    }, [fetchExpenses, isAuthenticated]);
 
     const fetchDailySummary = useCallback(async (startDate?: Date, endDate?: Date) => {
         try {
@@ -246,8 +264,11 @@ export const useExpenses = () => {
     }, [expenses]);
 
     useEffect(() => {
+        // Wait for auth to resolve so unauthenticated users don't trigger
+        // a Supabase query with a device-scoped filter.
+        if (authLoading) return;
         fetchExpenses();
-    }, [fetchExpenses]);
+    }, [fetchExpenses, authLoading]);
 
     useEffect(() => {
         fetchDailySummary();

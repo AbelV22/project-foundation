@@ -1,7 +1,9 @@
 import { useState, useEffect } from "react";
-import { TrendingUp, TrendingDown, Wallet, ChevronRight } from "lucide-react";
+import { TrendingUp, TrendingDown, Wallet, ChevronRight, UserPlus, Cloud } from "lucide-react";
 import { useEarnings } from "@/hooks/useEarnings";
 import { useExpenses } from "@/hooks/useExpenses";
+import { useAuth } from "@/hooks/useAuth";
+import { AccountCreationDialog } from "@/components/AccountCreationDialog";
 import { cn } from "@/lib/utils";
 
 interface ProfitWidgetProps {
@@ -10,8 +12,10 @@ interface ProfitWidgetProps {
 }
 
 export function ProfitWidget({ onViewEarnings, onViewExpenses }: ProfitWidgetProps) {
+    const { isAuthenticated, loading: authLoading } = useAuth();
     const { stats } = useEarnings();
     const { getTotalExpenses, expenses } = useExpenses();
+    const [accountDialogOpen, setAccountDialogOpen] = useState(false);
     const [todayRevenue, setTodayRevenue] = useState(0);
     const [todayExpenses, setTodayExpenses] = useState(0);
     const [isAnimating, setIsAnimating] = useState(false);
@@ -48,6 +52,40 @@ export function ProfitWidget({ onViewEarnings, onViewExpenses }: ProfitWidgetPro
         const expDate = new Date(exp.timestamp).toISOString().split('T')[0];
         return expDate === new Date().toISOString().split('T')[0];
     }).length;
+
+    // Unregistered users: do NOT show any numbers (they are not theirs), and
+    // prompt account creation so their data is scoped to their own user id.
+    if (!authLoading && !isAuthenticated) {
+        return (
+            <>
+                <button
+                    onClick={() => setAccountDialogOpen(true)}
+                    className="w-full card-glass p-3 text-left group hover:border-primary/50 transition-all"
+                >
+                    <div className="flex items-center gap-3">
+                        <div className="w-10 h-10 rounded-xl bg-primary/15 flex items-center justify-center shrink-0">
+                            <UserPlus className="h-5 w-5 text-primary" />
+                        </div>
+                        <div className="flex-1 min-w-0">
+                            <h3 className="text-sm font-semibold text-foreground mb-0.5">
+                                Crea una cuenta para ver tus ganancias
+                            </h3>
+                            <p className="text-[11px] text-muted-foreground leading-snug">
+                                <Cloud className="inline h-3 w-3 mr-0.5 -mt-0.5" />
+                                Tus ingresos y gastos quedan sincronizados y sólo tú los ves.
+                            </p>
+                        </div>
+                        <ChevronRight className="h-4 w-4 text-muted-foreground group-hover:text-primary transition-colors shrink-0" />
+                    </div>
+                </button>
+                <AccountCreationDialog
+                    open={accountDialogOpen}
+                    onDone={() => setAccountDialogOpen(false)}
+                    onSkip={() => setAccountDialogOpen(false)}
+                />
+            </>
+        );
+    }
 
     return (
         <div className="card-glass p-3 space-y-3">
