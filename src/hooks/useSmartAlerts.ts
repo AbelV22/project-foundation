@@ -315,26 +315,8 @@ export function useSmartAlerts() {
                 });
             }
 
-            // 3. LOW SUPPLY — few taxis, high passenger demand
-            if (zone.taxistasActivos > 0 && zone.taxiPax > 0) {
-                const ratio = zone.taxiPax / zone.taxistasActivos;
-                if (ratio >= 5 && zone.taxiPax >= 20) {
-                    createAlert({
-                        alert_type: 'low_supply',
-                        title: `Pocos taxis en ${zone.zoneName}`,
-                        description: `Solo ${zone.taxistasActivos} taxis para ~${zone.taxiPax} pasajeros. Ratio ${Math.round(ratio)}:1.`,
-                        emoji: '🚕',
-                        severity: ratio >= 8 ? 'critical' : 'warning',
-                        zone: zone.zone,
-                        demand_score: zone.demandScore,
-                        metadata: {
-                            taxistas: zone.taxistasActivos,
-                            taxi_pax: zone.taxiPax,
-                            ratio: Math.round(ratio * 10) / 10,
-                        },
-                    });
-                }
-            }
+            // 3. LOW SUPPLY — disabled until we have enough users to make taxi counts meaningful
+            // if (zone.taxistasActivos > 0 && zone.taxiPax > 0) { ... }
         }
 
         // 4. RAIN DEMAND — rain significantly boosting taxi demand

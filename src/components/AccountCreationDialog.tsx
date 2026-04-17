@@ -11,6 +11,7 @@ import {
   Smartphone,
   RefreshCw,
   LogIn,
+  X,
 } from "lucide-react";
 import {
   Dialog,
@@ -140,12 +141,22 @@ export function AccountCreationDialog({ open, onDone, onSkip }: AccountCreationD
   };
 
   return (
-    <Dialog open={open}>
+    <Dialog open={open} onOpenChange={(o) => { if (!o) onSkip(); }}>
       <DialogContent
-        className="max-w-[92%] md:max-w-sm rounded-3xl border-border/50 p-0 overflow-y-auto"
+        className="max-w-[92%] md:max-w-sm rounded-3xl border-border/50 p-0 overflow-y-auto [&>button]:hidden"
         style={{ maxHeight: 'calc(100dvh - env(safe-area-inset-bottom, 0px) - 2rem)' }}
         onPointerDownOutside={(e) => e.preventDefault()}
       >
+        {!success && (
+          <button
+            type="button"
+            onClick={onSkip}
+            aria-label="Cerrar"
+            className="absolute right-2 top-2 z-10 w-11 h-11 rounded-full flex items-center justify-center bg-muted/40 hover:bg-muted/70 text-muted-foreground hover:text-foreground transition-colors"
+          >
+            <X className="h-5 w-5" />
+          </button>
+        )}
         {success ? (
           <motion.div
             initial={{ scale: 0.8, opacity: 0 }}
@@ -320,9 +331,9 @@ export function AccountCreationDialog({ open, onDone, onSkip }: AccountCreationD
 
               <button
                 onClick={onSkip}
-                className="w-full text-xs text-muted-foreground hover:text-foreground transition-colors py-2.5 text-center rounded-xl hover:bg-muted/30"
+                className="w-full text-sm font-medium text-foreground/80 hover:text-foreground transition-colors py-3 text-center rounded-xl bg-muted/30 hover:bg-muted/50 border border-border/40"
               >
-                Continuar sin cuenta por ahora
+                Continuar sin cuenta
               </button>
             </div>
           </>

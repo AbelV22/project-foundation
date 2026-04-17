@@ -694,7 +694,7 @@ export function OnboardingFlow({ onComplete }: OnboardingFlowProps) {
             {!isLast && (
               <button
                 onClick={handleSkip}
-                className="w-full text-center text-xs text-muted-foreground/50 hover:text-muted-foreground transition-colors py-1"
+                className="w-full text-center text-sm font-medium text-muted-foreground hover:text-foreground transition-colors py-2.5 rounded-xl hover:bg-white/[0.04]"
               >
                 Saltar introducción
               </button>
