@@ -42,7 +42,7 @@
             "pax_estimados": 4500,
             "puerto": "Marseille",
             "tipo": "llegada",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Itàlia",
             "imo": "9781877",
             "mmsi": "247435300",
@@ -90,7 +90,7 @@
             "pax_estimados": 500,
             "puerto": "Malta (Valetta)",
             "tipo": "llegada",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Malta",
             "imo": "9837420",
             "mmsi": "256070000",
@@ -177,7 +177,7 @@
             "fecha": "2026-04-17"
         },
         {
-            "hora": "17:56",
+            "hora": "17:58",
             "nombre": "Zim Asia",
             "naviera": "ZIM INTEGRATED SHIPPING SERV.",
             "terminal": "",
@@ -186,7 +186,7 @@
             "pax_estimados": 3000,
             "puerto": "Valencia",
             "tipo": "llegada",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Libèria",
             "imo": "9464716",
             "mmsi": "636021664",
@@ -202,10 +202,26 @@
             "pax_estimados": 3000,
             "puerto": "Valencia",
             "tipo": "llegada",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Libèria",
             "imo": "9464716",
             "mmsi": "636021664",
+            "fecha": "2026-04-17"
+        },
+        {
+            "hora": "18:15",
+            "nombre": "Ciudad De Palma",
+            "naviera": "TRASMED GLE S.L.",
+            "terminal": "TERMINAL F2",
+            "terminal_codigo": "F2",
+            "eslora": 186.0,
+            "pax_estimados": 1000,
+            "puerto": "Palma de Mallorca",
+            "tipo": "llegada",
+            "estado": "Autoritzada",
+            "bandera": "Espanya",
+            "imo": "9349772",
+            "mmsi": "224588000",
             "fecha": "2026-04-17"
         },
         {
@@ -222,22 +238,6 @@
             "bandera": "Itàlia",
             "imo": "9222534",
             "mmsi": "247057100",
-            "fecha": "2026-04-17"
-        },
-        {
-            "hora": "18:34",
-            "nombre": "Ciudad De Palma",
-            "naviera": "TRASMED GLE S.L.",
-            "terminal": "TERMINAL F2",
-            "terminal_codigo": "F2",
-            "eslora": 186.0,
-            "pax_estimados": 1000,
-            "puerto": "Palma de Mallorca",
-            "tipo": "llegada",
-            "estado": "Iniciada",
-            "bandera": "Espanya",
-            "imo": "9349772",
-            "mmsi": "224588000",
             "fecha": "2026-04-17"
         },
         {
@@ -412,14 +412,14 @@
             "pax_estimados": 3000,
             "puerto": "Damietta",
             "tipo": "salida",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Libèria",
             "imo": "9464716",
             "mmsi": "636021664",
             "fecha": "2026-04-17"
         },
         {
-            "hora": "18:03",
+            "hora": "18:00",
             "nombre": "Aidacosma",
             "naviera": "NOATUM MARITIME SPAIN SAU",
             "terminal": "Terminal E (Adossat)",
@@ -428,14 +428,14 @@
             "pax_estimados": 4500,
             "puerto": "Palma de Mallorca",
             "tipo": "salida",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Itàlia",
             "imo": "9781877",
             "mmsi": "247435300",
             "fecha": "2026-04-17"
         },
         {
-            "hora": "18:29",
+            "hora": "18:00",
             "nombre": "Msc World Europa",
             "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
             "terminal": "ADOSSAT/TERMINAL H",
@@ -444,7 +444,7 @@
             "pax_estimados": 500,
             "puerto": "Marseille",
             "tipo": "salida",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Malta",
             "imo": "9837420",
             "mmsi": "256070000",
@@ -572,7 +572,7 @@
             "pax_estimados": 1000,
             "puerto": "Palma de Mallorca",
             "tipo": "salida",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Espanya",
             "imo": "9349772",
             "mmsi": "224588000",
@@ -600,24 +600,24 @@
         "total_llegadas": 18,
         "total_salidas": 19,
         "pax_estimados_hoy": 33500,
-        "proximo_desembarco": "17:56",
-        "proximo_barco": "Zim Asia"
+        "proximo_desembarco": "17:45",
+        "proximo_barco": "Msc Mette"
     },
     "terminales_activas": [
         "6212",
-        "H",
-        "8156",
-        "2396",
         "F3",
         "A",
-        "F2",
         "E",
+        "2396",
         "F1",
-        "6154"
+        "F2",
+        "8156",
+        "6154",
+        "H"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-04-17T17:49:49.068495",
+        "actualizado": "2026-04-17T16:01:32.686724",
         "frecuencia": "horaria"
     }
 }
