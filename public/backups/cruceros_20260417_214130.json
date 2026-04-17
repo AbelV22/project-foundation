@@ -161,6 +161,22 @@
             "fecha": "2026-04-17"
         },
         {
+            "hora": "17:45",
+            "nombre": "Msc Mette",
+            "naviera": "MEDITERRANEAN SHIPPING CO",
+            "terminal": "TERMINAL CATALUNYA SA",
+            "terminal_codigo": "6212",
+            "eslora": 0,
+            "pax_estimados": 500,
+            "puerto": "Valencia",
+            "tipo": "llegada",
+            "estado": "Autoritzada",
+            "bandera": "Libèria",
+            "imo": "9936630",
+            "mmsi": "636023084",
+            "fecha": "2026-04-17"
+        },
+        {
             "hora": "17:56",
             "nombre": "Zim Asia",
             "naviera": "ZIM INTEGRATED SHIPPING SERV.",
@@ -218,7 +234,7 @@
             "pax_estimados": 1000,
             "puerto": "Alcudia",
             "tipo": "llegada",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Espanya",
             "imo": "9390367",
             "mmsi": "224637000",
@@ -234,7 +250,7 @@
             "pax_estimados": 1000,
             "puerto": "Ibiza",
             "tipo": "llegada",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Espanya",
             "imo": "9506289",
             "mmsi": "225416000",
@@ -266,26 +282,10 @@
             "pax_estimados": 1000,
             "puerto": "Palma de Mallorca",
             "tipo": "llegada",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Espanya",
             "imo": "9441130",
             "mmsi": "224402000",
-            "fecha": "2026-04-17"
-        },
-        {
-            "hora": "21:29",
-            "nombre": "Msc Mette",
-            "naviera": "MEDITERRANEAN SHIPPING CO",
-            "terminal": "TERMINAL CATALUNYA SA",
-            "terminal_codigo": "6212",
-            "eslora": 0,
-            "pax_estimados": 500,
-            "puerto": "Valencia",
-            "tipo": "llegada",
-            "estado": "Iniciada",
-            "bandera": "Libèria",
-            "imo": "9936630",
-            "mmsi": "636023084",
             "fecha": "2026-04-17"
         }
     ],
@@ -499,6 +499,22 @@
             "fecha": "2026-04-17"
         },
         {
+            "hora": "21:30",
+            "nombre": "Martin I Soler",
+            "naviera": "BALEARIA EUROLINEAS MARITIMAS SA ",
+            "terminal": "TERMINAL F1",
+            "terminal_codigo": "F1",
+            "eslora": 165.0,
+            "pax_estimados": 1000,
+            "puerto": "Alcudia",
+            "tipo": "salida",
+            "estado": "Iniciada",
+            "bandera": "Espanya",
+            "imo": "9390367",
+            "mmsi": "224637000",
+            "fecha": "2026-04-17"
+        },
+        {
             "hora": "21:45",
             "nombre": "Gnv Altair",
             "naviera": "TRANSCOMA BALEARES SA",
@@ -515,23 +531,7 @@
             "fecha": "2026-04-17"
         },
         {
-            "hora": "22:04",
-            "nombre": "Martin I Soler",
-            "naviera": "BALEARIA EUROLINEAS MARITIMAS SA ",
-            "terminal": "TERMINAL F1",
-            "terminal_codigo": "F1",
-            "eslora": 165.0,
-            "pax_estimados": 1000,
-            "puerto": "Alcudia",
-            "tipo": "salida",
-            "estado": "Finalitzada",
-            "bandera": "Espanya",
-            "imo": "9390367",
-            "mmsi": "224637000",
-            "fecha": "2026-04-17"
-        },
-        {
-            "hora": "22:30",
+            "hora": "22:15",
             "nombre": "Abel Matutes",
             "naviera": "BALEARIA EUROLINEAS MARITIMAS SA ",
             "terminal": "TERMINAL F1",
@@ -540,10 +540,26 @@
             "pax_estimados": 1000,
             "puerto": "Palma de Mallorca",
             "tipo": "salida",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Espanya",
             "imo": "9441130",
             "mmsi": "224402000",
+            "fecha": "2026-04-17"
+        },
+        {
+            "hora": "22:30",
+            "nombre": "Ciudad De Barcelona",
+            "naviera": "GRIMALDI LOGISTICA ESPAÑA SL",
+            "terminal": "TERMINAL F2",
+            "terminal_codigo": "F2",
+            "eslora": 176.0,
+            "pax_estimados": 1000,
+            "puerto": "Mahon Menorca",
+            "tipo": "salida",
+            "estado": "Iniciada",
+            "bandera": "Espanya",
+            "imo": "9506289",
+            "mmsi": "225416000",
             "fecha": "2026-04-17"
         },
         {
@@ -560,22 +576,6 @@
             "bandera": "Espanya",
             "imo": "9349772",
             "mmsi": "224588000",
-            "fecha": "2026-04-17"
-        },
-        {
-            "hora": "22:35",
-            "nombre": "Ciudad De Barcelona",
-            "naviera": "GRIMALDI LOGISTICA ESPAÑA SL",
-            "terminal": "TERMINAL F2",
-            "terminal_codigo": "F2",
-            "eslora": 176.0,
-            "pax_estimados": 1000,
-            "puerto": "Mahon Menorca",
-            "tipo": "salida",
-            "estado": "Finalitzada",
-            "bandera": "Espanya",
-            "imo": "9506289",
-            "mmsi": "225416000",
             "fecha": "2026-04-17"
         },
         {
@@ -604,20 +604,20 @@
         "proximo_barco": null
     },
     "terminales_activas": [
-        "H",
-        "A",
-        "8156",
         "F2",
-        "6212",
-        "F3",
-        "2396",
         "F1",
+        "H",
         "E",
-        "6154"
+        "8156",
+        "6212",
+        "A",
+        "2396",
+        "6154",
+        "F3"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-04-17T21:41:30.949555",
+        "actualizado": "2026-04-17T19:57:55.725469",
         "frecuencia": "horaria"
     }
 }
