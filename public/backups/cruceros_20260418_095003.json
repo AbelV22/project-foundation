@@ -17,6 +17,22 @@
             "fecha": "2026-04-18"
         },
         {
+            "hora": "04:00",
+            "nombre": "Minerva Grace",
+            "naviera": "MINERVA MARINE",
+            "terminal": "EXOLUM CORPORATION, SA",
+            "terminal_codigo": "0010",
+            "eslora": 183.0,
+            "pax_estimados": 1000,
+            "puerto": "Valencia",
+            "tipo": "llegada",
+            "estado": "Autoritzada",
+            "bandera": "Libèria",
+            "imo": "9305855",
+            "mmsi": "636025516",
+            "fecha": "2026-04-18"
+        },
+        {
             "hora": "05:45",
             "nombre": "Msc Oak F",
             "naviera": "MEDITERRANEAN SHIPPING CO",
@@ -94,38 +110,6 @@
             "bandera": "Itàlia",
             "imo": "9859533",
             "mmsi": "247383300",
-            "fecha": "2026-04-18"
-        },
-        {
-            "hora": "09:19",
-            "nombre": "Minerva Grace",
-            "naviera": "MINERVA MARINE",
-            "terminal": "EXOLUM CORPORATION, SA",
-            "terminal_codigo": "0010",
-            "eslora": 183.0,
-            "pax_estimados": 1000,
-            "puerto": "Valencia",
-            "tipo": "llegada",
-            "estado": "Iniciada",
-            "bandera": "Libèria",
-            "imo": "9305855",
-            "mmsi": "636025516",
-            "fecha": "2026-04-18"
-        },
-        {
-            "hora": "10:45",
-            "nombre": "Zim Asia",
-            "naviera": "ZIM INTEGRATED SHIPPING SERV.",
-            "terminal": "TERMINAL CATALUNYA SA",
-            "terminal_codigo": "6212",
-            "eslora": 260.0,
-            "pax_estimados": 3000,
-            "puerto": "Valencia",
-            "tipo": "llegada",
-            "estado": "Iniciada",
-            "bandera": "Libèria",
-            "imo": "9464716",
-            "mmsi": "636021664",
             "fecha": "2026-04-18"
         },
         {
@@ -323,7 +307,7 @@
             "fecha": "2026-04-18"
         },
         {
-            "hora": "08:49",
+            "hora": "14:00",
             "nombre": "Msc San Francisco",
             "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
             "terminal": "TERMINAL CATALUNYA SA",
@@ -332,26 +316,10 @@
             "pax_estimados": 6500,
             "puerto": "Valencia",
             "tipo": "salida",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Libèria",
             "imo": "9987328",
             "mmsi": "636025011",
-            "fecha": "2026-04-18"
-        },
-        {
-            "hora": "10:44",
-            "nombre": "Zim Asia",
-            "naviera": "A PEREZ Y CIA SL",
-            "terminal": "",
-            "terminal_codigo": "",
-            "eslora": 260.0,
-            "pax_estimados": 3000,
-            "puerto": "Damietta",
-            "tipo": "salida",
-            "estado": "Iniciada",
-            "bandera": "Libèria",
-            "imo": "9464716",
-            "mmsi": "636021664",
             "fecha": "2026-04-18"
         },
         {
@@ -501,28 +469,28 @@
     ],
     "resumen": {
         "total_cruceros": 17,
-        "total_llegadas": 17,
-        "total_salidas": 14,
-        "pax_estimados_hoy": 31500,
-        "proximo_desembarco": "10:45",
-        "proximo_barco": "Zim Asia"
+        "total_llegadas": 16,
+        "total_salidas": 13,
+        "pax_estimados_hoy": 28500,
+        "proximo_desembarco": "11:30",
+        "proximo_barco": "Msc Musica"
     },
     "terminales_activas": [
-        "H",
-        "0010",
-        "F3",
-        "7946",
         "F2",
-        "F1",
-        "A",
-        "8156",
+        "7946",
         "TC",
+        "F3",
+        "F1",
+        "H",
+        "8156",
+        "6212",
         "S",
-        "6212"
+        "0010",
+        "A"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-04-18T09:50:03.372235",
+        "actualizado": "2026-04-18T07:59:28.775372",
         "frecuencia": "horaria"
     }
 }
