@@ -106,7 +106,7 @@
             "pax_estimados": 3000,
             "puerto": "Valencia",
             "tipo": "llegada",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Libèria",
             "imo": "9464716",
             "mmsi": "636021664",
@@ -122,7 +122,7 @@
             "pax_estimados": 500,
             "puerto": "Casablanca",
             "tipo": "llegada",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Panamà",
             "imo": "9320087",
             "mmsi": "352003000",
@@ -241,7 +241,7 @@
             "fecha": "2026-04-18"
         },
         {
-            "hora": "21:24",
+            "hora": "22:00",
             "nombre": "Cruise Roma",
             "naviera": "GRIMALDI EUROMED SPA",
             "terminal": "TERMINAL F3",
@@ -250,7 +250,7 @@
             "pax_estimados": 3000,
             "puerto": "Civitavecchia",
             "tipo": "llegada",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Itàlia",
             "imo": "9351476",
             "mmsi": "247219400",
@@ -332,7 +332,7 @@
             "pax_estimados": 3000,
             "puerto": "Damietta",
             "tipo": "salida",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Libèria",
             "imo": "9464716",
             "mmsi": "636021664",
@@ -420,6 +420,22 @@
         },
         {
             "hora": "20:00",
+            "nombre": "Zim Asia",
+            "naviera": "A PEREZ Y CIA SL",
+            "terminal": "TERMINAL CATALUNYA SA",
+            "terminal_codigo": "6212",
+            "eslora": 260.0,
+            "pax_estimados": 3000,
+            "puerto": "Damietta",
+            "tipo": "salida",
+            "estado": "Iniciada",
+            "bandera": "Libèria",
+            "imo": "9464716",
+            "mmsi": "636021664",
+            "fecha": "2026-04-18"
+        },
+        {
+            "hora": "20:00",
             "nombre": "Msc Jordan Iii",
             "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
             "terminal": "TERMINAL CATALUNYA SA",
@@ -451,7 +467,7 @@
             "fecha": "2026-04-18"
         },
         {
-            "hora": "21:40",
+            "hora": "21:00",
             "nombre": "Msc Musica",
             "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
             "terminal": "Terminal A (WTC)",
@@ -460,26 +476,10 @@
             "pax_estimados": 500,
             "puerto": "Civitavecchia",
             "tipo": "salida",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Panamà",
             "imo": "9320087",
             "mmsi": "352003000",
-            "fecha": "2026-04-18"
-        },
-        {
-            "hora": "22:20",
-            "nombre": "Zim Asia",
-            "naviera": "A PEREZ Y CIA SL",
-            "terminal": "TERMINAL CATALUNYA SA",
-            "terminal_codigo": "6212",
-            "eslora": 260.0,
-            "pax_estimados": 3000,
-            "puerto": "Damietta",
-            "tipo": "salida",
-            "estado": "Finalitzada",
-            "bandera": "Libèria",
-            "imo": "9464716",
-            "mmsi": "636021664",
             "fecha": "2026-04-18"
         },
         {
@@ -504,25 +504,25 @@
         "total_llegadas": 17,
         "total_salidas": 14,
         "pax_estimados_hoy": 31500,
-        "proximo_desembarco": "23:00",
+        "proximo_desembarco": "19:46",
         "proximo_barco": "Abel Matutes"
     },
     "terminales_activas": [
-        "TC",
-        "7946",
+        "8156",
+        "S",
+        "H",
         "F1",
         "F3",
+        "TC",
         "6212",
-        "H",
         "A",
-        "S",
-        "8156",
         "F2",
-        "0010"
+        "0010",
+        "7946"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-04-18T21:36:06.385037",
+        "actualizado": "2026-04-18T19:40:52.328947",
         "frecuencia": "horaria"
     }
 }
