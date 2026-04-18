@@ -77,9 +77,10 @@ Only ONE open session per device allowed.
 ## Waiting Times Display
 
 - Only show real calculated data (no hardcoded defaults)
-- Exclude `TRANSIT` sessions (< 5 min) from average calculation
+- Exclude `TRANSIT` sessions from average calculation
+- Only count genuine queue waits: duration ≥ **30 minutes** (shorter stays = drivers passing through, not real queue)
 - Display "—" when no real data available
-- Minimum 3 completed waits required to show average
+- Minimum 5 completed waits required to show average
 
 ---
 

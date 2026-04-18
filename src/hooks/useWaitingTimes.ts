@@ -45,13 +45,14 @@ export const useWaitingTimes = (): UseWaitingTimesResult => {
                 const zonaRegistros = (registros || []).filter(r => r.zona === zona);
                 const activos = zonaRegistros.filter(r => !r.exited_at).length;
 
-                // Calculate average waiting time from completed waits (minimum 5 minutes)
+                // Calculate average waiting time from completed waits (minimum 30 minutes)
+                // Shorter stays are drivers passing through or briefly stopping, not real queue waits
                 const completedWaits = zonaRegistros.filter(r => {
                     if (!r.exited_at) return false;
                     const start = new Date(r.created_at).getTime();
                     const end = new Date(r.exited_at).getTime();
                     const durationMinutes = (end - start) / 60000;
-                    return durationMinutes >= 5; // Exclude waits shorter than 5 minutes
+                    return durationMinutes >= 30; // Only count genuine queue waits (≥30 min)
                 });
 
                 // Only show real data if we have at least 5 completed waits
