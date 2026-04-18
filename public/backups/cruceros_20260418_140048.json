@@ -129,7 +129,7 @@
             "fecha": "2026-04-18"
         },
         {
-            "hora": "13:01",
+            "hora": "11:30",
             "nombre": "Msc Musica",
             "naviera": "MSC CRUISES S.A.",
             "terminal": "Terminal A (WTC)",
@@ -138,14 +138,14 @@
             "pax_estimados": 500,
             "puerto": "Casablanca",
             "tipo": "llegada",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Panamà",
             "imo": "9320087",
             "mmsi": "352003000",
             "fecha": "2026-04-18"
         },
         {
-            "hora": "14:21",
+            "hora": "13:00",
             "nombre": "Eco Adriatica",
             "naviera": "GRIMALDI EUROMED SPA",
             "terminal": "GRIMALDI TERMINAL BARCELONA SL",
@@ -154,7 +154,7 @@
             "pax_estimados": 2000,
             "puerto": "Savona",
             "tipo": "llegada",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Itàlia",
             "imo": "9859600",
             "mmsi": "247384100",
@@ -444,7 +444,7 @@
             "pax_estimados": 2000,
             "puerto": "Valencia",
             "tipo": "salida",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Itàlia",
             "imo": "9859600",
             "mmsi": "247384100",
@@ -504,25 +504,25 @@
         "total_llegadas": 17,
         "total_salidas": 14,
         "pax_estimados_hoy": 31500,
-        "proximo_desembarco": "14:21",
+        "proximo_desembarco": "13:00",
         "proximo_barco": "Eco Adriatica"
     },
     "terminales_activas": [
-        "F1",
+        "A",
+        "6212",
+        "F3",
         "H",
-        "S",
-        "TC",
+        "F1",
         "0010",
         "8156",
         "7946",
-        "6212",
-        "F3",
+        "S",
         "F2",
-        "A"
+        "TC"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-04-18T14:00:48.280270",
+        "actualizado": "2026-04-18T11:34:54.696417",
         "frecuencia": "horaria"
     }
 }
