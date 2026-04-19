@@ -7,6 +7,7 @@ import { useWaitingTimes, getZoneWaitingTime, getZoneTaxistasActivos, getZoneHas
 import { useNavigate } from "react-router-dom";
 import { getTrackingStatus, forceLocationCheck } from "@/services/location/AutoLocationService";
 import { ProfitWidget } from "@/components/widgets/ProfitWidget";
+import { AppPromoBanner } from "@/components/widgets/AppPromoBanner";
 import { useDemandForecast } from "@/hooks/useDemandForecast";
 import { deduplicateFlights, getTerminalType as getTermType, parseHora as parseH, haAlterizado } from "@/lib/flightUtils";
 import type { VueloRaw } from "@/lib/flightUtils";
@@ -204,6 +205,9 @@ export function DashboardView({ onTerminalClick, onViewAllFlights, onViewAllEven
       <div className="flex items-center px-1 pt-1 animate-slide-down" style={{ animationDelay: '50ms', animationFillMode: 'backwards' }}>
         <h2 className="text-xl font-display font-bold text-foreground">iTaxi BCN</h2>
       </div>
+
+      {/* App + Telegram promo */}
+      <AppPromoBanner />
 
       {/* === LOCATION STATUS WIDGET (visible when testing mode is on) === */}
       {locationStatus?.isTestingMode && (
