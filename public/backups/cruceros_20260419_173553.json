@@ -90,7 +90,7 @@
             "pax_estimados": 4500,
             "puerto": "Marseille",
             "tipo": "llegada",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Itàlia",
             "imo": "9781891",
             "mmsi": "247431200",
@@ -260,6 +260,22 @@
         },
         {
             "hora": "18:00",
+            "nombre": "Costa Toscana",
+            "naviera": "NOATUM MARITIME SPAIN SAU",
+            "terminal": "Terminal E (Adossat)",
+            "terminal_codigo": "E",
+            "eslora": 337.0,
+            "pax_estimados": 4500,
+            "puerto": "Cagliari",
+            "tipo": "salida",
+            "estado": "Iniciada",
+            "bandera": "Itàlia",
+            "imo": "9781891",
+            "mmsi": "247431200",
+            "fecha": "2026-04-19"
+        },
+        {
+            "hora": "18:00",
             "nombre": "Msc Orchestra",
             "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
             "terminal": "ADOSSAT/TERMINAL H",
@@ -272,22 +288,6 @@
             "bandera": "Panamà",
             "imo": "9320099",
             "mmsi": "372497000",
-            "fecha": "2026-04-19"
-        },
-        {
-            "hora": "18:24",
-            "nombre": "Costa Toscana",
-            "naviera": "NOATUM MARITIME SPAIN SAU",
-            "terminal": "Terminal E (Adossat)",
-            "terminal_codigo": "E",
-            "eslora": 337.0,
-            "pax_estimados": 4500,
-            "puerto": "Cagliari",
-            "tipo": "salida",
-            "estado": "Finalitzada",
-            "bandera": "Itàlia",
-            "imo": "9781891",
-            "mmsi": "247431200",
             "fecha": "2026-04-19"
         },
         {
@@ -408,22 +408,22 @@
         "total_llegadas": 11,
         "total_salidas": 14,
         "pax_estimados_hoy": 19000,
-        "proximo_desembarco": "18:00",
-        "proximo_barco": "Martin I Soler"
+        "proximo_desembarco": "16:34",
+        "proximo_barco": "Abel Matutes"
     },
     "terminales_activas": [
-        "6212",
         "F1",
-        "F2",
-        "F3",
         "0010",
+        "F2",
+        "TC",
         "E",
-        "H",
-        "TC"
+        "F3",
+        "6212",
+        "H"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-04-19T17:35:53.282945",
+        "actualizado": "2026-04-19T15:37:30.621192",
         "frecuencia": "horaria"
     }
 }
