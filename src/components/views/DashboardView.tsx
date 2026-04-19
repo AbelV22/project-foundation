@@ -279,9 +279,6 @@ export function DashboardView({ onTerminalClick, onViewAllFlights, onViewAllEven
               </div>
             </div>
             <div className="flex items-center gap-2">
-              {bestZone.taxiPax > 0 && (
-                <span className="text-xs text-muted-foreground">~{bestZone.taxiPax} taxi</span>
-              )}
               <ChevronRight className="h-4 w-4 text-muted-foreground group-hover:text-primary transition-colors" />
             </div>
           </div>
