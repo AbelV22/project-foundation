@@ -145,6 +145,22 @@
             "fecha": "2026-04-20"
         },
         {
+            "hora": "17:45",
+            "nombre": "Msc Niovi Viii",
+            "naviera": "MEDITERRANEAN SHIPPING CO",
+            "terminal": "TERMINAL CATALUNYA SA",
+            "terminal_codigo": "6212",
+            "eslora": 300.0,
+            "pax_estimados": 4500,
+            "puerto": "Genoa",
+            "tipo": "llegada",
+            "estado": "Confirmada",
+            "bandera": "Libèria",
+            "imo": "9290488",
+            "mmsi": "636022795",
+            "fecha": "2026-04-20"
+        },
+        {
             "hora": "18:15",
             "nombre": "Ciudad De Palma",
             "naviera": "TRASMED GLE S.L.",
@@ -179,7 +195,7 @@
     ],
     "salidas": [
         {
-            "hora": "11:54",
+            "hora": "07:15",
             "nombre": "Msc Katalin Ii",
             "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
             "terminal": "TERMINAL CATALUNYA SA",
@@ -188,7 +204,7 @@
             "pax_estimados": 500,
             "puerto": "Bejaia (ex Bougie)",
             "tipo": "salida",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Libèria",
             "imo": "9232656",
             "mmsi": "636017244",
@@ -324,26 +340,26 @@
         }
     ],
     "resumen": {
-        "total_cruceros": 13,
-        "total_llegadas": 11,
+        "total_cruceros": 14,
+        "total_llegadas": 12,
         "total_salidas": 9,
-        "pax_estimados_hoy": 15500,
-        "proximo_desembarco": "15:00",
-        "proximo_barco": "Seven Seas Grandeur"
+        "pax_estimados_hoy": 20000,
+        "proximo_desembarco": "11:08",
+        "proximo_barco": "Msc Radiant Iii"
     },
     "terminales_activas": [
         "F3",
-        "6212",
+        "7946",
         "F1",
+        "8156",
+        "F2",
         "E",
         "C",
-        "7946",
-        "8156",
-        "F2"
+        "6212"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-04-20T12:04:37.189720",
+        "actualizado": "2026-04-20T10:48:26.097311",
         "frecuencia": "horaria"
     }
 }
