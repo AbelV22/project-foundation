@@ -1,10 +1,12 @@
 import { useState } from "react";
-import { ArrowLeft, Plus, Phone, MessageCircle, Clock, MapPin, Car, Sun, Moon, Sunset, Shuffle, Check, Search, Briefcase, Users, Sparkles, X, UserRound } from "lucide-react";
+import { ArrowLeft, Plus, Phone, MessageCircle, Clock, MapPin, Car, Sun, Moon, Sunset, Shuffle, Check, Search, Briefcase, Users, Sparkles, X, UserRound, Lock } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { useJobBoard, AD_TYPE_CONFIG, SHIFT_LABELS, AdType, ShiftType, JobAd } from "@/hooks/useJobBoard";
+import { useAuth } from "@/hooks/useAuth";
+import { AccountCreationDialog } from "@/components/AccountCreationDialog";
 import { useToast } from "@/hooks/use-toast";
 import { cn } from "@/lib/utils";
 import { formatDistanceToNow } from "date-fns";
@@ -153,11 +155,22 @@ function AdCard({ ad }: { ad: JobAd }) {
 
 export function JobBoardView({ onBack }: JobBoardViewProps) {
     const { ads, loading, createAd, closeAd, getMyAds } = useJobBoard();
+    const { isAuthenticated, loading: authLoading } = useAuth();
     const { toast } = useToast();
 
     const [filter, setFilter] = useState<AdType | 'all'>('all');
     const [searchQuery, setSearchQuery] = useState('');
     const [showCreate, setShowCreate] = useState(false);
+    const [showAuthDialog, setShowAuthDialog] = useState(false);
+
+    const handlePublishClick = () => {
+        if (authLoading) return;
+        if (!isAuthenticated) {
+            setShowAuthDialog(true);
+            return;
+        }
+        setShowCreate(true);
+    };
 
     // Create form state
     const [newAdType, setNewAdType] = useState<AdType>('busco_conductor');
@@ -187,6 +200,11 @@ export function JobBoardView({ onBack }: JobBoardViewProps) {
     const countTaxi = countByType('busco_taxi');
 
     const handleCreate = async () => {
+        if (!isAuthenticated) {
+            setShowCreate(false);
+            setShowAuthDialog(true);
+            return;
+        }
         if (!newTitle.trim()) {
             toast({ title: "Escribe un titulo", variant: "destructive" });
             return;
@@ -259,10 +277,14 @@ export function JobBoardView({ onBack }: JobBoardViewProps) {
                         </div>
                         <Button
                             size="sm"
-                            onClick={() => setShowCreate(true)}
+                            onClick={handlePublishClick}
                             className="rounded-xl shadow-lg shadow-primary/20 h-9"
                         >
-                            <Plus className="h-4 w-4 mr-1" />
+                            {isAuthenticated ? (
+                                <Plus className="h-4 w-4 mr-1" />
+                            ) : (
+                                <Lock className="h-3.5 w-3.5 mr-1" />
+                            )}
                             Publicar
                         </Button>
                     </div>
@@ -387,7 +409,7 @@ export function JobBoardView({ onBack }: JobBoardViewProps) {
                                 ? 'Cambia el filtro o sé el primero en publicar'
                                 : 'Sé el primero en publicar una oferta'}
                     </p>
-                    <Button size="sm" className="mt-5 rounded-xl" onClick={() => setShowCreate(true)}>
+                    <Button size="sm" className="mt-5 rounded-xl" onClick={handlePublishClick}>
                         <Plus className="h-4 w-4 mr-1" />
                         Publicar anuncio
                     </Button>
@@ -408,6 +430,16 @@ export function JobBoardView({ onBack }: JobBoardViewProps) {
             )}
 
             {/* Create Ad Drawer */}
+            {/* Auth dialog gating publish */}
+            <AccountCreationDialog
+                open={showAuthDialog}
+                onDone={() => {
+                    setShowAuthDialog(false);
+                    setShowCreate(true);
+                }}
+                onSkip={() => setShowAuthDialog(false)}
+            />
+
             <Drawer open={showCreate} onOpenChange={setShowCreate}>
                 <DrawerContent className="max-h-[92vh]">
                     <DrawerHeader className="pb-2">
