@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { RefreshCw, Plane, Train, Ship, Users, Clock, ChevronRight, TrendingUp, Calendar, Euro, MapPin, Navigation, Anchor, Receipt } from "lucide-react";
+import { RefreshCw, Plane, Train, Ship, Users, Clock, ChevronRight, TrendingUp, Calendar, Euro, MapPin, Navigation, Anchor, Receipt, Briefcase, ClipboardCheck, Wrench, ShieldCheck } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useEvents } from "@/hooks/useEvents";
 import { useCruises } from "@/hooks/useCruises";
@@ -590,7 +590,7 @@ export function DashboardView({ onTerminalClick, onViewAllFlights, onViewAllEven
             <div className="absolute top-0 right-0 w-20 h-20 bg-gradient-to-bl from-blue-500/10 to-transparent rounded-bl-3xl pointer-events-none" />
             <div className="relative">
               <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-blue-500/20 to-cyan-500/10 border border-blue-500/20 flex items-center justify-center mb-3 group-hover:scale-110 transition-transform duration-300">
-                <span className="text-2xl">🤝</span>
+                <Briefcase className="h-5 w-5 text-blue-300" />
               </div>
               <h3 className="text-sm font-bold text-foreground mb-0.5">Bolsa de Trabajo</h3>
               <p className="text-[10px] text-muted-foreground leading-relaxed">
@@ -616,18 +616,20 @@ export function DashboardView({ onTerminalClick, onViewAllFlights, onViewAllEven
             <div className="absolute top-0 right-0 w-20 h-20 bg-gradient-to-bl from-purple-500/10 to-transparent rounded-bl-3xl pointer-events-none" />
             <div className="relative">
               <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-purple-500/20 to-pink-500/10 border border-purple-500/20 flex items-center justify-center mb-3 group-hover:scale-110 transition-transform duration-300">
-                <span className="text-2xl">📋</span>
+                <ClipboardCheck className="h-5 w-5 text-purple-300" />
               </div>
               <h3 className="text-sm font-bold text-foreground mb-0.5">Calendario IMET</h3>
               <p className="text-[10px] text-muted-foreground leading-relaxed">
                 Controla ITV, seguro y revisiones
               </p>
               <div className="flex items-center gap-1 mt-2">
-                <span className="text-[9px] bg-purple-500/10 text-purple-400 px-1.5 py-0.5 rounded-full border border-purple-500/20 font-medium">
-                  🔧 ITV
+                <span className="inline-flex items-center gap-0.5 text-[9px] bg-purple-500/10 text-purple-400 px-1.5 py-0.5 rounded-full border border-purple-500/20 font-medium">
+                  <Wrench className="h-2.5 w-2.5" />
+                  ITV
                 </span>
-                <span className="text-[9px] bg-pink-500/10 text-pink-400 px-1.5 py-0.5 rounded-full border border-pink-500/20 font-medium">
-                  🛡️ Seguro
+                <span className="inline-flex items-center gap-0.5 text-[9px] bg-pink-500/10 text-pink-400 px-1.5 py-0.5 rounded-full border border-pink-500/20 font-medium">
+                  <ShieldCheck className="h-2.5 w-2.5" />
+                  Seguro
                 </span>
               </div>
             </div>

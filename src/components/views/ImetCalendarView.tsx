@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { ArrowLeft, Plus, Check, Trash2, AlertTriangle, Calendar, Clock } from "lucide-react";
+import { ArrowLeft, Plus, Check, Trash2, AlertTriangle, Calendar, Clock, Wrench, Gauge, ShieldCheck, ClipboardCheck, IdCard, Pin, LucideIcon } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -20,6 +20,24 @@ import {
 interface ImetCalendarViewProps {
     onBack: () => void;
 }
+
+const EVENT_ICONS: Record<ImetEventType, LucideIcon> = {
+    itv: Wrench,
+    taximeter: Gauge,
+    insurance: ShieldCheck,
+    metro_review: ClipboardCheck,
+    license_review: IdCard,
+    other: Pin,
+};
+
+const EVENT_ICON_STYLES: Record<ImetEventType, string> = {
+    itv: "bg-amber-500/15 text-amber-300 ring-amber-500/30",
+    taximeter: "bg-cyan-500/15 text-cyan-300 ring-cyan-500/30",
+    insurance: "bg-emerald-500/15 text-emerald-300 ring-emerald-500/30",
+    metro_review: "bg-sky-500/15 text-sky-300 ring-sky-500/30",
+    license_review: "bg-violet-500/15 text-violet-300 ring-violet-500/30",
+    other: "bg-muted/40 text-muted-foreground ring-border/40",
+};
 
 export function ImetCalendarView({ onBack }: ImetCalendarViewProps) {
     const { events, loading, addEvent, completeEvent, deleteEvent, getUpcoming } = useImetCalendar();
@@ -43,7 +61,7 @@ export function ImetCalendarView({ onBack }: ImetCalendarViewProps) {
         const success = await addEvent(newType, config.label, newDate, newNotes || undefined);
         setSaving(false);
         if (success) {
-            toast({ title: "Recordatorio añadido", description: `${config.emoji} ${config.label} — ${newDate}` });
+            toast({ title: "Recordatorio añadido", description: `${config.label} — ${newDate}` });
             setNewDate('');
             setNewNotes('');
             setShowAdd(false);
@@ -129,14 +147,19 @@ export function ImetCalendarView({ onBack }: ImetCalendarViewProps) {
                                 Próximos vencimientos
                             </h3>
                             {upcoming.map((event) => {
-                                const config = IMET_EVENT_CONFIG[event.event_type as ImetEventType] || IMET_EVENT_CONFIG.other;
+                                const type = (event.event_type as ImetEventType);
+                                const config = IMET_EVENT_CONFIG[type] || IMET_EVENT_CONFIG.other;
                                 const urgency = getUrgencyColor(event.daysLeft);
+                                const EventIcon = EVENT_ICONS[type] || EVENT_ICONS.other;
+                                const iconStyle = EVENT_ICON_STYLES[type] || EVENT_ICON_STYLES.other;
                                 return (
                                     <div
                                         key={event.id}
                                         className={cn("card-glass p-3 flex items-center gap-3 border", urgency.split(' ').slice(1).join(' '))}
                                     >
-                                        <span className="text-2xl">{config.emoji}</span>
+                                        <div className={cn("w-10 h-10 rounded-xl flex items-center justify-center ring-1 shrink-0", iconStyle)}>
+                                            <EventIcon className="h-4 w-4" />
+                                        </div>
                                         <div className="flex-1 min-w-0">
                                             <div className="flex items-center gap-2">
                                                 <span className="font-semibold text-foreground text-sm">{event.title}</span>
@@ -183,10 +206,14 @@ export function ImetCalendarView({ onBack }: ImetCalendarViewProps) {
                                 Completados
                             </h3>
                             {completed.slice(0, 5).map((event) => {
-                                const config = IMET_EVENT_CONFIG[event.event_type as ImetEventType] || IMET_EVENT_CONFIG.other;
+                                const type = (event.event_type as ImetEventType);
+                                const EventIcon = EVENT_ICONS[type] || EVENT_ICONS.other;
+                                const iconStyle = EVENT_ICON_STYLES[type] || EVENT_ICON_STYLES.other;
                                 return (
                                     <div key={event.id} className="card-glass p-3 flex items-center gap-3 opacity-50">
-                                        <span className="text-lg">{config.emoji}</span>
+                                        <div className={cn("w-8 h-8 rounded-lg flex items-center justify-center ring-1 shrink-0", iconStyle)}>
+                                            <EventIcon className="h-3.5 w-3.5" />
+                                        </div>
                                         <div className="flex-1">
                                             <span className="text-sm text-foreground line-through">{event.title}</span>
                                             <p className="text-[10px] text-muted-foreground">
@@ -221,26 +248,32 @@ export function ImetCalendarView({ onBack }: ImetCalendarViewProps) {
                         <div className="space-y-2">
                             <Label>Tipo</Label>
                             <div className="grid grid-cols-2 gap-2">
-                                {(Object.entries(IMET_EVENT_CONFIG) as [ImetEventType, typeof IMET_EVENT_CONFIG[ImetEventType]][]).map(([type, config]) => (
-                                    <button
-                                        key={type}
-                                        onClick={() => setNewType(type)}
-                                        className={cn(
-                                            "p-2.5 rounded-xl border-2 transition-all flex items-center gap-2 text-left",
-                                            newType === type
-                                                ? "border-primary bg-primary/10"
-                                                : "border-border bg-card hover:border-primary/50"
-                                        )}
-                                    >
-                                        <span className="text-lg">{config.emoji}</span>
-                                        <div>
-                                            <span className="text-xs font-medium block">{config.label}</span>
-                                            {config.recurrence && (
-                                                <span className="text-[10px] text-muted-foreground">{config.recurrence}</span>
+                                {(Object.entries(IMET_EVENT_CONFIG) as [ImetEventType, typeof IMET_EVENT_CONFIG[ImetEventType]][]).map(([type, config]) => {
+                                    const OptionIcon = EVENT_ICONS[type];
+                                    const optionStyle = EVENT_ICON_STYLES[type];
+                                    return (
+                                        <button
+                                            key={type}
+                                            onClick={() => setNewType(type)}
+                                            className={cn(
+                                                "p-2.5 rounded-xl border-2 transition-all flex items-center gap-2 text-left",
+                                                newType === type
+                                                    ? "border-primary bg-primary/10"
+                                                    : "border-border bg-card hover:border-primary/50"
                                             )}
-                                        </div>
-                                    </button>
-                                ))}
+                                        >
+                                            <div className={cn("w-9 h-9 rounded-lg flex items-center justify-center ring-1 shrink-0", optionStyle)}>
+                                                <OptionIcon className="h-4 w-4" />
+                                            </div>
+                                            <div>
+                                                <span className="text-xs font-medium block">{config.label}</span>
+                                                {config.recurrence && (
+                                                    <span className="text-[10px] text-muted-foreground">{config.recurrence}</span>
+                                                )}
+                                            </div>
+                                        </button>
+                                    );
+                                })}
                             </div>
                         </div>
 
