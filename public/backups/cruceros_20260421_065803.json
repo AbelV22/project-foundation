@@ -49,7 +49,7 @@
             "fecha": "2026-04-21"
         },
         {
-            "hora": "05:20",
+            "hora": "05:00",
             "nombre": "Marina",
             "naviera": "OCEANIA CRUISES INC",
             "terminal": "Terminal B (Maremagnum)",
@@ -58,10 +58,26 @@
             "pax_estimados": 2000,
             "puerto": "Cartagena",
             "tipo": "llegada",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Illes Marshall",
             "imo": "9438066",
             "mmsi": "538003668",
+            "fecha": "2026-04-21"
+        },
+        {
+            "hora": "05:45",
+            "nombre": "Nautica",
+            "naviera": "OCEANIA CRUISES INC",
+            "terminal": "Terminal Sud",
+            "terminal_codigo": "S",
+            "eslora": 181.0,
+            "pax_estimados": 1000,
+            "puerto": "Palma de Mallorca",
+            "tipo": "llegada",
+            "estado": "Autoritzada",
+            "bandera": "Illes Marshall",
+            "imo": "9200938",
+            "mmsi": "538001665",
             "fecha": "2026-04-21"
         },
         {
@@ -97,22 +113,6 @@
             "fecha": "2026-04-21"
         },
         {
-            "hora": "06:07",
-            "nombre": "Nautica",
-            "naviera": "OCEANIA CRUISES INC",
-            "terminal": "Terminal Sud",
-            "terminal_codigo": "S",
-            "eslora": 181.0,
-            "pax_estimados": 1000,
-            "puerto": "Palma de Mallorca",
-            "tipo": "llegada",
-            "estado": "Iniciada",
-            "bandera": "Illes Marshall",
-            "imo": "9200938",
-            "mmsi": "538001665",
-            "fecha": "2026-04-21"
-        },
-        {
             "hora": "06:15",
             "nombre": "Msc Niovi Viii",
             "naviera": "MEDITERRANEAN SHIPPING CO",
@@ -126,6 +126,22 @@
             "bandera": "Libèria",
             "imo": "9290488",
             "mmsi": "636022795",
+            "fecha": "2026-04-21"
+        },
+        {
+            "hora": "06:30",
+            "nombre": "Costa Fascinosa",
+            "naviera": "COSTA CROCIERE, S.P.A.",
+            "terminal": "Terminal D (Adossat)",
+            "terminal_codigo": "D",
+            "eslora": 0,
+            "pax_estimados": 500,
+            "puerto": "Savona",
+            "tipo": "llegada",
+            "estado": "Autoritzada",
+            "bandera": "Itàlia",
+            "imo": "9479864",
+            "mmsi": "247313500",
             "fecha": "2026-04-21"
         },
         {
@@ -145,23 +161,7 @@
             "fecha": "2026-04-21"
         },
         {
-            "hora": "07:03",
-            "nombre": "Costa Fascinosa",
-            "naviera": "COSTA CROCIERE, S.P.A.",
-            "terminal": "Terminal D (Adossat)",
-            "terminal_codigo": "D",
-            "eslora": 0,
-            "pax_estimados": 500,
-            "puerto": "Savona",
-            "tipo": "llegada",
-            "estado": "Iniciada",
-            "bandera": "Itàlia",
-            "imo": "9479864",
-            "mmsi": "247313500",
-            "fecha": "2026-04-21"
-        },
-        {
-            "hora": "07:33",
+            "hora": "07:00",
             "nombre": "Msc Fantasia",
             "naviera": "MSC CRUISES S.A.",
             "terminal": "ADOSSAT/TERMINAL H",
@@ -170,7 +170,7 @@
             "pax_estimados": 500,
             "puerto": "Civitavecchia",
             "tipo": "llegada",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Panamà",
             "imo": "9359791",
             "mmsi": "370648000",
@@ -307,7 +307,7 @@
             "fecha": "2026-04-21"
         },
         {
-            "hora": "05:34",
+            "hora": "06:45",
             "nombre": "Msc Mette",
             "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
             "terminal": "TERMINAL CATALUNYA SA",
@@ -316,7 +316,7 @@
             "pax_estimados": 500,
             "puerto": "Fos-sur-Mer",
             "tipo": "salida",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Libèria",
             "imo": "9936630",
             "mmsi": "636023084",
@@ -364,7 +364,7 @@
             "pax_estimados": 2000,
             "puerto": "Toulon",
             "tipo": "salida",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Illes Marshall",
             "imo": "9438066",
             "mmsi": "538003668",
@@ -396,7 +396,7 @@
             "pax_estimados": 1000,
             "puerto": "Palamos",
             "tipo": "salida",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Illes Marshall",
             "imo": "9200938",
             "mmsi": "538001665",
@@ -412,7 +412,7 @@
             "pax_estimados": 500,
             "puerto": "Marseille",
             "tipo": "salida",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Itàlia",
             "imo": "9479864",
             "mmsi": "247313500",
@@ -444,7 +444,7 @@
             "pax_estimados": 500,
             "puerto": "Marseille",
             "tipo": "salida",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Panamà",
             "imo": "9359791",
             "mmsi": "370648000",
@@ -568,25 +568,25 @@
         "total_llegadas": 17,
         "total_salidas": 18,
         "pax_estimados_hoy": 25500,
-        "proximo_desembarco": "07:00",
-        "proximo_barco": "Eco Adriatica"
+        "proximo_desembarco": null,
+        "proximo_barco": null
     },
     "terminales_activas": [
-        "B",
-        "7946",
-        "F1",
-        "S",
-        "F3",
-        "8156",
         "H",
+        "B",
+        "F1",
+        "F3",
         "D",
         "F2",
-        "6212",
-        "C"
+        "S",
+        "7946",
+        "8156",
+        "C",
+        "6212"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-04-21T06:58:03.119513",
+        "actualizado": "2026-04-20T23:42:17.786416",
         "frecuencia": "horaria"
     }
 }
