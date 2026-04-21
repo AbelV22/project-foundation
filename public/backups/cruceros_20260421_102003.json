@@ -339,22 +339,6 @@
             "fecha": "2026-04-21"
         },
         {
-            "hora": "09:57",
-            "nombre": "Cma Cgm Patagonia",
-            "naviera": "CMA CGM IBERICA SAU",
-            "terminal": "TERMINAL CATALUNYA SA",
-            "terminal_codigo": "6212",
-            "eslora": 366.0,
-            "pax_estimados": 6500,
-            "puerto": "Fos-sur-Mer",
-            "tipo": "salida",
-            "estado": "Finalitzada",
-            "bandera": "França",
-            "imo": "9894961",
-            "mmsi": "228409800",
-            "fecha": "2026-04-21"
-        },
-        {
             "hora": "12:00",
             "nombre": "Eco Adriatica",
             "naviera": "GRIMALDI LOGISTICA ESPAÑA SL",
@@ -580,29 +564,29 @@
         }
     ],
     "resumen": {
-        "total_cruceros": 21,
+        "total_cruceros": 20,
         "total_llegadas": 17,
-        "total_salidas": 19,
+        "total_salidas": 18,
         "pax_estimados_hoy": 25500,
-        "proximo_desembarco": "18:15",
-        "proximo_barco": "Msc Carpathia Iii"
+        "proximo_desembarco": "09:00",
+        "proximo_barco": "America"
     },
     "terminales_activas": [
-        "8156",
-        "F2",
-        "H",
-        "6212",
         "S",
-        "D",
-        "B",
-        "C",
         "7946",
+        "B",
+        "D",
+        "H",
+        "8156",
         "F1",
+        "6212",
+        "F2",
+        "C",
         "F3"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-04-21T10:20:03.831835",
+        "actualizado": "2026-04-21T08:56:44.024029",
         "frecuencia": "horaria"
     }
 }
