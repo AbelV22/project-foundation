@@ -106,7 +106,7 @@
             "pax_estimados": 1000,
             "puerto": "Alcudia",
             "tipo": "llegada",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Espanya",
             "imo": "9441130",
             "mmsi": "224402000",
@@ -307,6 +307,22 @@
             "fecha": "2026-04-23"
         },
         {
+            "hora": "21:15",
+            "nombre": "Abel Matutes",
+            "naviera": "BALEARIA EUROLINEAS MARITIMAS SA ",
+            "terminal": "TERMINAL F1",
+            "terminal_codigo": "F1",
+            "eslora": 190.0,
+            "pax_estimados": 1000,
+            "puerto": "Alcudia",
+            "tipo": "salida",
+            "estado": "Iniciada",
+            "bandera": "Espanya",
+            "imo": "9441130",
+            "mmsi": "224402000",
+            "fecha": "2026-04-23"
+        },
+        {
             "hora": "21:45",
             "nombre": "Gnv Altair",
             "naviera": "TRANSCOMA BALEARES SA",
@@ -320,22 +336,6 @@
             "bandera": "Itàlia",
             "imo": "9222534",
             "mmsi": "247057100",
-            "fecha": "2026-04-23"
-        },
-        {
-            "hora": "21:55",
-            "nombre": "Abel Matutes",
-            "naviera": "BALEARIA EUROLINEAS MARITIMAS SA ",
-            "terminal": "TERMINAL F1",
-            "terminal_codigo": "F1",
-            "eslora": 190.0,
-            "pax_estimados": 1000,
-            "puerto": "Alcudia",
-            "tipo": "salida",
-            "estado": "Finalitzada",
-            "bandera": "Espanya",
-            "imo": "9441130",
-            "mmsi": "224402000",
             "fecha": "2026-04-23"
         },
         {
@@ -392,20 +392,20 @@
         "total_llegadas": 12,
         "total_salidas": 12,
         "pax_estimados_hoy": 16000,
-        "proximo_desembarco": null,
-        "proximo_barco": null
+        "proximo_desembarco": "20:30",
+        "proximo_barco": "Cruise Roma"
     },
     "terminales_activas": [
-        "7946",
-        "8156",
+        "6212",
         "F2",
-        "F1",
         "F3",
-        "6212"
+        "F1",
+        "8156",
+        "7946"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-04-23T21:45:54.528325",
+        "actualizado": "2026-04-23T20:05:58.504717",
         "frecuencia": "horaria"
     }
 }
