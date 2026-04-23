@@ -18,6 +18,22 @@
         },
         {
             "hora": "06:00",
+            "nombre": "Msc Albany",
+            "naviera": "MEDITERRANEAN SHIPPING CO",
+            "terminal": "TERMINAL CATALUNYA SA",
+            "terminal_codigo": "6212",
+            "eslora": 299.0,
+            "pax_estimados": 3000,
+            "puerto": "Valencia",
+            "tipo": "llegada",
+            "estado": "Autoritzada",
+            "bandera": "Libèria",
+            "imo": "9619438",
+            "mmsi": "636015665",
+            "fecha": "2026-04-23"
+        },
+        {
+            "hora": "06:00",
             "nombre": "Msc Michel Cappellini",
             "naviera": "MEDITERRANEAN SHIPPING CO",
             "terminal": "TERMINAL CATALUNYA SA",
@@ -65,7 +81,7 @@
             "fecha": "2026-04-23"
         },
         {
-            "hora": "11:29",
+            "hora": "10:30",
             "nombre": "Eco Valencia",
             "naviera": "GRIMALDI EUROMED SPA",
             "terminal": "GRIMALDI TERMINAL BARCELONA SL",
@@ -74,26 +90,10 @@
             "pax_estimados": 2000,
             "puerto": "Valencia",
             "tipo": "llegada",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Itàlia",
             "imo": "9859533",
             "mmsi": "247383300",
-            "fecha": "2026-04-23"
-        },
-        {
-            "hora": "11:55",
-            "nombre": "Msc Albany",
-            "naviera": "MEDITERRANEAN SHIPPING CO",
-            "terminal": "TERMINAL CATALUNYA SA",
-            "terminal_codigo": "6212",
-            "eslora": 299.0,
-            "pax_estimados": 3000,
-            "puerto": "Valencia",
-            "tipo": "llegada",
-            "estado": "Iniciada",
-            "bandera": "Libèria",
-            "imo": "9619438",
-            "mmsi": "636015665",
             "fecha": "2026-04-23"
         },
         {
@@ -212,6 +212,22 @@
         },
         {
             "hora": "08:30",
+            "nombre": "Msc Chiquita Iii",
+            "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
+            "terminal": "TERMINAL CATALUNYA SA",
+            "terminal_codigo": "6212",
+            "eslora": 0,
+            "pax_estimados": 500,
+            "puerto": "Casablanca",
+            "tipo": "salida",
+            "estado": "Iniciada",
+            "bandera": "Portugal",
+            "imo": "9336189",
+            "mmsi": "255916056",
+            "fecha": "2026-04-23"
+        },
+        {
+            "hora": "08:30",
             "nombre": "High Navigator",
             "naviera": "ALFASHIP MARITIME SERVICES SL ",
             "terminal": "TRADEBE PORT SERVICES SL",
@@ -243,22 +259,6 @@
             "fecha": "2026-04-23"
         },
         {
-            "hora": "10:15",
-            "nombre": "Msc Chiquita Iii",
-            "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
-            "terminal": "TERMINAL CATALUNYA SA",
-            "terminal_codigo": "6212",
-            "eslora": 0,
-            "pax_estimados": 500,
-            "puerto": "Casablanca",
-            "tipo": "salida",
-            "estado": "Finalitzada",
-            "bandera": "Portugal",
-            "imo": "9336189",
-            "mmsi": "255916056",
-            "fecha": "2026-04-23"
-        },
-        {
             "hora": "19:00",
             "nombre": "Eco Valencia",
             "naviera": "GRIMALDI LOGISTICA ESPAÑA SL",
@@ -268,7 +268,7 @@
             "pax_estimados": 2000,
             "puerto": "Savona",
             "tipo": "salida",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Itàlia",
             "imo": "9859533",
             "mmsi": "247383300",
@@ -376,20 +376,20 @@
         "total_llegadas": 11,
         "total_salidas": 12,
         "pax_estimados_hoy": 15500,
-        "proximo_desembarco": "18:15",
-        "proximo_barco": "Ciudad De Palma"
+        "proximo_desembarco": "10:30",
+        "proximo_barco": "Eco Valencia"
     },
     "terminales_activas": [
-        "6212",
         "F3",
-        "8156",
-        "F2",
+        "7946",
+        "6212",
         "F1",
-        "7946"
+        "F2",
+        "8156"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-04-23T11:58:34.986947",
+        "actualizado": "2026-04-23T10:20:33.498203",
         "frecuencia": "horaria"
     }
 }
