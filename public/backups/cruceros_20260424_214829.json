@@ -138,7 +138,7 @@
             "pax_estimados": 500,
             "puerto": "Mahon Menorca",
             "tipo": "llegada",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Itàlia",
             "imo": "9222534",
             "mmsi": "247057100",
@@ -170,7 +170,7 @@
             "pax_estimados": 1000,
             "puerto": "Alcudia",
             "tipo": "llegada",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Espanya",
             "imo": "9441130",
             "mmsi": "224402000",
@@ -371,23 +371,7 @@
             "fecha": "2026-04-24"
         },
         {
-            "hora": "21:48",
-            "nombre": "Abel Matutes",
-            "naviera": "BALEARIA EUROLINEAS MARITIMAS SA ",
-            "terminal": "LEPANT/TRUCK CENTER",
-            "terminal_codigo": "TC",
-            "eslora": 190.0,
-            "pax_estimados": 1000,
-            "puerto": "Alcudia",
-            "tipo": "salida",
-            "estado": "Finalitzada",
-            "bandera": "Espanya",
-            "imo": "9441130",
-            "mmsi": "224402000",
-            "fecha": "2026-04-24"
-        },
-        {
-            "hora": "22:00",
+            "hora": "20:30",
             "nombre": "Gnv Altair",
             "naviera": "TRANSCOMA BALEARES SA",
             "terminal": "TERMINAL F2",
@@ -396,10 +380,26 @@
             "pax_estimados": 500,
             "puerto": "Sete",
             "tipo": "salida",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Itàlia",
             "imo": "9222534",
             "mmsi": "247057100",
+            "fecha": "2026-04-24"
+        },
+        {
+            "hora": "21:15",
+            "nombre": "Abel Matutes",
+            "naviera": "BALEARIA EUROLINEAS MARITIMAS SA ",
+            "terminal": "LEPANT/TRUCK CENTER",
+            "terminal_codigo": "TC",
+            "eslora": 190.0,
+            "pax_estimados": 1000,
+            "puerto": "Alcudia",
+            "tipo": "salida",
+            "estado": "Iniciada",
+            "bandera": "Espanya",
+            "imo": "9441130",
+            "mmsi": "224402000",
             "fecha": "2026-04-24"
         },
         {
@@ -456,24 +456,24 @@
         "total_llegadas": 13,
         "total_salidas": 15,
         "pax_estimados_hoy": 16000,
-        "proximo_desembarco": null,
-        "proximo_barco": null
+        "proximo_desembarco": "20:00",
+        "proximo_barco": "Ciudad De Barcelona"
     },
     "terminales_activas": [
-        "C",
-        "F3",
-        "TC",
-        "7946",
-        "8156",
-        "E",
+        "D",
         "H",
         "F2",
+        "8156",
         "6212",
-        "D"
+        "F3",
+        "TC",
+        "C",
+        "7946",
+        "E"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-04-24T21:48:29.734813",
+        "actualizado": "2026-04-24T19:52:19.967263",
         "frecuencia": "horaria"
     }
 }
