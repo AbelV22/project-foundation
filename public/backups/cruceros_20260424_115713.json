@@ -65,6 +65,38 @@
             "fecha": "2026-04-24"
         },
         {
+            "hora": "06:00",
+            "nombre": "Msc Rita V",
+            "naviera": "MEDITERRANEAN SHIPPING CO",
+            "terminal": "TERMINAL CATALUNYA SA",
+            "terminal_codigo": "6212",
+            "eslora": 0,
+            "pax_estimados": 500,
+            "puerto": "La Spezia",
+            "tipo": "llegada",
+            "estado": "Sol·licitada",
+            "bandera": "Libèria",
+            "imo": "9313929",
+            "mmsi": "636025832",
+            "fecha": "2026-04-24"
+        },
+        {
+            "hora": "06:00",
+            "nombre": "Msc Virginia",
+            "naviera": "MEDITERRANEAN SHIPPING CO",
+            "terminal": "TERMINAL CATALUNYA SA",
+            "terminal_codigo": "6212",
+            "eslora": 335.0,
+            "pax_estimados": 4500,
+            "puerto": "Valencia",
+            "tipo": "llegada",
+            "estado": "Sol·licitada",
+            "bandera": "Libèria",
+            "imo": "9908059",
+            "mmsi": "636021366",
+            "fecha": "2026-04-24"
+        },
+        {
             "hora": "07:28",
             "nombre": "Msc World Europa",
             "naviera": "MSC CRUISES S.A.",
@@ -371,6 +403,38 @@
             "fecha": "2026-04-24"
         },
         {
+            "hora": "20:00",
+            "nombre": "Msc Rita V",
+            "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
+            "terminal": "TERMINAL CATALUNYA SA",
+            "terminal_codigo": "6212",
+            "eslora": 0,
+            "pax_estimados": 500,
+            "puerto": "Castellon de la Plana",
+            "tipo": "salida",
+            "estado": "Sol·licitada",
+            "bandera": "Libèria",
+            "imo": "9313929",
+            "mmsi": "636025832",
+            "fecha": "2026-04-24"
+        },
+        {
+            "hora": "20:00",
+            "nombre": "Msc Virginia",
+            "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
+            "terminal": "TERMINAL CATALUNYA SA",
+            "terminal_codigo": "6212",
+            "eslora": 335.0,
+            "pax_estimados": 4500,
+            "puerto": "Gioia Tauro",
+            "tipo": "salida",
+            "estado": "Sol·licitada",
+            "bandera": "Libèria",
+            "imo": "9908059",
+            "mmsi": "636021366",
+            "fecha": "2026-04-24"
+        },
+        {
             "hora": "20:30",
             "nombre": "Gnv Altair",
             "naviera": "TRANSCOMA BALEARES SA",
@@ -452,28 +516,28 @@
         }
     ],
     "resumen": {
-        "total_cruceros": 14,
-        "total_llegadas": 13,
-        "total_salidas": 15,
-        "pax_estimados_hoy": 16000,
-        "proximo_desembarco": "12:30",
-        "proximo_barco": "Costa Fascinosa"
+        "total_cruceros": 16,
+        "total_llegadas": 15,
+        "total_salidas": 17,
+        "pax_estimados_hoy": 21000,
+        "proximo_desembarco": "10:27",
+        "proximo_barco": "High Navigator"
     },
     "terminales_activas": [
-        "C",
-        "TC",
         "F2",
-        "7946",
-        "D",
+        "C",
         "H",
+        "D",
+        "7946",
+        "8156",
         "6212",
+        "TC",
         "E",
-        "F3",
-        "8156"
+        "F3"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-04-24T11:57:13.334627",
+        "actualizado": "2026-04-24T10:22:03.016124",
         "frecuencia": "horaria"
     }
 }
