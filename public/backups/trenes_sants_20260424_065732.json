@@ -1,6 +1,18 @@
 {
     "trenes": [
         {
+            "hora": "07:15",
+            "origen": "Figueres-Vilafant",
+            "tren": "AVE 03662",
+            "via": "4"
+        },
+        {
+            "hora": "08:04",
+            "origen": "Figueres-Vilafant",
+            "tren": "EUROMED 01081",
+            "via": "2"
+        },
+        {
             "hora": "08:50",
             "origen": "Figueres-Vilafant",
             "tren": "AVE 03092",
@@ -31,22 +43,16 @@
             "via": "-"
         },
         {
-            "hora": "09:56",
-            "origen": "Madrid Puerta de Atocha Almudena Grandes",
-            "tren": "AVE 03301",
-            "via": "-"
-        },
-        {
             "hora": "09:59",
             "origen": "Madrid Puerta de Atocha Almudena Grandes",
             "tren": "AVE 03071",
-            "via": "2"
+            "via": "-"
         },
         {
             "hora": "10:05",
             "origen": "Figueres-Vilafant",
             "tren": "EUROMED 01101",
-            "via": "4"
+            "via": "-"
         },
         {
             "hora": "10:24",
@@ -70,12 +76,6 @@
             "hora": "11:24",
             "origen": "Madrid Puerta de Atocha Almudena Grandes",
             "tren": "IRYO 06081",
-            "via": "-"
-        },
-        {
-            "hora": "11:44",
-            "origen": "Madrid Puerta de Atocha Almudena Grandes",
-            "tren": "AVE 03083",
             "via": "-"
         },
         {
@@ -379,12 +379,6 @@
             "via": "-"
         },
         {
-            "hora": "23:34",
-            "origen": "Vigo Urzaiz",
-            "tren": "ALVIA 00621",
-            "via": "-"
-        },
-        {
             "hora": "23:39",
             "origen": "Madrid Puerta de Atocha Almudena Grandes",
             "tren": "IRYO 06201",
@@ -398,8 +392,8 @@
         }
     ],
     "meta": {
-        "update_time": "06:57",
-        "updated_at": "2026-04-24T06:57:32.573179",
-        "total": 66
+        "update_time": "01:24",
+        "updated_at": "2026-04-24T01:24:37.694838",
+        "total": 65
     }
 }
