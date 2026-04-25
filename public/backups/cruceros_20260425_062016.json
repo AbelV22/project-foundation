@@ -17,7 +17,7 @@
             "fecha": "2026-04-25"
         },
         {
-            "hora": "04:22",
+            "hora": "05:00",
             "nombre": "Celebrity Equinox",
             "naviera": "CELEBRITY CRUISES",
             "terminal": "Terminal B (Maremagnum)",
@@ -26,14 +26,14 @@
             "pax_estimados": 500,
             "puerto": "Palma de Mallorca",
             "tipo": "llegada",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Malta",
             "imo": "9372456",
             "mmsi": "249667000",
             "fecha": "2026-04-25"
         },
         {
-            "hora": "05:47",
+            "hora": "05:15",
             "nombre": "Sun Princess",
             "naviera": "PRINCESS CRUISES",
             "terminal": "Terminal E (Adossat)",
@@ -42,7 +42,7 @@
             "pax_estimados": 500,
             "puerto": "Messina",
             "tipo": "llegada",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Bermuda",
             "imo": "9863118",
             "mmsi": "310841000",
@@ -97,22 +97,6 @@
             "fecha": "2026-04-25"
         },
         {
-            "hora": "06:16",
-            "nombre": "Azamara Quest",
-            "naviera": "AZAMARA CRUISES",
-            "terminal": "Terminal Sud",
-            "terminal_codigo": "S",
-            "eslora": 181.0,
-            "pax_estimados": 1000,
-            "puerto": "Valencia",
-            "tipo": "llegada",
-            "estado": "Iniciada",
-            "bandera": "Illes Marshall",
-            "imo": "9210218",
-            "mmsi": "538012044",
-            "fecha": "2026-04-25"
-        },
-        {
             "hora": "06:30",
             "nombre": "Explora Ii",
             "naviera": "MSC CRUISES S.A.",
@@ -126,6 +110,22 @@
             "bandera": "Malta",
             "imo": "9869887",
             "mmsi": "256798000",
+            "fecha": "2026-04-25"
+        },
+        {
+            "hora": "07:00",
+            "nombre": "Azamara Quest",
+            "naviera": "AZAMARA CRUISES",
+            "terminal": "Terminal Sud",
+            "terminal_codigo": "S",
+            "eslora": 181.0,
+            "pax_estimados": 1000,
+            "puerto": "Valencia",
+            "tipo": "llegada",
+            "estado": "Autoritzada",
+            "bandera": "Illes Marshall",
+            "imo": "9210218",
+            "mmsi": "538012044",
             "fecha": "2026-04-25"
         },
         {
@@ -268,7 +268,7 @@
             "pax_estimados": 500,
             "puerto": "Malta (Valetta)",
             "tipo": "salida",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Malta",
             "imo": "9372456",
             "mmsi": "249667000",
@@ -284,7 +284,7 @@
             "pax_estimados": 1000,
             "puerto": "Port-Vendres",
             "tipo": "salida",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Illes Marshall",
             "imo": "9210218",
             "mmsi": "538012044",
@@ -300,7 +300,7 @@
             "pax_estimados": 500,
             "puerto": "Palma de Mallorca",
             "tipo": "salida",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Bermuda",
             "imo": "9863118",
             "mmsi": "310841000",
@@ -408,25 +408,25 @@
         "total_llegadas": 14,
         "total_salidas": 11,
         "pax_estimados_hoy": 26000,
-        "proximo_desembarco": "06:30",
-        "proximo_barco": "Explora Ii"
+        "proximo_desembarco": null,
+        "proximo_barco": null
     },
     "terminales_activas": [
-        "E",
-        "C",
-        "F1",
-        "F2",
-        "F3",
-        "H",
         "B",
         "7946",
+        "F1",
+        "F3",
+        "E",
+        "C",
+        "F2",
+        "6212",
         "8156",
-        "S",
-        "6212"
+        "H",
+        "S"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-04-25T06:20:16.721843",
+        "actualizado": "2026-04-24T23:39:23.894907",
         "frecuencia": "horaria"
     }
 }
