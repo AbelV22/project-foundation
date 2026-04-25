@@ -1,6 +1,22 @@
 {
     "llegadas": [
         {
+            "hora": "00:15",
+            "nombre": "Msc Virginia",
+            "naviera": "MEDITERRANEAN SHIPPING CO",
+            "terminal": "TERMINAL CATALUNYA SA",
+            "terminal_codigo": "6212",
+            "eslora": 335.0,
+            "pax_estimados": 4500,
+            "puerto": "Valencia",
+            "tipo": "llegada",
+            "estado": "Autoritzada",
+            "bandera": "Libèria",
+            "imo": "9908059",
+            "mmsi": "636021366",
+            "fecha": "2026-04-25"
+        },
+        {
             "hora": "04:22",
             "nombre": "Celebrity Equinox",
             "naviera": "CELEBRITY CRUISES",
@@ -97,7 +113,7 @@
             "fecha": "2026-04-25"
         },
         {
-            "hora": "07:16",
+            "hora": "06:30",
             "nombre": "Explora Ii",
             "naviera": "MSC CRUISES S.A.",
             "terminal": "Terminal C (Sant Bertran)",
@@ -106,14 +122,14 @@
             "pax_estimados": 2000,
             "puerto": "Malaga",
             "tipo": "llegada",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Malta",
             "imo": "9869887",
             "mmsi": "256798000",
             "fecha": "2026-04-25"
         },
         {
-            "hora": "07:20",
+            "hora": "07:00",
             "nombre": "Eco Savona",
             "naviera": "GRIMALDI EUROMED SPA",
             "terminal": "GRIMALDI TERMINAL BARCELONA SL",
@@ -122,14 +138,14 @@
             "pax_estimados": 2000,
             "puerto": "Valencia",
             "tipo": "llegada",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Itàlia",
             "imo": "9859569",
             "mmsi": "247383600",
             "fecha": "2026-04-25"
         },
         {
-            "hora": "07:31",
+            "hora": "07:00",
             "nombre": "Msc Splendida",
             "naviera": "MSC CRUISES S.A.",
             "terminal": "ADOSSAT/TERMINAL H",
@@ -138,42 +154,10 @@
             "pax_estimados": 4500,
             "puerto": "La Goulette Nord (Halqueloued)",
             "tipo": "llegada",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Panamà",
             "imo": "9359806",
             "mmsi": "357698000",
-            "fecha": "2026-04-25"
-        },
-        {
-            "hora": "08:34",
-            "nombre": "Msc Virginia",
-            "naviera": "MEDITERRANEAN SHIPPING CO",
-            "terminal": "TERMINAL CATALUNYA SA",
-            "terminal_codigo": "6212",
-            "eslora": 335.0,
-            "pax_estimados": 4500,
-            "puerto": "Valencia",
-            "tipo": "llegada",
-            "estado": "Iniciada",
-            "bandera": "Libèria",
-            "imo": "9908059",
-            "mmsi": "636021366",
-            "fecha": "2026-04-25"
-        },
-        {
-            "hora": "08:58",
-            "nombre": "Easterly Symphony",
-            "naviera": "Oregon Shipping Co.",
-            "terminal": "",
-            "terminal_codigo": "",
-            "eslora": 0,
-            "pax_estimados": 500,
-            "puerto": "Tripoli",
-            "tipo": "llegada",
-            "estado": "Autoritzada",
-            "bandera": "Illes Marshall",
-            "imo": "9464560",
-            "mmsi": "538010210",
             "fecha": "2026-04-25"
         },
         {
@@ -259,22 +243,6 @@
             "fecha": "2026-04-25"
         },
         {
-            "hora": "08:59",
-            "nombre": "Easterly Symphony",
-            "naviera": "MH BLAND SL",
-            "terminal": "",
-            "terminal_codigo": "",
-            "eslora": 0,
-            "pax_estimados": 500,
-            "puerto": "Malta (Valetta)",
-            "tipo": "salida",
-            "estado": "Autoritzada",
-            "bandera": "Illes Marshall",
-            "imo": "9464560",
-            "mmsi": "538010210",
-            "fecha": "2026-04-25"
-        },
-        {
             "hora": "14:00",
             "nombre": "Eco Savona",
             "naviera": "GRIMALDI LOGISTICA ESPAÑA SL",
@@ -284,7 +252,7 @@
             "pax_estimados": 2000,
             "puerto": "Savona",
             "tipo": "salida",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Itàlia",
             "imo": "9859569",
             "mmsi": "247383600",
@@ -348,7 +316,7 @@
             "pax_estimados": 4500,
             "puerto": "Marseille",
             "tipo": "salida",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Panamà",
             "imo": "9359806",
             "mmsi": "357698000",
@@ -428,7 +396,7 @@
             "pax_estimados": 2000,
             "puerto": "Monte-Carlo",
             "tipo": "salida",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Malta",
             "imo": "9869887",
             "mmsi": "256798000",
@@ -437,28 +405,28 @@
     ],
     "resumen": {
         "total_cruceros": 16,
-        "total_llegadas": 15,
-        "total_salidas": 12,
-        "pax_estimados_hoy": 26500,
-        "proximo_desembarco": "08:34",
-        "proximo_barco": "Msc Virginia"
+        "total_llegadas": 14,
+        "total_salidas": 11,
+        "pax_estimados_hoy": 26000,
+        "proximo_desembarco": "06:30",
+        "proximo_barco": "Explora Ii"
     },
     "terminales_activas": [
-        "H",
-        "C",
-        "6212",
-        "S",
         "E",
-        "7946",
+        "C",
         "F1",
-        "8156",
         "F2",
+        "F3",
+        "H",
         "B",
-        "F3"
+        "7946",
+        "8156",
+        "S",
+        "6212"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-04-25T08:04:54.693719",
+        "actualizado": "2026-04-25T06:20:16.721843",
         "frecuencia": "horaria"
     }
 }
