@@ -161,7 +161,7 @@
             "fecha": "2026-04-25"
         },
         {
-            "hora": "10:15",
+            "hora": "08:58",
             "nombre": "Easterly Symphony",
             "naviera": "Oregon Shipping Co.",
             "terminal": "",
@@ -170,14 +170,14 @@
             "pax_estimados": 500,
             "puerto": "Tripoli",
             "tipo": "llegada",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Illes Marshall",
             "imo": "9464560",
             "mmsi": "538010210",
             "fecha": "2026-04-25"
         },
         {
-            "hora": "10:18",
+            "hora": "09:00",
             "nombre": "Easterly Symphony",
             "naviera": "Oregon Shipping Co.",
             "terminal": "TRADEBE PORT SERVICES SL",
@@ -186,7 +186,7 @@
             "pax_estimados": 500,
             "puerto": "Tripoli",
             "tipo": "llegada",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Illes Marshall",
             "imo": "9464560",
             "mmsi": "538010210",
@@ -225,22 +225,6 @@
             "fecha": "2026-04-25"
         },
         {
-            "hora": "20:00",
-            "nombre": "Msc Oriane",
-            "naviera": "MEDITERRANEAN SHIPPING CO",
-            "terminal": "TERMINAL CATALUNYA SA",
-            "terminal_codigo": "6212",
-            "eslora": 0,
-            "pax_estimados": 500,
-            "puerto": "Livorno",
-            "tipo": "llegada",
-            "estado": "Autoritzada",
-            "bandera": "Panamà",
-            "imo": "9372482",
-            "mmsi": "353289000",
-            "fecha": "2026-04-25"
-        },
-        {
             "hora": "22:00",
             "nombre": "Cruise Roma",
             "naviera": "GRIMALDI EUROMED SPA",
@@ -275,23 +259,7 @@
             "fecha": "2026-04-25"
         },
         {
-            "hora": "09:19",
-            "nombre": "Msc Levante F",
-            "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
-            "terminal": "TERMINAL CATALUNYA SA",
-            "terminal_codigo": "6212",
-            "eslora": 0,
-            "pax_estimados": 500,
-            "puerto": "Oran",
-            "tipo": "salida",
-            "estado": "Finalitzada",
-            "bandera": "Panamà",
-            "imo": "9330264",
-            "mmsi": "352898711",
-            "fecha": "2026-04-25"
-        },
-        {
-            "hora": "10:17",
+            "hora": "08:59",
             "nombre": "Easterly Symphony",
             "naviera": "MH BLAND SL",
             "terminal": "",
@@ -300,7 +268,7 @@
             "pax_estimados": 500,
             "puerto": "Malta (Valetta)",
             "tipo": "salida",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Illes Marshall",
             "imo": "9464560",
             "mmsi": "538010210",
@@ -436,6 +404,22 @@
         },
         {
             "hora": "20:00",
+            "nombre": "Msc Levante F",
+            "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
+            "terminal": "TERMINAL CATALUNYA SA",
+            "terminal_codigo": "6212",
+            "eslora": 0,
+            "pax_estimados": 500,
+            "puerto": "Oran",
+            "tipo": "salida",
+            "estado": "Iniciada",
+            "bandera": "Panamà",
+            "imo": "9330264",
+            "mmsi": "352898711",
+            "fecha": "2026-04-25"
+        },
+        {
+            "hora": "20:00",
             "nombre": "Explora Ii",
             "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
             "terminal": "Terminal C (Sant Bertran)",
@@ -452,29 +436,29 @@
         }
     ],
     "resumen": {
-        "total_cruceros": 17,
-        "total_llegadas": 16,
+        "total_cruceros": 16,
+        "total_llegadas": 15,
         "total_salidas": 12,
-        "pax_estimados_hoy": 27000,
-        "proximo_desembarco": "10:15",
-        "proximo_barco": "Easterly Symphony"
+        "pax_estimados_hoy": 26500,
+        "proximo_desembarco": "08:34",
+        "proximo_barco": "Msc Virginia"
     },
     "terminales_activas": [
         "H",
-        "F3",
-        "E",
         "C",
-        "B",
-        "F1",
-        "F2",
-        "S",
         "6212",
+        "S",
+        "E",
         "7946",
-        "8156"
+        "F1",
+        "8156",
+        "F2",
+        "B",
+        "F3"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-04-25T09:53:27.699219",
+        "actualizado": "2026-04-25T08:04:54.693719",
         "frecuencia": "horaria"
     }
 }
