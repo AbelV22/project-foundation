@@ -106,7 +106,7 @@
             "pax_estimados": 2000,
             "puerto": "Malaga",
             "tipo": "llegada",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Malta",
             "imo": "9869887",
             "mmsi": "256798000",
@@ -209,7 +209,7 @@
             "fecha": "2026-04-25"
         },
         {
-            "hora": "19:31",
+            "hora": "19:30",
             "nombre": "Ciudad De Palma",
             "naviera": "TRASMED GLE S.L.",
             "terminal": "TERMINAL F2",
@@ -218,7 +218,7 @@
             "pax_estimados": 1000,
             "puerto": "Palma de Mallorca",
             "tipo": "llegada",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Espanya",
             "imo": "9349772",
             "mmsi": "224588000",
@@ -387,22 +387,6 @@
             "fecha": "2026-04-25"
         },
         {
-            "hora": "19:37",
-            "nombre": "Explora Ii",
-            "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
-            "terminal": "Terminal C (Sant Bertran)",
-            "terminal_codigo": "C",
-            "eslora": 248.0,
-            "pax_estimados": 2000,
-            "puerto": "Monte-Carlo",
-            "tipo": "salida",
-            "estado": "Finalitzada",
-            "bandera": "Malta",
-            "imo": "9869887",
-            "mmsi": "256798000",
-            "fecha": "2026-04-25"
-        },
-        {
             "hora": "20:00",
             "nombre": "Msc Abigail F",
             "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
@@ -449,6 +433,22 @@
             "imo": "9978987",
             "mmsi": "636025763",
             "fecha": "2026-04-25"
+        },
+        {
+            "hora": "20:00",
+            "nombre": "Explora Ii",
+            "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
+            "terminal": "Terminal C (Sant Bertran)",
+            "terminal_codigo": "C",
+            "eslora": 248.0,
+            "pax_estimados": 2000,
+            "puerto": "Monte-Carlo",
+            "tipo": "salida",
+            "estado": "Iniciada",
+            "bandera": "Malta",
+            "imo": "9869887",
+            "mmsi": "256798000",
+            "fecha": "2026-04-25"
         }
     ],
     "resumen": {
@@ -456,25 +456,25 @@
         "total_llegadas": 16,
         "total_salidas": 12,
         "pax_estimados_hoy": 27000,
-        "proximo_desembarco": "20:00",
-        "proximo_barco": "Msc Oriane"
+        "proximo_desembarco": "18:50",
+        "proximo_barco": "Abel Matutes"
     },
     "terminales_activas": [
-        "S",
-        "F3",
-        "C",
-        "6212",
-        "F1",
         "E",
-        "H",
-        "7946",
+        "F1",
+        "C",
         "8156",
+        "7946",
+        "6212",
         "B",
-        "F2"
+        "S",
+        "H",
+        "F2",
+        "F3"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-04-25T19:43:56.404314",
+        "actualizado": "2026-04-25T17:37:27.215753",
         "frecuencia": "horaria"
     }
 }
