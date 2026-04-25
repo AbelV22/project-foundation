@@ -225,23 +225,7 @@
             "fecha": "2026-04-25"
         },
         {
-            "hora": "21:44",
-            "nombre": "Cruise Roma",
-            "naviera": "GRIMALDI EUROMED SPA",
-            "terminal": "TERMINAL F3",
-            "terminal_codigo": "F3",
-            "eslora": 254.0,
-            "pax_estimados": 3000,
-            "puerto": "Civitavecchia",
-            "tipo": "llegada",
-            "estado": "Iniciada",
-            "bandera": "Itàlia",
-            "imo": "9351476",
-            "mmsi": "247219400",
-            "fecha": "2026-04-25"
-        },
-        {
-            "hora": "22:59",
+            "hora": "20:00",
             "nombre": "Msc Oriane",
             "naviera": "MEDITERRANEAN SHIPPING CO",
             "terminal": "TERMINAL CATALUNYA SA",
@@ -250,10 +234,26 @@
             "pax_estimados": 500,
             "puerto": "Livorno",
             "tipo": "llegada",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Panamà",
             "imo": "9372482",
             "mmsi": "353289000",
+            "fecha": "2026-04-25"
+        },
+        {
+            "hora": "22:00",
+            "nombre": "Cruise Roma",
+            "naviera": "GRIMALDI EUROMED SPA",
+            "terminal": "TERMINAL F3",
+            "terminal_codigo": "F3",
+            "eslora": 254.0,
+            "pax_estimados": 3000,
+            "puerto": "Civitavecchia",
+            "tipo": "llegada",
+            "estado": "Autoritzada",
+            "bandera": "Itàlia",
+            "imo": "9351476",
+            "mmsi": "247219400",
             "fecha": "2026-04-25"
         }
     ],
@@ -456,25 +456,25 @@
         "total_llegadas": 16,
         "total_salidas": 12,
         "pax_estimados_hoy": 27000,
-        "proximo_desembarco": "21:44",
-        "proximo_barco": "Cruise Roma"
+        "proximo_desembarco": "20:00",
+        "proximo_barco": "Msc Oriane"
     },
     "terminales_activas": [
-        "8156",
-        "H",
-        "6212",
-        "F2",
-        "C",
-        "F3",
-        "B",
-        "F1",
         "S",
+        "F3",
+        "C",
+        "6212",
+        "F1",
+        "E",
+        "H",
         "7946",
-        "E"
+        "8156",
+        "B",
+        "F2"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-04-25T21:37:10.122970",
+        "actualizado": "2026-04-25T19:43:56.404314",
         "frecuencia": "horaria"
     }
 }
