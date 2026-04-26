@@ -1,6 +1,22 @@
 {
     "llegadas": [
         {
+            "hora": "00:15",
+            "nombre": "Msc Rita V",
+            "naviera": "MEDITERRANEAN SHIPPING CO",
+            "terminal": "TERMINAL CATALUNYA SA",
+            "terminal_codigo": "6212",
+            "eslora": 0,
+            "pax_estimados": 500,
+            "puerto": "La Spezia",
+            "tipo": "llegada",
+            "estado": "Autoritzada",
+            "bandera": "Libèria",
+            "imo": "9313929",
+            "mmsi": "636025832",
+            "fecha": "2026-04-26"
+        },
+        {
             "hora": "02:11",
             "nombre": "Msc Eras Ii",
             "naviera": "MEDITERRANEAN SHIPPING CO",
@@ -58,7 +74,7 @@
             "pax_estimados": 3000,
             "puerto": "Palma de Mallorca",
             "tipo": "llegada",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Bahames",
             "imo": "9195169",
             "mmsi": "311307000",
@@ -142,22 +158,6 @@
             "bandera": "Malta",
             "imo": "9072446",
             "mmsi": "249054000",
-            "fecha": "2026-04-26"
-        },
-        {
-            "hora": "16:36",
-            "nombre": "Msc Rita V",
-            "naviera": "MEDITERRANEAN SHIPPING CO",
-            "terminal": "TERMINAL CATALUNYA SA",
-            "terminal_codigo": "6212",
-            "eslora": 0,
-            "pax_estimados": 500,
-            "puerto": "La Spezia",
-            "tipo": "llegada",
-            "estado": "Iniciada",
-            "bandera": "Libèria",
-            "imo": "9313929",
-            "mmsi": "636025832",
             "fecha": "2026-04-26"
         },
         {
@@ -275,7 +275,7 @@
             "fecha": "2026-04-26"
         },
         {
-            "hora": "16:20",
+            "hora": "16:00",
             "nombre": "Norwegian Dawn",
             "naviera": "INTERCRUISES PORT OPERATIONS SPAIN SLU",
             "terminal": "Terminal A (WTC)",
@@ -284,7 +284,7 @@
             "pax_estimados": 3000,
             "puerto": "Palma de Mallorca",
             "tipo": "salida",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Bahames",
             "imo": "9195169",
             "mmsi": "311307000",
@@ -440,24 +440,24 @@
         "total_llegadas": 11,
         "total_salidas": 16,
         "pax_estimados_hoy": 22500,
-        "proximo_desembarco": "16:36",
-        "proximo_barco": "Msc Rita V"
+        "proximo_desembarco": "18:00",
+        "proximo_barco": "Abel Matutes"
     },
     "terminales_activas": [
-        "B",
-        "H",
         "A",
-        "F2",
         "F3",
-        "C",
         "E",
+        "H",
+        "C",
         "6212",
         "F1",
-        "8156"
+        "8156",
+        "B",
+        "F2"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-04-26T15:41:51.049780",
+        "actualizado": "2026-04-26T14:04:09.125814",
         "frecuencia": "horaria"
     }
 }
