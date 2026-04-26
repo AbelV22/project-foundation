@@ -106,7 +106,7 @@
             "pax_estimados": 2000,
             "puerto": "Savona",
             "tipo": "llegada",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Itàlia",
             "imo": "9859557",
             "mmsi": "247383500",
@@ -243,7 +243,7 @@
             "fecha": "2026-04-26"
         },
         {
-            "hora": "11:39",
+            "hora": "14:00",
             "nombre": "Eco Livorno",
             "naviera": "GRIMALDI LOGISTICA ESPAÑA SL",
             "terminal": "GRIMALDI TERMINAL BARCELONA SL",
@@ -252,7 +252,7 @@
             "pax_estimados": 2000,
             "puerto": "Valencia",
             "tipo": "salida",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Itàlia",
             "imo": "9859557",
             "mmsi": "247383500",
@@ -444,20 +444,20 @@
         "proximo_barco": "Abel Matutes"
     },
     "terminales_activas": [
+        "F2",
+        "8156",
+        "A",
+        "F3",
         "B",
         "6212",
         "F1",
-        "8156",
-        "F2",
         "E",
-        "A",
-        "F3",
-        "H",
-        "C"
+        "C",
+        "H"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-04-26T11:39:21.184920",
+        "actualizado": "2026-04-26T09:54:16.994599",
         "frecuencia": "horaria"
     }
 }
