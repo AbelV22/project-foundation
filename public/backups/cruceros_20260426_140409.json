@@ -179,6 +179,22 @@
     ],
     "salidas": [
         {
+            "hora": "01:00",
+            "nombre": "Msc Michel Cappellini",
+            "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
+            "terminal": "TERMINAL CATALUNYA SA",
+            "terminal_codigo": "6212",
+            "eslora": 0,
+            "pax_estimados": 500,
+            "puerto": "Fos-sur-Mer",
+            "tipo": "salida",
+            "estado": "Iniciada",
+            "bandera": "Libèria",
+            "imo": "9929431",
+            "mmsi": "636022604",
+            "fecha": "2026-04-26"
+        },
+        {
             "hora": "01:12",
             "nombre": "Cruise Roma",
             "naviera": "GRIMALDI LOGISTICA ESPAÑA SL",
@@ -243,23 +259,7 @@
             "fecha": "2026-04-26"
         },
         {
-            "hora": "13:13",
-            "nombre": "Msc Michel Cappellini",
-            "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
-            "terminal": "TERMINAL CATALUNYA SA",
-            "terminal_codigo": "6212",
-            "eslora": 0,
-            "pax_estimados": 500,
-            "puerto": "Fos-sur-Mer",
-            "tipo": "salida",
-            "estado": "Finalitzada",
-            "bandera": "Libèria",
-            "imo": "9929431",
-            "mmsi": "636022604",
-            "fecha": "2026-04-26"
-        },
-        {
-            "hora": "14:19",
+            "hora": "15:00",
             "nombre": "Msc Oriane",
             "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
             "terminal": "TERMINAL CATALUNYA SA",
@@ -268,7 +268,7 @@
             "pax_estimados": 500,
             "puerto": "Valencia",
             "tipo": "salida",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Panamà",
             "imo": "9372482",
             "mmsi": "353289000",
@@ -444,20 +444,20 @@
         "proximo_barco": "Abel Matutes"
     },
     "terminales_activas": [
-        "A",
-        "F3",
-        "E",
-        "H",
-        "C",
+        "B",
         "6212",
         "F1",
         "8156",
-        "B",
-        "F2"
+        "F2",
+        "E",
+        "A",
+        "F3",
+        "H",
+        "C"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-04-26T14:04:09.125814",
+        "actualizado": "2026-04-26T11:39:21.184920",
         "frecuencia": "horaria"
     }
 }
