@@ -34,6 +34,22 @@
         },
         {
             "hora": "05:30",
+            "nombre": "Msc Eras Ii",
+            "naviera": "MEDITERRANEAN SHIPPING CO",
+            "terminal": "TERMINAL CATALUNYA SA",
+            "terminal_codigo": "6212",
+            "eslora": 0,
+            "pax_estimados": 500,
+            "puerto": "Fos-sur-Mer",
+            "tipo": "llegada",
+            "estado": "Iniciada",
+            "bandera": "Portugal",
+            "imo": "9449833",
+            "mmsi": "255917306",
+            "fecha": "2026-04-26"
+        },
+        {
+            "hora": "05:30",
             "nombre": "Norwegian Dawn",
             "naviera": "NORWEGIAN CRUISE LINE",
             "terminal": "Terminal A (WTC)",
@@ -145,7 +161,7 @@
             "fecha": "2026-04-26"
         },
         {
-            "hora": "19:29",
+            "hora": "18:00",
             "nombre": "Abel Matutes",
             "naviera": "EUROLINEAS MARITIMAS S.A",
             "terminal": "TERMINAL F1",
@@ -158,22 +174,6 @@
             "bandera": "Espanya",
             "imo": "9441130",
             "mmsi": "224402000",
-            "fecha": "2026-04-26"
-        },
-        {
-            "hora": "19:30",
-            "nombre": "Msc Eras Ii",
-            "naviera": "MEDITERRANEAN SHIPPING CO",
-            "terminal": "TERMINAL CATALUNYA SA",
-            "terminal_codigo": "6212",
-            "eslora": 0,
-            "pax_estimados": 500,
-            "puerto": "Fos-sur-Mer",
-            "tipo": "llegada",
-            "estado": "Iniciada",
-            "bandera": "Portugal",
-            "imo": "9449833",
-            "mmsi": "255917306",
             "fecha": "2026-04-26"
         }
     ],
@@ -192,6 +192,22 @@
             "bandera": "Itàlia",
             "imo": "9351476",
             "mmsi": "247219400",
+            "fecha": "2026-04-26"
+        },
+        {
+            "hora": "05:29",
+            "nombre": "Msc Eras Ii",
+            "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
+            "terminal": "",
+            "terminal_codigo": "",
+            "eslora": 0,
+            "pax_estimados": 500,
+            "puerto": "Valencia",
+            "tipo": "salida",
+            "estado": "Iniciada",
+            "bandera": "Portugal",
+            "imo": "9449833",
+            "mmsi": "255917306",
             "fecha": "2026-04-26"
         },
         {
@@ -291,6 +307,22 @@
             "fecha": "2026-04-26"
         },
         {
+            "hora": "17:30",
+            "nombre": "Msc Eras Ii",
+            "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
+            "terminal": "TERMINAL CATALUNYA SA",
+            "terminal_codigo": "6212",
+            "eslora": 0,
+            "pax_estimados": 500,
+            "puerto": "Valencia",
+            "tipo": "salida",
+            "estado": "Iniciada",
+            "bandera": "Portugal",
+            "imo": "9449833",
+            "mmsi": "255917306",
+            "fecha": "2026-04-26"
+        },
+        {
             "hora": "17:47",
             "nombre": "Marella Explorer 2",
             "naviera": "INTERCRUISES PORT OPERATIONS SPAIN SLU",
@@ -304,6 +336,22 @@
             "bandera": "Malta",
             "imo": "9072446",
             "mmsi": "249054000",
+            "fecha": "2026-04-26"
+        },
+        {
+            "hora": "17:59",
+            "nombre": "Abel Matutes",
+            "naviera": "BALEARIA EUROLINEAS MARITIMAS SA ",
+            "terminal": "",
+            "terminal_codigo": "",
+            "eslora": 190.0,
+            "pax_estimados": 1000,
+            "puerto": "Alcudia",
+            "tipo": "salida",
+            "estado": "Iniciada",
+            "bandera": "Espanya",
+            "imo": "9441130",
+            "mmsi": "224402000",
             "fecha": "2026-04-26"
         },
         {
@@ -336,54 +384,6 @@
             "bandera": "Itàlia",
             "imo": "9781891",
             "mmsi": "247431200",
-            "fecha": "2026-04-26"
-        },
-        {
-            "hora": "19:28",
-            "nombre": "Abel Matutes",
-            "naviera": "BALEARIA EUROLINEAS MARITIMAS SA ",
-            "terminal": "",
-            "terminal_codigo": "",
-            "eslora": 190.0,
-            "pax_estimados": 1000,
-            "puerto": "Alcudia",
-            "tipo": "salida",
-            "estado": "Iniciada",
-            "bandera": "Espanya",
-            "imo": "9441130",
-            "mmsi": "224402000",
-            "fecha": "2026-04-26"
-        },
-        {
-            "hora": "19:29",
-            "nombre": "Msc Eras Ii",
-            "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
-            "terminal": "",
-            "terminal_codigo": "",
-            "eslora": 0,
-            "pax_estimados": 500,
-            "puerto": "Valencia",
-            "tipo": "salida",
-            "estado": "Iniciada",
-            "bandera": "Portugal",
-            "imo": "9449833",
-            "mmsi": "255917306",
-            "fecha": "2026-04-26"
-        },
-        {
-            "hora": "19:32",
-            "nombre": "Msc Eras Ii",
-            "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
-            "terminal": "TERMINAL CATALUNYA SA",
-            "terminal_codigo": "6212",
-            "eslora": 0,
-            "pax_estimados": 500,
-            "puerto": "Valencia",
-            "tipo": "salida",
-            "estado": "Iniciada",
-            "bandera": "Portugal",
-            "imo": "9449833",
-            "mmsi": "255917306",
             "fecha": "2026-04-26"
         },
         {
@@ -440,24 +440,24 @@
         "total_llegadas": 11,
         "total_salidas": 16,
         "pax_estimados_hoy": 22500,
-        "proximo_desembarco": null,
-        "proximo_barco": null
+        "proximo_desembarco": "18:00",
+        "proximo_barco": "Abel Matutes"
     },
     "terminales_activas": [
-        "8156",
-        "B",
-        "F2",
-        "F1",
-        "H",
         "C",
-        "6212",
         "A",
+        "6212",
+        "H",
+        "E",
+        "8156",
+        "F2",
+        "B",
         "F3",
-        "E"
+        "F1"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-04-26T19:47:28.383879",
+        "actualizado": "2026-04-26T17:38:48.282444",
         "frecuencia": "horaria"
     }
 }
