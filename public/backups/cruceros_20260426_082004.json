@@ -145,7 +145,7 @@
             "fecha": "2026-04-26"
         },
         {
-            "hora": "08:29",
+            "hora": "07:45",
             "nombre": "Marella Explorer 2",
             "naviera": "MARELLA CRUISES LTD",
             "terminal": "Terminal B (Maremagnum)",
@@ -154,7 +154,7 @@
             "pax_estimados": 2000,
             "puerto": "Toulon",
             "tipo": "llegada",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Malta",
             "imo": "9072446",
             "mmsi": "249054000",
@@ -332,7 +332,7 @@
             "pax_estimados": 2000,
             "puerto": "Valencia",
             "tipo": "salida",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Malta",
             "imo": "9072446",
             "mmsi": "249054000",
@@ -440,24 +440,24 @@
         "total_llegadas": 11,
         "total_salidas": 16,
         "pax_estimados_hoy": 22500,
-        "proximo_desembarco": "08:29",
-        "proximo_barco": "Marella Explorer 2"
+        "proximo_desembarco": "07:22",
+        "proximo_barco": "Eco Livorno"
     },
     "terminales_activas": [
-        "C",
-        "8156",
-        "F1",
-        "H",
-        "E",
-        "A",
-        "F3",
+        "6212",
         "F2",
         "B",
-        "6212"
+        "F1",
+        "F3",
+        "C",
+        "8156",
+        "E",
+        "A",
+        "H"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-04-26T08:20:04.073946",
+        "actualizado": "2026-04-26T06:58:17.745886",
         "frecuencia": "horaria"
     }
 }
