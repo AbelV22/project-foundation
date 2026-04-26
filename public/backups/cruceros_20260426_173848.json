@@ -26,7 +26,7 @@
             "pax_estimados": 3000,
             "puerto": "Alicante",
             "tipo": "llegada",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Bahames",
             "imo": "9342281",
             "mmsi": "309653000",
@@ -106,7 +106,7 @@
             "pax_estimados": 4500,
             "puerto": "Alicante",
             "tipo": "llegada",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Malta",
             "imo": "9745378",
             "mmsi": "248717000",
@@ -122,7 +122,7 @@
             "pax_estimados": 4500,
             "puerto": "Marseille",
             "tipo": "llegada",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Itàlia",
             "imo": "9781891",
             "mmsi": "247431200",
@@ -138,7 +138,7 @@
             "pax_estimados": 2000,
             "puerto": "Toulon",
             "tipo": "llegada",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Malta",
             "imo": "9072446",
             "mmsi": "249054000",
@@ -291,7 +291,7 @@
             "fecha": "2026-04-26"
         },
         {
-            "hora": "17:04",
+            "hora": "17:00",
             "nombre": "Norwegian Pearl",
             "naviera": "INTERCRUISES PORT OPERATIONS SPAIN SLU",
             "terminal": "Terminal C (Sant Bertran)",
@@ -300,7 +300,7 @@
             "pax_estimados": 3000,
             "puerto": "Malta (Valetta)",
             "tipo": "salida",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Bahames",
             "imo": "9342281",
             "mmsi": "309653000",
@@ -323,7 +323,7 @@
             "fecha": "2026-04-26"
         },
         {
-            "hora": "17:47",
+            "hora": "17:30",
             "nombre": "Marella Explorer 2",
             "naviera": "INTERCRUISES PORT OPERATIONS SPAIN SLU",
             "terminal": "Terminal B (Maremagnum)",
@@ -332,7 +332,7 @@
             "pax_estimados": 2000,
             "puerto": "Valencia",
             "tipo": "salida",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Malta",
             "imo": "9072446",
             "mmsi": "249054000",
@@ -355,23 +355,7 @@
             "fecha": "2026-04-26"
         },
         {
-            "hora": "18:03",
-            "nombre": "Msc Seaview",
-            "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
-            "terminal": "ADOSSAT/TERMINAL H",
-            "terminal_codigo": "H",
-            "eslora": 323.0,
-            "pax_estimados": 4500,
-            "puerto": "Marseille",
-            "tipo": "salida",
-            "estado": "Finalitzada",
-            "bandera": "Malta",
-            "imo": "9745378",
-            "mmsi": "248717000",
-            "fecha": "2026-04-26"
-        },
-        {
-            "hora": "18:27",
+            "hora": "18:00",
             "nombre": "Costa Toscana",
             "naviera": "NOATUM MARITIME SPAIN SAU",
             "terminal": "Terminal E (Adossat)",
@@ -380,10 +364,26 @@
             "pax_estimados": 4500,
             "puerto": "Cagliari",
             "tipo": "salida",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Itàlia",
             "imo": "9781891",
             "mmsi": "247431200",
+            "fecha": "2026-04-26"
+        },
+        {
+            "hora": "18:00",
+            "nombre": "Msc Seaview",
+            "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
+            "terminal": "ADOSSAT/TERMINAL H",
+            "terminal_codigo": "H",
+            "eslora": 323.0,
+            "pax_estimados": 4500,
+            "puerto": "Marseille",
+            "tipo": "salida",
+            "estado": "Iniciada",
+            "bandera": "Malta",
+            "imo": "9745378",
+            "mmsi": "248717000",
             "fecha": "2026-04-26"
         },
         {
@@ -440,24 +440,24 @@
         "total_llegadas": 11,
         "total_salidas": 16,
         "pax_estimados_hoy": 22500,
-        "proximo_desembarco": "18:00",
-        "proximo_barco": "Abel Matutes"
+        "proximo_desembarco": "16:36",
+        "proximo_barco": "Msc Rita V"
     },
     "terminales_activas": [
-        "C",
-        "A",
-        "6212",
-        "H",
-        "E",
-        "8156",
-        "F2",
         "B",
+        "H",
+        "A",
+        "F2",
         "F3",
-        "F1"
+        "C",
+        "E",
+        "6212",
+        "F1",
+        "8156"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-04-26T17:38:48.282444",
+        "actualizado": "2026-04-26T15:41:51.049780",
         "frecuencia": "horaria"
     }
 }
