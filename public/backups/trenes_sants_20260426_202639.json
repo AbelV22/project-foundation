@@ -285,6 +285,12 @@
         {
             "hora": "20:33",
             "origen": "Figueres-Vilafant",
+            "tren": "AVE 34292",
+            "via": "1"
+        },
+        {
+            "hora": "20:33",
+            "origen": "Figueres-Vilafant",
             "tren": "AVE 03292",
             "via": "-"
         },
@@ -298,7 +304,7 @@
             "hora": "20:51",
             "origen": "Córdoba Julio Anguita",
             "tren": "ALVIA 00694",
-            "via": "-"
+            "via": "4"
         },
         {
             "hora": "20:57",
@@ -316,6 +322,12 @@
             "hora": "21:11",
             "origen": "Madrid Puerta de Atocha Almudena Grandes",
             "tren": "AVE 03173",
+            "via": "-"
+        },
+        {
+            "hora": "21:15",
+            "origen": "València Estació del Nord",
+            "tren": "EUROMED 01182",
             "via": "-"
         },
         {
@@ -340,17 +352,17 @@
             "hora": "21:59",
             "origen": "Madrid Puerta de Atocha Almudena Grandes",
             "tren": "AVE 03191",
-            "via": "-"
+            "via": "5"
         },
         {
             "hora": "22:04",
             "origen": "Alacant / Alicante Terminal",
             "tren": "EUROMED 01192",
-            "via": "-"
+            "via": "4"
         },
         {
             "hora": "22:13",
-            "origen": "Bilbao Intermodal Abando-Indalecio Prieto.",
+            "origen": "Logroño",
             "tren": "ALVIA 00437",
             "via": "-"
         },
@@ -394,18 +406,18 @@
             "hora": "23:47",
             "origen": "Madrid Puerta de Atocha Almudena Grandes",
             "tren": "AVE 03403",
-            "via": "2"
+            "via": "-"
         },
         {
             "hora": "23:58",
             "origen": "Madrid Puerta de Atocha Almudena Grandes",
             "tren": "IRYO 06211",
-            "via": "4"
+            "via": "-"
         }
     ],
     "meta": {
-        "update_time": "20:26",
-        "updated_at": "2026-04-26T20:26:39.628811",
-        "total": 67
+        "update_time": "18:34",
+        "updated_at": "2026-04-26T18:34:48.439589",
+        "total": 69
     }
 }
