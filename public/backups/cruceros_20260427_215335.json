@@ -17,6 +17,22 @@
             "fecha": "2026-04-27"
         },
         {
+            "hora": "06:00",
+            "nombre": "Msc Savannah",
+            "naviera": "MEDITERRANEAN SHIPPING CO",
+            "terminal": "TERMINAL CATALUNYA SA",
+            "terminal_codigo": "6212",
+            "eslora": 366.0,
+            "pax_estimados": 6500,
+            "puerto": "La Spezia",
+            "tipo": "llegada",
+            "estado": "Autoritzada",
+            "bandera": "Libèria",
+            "imo": "9987342",
+            "mmsi": "636025328",
+            "fecha": "2026-04-27"
+        },
+        {
             "hora": "07:07",
             "nombre": "Silver Ray",
             "naviera": "SILVERSEA CRUISES",
@@ -154,26 +170,10 @@
             "pax_estimados": 1000,
             "puerto": "Alcudia",
             "tipo": "llegada",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Espanya",
             "imo": "9441130",
             "mmsi": "224402000",
-            "fecha": "2026-04-27"
-        },
-        {
-            "hora": "21:57",
-            "nombre": "Msc Savannah",
-            "naviera": "MEDITERRANEAN SHIPPING CO",
-            "terminal": "TERMINAL CATALUNYA SA",
-            "terminal_codigo": "6212",
-            "eslora": 366.0,
-            "pax_estimados": 6500,
-            "puerto": "La Spezia",
-            "tipo": "llegada",
-            "estado": "Iniciada",
-            "bandera": "Libèria",
-            "imo": "9987342",
-            "mmsi": "636025328",
             "fecha": "2026-04-27"
         }
     ],
@@ -371,23 +371,7 @@
             "fecha": "2026-04-27"
         },
         {
-            "hora": "21:49",
-            "nombre": "Cruise Barcelona",
-            "naviera": "GRIMALDI LOGISTICA ESPAÑA SL",
-            "terminal": "TERMINAL F3",
-            "terminal_codigo": "F3",
-            "eslora": 0,
-            "pax_estimados": 500,
-            "puerto": "Civitavecchia",
-            "tipo": "salida",
-            "estado": "Finalitzada",
-            "bandera": "Itàlia",
-            "imo": "9351488",
-            "mmsi": "247243600",
-            "fecha": "2026-04-27"
-        },
-        {
-            "hora": "22:07",
+            "hora": "21:15",
             "nombre": "Abel Matutes",
             "naviera": "BALEARIA EUROLINEAS MARITIMAS SA ",
             "terminal": "TERMINAL F1",
@@ -396,10 +380,26 @@
             "pax_estimados": 1000,
             "puerto": "Alcudia",
             "tipo": "salida",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Espanya",
             "imo": "9441130",
             "mmsi": "224402000",
+            "fecha": "2026-04-27"
+        },
+        {
+            "hora": "21:30",
+            "nombre": "Cruise Barcelona",
+            "naviera": "GRIMALDI LOGISTICA ESPAÑA SL",
+            "terminal": "TERMINAL F3",
+            "terminal_codigo": "F3",
+            "eslora": 0,
+            "pax_estimados": 500,
+            "puerto": "Civitavecchia",
+            "tipo": "salida",
+            "estado": "Iniciada",
+            "bandera": "Itàlia",
+            "imo": "9351488",
+            "mmsi": "247243600",
             "fecha": "2026-04-27"
         },
         {
@@ -440,23 +440,23 @@
         "total_llegadas": 11,
         "total_salidas": 16,
         "pax_estimados_hoy": 24000,
-        "proximo_desembarco": "21:57",
-        "proximo_barco": "Msc Savannah"
+        "proximo_desembarco": null,
+        "proximo_barco": null
     },
     "terminales_activas": [
-        "E",
-        "8156",
-        "H",
-        "7946",
-        "F2",
-        "F3",
         "A",
+        "8156",
         "6212",
-        "F1"
+        "F1",
+        "H",
+        "F2",
+        "7946",
+        "F3",
+        "E"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-04-27T21:53:35.701242",
+        "actualizado": "2026-04-27T20:07:48.176019",
         "frecuencia": "horaria"
     }
 }
