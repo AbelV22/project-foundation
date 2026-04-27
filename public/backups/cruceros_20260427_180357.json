@@ -42,7 +42,7 @@
             "pax_estimados": 2000,
             "puerto": "Valencia",
             "tipo": "llegada",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Bahames",
             "imo": "9886225",
             "mmsi": "311001496",
@@ -106,7 +106,7 @@
             "pax_estimados": 4500,
             "puerto": "Marseille",
             "tipo": "llegada",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Itàlia",
             "imo": "9781889",
             "mmsi": "247391900",
@@ -145,7 +145,7 @@
             "fecha": "2026-04-27"
         },
         {
-            "hora": "18:36",
+            "hora": "18:15",
             "nombre": "Ciudad De Palma",
             "naviera": "TRASMED GLE S.L.",
             "terminal": "TERMINAL F2",
@@ -154,7 +154,7 @@
             "pax_estimados": 1000,
             "puerto": "Palma de Mallorca",
             "tipo": "llegada",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Espanya",
             "imo": "9349772",
             "mmsi": "224588000",
@@ -291,23 +291,7 @@
             "fecha": "2026-04-27"
         },
         {
-            "hora": "17:53",
-            "nombre": "Silver Ray",
-            "naviera": "INTERCRUISES PORT OPERATIONS SPAIN SLU",
-            "terminal": "Terminal A (WTC)",
-            "terminal_codigo": "A",
-            "eslora": 244.0,
-            "pax_estimados": 2000,
-            "puerto": "Marseille",
-            "tipo": "salida",
-            "estado": "Finalitzada",
-            "bandera": "Bahames",
-            "imo": "9886225",
-            "mmsi": "311001496",
-            "fecha": "2026-04-27"
-        },
-        {
-            "hora": "18:16",
+            "hora": "18:00",
             "nombre": "Costa Smeralda",
             "naviera": "NOATUM MARITIME SPAIN SAU",
             "terminal": "Terminal E (Adossat)",
@@ -316,10 +300,26 @@
             "pax_estimados": 4500,
             "puerto": "La Goulette Nord (Halqueloued)",
             "tipo": "salida",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Itàlia",
             "imo": "9781889",
             "mmsi": "247391900",
+            "fecha": "2026-04-27"
+        },
+        {
+            "hora": "18:00",
+            "nombre": "Silver Ray",
+            "naviera": "INTERCRUISES PORT OPERATIONS SPAIN SLU",
+            "terminal": "Terminal A (WTC)",
+            "terminal_codigo": "A",
+            "eslora": 244.0,
+            "pax_estimados": 2000,
+            "puerto": "Marseille",
+            "tipo": "salida",
+            "estado": "Iniciada",
+            "bandera": "Bahames",
+            "imo": "9886225",
+            "mmsi": "311001496",
             "fecha": "2026-04-27"
         },
         {
@@ -428,7 +428,7 @@
             "pax_estimados": 1000,
             "puerto": "Palma de Mallorca",
             "tipo": "salida",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Espanya",
             "imo": "9349772",
             "mmsi": "224588000",
@@ -440,23 +440,23 @@
         "total_llegadas": 11,
         "total_salidas": 16,
         "pax_estimados_hoy": 24000,
-        "proximo_desembarco": "18:36",
+        "proximo_desembarco": "18:15",
         "proximo_barco": "Ciudad De Palma"
     },
     "terminales_activas": [
+        "H",
         "6212",
-        "F3",
-        "F1",
-        "A",
         "8156",
+        "F3",
         "7946",
-        "F2",
+        "A",
         "E",
-        "H"
+        "F2",
+        "F1"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-04-27T18:03:57.126896",
+        "actualizado": "2026-04-27T15:07:22.370838",
         "frecuencia": "horaria"
     }
 }
