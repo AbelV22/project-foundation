@@ -34,6 +34,22 @@
         },
         {
             "hora": "06:00",
+            "nombre": "Msc Celestino Maresca",
+            "naviera": "MEDITERRANEAN SHIPPING CO",
+            "terminal": "TERMINAL CATALUNYA SA",
+            "terminal_codigo": "6212",
+            "eslora": 400.0,
+            "pax_estimados": 6500,
+            "puerto": "Valencia",
+            "tipo": "llegada",
+            "estado": "Sol·licitada",
+            "bandera": "Libèria",
+            "imo": "9930040",
+            "mmsi": "636022516",
+            "fecha": "2026-04-28"
+        },
+        {
+            "hora": "06:00",
             "nombre": "Msc Oak F",
             "naviera": "MEDITERRANEAN SHIPPING CO",
             "terminal": "TERMINAL CATALUNYA SA",
@@ -209,7 +225,7 @@
             "fecha": "2026-04-28"
         },
         {
-            "hora": "21:40",
+            "hora": "20:30",
             "nombre": "Cruise Roma",
             "naviera": "GRIMALDI EUROMED SPA",
             "terminal": "TERMINAL F3",
@@ -304,6 +320,22 @@
             "bandera": "Libèria",
             "imo": "9930947",
             "mmsi": "636021665",
+            "fecha": "2026-04-28"
+        },
+        {
+            "hora": "20:00",
+            "nombre": "Msc Celestino Maresca",
+            "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
+            "terminal": "TERMINAL CATALUNYA SA",
+            "terminal_codigo": "6212",
+            "eslora": 400.0,
+            "pax_estimados": 6500,
+            "puerto": "Fos-sur-Mer",
+            "tipo": "salida",
+            "estado": "Sol·licitada",
+            "bandera": "Libèria",
+            "imo": "9930040",
+            "mmsi": "636022516",
             "fecha": "2026-04-28"
         },
         {
@@ -452,26 +484,26 @@
         }
     ],
     "resumen": {
-        "total_cruceros": 16,
-        "total_llegadas": 14,
-        "total_salidas": 14,
-        "pax_estimados_hoy": 14000,
-        "proximo_desembarco": "18:00",
-        "proximo_barco": "Minerva Julie"
+        "total_cruceros": 17,
+        "total_llegadas": 15,
+        "total_salidas": 15,
+        "pax_estimados_hoy": 20500,
+        "proximo_desembarco": "07:56",
+        "proximo_barco": "Silver Shadow"
     },
     "terminales_activas": [
         "A",
-        "8156",
-        "D",
-        "F1",
-        "F3",
         "F2",
+        "F1",
+        "D",
         "7946",
-        "6212"
+        "F3",
+        "6212",
+        "8156"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-04-28T11:05:36.055275",
+        "actualizado": "2026-04-28T07:31:09.778975",
         "frecuencia": "horaria"
     }
 }
