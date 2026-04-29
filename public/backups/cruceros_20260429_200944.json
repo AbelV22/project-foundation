@@ -146,6 +146,22 @@
         },
         {
             "hora": "18:00",
+            "nombre": "Amilcar",
+            "naviera": "COTUNAV",
+            "terminal": "TERMINAL PORT NOU SA",
+            "terminal_codigo": "2398",
+            "eslora": 193.0,
+            "pax_estimados": 1000,
+            "puerto": "Rades/Tunis",
+            "tipo": "llegada",
+            "estado": "Autoritzada",
+            "bandera": "Tunísia",
+            "imo": "9207998",
+            "mmsi": "672747000",
+            "fecha": "2026-04-29"
+        },
+        {
+            "hora": "18:00",
             "nombre": "Zim Virginia",
             "naviera": "ZIM INTEGRATED SHIPPING SERV.",
             "terminal": "TERMINAL CATALUNYA SA",
@@ -193,7 +209,7 @@
             "fecha": "2026-04-29"
         },
         {
-            "hora": "19:20",
+            "hora": "19:00",
             "nombre": "Ciudad De Granada",
             "naviera": "TRASMED GLE S.L.",
             "terminal": "TERMINAL F2",
@@ -202,14 +218,14 @@
             "pax_estimados": 1000,
             "puerto": "Ibiza",
             "tipo": "llegada",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Espanya",
             "imo": "9217125",
             "mmsi": "224600000",
             "fecha": "2026-04-29"
         },
         {
-            "hora": "20:10",
+            "hora": "19:45",
             "nombre": "Cruise Barcelona",
             "naviera": "GRIMALDI EUROMED SPA",
             "terminal": "TERMINAL F3",
@@ -218,26 +234,10 @@
             "pax_estimados": 500,
             "puerto": "Civitavecchia",
             "tipo": "llegada",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Itàlia",
             "imo": "9351488",
             "mmsi": "247243600",
-            "fecha": "2026-04-29"
-        },
-        {
-            "hora": "20:50",
-            "nombre": "Amilcar",
-            "naviera": "COTUNAV",
-            "terminal": "TERMINAL PORT NOU SA",
-            "terminal_codigo": "2398",
-            "eslora": 193.0,
-            "pax_estimados": 1000,
-            "puerto": "Rades/Tunis",
-            "tipo": "llegada",
-            "estado": "Iniciada",
-            "bandera": "Tunísia",
-            "imo": "9207998",
-            "mmsi": "672747000",
             "fecha": "2026-04-29"
         }
     ],
@@ -460,7 +460,7 @@
             "pax_estimados": 1000,
             "puerto": "Mahon Menorca",
             "tipo": "salida",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Espanya",
             "imo": "9217125",
             "mmsi": "224600000",
@@ -492,7 +492,7 @@
             "pax_estimados": 500,
             "puerto": "Civitavecchia",
             "tipo": "salida",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Itàlia",
             "imo": "9351488",
             "mmsi": "247243600",
@@ -504,22 +504,22 @@
         "total_llegadas": 15,
         "total_salidas": 16,
         "pax_estimados_hoy": 28500,
-        "proximo_desembarco": "20:10",
-        "proximo_barco": "Cruise Barcelona"
+        "proximo_desembarco": "18:41",
+        "proximo_barco": "Ciudad De Palma"
     },
     "terminales_activas": [
-        "8156",
+        "F3",
         "TC",
         "B",
-        "F2",
+        "2398",
+        "8156",
         "6212",
         "7946",
-        "2398",
-        "F3"
+        "F2"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-04-29T20:09:44.297261",
+        "actualizado": "2026-04-29T18:11:23.965209",
         "frecuencia": "horaria"
     }
 }
