@@ -186,7 +186,7 @@
             "pax_estimados": 1000,
             "puerto": "Alcudia",
             "tipo": "llegada",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Espanya",
             "imo": "9441130",
             "mmsi": "224402000",
@@ -435,7 +435,7 @@
             "fecha": "2026-04-29"
         },
         {
-            "hora": "21:48",
+            "hora": "21:15",
             "nombre": "Abel Matutes",
             "naviera": "BALEARIA EUROLINEAS MARITIMAS SA ",
             "terminal": "LEPANT/TRUCK CENTER",
@@ -444,7 +444,7 @@
             "pax_estimados": 1000,
             "puerto": "Alcudia",
             "tipo": "salida",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Espanya",
             "imo": "9441130",
             "mmsi": "224402000",
@@ -504,22 +504,22 @@
         "total_llegadas": 15,
         "total_salidas": 16,
         "pax_estimados_hoy": 28500,
-        "proximo_desembarco": null,
-        "proximo_barco": null
+        "proximo_desembarco": "20:10",
+        "proximo_barco": "Cruise Barcelona"
     },
     "terminales_activas": [
-        "B",
-        "F3",
-        "2398",
-        "7946",
         "8156",
-        "F2",
         "TC",
-        "6212"
+        "B",
+        "F2",
+        "6212",
+        "7946",
+        "2398",
+        "F3"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-04-29T21:58:35.142669",
+        "actualizado": "2026-04-29T20:09:44.297261",
         "frecuencia": "horaria"
     }
 }
