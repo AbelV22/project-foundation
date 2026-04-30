@@ -97,6 +97,22 @@
             "fecha": "2026-04-30"
         },
         {
+            "hora": "15:30",
+            "nombre": "San Diego",
+            "naviera": "ZIM INTEGRATED SHIPPING SERV.",
+            "terminal": "APM TERMINALS BARCELONA, S.L.U.",
+            "terminal_codigo": "7083",
+            "eslora": 334.0,
+            "pax_estimados": 4500,
+            "puerto": "Colombo",
+            "tipo": "llegada",
+            "estado": "Autoritzada",
+            "bandera": "Libèria",
+            "imo": "9398412",
+            "mmsi": "636014221",
+            "fecha": "2026-04-30"
+        },
+        {
             "hora": "18:32",
             "nombre": "Ciudad De Palma",
             "naviera": "TRASMED GLE S.L.",
@@ -122,7 +138,7 @@
             "pax_estimados": 1000,
             "puerto": "Mahon Menorca",
             "tipo": "llegada",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Espanya",
             "imo": "9217125",
             "mmsi": "224600000",
@@ -138,7 +154,7 @@
             "pax_estimados": 1000,
             "puerto": "Alcudia",
             "tipo": "llegada",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Espanya",
             "imo": "9441130",
             "mmsi": "224402000",
@@ -158,22 +174,6 @@
             "bandera": "Singapur",
             "imo": "9708447",
             "mmsi": "563281800",
-            "fecha": "2026-04-30"
-        },
-        {
-            "hora": "21:47",
-            "nombre": "San Diego",
-            "naviera": "ZIM INTEGRATED SHIPPING SERV.",
-            "terminal": "APM TERMINALS BARCELONA, S.L.U.",
-            "terminal_codigo": "7083",
-            "eslora": 334.0,
-            "pax_estimados": 4500,
-            "puerto": "Colombo",
-            "tipo": "llegada",
-            "estado": "Iniciada",
-            "bandera": "Libèria",
-            "imo": "9398412",
-            "mmsi": "636014221",
             "fecha": "2026-04-30"
         },
         {
@@ -355,7 +355,7 @@
             "fecha": "2026-04-30"
         },
         {
-            "hora": "21:49",
+            "hora": "21:15",
             "nombre": "Abel Matutes",
             "naviera": "BALEARIA EUROLINEAS MARITIMAS SA ",
             "terminal": "TERMINAL F1",
@@ -364,14 +364,14 @@
             "pax_estimados": 1000,
             "puerto": "Alcudia",
             "tipo": "salida",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Espanya",
             "imo": "9441130",
             "mmsi": "224402000",
             "fecha": "2026-04-30"
         },
         {
-            "hora": "22:21",
+            "hora": "22:00",
             "nombre": "Ciudad De Granada",
             "naviera": "GRIMALDI LOGISTICA ESPAÑA SL",
             "terminal": "TERMINAL F2",
@@ -380,7 +380,7 @@
             "pax_estimados": 1000,
             "puerto": "Ibiza",
             "tipo": "salida",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Espanya",
             "imo": "9217125",
             "mmsi": "224600000",
@@ -408,24 +408,24 @@
         "total_llegadas": 12,
         "total_salidas": 13,
         "pax_estimados_hoy": 27500,
-        "proximo_desembarco": "23:15",
-        "proximo_barco": "Cruise Roma"
+        "proximo_desembarco": "20:40",
+        "proximo_barco": "Ym Width"
     },
     "terminales_activas": [
-        "F2",
-        "C",
-        "F3",
+        "F1",
+        "8156",
         "6212",
         "7083",
-        "8156",
-        "2398",
+        "F3",
         "H",
-        "F1",
+        "F2",
+        "C",
+        "2398",
         "D"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-04-30T21:55:52.439305",
+        "actualizado": "2026-04-30T20:08:20.193070",
         "frecuencia": "horaria"
     }
 }
