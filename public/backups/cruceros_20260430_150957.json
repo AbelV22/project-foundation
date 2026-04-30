@@ -1,6 +1,22 @@
 {
     "llegadas": [
         {
+            "hora": "01:00",
+            "nombre": "Msc Cadiz",
+            "naviera": "MEDITERRANEAN SHIPPING CO",
+            "terminal": "TERMINAL CATALUNYA SA",
+            "terminal_codigo": "6212",
+            "eslora": 0,
+            "pax_estimados": 500,
+            "puerto": "Valencia",
+            "tipo": "llegada",
+            "estado": "Autoritzada",
+            "bandera": "Alemanya",
+            "imo": "9480203",
+            "mmsi": "218847000",
+            "fecha": "2026-04-30"
+        },
+        {
             "hora": "01:48",
             "nombre": "Eco Adriatica",
             "naviera": "GRIMALDI EUROMED SPA",
@@ -97,7 +113,7 @@
             "fecha": "2026-04-30"
         },
         {
-            "hora": "15:30",
+            "hora": "18:00",
             "nombre": "San Diego",
             "naviera": "ZIM INTEGRATED SHIPPING SERV.",
             "terminal": "APM TERMINALS BARCELONA, S.L.U.",
@@ -106,7 +122,7 @@
             "pax_estimados": 4500,
             "puerto": "Colombo",
             "tipo": "llegada",
-            "estado": "Autoritzada",
+            "estado": "Sol·licitada",
             "bandera": "Libèria",
             "imo": "9398412",
             "mmsi": "636014221",
@@ -227,7 +243,7 @@
             "fecha": "2026-04-30"
         },
         {
-            "hora": "14:10",
+            "hora": "08:00",
             "nombre": "Msc Ira Ii",
             "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
             "terminal": "TERMINAL CATALUNYA SA",
@@ -236,7 +252,7 @@
             "pax_estimados": 500,
             "puerto": "Alger (Algiers)",
             "tipo": "salida",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Libèria",
             "imo": "9323493",
             "mmsi": "636023306",
@@ -340,6 +356,22 @@
         },
         {
             "hora": "22:00",
+            "nombre": "Msc Cadiz",
+            "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
+            "terminal": "TERMINAL CATALUNYA SA",
+            "terminal_codigo": "6212",
+            "eslora": 0,
+            "pax_estimados": 500,
+            "puerto": "Napoli",
+            "tipo": "salida",
+            "estado": "Autoritzada",
+            "bandera": "Alemanya",
+            "imo": "9480203",
+            "mmsi": "218847000",
+            "fecha": "2026-04-30"
+        },
+        {
+            "hora": "22:00",
             "nombre": "Ciudad De Granada",
             "naviera": "GRIMALDI LOGISTICA ESPAÑA SL",
             "terminal": "TERMINAL F2",
@@ -372,28 +404,28 @@
         }
     ],
     "resumen": {
-        "total_cruceros": 14,
-        "total_llegadas": 11,
-        "total_salidas": 12,
-        "pax_estimados_hoy": 21000,
-        "proximo_desembarco": "15:30",
-        "proximo_barco": "San Diego"
+        "total_cruceros": 15,
+        "total_llegadas": 12,
+        "total_salidas": 13,
+        "pax_estimados_hoy": 21500,
+        "proximo_desembarco": "12:58",
+        "proximo_barco": "Eco Savona"
     },
     "terminales_activas": [
-        "F2",
-        "F3",
-        "6212",
-        "F1",
-        "C",
         "8156",
         "D",
+        "F2",
+        "F3",
         "2398",
+        "F1",
+        "7083",
+        "6212",
         "H",
-        "7083"
+        "C"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-04-30T15:09:57.546573",
+        "actualizado": "2026-04-30T12:16:00.806896",
         "frecuencia": "horaria"
     }
 }
