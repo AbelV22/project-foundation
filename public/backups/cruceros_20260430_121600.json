@@ -97,7 +97,7 @@
             "fecha": "2026-04-30"
         },
         {
-            "hora": "12:58",
+            "hora": "13:00",
             "nombre": "Eco Savona",
             "naviera": "GRIMALDI EUROMED SPA",
             "terminal": "GRIMALDI TERMINAL BARCELONA SL",
@@ -106,7 +106,7 @@
             "pax_estimados": 2000,
             "puerto": "Valencia",
             "tipo": "llegada",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Itàlia",
             "imo": "9859569",
             "mmsi": "247383600",
@@ -120,7 +120,7 @@
             "terminal_codigo": "7083",
             "eslora": 334.0,
             "pax_estimados": 4500,
-            "puerto": "Colombo",
+            "puerto": "Valencia",
             "tipo": "llegada",
             "estado": "Sol·licitada",
             "bandera": "Libèria",
@@ -332,7 +332,7 @@
             "pax_estimados": 2000,
             "puerto": "Savona",
             "tipo": "salida",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Itàlia",
             "imo": "9859569",
             "mmsi": "247383600",
@@ -408,24 +408,24 @@
         "total_llegadas": 12,
         "total_salidas": 13,
         "pax_estimados_hoy": 21500,
-        "proximo_desembarco": "12:58",
+        "proximo_desembarco": "13:00",
         "proximo_barco": "Eco Savona"
     },
     "terminales_activas": [
         "8156",
-        "D",
-        "F2",
         "F3",
+        "D",
+        "6212",
+        "7083",
+        "H",
+        "F2",
         "2398",
         "F1",
-        "7083",
-        "6212",
-        "H",
         "C"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-04-30T12:16:00.806896",
+        "actualizado": "2026-04-30T10:55:58.251819",
         "frecuencia": "horaria"
     }
 }
