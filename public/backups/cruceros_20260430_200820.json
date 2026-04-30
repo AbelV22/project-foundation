@@ -42,7 +42,7 @@
             "pax_estimados": 4500,
             "puerto": "Genoa",
             "tipo": "llegada",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Malta",
             "imo": "9745378",
             "mmsi": "248717000",
@@ -58,7 +58,7 @@
             "pax_estimados": 1000,
             "puerto": "Tanger Med",
             "tipo": "llegada",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Malta",
             "imo": "9823687",
             "mmsi": "215001000",
@@ -90,7 +90,7 @@
             "pax_estimados": 2000,
             "puerto": "Valencia",
             "tipo": "llegada",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Itàlia",
             "imo": "9859569",
             "mmsi": "247383600",
@@ -158,22 +158,6 @@
             "bandera": "Espanya",
             "imo": "9441130",
             "mmsi": "224402000",
-            "fecha": "2026-04-30"
-        },
-        {
-            "hora": "20:40",
-            "nombre": "Ym Width",
-            "naviera": "YANG MING MARINE TRANSPORT C.",
-            "terminal": "TERMINAL CATALUNYA SA",
-            "terminal_codigo": "6212",
-            "eslora": 368.0,
-            "pax_estimados": 6500,
-            "puerto": "Valencia",
-            "tipo": "llegada",
-            "estado": "Iniciada",
-            "bandera": "Singapur",
-            "imo": "9708447",
-            "mmsi": "563281800",
             "fecha": "2026-04-30"
         },
         {
@@ -291,7 +275,7 @@
             "fecha": "2026-04-30"
         },
         {
-            "hora": "19:12",
+            "hora": "19:00",
             "nombre": "Evrima",
             "naviera": "NOATUM MARITIME SPAIN SAU",
             "terminal": "Terminal C (Sant Bertran)",
@@ -300,14 +284,14 @@
             "pax_estimados": 1000,
             "puerto": "Palma de Mallorca",
             "tipo": "salida",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Malta",
             "imo": "9823687",
             "mmsi": "215001000",
             "fecha": "2026-04-30"
         },
         {
-            "hora": "19:30",
+            "hora": "19:00",
             "nombre": "Msc Seaview",
             "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
             "terminal": "ADOSSAT/TERMINAL H",
@@ -316,7 +300,7 @@
             "pax_estimados": 4500,
             "puerto": "Marseille",
             "tipo": "salida",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Malta",
             "imo": "9745378",
             "mmsi": "248717000",
@@ -339,7 +323,7 @@
             "fecha": "2026-04-30"
         },
         {
-            "hora": "20:15",
+            "hora": "20:00",
             "nombre": "Eco Savona",
             "naviera": "GRIMALDI LOGISTICA ESPAÑA SL",
             "terminal": "GRIMALDI TERMINAL BARCELONA SL",
@@ -348,7 +332,7 @@
             "pax_estimados": 2000,
             "puerto": "Savona",
             "tipo": "salida",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Itàlia",
             "imo": "9859569",
             "mmsi": "247383600",
@@ -404,28 +388,28 @@
         }
     ],
     "resumen": {
-        "total_cruceros": 16,
-        "total_llegadas": 12,
+        "total_cruceros": 15,
+        "total_llegadas": 11,
         "total_salidas": 13,
-        "pax_estimados_hoy": 27500,
-        "proximo_desembarco": "20:40",
-        "proximo_barco": "Ym Width"
+        "pax_estimados_hoy": 21000,
+        "proximo_desembarco": "18:32",
+        "proximo_barco": "Ciudad De Palma"
     },
     "terminales_activas": [
         "F1",
+        "H",
         "8156",
         "6212",
         "7083",
-        "F3",
-        "H",
         "F2",
-        "C",
         "2398",
+        "C",
+        "F3",
         "D"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-04-30T20:08:20.193070",
+        "actualizado": "2026-04-30T18:09:03.116579",
         "frecuencia": "horaria"
     }
 }
