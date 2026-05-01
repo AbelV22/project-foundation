@@ -17,7 +17,7 @@
             "fecha": "2026-05-01"
         },
         {
-            "hora": "05:41",
+            "hora": "04:45",
             "nombre": "Aidacosma",
             "naviera": "AIDA CRUISES",
             "terminal": "Terminal E (Adossat)",
@@ -26,14 +26,14 @@
             "pax_estimados": 4500,
             "puerto": "Marseille",
             "tipo": "llegada",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Itàlia",
             "imo": "9781877",
             "mmsi": "247435300",
             "fecha": "2026-05-01"
         },
         {
-            "hora": "07:29",
+            "hora": "06:42",
             "nombre": "Msc World Europa",
             "naviera": "MSC CRUISES S.A.",
             "terminal": "ADOSSAT/TERMINAL H",
@@ -42,14 +42,14 @@
             "pax_estimados": 500,
             "puerto": "Malta (Valetta)",
             "tipo": "llegada",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Malta",
             "imo": "9837420",
             "mmsi": "256070000",
             "fecha": "2026-05-01"
         },
         {
-            "hora": "08:31",
+            "hora": "07:30",
             "nombre": "Marina",
             "naviera": "OCEANIA CRUISES INC",
             "terminal": "Terminal A (WTC)",
@@ -58,7 +58,7 @@
             "pax_estimados": 2000,
             "puerto": "St Tropez",
             "tipo": "llegada",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Illes Marshall",
             "imo": "9438066",
             "mmsi": "538003668",
@@ -163,7 +163,7 @@
     ],
     "salidas": [
         {
-            "hora": "03:03",
+            "hora": "01:30",
             "nombre": "Cruise Roma",
             "naviera": "GRIMALDI LOGISTICA ESPAÑA SL",
             "terminal": "TERMINAL F3",
@@ -172,14 +172,14 @@
             "pax_estimados": 3000,
             "puerto": "Civitavecchia",
             "tipo": "salida",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Itàlia",
             "imo": "9351476",
             "mmsi": "247219400",
             "fecha": "2026-05-01"
         },
         {
-            "hora": "04:10",
+            "hora": "04:00",
             "nombre": "San Diego",
             "naviera": "A PEREZ Y CIA SL",
             "terminal": "APM TERMINALS BARCELONA, S.L.U.",
@@ -188,7 +188,7 @@
             "pax_estimados": 4500,
             "puerto": "Genoa",
             "tipo": "salida",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Libèria",
             "imo": "9398412",
             "mmsi": "636014221",
@@ -204,7 +204,7 @@
             "pax_estimados": 4500,
             "puerto": "Palma de Mallorca",
             "tipo": "salida",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Itàlia",
             "imo": "9781877",
             "mmsi": "247435300",
@@ -220,7 +220,7 @@
             "pax_estimados": 500,
             "puerto": "Marseille",
             "tipo": "salida",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Malta",
             "imo": "9837420",
             "mmsi": "256070000",
@@ -268,7 +268,7 @@
             "pax_estimados": 2000,
             "puerto": "Malaga",
             "tipo": "salida",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Illes Marshall",
             "imo": "9438066",
             "mmsi": "538003668",
@@ -328,23 +328,23 @@
         "total_llegadas": 10,
         "total_salidas": 10,
         "pax_estimados_hoy": 18000,
-        "proximo_desembarco": "07:29",
-        "proximo_barco": "Msc World Europa"
+        "proximo_desembarco": null,
+        "proximo_barco": null
     },
     "terminales_activas": [
+        "6212",
         "E",
         "A",
-        "D",
         "H",
-        "6212",
-        "F3",
-        "7083",
         "F2",
-        "TC"
+        "7083",
+        "D",
+        "TC",
+        "F3"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-05-01T07:25:05.008005",
+        "actualizado": "2026-04-30T23:53:17.300837",
         "frecuencia": "horaria"
     }
 }
