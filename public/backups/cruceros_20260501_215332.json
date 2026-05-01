@@ -58,7 +58,7 @@
             "pax_estimados": 2000,
             "puerto": "St Tropez",
             "tipo": "llegada",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Illes Marshall",
             "imo": "9438066",
             "mmsi": "538003668",
@@ -106,7 +106,7 @@
             "pax_estimados": 1000,
             "puerto": "Alcudia",
             "tipo": "llegada",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Espanya",
             "imo": "9441130",
             "mmsi": "224402000",
@@ -259,7 +259,7 @@
             "fecha": "2026-05-01"
         },
         {
-            "hora": "20:39",
+            "hora": "21:00",
             "nombre": "Marina",
             "naviera": "INTERCRUISES PORT OPERATIONS SPAIN SLU",
             "terminal": "Terminal A (WTC)",
@@ -268,14 +268,14 @@
             "pax_estimados": 2000,
             "puerto": "Malaga",
             "tipo": "salida",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Illes Marshall",
             "imo": "9438066",
             "mmsi": "538003668",
             "fecha": "2026-05-01"
         },
         {
-            "hora": "21:16",
+            "hora": "21:15",
             "nombre": "Abel Matutes",
             "naviera": "BALEARIA EUROLINEAS MARITIMAS SA ",
             "terminal": "LEPANT/TRUCK CENTER",
@@ -284,7 +284,7 @@
             "pax_estimados": 1000,
             "puerto": "Alcudia",
             "tipo": "salida",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Espanya",
             "imo": "9441130",
             "mmsi": "224402000",
@@ -332,19 +332,19 @@
         "proximo_barco": "Cruise Barcelona"
     },
     "terminales_activas": [
-        "F2",
+        "E",
         "F3",
-        "H",
-        "7083",
         "TC",
-        "6212",
         "D",
         "A",
-        "E"
+        "7083",
+        "6212",
+        "F2",
+        "H"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-05-01T21:53:32.695799",
+        "actualizado": "2026-05-01T20:04:24.940576",
         "frecuencia": "horaria"
     }
 }
