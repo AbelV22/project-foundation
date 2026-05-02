@@ -186,7 +186,7 @@
             "pax_estimados": 500,
             "puerto": "Cartagena",
             "tipo": "llegada",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Malta",
             "imo": "9838400",
             "mmsi": "256191000",
@@ -419,7 +419,7 @@
             "fecha": "2026-05-02"
         },
         {
-            "hora": "20:45",
+            "hora": "21:00",
             "nombre": "Celebrity Ascent",
             "naviera": "BALEARES CONSIGNATARIOS SLU",
             "terminal": "Terminal C (Sant Bertran)",
@@ -428,7 +428,7 @@
             "pax_estimados": 500,
             "puerto": "Civitavecchia",
             "tipo": "salida",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Malta",
             "imo": "9838400",
             "mmsi": "256191000",
@@ -456,23 +456,23 @@
         "total_llegadas": 15,
         "total_salidas": 13,
         "pax_estimados_hoy": 23500,
-        "proximo_desembarco": null,
-        "proximo_barco": null
+        "proximo_desembarco": "20:33",
+        "proximo_barco": "Msc Cadiz"
     },
     "terminales_activas": [
-        "B",
-        "F2",
-        "F3",
-        "8156",
-        "H",
         "F1",
-        "6212",
+        "8156",
+        "F2",
         "A",
-        "C"
+        "F3",
+        "6212",
+        "C",
+        "H",
+        "B"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-05-02T21:40:45.433530",
+        "actualizado": "2026-05-02T19:54:18.045914",
         "frecuencia": "horaria"
     }
 }
