@@ -138,7 +138,7 @@
             "pax_estimados": 4500,
             "puerto": "Casablanca",
             "tipo": "llegada",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Malta",
             "imo": "9803613",
             "mmsi": "215325000",
@@ -154,7 +154,7 @@
             "pax_estimados": 4500,
             "puerto": "Malta (Valetta)",
             "tipo": "llegada",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Panamà",
             "imo": "9359806",
             "mmsi": "357698000",
@@ -170,7 +170,7 @@
             "pax_estimados": 1000,
             "puerto": "Mahon Menorca",
             "tipo": "llegada",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Bahames",
             "imo": "9797371",
             "mmsi": "311000995",
@@ -243,7 +243,7 @@
             "fecha": "2026-05-02"
         },
         {
-            "hora": "17:31",
+            "hora": "17:00",
             "nombre": "Msc Grandiosa",
             "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
             "terminal": "ADOSSAT/TERMINAL H",
@@ -252,30 +252,14 @@
             "pax_estimados": 4500,
             "puerto": "Cannes",
             "tipo": "salida",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Malta",
             "imo": "9803613",
             "mmsi": "215325000",
             "fecha": "2026-05-02"
         },
         {
-            "hora": "17:57",
-            "nombre": "Scenic Eclipse",
-            "naviera": "INTERCRUISES PORT OPERATIONS SPAIN SLU",
-            "terminal": "Terminal B (Maremagnum)",
-            "terminal_codigo": "B",
-            "eslora": 168.0,
-            "pax_estimados": 1000,
-            "puerto": "Palma de Mallorca",
-            "tipo": "salida",
-            "estado": "Finalitzada",
-            "bandera": "Bahames",
-            "imo": "9797371",
-            "mmsi": "311000995",
-            "fecha": "2026-05-02"
-        },
-        {
-            "hora": "18:19",
+            "hora": "18:00",
             "nombre": "Msc Splendida",
             "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
             "terminal": "Terminal A (WTC)",
@@ -284,10 +268,26 @@
             "pax_estimados": 4500,
             "puerto": "Palma de Mallorca",
             "tipo": "salida",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Panamà",
             "imo": "9359806",
             "mmsi": "357698000",
+            "fecha": "2026-05-02"
+        },
+        {
+            "hora": "18:00",
+            "nombre": "Scenic Eclipse",
+            "naviera": "INTERCRUISES PORT OPERATIONS SPAIN SLU",
+            "terminal": "Terminal B (Maremagnum)",
+            "terminal_codigo": "B",
+            "eslora": 168.0,
+            "pax_estimados": 1000,
+            "puerto": "Palma de Mallorca",
+            "tipo": "salida",
+            "estado": "Iniciada",
+            "bandera": "Bahames",
+            "imo": "9797371",
+            "mmsi": "311000995",
             "fecha": "2026-05-02"
         },
         {
@@ -444,19 +444,19 @@
         "proximo_barco": "Abel Matutes"
     },
     "terminales_activas": [
-        "H",
-        "F1",
-        "C",
         "6212",
-        "F2",
-        "B",
-        "F3",
+        "C",
         "8156",
+        "F3",
+        "H",
+        "F2",
+        "F1",
+        "B",
         "A"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-05-02T17:43:07.913951",
+        "actualizado": "2026-05-02T15:46:08.047752",
         "frecuencia": "horaria"
     }
 }
