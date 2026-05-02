@@ -177,7 +177,23 @@
             "fecha": "2026-05-02"
         },
         {
-            "hora": "09:35",
+            "hora": "08:00",
+            "nombre": "Monte Rosa",
+            "naviera": "SCORPIO COMMERCIAL MANAGEMENT",
+            "terminal": "EXOLUM CORPORATION, SA",
+            "terminal_codigo": "0010",
+            "eslora": 228.0,
+            "pax_estimados": 2000,
+            "puerto": "Tarragona",
+            "tipo": "llegada",
+            "estado": "Confirmada",
+            "bandera": "Illes Marshall",
+            "imo": "9301952",
+            "mmsi": "538002947",
+            "fecha": "2026-05-02"
+        },
+        {
+            "hora": "10:00",
             "nombre": "Celebrity Ascent",
             "naviera": "CELEBRITY CRUISES",
             "terminal": "Terminal C (Sant Bertran)",
@@ -186,7 +202,7 @@
             "pax_estimados": 500,
             "puerto": "Cartagena",
             "tipo": "llegada",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Malta",
             "imo": "9838400",
             "mmsi": "256191000",
@@ -412,7 +428,7 @@
             "pax_estimados": 500,
             "puerto": "Civitavecchia",
             "tipo": "salida",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Malta",
             "imo": "9838400",
             "mmsi": "256191000",
@@ -436,27 +452,28 @@
         }
     ],
     "resumen": {
-        "total_cruceros": 15,
-        "total_llegadas": 14,
+        "total_cruceros": 16,
+        "total_llegadas": 15,
         "total_salidas": 13,
-        "pax_estimados_hoy": 23000,
-        "proximo_desembarco": "18:45",
-        "proximo_barco": "Abel Matutes"
+        "pax_estimados_hoy": 25000,
+        "proximo_desembarco": "07:35",
+        "proximo_barco": "Msc Splendida"
     },
     "terminales_activas": [
-        "F3",
-        "F1",
-        "B",
+        "8156",
         "6212",
-        "C",
         "A",
-        "F2",
         "H",
-        "8156"
+        "B",
+        "F3",
+        "C",
+        "0010",
+        "F2",
+        "F1"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-05-02T09:58:09.633542",
+        "actualizado": "2026-05-02T07:00:38.993656",
         "frecuencia": "horaria"
     }
 }
