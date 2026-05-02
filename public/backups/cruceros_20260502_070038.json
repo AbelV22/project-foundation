@@ -1,7 +1,7 @@
 {
     "llegadas": [
         {
-            "hora": "01:05",
+            "hora": "01:00",
             "nombre": "Eco Livorno",
             "naviera": "GRIMALDI EUROMED SPA",
             "terminal": "GRIMALDI TERMINAL BARCELONA SL",
@@ -10,7 +10,7 @@
             "pax_estimados": 2000,
             "puerto": "Savona",
             "tipo": "llegada",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Itàlia",
             "imo": "9859557",
             "mmsi": "247383500",
@@ -129,7 +129,7 @@
             "fecha": "2026-05-02"
         },
         {
-            "hora": "06:49",
+            "hora": "06:00",
             "nombre": "Msc Grandiosa",
             "naviera": "MSC CRUISES S.A.",
             "terminal": "ADOSSAT/TERMINAL H",
@@ -138,14 +138,14 @@
             "pax_estimados": 4500,
             "puerto": "Casablanca",
             "tipo": "llegada",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Malta",
             "imo": "9803613",
             "mmsi": "215325000",
             "fecha": "2026-05-02"
         },
         {
-            "hora": "07:35",
+            "hora": "07:00",
             "nombre": "Msc Splendida",
             "naviera": "MSC CRUISES S.A.",
             "terminal": "Terminal A (WTC)",
@@ -154,14 +154,14 @@
             "pax_estimados": 4500,
             "puerto": "Malta (Valetta)",
             "tipo": "llegada",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Panamà",
             "imo": "9359806",
             "mmsi": "357698000",
             "fecha": "2026-05-02"
         },
         {
-            "hora": "07:38",
+            "hora": "07:00",
             "nombre": "Scenic Eclipse",
             "naviera": "PEC OPERATIONS LTD",
             "terminal": "Terminal B (Maremagnum)",
@@ -170,7 +170,7 @@
             "pax_estimados": 1000,
             "puerto": "Mahon Menorca",
             "tipo": "llegada",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Bahames",
             "imo": "9797371",
             "mmsi": "311000995",
@@ -252,7 +252,7 @@
             "pax_estimados": 2000,
             "puerto": "Valencia",
             "tipo": "salida",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Itàlia",
             "imo": "9859557",
             "mmsi": "247383500",
@@ -268,7 +268,7 @@
             "pax_estimados": 4500,
             "puerto": "Cannes",
             "tipo": "salida",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Malta",
             "imo": "9803613",
             "mmsi": "215325000",
@@ -284,7 +284,7 @@
             "pax_estimados": 4500,
             "puerto": "Palma de Mallorca",
             "tipo": "salida",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Panamà",
             "imo": "9359806",
             "mmsi": "357698000",
@@ -300,7 +300,7 @@
             "pax_estimados": 1000,
             "puerto": "Palma de Mallorca",
             "tipo": "salida",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Bahames",
             "imo": "9797371",
             "mmsi": "311000995",
@@ -456,24 +456,24 @@
         "total_llegadas": 15,
         "total_salidas": 13,
         "pax_estimados_hoy": 25000,
-        "proximo_desembarco": "07:35",
-        "proximo_barco": "Msc Splendida"
+        "proximo_desembarco": null,
+        "proximo_barco": null
     },
     "terminales_activas": [
-        "8156",
-        "6212",
         "A",
-        "H",
         "B",
+        "F1",
+        "6212",
         "F3",
+        "H",
         "C",
         "0010",
         "F2",
-        "F1"
+        "8156"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-05-02T07:00:38.993656",
+        "actualizado": "2026-05-01T23:52:54.146717",
         "frecuencia": "horaria"
     }
 }
