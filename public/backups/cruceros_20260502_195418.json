@@ -193,7 +193,7 @@
             "fecha": "2026-05-02"
         },
         {
-            "hora": "19:17",
+            "hora": "18:45",
             "nombre": "Abel Matutes",
             "naviera": "EUROLINEAS MARITIMAS S.A",
             "terminal": "TERMINAL F1",
@@ -202,14 +202,14 @@
             "pax_estimados": 1000,
             "puerto": "Alcudia",
             "tipo": "llegada",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Espanya",
             "imo": "9441130",
             "mmsi": "224402000",
             "fecha": "2026-05-02"
         },
         {
-            "hora": "19:20",
+            "hora": "19:30",
             "nombre": "Ciudad De Palma",
             "naviera": "TRASMED GLE S.L.",
             "terminal": "TERMINAL F2",
@@ -218,26 +218,10 @@
             "pax_estimados": 1000,
             "puerto": "Palma de Mallorca",
             "tipo": "llegada",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Espanya",
             "imo": "9349772",
             "mmsi": "224588000",
-            "fecha": "2026-05-02"
-        },
-        {
-            "hora": "20:33",
-            "nombre": "Msc Cadiz",
-            "naviera": "MEDITERRANEAN SHIPPING CO",
-            "terminal": "TERMINAL CATALUNYA SA",
-            "terminal_codigo": "6212",
-            "eslora": 0,
-            "pax_estimados": 500,
-            "puerto": "Valencia",
-            "tipo": "llegada",
-            "estado": "Iniciada",
-            "bandera": "Alemanya",
-            "imo": "9480203",
-            "mmsi": "218847000",
             "fecha": "2026-05-02"
         }
     ],
@@ -452,27 +436,27 @@
         }
     ],
     "resumen": {
-        "total_cruceros": 16,
-        "total_llegadas": 15,
+        "total_cruceros": 15,
+        "total_llegadas": 14,
         "total_salidas": 13,
-        "pax_estimados_hoy": 23500,
-        "proximo_desembarco": "20:33",
-        "proximo_barco": "Msc Cadiz"
+        "pax_estimados_hoy": 23000,
+        "proximo_desembarco": "18:45",
+        "proximo_barco": "Abel Matutes"
     },
     "terminales_activas": [
-        "F1",
-        "8156",
-        "F2",
-        "A",
-        "F3",
-        "6212",
-        "C",
         "H",
-        "B"
+        "F1",
+        "C",
+        "6212",
+        "F2",
+        "B",
+        "F3",
+        "8156",
+        "A"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-05-02T19:54:18.045914",
+        "actualizado": "2026-05-02T17:43:07.913951",
         "frecuencia": "horaria"
     }
 }
