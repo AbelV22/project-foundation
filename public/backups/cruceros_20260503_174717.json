@@ -33,6 +33,22 @@
             "fecha": "2026-05-03"
         },
         {
+            "hora": "02:00",
+            "nombre": "Msc Luciana",
+            "naviera": "MEDITERRANEAN SHIPPING CO",
+            "terminal": "TERMINAL CATALUNYA SA",
+            "terminal_codigo": "6212",
+            "eslora": 0,
+            "pax_estimados": 500,
+            "puerto": "Fos-sur-Mer",
+            "tipo": "llegada",
+            "estado": "Autoritzada",
+            "bandera": "Panamà",
+            "imo": "9398383",
+            "mmsi": "355283000",
+            "fecha": "2026-05-03"
+        },
+        {
             "hora": "04:47",
             "nombre": "Norwegian Epic",
             "naviera": "NORWEGIAN CRUISE LINE",
@@ -42,7 +58,7 @@
             "pax_estimados": 500,
             "puerto": "Palma de Mallorca",
             "tipo": "llegada",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Bahames",
             "imo": "9410569",
             "mmsi": "311018500",
@@ -190,22 +206,6 @@
             "bandera": "Espanya",
             "imo": "9441130",
             "mmsi": "224402000",
-            "fecha": "2026-05-03"
-        },
-        {
-            "hora": "17:32",
-            "nombre": "Msc Luciana",
-            "naviera": "MEDITERRANEAN SHIPPING CO",
-            "terminal": "TERMINAL CATALUNYA SA",
-            "terminal_codigo": "6212",
-            "eslora": 0,
-            "pax_estimados": 500,
-            "puerto": "Fos-sur-Mer",
-            "tipo": "llegada",
-            "estado": "Iniciada",
-            "bandera": "Panamà",
-            "imo": "9398383",
-            "mmsi": "355283000",
             "fecha": "2026-05-03"
         },
         {
@@ -371,6 +371,22 @@
             "fecha": "2026-05-03"
         },
         {
+            "hora": "17:00",
+            "nombre": "Norwegian Epic",
+            "naviera": "INTERCRUISES PORT OPERATIONS SPAIN SLU",
+            "terminal": "Terminal C (Sant Bertran)",
+            "terminal_codigo": "C",
+            "eslora": 0,
+            "pax_estimados": 500,
+            "puerto": "Villefranche-sur-Mer",
+            "tipo": "salida",
+            "estado": "Iniciada",
+            "bandera": "Bahames",
+            "imo": "9410569",
+            "mmsi": "311018500",
+            "fecha": "2026-05-03"
+        },
+        {
             "hora": "18:00",
             "nombre": "Costa Toscana",
             "naviera": "NOATUM MARITIME SPAIN SAU",
@@ -384,22 +400,6 @@
             "bandera": "Itàlia",
             "imo": "9781891",
             "mmsi": "247431200",
-            "fecha": "2026-05-03"
-        },
-        {
-            "hora": "18:07",
-            "nombre": "Norwegian Epic",
-            "naviera": "INTERCRUISES PORT OPERATIONS SPAIN SLU",
-            "terminal": "Terminal C (Sant Bertran)",
-            "terminal_codigo": "C",
-            "eslora": 0,
-            "pax_estimados": 500,
-            "puerto": "Villefranche-sur-Mer",
-            "tipo": "salida",
-            "estado": "Finalitzada",
-            "bandera": "Bahames",
-            "imo": "9410569",
-            "mmsi": "311018500",
             "fecha": "2026-05-03"
         },
         {
@@ -476,7 +476,7 @@
             "pax_estimados": 500,
             "puerto": "Valencia",
             "tipo": "salida",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Panamà",
             "imo": "9398383",
             "mmsi": "355283000",
@@ -540,20 +540,20 @@
         "proximo_barco": "Msc Washington"
     },
     "terminales_activas": [
-        "6212",
-        "F1",
-        "B",
         "6995",
-        "F2",
-        "A",
         "0010",
-        "C",
+        "B",
+        "D",
+        "F2",
         "E",
-        "D"
+        "C",
+        "F1",
+        "6212",
+        "A"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-05-03T17:47:17.109864",
+        "actualizado": "2026-05-03T15:48:26.568282",
         "frecuencia": "horaria"
     }
 }
