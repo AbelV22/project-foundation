@@ -291,6 +291,12 @@
         {
             "hora": "20:33",
             "origen": "Figueres-Vilafant",
+            "tren": "AVE 34292",
+            "via": "5"
+        },
+        {
+            "hora": "20:33",
+            "origen": "Figueres-Vilafant",
             "tren": "AVE 03292",
             "via": "-"
         },
@@ -304,7 +310,7 @@
             "hora": "20:51",
             "origen": "Córdoba Julio Anguita",
             "tren": "ALVIA 00694",
-            "via": "-"
+            "via": "4"
         },
         {
             "hora": "20:57",
@@ -325,10 +331,16 @@
             "via": "-"
         },
         {
+            "hora": "21:15",
+            "origen": "València Estació del Nord",
+            "tren": "EUROMED 01182",
+            "via": "-"
+        },
+        {
             "hora": "21:35",
             "origen": "Madrid Puerta de Atocha Almudena Grandes",
             "tren": "IRYO 06181",
-            "via": "-"
+            "via": "3"
         },
         {
             "hora": "21:40",
@@ -410,8 +422,8 @@
         }
     ],
     "meta": {
-        "update_time": "19:44",
-        "updated_at": "2026-05-03T19:44:49.993221",
-        "total": 68
+        "update_time": "18:41",
+        "updated_at": "2026-05-03T18:41:21.880046",
+        "total": 70
     }
 }
