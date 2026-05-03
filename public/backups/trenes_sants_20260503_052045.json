@@ -1,6 +1,12 @@
 {
     "trenes": [
         {
+            "hora": "06:25",
+            "origen": "Figueres-Vilafant",
+            "tren": "AVE 03062",
+            "via": "5"
+        },
+        {
             "hora": "07:15",
             "origen": "Figueres-Vilafant",
             "tren": "AVE 03662",
@@ -64,7 +70,7 @@
             "hora": "10:05",
             "origen": "Figueres-Vilafant",
             "tren": "EUROMED 01101",
-            "via": "1"
+            "via": "-"
         },
         {
             "hora": "10:24",
@@ -434,8 +440,8 @@
         }
     ],
     "meta": {
-        "update_time": "05:20",
-        "updated_at": "2026-05-03T05:20:45.539009",
-        "total": 72
+        "update_time": "01:45",
+        "updated_at": "2026-05-03T01:45:13.574101",
+        "total": 73
     }
 }
