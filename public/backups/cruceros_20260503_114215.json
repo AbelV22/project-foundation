@@ -177,22 +177,6 @@
             "fecha": "2026-05-03"
         },
         {
-            "hora": "12:44",
-            "nombre": "Cma Cgm Iguacu",
-            "naviera": "CMA CGM",
-            "terminal": "TERMINAL CATALUNYA SA",
-            "terminal_codigo": "6212",
-            "eslora": 366.0,
-            "pax_estimados": 6500,
-            "puerto": "Valencia",
-            "tipo": "llegada",
-            "estado": "Iniciada",
-            "bandera": "Malta",
-            "imo": "9859131",
-            "mmsi": "215966000",
-            "fecha": "2026-05-03"
-        },
-        {
             "hora": "15:45",
             "nombre": "Abel Matutes",
             "naviera": "EUROLINEAS MARITIMAS S.A",
@@ -532,28 +516,28 @@
         }
     ],
     "resumen": {
-        "total_cruceros": 18,
-        "total_llegadas": 15,
+        "total_cruceros": 17,
+        "total_llegadas": 14,
         "total_salidas": 18,
-        "pax_estimados_hoy": 31500,
+        "pax_estimados_hoy": 25000,
         "proximo_desembarco": "12:00",
         "proximo_barco": "Abel Matutes"
     },
     "terminales_activas": [
-        "A",
         "E",
-        "C",
+        "6212",
         "6995",
         "F2",
-        "B",
-        "0010",
         "D",
-        "6212",
-        "F1"
+        "F1",
+        "0010",
+        "B",
+        "C",
+        "A"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-05-03T11:42:15.256872",
+        "actualizado": "2026-05-03T10:04:47.608850",
         "frecuencia": "horaria"
     }
 }
