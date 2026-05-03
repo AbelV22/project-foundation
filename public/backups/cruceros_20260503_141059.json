@@ -138,7 +138,7 @@
             "pax_estimados": 500,
             "puerto": "Genoa",
             "tipo": "llegada",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Itàlia",
             "imo": "9479852",
             "mmsi": "247311100",
@@ -339,7 +339,7 @@
             "fecha": "2026-05-03"
         },
         {
-            "hora": "13:30",
+            "hora": "13:00",
             "nombre": "Costa Favolosa",
             "naviera": "NOATUM MARITIME SPAIN SAU",
             "terminal": "Terminal D (Adossat)",
@@ -348,7 +348,7 @@
             "pax_estimados": 500,
             "puerto": "Marseille",
             "tipo": "salida",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Itàlia",
             "imo": "9479852",
             "mmsi": "247311100",
@@ -536,24 +536,24 @@
         "total_llegadas": 15,
         "total_salidas": 18,
         "pax_estimados_hoy": 31500,
-        "proximo_desembarco": "15:45",
+        "proximo_desembarco": "12:00",
         "proximo_barco": "Abel Matutes"
     },
     "terminales_activas": [
-        "F2",
-        "F1",
-        "E",
-        "6995",
-        "C",
-        "B",
-        "6212",
         "A",
+        "E",
+        "C",
+        "6995",
+        "F2",
+        "B",
         "0010",
-        "D"
+        "D",
+        "6212",
+        "F1"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-05-03T14:10:59.566266",
+        "actualizado": "2026-05-03T11:42:15.256872",
         "frecuencia": "horaria"
     }
 }
