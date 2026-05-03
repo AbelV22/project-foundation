@@ -291,6 +291,22 @@
             "fecha": "2026-05-03"
         },
         {
+            "hora": "07:45",
+            "nombre": "Msc Celestino Maresca",
+            "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
+            "terminal": "TERMINAL CATALUNYA SA",
+            "terminal_codigo": "6212",
+            "eslora": 400.0,
+            "pax_estimados": 6500,
+            "puerto": "Fos-sur-Mer",
+            "tipo": "salida",
+            "estado": "Iniciada",
+            "bandera": "Libèria",
+            "imo": "9930040",
+            "mmsi": "636022516",
+            "fecha": "2026-05-03"
+        },
+        {
             "hora": "08:00",
             "nombre": "Zim Virginia",
             "naviera": "A PEREZ Y CIA SL",
@@ -336,22 +352,6 @@
             "bandera": "Itàlia",
             "imo": "9479852",
             "mmsi": "247311100",
-            "fecha": "2026-05-03"
-        },
-        {
-            "hora": "14:39",
-            "nombre": "Msc Celestino Maresca",
-            "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
-            "terminal": "TERMINAL CATALUNYA SA",
-            "terminal_codigo": "6212",
-            "eslora": 400.0,
-            "pax_estimados": 6500,
-            "puerto": "Fos-sur-Mer",
-            "tipo": "salida",
-            "estado": "Finalitzada",
-            "bandera": "Libèria",
-            "imo": "9930040",
-            "mmsi": "636022516",
             "fecha": "2026-05-03"
         },
         {
@@ -536,24 +536,24 @@
         "total_llegadas": 15,
         "total_salidas": 18,
         "pax_estimados_hoy": 31500,
-        "proximo_desembarco": "18:00",
-        "proximo_barco": "Msc Washington"
+        "proximo_desembarco": "15:45",
+        "proximo_barco": "Abel Matutes"
     },
     "terminales_activas": [
-        "6995",
-        "0010",
-        "B",
-        "D",
         "F2",
-        "E",
-        "C",
         "F1",
+        "E",
+        "6995",
+        "C",
+        "B",
         "6212",
-        "A"
+        "A",
+        "0010",
+        "D"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-05-03T15:48:26.568282",
+        "actualizado": "2026-05-03T14:10:59.566266",
         "frecuencia": "horaria"
     }
 }
