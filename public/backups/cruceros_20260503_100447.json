@@ -259,22 +259,6 @@
             "fecha": "2026-05-03"
         },
         {
-            "hora": "07:44",
-            "nombre": "Ym Width",
-            "naviera": "YANG MING (SPAIN) SL",
-            "terminal": "TERMINAL CATALUNYA SA",
-            "terminal_codigo": "6212",
-            "eslora": 368.0,
-            "pax_estimados": 6500,
-            "puerto": "Genoa",
-            "tipo": "salida",
-            "estado": "Finalitzada",
-            "bandera": "Singapur",
-            "imo": "9708447",
-            "mmsi": "563281800",
-            "fecha": "2026-05-03"
-        },
-        {
             "hora": "07:45",
             "nombre": "Msc Celestino Maresca",
             "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
@@ -516,28 +500,28 @@
         }
     ],
     "resumen": {
-        "total_cruceros": 17,
+        "total_cruceros": 16,
         "total_llegadas": 14,
-        "total_salidas": 18,
+        "total_salidas": 17,
         "pax_estimados_hoy": 25000,
-        "proximo_desembarco": "12:00",
-        "proximo_barco": "Abel Matutes"
+        "proximo_desembarco": "07:27",
+        "proximo_barco": "Costa Toscana"
     },
     "terminales_activas": [
-        "E",
-        "6212",
+        "A",
         "6995",
-        "F2",
+        "0010",
+        "C",
         "D",
         "F1",
-        "0010",
+        "E",
+        "F2",
         "B",
-        "C",
-        "A"
+        "6212"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-05-03T10:04:47.608850",
+        "actualizado": "2026-05-03T07:19:10.539435",
         "frecuencia": "horaria"
     }
 }
