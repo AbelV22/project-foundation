@@ -10,7 +10,7 @@
             "pax_estimados": 3000,
             "puerto": "Porto Torres",
             "tipo": "llegada",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Itàlia",
             "imo": "9351476",
             "mmsi": "247219400",
@@ -186,7 +186,7 @@
             "pax_estimados": 1000,
             "puerto": "Palma de Mallorca",
             "tipo": "llegada",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Espanya",
             "imo": "9441130",
             "mmsi": "224402000",
@@ -323,23 +323,7 @@
             "fecha": "2026-05-04"
         },
         {
-            "hora": "21:38",
-            "nombre": "Cruise Roma",
-            "naviera": "GRIMALDI LOGISTICA ESPAÑA SL",
-            "terminal": "TERMINAL F3",
-            "terminal_codigo": "F3",
-            "eslora": 254.0,
-            "pax_estimados": 3000,
-            "puerto": "Civitavecchia",
-            "tipo": "salida",
-            "estado": "Finalitzada",
-            "bandera": "Itàlia",
-            "imo": "9351476",
-            "mmsi": "247219400",
-            "fecha": "2026-05-04"
-        },
-        {
-            "hora": "22:05",
+            "hora": "21:15",
             "nombre": "Abel Matutes",
             "naviera": "BALEARIA EUROLINEAS MARITIMAS SA ",
             "terminal": "TERMINAL F1",
@@ -348,10 +332,26 @@
             "pax_estimados": 1000,
             "puerto": "Alcudia",
             "tipo": "salida",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Espanya",
             "imo": "9441130",
             "mmsi": "224402000",
+            "fecha": "2026-05-04"
+        },
+        {
+            "hora": "21:30",
+            "nombre": "Cruise Roma",
+            "naviera": "GRIMALDI LOGISTICA ESPAÑA SL",
+            "terminal": "TERMINAL F3",
+            "terminal_codigo": "F3",
+            "eslora": 254.0,
+            "pax_estimados": 3000,
+            "puerto": "Civitavecchia",
+            "tipo": "salida",
+            "estado": "Iniciada",
+            "bandera": "Itàlia",
+            "imo": "9351476",
+            "mmsi": "247219400",
             "fecha": "2026-05-04"
         },
         {
@@ -408,24 +408,24 @@
         "total_llegadas": 13,
         "total_salidas": 12,
         "pax_estimados_hoy": 27000,
-        "proximo_desembarco": null,
-        "proximo_barco": null
+        "proximo_desembarco": "20:36",
+        "proximo_barco": "Zim Virginia"
     },
     "terminales_activas": [
-        "F2",
-        "E",
-        "7083",
-        "0010",
         "6212",
         "F3",
-        "F1",
         "8156",
+        "F2",
         "D",
-        "4455"
+        "0010",
+        "4455",
+        "E",
+        "7083",
+        "F1"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-05-04T22:01:08.840669",
+        "actualizado": "2026-05-04T20:15:01.382449",
         "frecuencia": "horaria"
     }
 }
