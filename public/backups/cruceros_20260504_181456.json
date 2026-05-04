@@ -42,7 +42,7 @@
             "pax_estimados": 3000,
             "puerto": "Palma de Mallorca",
             "tipo": "llegada",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Bermuda",
             "imo": "9320556",
             "mmsi": "310624000",
@@ -74,7 +74,7 @@
             "pax_estimados": 4500,
             "puerto": "Marseille",
             "tipo": "llegada",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Itàlia",
             "imo": "9781889",
             "mmsi": "247391900",
@@ -145,7 +145,7 @@
             "fecha": "2026-05-04"
         },
         {
-            "hora": "17:40",
+            "hora": "16:00",
             "nombre": "Merito",
             "naviera": "MEDITERRANEAN SHIPPING CO",
             "terminal": "ESTIBARNA CENTRO PORTUA (ESTIBARNA-CPE)",
@@ -161,7 +161,7 @@
             "fecha": "2026-05-04"
         },
         {
-            "hora": "18:43",
+            "hora": "18:15",
             "nombre": "Ciudad De Palma",
             "naviera": "TRASMED GLE S.L.",
             "terminal": "TERMINAL F2",
@@ -170,7 +170,7 @@
             "pax_estimados": 1000,
             "puerto": "Palma de Mallorca",
             "tipo": "llegada",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Espanya",
             "imo": "9349772",
             "mmsi": "224588000",
@@ -227,23 +227,7 @@
             "fecha": "2026-05-04"
         },
         {
-            "hora": "17:32",
-            "nombre": "Queen Victoria",
-            "naviera": "NOATUM MARITIME SPAIN SAU",
-            "terminal": "Terminal E (Adossat)",
-            "terminal_codigo": "E",
-            "eslora": 294.0,
-            "pax_estimados": 3000,
-            "puerto": "Heraklion (Iraklion)",
-            "tipo": "salida",
-            "estado": "Finalitzada",
-            "bandera": "Bermuda",
-            "imo": "9320556",
-            "mmsi": "310624000",
-            "fecha": "2026-05-04"
-        },
-        {
-            "hora": "17:39",
+            "hora": "15:59",
             "nombre": "Merito",
             "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
             "terminal": "TERMINAL CATALUNYA SA",
@@ -259,7 +243,23 @@
             "fecha": "2026-05-04"
         },
         {
-            "hora": "18:22",
+            "hora": "17:30",
+            "nombre": "Queen Victoria",
+            "naviera": "NOATUM MARITIME SPAIN SAU",
+            "terminal": "Terminal E (Adossat)",
+            "terminal_codigo": "E",
+            "eslora": 294.0,
+            "pax_estimados": 3000,
+            "puerto": "Heraklion (Iraklion)",
+            "tipo": "salida",
+            "estado": "Iniciada",
+            "bandera": "Bermuda",
+            "imo": "9320556",
+            "mmsi": "310624000",
+            "fecha": "2026-05-04"
+        },
+        {
+            "hora": "18:00",
             "nombre": "Costa Smeralda",
             "naviera": "NOATUM MARITIME SPAIN SAU",
             "terminal": "Terminal D (Adossat)",
@@ -268,7 +268,7 @@
             "pax_estimados": 4500,
             "puerto": "La Goulette Nord (Halqueloued)",
             "tipo": "salida",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Itàlia",
             "imo": "9781889",
             "mmsi": "247391900",
@@ -364,7 +364,7 @@
             "pax_estimados": 1000,
             "puerto": "Palma de Mallorca",
             "tipo": "salida",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Espanya",
             "imo": "9349772",
             "mmsi": "224588000",
@@ -392,24 +392,24 @@
         "total_llegadas": 12,
         "total_salidas": 12,
         "pax_estimados_hoy": 24000,
-        "proximo_desembarco": "18:43",
-        "proximo_barco": "Ciudad De Palma"
+        "proximo_desembarco": "15:52",
+        "proximo_barco": "Msc Washington"
     },
     "terminales_activas": [
         "D",
-        "F3",
-        "F2",
-        "8156",
-        "0010",
-        "7083",
-        "6212",
+        "F1",
         "E",
+        "7083",
         "4455",
-        "F1"
+        "F2",
+        "F3",
+        "0010",
+        "8156",
+        "6212"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-05-04T18:14:56.483440",
+        "actualizado": "2026-05-04T15:09:54.840362",
         "frecuencia": "horaria"
     }
 }
