@@ -106,7 +106,7 @@
             "pax_estimados": 2000,
             "puerto": "Valencia",
             "tipo": "llegada",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Itàlia",
             "imo": "9859600",
             "mmsi": "247384100",
@@ -275,22 +275,6 @@
             "fecha": "2026-05-05"
         },
         {
-            "hora": "11:19",
-            "nombre": "Eco Adriatica",
-            "naviera": "GRIMALDI LOGISTICA ESPAÑA SL",
-            "terminal": "GRIMALDI TERMINAL BARCELONA SL",
-            "terminal_codigo": "8156",
-            "eslora": 238.0,
-            "pax_estimados": 2000,
-            "puerto": "Livorno",
-            "tipo": "salida",
-            "estado": "Finalitzada",
-            "bandera": "Itàlia",
-            "imo": "9859600",
-            "mmsi": "247384100",
-            "fecha": "2026-05-05"
-        },
-        {
             "hora": "12:00",
             "nombre": "Minerva Tychi",
             "naviera": "ERHARDT SHIPPING SERVICES SL",
@@ -307,19 +291,19 @@
             "fecha": "2026-05-05"
         },
         {
-            "hora": "12:10",
-            "nombre": "Cma Cgm Iguacu",
-            "naviera": "CMA CGM IBERICA SAU",
-            "terminal": "TERMINAL CATALUNYA SA",
-            "terminal_codigo": "6212",
-            "eslora": 366.0,
-            "pax_estimados": 6500,
-            "puerto": "Fos-sur-Mer",
+            "hora": "12:00",
+            "nombre": "Eco Adriatica",
+            "naviera": "GRIMALDI LOGISTICA ESPAÑA SL",
+            "terminal": "GRIMALDI TERMINAL BARCELONA SL",
+            "terminal_codigo": "8156",
+            "eslora": 238.0,
+            "pax_estimados": 2000,
+            "puerto": "Livorno",
             "tipo": "salida",
-            "estado": "Finalitzada",
-            "bandera": "Malta",
-            "imo": "9859131",
-            "mmsi": "215966000",
+            "estado": "Iniciada",
+            "bandera": "Itàlia",
+            "imo": "9859600",
+            "mmsi": "247384100",
             "fecha": "2026-05-05"
         },
         {
@@ -336,6 +320,22 @@
             "bandera": "Malta",
             "imo": "9167942",
             "mmsi": "249096000",
+            "fecha": "2026-05-05"
+        },
+        {
+            "hora": "14:00",
+            "nombre": "Cma Cgm Iguacu",
+            "naviera": "CMA CGM IBERICA SAU",
+            "terminal": "TERMINAL CATALUNYA SA",
+            "terminal_codigo": "6212",
+            "eslora": 366.0,
+            "pax_estimados": 6500,
+            "puerto": "Fos-sur-Mer",
+            "tipo": "salida",
+            "estado": "Iniciada",
+            "bandera": "Malta",
+            "imo": "9859131",
+            "mmsi": "215966000",
             "fecha": "2026-05-05"
         },
         {
@@ -536,27 +536,27 @@
         "total_llegadas": 14,
         "total_salidas": 19,
         "pax_estimados_hoy": 23500,
-        "proximo_desembarco": "18:15",
-        "proximo_barco": "Ciudad De Palma"
+        "proximo_desembarco": "12:00",
+        "proximo_barco": "Msc Tianjin"
     },
     "terminales_activas": [
-        "B",
-        "7083",
-        "8156",
         "S",
-        "F3",
-        "6995",
-        "H",
-        "6212",
-        "F1",
         "E",
-        "4455",
         "F2",
-        "0010"
+        "4455",
+        "H",
+        "7083",
+        "6995",
+        "F1",
+        "F3",
+        "B",
+        "6212",
+        "0010",
+        "8156"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-05-05T12:02:28.492005",
+        "actualizado": "2026-05-05T10:46:27.513967",
         "frecuencia": "horaria"
     }
 }
