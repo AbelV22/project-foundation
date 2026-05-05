@@ -177,6 +177,22 @@
             "fecha": "2026-05-05"
         },
         {
+            "hora": "18:15",
+            "nombre": "Cruise Barcelona",
+            "naviera": "GRIMALDI EUROMED SPA",
+            "terminal": "TERMINAL F3",
+            "terminal_codigo": "F3",
+            "eslora": 0,
+            "pax_estimados": 500,
+            "puerto": "Civitavecchia",
+            "tipo": "llegada",
+            "estado": "Autoritzada",
+            "bandera": "Itàlia",
+            "imo": "9351488",
+            "mmsi": "247243600",
+            "fecha": "2026-05-05"
+        },
+        {
             "hora": "18:36",
             "nombre": "Ciudad De Palma",
             "naviera": "TRASMED GLE S.L.",
@@ -193,6 +209,22 @@
             "fecha": "2026-05-05"
         },
         {
+            "hora": "18:45",
+            "nombre": "Abel Matutes",
+            "naviera": "EUROLINEAS MARITIMAS S.A",
+            "terminal": "TERMINAL F1",
+            "terminal_codigo": "F1",
+            "eslora": 190.0,
+            "pax_estimados": 1000,
+            "puerto": "Alcudia",
+            "tipo": "llegada",
+            "estado": "Autoritzada",
+            "bandera": "Espanya",
+            "imo": "9441130",
+            "mmsi": "224402000",
+            "fecha": "2026-05-05"
+        },
+        {
             "hora": "18:49",
             "nombre": "Ciudad De Barcelona",
             "naviera": "TRASMED GLE S.L.",
@@ -206,38 +238,6 @@
             "bandera": "Espanya",
             "imo": "9506289",
             "mmsi": "225416000",
-            "fecha": "2026-05-05"
-        },
-        {
-            "hora": "19:15",
-            "nombre": "Abel Matutes",
-            "naviera": "EUROLINEAS MARITIMAS S.A",
-            "terminal": "TERMINAL F1",
-            "terminal_codigo": "F1",
-            "eslora": 190.0,
-            "pax_estimados": 1000,
-            "puerto": "Alcudia",
-            "tipo": "llegada",
-            "estado": "Iniciada",
-            "bandera": "Espanya",
-            "imo": "9441130",
-            "mmsi": "224402000",
-            "fecha": "2026-05-05"
-        },
-        {
-            "hora": "19:15",
-            "nombre": "Cruise Barcelona",
-            "naviera": "GRIMALDI EUROMED SPA",
-            "terminal": "TERMINAL F3",
-            "terminal_codigo": "F3",
-            "eslora": 0,
-            "pax_estimados": 500,
-            "puerto": "Civitavecchia",
-            "tipo": "llegada",
-            "estado": "Iniciada",
-            "bandera": "Itàlia",
-            "imo": "9351488",
-            "mmsi": "247243600",
             "fecha": "2026-05-05"
         }
     ],
@@ -476,7 +476,7 @@
             "pax_estimados": 1000,
             "puerto": "Alcudia",
             "tipo": "salida",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Espanya",
             "imo": "9441130",
             "mmsi": "224402000",
@@ -524,7 +524,7 @@
             "pax_estimados": 500,
             "puerto": "Porto Torres",
             "tipo": "salida",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Itàlia",
             "imo": "9351488",
             "mmsi": "247243600",
@@ -536,26 +536,26 @@
         "total_llegadas": 15,
         "total_salidas": 18,
         "pax_estimados_hoy": 25500,
-        "proximo_desembarco": null,
-        "proximo_barco": null
+        "proximo_desembarco": "18:15",
+        "proximo_barco": "Cruise Barcelona"
     },
     "terminales_activas": [
-        "E",
-        "H",
-        "F3",
         "8156",
-        "F1",
-        "S",
-        "7083",
         "F2",
         "4455",
         "B",
+        "E",
+        "S",
         "6212",
-        "6995"
+        "F3",
+        "7083",
+        "6995",
+        "F1",
+        "H"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-05-05T20:07:17.958817",
+        "actualizado": "2026-05-05T18:11:23.088808",
         "frecuencia": "horaria"
     }
 }
