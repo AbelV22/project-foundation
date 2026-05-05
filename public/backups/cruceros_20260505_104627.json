@@ -17,6 +17,38 @@
             "fecha": "2026-05-05"
         },
         {
+            "hora": "01:00",
+            "nombre": "Cma Cgm Harmony",
+            "naviera": "CMA CGM",
+            "terminal": "APM TERMINALS BARCELONA, S.L.U.",
+            "terminal_codigo": "7083",
+            "eslora": 0,
+            "pax_estimados": 500,
+            "puerto": "Marseille",
+            "tipo": "llegada",
+            "estado": "Sol·licitada",
+            "bandera": "Malta",
+            "imo": "9952828",
+            "mmsi": "256849000",
+            "fecha": "2026-05-05"
+        },
+        {
+            "hora": "06:00",
+            "nombre": "Msc Idania",
+            "naviera": "MEDITERRANEAN SHIPPING CO",
+            "terminal": "TERMINAL CATALUNYA SA",
+            "terminal_codigo": "6212",
+            "eslora": 366.0,
+            "pax_estimados": 6500,
+            "puerto": "Valencia",
+            "tipo": "llegada",
+            "estado": "Sol·licitada",
+            "bandera": "Libèria",
+            "imo": "9962562",
+            "mmsi": "636023021",
+            "fecha": "2026-05-05"
+        },
+        {
             "hora": "06:00",
             "nombre": "Msc Jiani",
             "naviera": "MEDITERRANEAN SHIPPING CO",
@@ -97,7 +129,7 @@
             "fecha": "2026-05-05"
         },
         {
-            "hora": "07:45",
+            "hora": "07:00",
             "nombre": "Eco Adriatica",
             "naviera": "GRIMALDI EUROMED SPA",
             "terminal": "GRIMALDI TERMINAL BARCELONA SL",
@@ -106,7 +138,7 @@
             "pax_estimados": 2000,
             "puerto": "Valencia",
             "tipo": "llegada",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Itàlia",
             "imo": "9859600",
             "mmsi": "247384100",
@@ -138,7 +170,7 @@
             "pax_estimados": 6500,
             "puerto": "Valencia",
             "tipo": "llegada",
-            "estado": "Autoritzada",
+            "estado": "Confirmada",
             "bandera": "Bahames",
             "imo": "9454436",
             "mmsi": "311000923",
@@ -300,7 +332,7 @@
             "pax_estimados": 2000,
             "puerto": "Livorno",
             "tipo": "salida",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Itàlia",
             "imo": "9859600",
             "mmsi": "247384100",
@@ -420,6 +452,22 @@
         },
         {
             "hora": "20:00",
+            "nombre": "Msc Idania",
+            "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
+            "terminal": "TERMINAL CATALUNYA SA",
+            "terminal_codigo": "6212",
+            "eslora": 366.0,
+            "pax_estimados": 6500,
+            "puerto": "Fos-sur-Mer",
+            "tipo": "salida",
+            "estado": "Sol·licitada",
+            "bandera": "Libèria",
+            "imo": "9962562",
+            "mmsi": "636023021",
+            "fecha": "2026-05-05"
+        },
+        {
+            "hora": "20:00",
             "nombre": "Msc Jiani",
             "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
             "terminal": "TERMINAL CATALUNYA SA",
@@ -532,31 +580,31 @@
         }
     ],
     "resumen": {
-        "total_cruceros": 21,
-        "total_llegadas": 14,
-        "total_salidas": 19,
-        "pax_estimados_hoy": 23500,
-        "proximo_desembarco": "12:00",
-        "proximo_barco": "Msc Tianjin"
+        "total_cruceros": 23,
+        "total_llegadas": 16,
+        "total_salidas": 20,
+        "pax_estimados_hoy": 30500,
+        "proximo_desembarco": "08:00",
+        "proximo_barco": "Hmm Ocean"
     },
     "terminales_activas": [
-        "S",
-        "E",
-        "F2",
-        "4455",
-        "H",
         "7083",
-        "6995",
-        "F1",
-        "F3",
-        "B",
-        "6212",
         "0010",
-        "8156"
+        "F1",
+        "B",
+        "6995",
+        "4455",
+        "F2",
+        "6212",
+        "E",
+        "F3",
+        "8156",
+        "S",
+        "H"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-05-05T10:46:27.513967",
+        "actualizado": "2026-05-05T07:17:58.885667",
         "frecuencia": "horaria"
     }
 }
