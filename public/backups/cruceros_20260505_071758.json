@@ -33,6 +33,22 @@
             "fecha": "2026-05-05"
         },
         {
+            "hora": "05:42",
+            "nombre": "Msc Meraviglia",
+            "naviera": "MSC CRUISES S.A.",
+            "terminal": "ADOSSAT/TERMINAL H",
+            "terminal_codigo": "H",
+            "eslora": 0,
+            "pax_estimados": 500,
+            "puerto": "Marseille",
+            "tipo": "llegada",
+            "estado": "Autoritzada",
+            "bandera": "Malta",
+            "imo": "9760512",
+            "mmsi": "249973000",
+            "fecha": "2026-05-05"
+        },
+        {
             "hora": "06:00",
             "nombre": "Msc Idania",
             "naviera": "MEDITERRANEAN SHIPPING CO",
@@ -81,23 +97,7 @@
             "fecha": "2026-05-05"
         },
         {
-            "hora": "06:08",
-            "nombre": "Msc Meraviglia",
-            "naviera": "MSC CRUISES S.A.",
-            "terminal": "ADOSSAT/TERMINAL H",
-            "terminal_codigo": "H",
-            "eslora": 0,
-            "pax_estimados": 500,
-            "puerto": "Marseille",
-            "tipo": "llegada",
-            "estado": "Iniciada",
-            "bandera": "Malta",
-            "imo": "9760512",
-            "mmsi": "249973000",
-            "fecha": "2026-05-05"
-        },
-        {
-            "hora": "06:29",
+            "hora": "06:00",
             "nombre": "Sirena",
             "naviera": "OCEANIA CRUISES INC",
             "terminal": "Terminal Sud",
@@ -106,14 +106,14 @@
             "pax_estimados": 1000,
             "puerto": "Alicante",
             "tipo": "llegada",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Illes Marshall",
             "imo": "9187899",
             "mmsi": "538006842",
             "fecha": "2026-05-05"
         },
         {
-            "hora": "06:55",
+            "hora": "06:18",
             "nombre": "Costa Fascinosa",
             "naviera": "COSTA CROCIERE, S.P.A.",
             "terminal": "Terminal E (Adossat)",
@@ -122,7 +122,7 @@
             "pax_estimados": 500,
             "puerto": "Savona",
             "tipo": "llegada",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Itàlia",
             "imo": "9479864",
             "mmsi": "247313500",
@@ -259,22 +259,6 @@
     ],
     "salidas": [
         {
-            "hora": "07:10",
-            "nombre": "Zim Virginia",
-            "naviera": "A PEREZ Y CIA SL",
-            "terminal": "TERMINAL CATALUNYA SA",
-            "terminal_codigo": "6212",
-            "eslora": 294.0,
-            "pax_estimados": 3000,
-            "puerto": "Valencia",
-            "tipo": "salida",
-            "estado": "Finalitzada",
-            "bandera": "Israel",
-            "imo": "9231808",
-            "mmsi": "428002000",
-            "fecha": "2026-05-05"
-        },
-        {
             "hora": "08:00",
             "nombre": "Msc Washington",
             "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
@@ -396,7 +380,7 @@
             "pax_estimados": 1000,
             "puerto": "Palamos",
             "tipo": "salida",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Illes Marshall",
             "imo": "9187899",
             "mmsi": "538006842",
@@ -412,7 +396,7 @@
             "pax_estimados": 500,
             "puerto": "Marseille",
             "tipo": "salida",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Itàlia",
             "imo": "9479864",
             "mmsi": "247313500",
@@ -444,7 +428,7 @@
             "pax_estimados": 500,
             "puerto": "La Goulette Nord (Halqueloued)",
             "tipo": "salida",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Malta",
             "imo": "9760512",
             "mmsi": "249973000",
@@ -580,31 +564,31 @@
         }
     ],
     "resumen": {
-        "total_cruceros": 23,
+        "total_cruceros": 22,
         "total_llegadas": 16,
-        "total_salidas": 20,
+        "total_salidas": 19,
         "pax_estimados_hoy": 30500,
-        "proximo_desembarco": "08:00",
-        "proximo_barco": "Hmm Ocean"
+        "proximo_desembarco": null,
+        "proximo_barco": null
     },
     "terminales_activas": [
         "7083",
-        "0010",
-        "F1",
-        "B",
-        "6995",
-        "4455",
         "F2",
+        "F3",
         "6212",
         "E",
-        "F3",
+        "F1",
+        "4455",
+        "H",
+        "0010",
+        "B",
+        "6995",
         "8156",
-        "S",
-        "H"
+        "S"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-05-05T07:17:58.885667",
+        "actualizado": "2026-05-04T23:54:06.151598",
         "frecuencia": "horaria"
     }
 }
