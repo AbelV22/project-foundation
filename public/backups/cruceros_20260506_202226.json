@@ -161,7 +161,7 @@
             "fecha": "2026-05-06"
         },
         {
-            "hora": "19:23",
+            "hora": "19:00",
             "nombre": "Ciudad De Granada",
             "naviera": "TRASMED GLE S.L.",
             "terminal": "TERMINAL F2",
@@ -170,7 +170,7 @@
             "pax_estimados": 1000,
             "puerto": "Ibiza",
             "tipo": "llegada",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Espanya",
             "imo": "9217125",
             "mmsi": "224600000",
@@ -193,7 +193,7 @@
             "fecha": "2026-05-06"
         },
         {
-            "hora": "20:10",
+            "hora": "20:30",
             "nombre": "Cruise Roma",
             "naviera": "GRIMALDI EUROMED SPA",
             "terminal": "TERMINAL F3",
@@ -202,7 +202,7 @@
             "pax_estimados": 3000,
             "puerto": "Civitavecchia",
             "tipo": "llegada",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Itàlia",
             "imo": "9351476",
             "mmsi": "247219400",
@@ -380,7 +380,7 @@
             "pax_estimados": 1000,
             "puerto": "Mahon Menorca",
             "tipo": "salida",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Espanya",
             "imo": "9217125",
             "mmsi": "224600000",
@@ -412,7 +412,7 @@
             "pax_estimados": 3000,
             "puerto": "Porto Torres",
             "tipo": "salida",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Itàlia",
             "imo": "9351476",
             "mmsi": "247219400",
@@ -424,23 +424,23 @@
         "total_llegadas": 13,
         "total_salidas": 13,
         "pax_estimados_hoy": 27500,
-        "proximo_desembarco": null,
-        "proximo_barco": null
+        "proximo_desembarco": "18:35",
+        "proximo_barco": "Ciudad De Palma"
     },
     "terminales_activas": [
-        "6212",
+        "4455",
         "8156",
         "6995",
+        "6212",
+        "D",
         "F3",
-        "F2",
-        "4455",
-        "7083",
         "TC",
-        "D"
+        "7083",
+        "F2"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-05-06T20:22:26.135473",
+        "actualizado": "2026-05-06T18:16:31.748246",
         "frecuencia": "horaria"
     }
 }
