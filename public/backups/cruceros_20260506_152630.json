@@ -34,6 +34,22 @@
         },
         {
             "hora": "06:00",
+            "nombre": "Msc Radiant Iii",
+            "naviera": "MEDITERRANEAN SHIPPING CO",
+            "terminal": "TERMINAL CATALUNYA SA",
+            "terminal_codigo": "6212",
+            "eslora": 208.0,
+            "pax_estimados": 2000,
+            "puerto": "Alger (Algiers)",
+            "tipo": "llegada",
+            "estado": "Autoritzada",
+            "bandera": "Libèria",
+            "imo": "9235402",
+            "mmsi": "636016943",
+            "fecha": "2026-05-06"
+        },
+        {
+            "hora": "06:00",
             "nombre": "Msc Yuvika V",
             "naviera": "MEDITERRANEAN SHIPPING CO",
             "terminal": "TERMINAL CATALUNYA SA",
@@ -90,7 +106,7 @@
             "pax_estimados": 2000,
             "puerto": "Valencia",
             "tipo": "llegada",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Itàlia",
             "imo": "9859569",
             "mmsi": "247383600",
@@ -110,22 +126,6 @@
             "bandera": "Libèria",
             "imo": "9962562",
             "mmsi": "636023021",
-            "fecha": "2026-05-06"
-        },
-        {
-            "hora": "14:06",
-            "nombre": "Msc Radiant Iii",
-            "naviera": "MEDITERRANEAN SHIPPING CO",
-            "terminal": "TERMINAL CATALUNYA SA",
-            "terminal_codigo": "6212",
-            "eslora": 208.0,
-            "pax_estimados": 2000,
-            "puerto": "Alger (Algiers)",
-            "tipo": "llegada",
-            "estado": "Iniciada",
-            "bandera": "Libèria",
-            "imo": "9235402",
-            "mmsi": "636016943",
             "fecha": "2026-05-06"
         },
         {
@@ -174,22 +174,6 @@
             "bandera": "Espanya",
             "imo": "9217125",
             "mmsi": "224600000",
-            "fecha": "2026-05-06"
-        },
-        {
-            "hora": "20:00",
-            "nombre": "Merito",
-            "naviera": "MEDITERRANEAN SHIPPING CO",
-            "terminal": "",
-            "terminal_codigo": "",
-            "eslora": 150.0,
-            "pax_estimados": 1000,
-            "puerto": "Oran",
-            "tipo": "llegada",
-            "estado": "Iniciada",
-            "bandera": "Malta",
-            "imo": "9167942",
-            "mmsi": "249096000",
             "fecha": "2026-05-06"
         },
         {
@@ -243,19 +227,19 @@
             "fecha": "2026-05-06"
         },
         {
-            "hora": "11:50",
-            "nombre": "Msc Bahrain Ii",
+            "hora": "11:00",
+            "nombre": "Msc Tianjin",
             "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
             "terminal": "TERMINAL CATALUNYA SA",
             "terminal_codigo": "6212",
-            "eslora": 0,
-            "pax_estimados": 500,
-            "puerto": "Bejaia (ex Bougie)",
+            "eslora": 323.0,
+            "pax_estimados": 4500,
+            "puerto": "Valencia",
             "tipo": "salida",
-            "estado": "Finalitzada",
-            "bandera": "Portugal",
-            "imo": "9359301",
-            "mmsi": "255916537",
+            "estado": "Confirmada",
+            "bandera": "Libèria",
+            "imo": "9285471",
+            "mmsi": "636019332",
             "fecha": "2026-05-06"
         },
         {
@@ -275,7 +259,7 @@
             "fecha": "2026-05-06"
         },
         {
-            "hora": "13:10",
+            "hora": "14:00",
             "nombre": "Eco Savona",
             "naviera": "GRIMALDI LOGISTICA ESPAÑA SL",
             "terminal": "GRIMALDI TERMINAL BARCELONA SL",
@@ -284,7 +268,7 @@
             "pax_estimados": 2000,
             "puerto": "Savona",
             "tipo": "salida",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Itàlia",
             "imo": "9859569",
             "mmsi": "247383600",
@@ -307,22 +291,6 @@
             "fecha": "2026-05-06"
         },
         {
-            "hora": "19:59",
-            "nombre": "Merito",
-            "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
-            "terminal": "ESTIBARNA CENTRO PORTUA (ESTIBARNA-CPE)",
-            "terminal_codigo": "4455",
-            "eslora": 150.0,
-            "pax_estimados": 1000,
-            "puerto": "Oran",
-            "tipo": "salida",
-            "estado": "Iniciada",
-            "bandera": "Malta",
-            "imo": "9167942",
-            "mmsi": "249096000",
-            "fecha": "2026-05-06"
-        },
-        {
             "hora": "20:00",
             "nombre": "Msc Radiant Iii",
             "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
@@ -332,7 +300,7 @@
             "pax_estimados": 2000,
             "puerto": "Alger (Algiers)",
             "tipo": "salida",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Libèria",
             "imo": "9235402",
             "mmsi": "636016943",
@@ -420,27 +388,26 @@
         }
     ],
     "resumen": {
-        "total_cruceros": 16,
-        "total_llegadas": 13,
-        "total_salidas": 13,
-        "pax_estimados_hoy": 27500,
+        "total_cruceros": 15,
+        "total_llegadas": 12,
+        "total_salidas": 12,
+        "pax_estimados_hoy": 26500,
         "proximo_desembarco": "18:15",
         "proximo_barco": "Ciudad De Palma"
     },
     "terminales_activas": [
-        "D",
         "6212",
-        "4455",
-        "7083",
-        "F3",
         "6995",
-        "F2",
         "TC",
-        "8156"
+        "F3",
+        "8156",
+        "D",
+        "7083",
+        "F2"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-05-06T15:26:30.228662",
+        "actualizado": "2026-05-06T11:07:45.267392",
         "frecuencia": "horaria"
     }
 }
