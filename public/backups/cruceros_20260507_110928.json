@@ -113,7 +113,7 @@
             "fecha": "2026-05-07"
         },
         {
-            "hora": "11:00",
+            "hora": "13:00",
             "nombre": "Eco Valencia",
             "naviera": "GRIMALDI EUROMED SPA",
             "terminal": "GRIMALDI TERMINAL BARCELONA SL",
@@ -126,6 +126,22 @@
             "bandera": "Itàlia",
             "imo": "9859533",
             "mmsi": "247383300",
+            "fecha": "2026-05-07"
+        },
+        {
+            "hora": "18:00",
+            "nombre": "Sunbelt Spirit",
+            "naviera": "NEPTUNE LINES SHIPPING",
+            "terminal": "AUTOTERMINAL SA",
+            "terminal_codigo": "6154",
+            "eslora": 212.0,
+            "pax_estimados": 2000,
+            "puerto": "Fos-sur-Mer",
+            "tipo": "llegada",
+            "estado": "Sol·licitada",
+            "bandera": "Illes Marshall",
+            "imo": "9233246",
+            "mmsi": "538001657",
             "fecha": "2026-05-07"
         },
         {
@@ -420,27 +436,28 @@
         }
     ],
     "resumen": {
-        "total_cruceros": 15,
-        "total_llegadas": 11,
+        "total_cruceros": 16,
+        "total_llegadas": 12,
         "total_salidas": 15,
-        "pax_estimados_hoy": 22000,
-        "proximo_desembarco": "18:15",
-        "proximo_barco": "Ciudad De Palma"
+        "pax_estimados_hoy": 24000,
+        "proximo_desembarco": "08:23",
+        "proximo_barco": "Msc Seaview"
     },
     "terminales_activas": [
-        "8156",
-        "H",
-        "B",
-        "F3",
-        "F2",
-        "6212",
         "7083",
+        "A",
+        "6212",
+        "F3",
+        "6154",
+        "F2",
         "F1",
-        "A"
+        "H",
+        "8156",
+        "B"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-05-07T11:09:28.625565",
+        "actualizado": "2026-05-07T07:42:35.229025",
         "frecuencia": "horaria"
     }
 }
