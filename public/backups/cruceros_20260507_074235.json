@@ -1,7 +1,7 @@
 {
     "llegadas": [
         {
-            "hora": "01:25",
+            "hora": "01:00",
             "nombre": "Eco Livorno",
             "naviera": "GRIMALDI EUROMED SPA",
             "terminal": "GRIMALDI TERMINAL BARCELONA SL",
@@ -10,14 +10,14 @@
             "pax_estimados": 2000,
             "puerto": "Savona",
             "tipo": "llegada",
-            "estado": "Finalitzada",
+            "estado": "Autoritzada",
             "bandera": "Itàlia",
             "imo": "9859557",
             "mmsi": "247383500",
             "fecha": "2026-05-07"
         },
         {
-            "hora": "04:51",
+            "hora": "05:00",
             "nombre": "Explorer Of The Seas",
             "naviera": "ROYAL CARIBBEAN CRUISES LTD.",
             "terminal": "Terminal B (Maremagnum)",
@@ -26,7 +26,7 @@
             "pax_estimados": 500,
             "puerto": "Palma de Mallorca",
             "tipo": "llegada",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Bahames",
             "imo": "9161728",
             "mmsi": "311316000",
@@ -81,7 +81,7 @@
             "fecha": "2026-05-07"
         },
         {
-            "hora": "07:22",
+            "hora": "06:45",
             "nombre": "Mein Schiff 1",
             "naviera": "TUI CRUISES GMBH",
             "terminal": "Terminal A (WTC)",
@@ -90,14 +90,14 @@
             "pax_estimados": 4500,
             "puerto": "Marseille",
             "tipo": "llegada",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Malta",
             "imo": "9783564",
             "mmsi": "248513000",
             "fecha": "2026-05-07"
         },
         {
-            "hora": "08:23",
+            "hora": "07:48",
             "nombre": "Msc Seaview",
             "naviera": "MSC CRUISES S.A.",
             "terminal": "ADOSSAT/TERMINAL H",
@@ -106,7 +106,7 @@
             "pax_estimados": 4500,
             "puerto": "Ibiza",
             "tipo": "llegada",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Malta",
             "imo": "9745378",
             "mmsi": "248717000",
@@ -211,23 +211,7 @@
             "fecha": "2026-05-07"
         },
         {
-            "hora": "01:18",
-            "nombre": "Cma Cgm Harmony",
-            "naviera": "CMA CGM IBERICA SAU",
-            "terminal": "APM TERMINALS BARCELONA, S.L.U.",
-            "terminal_codigo": "7083",
-            "eslora": 0,
-            "pax_estimados": 500,
-            "puerto": "Valencia",
-            "tipo": "salida",
-            "estado": "Finalitzada",
-            "bandera": "Malta",
-            "imo": "9952828",
-            "mmsi": "256849000",
-            "fecha": "2026-05-07"
-        },
-        {
-            "hora": "05:17",
+            "hora": "05:00",
             "nombre": "Eco Livorno",
             "naviera": "GRIMALDI LOGISTICA ESPAÑA SL",
             "terminal": "GRIMALDI TERMINAL BARCELONA SL",
@@ -236,7 +220,7 @@
             "pax_estimados": 2000,
             "puerto": "Valencia",
             "tipo": "salida",
-            "estado": "Finalitzada",
+            "estado": "Autoritzada",
             "bandera": "Itàlia",
             "imo": "9859557",
             "mmsi": "247383500",
@@ -256,6 +240,22 @@
             "bandera": "Bahames",
             "imo": "9454436",
             "mmsi": "311000923",
+            "fecha": "2026-05-07"
+        },
+        {
+            "hora": "14:00",
+            "nombre": "Cma Cgm Harmony",
+            "naviera": "CMA CGM IBERICA SAU",
+            "terminal": "APM TERMINALS BARCELONA, S.L.U.",
+            "terminal_codigo": "7083",
+            "eslora": 0,
+            "pax_estimados": 500,
+            "puerto": "Valencia",
+            "tipo": "salida",
+            "estado": "Iniciada",
+            "bandera": "Malta",
+            "imo": "9952828",
+            "mmsi": "256849000",
             "fecha": "2026-05-07"
         },
         {
@@ -284,7 +284,7 @@
             "pax_estimados": 500,
             "puerto": "Nice",
             "tipo": "salida",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Bahames",
             "imo": "9161728",
             "mmsi": "311316000",
@@ -300,7 +300,7 @@
             "pax_estimados": 4500,
             "puerto": "Palma de Mallorca",
             "tipo": "salida",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Malta",
             "imo": "9783564",
             "mmsi": "248513000",
@@ -316,7 +316,7 @@
             "pax_estimados": 4500,
             "puerto": "Marseille",
             "tipo": "salida",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Malta",
             "imo": "9745378",
             "mmsi": "248717000",
@@ -440,24 +440,24 @@
         "total_llegadas": 12,
         "total_salidas": 15,
         "pax_estimados_hoy": 24000,
-        "proximo_desembarco": "08:23",
-        "proximo_barco": "Msc Seaview"
+        "proximo_desembarco": null,
+        "proximo_barco": null
     },
     "terminales_activas": [
-        "7083",
-        "A",
         "6212",
-        "F3",
-        "6154",
         "F2",
-        "F1",
         "H",
+        "F3",
+        "7083",
         "8156",
-        "B"
+        "6154",
+        "F1",
+        "B",
+        "A"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-05-07T07:42:35.229025",
+        "actualizado": "2026-05-06T23:52:33.687062",
         "frecuencia": "horaria"
     }
 }
