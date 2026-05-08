@@ -114,6 +114,22 @@
         },
         {
             "hora": "06:00",
+            "nombre": "Msc Abigail F",
+            "naviera": "MEDITERRANEAN SHIPPING CO",
+            "terminal": "TERMINAL CATALUNYA SA",
+            "terminal_codigo": "6212",
+            "eslora": 0,
+            "pax_estimados": 500,
+            "puerto": "Alger (Algiers)",
+            "tipo": "llegada",
+            "estado": "Sol·licitada",
+            "bandera": "Libèria",
+            "imo": "9330226",
+            "mmsi": "636019292",
+            "fecha": "2026-05-08"
+        },
+        {
+            "hora": "06:00",
             "nombre": "Msc Candice",
             "naviera": "MEDITERRANEAN SHIPPING CO",
             "terminal": "TERMINAL CATALUNYA SA",
@@ -419,6 +435,22 @@
             "fecha": "2026-05-08"
         },
         {
+            "hora": "20:00",
+            "nombre": "Msc Abigail F",
+            "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
+            "terminal": "TERMINAL CATALUNYA SA",
+            "terminal_codigo": "6212",
+            "eslora": 0,
+            "pax_estimados": 500,
+            "puerto": "Alger (Algiers)",
+            "tipo": "salida",
+            "estado": "Sol·licitada",
+            "bandera": "Libèria",
+            "imo": "9330226",
+            "mmsi": "636019292",
+            "fecha": "2026-05-08"
+        },
+        {
             "hora": "21:15",
             "nombre": "Abel Matutes",
             "naviera": "BALEARIA EUROLINEAS MARITIMAS SA ",
@@ -500,31 +532,31 @@
         }
     ],
     "resumen": {
-        "total_cruceros": 16,
-        "total_llegadas": 16,
-        "total_salidas": 15,
-        "pax_estimados_hoy": 26000,
-        "proximo_desembarco": "12:30",
-        "proximo_barco": "Costa Fascinosa"
+        "total_cruceros": 17,
+        "total_llegadas": 17,
+        "total_salidas": 16,
+        "pax_estimados_hoy": 26500,
+        "proximo_desembarco": "11:27",
+        "proximo_barco": "Minerva Tychi"
     },
     "terminales_activas": [
-        "6154",
-        "A",
-        "D",
         "8156",
         "F3",
-        "6995",
+        "H",
+        "D",
+        "A",
         "E",
         "F2",
-        "TC",
+        "6154",
+        "6995",
         "4455",
-        "H",
         "2396",
-        "6212"
+        "6212",
+        "TC"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-05-08T12:08:03.940428",
+        "actualizado": "2026-05-08T10:25:04.664804",
         "frecuencia": "horaria"
     }
 }
