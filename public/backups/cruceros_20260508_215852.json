@@ -113,6 +113,22 @@
             "fecha": "2026-05-08"
         },
         {
+            "hora": "06:00",
+            "nombre": "Msc Candice",
+            "naviera": "MEDITERRANEAN SHIPPING CO",
+            "terminal": "TERMINAL CATALUNYA SA",
+            "terminal_codigo": "6212",
+            "eslora": 337.0,
+            "pax_estimados": 4500,
+            "puerto": "Livorno",
+            "tipo": "llegada",
+            "estado": "Autoritzada",
+            "bandera": "Panamà",
+            "imo": "9339284",
+            "mmsi": "352871000",
+            "fecha": "2026-05-08"
+        },
+        {
             "hora": "06:27",
             "nombre": "Silver Ray",
             "naviera": "SILVERSEA CRUISES",
@@ -238,22 +254,6 @@
             "bandera": "Espanya",
             "imo": "9506289",
             "mmsi": "225416000",
-            "fecha": "2026-05-08"
-        },
-        {
-            "hora": "21:35",
-            "nombre": "Msc Candice",
-            "naviera": "MEDITERRANEAN SHIPPING CO",
-            "terminal": "TERMINAL CATALUNYA SA",
-            "terminal_codigo": "6212",
-            "eslora": 337.0,
-            "pax_estimados": 4500,
-            "puerto": "Livorno",
-            "tipo": "llegada",
-            "estado": "Iniciada",
-            "bandera": "Panamà",
-            "imo": "9339284",
-            "mmsi": "352871000",
             "fecha": "2026-05-08"
         }
     ],
@@ -508,7 +508,7 @@
             "pax_estimados": 4500,
             "puerto": "Valencia",
             "tipo": "salida",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Panamà",
             "imo": "9339284",
             "mmsi": "352871000",
@@ -524,23 +524,23 @@
         "proximo_barco": null
     },
     "terminales_activas": [
+        "TC",
+        "E",
+        "6154",
         "2396",
         "8156",
-        "H",
-        "A",
-        "F2",
-        "4455",
-        "F3",
-        "6154",
-        "6995",
-        "E",
         "6212",
+        "H",
         "D",
-        "TC"
+        "F2",
+        "F3",
+        "A",
+        "6995",
+        "4455"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-05-08T21:58:52.507116",
+        "actualizado": "2026-05-08T20:06:37.323327",
         "frecuencia": "horaria"
     }
 }
