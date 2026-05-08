@@ -90,7 +90,7 @@
             "pax_estimados": 1000,
             "puerto": "Oran",
             "tipo": "llegada",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Malta",
             "imo": "9167942",
             "mmsi": "249096000",
@@ -193,7 +193,7 @@
             "fecha": "2026-05-08"
         },
         {
-            "hora": "13:03",
+            "hora": "12:30",
             "nombre": "Costa Fascinosa",
             "naviera": "COSTA CROCIERE, S.P.A.",
             "terminal": "Terminal D (Adossat)",
@@ -202,7 +202,7 @@
             "pax_estimados": 500,
             "puerto": "Savona",
             "tipo": "llegada",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Itàlia",
             "imo": "9479864",
             "mmsi": "247313500",
@@ -284,7 +284,23 @@
             "pax_estimados": 1000,
             "puerto": "Oran",
             "tipo": "salida",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
+            "bandera": "Malta",
+            "imo": "9167942",
+            "mmsi": "249096000",
+            "fecha": "2026-05-08"
+        },
+        {
+            "hora": "04:59",
+            "nombre": "Merito",
+            "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
+            "terminal": "TERMINAL CATALUNYA SA",
+            "terminal_codigo": "6212",
+            "eslora": 150.0,
+            "pax_estimados": 1000,
+            "puerto": "Oran",
+            "tipo": "salida",
+            "estado": "Iniciada",
             "bandera": "Malta",
             "imo": "9167942",
             "mmsi": "249096000",
@@ -336,22 +352,6 @@
             "bandera": "Grècia",
             "imo": "9723291",
             "mmsi": "241372000",
-            "fecha": "2026-05-08"
-        },
-        {
-            "hora": "13:38",
-            "nombre": "Merito",
-            "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
-            "terminal": "TERMINAL CATALUNYA SA",
-            "terminal_codigo": "6212",
-            "eslora": 150.0,
-            "pax_estimados": 1000,
-            "puerto": "Oran",
-            "tipo": "salida",
-            "estado": "Finalitzada",
-            "bandera": "Malta",
-            "imo": "9167942",
-            "mmsi": "249096000",
             "fecha": "2026-05-08"
         },
         {
@@ -412,7 +412,7 @@
             "pax_estimados": 500,
             "puerto": "Marseille",
             "tipo": "salida",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Itàlia",
             "imo": "9479864",
             "mmsi": "247313500",
@@ -504,27 +504,27 @@
         "total_llegadas": 16,
         "total_salidas": 15,
         "pax_estimados_hoy": 26000,
-        "proximo_desembarco": "18:15",
-        "proximo_barco": "Ciudad De Palma"
+        "proximo_desembarco": "12:30",
+        "proximo_barco": "Costa Fascinosa"
     },
     "terminales_activas": [
-        "F3",
-        "4455",
         "6154",
-        "E",
         "A",
         "D",
         "8156",
-        "2396",
-        "H",
-        "TC",
+        "F3",
+        "6995",
+        "E",
         "F2",
-        "6212",
-        "6995"
+        "TC",
+        "4455",
+        "H",
+        "2396",
+        "6212"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-05-08T14:51:18.278054",
+        "actualizado": "2026-05-08T12:08:03.940428",
         "frecuencia": "horaria"
     }
 }
