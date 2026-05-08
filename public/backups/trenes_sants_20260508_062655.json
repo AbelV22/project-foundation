@@ -1,10 +1,22 @@
 {
     "trenes": [
         {
+            "hora": "07:15",
+            "origen": "Figueres-Vilafant",
+            "tren": "AVE 03662",
+            "via": "1"
+        },
+        {
+            "hora": "08:04",
+            "origen": "Figueres-Vilafant",
+            "tren": "EUROMED 01081",
+            "via": "2"
+        },
+        {
             "hora": "08:50",
             "origen": "Figueres-Vilafant",
             "tren": "AVE 03092",
-            "via": "4"
+            "via": "-"
         },
         {
             "hora": "09:25",
@@ -40,13 +52,13 @@
             "hora": "09:59",
             "origen": "Madrid Puerta de Atocha Almudena Grandes",
             "tren": "AVE 03071",
-            "via": "2"
+            "via": "-"
         },
         {
             "hora": "10:05",
             "origen": "Figueres-Vilafant",
             "tren": "EUROMED 01101",
-            "via": "4"
+            "via": "-"
         },
         {
             "hora": "10:24",
@@ -398,8 +410,8 @@
         }
     ],
     "meta": {
-        "update_time": "06:26",
-        "updated_at": "2026-05-08T06:26:55.221550",
-        "total": 66
+        "update_time": "04:47",
+        "updated_at": "2026-05-08T04:47:00.450387",
+        "total": 68
     }
 }
