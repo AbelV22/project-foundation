@@ -81,6 +81,22 @@
             "fecha": "2026-05-09"
         },
         {
+            "hora": "10:30",
+            "nombre": "Msc Tianjin",
+            "naviera": "MEDITERRANEAN SHIPPING CO",
+            "terminal": "TERMINAL CATALUNYA SA",
+            "terminal_codigo": "6212",
+            "eslora": 323.0,
+            "pax_estimados": 4500,
+            "puerto": "Valencia",
+            "tipo": "llegada",
+            "estado": "Autoritzada",
+            "bandera": "Libèria",
+            "imo": "9285471",
+            "mmsi": "636019332",
+            "fecha": "2026-05-09"
+        },
+        {
             "hora": "12:07",
             "nombre": "Msc Yuvika V",
             "naviera": "MEDITERRANEAN SHIPPING CO",
@@ -145,7 +161,7 @@
             "fecha": "2026-05-09"
         },
         {
-            "hora": "19:22",
+            "hora": "19:30",
             "nombre": "Ciudad De Palma",
             "naviera": "TRASMED GLE S.L.",
             "terminal": "TERMINAL F2",
@@ -154,26 +170,10 @@
             "pax_estimados": 1000,
             "puerto": "Palma de Mallorca",
             "tipo": "llegada",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Espanya",
             "imo": "9349772",
             "mmsi": "224588000",
-            "fecha": "2026-05-09"
-        },
-        {
-            "hora": "19:36",
-            "nombre": "Msc Tianjin",
-            "naviera": "MEDITERRANEAN SHIPPING CO",
-            "terminal": "TERMINAL CATALUNYA SA",
-            "terminal_codigo": "6212",
-            "eslora": 323.0,
-            "pax_estimados": 4500,
-            "puerto": "Valencia",
-            "tipo": "llegada",
-            "estado": "Iniciada",
-            "bandera": "Libèria",
-            "imo": "9285471",
-            "mmsi": "636019332",
             "fecha": "2026-05-09"
         },
         {
@@ -240,6 +240,22 @@
             "bandera": "Panamà",
             "imo": "9339284",
             "mmsi": "352871000",
+            "fecha": "2026-05-09"
+        },
+        {
+            "hora": "11:00",
+            "nombre": "Msc Tianjin",
+            "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
+            "terminal": "TERMINAL CATALUNYA SA",
+            "terminal_codigo": "6212",
+            "eslora": 323.0,
+            "pax_estimados": 4500,
+            "puerto": "Sines",
+            "tipo": "salida",
+            "estado": "Autoritzada",
+            "bandera": "Libèria",
+            "imo": "9285471",
+            "mmsi": "636019332",
             "fecha": "2026-05-09"
         },
         {
@@ -369,22 +385,6 @@
             "imo": "9720287",
             "mmsi": "255806521",
             "fecha": "2026-05-09"
-        },
-        {
-            "hora": "19:38",
-            "nombre": "Msc Tianjin",
-            "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
-            "terminal": "TERMINAL CATALUNYA SA",
-            "terminal_codigo": "6212",
-            "eslora": 323.0,
-            "pax_estimados": 4500,
-            "puerto": "Sines",
-            "tipo": "salida",
-            "estado": "Iniciada",
-            "bandera": "Libèria",
-            "imo": "9285471",
-            "mmsi": "636019332",
-            "fecha": "2026-05-09"
         }
     ],
     "resumen": {
@@ -392,24 +392,24 @@
         "total_llegadas": 13,
         "total_salidas": 11,
         "pax_estimados_hoy": 22000,
-        "proximo_desembarco": "20:00",
-        "proximo_barco": "Polaris Princess"
+        "proximo_desembarco": "18:42",
+        "proximo_barco": "Abel Matutes"
     },
     "terminales_activas": [
-        "6995",
-        "F3",
-        "6212",
-        "F2",
-        "TC",
-        "8156",
+        "2396",
         "H",
-        "6154",
+        "6212",
+        "TC",
         "C",
-        "2396"
+        "F2",
+        "F3",
+        "6154",
+        "8156",
+        "6995"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-05-09T19:57:21.642963",
+        "actualizado": "2026-05-09T17:51:32.818002",
         "frecuencia": "horaria"
     }
 }
