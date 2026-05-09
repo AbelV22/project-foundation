@@ -42,7 +42,7 @@
             "pax_estimados": 3000,
             "puerto": "Palma de Mallorca",
             "tipo": "llegada",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Bahames",
             "imo": "9805336",
             "mmsi": "311000983",
@@ -74,7 +74,7 @@
             "pax_estimados": 4500,
             "puerto": "Palma de Mallorca",
             "tipo": "llegada",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Malta",
             "imo": "9803613",
             "mmsi": "215325000",
@@ -145,7 +145,7 @@
             "fecha": "2026-05-09"
         },
         {
-            "hora": "18:42",
+            "hora": "18:45",
             "nombre": "Abel Matutes",
             "naviera": "EUROLINEAS MARITIMAS S.A",
             "terminal": "LEPANT/TRUCK CENTER",
@@ -154,7 +154,7 @@
             "pax_estimados": 1000,
             "puerto": "Alcudia",
             "tipo": "llegada",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Espanya",
             "imo": "9441130",
             "mmsi": "224402000",
@@ -339,38 +339,6 @@
             "fecha": "2026-05-09"
         },
         {
-            "hora": "17:19",
-            "nombre": "Msc Grandiosa",
-            "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
-            "terminal": "ADOSSAT/TERMINAL H",
-            "terminal_codigo": "H",
-            "eslora": 331.0,
-            "pax_estimados": 4500,
-            "puerto": "Cannes",
-            "tipo": "salida",
-            "estado": "Finalitzada",
-            "bandera": "Malta",
-            "imo": "9803613",
-            "mmsi": "215325000",
-            "fecha": "2026-05-09"
-        },
-        {
-            "hora": "17:37",
-            "nombre": "Valiant Lady",
-            "naviera": "CREUERS DEL PORT DE BARCELONA SA",
-            "terminal": "Terminal C (Sant Bertran)",
-            "terminal_codigo": "C",
-            "eslora": 277.0,
-            "pax_estimados": 3000,
-            "puerto": "Palermo",
-            "tipo": "salida",
-            "estado": "Finalitzada",
-            "bandera": "Bahames",
-            "imo": "9805336",
-            "mmsi": "311000983",
-            "fecha": "2026-05-09"
-        },
-        {
             "hora": "18:00",
             "nombre": "Msc Maxine",
             "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
@@ -385,6 +353,38 @@
             "imo": "9720287",
             "mmsi": "255806521",
             "fecha": "2026-05-09"
+        },
+        {
+            "hora": "18:00",
+            "nombre": "Valiant Lady",
+            "naviera": "CREUERS DEL PORT DE BARCELONA SA",
+            "terminal": "Terminal C (Sant Bertran)",
+            "terminal_codigo": "C",
+            "eslora": 277.0,
+            "pax_estimados": 3000,
+            "puerto": "Palermo",
+            "tipo": "salida",
+            "estado": "Iniciada",
+            "bandera": "Bahames",
+            "imo": "9805336",
+            "mmsi": "311000983",
+            "fecha": "2026-05-09"
+        },
+        {
+            "hora": "18:00",
+            "nombre": "Msc Grandiosa",
+            "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
+            "terminal": "ADOSSAT/TERMINAL H",
+            "terminal_codigo": "H",
+            "eslora": 331.0,
+            "pax_estimados": 4500,
+            "puerto": "Cannes",
+            "tipo": "salida",
+            "estado": "Iniciada",
+            "bandera": "Malta",
+            "imo": "9803613",
+            "mmsi": "215325000",
+            "fecha": "2026-05-09"
         }
     ],
     "resumen": {
@@ -392,24 +392,24 @@
         "total_llegadas": 13,
         "total_salidas": 11,
         "pax_estimados_hoy": 22000,
-        "proximo_desembarco": "18:42",
+        "proximo_desembarco": "18:45",
         "proximo_barco": "Abel Matutes"
     },
     "terminales_activas": [
-        "2396",
-        "H",
-        "6212",
-        "TC",
         "C",
-        "F2",
-        "F3",
         "6154",
+        "F3",
+        "H",
+        "2396",
+        "6995",
+        "6212",
         "8156",
-        "6995"
+        "TC",
+        "F2"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-05-09T17:51:32.818002",
+        "actualizado": "2026-05-09T15:52:58.366663",
         "frecuencia": "horaria"
     }
 }
