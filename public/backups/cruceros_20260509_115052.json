@@ -97,22 +97,6 @@
             "fecha": "2026-05-09"
         },
         {
-            "hora": "12:07",
-            "nombre": "Msc Yuvika V",
-            "naviera": "MEDITERRANEAN SHIPPING CO",
-            "terminal": "TERMINAL CATALUNYA SA",
-            "terminal_codigo": "6212",
-            "eslora": 0,
-            "pax_estimados": 500,
-            "puerto": "La Spezia",
-            "tipo": "llegada",
-            "estado": "Iniciada",
-            "bandera": "Libèria",
-            "imo": "9141285",
-            "mmsi": "636022022",
-            "fecha": "2026-05-09"
-        },
-        {
             "hora": "15:15",
             "nombre": "Msc Claire",
             "naviera": "MEDITERRANEAN SHIPPING CO",
@@ -208,22 +192,6 @@
             "bandera": "Illes Marshall",
             "imo": "9301952",
             "mmsi": "538002947",
-            "fecha": "2026-05-09"
-        },
-        {
-            "hora": "10:48",
-            "nombre": "Msc Candice",
-            "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
-            "terminal": "TERMINAL CATALUNYA SA",
-            "terminal_codigo": "6212",
-            "eslora": 337.0,
-            "pax_estimados": 4500,
-            "puerto": "Valencia",
-            "tipo": "salida",
-            "estado": "Finalitzada",
-            "bandera": "Panamà",
-            "imo": "9339284",
-            "mmsi": "352871000",
             "fecha": "2026-05-09"
         },
         {
@@ -356,28 +324,28 @@
         }
     ],
     "resumen": {
-        "total_cruceros": 15,
-        "total_llegadas": 12,
-        "total_salidas": 10,
-        "pax_estimados_hoy": 21500,
-        "proximo_desembarco": "12:07",
-        "proximo_barco": "Msc Yuvika V"
+        "total_cruceros": 13,
+        "total_llegadas": 11,
+        "total_salidas": 9,
+        "pax_estimados_hoy": 21000,
+        "proximo_desembarco": "10:30",
+        "proximo_barco": "Msc Tianjin"
     },
     "terminales_activas": [
-        "F2",
-        "TC",
-        "8156",
         "C",
-        "F3",
-        "2396",
+        "8156",
         "H",
-        "6995",
+        "F3",
         "6212",
-        "6154"
+        "TC",
+        "F2",
+        "6154",
+        "6995",
+        "2396"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-05-09T11:50:52.202854",
+        "actualizado": "2026-05-09T10:05:02.984556",
         "frecuencia": "horaria"
     }
 }
