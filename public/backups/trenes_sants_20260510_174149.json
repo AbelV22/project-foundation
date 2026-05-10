@@ -49,6 +49,12 @@
             "via": "-"
         },
         {
+            "hora": "09:59",
+            "origen": "Madrid Puerta de Atocha Almudena Grandes",
+            "tren": "AVE 03071",
+            "via": "-"
+        },
+        {
             "hora": "10:05",
             "origen": "Figueres-Vilafant",
             "tren": "EUROMED 01101",
@@ -206,12 +212,6 @@
         },
         {
             "hora": "17:59",
-            "origen": "Figueres-Vilafant",
-            "tren": "EUROMED 01181",
-            "via": "-"
-        },
-        {
-            "hora": "17:59",
             "origen": "Madrid Puerta de Atocha Almudena Grandes",
             "tren": "AVE 03151",
             "via": "-"
@@ -244,7 +244,7 @@
             "hora": "18:59",
             "origen": "Madrid Puerta de Atocha Almudena Grandes",
             "tren": "AVE 03161",
-            "via": "-"
+            "via": "3"
         },
         {
             "hora": "19:00",
@@ -256,7 +256,7 @@
             "hora": "19:14",
             "origen": "Madrid Puerta de Atocha Almudena Grandes",
             "tren": "AVE 03153",
-            "via": "-"
+            "via": "5"
         },
         {
             "hora": "19:24",
@@ -340,7 +340,7 @@
             "hora": "21:35",
             "origen": "Madrid Puerta de Atocha Almudena Grandes",
             "tren": "IRYO 06181",
-            "via": "3"
+            "via": "-"
         },
         {
             "hora": "21:40",
@@ -364,13 +364,13 @@
             "hora": "21:59",
             "origen": "Madrid Puerta de Atocha Almudena Grandes",
             "tren": "AVE 03191",
-            "via": "5"
+            "via": "-"
         },
         {
             "hora": "22:04",
             "origen": "Alacant / Alicante Terminal",
             "tren": "EUROMED 01192",
-            "via": "4"
+            "via": "-"
         },
         {
             "hora": "22:13",
@@ -422,8 +422,8 @@
         }
     ],
     "meta": {
-        "update_time": "17:41",
-        "updated_at": "2026-05-10T17:41:49.198072",
+        "update_time": "16:40",
+        "updated_at": "2026-05-10T16:40:37.352022",
         "total": 70
     }
 }
