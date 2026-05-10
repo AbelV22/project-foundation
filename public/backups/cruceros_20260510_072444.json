@@ -1,6 +1,22 @@
 {
     "llegadas": [
         {
+            "hora": "05:30",
+            "nombre": "Norwegian Dawn",
+            "naviera": "NORWEGIAN CRUISE LINE",
+            "terminal": "Terminal A (WTC)",
+            "terminal_codigo": "A",
+            "eslora": 294.0,
+            "pax_estimados": 3000,
+            "puerto": "Palma de Mallorca",
+            "tipo": "llegada",
+            "estado": "Autoritzada",
+            "bandera": "Bahames",
+            "imo": "9195169",
+            "mmsi": "311307000",
+            "fecha": "2026-05-10"
+        },
+        {
             "hora": "06:00",
             "nombre": "Msc Cadiz",
             "naviera": "MEDITERRANEAN SHIPPING CO",
@@ -49,23 +65,7 @@
             "fecha": "2026-05-10"
         },
         {
-            "hora": "06:32",
-            "nombre": "Norwegian Dawn",
-            "naviera": "NORWEGIAN CRUISE LINE",
-            "terminal": "Terminal A (WTC)",
-            "terminal_codigo": "A",
-            "eslora": 294.0,
-            "pax_estimados": 3000,
-            "puerto": "Palma de Mallorca",
-            "tipo": "llegada",
-            "estado": "Iniciada",
-            "bandera": "Bahames",
-            "imo": "9195169",
-            "mmsi": "311307000",
-            "fecha": "2026-05-10"
-        },
-        {
-            "hora": "06:50",
+            "hora": "06:00",
             "nombre": "Gnv Cristal",
             "naviera": "GRANDI NAVI VELOCI",
             "terminal": "TERMINAL F2",
@@ -74,14 +74,14 @@
             "pax_estimados": 1000,
             "puerto": "Sete",
             "tipo": "llegada",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Itàlia",
             "imo": "8712518",
             "mmsi": "247163900",
             "fecha": "2026-05-10"
         },
         {
-            "hora": "07:22",
+            "hora": "06:48",
             "nombre": "Costa Toscana",
             "naviera": "COSTA CROCIERE, S.P.A.",
             "terminal": "Terminal E (Adossat)",
@@ -90,14 +90,14 @@
             "pax_estimados": 4500,
             "puerto": "Marseille",
             "tipo": "llegada",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Itàlia",
             "imo": "9781891",
             "mmsi": "247431200",
             "fecha": "2026-05-10"
         },
         {
-            "hora": "07:41",
+            "hora": "07:00",
             "nombre": "Msc Splendida",
             "naviera": "MSC CRUISES S.A.",
             "terminal": "ADOSSAT/TERMINAL H",
@@ -106,7 +106,7 @@
             "pax_estimados": 4500,
             "puerto": "Malta (Valetta)",
             "tipo": "llegada",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Panamà",
             "imo": "9359806",
             "mmsi": "357698000",
@@ -147,23 +147,7 @@
     ],
     "salidas": [
         {
-            "hora": "00:54",
-            "nombre": "Monte Rosa",
-            "naviera": "A PEREZ Y CIA SL",
-            "terminal": "MEROIL SA",
-            "terminal_codigo": "6995",
-            "eslora": 228.0,
-            "pax_estimados": 2000,
-            "puerto": "Fos-sur-Mer",
-            "tipo": "salida",
-            "estado": "Finalitzada",
-            "bandera": "Illes Marshall",
-            "imo": "9301952",
-            "mmsi": "538002947",
-            "fecha": "2026-05-10"
-        },
-        {
-            "hora": "01:37",
+            "hora": "01:30",
             "nombre": "Cruise Roma",
             "naviera": "GRIMALDI LOGISTICA ESPAÑA SL",
             "terminal": "TERMINAL F3",
@@ -172,7 +156,7 @@
             "pax_estimados": 3000,
             "puerto": "Civitavecchia",
             "tipo": "salida",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Itàlia",
             "imo": "9351476",
             "mmsi": "247219400",
@@ -188,7 +172,7 @@
             "pax_estimados": 1000,
             "puerto": "Nador",
             "tipo": "salida",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Itàlia",
             "imo": "8712518",
             "mmsi": "247163900",
@@ -220,7 +204,7 @@
             "pax_estimados": 3000,
             "puerto": "Palma de Mallorca",
             "tipo": "salida",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Bahames",
             "imo": "9195169",
             "mmsi": "311307000",
@@ -236,7 +220,7 @@
             "pax_estimados": 4500,
             "puerto": "Marseille",
             "tipo": "salida",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Panamà",
             "imo": "9359806",
             "mmsi": "357698000",
@@ -252,7 +236,7 @@
             "pax_estimados": 4500,
             "puerto": "Cagliari",
             "tipo": "salida",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Itàlia",
             "imo": "9781891",
             "mmsi": "247431200",
@@ -356,27 +340,26 @@
         }
     ],
     "resumen": {
-        "total_cruceros": 15,
+        "total_cruceros": 14,
         "total_llegadas": 9,
-        "total_salidas": 13,
+        "total_salidas": 12,
         "pax_estimados_hoy": 18000,
-        "proximo_desembarco": "07:41",
-        "proximo_barco": "Msc Splendida"
+        "proximo_desembarco": null,
+        "proximo_barco": null
     },
     "terminales_activas": [
-        "6995",
-        "F3",
         "A",
-        "8156",
         "H",
-        "E",
+        "F3",
         "F2",
+        "E",
         "6212",
+        "8156",
         "TC"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-05-10T07:24:44.994825",
+        "actualizado": "2026-05-09T23:50:32.474953",
         "frecuencia": "horaria"
     }
 }
