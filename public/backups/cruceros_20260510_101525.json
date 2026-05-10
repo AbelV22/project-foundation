@@ -129,22 +129,6 @@
             "fecha": "2026-05-10"
         },
         {
-            "hora": "09:57",
-            "nombre": "Polaris Princess",
-            "naviera": "Silissa Shipping Ltd",
-            "terminal": "AUTOTERMINAL SA",
-            "terminal_codigo": "6154",
-            "eslora": 117.0,
-            "pax_estimados": 500,
-            "puerto": "Toulon",
-            "tipo": "llegada",
-            "estado": "Iniciada",
-            "bandera": "Illes Marshall",
-            "imo": "9136967",
-            "mmsi": "538009732",
-            "fecha": "2026-05-10"
-        },
-        {
             "hora": "18:15",
             "nombre": "Msc Eliana",
             "naviera": "MEDITERRANEAN SHIPPING CO",
@@ -192,22 +176,6 @@
             "bandera": "Itàlia",
             "imo": "9351476",
             "mmsi": "247219400",
-            "fecha": "2026-05-10"
-        },
-        {
-            "hora": "08:59",
-            "nombre": "Msc Tianjin",
-            "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
-            "terminal": "TERMINAL CATALUNYA SA",
-            "terminal_codigo": "6212",
-            "eslora": 323.0,
-            "pax_estimados": 4500,
-            "puerto": "Sines",
-            "tipo": "salida",
-            "estado": "Finalitzada",
-            "bandera": "Libèria",
-            "imo": "9285471",
-            "mmsi": "636019332",
             "fecha": "2026-05-10"
         },
         {
@@ -388,28 +356,27 @@
         }
     ],
     "resumen": {
-        "total_cruceros": 17,
-        "total_llegadas": 10,
-        "total_salidas": 14,
-        "pax_estimados_hoy": 18500,
-        "proximo_desembarco": "18:15",
-        "proximo_barco": "Msc Eliana"
+        "total_cruceros": 15,
+        "total_llegadas": 9,
+        "total_salidas": 13,
+        "pax_estimados_hoy": 18000,
+        "proximo_desembarco": "07:41",
+        "proximo_barco": "Msc Splendida"
     },
     "terminales_activas": [
-        "6154",
         "6995",
-        "TC",
-        "F2",
-        "E",
-        "H",
-        "6212",
         "F3",
+        "A",
         "8156",
-        "A"
+        "H",
+        "E",
+        "F2",
+        "6212",
+        "TC"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-05-10T10:15:25.506764",
+        "actualizado": "2026-05-10T07:24:44.994825",
         "frecuencia": "horaria"
     }
 }
