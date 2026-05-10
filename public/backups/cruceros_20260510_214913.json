@@ -175,22 +175,6 @@
             "imo": "1013171",
             "mmsi": "636025512",
             "fecha": "2026-05-10"
-        },
-        {
-            "hora": "21:01",
-            "nombre": "Msc Jiani",
-            "naviera": "MEDITERRANEAN SHIPPING CO",
-            "terminal": "",
-            "terminal_codigo": "",
-            "eslora": 172.0,
-            "pax_estimados": 1000,
-            "puerto": "Bejaia (ex Bougie)",
-            "tipo": "llegada",
-            "estado": "Iniciada",
-            "bandera": "Libèria",
-            "imo": "9966934",
-            "mmsi": "636023100",
-            "fecha": "2026-05-10"
         }
     ],
     "salidas": [
@@ -419,7 +403,7 @@
             "fecha": "2026-05-10"
         },
         {
-            "hora": "21:28",
+            "hora": "21:15",
             "nombre": "Abel Matutes",
             "naviera": "BALEARIA EUROLINEAS MARITIMAS SA ",
             "terminal": "LEPANT/TRUCK CENTER",
@@ -428,14 +412,14 @@
             "pax_estimados": 1000,
             "puerto": "Alcudia",
             "tipo": "salida",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Espanya",
             "imo": "9441130",
             "mmsi": "224402000",
             "fecha": "2026-05-10"
         },
         {
-            "hora": "22:34",
+            "hora": "22:30",
             "nombre": "Ciudad De Palma",
             "naviera": "GRIMALDI LOGISTICA ESPAÑA SL",
             "terminal": "TERMINAL F2",
@@ -444,7 +428,7 @@
             "pax_estimados": 1000,
             "puerto": "Palma de Mallorca",
             "tipo": "salida",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Espanya",
             "imo": "9349772",
             "mmsi": "224588000",
@@ -452,28 +436,28 @@
         }
     ],
     "resumen": {
-        "total_cruceros": 20,
-        "total_llegadas": 12,
+        "total_cruceros": 19,
+        "total_llegadas": 11,
         "total_salidas": 16,
-        "pax_estimados_hoy": 20000,
+        "pax_estimados_hoy": 19000,
         "proximo_desembarco": null,
         "proximo_barco": null
     },
     "terminales_activas": [
-        "6995",
-        "E",
-        "6212",
-        "8156",
-        "F3",
-        "TC",
         "F2",
-        "6154",
+        "H",
+        "8156",
         "A",
-        "H"
+        "6154",
+        "F3",
+        "6212",
+        "E",
+        "6995",
+        "TC"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-05-10T21:49:13.559897",
+        "actualizado": "2026-05-10T19:58:33.271259",
         "frecuencia": "horaria"
     }
 }
