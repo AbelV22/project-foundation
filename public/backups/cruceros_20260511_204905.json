@@ -145,6 +145,22 @@
             "fecha": "2026-05-11"
         },
         {
+            "hora": "12:00",
+            "nombre": "Msc Potomac F",
+            "naviera": "MEDITERRANEAN SHIPPING CO",
+            "terminal": "TERMINAL CATALUNYA SA",
+            "terminal_codigo": "6212",
+            "eslora": 149.0,
+            "pax_estimados": 500,
+            "puerto": "Fos-sur-Mer",
+            "tipo": "llegada",
+            "estado": "Iniciada",
+            "bandera": "Libèria",
+            "imo": "9236274",
+            "mmsi": "636020662",
+            "fecha": "2026-05-11"
+        },
+        {
             "hora": "17:45",
             "nombre": "Msc Chiquita Iii",
             "naviera": "MEDITERRANEAN SHIPPING CO",
@@ -191,22 +207,6 @@
             "imo": "9349772",
             "mmsi": "224588000",
             "fecha": "2026-05-11"
-        },
-        {
-            "hora": "20:50",
-            "nombre": "Msc Potomac F",
-            "naviera": "MEDITERRANEAN SHIPPING CO",
-            "terminal": "TERMINAL CATALUNYA SA",
-            "terminal_codigo": "6212",
-            "eslora": 149.0,
-            "pax_estimados": 500,
-            "puerto": "Fos-sur-Mer",
-            "tipo": "llegada",
-            "estado": "Iniciada",
-            "bandera": "Libèria",
-            "imo": "9236274",
-            "mmsi": "636020662",
-            "fecha": "2026-05-11"
         }
     ],
     "salidas": [
@@ -243,6 +243,22 @@
             "fecha": "2026-05-11"
         },
         {
+            "hora": "11:59",
+            "nombre": "Msc Potomac F",
+            "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
+            "terminal": "",
+            "terminal_codigo": "",
+            "eslora": 149.0,
+            "pax_estimados": 500,
+            "puerto": "Alger (Algiers)",
+            "tipo": "salida",
+            "estado": "Iniciada",
+            "bandera": "Libèria",
+            "imo": "9236274",
+            "mmsi": "636020662",
+            "fecha": "2026-05-11"
+        },
+        {
             "hora": "13:41",
             "nombre": "Eco Valencia",
             "naviera": "GRIMALDI LOGISTICA ESPAÑA SL",
@@ -256,6 +272,22 @@
             "bandera": "Itàlia",
             "imo": "9859533",
             "mmsi": "247383300",
+            "fecha": "2026-05-11"
+        },
+        {
+            "hora": "14:00",
+            "nombre": "Polaris Princess",
+            "naviera": "VAPORES SUARDIAZ MEDITERRANEO SA",
+            "terminal": "AUTOTERMINAL SA",
+            "terminal_codigo": "6154",
+            "eslora": 117.0,
+            "pax_estimados": 500,
+            "puerto": "Palma de Mallorca",
+            "tipo": "salida",
+            "estado": "Iniciada",
+            "bandera": "Illes Marshall",
+            "imo": "9136967",
+            "mmsi": "538009732",
             "fecha": "2026-05-11"
         },
         {
@@ -323,38 +355,6 @@
             "fecha": "2026-05-11"
         },
         {
-            "hora": "20:49",
-            "nombre": "Msc Potomac F",
-            "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
-            "terminal": "",
-            "terminal_codigo": "",
-            "eslora": 149.0,
-            "pax_estimados": 500,
-            "puerto": "Alger (Algiers)",
-            "tipo": "salida",
-            "estado": "Iniciada",
-            "bandera": "Libèria",
-            "imo": "9236274",
-            "mmsi": "636020662",
-            "fecha": "2026-05-11"
-        },
-        {
-            "hora": "20:54",
-            "nombre": "Msc Claire",
-            "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
-            "terminal": "TERMINAL CATALUNYA SA",
-            "terminal_codigo": "6212",
-            "eslora": 0,
-            "pax_estimados": 500,
-            "puerto": "Valencia",
-            "tipo": "salida",
-            "estado": "Finalitzada",
-            "bandera": "Libèria",
-            "imo": "9946740",
-            "mmsi": "636025864",
-            "fecha": "2026-05-11"
-        },
-        {
             "hora": "21:15",
             "nombre": "Abel Matutes",
             "naviera": "BALEARIA EUROLINEAS MARITIMAS SA ",
@@ -368,22 +368,6 @@
             "bandera": "Espanya",
             "imo": "9441130",
             "mmsi": "224402000",
-            "fecha": "2026-05-11"
-        },
-        {
-            "hora": "21:17",
-            "nombre": "Polaris Princess",
-            "naviera": "VAPORES SUARDIAZ MEDITERRANEO SA",
-            "terminal": "AUTOTERMINAL SA",
-            "terminal_codigo": "6154",
-            "eslora": 117.0,
-            "pax_estimados": 500,
-            "puerto": "Palma de Mallorca",
-            "tipo": "salida",
-            "estado": "Finalitzada",
-            "bandera": "Illes Marshall",
-            "imo": "9136967",
-            "mmsi": "538009732",
             "fecha": "2026-05-11"
         },
         {
@@ -436,27 +420,27 @@
         }
     ],
     "resumen": {
-        "total_cruceros": 16,
+        "total_cruceros": 15,
         "total_llegadas": 13,
-        "total_salidas": 14,
+        "total_salidas": 13,
         "pax_estimados_hoy": 16500,
-        "proximo_desembarco": "20:50",
-        "proximo_barco": "Msc Potomac F"
+        "proximo_desembarco": null,
+        "proximo_barco": null
     },
     "terminales_activas": [
+        "B",
+        "6212",
         "E",
-        "A",
+        "6154",
         "F3",
         "8156",
         "F2",
-        "6212",
-        "F1",
-        "6154",
-        "B"
+        "A",
+        "F1"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-05-11T20:49:05.414194",
+        "actualizado": "2026-05-11T18:58:05.123535",
         "frecuencia": "horaria"
     }
 }
