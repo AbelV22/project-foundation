@@ -161,6 +161,22 @@
             "fecha": "2026-05-11"
         },
         {
+            "hora": "11:58",
+            "nombre": "Msc Potomac F",
+            "naviera": "MEDITERRANEAN SHIPPING CO",
+            "terminal": "",
+            "terminal_codigo": "",
+            "eslora": 149.0,
+            "pax_estimados": 500,
+            "puerto": "Fos-sur-Mer",
+            "tipo": "llegada",
+            "estado": "Autoritzada",
+            "bandera": "Libèria",
+            "imo": "9236274",
+            "mmsi": "636020662",
+            "fecha": "2026-05-11"
+        },
+        {
             "hora": "12:00",
             "nombre": "Msc Potomac F",
             "naviera": "MEDITERRANEAN SHIPPING CO",
@@ -170,7 +186,7 @@
             "pax_estimados": 500,
             "puerto": "Fos-sur-Mer",
             "tipo": "llegada",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Libèria",
             "imo": "9236274",
             "mmsi": "636020662",
@@ -268,7 +284,7 @@
             "pax_estimados": 500,
             "puerto": "Alger (Algiers)",
             "tipo": "salida",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Libèria",
             "imo": "9236274",
             "mmsi": "636020662",
@@ -453,26 +469,26 @@
     ],
     "resumen": {
         "total_cruceros": 16,
-        "total_llegadas": 14,
+        "total_llegadas": 15,
         "total_salidas": 14,
-        "pax_estimados_hoy": 19500,
-        "proximo_desembarco": "17:45",
-        "proximo_barco": "Msc Chiquita Iii"
+        "pax_estimados_hoy": 20000,
+        "proximo_desembarco": "08:28",
+        "proximo_barco": "Eco Valencia"
     },
     "terminales_activas": [
-        "F1",
-        "B",
-        "6212",
-        "6154",
-        "F3",
-        "8156",
-        "F2",
         "E",
-        "A"
+        "6212",
+        "F1",
+        "8156",
+        "B",
+        "6154",
+        "F2",
+        "A",
+        "F3"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-05-11T12:10:45.252954",
+        "actualizado": "2026-05-11T08:23:50.380636",
         "frecuencia": "horaria"
     }
 }
