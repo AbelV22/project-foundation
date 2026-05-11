@@ -10,7 +10,7 @@
             "pax_estimados": 500,
             "puerto": "Porto Torres",
             "tipo": "llegada",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Itàlia",
             "imo": "9351488",
             "mmsi": "247243600",
@@ -170,7 +170,7 @@
             "pax_estimados": 1000,
             "puerto": "Alcudia",
             "tipo": "llegada",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Espanya",
             "imo": "9441130",
             "mmsi": "224402000",
@@ -355,6 +355,22 @@
             "fecha": "2026-05-11"
         },
         {
+            "hora": "21:15",
+            "nombre": "Abel Matutes",
+            "naviera": "BALEARIA EUROLINEAS MARITIMAS SA ",
+            "terminal": "TERMINAL F1",
+            "terminal_codigo": "F1",
+            "eslora": 190.0,
+            "pax_estimados": 1000,
+            "puerto": "Alcudia",
+            "tipo": "salida",
+            "estado": "Iniciada",
+            "bandera": "Espanya",
+            "imo": "9441130",
+            "mmsi": "224402000",
+            "fecha": "2026-05-11"
+        },
+        {
             "hora": "21:17",
             "nombre": "Polaris Princess",
             "naviera": "VAPORES SUARDIAZ MEDITERRANEO SA",
@@ -371,23 +387,7 @@
             "fecha": "2026-05-11"
         },
         {
-            "hora": "21:41",
-            "nombre": "Abel Matutes",
-            "naviera": "BALEARIA EUROLINEAS MARITIMAS SA ",
-            "terminal": "TERMINAL F1",
-            "terminal_codigo": "F1",
-            "eslora": 190.0,
-            "pax_estimados": 1000,
-            "puerto": "Alcudia",
-            "tipo": "salida",
-            "estado": "Finalitzada",
-            "bandera": "Espanya",
-            "imo": "9441130",
-            "mmsi": "224402000",
-            "fecha": "2026-05-11"
-        },
-        {
-            "hora": "22:03",
+            "hora": "21:30",
             "nombre": "Cruise Barcelona",
             "naviera": "GRIMALDI LOGISTICA ESPAÑA SL",
             "terminal": "TERMINAL F3",
@@ -396,7 +396,7 @@
             "pax_estimados": 500,
             "puerto": "Porto Torres",
             "tipo": "salida",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Itàlia",
             "imo": "9351488",
             "mmsi": "247243600",
@@ -440,23 +440,23 @@
         "total_llegadas": 13,
         "total_salidas": 14,
         "pax_estimados_hoy": 16500,
-        "proximo_desembarco": null,
-        "proximo_barco": null
+        "proximo_desembarco": "20:50",
+        "proximo_barco": "Msc Potomac F"
     },
     "terminales_activas": [
-        "A",
-        "F2",
-        "F1",
-        "6212",
-        "6154",
         "E",
-        "B",
+        "A",
+        "F3",
         "8156",
-        "F3"
+        "F2",
+        "6212",
+        "F1",
+        "6154",
+        "B"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-05-11T22:07:39.906712",
+        "actualizado": "2026-05-11T20:49:05.414194",
         "frecuencia": "horaria"
     }
 }
