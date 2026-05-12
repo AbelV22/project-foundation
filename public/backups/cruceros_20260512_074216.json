@@ -49,7 +49,7 @@
             "fecha": "2026-05-12"
         },
         {
-            "hora": "06:56",
+            "hora": "06:18",
             "nombre": "Costa Fascinosa",
             "naviera": "COSTA CROCIERE, S.P.A.",
             "terminal": "Terminal E (Adossat)",
@@ -58,14 +58,14 @@
             "pax_estimados": 500,
             "puerto": "Savona",
             "tipo": "llegada",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Itàlia",
             "imo": "9479864",
             "mmsi": "247313500",
             "fecha": "2026-05-12"
         },
         {
-            "hora": "07:35",
+            "hora": "07:00",
             "nombre": "Eco Savona",
             "naviera": "GRIMALDI EUROMED SPA",
             "terminal": "GRIMALDI TERMINAL BARCELONA SL",
@@ -74,14 +74,14 @@
             "pax_estimados": 2000,
             "puerto": "Valencia",
             "tipo": "llegada",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Itàlia",
             "imo": "9859569",
             "mmsi": "247383600",
             "fecha": "2026-05-12"
         },
         {
-            "hora": "07:37",
+            "hora": "07:00",
             "nombre": "Msc Meraviglia",
             "naviera": "MSC CRUISES S.A.",
             "terminal": "ADOSSAT/TERMINAL H",
@@ -90,7 +90,7 @@
             "pax_estimados": 500,
             "puerto": "Marseille",
             "tipo": "llegada",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Malta",
             "imo": "9760512",
             "mmsi": "249973000",
@@ -268,7 +268,7 @@
             "pax_estimados": 2000,
             "puerto": "Livorno",
             "tipo": "salida",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Itàlia",
             "imo": "9859569",
             "mmsi": "247383600",
@@ -300,7 +300,7 @@
             "pax_estimados": 500,
             "puerto": "Marseille",
             "tipo": "salida",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Itàlia",
             "imo": "9479864",
             "mmsi": "247313500",
@@ -316,7 +316,7 @@
             "pax_estimados": 500,
             "puerto": "La Goulette Nord (Halqueloued)",
             "tipo": "salida",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Malta",
             "imo": "9760512",
             "mmsi": "249973000",
@@ -424,21 +424,21 @@
         "total_llegadas": 13,
         "total_salidas": 13,
         "pax_estimados_hoy": 19000,
-        "proximo_desembarco": "12:00",
-        "proximo_barco": "Msc Everest Viii"
+        "proximo_desembarco": null,
+        "proximo_barco": null
     },
     "terminales_activas": [
-        "8156",
-        "H",
-        "6212",
-        "F1",
         "F2",
+        "H",
+        "F1",
+        "F3",
         "E",
-        "F3"
+        "8156",
+        "6212"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-05-12T07:42:16.592364",
+        "actualizado": "2026-05-11T23:58:31.470687",
         "frecuencia": "horaria"
     }
 }
