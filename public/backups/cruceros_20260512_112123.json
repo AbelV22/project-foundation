@@ -18,6 +18,22 @@
         },
         {
             "hora": "06:00",
+            "nombre": "Msc Mariella",
+            "naviera": "MEDITERRANEAN SHIPPING CO",
+            "terminal": "TERMINAL CATALUNYA SA",
+            "terminal_codigo": "6212",
+            "eslora": 0,
+            "pax_estimados": 500,
+            "puerto": "Valencia",
+            "tipo": "llegada",
+            "estado": "Sol·licitada",
+            "bandera": "Libèria",
+            "imo": "9934747",
+            "mmsi": "636022920",
+            "fecha": "2026-05-12"
+        },
+        {
+            "hora": "06:00",
             "nombre": "Msc Levante F",
             "naviera": "MEDITERRANEAN SHIPPING CO",
             "terminal": "TERMINAL CATALUNYA SA",
@@ -195,6 +211,22 @@
     ],
     "salidas": [
         {
+            "hora": "03:15",
+            "nombre": "Msc Eliana",
+            "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
+            "terminal": "TERMINAL CATALUNYA SA",
+            "terminal_codigo": "6212",
+            "eslora": 0,
+            "pax_estimados": 500,
+            "puerto": "Valencia",
+            "tipo": "salida",
+            "estado": "Iniciada",
+            "bandera": "Libèria",
+            "imo": "1013171",
+            "mmsi": "636025512",
+            "fecha": "2026-05-12"
+        },
+        {
             "hora": "07:00",
             "nombre": "Msc Jiani",
             "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
@@ -208,22 +240,6 @@
             "bandera": "Libèria",
             "imo": "9966934",
             "mmsi": "636023100",
-            "fecha": "2026-05-12"
-        },
-        {
-            "hora": "08:23",
-            "nombre": "Msc Eliana",
-            "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
-            "terminal": "TERMINAL CATALUNYA SA",
-            "terminal_codigo": "6212",
-            "eslora": 0,
-            "pax_estimados": 500,
-            "puerto": "Valencia",
-            "tipo": "salida",
-            "estado": "Finalitzada",
-            "bandera": "Libèria",
-            "imo": "1013171",
-            "mmsi": "636025512",
             "fecha": "2026-05-12"
         },
         {
@@ -308,6 +324,22 @@
         },
         {
             "hora": "20:00",
+            "nombre": "Msc Mariella",
+            "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
+            "terminal": "TERMINAL CATALUNYA SA",
+            "terminal_codigo": "6212",
+            "eslora": 0,
+            "pax_estimados": 500,
+            "puerto": "Fos-sur-Mer",
+            "tipo": "salida",
+            "estado": "Sol·licitada",
+            "bandera": "Libèria",
+            "imo": "9934747",
+            "mmsi": "636022920",
+            "fecha": "2026-05-12"
+        },
+        {
+            "hora": "20:00",
             "nombre": "Msc Levante F",
             "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
             "terminal": "TERMINAL CATALUNYA SA",
@@ -388,25 +420,25 @@
         }
     ],
     "resumen": {
-        "total_cruceros": 15,
-        "total_llegadas": 12,
-        "total_salidas": 12,
-        "pax_estimados_hoy": 18500,
+        "total_cruceros": 16,
+        "total_llegadas": 13,
+        "total_salidas": 13,
+        "pax_estimados_hoy": 19000,
         "proximo_desembarco": "12:00",
         "proximo_barco": "Msc Everest Viii"
     },
     "terminales_activas": [
-        "E",
-        "H",
-        "F3",
         "8156",
-        "F2",
+        "H",
+        "6212",
         "F1",
-        "6212"
+        "F2",
+        "E",
+        "F3"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-05-12T11:21:23.530500",
+        "actualizado": "2026-05-12T07:42:16.592364",
         "frecuencia": "horaria"
     }
 }
