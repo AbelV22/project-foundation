@@ -58,7 +58,7 @@
             "pax_estimados": 2000,
             "puerto": "Valencia",
             "tipo": "llegada",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Itàlia",
             "imo": "9859569",
             "mmsi": "247383600",
@@ -82,6 +82,22 @@
         },
         {
             "hora": "12:00",
+            "nombre": "Msc Everest Viii",
+            "naviera": "MEDITERRANEAN SHIPPING CO",
+            "terminal": "TERMINAL CATALUNYA SA",
+            "terminal_codigo": "6212",
+            "eslora": 334.0,
+            "pax_estimados": 4500,
+            "puerto": "Damietta",
+            "tipo": "llegada",
+            "estado": "Autoritzada",
+            "bandera": "Xipre",
+            "imo": "9286231",
+            "mmsi": "210644000",
+            "fecha": "2026-05-12"
+        },
+        {
+            "hora": "12:00",
             "nombre": "Msc Sarah V",
             "naviera": "MEDITERRANEAN SHIPPING CO",
             "terminal": "TERMINAL CATALUNYA SA",
@@ -94,22 +110,6 @@
             "bandera": "Libèria",
             "imo": "9181675",
             "mmsi": "636018320",
-            "fecha": "2026-05-12"
-        },
-        {
-            "hora": "13:29",
-            "nombre": "Msc Everest Viii",
-            "naviera": "MEDITERRANEAN SHIPPING CO",
-            "terminal": "TERMINAL CATALUNYA SA",
-            "terminal_codigo": "6212",
-            "eslora": 334.0,
-            "pax_estimados": 4500,
-            "puerto": "Damietta",
-            "tipo": "llegada",
-            "estado": "Iniciada",
-            "bandera": "Xipre",
-            "imo": "9286231",
-            "mmsi": "210644000",
             "fecha": "2026-05-12"
         },
         {
@@ -227,7 +227,23 @@
             "fecha": "2026-05-12"
         },
         {
-            "hora": "11:44",
+            "hora": "11:00",
+            "nombre": "Msc Potomac F",
+            "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
+            "terminal": "TERMINAL CATALUNYA SA",
+            "terminal_codigo": "6212",
+            "eslora": 149.0,
+            "pax_estimados": 500,
+            "puerto": "Alger (Algiers)",
+            "tipo": "salida",
+            "estado": "Iniciada",
+            "bandera": "Libèria",
+            "imo": "9236274",
+            "mmsi": "636020662",
+            "fecha": "2026-05-12"
+        },
+        {
+            "hora": "12:00",
             "nombre": "Eco Savona",
             "naviera": "GRIMALDI LOGISTICA ESPAÑA SL",
             "terminal": "GRIMALDI TERMINAL BARCELONA SL",
@@ -236,7 +252,7 @@
             "pax_estimados": 2000,
             "puerto": "Livorno",
             "tipo": "salida",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Itàlia",
             "imo": "9859569",
             "mmsi": "247383600",
@@ -256,22 +272,6 @@
             "bandera": "Portugal",
             "imo": "9336189",
             "mmsi": "255916056",
-            "fecha": "2026-05-12"
-        },
-        {
-            "hora": "15:04",
-            "nombre": "Msc Potomac F",
-            "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
-            "terminal": "TERMINAL CATALUNYA SA",
-            "terminal_codigo": "6212",
-            "eslora": 149.0,
-            "pax_estimados": 500,
-            "puerto": "Alger (Algiers)",
-            "tipo": "salida",
-            "estado": "Finalitzada",
-            "bandera": "Libèria",
-            "imo": "9236274",
-            "mmsi": "636020662",
             "fecha": "2026-05-12"
         },
         {
@@ -392,21 +392,21 @@
         "total_llegadas": 12,
         "total_salidas": 12,
         "pax_estimados_hoy": 18500,
-        "proximo_desembarco": "18:15",
-        "proximo_barco": "Ciudad De Palma"
+        "proximo_desembarco": "12:00",
+        "proximo_barco": "Msc Everest Viii"
     },
     "terminales_activas": [
-        "H",
-        "F1",
-        "F3",
-        "6212",
-        "F2",
         "E",
-        "8156"
+        "H",
+        "F3",
+        "8156",
+        "F2",
+        "F1",
+        "6212"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-05-12T15:39:29.735685",
+        "actualizado": "2026-05-12T11:21:23.530500",
         "frecuencia": "horaria"
     }
 }
