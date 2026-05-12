@@ -81,6 +81,22 @@
             "fecha": "2026-05-12"
         },
         {
+            "hora": "12:00",
+            "nombre": "Msc Sarah V",
+            "naviera": "MEDITERRANEAN SHIPPING CO",
+            "terminal": "TERMINAL CATALUNYA SA",
+            "terminal_codigo": "6212",
+            "eslora": 294.0,
+            "pax_estimados": 3000,
+            "puerto": "Valencia",
+            "tipo": "llegada",
+            "estado": "Autoritzada",
+            "bandera": "Libèria",
+            "imo": "9181675",
+            "mmsi": "636018320",
+            "fecha": "2026-05-12"
+        },
+        {
             "hora": "13:29",
             "nombre": "Msc Everest Viii",
             "naviera": "MEDITERRANEAN SHIPPING CO",
@@ -138,7 +154,7 @@
             "pax_estimados": 1000,
             "puerto": "Alcudia",
             "tipo": "llegada",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Espanya",
             "imo": "9441130",
             "mmsi": "224402000",
@@ -161,23 +177,7 @@
             "fecha": "2026-05-12"
         },
         {
-            "hora": "20:51",
-            "nombre": "Msc Sarah V",
-            "naviera": "MEDITERRANEAN SHIPPING CO",
-            "terminal": "TERMINAL CATALUNYA SA",
-            "terminal_codigo": "6212",
-            "eslora": 294.0,
-            "pax_estimados": 3000,
-            "puerto": "Valencia",
-            "tipo": "llegada",
-            "estado": "Iniciada",
-            "bandera": "Libèria",
-            "imo": "9181675",
-            "mmsi": "636018320",
-            "fecha": "2026-05-12"
-        },
-        {
-            "hora": "22:15",
+            "hora": "21:45",
             "nombre": "Gnv Cristal",
             "naviera": "GRANDI NAVI VELOCI",
             "terminal": "TERMINAL F2",
@@ -186,7 +186,7 @@
             "pax_estimados": 1000,
             "puerto": "Nador",
             "tipo": "llegada",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Itàlia",
             "imo": "8712518",
             "mmsi": "247163900",
@@ -323,7 +323,7 @@
             "fecha": "2026-05-12"
         },
         {
-            "hora": "21:57",
+            "hora": "21:15",
             "nombre": "Abel Matutes",
             "naviera": "BALEARIA EUROLINEAS MARITIMAS SA ",
             "terminal": "TERMINAL F1",
@@ -332,7 +332,7 @@
             "pax_estimados": 1000,
             "puerto": "Alcudia",
             "tipo": "salida",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Espanya",
             "imo": "9441130",
             "mmsi": "224402000",
@@ -392,21 +392,21 @@
         "total_llegadas": 12,
         "total_salidas": 12,
         "pax_estimados_hoy": 18500,
-        "proximo_desembarco": "22:15",
-        "proximo_barco": "Gnv Cristal"
+        "proximo_desembarco": "19:00",
+        "proximo_barco": "Abel Matutes"
     },
     "terminales_activas": [
-        "H",
-        "8156",
-        "F2",
+        "F3",
         "F1",
         "E",
-        "F3",
-        "6212"
+        "H",
+        "6212",
+        "8156",
+        "F2"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-05-12T22:11:44.262373",
+        "actualizado": "2026-05-12T18:56:09.737026",
         "frecuencia": "horaria"
     }
 }
