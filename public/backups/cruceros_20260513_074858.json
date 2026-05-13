@@ -1,7 +1,23 @@
 {
     "llegadas": [
         {
-            "hora": "01:21",
+            "hora": "00:00",
+            "nombre": "Msc Carpathia Iii",
+            "naviera": "MEDITERRANEAN SHIPPING CO",
+            "terminal": "TERMINAL CATALUNYA SA",
+            "terminal_codigo": "6212",
+            "eslora": 222.0,
+            "pax_estimados": 2000,
+            "puerto": "Fos-sur-Mer",
+            "tipo": "llegada",
+            "estado": "Autoritzada",
+            "bandera": "Libèria",
+            "imo": "9253038",
+            "mmsi": "636022611",
+            "fecha": "2026-05-13"
+        },
+        {
+            "hora": "01:00",
             "nombre": "Eco Livorno",
             "naviera": "GRIMALDI EUROMED SPA",
             "terminal": "GRIMALDI TERMINAL BARCELONA SL",
@@ -10,7 +26,7 @@
             "pax_estimados": 2000,
             "puerto": "Savona",
             "tipo": "llegada",
-            "estado": "Finalitzada",
+            "estado": "Autoritzada",
             "bandera": "Itàlia",
             "imo": "9859557",
             "mmsi": "247383500",
@@ -81,23 +97,7 @@
             "fecha": "2026-05-13"
         },
         {
-            "hora": "06:42",
-            "nombre": "Msc Carpathia Iii",
-            "naviera": "MEDITERRANEAN SHIPPING CO",
-            "terminal": "TERMINAL CATALUNYA SA",
-            "terminal_codigo": "6212",
-            "eslora": 222.0,
-            "pax_estimados": 2000,
-            "puerto": "Fos-sur-Mer",
-            "tipo": "llegada",
-            "estado": "Iniciada",
-            "bandera": "Libèria",
-            "imo": "9253038",
-            "mmsi": "636022611",
-            "fecha": "2026-05-13"
-        },
-        {
-            "hora": "07:51",
+            "hora": "07:00",
             "nombre": "Eco Valencia",
             "naviera": "GRIMALDI EUROMED SPA",
             "terminal": "GRIMALDI TERMINAL BARCELONA SL",
@@ -106,7 +106,7 @@
             "pax_estimados": 2000,
             "puerto": "Valencia",
             "tipo": "llegada",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Itàlia",
             "imo": "9859533",
             "mmsi": "247383300",
@@ -243,7 +243,7 @@
             "fecha": "2026-05-13"
         },
         {
-            "hora": "04:33",
+            "hora": "05:00",
             "nombre": "Eco Livorno",
             "naviera": "GRIMALDI LOGISTICA ESPAÑA SL",
             "terminal": "GRIMALDI TERMINAL BARCELONA SL",
@@ -252,7 +252,7 @@
             "pax_estimados": 2000,
             "puerto": "Valencia",
             "tipo": "salida",
-            "estado": "Finalitzada",
+            "estado": "Autoritzada",
             "bandera": "Itàlia",
             "imo": "9859557",
             "mmsi": "247383500",
@@ -268,7 +268,7 @@
             "pax_estimados": 2000,
             "puerto": "Savona",
             "tipo": "salida",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Itàlia",
             "imo": "9859533",
             "mmsi": "247383300",
@@ -300,7 +300,7 @@
             "pax_estimados": 2000,
             "puerto": "Gioia Tauro",
             "tipo": "salida",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Libèria",
             "imo": "9253038",
             "mmsi": "636022611",
@@ -408,19 +408,19 @@
         "total_llegadas": 13,
         "total_salidas": 12,
         "pax_estimados_hoy": 19000,
-        "proximo_desembarco": "07:51",
-        "proximo_barco": "Eco Valencia"
+        "proximo_desembarco": null,
+        "proximo_barco": null
     },
     "terminales_activas": [
-        "6212",
         "F3",
-        "8156",
+        "F1",
+        "6212",
         "F2",
-        "F1"
+        "8156"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-05-13T07:48:58.169828",
+        "actualizado": "2026-05-12T23:59:29.594221",
         "frecuencia": "horaria"
     }
 }
