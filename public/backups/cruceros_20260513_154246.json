@@ -34,6 +34,22 @@
         },
         {
             "hora": "06:00",
+            "nombre": "Msc Laura",
+            "naviera": "MEDITERRANEAN SHIPPING CO",
+            "terminal": "TERMINAL CATALUNYA SA",
+            "terminal_codigo": "6212",
+            "eslora": 0,
+            "pax_estimados": 500,
+            "puerto": "Livorno",
+            "tipo": "llegada",
+            "estado": "Sol·licitada",
+            "bandera": "Panamà",
+            "imo": "9225665",
+            "mmsi": "354092000",
+            "fecha": "2026-05-13"
+        },
+        {
+            "hora": "06:00",
             "nombre": "Msc Bahrain Ii",
             "naviera": "MEDITERRANEAN SHIPPING CO",
             "terminal": "TERMINAL CATALUNYA SA",
@@ -65,7 +81,7 @@
             "fecha": "2026-05-13"
         },
         {
-            "hora": "07:37",
+            "hora": "07:51",
             "nombre": "Eco Valencia",
             "naviera": "GRIMALDI EUROMED SPA",
             "terminal": "GRIMALDI TERMINAL BARCELONA SL",
@@ -74,7 +90,7 @@
             "pax_estimados": 2000,
             "puerto": "Valencia",
             "tipo": "llegada",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Itàlia",
             "imo": "9859533",
             "mmsi": "247383300",
@@ -227,7 +243,7 @@
             "fecha": "2026-05-13"
         },
         {
-            "hora": "13:23",
+            "hora": "14:00",
             "nombre": "Eco Valencia",
             "naviera": "GRIMALDI LOGISTICA ESPAÑA SL",
             "terminal": "GRIMALDI TERMINAL BARCELONA SL",
@@ -236,7 +252,7 @@
             "pax_estimados": 2000,
             "puerto": "Savona",
             "tipo": "salida",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Itàlia",
             "imo": "9859533",
             "mmsi": "247383300",
@@ -272,6 +288,22 @@
             "bandera": "Libèria",
             "imo": "9253038",
             "mmsi": "636022611",
+            "fecha": "2026-05-13"
+        },
+        {
+            "hora": "20:00",
+            "nombre": "Msc Laura",
+            "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
+            "terminal": "TERMINAL CATALUNYA SA",
+            "terminal_codigo": "6212",
+            "eslora": 0,
+            "pax_estimados": 500,
+            "puerto": "Valencia",
+            "tipo": "salida",
+            "estado": "Sol·licitada",
+            "bandera": "Panamà",
+            "imo": "9225665",
+            "mmsi": "354092000",
             "fecha": "2026-05-13"
         },
         {
@@ -356,23 +388,23 @@
         }
     ],
     "resumen": {
-        "total_cruceros": 13,
-        "total_llegadas": 11,
-        "total_salidas": 11,
-        "pax_estimados_hoy": 17500,
+        "total_cruceros": 14,
+        "total_llegadas": 12,
+        "total_salidas": 12,
+        "pax_estimados_hoy": 18000,
         "proximo_desembarco": "16:00",
         "proximo_barco": "Zeal Lumos"
     },
     "terminales_activas": [
-        "6212",
         "8156",
-        "F1",
+        "F2",
         "F3",
-        "F2"
+        "6212",
+        "F1"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-05-13T15:42:46.819369",
+        "actualizado": "2026-05-13T11:30:07.077010",
         "frecuencia": "horaria"
     }
 }
