@@ -17,6 +17,22 @@
             "fecha": "2026-05-13"
         },
         {
+            "hora": "02:00",
+            "nombre": "Msc Amalfi",
+            "naviera": "MEDITERRANEAN SHIPPING CO",
+            "terminal": "TERMINAL CATALUNYA SA",
+            "terminal_codigo": "6212",
+            "eslora": 0,
+            "pax_estimados": 500,
+            "puerto": "Valencia",
+            "tipo": "llegada",
+            "estado": "Autoritzada",
+            "bandera": "Malta",
+            "imo": "9605279",
+            "mmsi": "229626000",
+            "fecha": "2026-05-13"
+        },
+        {
             "hora": "06:00",
             "nombre": "Msc Cadiz",
             "naviera": "MEDITERRANEAN SHIPPING CO",
@@ -97,22 +113,6 @@
             "fecha": "2026-05-13"
         },
         {
-            "hora": "10:44",
-            "nombre": "Msc Amalfi",
-            "naviera": "MEDITERRANEAN SHIPPING CO",
-            "terminal": "TERMINAL CATALUNYA SA",
-            "terminal_codigo": "6212",
-            "eslora": 0,
-            "pax_estimados": 500,
-            "puerto": "Valencia",
-            "tipo": "llegada",
-            "estado": "Iniciada",
-            "bandera": "Malta",
-            "imo": "9605279",
-            "mmsi": "229626000",
-            "fecha": "2026-05-13"
-        },
-        {
             "hora": "16:00",
             "nombre": "Zeal Lumos",
             "naviera": "OCEAN NETWORK EXPRESS PTE LTD",
@@ -122,10 +122,26 @@
             "pax_estimados": 6500,
             "puerto": "Valencia",
             "tipo": "llegada",
-            "estado": "Autoritzada",
+            "estado": "Sol·licitada",
             "bandera": "Regne Unit",
             "imo": "9864241",
             "mmsi": "232031320",
+            "fecha": "2026-05-13"
+        },
+        {
+            "hora": "18:00",
+            "nombre": "Msc Anzio Ii",
+            "naviera": "MEDITERRANEAN SHIPPING CO",
+            "terminal": "TERMINAL CATALUNYA SA",
+            "terminal_codigo": "6212",
+            "eslora": 168.0,
+            "pax_estimados": 1000,
+            "puerto": "Djen-Djen",
+            "tipo": "llegada",
+            "estado": "Confirmada",
+            "bandera": "Libèria",
+            "imo": "9306237",
+            "mmsi": "636019221",
             "fecha": "2026-05-13"
         },
         {
@@ -177,7 +193,7 @@
             "fecha": "2026-05-13"
         },
         {
-            "hora": "19:45",
+            "hora": "20:30",
             "nombre": "Cruise Barcelona",
             "naviera": "GRIMALDI EUROMED SPA",
             "terminal": "TERMINAL F3",
@@ -211,6 +227,22 @@
             "fecha": "2026-05-13"
         },
         {
+            "hora": "02:00",
+            "nombre": "Msc Sarah V",
+            "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
+            "terminal": "TERMINAL CATALUNYA SA",
+            "terminal_codigo": "6212",
+            "eslora": 294.0,
+            "pax_estimados": 3000,
+            "puerto": "Gioia Tauro",
+            "tipo": "salida",
+            "estado": "Iniciada",
+            "bandera": "Libèria",
+            "imo": "9181675",
+            "mmsi": "636018320",
+            "fecha": "2026-05-13"
+        },
+        {
             "hora": "04:33",
             "nombre": "Eco Livorno",
             "naviera": "GRIMALDI LOGISTICA ESPAÑA SL",
@@ -224,22 +256,6 @@
             "bandera": "Itàlia",
             "imo": "9859557",
             "mmsi": "247383500",
-            "fecha": "2026-05-13"
-        },
-        {
-            "hora": "09:34",
-            "nombre": "Msc Sarah V",
-            "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
-            "terminal": "TERMINAL CATALUNYA SA",
-            "terminal_codigo": "6212",
-            "eslora": 294.0,
-            "pax_estimados": 3000,
-            "puerto": "Gioia Tauro",
-            "tipo": "salida",
-            "estado": "Finalitzada",
-            "bandera": "Libèria",
-            "imo": "9181675",
-            "mmsi": "636018320",
             "fecha": "2026-05-13"
         },
         {
@@ -388,23 +404,23 @@
         }
     ],
     "resumen": {
-        "total_cruceros": 14,
-        "total_llegadas": 12,
+        "total_cruceros": 15,
+        "total_llegadas": 13,
         "total_salidas": 12,
-        "pax_estimados_hoy": 18000,
-        "proximo_desembarco": "16:00",
-        "proximo_barco": "Zeal Lumos"
+        "pax_estimados_hoy": 19000,
+        "proximo_desembarco": "07:51",
+        "proximo_barco": "Eco Valencia"
     },
     "terminales_activas": [
+        "6212",
+        "F3",
         "8156",
         "F2",
-        "F3",
-        "6212",
         "F1"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-05-13T11:30:07.077010",
+        "actualizado": "2026-05-13T07:48:58.169828",
         "frecuencia": "horaria"
     }
 }
