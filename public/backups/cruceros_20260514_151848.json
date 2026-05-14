@@ -1,6 +1,22 @@
 {
     "llegadas": [
         {
+            "hora": "00:00",
+            "nombre": "Msc Anzio Ii",
+            "naviera": "MEDITERRANEAN SHIPPING CO",
+            "terminal": "TERMINAL CATALUNYA SA",
+            "terminal_codigo": "6212",
+            "eslora": 168.0,
+            "pax_estimados": 1000,
+            "puerto": "Djen-Djen",
+            "tipo": "llegada",
+            "estado": "Autoritzada",
+            "bandera": "Libèria",
+            "imo": "9306237",
+            "mmsi": "636019221",
+            "fecha": "2026-05-14"
+        },
+        {
             "hora": "03:00",
             "nombre": "Neptune Tharros",
             "naviera": "NEPTUNE LINES SHIPPING",
@@ -33,7 +49,23 @@
             "fecha": "2026-05-14"
         },
         {
-            "hora": "04:19",
+            "hora": "04:23",
+            "nombre": "Celebrity Equinox",
+            "naviera": "CELEBRITY CRUISES",
+            "terminal": "Terminal B (Maremagnum)",
+            "terminal_codigo": "B",
+            "eslora": 0,
+            "pax_estimados": 500,
+            "puerto": "Marseille",
+            "tipo": "llegada",
+            "estado": "Iniciada",
+            "bandera": "Malta",
+            "imo": "9372456",
+            "mmsi": "249667000",
+            "fecha": "2026-05-14"
+        },
+        {
+            "hora": "04:47",
             "nombre": "Eco Adriatica",
             "naviera": "GRIMALDI EUROMED SPA",
             "terminal": "GRIMALDI TERMINAL BARCELONA SL",
@@ -49,19 +81,19 @@
             "fecha": "2026-05-14"
         },
         {
-            "hora": "04:23",
-            "nombre": "Celebrity Equinox",
-            "naviera": "CELEBRITY CRUISES",
-            "terminal": "Terminal B (Maremagnum)",
-            "terminal_codigo": "B",
+            "hora": "06:00",
+            "nombre": "Msc Aliya",
+            "naviera": "MEDITERRANEAN SHIPPING CO",
+            "terminal": "TERMINAL CATALUNYA SA",
+            "terminal_codigo": "6212",
             "eslora": 0,
             "pax_estimados": 500,
-            "puerto": "Marseille",
+            "puerto": "Genoa",
             "tipo": "llegada",
-            "estado": "Iniciada",
-            "bandera": "Malta",
-            "imo": "9372456",
-            "mmsi": "249667000",
+            "estado": "Sol·licitada",
+            "bandera": "Libèria",
+            "imo": "9842097",
+            "mmsi": "636019215",
             "fecha": "2026-05-14"
         },
         {
@@ -145,7 +177,7 @@
             "fecha": "2026-05-14"
         },
         {
-            "hora": "14:59",
+            "hora": "15:00",
             "nombre": "Cherry Tonda",
             "naviera": "Golden-Agri Stena Pte Ltd",
             "terminal": "RECEPTORA DE LIQUIDOS SA",
@@ -154,26 +186,26 @@
             "pax_estimados": 1000,
             "puerto": "El Suweis (= Suez)",
             "tipo": "llegada",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Panamà",
             "imo": "9288942",
             "mmsi": "352003888",
             "fecha": "2026-05-14"
         },
         {
-            "hora": "15:11",
-            "nombre": "Msc Anzio Ii",
+            "hora": "18:00",
+            "nombre": "Msc Laura",
             "naviera": "MEDITERRANEAN SHIPPING CO",
             "terminal": "TERMINAL CATALUNYA SA",
             "terminal_codigo": "6212",
-            "eslora": 168.0,
-            "pax_estimados": 1000,
-            "puerto": "Djen-Djen",
+            "eslora": 0,
+            "pax_estimados": 500,
+            "puerto": "Livorno",
             "tipo": "llegada",
-            "estado": "Iniciada",
-            "bandera": "Libèria",
-            "imo": "9306237",
-            "mmsi": "636019221",
+            "estado": "Autoritzada",
+            "bandera": "Panamà",
+            "imo": "9225665",
+            "mmsi": "354092000",
             "fecha": "2026-05-14"
         },
         {
@@ -250,7 +282,7 @@
             "pax_estimados": 3000,
             "puerto": "Genoa",
             "tipo": "llegada",
-            "estado": "Autoritzada",
+            "estado": "Confirmada",
             "bandera": "Libèria",
             "imo": "9464716",
             "mmsi": "636021664",
@@ -291,7 +323,7 @@
             "fecha": "2026-05-14"
         },
         {
-            "hora": "07:29",
+            "hora": "07:11",
             "nombre": "Eco Adriatica",
             "naviera": "GRIMALDI LOGISTICA ESPAÑA SL",
             "terminal": "GRIMALDI TERMINAL BARCELONA SL",
@@ -388,6 +420,22 @@
         },
         {
             "hora": "20:00",
+            "nombre": "Msc Aliya",
+            "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
+            "terminal": "TERMINAL CATALUNYA SA",
+            "terminal_codigo": "6212",
+            "eslora": 0,
+            "pax_estimados": 500,
+            "puerto": "Valencia",
+            "tipo": "salida",
+            "estado": "Sol·licitada",
+            "bandera": "Libèria",
+            "imo": "9842097",
+            "mmsi": "636019215",
+            "fecha": "2026-05-14"
+        },
+        {
+            "hora": "20:00",
             "nombre": "Eco Livorno",
             "naviera": "GRIMALDI LOGISTICA ESPAÑA SL",
             "terminal": "GRIMALDI TERMINAL BARCELONA SL",
@@ -452,30 +500,30 @@
         }
     ],
     "resumen": {
-        "total_cruceros": 18,
-        "total_llegadas": 16,
-        "total_salidas": 12,
-        "pax_estimados_hoy": 23000,
-        "proximo_desembarco": "18:15",
-        "proximo_barco": "Ciudad De Palma"
+        "total_cruceros": 20,
+        "total_llegadas": 18,
+        "total_salidas": 13,
+        "pax_estimados_hoy": 24000,
+        "proximo_desembarco": "11:42",
+        "proximo_barco": "Eco Livorno"
     },
     "terminales_activas": [
-        "H",
-        "2398",
-        "F3",
-        "A",
-        "2252",
-        "TC",
-        "6154",
         "6212",
-        "B",
-        "8156",
         "F2",
-        "2396"
+        "2252",
+        "8156",
+        "TC",
+        "F3",
+        "B",
+        "2398",
+        "2396",
+        "H",
+        "A",
+        "6154"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-05-14T15:18:48.036001",
+        "actualizado": "2026-05-14T11:13:25.691905",
         "frecuencia": "horaria"
     }
 }
