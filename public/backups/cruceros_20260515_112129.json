@@ -72,7 +72,7 @@
             "terminal_codigo": "E",
             "eslora": 337.0,
             "pax_estimados": 4500,
-            "puerto": "Ibiza",
+            "puerto": "Marseille",
             "tipo": "llegada",
             "estado": "Iniciada",
             "bandera": "Itàlia",
@@ -129,23 +129,7 @@
             "fecha": "2026-05-15"
         },
         {
-            "hora": "10:36",
-            "nombre": "Diane A",
-            "naviera": "ARKAS CONTAINER TRANSPORT SA",
-            "terminal": "",
-            "terminal_codigo": "",
-            "eslora": 184.0,
-            "pax_estimados": 1000,
-            "puerto": "Valencia",
-            "tipo": "llegada",
-            "estado": "Iniciada",
-            "bandera": "Malta",
-            "imo": "9385532",
-            "mmsi": "229142000",
-            "fecha": "2026-05-15"
-        },
-        {
-            "hora": "10:39",
+            "hora": "09:00",
             "nombre": "Diane A",
             "naviera": "ARKAS CONTAINER TRANSPORT SA",
             "terminal": "APM TERMINALS BARCELONA, S.L.U.",
@@ -154,7 +138,7 @@
             "pax_estimados": 1000,
             "puerto": "Valencia",
             "tipo": "llegada",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Malta",
             "imo": "9385532",
             "mmsi": "229142000",
@@ -304,22 +288,6 @@
             "bandera": "Itàlia",
             "imo": "9859569",
             "mmsi": "247383600",
-            "fecha": "2026-05-15"
-        },
-        {
-            "hora": "10:38",
-            "nombre": "Diane A",
-            "naviera": "ARKAS SPAIN SA",
-            "terminal": "",
-            "terminal_codigo": "",
-            "eslora": 184.0,
-            "pax_estimados": 1000,
-            "puerto": "Fos-sur-Mer",
-            "tipo": "salida",
-            "estado": "Iniciada",
-            "bandera": "Malta",
-            "imo": "9385532",
-            "mmsi": "229142000",
             "fecha": "2026-05-15"
         },
         {
@@ -517,30 +485,30 @@
     ],
     "resumen": {
         "total_cruceros": 20,
-        "total_llegadas": 16,
-        "total_salidas": 16,
-        "pax_estimados_hoy": 20500,
-        "proximo_desembarco": "12:30",
-        "proximo_barco": "Costa Fascinosa"
+        "total_llegadas": 15,
+        "total_salidas": 15,
+        "pax_estimados_hoy": 19500,
+        "proximo_desembarco": "09:00",
+        "proximo_barco": "Diane A"
     },
     "terminales_activas": [
-        "E",
+        "F3",
+        "8156",
+        "7083",
         "H",
-        "6154",
+        "2396",
+        "E",
+        "B",
         "A",
         "C",
-        "2396",
-        "B",
-        "F2",
-        "8156",
         "6212",
-        "7083",
-        "F3",
+        "F2",
+        "6154",
         "F1"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-05-15T11:21:29.570118",
+        "actualizado": "2026-05-15T07:51:17.121851",
         "frecuencia": "horaria"
     }
 }
