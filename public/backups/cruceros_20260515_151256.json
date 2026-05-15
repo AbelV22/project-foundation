@@ -161,7 +161,23 @@
             "fecha": "2026-05-15"
         },
         {
-            "hora": "13:16",
+            "hora": "11:00",
+            "nombre": "Msc Aliya",
+            "naviera": "MEDITERRANEAN SHIPPING CO",
+            "terminal": "TERMINAL CATALUNYA SA",
+            "terminal_codigo": "6212",
+            "eslora": 0,
+            "pax_estimados": 500,
+            "puerto": "Genoa",
+            "tipo": "llegada",
+            "estado": "Autoritzada",
+            "bandera": "Libèria",
+            "imo": "9842097",
+            "mmsi": "636019215",
+            "fecha": "2026-05-15"
+        },
+        {
+            "hora": "12:30",
             "nombre": "Costa Fascinosa",
             "naviera": "COSTA CROCIERE, S.P.A.",
             "terminal": "Terminal B (Maremagnum)",
@@ -170,10 +186,26 @@
             "pax_estimados": 500,
             "puerto": "Savona",
             "tipo": "llegada",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Itàlia",
             "imo": "9479864",
             "mmsi": "247313500",
+            "fecha": "2026-05-15"
+        },
+        {
+            "hora": "16:00",
+            "nombre": "Msc Cadiz",
+            "naviera": "MEDITERRANEAN SHIPPING CO",
+            "terminal": "TERMINAL CATALUNYA SA",
+            "terminal_codigo": "6212",
+            "eslora": 0,
+            "pax_estimados": 500,
+            "puerto": "Valencia",
+            "tipo": "llegada",
+            "estado": "Autoritzada",
+            "bandera": "Alemanya",
+            "imo": "9480203",
+            "mmsi": "218847000",
             "fecha": "2026-05-15"
         },
         {
@@ -291,22 +323,6 @@
             "fecha": "2026-05-15"
         },
         {
-            "hora": "14:36",
-            "nombre": "Zeal Lumos",
-            "naviera": "OCEAN NETWORK EXPRESS SPAIN SA",
-            "terminal": "TERMINAL CATALUNYA SA",
-            "terminal_codigo": "6212",
-            "eslora": 366.0,
-            "pax_estimados": 6500,
-            "puerto": "Genoa",
-            "tipo": "salida",
-            "estado": "Finalitzada",
-            "bandera": "Regne Unit",
-            "imo": "9864241",
-            "mmsi": "232031320",
-            "fecha": "2026-05-15"
-        },
-        {
             "hora": "15:00",
             "nombre": "Neptune Tharros",
             "naviera": "NEPTUNE BARCELONA SA",
@@ -396,10 +412,26 @@
             "pax_estimados": 500,
             "puerto": "Marseille",
             "tipo": "salida",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Itàlia",
             "imo": "9479864",
             "mmsi": "247313500",
+            "fecha": "2026-05-15"
+        },
+        {
+            "hora": "20:00",
+            "nombre": "Zeal Lumos",
+            "naviera": "OCEAN NETWORK EXPRESS SPAIN SA",
+            "terminal": "TERMINAL CATALUNYA SA",
+            "terminal_codigo": "6212",
+            "eslora": 366.0,
+            "pax_estimados": 6500,
+            "puerto": "Genoa",
+            "tipo": "salida",
+            "estado": "Iniciada",
+            "bandera": "Regne Unit",
+            "imo": "9864241",
+            "mmsi": "232031320",
             "fecha": "2026-05-15"
         },
         {
@@ -484,31 +516,31 @@
         }
     ],
     "resumen": {
-        "total_cruceros": 18,
-        "total_llegadas": 14,
+        "total_cruceros": 20,
+        "total_llegadas": 16,
         "total_salidas": 16,
-        "pax_estimados_hoy": 19500,
-        "proximo_desembarco": "18:15",
-        "proximo_barco": "Ciudad De Palma"
+        "pax_estimados_hoy": 20500,
+        "proximo_desembarco": "12:30",
+        "proximo_barco": "Costa Fascinosa"
     },
     "terminales_activas": [
+        "E",
+        "H",
+        "6154",
         "A",
         "C",
-        "F2",
-        "E",
         "2396",
         "B",
-        "6154",
-        "H",
-        "7083",
-        "F3",
+        "F2",
         "8156",
         "6212",
+        "7083",
+        "F3",
         "F1"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-05-15T15:12:56.484056",
+        "actualizado": "2026-05-15T11:21:29.570118",
         "frecuencia": "horaria"
     }
 }
