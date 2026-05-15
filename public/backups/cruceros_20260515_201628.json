@@ -170,7 +170,7 @@
             "pax_estimados": 500,
             "puerto": "Savona",
             "tipo": "llegada",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Itàlia",
             "imo": "9479864",
             "mmsi": "247313500",
@@ -419,6 +419,22 @@
             "fecha": "2026-05-15"
         },
         {
+            "hora": "19:30",
+            "nombre": "Costa Fascinosa",
+            "naviera": "NOATUM MARITIME SPAIN SAU",
+            "terminal": "Terminal B (Maremagnum)",
+            "terminal_codigo": "B",
+            "eslora": 0,
+            "pax_estimados": 500,
+            "puerto": "Marseille",
+            "tipo": "salida",
+            "estado": "Iniciada",
+            "bandera": "Itàlia",
+            "imo": "9479864",
+            "mmsi": "247313500",
+            "fecha": "2026-05-15"
+        },
+        {
             "hora": "20:00",
             "nombre": "Monte Rosa",
             "naviera": "A PEREZ Y CIA SL",
@@ -432,22 +448,6 @@
             "bandera": "Illes Marshall",
             "imo": "9301952",
             "mmsi": "538002947",
-            "fecha": "2026-05-15"
-        },
-        {
-            "hora": "20:19",
-            "nombre": "Costa Fascinosa",
-            "naviera": "NOATUM MARITIME SPAIN SAU",
-            "terminal": "Terminal B (Maremagnum)",
-            "terminal_codigo": "B",
-            "eslora": 0,
-            "pax_estimados": 500,
-            "puerto": "Marseille",
-            "tipo": "salida",
-            "estado": "Finalitzada",
-            "bandera": "Itàlia",
-            "imo": "9479864",
-            "mmsi": "247313500",
             "fecha": "2026-05-15"
         },
         {
@@ -520,28 +520,28 @@
         "total_llegadas": 15,
         "total_salidas": 17,
         "pax_estimados_hoy": 21500,
-        "proximo_desembarco": null,
-        "proximo_barco": null
+        "proximo_desembarco": "18:50",
+        "proximo_barco": "Ciudad De Palma"
     },
     "terminales_activas": [
-        "7083",
-        "E",
+        "8156",
         "6154",
-        "2252",
-        "F3",
         "F1",
+        "C",
+        "A",
+        "F3",
+        "2252",
+        "6212",
+        "2396",
+        "E",
+        "7083",
         "B",
         "F2",
-        "C",
-        "H",
-        "8156",
-        "6212",
-        "A",
-        "2396"
+        "H"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-05-15T20:16:28.871806",
+        "actualizado": "2026-05-15T18:22:25.583252",
         "frecuencia": "horaria"
     }
 }
