@@ -42,7 +42,7 @@
             "pax_estimados": 4500,
             "puerto": "Cartagena",
             "tipo": "llegada",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Bahames",
             "imo": "9434254",
             "mmsi": "311042900",
@@ -106,7 +106,7 @@
             "pax_estimados": 500,
             "puerto": "Mahon Menorca",
             "tipo": "llegada",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Itàlia",
             "imo": "9601132",
             "mmsi": "247322800",
@@ -186,7 +186,7 @@
             "pax_estimados": 500,
             "puerto": "Tarragona",
             "tipo": "llegada",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Itàlia",
             "imo": "9435454",
             "mmsi": "247265800",
@@ -273,7 +273,7 @@
             "fecha": "2026-05-16"
         },
         {
-            "hora": "19:56",
+            "hora": "20:30",
             "nombre": "Ciudad De Palma",
             "naviera": "TRASMED GLE S.L.",
             "terminal": "TERMINAL F2",
@@ -467,7 +467,23 @@
             "fecha": "2026-05-16"
         },
         {
-            "hora": "18:39",
+            "hora": "18:00",
+            "nombre": "Gnv Sealand",
+            "naviera": "TRANSCOMA BALEARES SA",
+            "terminal": "TERMINAL F2",
+            "terminal_codigo": "F2",
+            "eslora": 0,
+            "pax_estimados": 500,
+            "puerto": "Trieste",
+            "tipo": "salida",
+            "estado": "Iniciada",
+            "bandera": "Itàlia",
+            "imo": "9435454",
+            "mmsi": "247265800",
+            "fecha": "2026-05-16"
+        },
+        {
+            "hora": "18:30",
             "nombre": "Aidastella",
             "naviera": "NOATUM MARITIME SPAIN SAU",
             "terminal": "Terminal D (Adossat)",
@@ -476,14 +492,14 @@
             "pax_estimados": 500,
             "puerto": "Palma de Mallorca",
             "tipo": "salida",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Itàlia",
             "imo": "9601132",
             "mmsi": "247322800",
             "fecha": "2026-05-16"
         },
         {
-            "hora": "18:48",
+            "hora": "18:30",
             "nombre": "Disney Dream",
             "naviera": "INTERCRUISES PORT OPERATIONS SPAIN SLU",
             "terminal": "Terminal B (Maremagnum)",
@@ -492,7 +508,7 @@
             "pax_estimados": 4500,
             "puerto": "Livorno",
             "tipo": "salida",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Bahames",
             "imo": "9434254",
             "mmsi": "311042900",
@@ -515,22 +531,6 @@
             "fecha": "2026-05-16"
         },
         {
-            "hora": "19:55",
-            "nombre": "Ciudad De Palma",
-            "naviera": "GRIMALDI LOGISTICA ESPAÑA SL",
-            "terminal": "TERMINAL F2",
-            "terminal_codigo": "F2",
-            "eslora": 186.0,
-            "pax_estimados": 1000,
-            "puerto": "Palma de Mallorca",
-            "tipo": "salida",
-            "estado": "Iniciada",
-            "bandera": "Espanya",
-            "imo": "9349772",
-            "mmsi": "224588000",
-            "fecha": "2026-05-16"
-        },
-        {
             "hora": "20:00",
             "nombre": "Msc Monterey V",
             "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
@@ -547,19 +547,19 @@
             "fecha": "2026-05-16"
         },
         {
-            "hora": "20:19",
-            "nombre": "Gnv Sealand",
-            "naviera": "TRANSCOMA BALEARES SA",
+            "hora": "20:29",
+            "nombre": "Ciudad De Palma",
+            "naviera": "GRIMALDI LOGISTICA ESPAÑA SL",
             "terminal": "TERMINAL F2",
             "terminal_codigo": "F2",
-            "eslora": 0,
-            "pax_estimados": 500,
-            "puerto": "Trieste",
+            "eslora": 186.0,
+            "pax_estimados": 1000,
+            "puerto": "Palma de Mallorca",
             "tipo": "salida",
-            "estado": "Finalitzada",
-            "bandera": "Itàlia",
-            "imo": "9435454",
-            "mmsi": "247265800",
+            "estado": "Iniciada",
+            "bandera": "Espanya",
+            "imo": "9349772",
+            "mmsi": "224588000",
             "fecha": "2026-05-16"
         },
         {
@@ -600,26 +600,26 @@
         "total_llegadas": 20,
         "total_salidas": 17,
         "pax_estimados_hoy": 24000,
-        "proximo_desembarco": "21:00",
-        "proximo_barco": "Viking Saturn"
+        "proximo_desembarco": "18:37",
+        "proximo_barco": "Abel Matutes"
     },
     "terminales_activas": [
-        "7083",
-        "B",
+        "F3",
         "8156",
         "F2",
-        "A",
-        "D",
-        "6212",
-        "TC",
+        "B",
+        "H",
         "E",
-        "F3",
+        "7083",
+        "D",
         "199896",
-        "H"
+        "A",
+        "TC",
+        "6212"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-05-16T20:01:35.126255",
+        "actualizado": "2026-05-16T17:54:12.254519",
         "frecuencia": "horaria"
     }
 }
