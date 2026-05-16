@@ -145,22 +145,6 @@
             "fecha": "2026-05-16"
         },
         {
-            "hora": "10:58",
-            "nombre": "Seafriend",
-            "naviera": "THENAMARIS SHIPS MANAGEMENT",
-            "terminal": "",
-            "terminal_codigo": "",
-            "eslora": 183.0,
-            "pax_estimados": 1000,
-            "puerto": "Gibraltar",
-            "tipo": "llegada",
-            "estado": "Autoritzada",
-            "bandera": "Malta",
-            "imo": "9629574",
-            "mmsi": "229407000",
-            "fecha": "2026-05-16"
-        },
-        {
             "hora": "11:00",
             "nombre": "Seafriend",
             "naviera": "THENAMARIS SHIPS MANAGEMENT",
@@ -336,22 +320,6 @@
             "bandera": "Malta",
             "imo": "9385532",
             "mmsi": "229142000",
-            "fecha": "2026-05-16"
-        },
-        {
-            "hora": "10:59",
-            "nombre": "Seafriend",
-            "naviera": "IBERICA MARITIMA BARCELONA SA",
-            "terminal": "",
-            "terminal_codigo": "",
-            "eslora": 183.0,
-            "pax_estimados": 1000,
-            "puerto": "Conakry",
-            "tipo": "salida",
-            "estado": "Autoritzada",
-            "bandera": "Malta",
-            "imo": "9629574",
-            "mmsi": "229407000",
             "fecha": "2026-05-16"
         },
         {
@@ -549,29 +517,29 @@
     ],
     "resumen": {
         "total_cruceros": 17,
-        "total_llegadas": 19,
-        "total_salidas": 15,
-        "pax_estimados_hoy": 23500,
-        "proximo_desembarco": "10:58",
-        "proximo_barco": "Seafriend"
+        "total_llegadas": 18,
+        "total_salidas": 14,
+        "pax_estimados_hoy": 22500,
+        "proximo_desembarco": "07:27",
+        "proximo_barco": "Eco Adriatica"
     },
     "terminales_activas": [
-        "E",
-        "7332",
         "8156",
-        "A",
-        "H",
+        "7083",
         "199896",
         "F2",
-        "D",
+        "6212",
         "B",
-        "7083",
+        "7332",
         "F3",
-        "6212"
+        "D",
+        "H",
+        "E",
+        "A"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-05-16T10:16:03.018148",
+        "actualizado": "2026-05-16T07:13:26.805237",
         "frecuencia": "horaria"
     }
 }
