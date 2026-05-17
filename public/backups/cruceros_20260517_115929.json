@@ -122,7 +122,7 @@
             "pax_estimados": 2000,
             "puerto": "Savona",
             "tipo": "llegada",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Itàlia",
             "imo": "9859533",
             "mmsi": "247383300",
@@ -227,6 +227,22 @@
             "fecha": "2026-05-17"
         },
         {
+            "hora": "10:00",
+            "nombre": "Zim Asia",
+            "naviera": "A PEREZ Y CIA SL",
+            "terminal": "TERMINAL CATALUNYA SA",
+            "terminal_codigo": "6212",
+            "eslora": 260.0,
+            "pax_estimados": 3000,
+            "puerto": "Valencia",
+            "tipo": "salida",
+            "estado": "Iniciada",
+            "bandera": "Libèria",
+            "imo": "9464716",
+            "mmsi": "636021664",
+            "fecha": "2026-05-17"
+        },
+        {
             "hora": "11:00",
             "nombre": "Seafriend",
             "naviera": "IBERICA MARITIMA BARCELONA SA",
@@ -243,23 +259,7 @@
             "fecha": "2026-05-17"
         },
         {
-            "hora": "11:32",
-            "nombre": "Zim Asia",
-            "naviera": "A PEREZ Y CIA SL",
-            "terminal": "TERMINAL CATALUNYA SA",
-            "terminal_codigo": "6212",
-            "eslora": 260.0,
-            "pax_estimados": 3000,
-            "puerto": "Valencia",
-            "tipo": "salida",
-            "estado": "Finalitzada",
-            "bandera": "Libèria",
-            "imo": "9464716",
-            "mmsi": "636021664",
-            "fecha": "2026-05-17"
-        },
-        {
-            "hora": "11:55",
+            "hora": "14:00",
             "nombre": "Eco Valencia",
             "naviera": "GRIMALDI LOGISTICA ESPAÑA SL",
             "terminal": "GRIMALDI TERMINAL BARCELONA SL",
@@ -268,7 +268,7 @@
             "pax_estimados": 2000,
             "puerto": "Valencia",
             "tipo": "salida",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Itàlia",
             "imo": "9859533",
             "mmsi": "247383300",
@@ -408,25 +408,25 @@
         "total_llegadas": 10,
         "total_salidas": 15,
         "pax_estimados_hoy": 28000,
-        "proximo_desembarco": "19:30",
-        "proximo_barco": "Ciudad De Palma"
+        "proximo_desembarco": "11:01",
+        "proximo_barco": "Seafriend"
     },
     "terminales_activas": [
-        "A",
-        "F2",
         "F3",
-        "8156",
-        "B",
+        "199896",
         "7946",
-        "E",
+        "B",
+        "F2",
+        "8156",
         "H",
         "TC",
-        "199896",
-        "6212"
+        "6212",
+        "E",
+        "A"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-05-17T11:59:29.101009",
+        "actualizado": "2026-05-17T10:22:20.604935",
         "frecuencia": "horaria"
     }
 }
