@@ -10,7 +10,7 @@
             "pax_estimados": 500,
             "puerto": "Valencia",
             "tipo": "llegada",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Portugal",
             "imo": "9449833",
             "mmsi": "255917306",
@@ -172,7 +172,7 @@
             "pax_estimados": 500,
             "puerto": "Bejaia (ex Bougie)",
             "tipo": "salida",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Portugal",
             "imo": "9449833",
             "mmsi": "255917306",
@@ -192,6 +192,22 @@
             "bandera": "Itàlia",
             "imo": "9351488",
             "mmsi": "247243600",
+            "fecha": "2026-05-17"
+        },
+        {
+            "hora": "03:00",
+            "nombre": "Msc Eras Ii",
+            "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
+            "terminal": "TERMINAL CATALUNYA SA",
+            "terminal_codigo": "6212",
+            "eslora": 0,
+            "pax_estimados": 500,
+            "puerto": "Bejaia (ex Bougie)",
+            "tipo": "salida",
+            "estado": "Iniciada",
+            "bandera": "Portugal",
+            "imo": "9449833",
+            "mmsi": "255917306",
             "fecha": "2026-05-17"
         },
         {
@@ -256,22 +272,6 @@
             "bandera": "Itàlia",
             "imo": "9859533",
             "mmsi": "247383300",
-            "fecha": "2026-05-17"
-        },
-        {
-            "hora": "13:44",
-            "nombre": "Msc Eras Ii",
-            "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
-            "terminal": "TERMINAL CATALUNYA SA",
-            "terminal_codigo": "6212",
-            "eslora": 0,
-            "pax_estimados": 500,
-            "puerto": "Bejaia (ex Bougie)",
-            "tipo": "salida",
-            "estado": "Finalitzada",
-            "bandera": "Portugal",
-            "imo": "9449833",
-            "mmsi": "255917306",
             "fecha": "2026-05-17"
         },
         {
@@ -412,21 +412,21 @@
         "proximo_barco": "Ciudad De Palma"
     },
     "terminales_activas": [
-        "B",
-        "H",
-        "F3",
         "A",
-        "8156",
-        "7946",
-        "199896",
-        "E",
-        "6212",
         "F2",
-        "TC"
+        "F3",
+        "8156",
+        "B",
+        "7946",
+        "E",
+        "H",
+        "TC",
+        "199896",
+        "6212"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-05-17T14:25:33.721692",
+        "actualizado": "2026-05-17T11:59:29.101009",
         "frecuencia": "horaria"
     }
 }
