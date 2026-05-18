@@ -1,5 +1,25 @@
 [
     {
+        "fuente": "SOLANO",
+        "raw": "Ref:  | 38902 | DIA DE FIESTA:  | VIERNES IMPAR | LICENCIA TAXI EN VENTA BARCELONA | LICENCIA TAXI EN VENTA BARCELONA-VIERNES IMPAR-SIN COCHE | Precio:  | 153.000 | € | ESTOY INTERESADO",
+        "referencia": "7a0c91ec",
+        "precio_detectado": 153000,
+        "dia_descanso": "VIERNES IMPAR",
+        "modelo_detectado": "DESCONOCIDO",
+        "url": "https://asesoriasolano.es/comprar-licencias/",
+        "fecha_scraping": "2026-05-18T10:54:27.326591"
+    },
+    {
+        "fuente": "SOLANO",
+        "raw": "Ref:  | 38892 | DIA DE FIESTA:  | JUEVES IMPAR | LICENCIA TAXI EN VENTA BARCELONA | LICENCIA TAXI EN VENTA SIN COCHE-JUEVES IMPAR | Precio:  | 153.000 | € | ESTOY INTERESADO",
+        "referencia": "b7eb8563",
+        "precio_detectado": 153000,
+        "dia_descanso": "JUEVES IMPAR",
+        "modelo_detectado": "DESCONOCIDO",
+        "url": "https://asesoriasolano.es/comprar-licencias/",
+        "fecha_scraping": "2026-05-18T10:54:27.326779"
+    },
+    {
         "fuente": "STAC",
         "raw": "Referencia: 977 JUEVES IMPAR |  | Se vende licencia sin vehículo. Disponibilidad: De inmediato | Precio: 158000€ | + INFORMACIÓN",
         "referencia": "977",
@@ -7,7 +27,7 @@
         "dia_descanso": "JUEVES IMPAR",
         "modelo_detectado": "DESCONOCIDO",
         "url": "https://bolsadelicenciasstac.cat",
-        "fecha_scraping": "2026-05-18T16:21:54.003298"
+        "fecha_scraping": "2026-05-18T10:55:10.640557"
     },
     {
         "fuente": "STAC",
@@ -17,7 +37,7 @@
         "dia_descanso": "VIERNES IMPAR",
         "modelo_detectado": "DESCONOCIDO",
         "url": "https://bolsadelicenciasstac.cat",
-        "fecha_scraping": "2026-05-18T16:22:23.649602"
+        "fecha_scraping": "2026-05-18T10:55:40.257544"
     },
     {
         "fuente": "STAC",
@@ -27,7 +47,7 @@
         "dia_descanso": "JUEVES IMPAR",
         "modelo_detectado": "DESCONOCIDO",
         "url": "https://bolsadelicenciasstac.cat",
-        "fecha_scraping": "2026-05-18T16:22:08.828273"
+        "fecha_scraping": "2026-05-18T10:55:25.431643"
     },
     {
         "fuente": "STAC",
@@ -37,17 +57,7 @@
         "dia_descanso": "JUEVES IMPAR",
         "modelo_detectado": "DESCONOCIDO",
         "url": "https://bolsadelicenciasstac.cat",
-        "fecha_scraping": "2026-05-18T16:22:06.708866"
-    },
-    {
-        "fuente": "SOLANO",
-        "raw": "Ref:  | 38923 | DIA DE FIESTA:  | LUNES IMPAR | LICENCIA TAXI EN VENTA BARCELONA | LICENCIA TAXI EN VENTA BARCELONA-LUNES IMPAR SIN COCHE-DISPONIBLE EL 17/9/26 POR JUBILACIÓN- | Precio:  | 168.000 | € | ESTOY INTERESADO",
-        "referencia": "382456da",
-        "precio_detectado": 168000,
-        "dia_descanso": "LUNES IMPAR",
-        "modelo_detectado": "DESCONOCIDO",
-        "url": "https://asesoriasolano.es/comprar-licencias/",
-        "fecha_scraping": "2026-05-18T16:21:10.188106"
+        "fecha_scraping": "2026-05-18T10:55:23.336823"
     },
     {
         "fuente": "SOLANO",
@@ -57,7 +67,7 @@
         "dia_descanso": "LUNES IMPAR",
         "modelo_detectado": "DESCONOCIDO",
         "url": "https://asesoriasolano.es/comprar-licencias/",
-        "fecha_scraping": "2026-05-18T16:21:10.188199"
+        "fecha_scraping": "2026-05-18T10:54:27.326541"
     },
     {
         "fuente": "STAC",
@@ -67,27 +77,7 @@
         "dia_descanso": "JUEVES IMPAR",
         "modelo_detectado": "DESCONOCIDO",
         "url": "https://bolsadelicenciasstac.cat",
-        "fecha_scraping": "2026-05-18T16:21:49.743807"
-    },
-    {
-        "fuente": "SOLANO",
-        "raw": "Ref:  | 38925 | DIA DE FIESTA:  | JUEVES PAR | LICENCIA TAXI EN VENTA BARCELONA | LICENCIA TAXI EN VENTA BARCELONA-JUEVES PAR-SEAT LEON GNC-CAMBIO MANUAL-Matriculado en junio de 2019-350.000 KMS | Precio:  | 169.000 | € | ESTOY INTERESADO",
-        "referencia": "08a8fe6d",
-        "precio_detectado": 169000,
-        "dia_descanso": "JUEVES PAR",
-        "modelo_detectado": "SEAT",
-        "url": "https://asesoriasolano.es/comprar-licencias/",
-        "fecha_scraping": "2026-05-18T16:21:10.188058"
-    },
-    {
-        "fuente": "SOLANO",
-        "raw": "Ref:  | 38937 | DIA DE FIESTA:  | JUEVES IMPAR | LICENCIA DE TAXI SOLA EN VENTA BARCELONA | LICENCIA DE TAXI SOLA EN VENTA – DIA DE FIESTA JUEVES IMPAR. | DISPONIBLE A PARTIR DEL 08/08/2026. | Precio:  | 170.000€ | € | ESTOY INTERESADO",
-        "referencia": "e6ad6822",
-        "precio_detectado": 170000,
-        "dia_descanso": "JUEVES IMPAR",
-        "modelo_detectado": "DESCONOCIDO",
-        "url": "https://asesoriasolano.es/comprar-licencias/",
-        "fecha_scraping": "2026-05-18T16:21:10.187702"
+        "fecha_scraping": "2026-05-18T10:55:06.395082"
     },
     {
         "fuente": "SOLANO",
@@ -97,7 +87,17 @@
         "dia_descanso": "JUEVES IMPAR",
         "modelo_detectado": "DACIA JOGGER",
         "url": "https://asesoriasolano.es/comprar-licencias/",
-        "fecha_scraping": "2026-05-18T16:21:10.188154"
+        "fecha_scraping": "2026-05-18T10:54:27.326463"
+    },
+    {
+        "fuente": "SOLANO",
+        "raw": "Ref:  | 38887 | DIA DE FIESTA:  | LUNES IMPAR | LICENCIA TAXI EN VENTA BARCELONA | LICENCIA TAXI VENTA BARCELONA-LUNES IMPAR-SIN COCHE | Precio:  | 170.000 | € | ESTOY INTERESADO",
+        "referencia": "6de242c9",
+        "precio_detectado": 170000,
+        "dia_descanso": "LUNES IMPAR",
+        "modelo_detectado": "DESCONOCIDO",
+        "url": "https://asesoriasolano.es/comprar-licencias/",
+        "fecha_scraping": "2026-05-18T10:54:27.326876"
     },
     {
         "fuente": "STAC",
@@ -107,7 +107,7 @@
         "dia_descanso": "MIERCOLES IMPAR",
         "modelo_detectado": "DESCONOCIDO",
         "url": "https://bolsadelicenciasstac.cat",
-        "fecha_scraping": "2026-05-18T16:21:37.024328"
+        "fecha_scraping": "2026-05-18T10:54:53.660567"
     },
     {
         "fuente": "STAC",
@@ -117,7 +117,7 @@
         "dia_descanso": "MARTES IMPAR",
         "modelo_detectado": "DESCONOCIDO",
         "url": "https://bolsadelicenciasstac.cat",
-        "fecha_scraping": "2026-05-18T16:21:43.381646"
+        "fecha_scraping": "2026-05-18T10:55:00.029409"
     },
     {
         "fuente": "STAC",
@@ -127,7 +127,7 @@
         "dia_descanso": "JUEVES IMPAR",
         "modelo_detectado": "DESCONOCIDO",
         "url": "https://bolsadelicenciasstac.cat",
-        "fecha_scraping": "2026-05-18T16:21:47.623274"
+        "fecha_scraping": "2026-05-18T10:55:04.272831"
     },
     {
         "fuente": "STAC",
@@ -137,7 +137,7 @@
         "dia_descanso": "MARTES IMPAR",
         "modelo_detectado": "DESCONOCIDO",
         "url": "https://bolsadelicenciasstac.cat",
-        "fecha_scraping": "2026-05-18T16:21:56.123389"
+        "fecha_scraping": "2026-05-18T10:55:12.765956"
     },
     {
         "fuente": "STAC",
@@ -147,7 +147,7 @@
         "dia_descanso": "LUNES IMPAR",
         "modelo_detectado": "DESCONOCIDO",
         "url": "https://bolsadelicenciasstac.cat",
-        "fecha_scraping": "2026-05-18T16:21:58.243031"
+        "fecha_scraping": "2026-05-18T10:55:14.885647"
     },
     {
         "fuente": "STAC",
@@ -157,17 +157,17 @@
         "dia_descanso": "JUEVES IMPAR",
         "modelo_detectado": "DESCONOCIDO",
         "url": "https://bolsadelicenciasstac.cat",
-        "fecha_scraping": "2026-05-18T16:22:17.314371"
+        "fecha_scraping": "2026-05-18T10:55:33.893926"
     },
     {
-        "fuente": "STAC",
-        "raw": "Referencia: 969 MIÉRCOLES PAR |  | Se vende licencia sin vehículo. Disponibilidad: A partir de mitades de JULIO | Precio: 171000€ | + INFORMACIÓN",
-        "referencia": "969",
-        "precio_detectado": 171000,
-        "dia_descanso": "MIERCOLES PAR",
+        "fuente": "SOLANO",
+        "raw": "Ref:  | 38897 | DIA DE FIESTA:  | LUNES PAR | LICENCIA TAXI EN VENTA BARCELONA | LICENCIA TAXI EN VENTA BARXCELONA-LUNES PAR-SIN COCHE | Precio:  | 172.000 | € | ESTOY INTERESADO",
+        "referencia": "32c25f88",
+        "precio_detectado": 172000,
+        "dia_descanso": "LUNES PAR",
         "modelo_detectado": "DESCONOCIDO",
-        "url": "https://bolsadelicenciasstac.cat",
-        "fecha_scraping": "2026-05-18T16:22:02.465962"
+        "url": "https://asesoriasolano.es/comprar-licencias/",
+        "fecha_scraping": "2026-05-18T10:54:27.326683"
     },
     {
         "fuente": "STAC",
@@ -177,17 +177,37 @@
         "dia_descanso": "LUNES IMPAR",
         "modelo_detectado": "DESCONOCIDO",
         "url": "https://bolsadelicenciasstac.cat",
-        "fecha_scraping": "2026-05-18T16:21:45.500689"
+        "fecha_scraping": "2026-05-18T10:55:02.150519"
     },
     {
         "fuente": "SOLANO",
-        "raw": "Ref:  | 38941 | DIA DE FIESTA:  | VIERNES PAR | LICENCIA DE TAXI PMR EN VENTA BARCELONA | LICENCIA DE TAXI PMR EN VENTA BARCELONA – DIA DE FIESTA VIERNES PAR CON FIAT TALENTO DIESEL – MANUAL – 315.000KMS – DE NOV 2019. | Precio:  | 173.000€ | € | ESTOY INTERESADO",
-        "referencia": "f8e78ccf",
+        "raw": "Ref:  | 38894 | DIA DE FIESTA:  | MARTES PAR | LICENCIA TAXI EN VENTA BARCELONA | LICENCIA TAXI EN VENTA SIN COCHE-MARTES PAR-DISPONIBLE POR JUBILACIÓN 15 NOVIEMBRE 26 | Precio:  | 173.000 | € | ESTOY INTERESADO",
+        "referencia": "a633afe2",
+        "precio_detectado": 173000,
+        "dia_descanso": "MARTES PAR",
+        "modelo_detectado": "DESCONOCIDO",
+        "url": "https://asesoriasolano.es/comprar-licencias/",
+        "fecha_scraping": "2026-05-18T10:54:27.326747"
+    },
+    {
+        "fuente": "SOLANO",
+        "raw": "Ref:  | 38889 | DIA DE FIESTA:  | JUEVES IMPAR | LICENCIA TAXI EN VENTA BARCELONA | LICENCIA TAXI EN VENTA BARCELONA-JUEVES IMPAR-TOYOTA COROLLA SEDÁN DE OCTUBRE 2022-150.000 KMS | Precio:  | 173.000 | € | ESTOY INTERESADO",
+        "referencia": "be00fabe",
+        "precio_detectado": 173000,
+        "dia_descanso": "JUEVES IMPAR",
+        "modelo_detectado": "TOYOTA COROLLA",
+        "url": "https://asesoriasolano.es/comprar-licencias/",
+        "fecha_scraping": "2026-05-18T10:54:27.326831"
+    },
+    {
+        "fuente": "SOLANO",
+        "raw": "Ref:  | 38885 | DIA DE FIESTA:  | VIERNES PAR | LICENCIA TAXI EN VENTA BARCELONA | LICENCIA TAXI EN VENTA BARCELONA-VIERNES PAR-FORD MONDEO SPORT BREAK-HIBRIDO GLP -AUTOMATICO-MATRICULADO EN JUNIO 2019 -EL VEHÍCULO TIENE 470.000 KMS PERO EL MOTOR ESTÁ RECIEN HECHO. | Precio:  | 173.000 | € | ESTOY INTERESADO",
+        "referencia": "8e2f1931",
         "precio_detectado": 173000,
         "dia_descanso": "VIERNES PAR",
-        "modelo_detectado": "FIAT TALENTO",
+        "modelo_detectado": "FORD",
         "url": "https://asesoriasolano.es/comprar-licencias/",
-        "fecha_scraping": "2026-05-18T16:21:10.187642"
+        "fecha_scraping": "2026-05-18T10:54:27.326942"
     },
     {
         "fuente": "STAC",
@@ -197,7 +217,7 @@
         "dia_descanso": "VIERNES PAR",
         "modelo_detectado": "FORD",
         "url": "https://bolsadelicenciasstac.cat",
-        "fecha_scraping": "2026-05-18T16:21:41.264399"
+        "fecha_scraping": "2026-05-18T10:54:57.909480"
     },
     {
         "fuente": "STAC",
@@ -207,7 +227,17 @@
         "dia_descanso": "JUEVES IMPAR",
         "modelo_detectado": "DACIA",
         "url": "https://bolsadelicenciasstac.cat",
-        "fecha_scraping": "2026-05-18T16:22:19.435622"
+        "fecha_scraping": "2026-05-18T10:55:36.015627"
+    },
+    {
+        "fuente": "STAC",
+        "raw": "Referencia: 969 MIÉRCOLES PAR |  | Se vende licencia sin vehículo. Disponibilidad: A partir de mitades de JULIO | Precio: 175000€ | + INFORMACIÓN",
+        "referencia": "969",
+        "precio_detectado": 175000,
+        "dia_descanso": "MIERCOLES PAR",
+        "modelo_detectado": "DESCONOCIDO",
+        "url": "https://bolsadelicenciasstac.cat",
+        "fecha_scraping": "2026-05-18T10:55:19.129938"
     },
     {
         "fuente": "STAC",
@@ -217,7 +247,7 @@
         "dia_descanso": "MIERCOLES IMPAR",
         "modelo_detectado": "DESCONOCIDO",
         "url": "https://bolsadelicenciasstac.cat",
-        "fecha_scraping": "2026-05-18T16:22:04.588799"
+        "fecha_scraping": "2026-05-18T10:55:21.249532"
     },
     {
         "fuente": "STAC",
@@ -227,37 +257,7 @@
         "dia_descanso": "JUEVES PAR",
         "modelo_detectado": "TOYOTA COROLLA",
         "url": "https://bolsadelicenciasstac.cat",
-        "fecha_scraping": "2026-05-18T16:21:51.865934"
-    },
-    {
-        "fuente": "SOLANO",
-        "raw": "Ref:  | 38934 | DIA DE FIESTA:  | LUNES IMPAR | LICENCIA DE TAXI EN VENTA BARCELONA | LICENCIA DE TAXI EN VENTA – DIA DE FIESTA LUNES IMPAR CON DACIA JOGGER AUTOMATICO – HIBRIDO – CON SOLO 50.000KMS . | PERFECTO ESTADO- COMO NUEVO. | Precio:  | 177.000€ | € | ESTOY INTERESADO",
-        "referencia": "b039a55c",
-        "precio_detectado": 177000,
-        "dia_descanso": "LUNES IMPAR",
-        "modelo_detectado": "DACIA JOGGER",
-        "url": "https://asesoriasolano.es/comprar-licencias/",
-        "fecha_scraping": "2026-05-18T16:21:10.187740"
-    },
-    {
-        "fuente": "SOLANO",
-        "raw": "Ref:  | 38929 | DIA DE FIESTA:  | LUNES IMPAR | LICENCIA TAXI EN VENTA BARCELONA | LICENCIA TAXI EN VENTA BARCELONA-LUNES IMPAR-MERCEDES VITO TOURER 114 CDI – 7 PLAZAS-410.000 KMS – MATRICULADO SEPT 2018 | Precio:  | 180.000 | € | ESTOY INTERESADO",
-        "referencia": "7c875f42",
-        "precio_detectado": 180000,
-        "dia_descanso": "LUNES IMPAR",
-        "modelo_detectado": "MERCEDES VITO",
-        "url": "https://asesoriasolano.es/comprar-licencias/",
-        "fecha_scraping": "2026-05-18T16:21:10.187935"
-    },
-    {
-        "fuente": "SOLANO",
-        "raw": "Ref:  | 38927 | DIA DE FIESTA:  | MARTES PAR | LICENCIA TAXI EN VENTA BARCELONA-MARTES PAR | LICENCIA TAXI EN VENTA BARCELONA-MARTES PAR-TOYOTA COROLLA SEDAN DE FEBRERO 22- 180.000 KMS | Precio:  | 180.000 | € | ESTOY INTERESADO",
-        "referencia": "4a22e731",
-        "precio_detectado": 180000,
-        "dia_descanso": "MARTES PAR",
-        "modelo_detectado": "TOYOTA COROLLA",
-        "url": "https://asesoriasolano.es/comprar-licencias/",
-        "fecha_scraping": "2026-05-18T16:21:10.187999"
+        "fecha_scraping": "2026-05-18T10:55:08.518128"
     },
     {
         "fuente": "STAC",
@@ -267,7 +267,7 @@
         "dia_descanso": "VIERNES PAR",
         "modelo_detectado": "TOYOTA PRIUS",
         "url": "https://bolsadelicenciasstac.cat",
-        "fecha_scraping": "2026-05-18T16:21:39.145567"
+        "fecha_scraping": "2026-05-18T10:54:55.784377"
     },
     {
         "fuente": "STAC",
@@ -277,7 +277,7 @@
         "dia_descanso": "MARTES IMPAR",
         "modelo_detectado": "DACIA JOGGER",
         "url": "https://bolsadelicenciasstac.cat",
-        "fecha_scraping": "2026-05-18T16:22:00.333354"
+        "fecha_scraping": "2026-05-18T10:55:17.008699"
     },
     {
         "fuente": "STAC",
@@ -287,7 +287,17 @@
         "dia_descanso": "LUNES IMPAR",
         "modelo_detectado": "DESCONOCIDO",
         "url": "https://bolsadelicenciasstac.cat",
-        "fecha_scraping": "2026-05-18T16:22:25.769961"
+        "fecha_scraping": "2026-05-18T10:55:42.376685"
+    },
+    {
+        "fuente": "SOLANO",
+        "raw": "Ref:  | 38883 | DIA DE FIESTA:  | LUNES IMPAR | LICENCIA TAXI EN VENTA BARCELONA | LICENCIA TAXI EN VENTA BARCELONA-FIESTA LUNES IMPAR-TOYOTA COROLLA SEDÁN DE DICIEMBRE 2023- 118.000 KMS-DISPONIBLE EL 15/8/26 POR JUBILACIÓN- | Precio:  | 183.000 | € | ESTOY INTERESADO",
+        "referencia": "080f4898",
+        "precio_detectado": 183000,
+        "dia_descanso": "LUNES IMPAR",
+        "modelo_detectado": "TOYOTA COROLLA",
+        "url": "https://asesoriasolano.es/comprar-licencias/",
+        "fecha_scraping": "2026-05-18T10:54:27.326984"
     },
     {
         "fuente": "STAC",
@@ -297,7 +307,7 @@
         "dia_descanso": "MIERCOLES IMPAR",
         "modelo_detectado": "DACIA JOGGER",
         "url": "https://bolsadelicenciasstac.cat",
-        "fecha_scraping": "2026-05-18T16:22:15.193026"
+        "fecha_scraping": "2026-05-18T10:55:31.773773"
     },
     {
         "fuente": "STAC",
@@ -307,7 +317,7 @@
         "dia_descanso": "LUNES IMPAR",
         "modelo_detectado": "DACIA JOGGER",
         "url": "https://bolsadelicenciasstac.cat",
-        "fecha_scraping": "2026-05-18T16:22:21.524618"
+        "fecha_scraping": "2026-05-18T10:55:38.137217"
     },
     {
         "fuente": "STAC",
@@ -317,7 +327,7 @@
         "dia_descanso": "LUNES IMPAR",
         "modelo_detectado": "FIAT TALENTO",
         "url": "https://bolsadelicenciasstac.cat",
-        "fecha_scraping": "2026-05-18T16:22:10.949043"
+        "fecha_scraping": "2026-05-18T10:55:27.555477"
     },
     {
         "fuente": "STAC",
@@ -327,6 +337,6 @@
         "dia_descanso": "MARTES IMPAR",
         "modelo_detectado": "TOYOTA COROLLA",
         "url": "https://bolsadelicenciasstac.cat",
-        "fecha_scraping": "2026-05-18T16:22:13.071665"
+        "fecha_scraping": "2026-05-18T10:55:29.649138"
     }
 ]
