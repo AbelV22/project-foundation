@@ -10,7 +10,7 @@
             "pax_estimados": 3000,
             "puerto": "Porto Torres",
             "tipo": "llegada",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Itàlia",
             "imo": "9351476",
             "mmsi": "247219400",
@@ -403,7 +403,7 @@
             "fecha": "2026-05-18"
         },
         {
-            "hora": "21:56",
+            "hora": "21:30",
             "nombre": "Cruise Roma",
             "naviera": "GRIMALDI LOGISTICA ESPAÑA SL",
             "terminal": "TERMINAL F3",
@@ -412,7 +412,7 @@
             "pax_estimados": 3000,
             "puerto": "Civitavecchia",
             "tipo": "salida",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Itàlia",
             "imo": "9351476",
             "mmsi": "247219400",
@@ -460,19 +460,19 @@
         "proximo_barco": null
     },
     "terminales_activas": [
-        "H",
-        "6212",
-        "TC",
         "D",
+        "F2",
+        "H",
+        "TC",
+        "B",
         "E",
         "8156",
-        "B",
-        "F2",
+        "6212",
         "F3"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-05-18T22:03:16.871451",
+        "actualizado": "2026-05-18T20:24:20.754650",
         "frecuencia": "horaria"
     }
 }
