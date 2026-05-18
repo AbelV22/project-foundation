@@ -138,7 +138,7 @@
             "pax_estimados": 500,
             "puerto": "Marseille",
             "tipo": "llegada",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Panamà",
             "imo": "9387085",
             "mmsi": "352594000",
@@ -307,7 +307,7 @@
             "fecha": "2026-05-18"
         },
         {
-            "hora": "17:38",
+            "hora": "17:00",
             "nombre": "Msc Magnifica",
             "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
             "terminal": "ADOSSAT/TERMINAL H",
@@ -316,7 +316,7 @@
             "pax_estimados": 500,
             "puerto": "La Coruna",
             "tipo": "salida",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Panamà",
             "imo": "9387085",
             "mmsi": "352594000",
@@ -456,23 +456,23 @@
         "total_llegadas": 14,
         "total_salidas": 14,
         "pax_estimados_hoy": 31500,
-        "proximo_desembarco": "18:15",
-        "proximo_barco": "Ciudad De Palma"
+        "proximo_desembarco": "13:03",
+        "proximo_barco": "Msc Maura"
     },
     "terminales_activas": [
-        "B",
         "8156",
-        "H",
-        "TC",
-        "F2",
-        "F3",
-        "6212",
         "E",
-        "D"
+        "TC",
+        "H",
+        "F3",
+        "F2",
+        "B",
+        "D",
+        "6212"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-05-18T16:23:00.624135",
+        "actualizado": "2026-05-18T12:30:56.204185",
         "frecuencia": "horaria"
     }
 }
