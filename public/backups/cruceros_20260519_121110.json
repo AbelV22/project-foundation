@@ -66,6 +66,22 @@
         },
         {
             "hora": "06:00",
+            "nombre": "Msc Oak F",
+            "naviera": "MEDITERRANEAN SHIPPING CO",
+            "terminal": "TERMINAL CATALUNYA SA",
+            "terminal_codigo": "6212",
+            "eslora": 0,
+            "pax_estimados": 500,
+            "puerto": "Valencia",
+            "tipo": "llegada",
+            "estado": "Sol·licitada",
+            "bandera": "Libèria",
+            "imo": "9373917",
+            "mmsi": "636016702",
+            "fecha": "2026-05-19"
+        },
+        {
+            "hora": "06:00",
             "nombre": "Msc Radiant Iii",
             "naviera": "MEDITERRANEAN SHIPPING CO",
             "terminal": "TERMINAL CATALUNYA SA",
@@ -90,7 +106,7 @@
             "pax_estimados": 1000,
             "puerto": "Sete",
             "tipo": "llegada",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Itàlia",
             "imo": "8712518",
             "mmsi": "247163900",
@@ -122,7 +138,7 @@
             "pax_estimados": 2000,
             "puerto": "Valencia",
             "tipo": "llegada",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Itàlia",
             "imo": "9859533",
             "mmsi": "247383300",
@@ -145,22 +161,6 @@
             "fecha": "2026-05-19"
         },
         {
-            "hora": "15:00",
-            "nombre": "Sti Hackney",
-            "naviera": "CLEARLAKE SHIPPING PTE LTD",
-            "terminal": "MEROIL SA",
-            "terminal_codigo": "6995",
-            "eslora": 184.0,
-            "pax_estimados": 1000,
-            "puerto": "Lavera",
-            "tipo": "llegada",
-            "estado": "Sol·licitada",
-            "bandera": "Illes Marshall",
-            "imo": "9686883",
-            "mmsi": "538005401",
-            "fecha": "2026-05-19"
-        },
-        {
             "hora": "18:15",
             "nombre": "Ciudad De Palma",
             "naviera": "TRASMED GLE S.L.",
@@ -174,22 +174,6 @@
             "bandera": "Espanya",
             "imo": "9349772",
             "mmsi": "224588000",
-            "fecha": "2026-05-19"
-        },
-        {
-            "hora": "18:15",
-            "nombre": "Cruise Barcelona",
-            "naviera": "GRIMALDI EUROMED SPA",
-            "terminal": "TERMINAL F3",
-            "terminal_codigo": "F3",
-            "eslora": 0,
-            "pax_estimados": 500,
-            "puerto": "Civitavecchia",
-            "tipo": "llegada",
-            "estado": "Autoritzada",
-            "bandera": "Itàlia",
-            "imo": "9351488",
-            "mmsi": "247243600",
             "fecha": "2026-05-19"
         },
         {
@@ -223,6 +207,22 @@
             "imo": "9441130",
             "mmsi": "224402000",
             "fecha": "2026-05-19"
+        },
+        {
+            "hora": "19:00",
+            "nombre": "Cruise Barcelona",
+            "naviera": "GRIMALDI EUROMED SPA",
+            "terminal": "TERMINAL F3",
+            "terminal_codigo": "F3",
+            "eslora": 0,
+            "pax_estimados": 500,
+            "puerto": "Civitavecchia",
+            "tipo": "llegada",
+            "estado": "Autoritzada",
+            "bandera": "Itàlia",
+            "imo": "9351488",
+            "mmsi": "247243600",
+            "fecha": "2026-05-19"
         }
     ],
     "salidas": [
@@ -243,23 +243,7 @@
             "fecha": "2026-05-19"
         },
         {
-            "hora": "10:36",
-            "nombre": "Msc Maura",
-            "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
-            "terminal": "TERMINAL CATALUNYA SA",
-            "terminal_codigo": "6212",
-            "eslora": 366.0,
-            "pax_estimados": 6500,
-            "puerto": "Valencia",
-            "tipo": "salida",
-            "estado": "Finalitzada",
-            "bandera": "Libèria",
-            "imo": "9962536",
-            "mmsi": "636023962",
-            "fecha": "2026-05-19"
-        },
-        {
-            "hora": "11:24",
+            "hora": "10:00",
             "nombre": "Gnv Cristal",
             "naviera": "TRANSCOMA BALEARES SA",
             "terminal": "TERMINAL F2",
@@ -268,14 +252,14 @@
             "pax_estimados": 1000,
             "puerto": "Nador",
             "tipo": "salida",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Itàlia",
             "imo": "8712518",
             "mmsi": "247163900",
             "fecha": "2026-05-19"
         },
         {
-            "hora": "11:26",
+            "hora": "12:00",
             "nombre": "Eco Valencia",
             "naviera": "GRIMALDI LOGISTICA ESPAÑA SL",
             "terminal": "GRIMALDI TERMINAL BARCELONA SL",
@@ -284,7 +268,7 @@
             "pax_estimados": 2000,
             "puerto": "Livorno",
             "tipo": "salida",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Itàlia",
             "imo": "9859533",
             "mmsi": "247383300",
@@ -320,6 +304,22 @@
             "bandera": "Bahames",
             "imo": "9886225",
             "mmsi": "311001496",
+            "fecha": "2026-05-19"
+        },
+        {
+            "hora": "20:00",
+            "nombre": "Msc Oak F",
+            "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
+            "terminal": "TERMINAL CATALUNYA SA",
+            "terminal_codigo": "6212",
+            "eslora": 0,
+            "pax_estimados": 500,
+            "puerto": "Oran",
+            "tipo": "salida",
+            "estado": "Sol·licitada",
+            "bandera": "Libèria",
+            "imo": "9373917",
+            "mmsi": "636016702",
             "fecha": "2026-05-19"
         },
         {
@@ -436,29 +436,28 @@
         }
     ],
     "resumen": {
-        "total_cruceros": 16,
+        "total_cruceros": 15,
         "total_llegadas": 14,
         "total_salidas": 13,
-        "pax_estimados_hoy": 27000,
-        "proximo_desembarco": "15:00",
-        "proximo_barco": "Sti Hackney"
+        "pax_estimados_hoy": 26500,
+        "proximo_desembarco": "18:15",
+        "proximo_barco": "Ciudad De Palma"
     },
     "terminales_activas": [
-        "A",
-        "F2",
-        "F3",
-        "6995",
-        "7946",
         "6154",
-        "H",
-        "8156",
         "2396",
+        "8156",
+        "F3",
+        "H",
         "F1",
-        "6212"
+        "6212",
+        "F2",
+        "A",
+        "7946"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-05-19T12:11:10.035952",
+        "actualizado": "2026-05-19T08:27:33.045128",
         "frecuencia": "horaria"
     }
 }
