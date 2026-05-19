@@ -58,7 +58,7 @@
             "pax_estimados": 6500,
             "puerto": "Damietta",
             "tipo": "llegada",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Libèria",
             "imo": "9987328",
             "mmsi": "636025011",
@@ -106,7 +106,7 @@
             "pax_estimados": 2000,
             "puerto": "Valencia",
             "tipo": "llegada",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Bahames",
             "imo": "9886225",
             "mmsi": "311001496",
@@ -339,7 +339,7 @@
             "fecha": "2026-05-19"
         },
         {
-            "hora": "19:26",
+            "hora": "19:30",
             "nombre": "Silver Ray",
             "naviera": "INTERCRUISES PORT OPERATIONS SPAIN SLU",
             "terminal": "Terminal A (WTC)",
@@ -348,26 +348,10 @@
             "pax_estimados": 2000,
             "puerto": "Palma de Mallorca",
             "tipo": "salida",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Bahames",
             "imo": "9886225",
             "mmsi": "311001496",
-            "fecha": "2026-05-19"
-        },
-        {
-            "hora": "19:59",
-            "nombre": "Msc San Francisco",
-            "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
-            "terminal": "TERMINAL CATALUNYA SA",
-            "terminal_codigo": "6212",
-            "eslora": 366.0,
-            "pax_estimados": 6500,
-            "puerto": "Valencia",
-            "tipo": "salida",
-            "estado": "Finalitzada",
-            "bandera": "Libèria",
-            "imo": "9987328",
-            "mmsi": "636025011",
             "fecha": "2026-05-19"
         },
         {
@@ -384,6 +368,22 @@
             "bandera": "Libèria",
             "imo": "9235402",
             "mmsi": "636016943",
+            "fecha": "2026-05-19"
+        },
+        {
+            "hora": "20:00",
+            "nombre": "Msc San Francisco",
+            "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
+            "terminal": "TERMINAL CATALUNYA SA",
+            "terminal_codigo": "6212",
+            "eslora": 366.0,
+            "pax_estimados": 6500,
+            "puerto": "Valencia",
+            "tipo": "salida",
+            "estado": "Iniciada",
+            "bandera": "Libèria",
+            "imo": "9987328",
+            "mmsi": "636025011",
             "fecha": "2026-05-19"
         },
         {
@@ -472,25 +472,25 @@
         "total_llegadas": 15,
         "total_salidas": 14,
         "pax_estimados_hoy": 28000,
-        "proximo_desembarco": null,
-        "proximo_barco": null
+        "proximo_desembarco": "19:36",
+        "proximo_barco": "Abel Matutes"
     },
     "terminales_activas": [
-        "8156",
-        "7946",
+        "2396",
+        "F2",
         "6995",
-        "H",
         "6154",
         "F3",
-        "F2",
-        "2396",
         "6212",
         "A",
-        "F1"
+        "H",
+        "F1",
+        "8156",
+        "7946"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-05-19T20:49:04.019827",
+        "actualizado": "2026-05-19T19:00:19.984448",
         "frecuencia": "horaria"
     }
 }
