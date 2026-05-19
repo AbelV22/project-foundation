@@ -145,23 +145,7 @@
             "fecha": "2026-05-19"
         },
         {
-            "hora": "15:28",
-            "nombre": "Sti Hackney",
-            "naviera": "CLEARLAKE SHIPPING PTE LTD",
-            "terminal": "",
-            "terminal_codigo": "",
-            "eslora": 184.0,
-            "pax_estimados": 1000,
-            "puerto": "Lavera",
-            "tipo": "llegada",
-            "estado": "Iniciada",
-            "bandera": "Illes Marshall",
-            "imo": "9686883",
-            "mmsi": "538005401",
-            "fecha": "2026-05-19"
-        },
-        {
-            "hora": "15:31",
+            "hora": "15:00",
             "nombre": "Sti Hackney",
             "naviera": "CLEARLAKE SHIPPING PTE LTD",
             "terminal": "MEROIL SA",
@@ -170,7 +154,7 @@
             "pax_estimados": 1000,
             "puerto": "Lavera",
             "tipo": "llegada",
-            "estado": "Iniciada",
+            "estado": "Sol·licitada",
             "bandera": "Illes Marshall",
             "imo": "9686883",
             "mmsi": "538005401",
@@ -304,22 +288,6 @@
             "bandera": "Itàlia",
             "imo": "9859533",
             "mmsi": "247383300",
-            "fecha": "2026-05-19"
-        },
-        {
-            "hora": "15:30",
-            "nombre": "Sti Hackney",
-            "naviera": "NEXT MARITIME SL",
-            "terminal": "",
-            "terminal_codigo": "",
-            "eslora": 184.0,
-            "pax_estimados": 1000,
-            "puerto": "Malta Freeport Distripark",
-            "tipo": "salida",
-            "estado": "Iniciada",
-            "bandera": "Illes Marshall",
-            "imo": "9686883",
-            "mmsi": "538005401",
             "fecha": "2026-05-19"
         },
         {
@@ -469,28 +437,28 @@
     ],
     "resumen": {
         "total_cruceros": 16,
-        "total_llegadas": 15,
-        "total_salidas": 14,
-        "pax_estimados_hoy": 28000,
-        "proximo_desembarco": "18:15",
-        "proximo_barco": "Ciudad De Palma"
+        "total_llegadas": 14,
+        "total_salidas": 13,
+        "pax_estimados_hoy": 27000,
+        "proximo_desembarco": "15:00",
+        "proximo_barco": "Sti Hackney"
     },
     "terminales_activas": [
-        "7946",
-        "F2",
-        "H",
-        "2396",
-        "6212",
-        "F1",
-        "6154",
-        "8156",
-        "F3",
         "A",
-        "6995"
+        "F2",
+        "F3",
+        "6995",
+        "7946",
+        "6154",
+        "H",
+        "8156",
+        "2396",
+        "F1",
+        "6212"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-05-19T16:19:46.196390",
+        "actualizado": "2026-05-19T12:11:10.035952",
         "frecuencia": "horaria"
     }
 }
