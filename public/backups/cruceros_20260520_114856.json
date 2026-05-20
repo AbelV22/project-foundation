@@ -1,7 +1,7 @@
 {
     "llegadas": [
         {
-            "hora": "01:34",
+            "hora": "01:01",
             "nombre": "Eco Adriatica",
             "naviera": "GRIMALDI EUROMED SPA",
             "terminal": "GRIMALDI TERMINAL BARCELONA SL",
@@ -30,6 +30,22 @@
             "bandera": "Libèria",
             "imo": "9313929",
             "mmsi": "636025832",
+            "fecha": "2026-05-20"
+        },
+        {
+            "hora": "06:00",
+            "nombre": "Msc Soraya",
+            "naviera": "MEDITERRANEAN SHIPPING CO",
+            "terminal": "TERMINAL CATALUNYA SA",
+            "terminal_codigo": "6212",
+            "eslora": 0,
+            "pax_estimados": 500,
+            "puerto": "Livorno",
+            "tipo": "llegada",
+            "estado": "Sol·licitada",
+            "bandera": "Panamà",
+            "imo": "9372494",
+            "mmsi": "370271000",
             "fecha": "2026-05-20"
         },
         {
@@ -227,7 +243,7 @@
     ],
     "salidas": [
         {
-            "hora": "04:51",
+            "hora": "03:51",
             "nombre": "Eco Adriatica",
             "naviera": "GRIMALDI LOGISTICA ESPAÑA SL",
             "terminal": "GRIMALDI TERMINAL BARCELONA SL",
@@ -324,6 +340,22 @@
         },
         {
             "hora": "20:00",
+            "nombre": "Msc Soraya",
+            "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
+            "terminal": "TERMINAL CATALUNYA SA",
+            "terminal_codigo": "6212",
+            "eslora": 0,
+            "pax_estimados": 500,
+            "puerto": "Valencia",
+            "tipo": "salida",
+            "estado": "Sol·licitada",
+            "bandera": "Panamà",
+            "imo": "9372494",
+            "mmsi": "370271000",
+            "fecha": "2026-05-20"
+        },
+        {
+            "hora": "20:00",
             "nombre": "One Fortune",
             "naviera": "OCEAN NETWORK EXPRESS SPAIN SA",
             "terminal": "TERMINAL CATALUNYA SA",
@@ -404,29 +436,29 @@
         }
     ],
     "resumen": {
-        "total_cruceros": 16,
-        "total_llegadas": 14,
-        "total_salidas": 11,
-        "pax_estimados_hoy": 27000,
+        "total_cruceros": 17,
+        "total_llegadas": 15,
+        "total_salidas": 12,
+        "pax_estimados_hoy": 27500,
         "proximo_desembarco": "12:00",
         "proximo_barco": "Msc Cote D'Ivoire"
     },
     "terminales_activas": [
         "0010",
-        "6212",
         "7083",
-        "A",
-        "6154",
-        "F3",
-        "8156",
-        "B",
         "F1",
+        "6154",
         "2396",
-        "F2"
+        "B",
+        "F2",
+        "F3",
+        "6212",
+        "8156",
+        "A"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-05-20T11:48:56.517909",
+        "actualizado": "2026-05-20T08:25:37.421430",
         "frecuencia": "horaria"
     }
 }
