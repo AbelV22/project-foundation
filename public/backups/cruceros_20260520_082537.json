@@ -1,7 +1,7 @@
 {
     "llegadas": [
         {
-            "hora": "01:01",
+            "hora": "00:30",
             "nombre": "Eco Adriatica",
             "naviera": "GRIMALDI EUROMED SPA",
             "terminal": "GRIMALDI TERMINAL BARCELONA SL",
@@ -10,7 +10,7 @@
             "pax_estimados": 2000,
             "puerto": "Savona",
             "tipo": "llegada",
-            "estado": "Finalitzada",
+            "estado": "Autoritzada",
             "bandera": "Itàlia",
             "imo": "9859600",
             "mmsi": "247384100",
@@ -65,7 +65,7 @@
             "fecha": "2026-05-20"
         },
         {
-            "hora": "06:45",
+            "hora": "06:00",
             "nombre": "Seven Seas Voyager",
             "naviera": "REGENT SEVEN SEAS CRUISES INC",
             "terminal": "Terminal A (WTC)",
@@ -74,14 +74,14 @@
             "pax_estimados": 2000,
             "puerto": "Toulon",
             "tipo": "llegada",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Bahames",
             "imo": "9247144",
             "mmsi": "311513000",
             "fecha": "2026-05-20"
         },
         {
-            "hora": "07:14",
+            "hora": "07:00",
             "nombre": "Eco Livorno",
             "naviera": "GRIMALDI EUROMED SPA",
             "terminal": "GRIMALDI TERMINAL BARCELONA SL",
@@ -90,7 +90,7 @@
             "pax_estimados": 2000,
             "puerto": "Valencia",
             "tipo": "llegada",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Itàlia",
             "imo": "9859557",
             "mmsi": "247383500",
@@ -243,7 +243,7 @@
     ],
     "salidas": [
         {
-            "hora": "03:51",
+            "hora": "05:00",
             "nombre": "Eco Adriatica",
             "naviera": "GRIMALDI LOGISTICA ESPAÑA SL",
             "terminal": "GRIMALDI TERMINAL BARCELONA SL",
@@ -252,7 +252,7 @@
             "pax_estimados": 2000,
             "puerto": "Valencia",
             "tipo": "salida",
-            "estado": "Finalitzada",
+            "estado": "Autoritzada",
             "bandera": "Itàlia",
             "imo": "9859600",
             "mmsi": "247384100",
@@ -316,7 +316,7 @@
             "pax_estimados": 2000,
             "puerto": "Savona",
             "tipo": "salida",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Itàlia",
             "imo": "9859557",
             "mmsi": "247383500",
@@ -440,25 +440,25 @@
         "total_llegadas": 15,
         "total_salidas": 12,
         "pax_estimados_hoy": 27500,
-        "proximo_desembarco": "12:00",
-        "proximo_barco": "Msc Cote D'Ivoire"
+        "proximo_desembarco": "00:30",
+        "proximo_barco": "Eco Adriatica"
     },
     "terminales_activas": [
         "0010",
-        "7083",
-        "F1",
         "6154",
-        "2396",
-        "B",
-        "F2",
-        "F3",
         "6212",
         "8156",
-        "A"
+        "B",
+        "A",
+        "2396",
+        "F3",
+        "F2",
+        "7083",
+        "F1"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-05-20T08:25:37.421430",
+        "actualizado": "2026-05-20T00:06:13.584639",
         "frecuencia": "horaria"
     }
 }
