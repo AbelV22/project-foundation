@@ -218,14 +218,14 @@
             "pax_estimados": 1000,
             "puerto": "Alcudia",
             "tipo": "llegada",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Espanya",
             "imo": "9441130",
             "mmsi": "224402000",
             "fecha": "2026-05-21"
         },
         {
-            "hora": "22:27",
+            "hora": "21:45",
             "nombre": "Gnv Cristal",
             "naviera": "GRANDI NAVI VELOCI",
             "terminal": "TERMINAL F2",
@@ -234,7 +234,7 @@
             "pax_estimados": 1000,
             "puerto": "Nador",
             "tipo": "llegada",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Itàlia",
             "imo": "8712518",
             "mmsi": "247163900",
@@ -499,7 +499,7 @@
             "fecha": "2026-05-21"
         },
         {
-            "hora": "21:54",
+            "hora": "21:15",
             "nombre": "Abel Matutes",
             "naviera": "BALEARIA EUROLINEAS MARITIMAS SA ",
             "terminal": "TERMINAL F1",
@@ -508,7 +508,7 @@
             "pax_estimados": 1000,
             "puerto": "Alcudia",
             "tipo": "salida",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Espanya",
             "imo": "9441130",
             "mmsi": "224402000",
@@ -552,27 +552,27 @@
         "total_llegadas": 15,
         "total_salidas": 19,
         "pax_estimados_hoy": 24000,
-        "proximo_desembarco": "22:27",
+        "proximo_desembarco": "21:45",
         "proximo_barco": "Gnv Cristal"
     },
     "terminales_activas": [
-        "7083",
-        "B",
-        "D",
+        "F2",
+        "6995",
         "F1",
         "H",
-        "6212",
         "2398",
-        "F2",
-        "8156",
-        "6995",
-        "A",
         "S",
-        "F3"
+        "D",
+        "F3",
+        "A",
+        "6212",
+        "8156",
+        "B",
+        "7083"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-05-21T22:19:20.904250",
+        "actualizado": "2026-05-21T20:53:07.130407",
         "frecuencia": "horaria"
     }
 }
