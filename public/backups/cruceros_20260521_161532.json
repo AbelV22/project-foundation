@@ -1,6 +1,22 @@
 {
     "llegadas": [
         {
+            "hora": "00:01",
+            "nombre": "One Fortune",
+            "naviera": "OCEAN NETWORK EXPRESS PTE LTD",
+            "terminal": "TERMINAL CATALUNYA SA",
+            "terminal_codigo": "6212",
+            "eslora": 366.0,
+            "pax_estimados": 6500,
+            "puerto": "Valencia",
+            "tipo": "llegada",
+            "estado": "Autoritzada",
+            "bandera": "Singapur",
+            "imo": "9944819",
+            "mmsi": "477945300",
+            "fecha": "2026-05-21"
+        },
+        {
             "hora": "00:12",
             "nombre": "Harmony Of The Seas",
             "naviera": "ROYAL CARIBBEAN CRUISES LTD.",
@@ -106,7 +122,7 @@
             "pax_estimados": 1000,
             "puerto": "Sagunto",
             "tipo": "llegada",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Tunísia",
             "imo": "9208007",
             "mmsi": "672704000",
@@ -145,7 +161,7 @@
             "fecha": "2026-05-21"
         },
         {
-            "hora": "13:46",
+            "hora": "14:00",
             "nombre": "Eco Adriatica",
             "naviera": "GRIMALDI EUROMED SPA",
             "terminal": "GRIMALDI TERMINAL BARCELONA SL",
@@ -154,26 +170,10 @@
             "pax_estimados": 2000,
             "puerto": "Savona",
             "tipo": "llegada",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Itàlia",
             "imo": "9859600",
             "mmsi": "247384100",
-            "fecha": "2026-05-21"
-        },
-        {
-            "hora": "14:38",
-            "nombre": "One Fortune",
-            "naviera": "OCEAN NETWORK EXPRESS PTE LTD",
-            "terminal": "TERMINAL CATALUNYA SA",
-            "terminal_codigo": "6212",
-            "eslora": 366.0,
-            "pax_estimados": 6500,
-            "puerto": "Valencia",
-            "tipo": "llegada",
-            "estado": "Iniciada",
-            "bandera": "Singapur",
-            "imo": "9944819",
-            "mmsi": "477945300",
             "fecha": "2026-05-21"
         },
         {
@@ -323,22 +323,6 @@
             "fecha": "2026-05-21"
         },
         {
-            "hora": "12:34",
-            "nombre": "Cma Cgm Greenland",
-            "naviera": "CMA CGM IBERICA SAU",
-            "terminal": "TERMINAL CATALUNYA SA",
-            "terminal_codigo": "6212",
-            "eslora": 366.0,
-            "pax_estimados": 6500,
-            "puerto": "Fos-sur-Mer",
-            "tipo": "salida",
-            "estado": "Finalitzada",
-            "bandera": "França",
-            "imo": "9895006",
-            "mmsi": "228410800",
-            "fecha": "2026-05-21"
-        },
-        {
             "hora": "15:00",
             "nombre": "Sti Hackney",
             "naviera": "NEXT MARITIME SL",
@@ -352,22 +336,6 @@
             "bandera": "Illes Marshall",
             "imo": "9686883",
             "mmsi": "538005401",
-            "fecha": "2026-05-21"
-        },
-        {
-            "hora": "16:09",
-            "nombre": "Elyssa",
-            "naviera": "ROMEU Y CIA SA",
-            "terminal": "TERMINAL PORT NOU SA",
-            "terminal_codigo": "2398",
-            "eslora": 193.0,
-            "pax_estimados": 1000,
-            "puerto": "Rades/Tunis",
-            "tipo": "salida",
-            "estado": "Finalitzada",
-            "bandera": "Tunísia",
-            "imo": "9208007",
-            "mmsi": "672704000",
             "fecha": "2026-05-21"
         },
         {
@@ -416,6 +384,22 @@
             "bandera": "Illes Marshall",
             "imo": "9200940",
             "mmsi": "538012045",
+            "fecha": "2026-05-21"
+        },
+        {
+            "hora": "18:00",
+            "nombre": "Elyssa",
+            "naviera": "ROMEU Y CIA SA",
+            "terminal": "TERMINAL PORT NOU SA",
+            "terminal_codigo": "2398",
+            "eslora": 193.0,
+            "pax_estimados": 1000,
+            "puerto": "Rades/Tunis",
+            "tipo": "salida",
+            "estado": "Iniciada",
+            "bandera": "Tunísia",
+            "imo": "9208007",
+            "mmsi": "672704000",
             "fecha": "2026-05-21"
         },
         {
@@ -492,7 +476,7 @@
             "pax_estimados": 2000,
             "puerto": "Valencia",
             "tipo": "salida",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Itàlia",
             "imo": "9859600",
             "mmsi": "247384100",
@@ -548,31 +532,31 @@
         }
     ],
     "resumen": {
-        "total_cruceros": 20,
+        "total_cruceros": 19,
         "total_llegadas": 15,
-        "total_salidas": 19,
+        "total_salidas": 18,
         "pax_estimados_hoy": 24000,
-        "proximo_desembarco": "18:15",
-        "proximo_barco": "Ciudad De Palma"
+        "proximo_desembarco": "14:00",
+        "proximo_barco": "Eco Adriatica"
     },
     "terminales_activas": [
-        "8156",
-        "D",
-        "6212",
-        "F3",
-        "6995",
-        "A",
-        "S",
-        "2398",
-        "F1",
-        "B",
         "H",
+        "6995",
+        "8156",
+        "6212",
+        "S",
+        "F1",
+        "2398",
         "F2",
-        "7083"
+        "A",
+        "7083",
+        "F3",
+        "D",
+        "B"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-05-21T16:15:32.211065",
+        "actualizado": "2026-05-21T12:13:42.125984",
         "frecuencia": "horaria"
     }
 }
