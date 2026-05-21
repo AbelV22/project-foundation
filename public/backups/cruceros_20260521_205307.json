@@ -90,7 +90,7 @@
             "pax_estimados": 500,
             "puerto": "Mahon Menorca",
             "tipo": "llegada",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Itàlia",
             "imo": "9601132",
             "mmsi": "247322800",
@@ -138,7 +138,7 @@
             "pax_estimados": 4500,
             "puerto": "Ibiza",
             "tipo": "llegada",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Malta",
             "imo": "9745378",
             "mmsi": "248717000",
@@ -154,7 +154,7 @@
             "pax_estimados": 2000,
             "puerto": "Savona",
             "tipo": "llegada",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Itàlia",
             "imo": "9859600",
             "mmsi": "247384100",
@@ -371,6 +371,22 @@
             "fecha": "2026-05-21"
         },
         {
+            "hora": "17:00",
+            "nombre": "Seven Seas Voyager",
+            "naviera": "INTERCRUISES PORT OPERATIONS SPAIN SLU",
+            "terminal": "Terminal A (WTC)",
+            "terminal_codigo": "A",
+            "eslora": 206.0,
+            "pax_estimados": 2000,
+            "puerto": "Messina",
+            "tipo": "salida",
+            "estado": "Iniciada",
+            "bandera": "Bahames",
+            "imo": "9247144",
+            "mmsi": "311513000",
+            "fecha": "2026-05-21"
+        },
+        {
             "hora": "18:02",
             "nombre": "Azamara Journey",
             "naviera": "BALEARES CONSIGNATARIOS SLU",
@@ -403,6 +419,22 @@
             "fecha": "2026-05-21"
         },
         {
+            "hora": "18:30",
+            "nombre": "Aidastella",
+            "naviera": "NOATUM MARITIME SPAIN SAU",
+            "terminal": "Terminal D (Adossat)",
+            "terminal_codigo": "D",
+            "eslora": 0,
+            "pax_estimados": 500,
+            "puerto": "Palma de Mallorca",
+            "tipo": "salida",
+            "estado": "Iniciada",
+            "bandera": "Itàlia",
+            "imo": "9601132",
+            "mmsi": "247322800",
+            "fecha": "2026-05-21"
+        },
+        {
             "hora": "19:00",
             "nombre": "Msc Soraya",
             "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
@@ -419,7 +451,7 @@
             "fecha": "2026-05-21"
         },
         {
-            "hora": "19:44",
+            "hora": "19:00",
             "nombre": "Msc Seaview",
             "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
             "terminal": "ADOSSAT/TERMINAL H",
@@ -428,26 +460,10 @@
             "pax_estimados": 4500,
             "puerto": "Marseille",
             "tipo": "salida",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Malta",
             "imo": "9745378",
             "mmsi": "248717000",
-            "fecha": "2026-05-21"
-        },
-        {
-            "hora": "19:50",
-            "nombre": "Aidastella",
-            "naviera": "NOATUM MARITIME SPAIN SAU",
-            "terminal": "Terminal D (Adossat)",
-            "terminal_codigo": "D",
-            "eslora": 0,
-            "pax_estimados": 500,
-            "puerto": "Palma de Mallorca",
-            "tipo": "salida",
-            "estado": "Finalitzada",
-            "bandera": "Itàlia",
-            "imo": "9601132",
-            "mmsi": "247322800",
             "fecha": "2026-05-21"
         },
         {
@@ -467,23 +483,7 @@
             "fecha": "2026-05-21"
         },
         {
-            "hora": "20:01",
-            "nombre": "Seven Seas Voyager",
-            "naviera": "INTERCRUISES PORT OPERATIONS SPAIN SLU",
-            "terminal": "Terminal A (WTC)",
-            "terminal_codigo": "A",
-            "eslora": 206.0,
-            "pax_estimados": 2000,
-            "puerto": "Messina",
-            "tipo": "salida",
-            "estado": "Finalitzada",
-            "bandera": "Bahames",
-            "imo": "9247144",
-            "mmsi": "311513000",
-            "fecha": "2026-05-21"
-        },
-        {
-            "hora": "20:34",
+            "hora": "20:00",
             "nombre": "Eco Adriatica",
             "naviera": "GRIMALDI LOGISTICA ESPAÑA SL",
             "terminal": "GRIMALDI TERMINAL BARCELONA SL",
@@ -492,7 +492,7 @@
             "pax_estimados": 2000,
             "puerto": "Valencia",
             "tipo": "salida",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Itàlia",
             "imo": "9859600",
             "mmsi": "247384100",
@@ -552,27 +552,27 @@
         "total_llegadas": 15,
         "total_salidas": 19,
         "pax_estimados_hoy": 24000,
-        "proximo_desembarco": "21:45",
-        "proximo_barco": "Gnv Cristal"
+        "proximo_desembarco": "19:22",
+        "proximo_barco": "Abel Matutes"
     },
     "terminales_activas": [
-        "F2",
-        "6995",
-        "F1",
-        "H",
         "2398",
-        "S",
+        "6995",
+        "B",
         "D",
         "F3",
         "A",
-        "6212",
+        "F1",
+        "7083",
+        "H",
+        "F2",
         "8156",
-        "B",
-        "7083"
+        "6212",
+        "S"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-05-21T20:53:07.130407",
+        "actualizado": "2026-05-21T18:58:11.231767",
         "frecuencia": "horaria"
     }
 }
