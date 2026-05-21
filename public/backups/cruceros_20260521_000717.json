@@ -17,22 +17,6 @@
             "fecha": "2026-05-21"
         },
         {
-            "hora": "00:12",
-            "nombre": "Harmony Of The Seas",
-            "naviera": "ROYAL CARIBBEAN CRUISES LTD.",
-            "terminal": "Terminal B (Maremagnum)",
-            "terminal_codigo": "B",
-            "eslora": 0,
-            "pax_estimados": 500,
-            "puerto": "Cadiz",
-            "tipo": "llegada",
-            "estado": "Iniciada",
-            "bandera": "Bahames",
-            "imo": "9682875",
-            "mmsi": "311000396",
-            "fecha": "2026-05-21"
-        },
-        {
             "hora": "01:00",
             "nombre": "Eco Savona",
             "naviera": "GRIMALDI EUROMED SPA",
@@ -300,7 +284,7 @@
             "pax_estimados": 500,
             "puerto": "Palma de Mallorca",
             "tipo": "salida",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Bahames",
             "imo": "9682875",
             "mmsi": "311000396",
@@ -485,29 +469,29 @@
     ],
     "resumen": {
         "total_cruceros": 18,
-        "total_llegadas": 14,
+        "total_llegadas": 13,
         "total_salidas": 16,
-        "pax_estimados_hoy": 23000,
-        "proximo_desembarco": "00:12",
-        "proximo_barco": "Harmony Of The Seas"
+        "pax_estimados_hoy": 22500,
+        "proximo_desembarco": null,
+        "proximo_barco": null
     },
     "terminales_activas": [
-        "F1",
-        "D",
-        "8156",
-        "B",
-        "2398",
-        "6995",
-        "7083",
-        "H",
         "F2",
+        "6995",
+        "F1",
+        "6212",
+        "B",
         "A",
+        "H",
         "S",
-        "6212"
+        "D",
+        "7083",
+        "8156",
+        "2398"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-05-21T00:07:17.174353",
+        "actualizado": "2026-05-20T22:23:59.718592",
         "frecuencia": "horaria"
     }
 }
