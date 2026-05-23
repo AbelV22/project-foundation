@@ -225,6 +225,22 @@
             "fecha": "2026-05-23"
         },
         {
+            "hora": "18:30",
+            "nombre": "Msc Giulia",
+            "naviera": "MEDITERRANEAN SHIPPING CO",
+            "terminal": "TERMINAL CATALUNYA SA",
+            "terminal_codigo": "6212",
+            "eslora": 0,
+            "pax_estimados": 500,
+            "puerto": "Valencia",
+            "tipo": "llegada",
+            "estado": "Autoritzada",
+            "bandera": "Portugal",
+            "imo": "9770737",
+            "mmsi": "255805869",
+            "fecha": "2026-05-23"
+        },
+        {
             "hora": "18:45",
             "nombre": "Abel Matutes",
             "naviera": "EUROLINEAS MARITIMAS S.A",
@@ -257,7 +273,7 @@
             "fecha": "2026-05-23"
         },
         {
-            "hora": "21:34",
+            "hora": "22:00",
             "nombre": "Cruise Roma",
             "naviera": "GRIMALDI EUROMED SPA",
             "terminal": "TERMINAL F3",
@@ -266,26 +282,10 @@
             "pax_estimados": 3000,
             "puerto": "Civitavecchia",
             "tipo": "llegada",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Itàlia",
             "imo": "9351476",
             "mmsi": "247219400",
-            "fecha": "2026-05-23"
-        },
-        {
-            "hora": "22:10",
-            "nombre": "Msc Giulia",
-            "naviera": "MEDITERRANEAN SHIPPING CO",
-            "terminal": "TERMINAL CATALUNYA SA",
-            "terminal_codigo": "6212",
-            "eslora": 0,
-            "pax_estimados": 500,
-            "puerto": "Valencia",
-            "tipo": "llegada",
-            "estado": "Iniciada",
-            "bandera": "Portugal",
-            "imo": "9770737",
-            "mmsi": "255805869",
             "fecha": "2026-05-23"
         }
     ],
@@ -336,6 +336,22 @@
             "bandera": "Illes Marshall",
             "imo": "9686883",
             "mmsi": "538005401",
+            "fecha": "2026-05-23"
+        },
+        {
+            "hora": "14:00",
+            "nombre": "Msc Samar",
+            "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
+            "terminal": "TERMINAL CATALUNYA SA",
+            "terminal_codigo": "6212",
+            "eslora": 0,
+            "pax_estimados": 500,
+            "puerto": "Fos-sur-Mer",
+            "tipo": "salida",
+            "estado": "Iniciada",
+            "bandera": "Panamà",
+            "imo": "9839442",
+            "mmsi": "371047000",
             "fecha": "2026-05-23"
         },
         {
@@ -497,22 +513,6 @@
             "imo": "9293466",
             "mmsi": "255915962",
             "fecha": "2026-05-23"
-        },
-        {
-            "hora": "20:21",
-            "nombre": "Msc Samar",
-            "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
-            "terminal": "TERMINAL CATALUNYA SA",
-            "terminal_codigo": "6212",
-            "eslora": 0,
-            "pax_estimados": 500,
-            "puerto": "Fos-sur-Mer",
-            "tipo": "salida",
-            "estado": "Finalitzada",
-            "bandera": "Panamà",
-            "imo": "9839442",
-            "mmsi": "371047000",
-            "fecha": "2026-05-23"
         }
     ],
     "resumen": {
@@ -520,26 +520,26 @@
         "total_llegadas": 18,
         "total_salidas": 14,
         "pax_estimados_hoy": 29000,
-        "proximo_desembarco": "22:10",
-        "proximo_barco": "Msc Giulia"
+        "proximo_desembarco": "22:00",
+        "proximo_barco": "Cruise Roma"
     },
     "terminales_activas": [
-        "C",
-        "H",
-        "TC",
-        "F2",
-        "F3",
-        "7946",
-        "A",
-        "6995",
         "8156",
-        "B",
+        "C",
+        "A",
+        "F3",
+        "6995",
+        "F2",
+        "TC",
         "6212",
-        "6037"
+        "H",
+        "7946",
+        "6037",
+        "B"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-05-23T21:54:54.231616",
+        "actualizado": "2026-05-23T20:05:35.373101",
         "frecuencia": "horaria"
     }
 }
