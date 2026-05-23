@@ -177,22 +177,6 @@
             "fecha": "2026-05-23"
         },
         {
-            "hora": "09:13",
-            "nombre": "Sti Hackney",
-            "naviera": "CLEARLAKE SHIPPING PTE LTD",
-            "terminal": "",
-            "terminal_codigo": "",
-            "eslora": 184.0,
-            "pax_estimados": 1000,
-            "puerto": "Lavera",
-            "tipo": "llegada",
-            "estado": "Iniciada",
-            "bandera": "Illes Marshall",
-            "imo": "9686883",
-            "mmsi": "538005401",
-            "fecha": "2026-05-23"
-        },
-        {
             "hora": "14:00",
             "nombre": "Eco Livorno",
             "naviera": "GRIMALDI EUROMED SPA",
@@ -244,13 +228,13 @@
             "hora": "18:45",
             "nombre": "Abel Matutes",
             "naviera": "EUROLINEAS MARITIMAS S.A",
-            "terminal": "LEPANT/TRUCK CENTER",
-            "terminal_codigo": "TC",
+            "terminal": "BALEARIA EUROLINEAS MARITIMAS SA ",
+            "terminal_codigo": "7332",
             "eslora": 190.0,
             "pax_estimados": 1000,
             "puerto": "Alcudia",
             "tipo": "llegada",
-            "estado": "Autoritzada",
+            "estado": "Confirmada",
             "bandera": "Espanya",
             "imo": "9441130",
             "mmsi": "224402000",
@@ -320,22 +304,6 @@
             "bandera": "Illes Marshall",
             "imo": "9654787",
             "mmsi": "538005094",
-            "fecha": "2026-05-23"
-        },
-        {
-            "hora": "09:12",
-            "nombre": "Sti Hackney",
-            "naviera": "NEXT MARITIME SL",
-            "terminal": "MEROIL SA",
-            "terminal_codigo": "6995",
-            "eslora": 184.0,
-            "pax_estimados": 1000,
-            "puerto": "Malta Freeport Distripark",
-            "tipo": "salida",
-            "estado": "Iniciada",
-            "bandera": "Illes Marshall",
-            "imo": "9686883",
-            "mmsi": "538005401",
             "fecha": "2026-05-23"
         },
         {
@@ -516,30 +484,29 @@
         }
     ],
     "resumen": {
-        "total_cruceros": 20,
-        "total_llegadas": 18,
-        "total_salidas": 14,
-        "pax_estimados_hoy": 29000,
-        "proximo_desembarco": "14:00",
-        "proximo_barco": "Eco Livorno"
+        "total_cruceros": 19,
+        "total_llegadas": 17,
+        "total_salidas": 13,
+        "pax_estimados_hoy": 28000,
+        "proximo_desembarco": "07:32",
+        "proximo_barco": "Eco Savona"
     },
     "terminales_activas": [
-        "A",
         "C",
-        "6037",
-        "TC",
         "7946",
-        "F2",
         "6212",
-        "H",
         "B",
-        "6995",
-        "8156",
-        "F3"
+        "A",
+        "H",
+        "6037",
+        "F3",
+        "7332",
+        "F2",
+        "8156"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-05-23T10:26:30.364845",
+        "actualizado": "2026-05-23T07:31:50.142709",
         "frecuencia": "horaria"
     }
 }
