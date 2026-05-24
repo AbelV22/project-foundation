@@ -151,12 +151,6 @@
             "via": "-"
         },
         {
-            "hora": "14:50",
-            "origen": "Alacant / Alicante Terminal",
-            "tren": "EUROMED 01112",
-            "via": "-"
-        },
-        {
             "hora": "14:54",
             "origen": "Sevilla Santa Justa",
             "tren": "AVE 03943",
@@ -292,13 +286,19 @@
             "hora": "19:59",
             "origen": "Madrid Puerta de Atocha Almudena Grandes",
             "tren": "AVE 03171",
-            "via": "-"
+            "via": "2"
         },
         {
             "hora": "20:02",
             "origen": "Pamplona / Iruña",
             "tren": "INTERCITY 00634",
             "via": "-"
+        },
+        {
+            "hora": "20:33",
+            "origen": "Figueres-Vilafant",
+            "tren": "AVE 34292",
+            "via": "1"
         },
         {
             "hora": "20:33",
@@ -316,7 +316,7 @@
             "hora": "20:51",
             "origen": "Córdoba Julio Anguita",
             "tren": "ALVIA 00694",
-            "via": "-"
+            "via": "4"
         },
         {
             "hora": "20:57",
@@ -388,7 +388,7 @@
             "hora": "22:46",
             "origen": "Sevilla Santa Justa",
             "tren": "IRYO 06013",
-            "via": "3"
+            "via": "-"
         },
         {
             "hora": "22:59",
@@ -400,7 +400,7 @@
             "hora": "23:20",
             "origen": "Madrid Puerta de Atocha Almudena Grandes",
             "tren": "AVE 03309",
-            "via": "5"
+            "via": "-"
         },
         {
             "hora": "23:25",
@@ -418,18 +418,18 @@
             "hora": "23:47",
             "origen": "Madrid Puerta de Atocha Almudena Grandes",
             "tren": "AVE 03201",
-            "via": "2"
+            "via": "-"
         },
         {
             "hora": "23:58",
             "origen": "Madrid Puerta de Atocha Almudena Grandes",
             "tren": "IRYO 06211",
-            "via": "4"
+            "via": "-"
         }
     ],
     "meta": {
-        "update_time": "18:58",
-        "updated_at": "2026-05-24T18:58:52.690692",
+        "update_time": "17:50",
+        "updated_at": "2026-05-24T17:50:55.247494",
         "total": 71
     }
 }
