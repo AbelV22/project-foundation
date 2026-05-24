@@ -42,7 +42,7 @@
             "pax_estimados": 500,
             "puerto": "Palma de Mallorca",
             "tipo": "llegada",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Bahames",
             "imo": "9195169",
             "mmsi": "311307000",
@@ -259,7 +259,7 @@
             "fecha": "2026-05-24"
         },
         {
-            "hora": "16:12",
+            "hora": "16:00",
             "nombre": "Norwegian Dawn",
             "naviera": "INTERCRUISES PORT OPERATIONS SPAIN SLU",
             "terminal": "Terminal A (WTC)",
@@ -268,26 +268,10 @@
             "pax_estimados": 500,
             "puerto": "Palma de Mallorca",
             "tipo": "salida",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Bahames",
             "imo": "9195169",
             "mmsi": "311307000",
-            "fecha": "2026-05-24"
-        },
-        {
-            "hora": "16:35",
-            "nombre": "Sti Hackney",
-            "naviera": "NEXT MARITIME SL",
-            "terminal": "",
-            "terminal_codigo": "",
-            "eslora": 184.0,
-            "pax_estimados": 1000,
-            "puerto": "Malta Freeport Distripark",
-            "tipo": "salida",
-            "estado": "Finalitzada",
-            "bandera": "Illes Marshall",
-            "imo": "9686883",
-            "mmsi": "538005401",
             "fecha": "2026-05-24"
         },
         {
@@ -404,29 +388,29 @@
         }
     ],
     "resumen": {
-        "total_cruceros": 18,
+        "total_cruceros": 17,
         "total_llegadas": 11,
-        "total_salidas": 14,
+        "total_salidas": 13,
         "pax_estimados_hoy": 22500,
         "proximo_desembarco": "17:00",
         "proximo_barco": "Msc Claude Girardet"
     },
     "terminales_activas": [
-        "F2",
-        "B",
-        "6212",
-        "TC",
-        "6037",
-        "H",
-        "E",
         "7585",
+        "TC",
+        "B",
+        "E",
+        "6037",
+        "6212",
+        "F2",
+        "A",
         "8192",
-        "F3",
-        "A"
+        "H",
+        "F3"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-05-24T16:00:44.039507",
+        "actualizado": "2026-05-24T14:23:53.643459",
         "frecuencia": "horaria"
     }
 }
