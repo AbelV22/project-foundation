@@ -191,22 +191,6 @@
             "imo": "9629574",
             "mmsi": "229407000",
             "fecha": "2026-05-24"
-        },
-        {
-            "hora": "19:34",
-            "nombre": "Htm Grenadier",
-            "naviera": "HERCULES SHIPPING",
-            "terminal": "",
-            "terminal_codigo": "",
-            "eslora": 184.0,
-            "pax_estimados": 1000,
-            "puerto": "Tarragona",
-            "tipo": "llegada",
-            "estado": "Iniciada",
-            "bandera": "Malta",
-            "imo": "9587829",
-            "mmsi": "249703000",
-            "fecha": "2026-05-24"
         }
     ],
     "salidas": [
@@ -468,30 +452,30 @@
         }
     ],
     "resumen": {
-        "total_cruceros": 20,
-        "total_llegadas": 13,
+        "total_cruceros": 19,
+        "total_llegadas": 12,
         "total_salidas": 16,
-        "pax_estimados_hoy": 24500,
+        "pax_estimados_hoy": 23500,
         "proximo_desembarco": null,
         "proximo_barco": null
     },
     "terminales_activas": [
-        "F2",
-        "6212",
-        "7585",
-        "8192",
-        "B",
-        "7946",
-        "TC",
-        "A",
         "E",
-        "F3",
+        "TC",
+        "H",
+        "F2",
+        "7946",
         "6037",
-        "H"
+        "F3",
+        "B",
+        "A",
+        "7585",
+        "6212",
+        "8192"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-05-24T20:05:15.391004",
+        "actualizado": "2026-05-24T17:57:48.251706",
         "frecuencia": "horaria"
     }
 }
