@@ -435,7 +435,7 @@
             "fecha": "2026-05-24"
         },
         {
-            "hora": "21:28",
+            "hora": "21:15",
             "nombre": "Abel Matutes",
             "naviera": "BALEARIA EUROLINEAS MARITIMAS SA ",
             "terminal": "LEPANT/TRUCK CENTER",
@@ -444,14 +444,14 @@
             "pax_estimados": 1000,
             "puerto": "Alcudia",
             "tipo": "salida",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Espanya",
             "imo": "9441130",
             "mmsi": "224402000",
             "fecha": "2026-05-24"
         },
         {
-            "hora": "22:32",
+            "hora": "22:30",
             "nombre": "Ciudad De Palma",
             "naviera": "GRIMALDI LOGISTICA ESPAÑA SL",
             "terminal": "TERMINAL F2",
@@ -460,7 +460,7 @@
             "pax_estimados": 1000,
             "puerto": "Palma de Mallorca",
             "tipo": "salida",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Espanya",
             "imo": "9349772",
             "mmsi": "224588000",
@@ -476,22 +476,22 @@
         "proximo_barco": null
     },
     "terminales_activas": [
-        "E",
-        "H",
-        "6037",
         "F2",
-        "A",
-        "F3",
-        "TC",
         "6212",
         "7585",
         "8192",
         "B",
-        "7946"
+        "7946",
+        "TC",
+        "A",
+        "E",
+        "F3",
+        "6037",
+        "H"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-05-24T21:56:55.248638",
+        "actualizado": "2026-05-24T20:05:15.391004",
         "frecuencia": "horaria"
     }
 }
