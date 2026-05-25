@@ -202,7 +202,7 @@
             "pax_estimados": 500,
             "puerto": "Palma de Mallorca",
             "tipo": "llegada",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Malta",
             "imo": "9783564",
             "mmsi": "248513000",
@@ -289,6 +289,22 @@
             "fecha": "2026-05-25"
         },
         {
+            "hora": "18:45",
+            "nombre": "Msc Wolf Ii",
+            "naviera": "MEDITERRANEAN SHIPPING CO",
+            "terminal": "TERMINAL CATALUNYA SA",
+            "terminal_codigo": "6212",
+            "eslora": 0,
+            "pax_estimados": 500,
+            "puerto": "Valencia",
+            "tipo": "llegada",
+            "estado": "Autoritzada",
+            "bandera": "Libèria",
+            "imo": "9373498",
+            "mmsi": "636024337",
+            "fecha": "2026-05-25"
+        },
+        {
             "hora": "18:49",
             "nombre": "Abel Matutes",
             "naviera": "EUROLINEAS MARITIMAS S.A",
@@ -318,22 +334,6 @@
             "bandera": "Espanya",
             "imo": "9349772",
             "mmsi": "224588000",
-            "fecha": "2026-05-25"
-        },
-        {
-            "hora": "21:35",
-            "nombre": "Msc Wolf Ii",
-            "naviera": "MEDITERRANEAN SHIPPING CO",
-            "terminal": "TERMINAL CATALUNYA SA",
-            "terminal_codigo": "6212",
-            "eslora": 0,
-            "pax_estimados": 500,
-            "puerto": "Valencia",
-            "tipo": "llegada",
-            "estado": "Iniciada",
-            "bandera": "Libèria",
-            "imo": "9373498",
-            "mmsi": "636024337",
             "fecha": "2026-05-25"
         },
         {
@@ -547,6 +547,22 @@
             "fecha": "2026-05-25"
         },
         {
+            "hora": "19:30",
+            "nombre": "Mein Schiff 1",
+            "naviera": "INTERCRUISES PORT OPERATIONS SPAIN SLU",
+            "terminal": "Terminal A (WTC)",
+            "terminal_codigo": "A",
+            "eslora": 0,
+            "pax_estimados": 500,
+            "puerto": "Ajaccio",
+            "tipo": "salida",
+            "estado": "Iniciada",
+            "bandera": "Malta",
+            "imo": "9783564",
+            "mmsi": "248513000",
+            "fecha": "2026-05-25"
+        },
+        {
             "hora": "20:00",
             "nombre": "Msc Mombasa",
             "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
@@ -608,22 +624,6 @@
             "bandera": "Portugal",
             "imo": "9466960",
             "mmsi": "255806034",
-            "fecha": "2026-05-25"
-        },
-        {
-            "hora": "20:18",
-            "nombre": "Mein Schiff 1",
-            "naviera": "INTERCRUISES PORT OPERATIONS SPAIN SLU",
-            "terminal": "Terminal A (WTC)",
-            "terminal_codigo": "A",
-            "eslora": 0,
-            "pax_estimados": 500,
-            "puerto": "Ajaccio",
-            "tipo": "salida",
-            "estado": "Finalitzada",
-            "bandera": "Malta",
-            "imo": "9783564",
-            "mmsi": "248513000",
             "fecha": "2026-05-25"
         },
         {
@@ -712,28 +712,28 @@
         "total_llegadas": 24,
         "total_salidas": 20,
         "pax_estimados_hoy": 34500,
-        "proximo_desembarco": "21:35",
+        "proximo_desembarco": "18:45",
         "proximo_barco": "Msc Wolf Ii"
     },
     "terminales_activas": [
-        "6212",
         "6995",
-        "F2",
-        "A",
         "8192",
+        "E",
+        "6212",
+        "F2",
+        "7259",
         "C",
         "8156",
-        "F3",
-        "B",
-        "E",
         "TC",
+        "F3",
+        "D",
         "7946",
-        "7259",
-        "D"
+        "B",
+        "A"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-05-25T20:22:43.201888",
+        "actualizado": "2026-05-25T18:25:02.350167",
         "frecuencia": "horaria"
     }
 }
