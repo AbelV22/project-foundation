@@ -250,7 +250,7 @@
             "pax_estimados": 2000,
             "puerto": "Savona",
             "tipo": "llegada",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Itàlia",
             "imo": "9859600",
             "mmsi": "247384100",
@@ -346,7 +346,7 @@
             "pax_estimados": 1000,
             "puerto": "Singapore",
             "tipo": "llegada",
-            "estado": "Confirmada",
+            "estado": "Sol·licitada",
             "bandera": "Grècia",
             "imo": "9417220",
             "mmsi": "241676000",
@@ -378,7 +378,7 @@
             "pax_estimados": 1000,
             "puerto": "Singapore",
             "tipo": "llegada",
-            "estado": "Confirmada",
+            "estado": "Sol·licitada",
             "bandera": "Grècia",
             "imo": "9417220",
             "mmsi": "241676000",
@@ -483,7 +483,7 @@
             "fecha": "2026-05-25"
         },
         {
-            "hora": "13:14",
+            "hora": "14:00",
             "nombre": "Eco Adriatica",
             "naviera": "GRIMALDI LOGISTICA ESPAÑA SL",
             "terminal": "GRIMALDI TERMINAL BARCELONA SL",
@@ -492,7 +492,7 @@
             "pax_estimados": 2000,
             "puerto": "Valencia",
             "tipo": "salida",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Itàlia",
             "imo": "9859600",
             "mmsi": "247384100",
@@ -712,28 +712,28 @@
         "total_llegadas": 24,
         "total_salidas": 20,
         "pax_estimados_hoy": 34500,
-        "proximo_desembarco": "18:15",
-        "proximo_barco": "Ciudad De Palma"
+        "proximo_desembarco": "09:52",
+        "proximo_barco": "Marella Discovery 2"
     },
     "terminales_activas": [
-        "6995",
-        "A",
-        "TC",
-        "8192",
-        "7259",
-        "E",
-        "F3",
+        "6212",
         "7946",
         "B",
+        "7259",
         "8156",
-        "F2",
+        "F3",
+        "D",
+        "E",
+        "8192",
+        "6995",
         "C",
-        "6212",
-        "D"
+        "TC",
+        "F2",
+        "A"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-05-25T12:34:04.584596",
+        "actualizado": "2026-05-25T08:56:25.999409",
         "frecuencia": "horaria"
     }
 }
