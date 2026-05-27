@@ -33,7 +33,7 @@
             "fecha": "2026-05-27"
         },
         {
-            "hora": "10:28",
+            "hora": "13:00",
             "nombre": "Eco Adriatica",
             "naviera": "GRIMALDI EUROMED SPA",
             "terminal": "GRIMALDI TERMINAL BARCELONA SL",
@@ -42,7 +42,7 @@
             "pax_estimados": 2000,
             "puerto": "Valencia",
             "tipo": "llegada",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Itàlia",
             "imo": "9859600",
             "mmsi": "247384100",
@@ -58,7 +58,7 @@
             "pax_estimados": 6500,
             "puerto": "Valencia",
             "tipo": "llegada",
-            "estado": "Autoritzada",
+            "estado": "Confirmada",
             "bandera": "Libèria",
             "imo": "9957359",
             "mmsi": "636023564",
@@ -74,10 +74,26 @@
             "pax_estimados": 500,
             "puerto": "Alger (Algiers)",
             "tipo": "llegada",
-            "estado": "Autoritzada",
+            "estado": "Confirmada",
             "bandera": "Libèria",
             "imo": "9491616",
             "mmsi": "636021484",
+            "fecha": "2026-05-27"
+        },
+        {
+            "hora": "18:45",
+            "nombre": "Abel Matutes",
+            "naviera": "EUROLINEAS MARITIMAS S.A",
+            "terminal": "BALEARIA EUROLINEAS MARITIMAS SA ",
+            "terminal_codigo": "7332",
+            "eslora": 190.0,
+            "pax_estimados": 1000,
+            "puerto": "Alcudia",
+            "tipo": "llegada",
+            "estado": "Confirmada",
+            "bandera": "Espanya",
+            "imo": "9441130",
+            "mmsi": "224402000",
             "fecha": "2026-05-27"
         },
         {
@@ -220,10 +236,26 @@
             "pax_estimados": 2000,
             "puerto": "Savona",
             "tipo": "salida",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Itàlia",
             "imo": "9859600",
             "mmsi": "247384100",
+            "fecha": "2026-05-27"
+        },
+        {
+            "hora": "21:15",
+            "nombre": "Abel Matutes",
+            "naviera": "BALEARIA EUROLINEAS MARITIMAS SA ",
+            "terminal": "BALEARIA EUROLINEAS MARITIMAS SA ",
+            "terminal_codigo": "7332",
+            "eslora": 190.0,
+            "pax_estimados": 1000,
+            "puerto": "Alcudia",
+            "tipo": "salida",
+            "estado": "Confirmada",
+            "bandera": "Espanya",
+            "imo": "9441130",
+            "mmsi": "224402000",
             "fecha": "2026-05-27"
         },
         {
@@ -292,25 +324,26 @@
         }
     ],
     "resumen": {
-        "total_cruceros": 12,
-        "total_llegadas": 7,
-        "total_salidas": 11,
-        "pax_estimados_hoy": 13000,
-        "proximo_desembarco": "18:00",
-        "proximo_barco": "Msc Rose"
+        "total_cruceros": 13,
+        "total_llegadas": 8,
+        "total_salidas": 12,
+        "pax_estimados_hoy": 14000,
+        "proximo_desembarco": "13:00",
+        "proximo_barco": "Eco Adriatica"
     },
     "terminales_activas": [
-        "F2",
-        "6995",
-        "8156",
-        "F3",
         "6212",
-        "C",
-        "7946"
+        "8156",
+        "F2",
+        "7946",
+        "7332",
+        "6995",
+        "F3",
+        "C"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-05-27T12:20:28.168314",
+        "actualizado": "2026-05-27T08:38:18.338686",
         "frecuencia": "horaria"
     }
 }
