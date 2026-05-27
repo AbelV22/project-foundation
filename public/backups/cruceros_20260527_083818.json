@@ -1,7 +1,7 @@
 {
     "llegadas": [
         {
-            "hora": "01:51",
+            "hora": "01:00",
             "nombre": "Eco Savona",
             "naviera": "GRIMALDI EUROMED SPA",
             "terminal": "GRIMALDI TERMINAL BARCELONA SL",
@@ -10,26 +10,10 @@
             "pax_estimados": 2000,
             "puerto": "Savona",
             "tipo": "llegada",
-            "estado": "Finalitzada",
+            "estado": "Autoritzada",
             "bandera": "Itàlia",
             "imo": "9859569",
             "mmsi": "247383600",
-            "fecha": "2026-05-27"
-        },
-        {
-            "hora": "02:30",
-            "nombre": "Msc Everest Viii",
-            "naviera": "MEDITERRANEAN SHIPPING CO",
-            "terminal": "TERMINAL CATALUNYA SA",
-            "terminal_codigo": "6212",
-            "eslora": 0,
-            "pax_estimados": 500,
-            "puerto": "Genoa",
-            "tipo": "llegada",
-            "estado": "Iniciada",
-            "bandera": "Xipre",
-            "imo": "9286231",
-            "mmsi": "210644000",
             "fecha": "2026-05-27"
         },
         {
@@ -131,23 +115,7 @@
     ],
     "salidas": [
         {
-            "hora": "00:37",
-            "nombre": "Msc Radiant Iii",
-            "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
-            "terminal": "TERMINAL CATALUNYA SA",
-            "terminal_codigo": "6212",
-            "eslora": 208.0,
-            "pax_estimados": 2000,
-            "puerto": "Alger (Algiers)",
-            "tipo": "salida",
-            "estado": "Finalitzada",
-            "bandera": "Libèria",
-            "imo": "9235402",
-            "mmsi": "636016943",
-            "fecha": "2026-05-27"
-        },
-        {
-            "hora": "04:42",
+            "hora": "05:00",
             "nombre": "Eco Savona",
             "naviera": "GRIMALDI LOGISTICA ESPAÑA SL",
             "terminal": "GRIMALDI TERMINAL BARCELONA SL",
@@ -156,7 +124,7 @@
             "pax_estimados": 2000,
             "puerto": "Valencia",
             "tipo": "salida",
-            "estado": "Finalitzada",
+            "estado": "Autoritzada",
             "bandera": "Itàlia",
             "imo": "9859569",
             "mmsi": "247383600",
@@ -172,7 +140,7 @@
             "pax_estimados": 500,
             "puerto": "Valencia",
             "tipo": "salida",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Xipre",
             "imo": "9286231",
             "mmsi": "210644000",
@@ -192,6 +160,22 @@
             "bandera": "Portugal",
             "imo": "9720512",
             "mmsi": "255805929",
+            "fecha": "2026-05-27"
+        },
+        {
+            "hora": "08:15",
+            "nombre": "Msc Radiant Iii",
+            "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
+            "terminal": "TERMINAL CATALUNYA SA",
+            "terminal_codigo": "6212",
+            "eslora": 208.0,
+            "pax_estimados": 2000,
+            "puerto": "Alger (Algiers)",
+            "tipo": "salida",
+            "estado": "Iniciada",
+            "bandera": "Libèria",
+            "imo": "9235402",
+            "mmsi": "636016943",
             "fecha": "2026-05-27"
         },
         {
@@ -325,25 +309,25 @@
     ],
     "resumen": {
         "total_cruceros": 13,
-        "total_llegadas": 8,
+        "total_llegadas": 7,
         "total_salidas": 12,
-        "pax_estimados_hoy": 14000,
-        "proximo_desembarco": "13:00",
-        "proximo_barco": "Eco Adriatica"
+        "pax_estimados_hoy": 13500,
+        "proximo_desembarco": "01:00",
+        "proximo_barco": "Eco Savona"
     },
     "terminales_activas": [
-        "6212",
-        "8156",
-        "F2",
-        "7946",
-        "7332",
         "6995",
+        "F2",
+        "C",
         "F3",
-        "C"
+        "8156",
+        "7332",
+        "7946",
+        "6212"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-05-27T08:38:18.338686",
+        "actualizado": "2026-05-27T00:04:41.731656",
         "frecuencia": "horaria"
     }
 }
