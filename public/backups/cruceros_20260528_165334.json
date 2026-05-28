@@ -33,6 +33,22 @@
             "fecha": "2026-05-28"
         },
         {
+            "hora": "06:00",
+            "nombre": "Msc Potomac F",
+            "naviera": "MEDITERRANEAN SHIPPING CO",
+            "terminal": "TERMINAL CATALUNYA SA",
+            "terminal_codigo": "6212",
+            "eslora": 149.0,
+            "pax_estimados": 500,
+            "puerto": "Fos-sur-Mer",
+            "tipo": "llegada",
+            "estado": "Autoritzada",
+            "bandera": "Libèria",
+            "imo": "9236274",
+            "mmsi": "636020662",
+            "fecha": "2026-05-28"
+        },
+        {
             "hora": "06:48",
             "nombre": "Msc Mombasa",
             "naviera": "MEDITERRANEAN SHIPPING CO",
@@ -193,7 +209,7 @@
             "fecha": "2026-05-28"
         },
         {
-            "hora": "14:12",
+            "hora": "16:58",
             "nombre": "Armonia A",
             "naviera": "ELIAN BARCELONA SL",
             "terminal": "",
@@ -202,7 +218,7 @@
             "pax_estimados": 2000,
             "puerto": "Santarem",
             "tipo": "llegada",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Illes Marshall",
             "imo": "9752151",
             "mmsi": "538007871",
@@ -218,26 +234,10 @@
             "pax_estimados": 2000,
             "puerto": "Santarem",
             "tipo": "llegada",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Illes Marshall",
             "imo": "9752151",
             "mmsi": "538007871",
-            "fecha": "2026-05-28"
-        },
-        {
-            "hora": "18:15",
-            "nombre": "Ciudad De Palma",
-            "naviera": "TRASMED GLE S.L.",
-            "terminal": "TERMINAL F2",
-            "terminal_codigo": "F2",
-            "eslora": 186.0,
-            "pax_estimados": 1000,
-            "puerto": "Palma de Mallorca",
-            "tipo": "llegada",
-            "estado": "Autoritzada",
-            "bandera": "Espanya",
-            "imo": "9349772",
-            "mmsi": "224588000",
             "fecha": "2026-05-28"
         },
         {
@@ -355,22 +355,6 @@
             "fecha": "2026-05-28"
         },
         {
-            "hora": "14:43",
-            "nombre": "Dalmacija",
-            "naviera": "IBERICA MARITIMA BARCELONA SA",
-            "terminal": "TEPSA IBERIA SLU",
-            "terminal_codigo": "7259",
-            "eslora": 183.0,
-            "pax_estimados": 1000,
-            "puerto": "Fos-sur-Mer",
-            "tipo": "salida",
-            "estado": "Finalitzada",
-            "bandera": "Malta",
-            "imo": "9528134",
-            "mmsi": "215939000",
-            "fecha": "2026-05-28"
-        },
-        {
             "hora": "15:00",
             "nombre": "Msc Mombasa",
             "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
@@ -412,7 +396,7 @@
             "pax_estimados": 2000,
             "puerto": "Algeciras",
             "tipo": "salida",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Illes Marshall",
             "imo": "9752151",
             "mmsi": "538007871",
@@ -464,6 +448,22 @@
             "bandera": "Libèria",
             "imo": "9974503",
             "mmsi": "636025251",
+            "fecha": "2026-05-28"
+        },
+        {
+            "hora": "20:00",
+            "nombre": "Msc Potomac F",
+            "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
+            "terminal": "TERMINAL CATALUNYA SA",
+            "terminal_codigo": "6212",
+            "eslora": 149.0,
+            "pax_estimados": 500,
+            "puerto": "Alger (Algiers)",
+            "tipo": "salida",
+            "estado": "Autoritzada",
+            "bandera": "Libèria",
+            "imo": "9236274",
+            "mmsi": "636020662",
             "fecha": "2026-05-28"
         },
         {
@@ -531,22 +531,6 @@
             "fecha": "2026-05-28"
         },
         {
-            "hora": "22:30",
-            "nombre": "Ciudad De Palma",
-            "naviera": "GRIMALDI LOGISTICA ESPAÑA SL",
-            "terminal": "TERMINAL F2",
-            "terminal_codigo": "F2",
-            "eslora": 186.0,
-            "pax_estimados": 1000,
-            "puerto": "Palma de Mallorca",
-            "tipo": "salida",
-            "estado": "Autoritzada",
-            "bandera": "Espanya",
-            "imo": "9349772",
-            "mmsi": "224588000",
-            "fecha": "2026-05-28"
-        },
-        {
             "hora": "23:00",
             "nombre": "Amilcar",
             "naviera": "ROMEU Y CIA SA",
@@ -564,29 +548,28 @@
         }
     ],
     "resumen": {
-        "total_cruceros": 20,
+        "total_cruceros": 19,
         "total_llegadas": 17,
-        "total_salidas": 18,
-        "pax_estimados_hoy": 28000,
-        "proximo_desembarco": "17:00",
-        "proximo_barco": "Armonia A"
+        "total_salidas": 17,
+        "pax_estimados_hoy": 27500,
+        "proximo_desembarco": "12:49",
+        "proximo_barco": "Eco Savona"
     },
     "terminales_activas": [
         "B",
-        "8156",
-        "7259",
-        "F3",
-        "2398",
         "H",
-        "A",
-        "F2",
-        "6212",
+        "F3",
+        "F1",
+        "2398",
         "172133",
-        "F1"
+        "8156",
+        "A",
+        "6212",
+        "F2"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-05-28T16:53:34.996705",
+        "actualizado": "2026-05-28T12:26:35.654493",
         "frecuencia": "horaria"
     }
 }
