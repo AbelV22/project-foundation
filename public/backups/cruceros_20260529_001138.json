@@ -1,22 +1,6 @@
 {
     "llegadas": [
         {
-            "hora": "00:29",
-            "nombre": "Msc Yuvika V",
-            "naviera": "MEDITERRANEAN SHIPPING CO",
-            "terminal": "TERMINAL CATALUNYA SA",
-            "terminal_codigo": "6212",
-            "eslora": 0,
-            "pax_estimados": 500,
-            "puerto": "La Spezia",
-            "tipo": "llegada",
-            "estado": "Iniciada",
-            "bandera": "Libèria",
-            "imo": "9141285",
-            "mmsi": "636022022",
-            "fecha": "2026-05-29"
-        },
-        {
             "hora": "00:30",
             "nombre": "Msc Potomac F",
             "naviera": "MEDITERRANEAN SHIPPING CO",
@@ -268,7 +252,7 @@
             "pax_estimados": 500,
             "puerto": "Castellon de la Plana",
             "tipo": "salida",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Libèria",
             "imo": "9141285",
             "mmsi": "636022022",
@@ -421,27 +405,27 @@
     ],
     "resumen": {
         "total_cruceros": 15,
-        "total_llegadas": 14,
+        "total_llegadas": 13,
         "total_salidas": 12,
-        "pax_estimados_hoy": 26500,
-        "proximo_desembarco": "00:29",
-        "proximo_barco": "Msc Yuvika V"
+        "pax_estimados_hoy": 26000,
+        "proximo_desembarco": null,
+        "proximo_barco": null
     },
     "terminales_activas": [
-        "7946",
-        "H",
-        "B",
-        "E",
         "8156",
+        "B",
+        "F3",
+        "F2",
+        "H",
         "6212",
         "D",
+        "E",
         "7332",
-        "F2",
-        "F3"
+        "7946"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-05-29T00:11:38.753861",
+        "actualizado": "2026-05-28T22:41:15.436012",
         "frecuencia": "horaria"
     }
 }
