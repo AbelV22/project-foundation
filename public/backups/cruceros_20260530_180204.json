@@ -90,7 +90,7 @@
             "pax_estimados": 500,
             "puerto": "Palma de Mallorca",
             "tipo": "llegada",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Malta",
             "imo": "9803613",
             "mmsi": "215325000",
@@ -129,7 +129,7 @@
             "fecha": "2026-05-30"
         },
         {
-            "hora": "18:38",
+            "hora": "18:45",
             "nombre": "Abel Matutes",
             "naviera": "EUROLINEAS MARITIMAS S.A",
             "terminal": "LEPANT/TRUCK CENTER",
@@ -138,7 +138,7 @@
             "pax_estimados": 1000,
             "puerto": "Alcudia",
             "tipo": "llegada",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Espanya",
             "imo": "9441130",
             "mmsi": "224402000",
@@ -259,39 +259,7 @@
             "fecha": "2026-05-30"
         },
         {
-            "hora": "17:12",
-            "nombre": "Msc Grandiosa",
-            "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
-            "terminal": "ADOSSAT/TERMINAL H",
-            "terminal_codigo": "H",
-            "eslora": 0,
-            "pax_estimados": 500,
-            "puerto": "Cannes",
-            "tipo": "salida",
-            "estado": "Finalitzada",
-            "bandera": "Malta",
-            "imo": "9803613",
-            "mmsi": "215325000",
-            "fecha": "2026-05-30"
-        },
-        {
-            "hora": "17:53",
-            "nombre": "Htm Grenadier",
-            "naviera": "NEXT MARITIME SL",
-            "terminal": "MEROIL SA",
-            "terminal_codigo": "6995",
-            "eslora": 184.0,
-            "pax_estimados": 1000,
-            "puerto": "Cartagena",
-            "tipo": "salida",
-            "estado": "Finalitzada",
-            "bandera": "Malta",
-            "imo": "9587829",
-            "mmsi": "249703000",
-            "fecha": "2026-05-30"
-        },
-        {
-            "hora": "18:03",
+            "hora": "17:00",
             "nombre": "Disney Dream",
             "naviera": "INTERCRUISES PORT OPERATIONS SPAIN SLU",
             "terminal": "Terminal C (Sant Bertran)",
@@ -300,10 +268,26 @@
             "pax_estimados": 500,
             "puerto": "Messina",
             "tipo": "salida",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Bahames",
             "imo": "9434254",
             "mmsi": "311042900",
+            "fecha": "2026-05-30"
+        },
+        {
+            "hora": "17:00",
+            "nombre": "Msc Grandiosa",
+            "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
+            "terminal": "ADOSSAT/TERMINAL H",
+            "terminal_codigo": "H",
+            "eslora": 0,
+            "pax_estimados": 500,
+            "puerto": "Cannes",
+            "tipo": "salida",
+            "estado": "Iniciada",
+            "bandera": "Malta",
+            "imo": "9803613",
+            "mmsi": "215325000",
             "fecha": "2026-05-30"
         },
         {
@@ -324,28 +308,27 @@
         }
     ],
     "resumen": {
-        "total_cruceros": 13,
+        "total_cruceros": 12,
         "total_llegadas": 10,
-        "total_salidas": 10,
+        "total_salidas": 9,
         "pax_estimados_hoy": 22000,
-        "proximo_desembarco": "18:38",
+        "proximo_desembarco": "18:45",
         "proximo_barco": "Abel Matutes"
     },
     "terminales_activas": [
-        "8156",
-        "F3",
-        "TC",
-        "C",
+        "2396",
         "6154",
-        "6995",
-        "7946",
+        "8156",
+        "C",
         "6212",
         "H",
-        "2396"
+        "7946",
+        "TC",
+        "F3"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-05-30T18:02:04.206368",
+        "actualizado": "2026-05-30T16:04:44.668030",
         "frecuencia": "horaria"
     }
 }
