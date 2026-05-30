@@ -49,6 +49,22 @@
             "fecha": "2026-05-30"
         },
         {
+            "hora": "06:00",
+            "nombre": "Msc Oak F",
+            "naviera": "MEDITERRANEAN SHIPPING CO",
+            "terminal": "TERMINAL CATALUNYA SA",
+            "terminal_codigo": "6212",
+            "eslora": 0,
+            "pax_estimados": 500,
+            "puerto": "Alger (Algiers)",
+            "tipo": "llegada",
+            "estado": "Autoritzada",
+            "bandera": "Libèria",
+            "imo": "9373917",
+            "mmsi": "636016702",
+            "fecha": "2026-05-30"
+        },
+        {
             "hora": "06:03",
             "nombre": "Disney Dream",
             "naviera": "DISNEY CRUISE LINE",
@@ -129,23 +145,7 @@
             "fecha": "2026-05-30"
         },
         {
-            "hora": "22:29",
-            "nombre": "Msc Oak F",
-            "naviera": "MEDITERRANEAN SHIPPING CO",
-            "terminal": "TERMINAL CATALUNYA SA",
-            "terminal_codigo": "6212",
-            "eslora": 0,
-            "pax_estimados": 500,
-            "puerto": "Alger (Algiers)",
-            "tipo": "llegada",
-            "estado": "Iniciada",
-            "bandera": "Libèria",
-            "imo": "9373917",
-            "mmsi": "636016702",
-            "fecha": "2026-05-30"
-        },
-        {
-            "hora": "22:43",
+            "hora": "22:00",
             "nombre": "Cruise Barcelona",
             "naviera": "GRIMALDI EUROMED SPA",
             "terminal": "TERMINAL F3",
@@ -154,7 +154,7 @@
             "pax_estimados": 500,
             "puerto": "Porto Torres",
             "tipo": "llegada",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Itàlia",
             "imo": "9351488",
             "mmsi": "247243600",
@@ -307,7 +307,7 @@
             "fecha": "2026-05-30"
         },
         {
-            "hora": "22:31",
+            "hora": "22:00",
             "nombre": "Msc Oak F",
             "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
             "terminal": "TERMINAL CATALUNYA SA",
@@ -316,7 +316,7 @@
             "pax_estimados": 500,
             "puerto": "Alger (Algiers)",
             "tipo": "salida",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Libèria",
             "imo": "9373917",
             "mmsi": "636016702",
@@ -328,24 +328,24 @@
         "total_llegadas": 10,
         "total_salidas": 10,
         "pax_estimados_hoy": 22000,
-        "proximo_desembarco": "22:29",
-        "proximo_barco": "Msc Oak F"
+        "proximo_desembarco": "22:00",
+        "proximo_barco": "Cruise Barcelona"
     },
     "terminales_activas": [
-        "F3",
-        "C",
-        "TC",
-        "7946",
         "6212",
         "H",
-        "2396",
+        "C",
+        "7946",
+        "F3",
+        "6995",
+        "TC",
         "6154",
-        "8156",
-        "6995"
+        "2396",
+        "8156"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-05-30T22:01:33.088527",
+        "actualizado": "2026-05-30T20:08:50.791745",
         "frecuencia": "horaria"
     }
 }
