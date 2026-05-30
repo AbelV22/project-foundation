@@ -113,22 +113,6 @@
             "fecha": "2026-05-30"
         },
         {
-            "hora": "09:58",
-            "nombre": "Cma Cgm Laguna",
-            "naviera": "CMA CGM",
-            "terminal": "TERMINAL CATALUNYA SA",
-            "terminal_codigo": "6212",
-            "eslora": 366.0,
-            "pax_estimados": 6500,
-            "puerto": "Valencia",
-            "tipo": "llegada",
-            "estado": "Iniciada",
-            "bandera": "França",
-            "imo": "9938171",
-            "mmsi": "228459700",
-            "fecha": "2026-05-30"
-        },
-        {
             "hora": "18:45",
             "nombre": "Abel Matutes",
             "naviera": "EUROLINEAS MARITIMAS S.A",
@@ -308,27 +292,27 @@
         }
     ],
     "resumen": {
-        "total_cruceros": 12,
-        "total_llegadas": 10,
+        "total_cruceros": 11,
+        "total_llegadas": 9,
         "total_salidas": 9,
-        "pax_estimados_hoy": 22000,
-        "proximo_desembarco": "18:45",
-        "proximo_barco": "Abel Matutes"
+        "pax_estimados_hoy": 15500,
+        "proximo_desembarco": "07:43",
+        "proximo_barco": "Eco Valencia"
     },
     "terminales_activas": [
-        "TC",
-        "C",
-        "6154",
-        "8156",
-        "7946",
-        "2396",
-        "6212",
         "H",
-        "F3"
+        "6154",
+        "F3",
+        "6212",
+        "7946",
+        "8156",
+        "C",
+        "TC",
+        "2396"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-05-30T10:47:25.570134",
+        "actualizado": "2026-05-30T07:41:10.892718",
         "frecuencia": "horaria"
     }
 }
