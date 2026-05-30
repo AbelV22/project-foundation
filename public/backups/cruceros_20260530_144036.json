@@ -106,7 +106,7 @@
             "pax_estimados": 2000,
             "puerto": "Valencia",
             "tipo": "llegada",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Itàlia",
             "imo": "9859533",
             "mmsi": "247383300",
@@ -195,7 +195,7 @@
             "fecha": "2026-05-30"
         },
         {
-            "hora": "13:40",
+            "hora": "13:00",
             "nombre": "Eco Valencia",
             "naviera": "GRIMALDI LOGISTICA ESPAÑA SL",
             "terminal": "GRIMALDI TERMINAL BARCELONA SL",
@@ -204,7 +204,7 @@
             "pax_estimados": 2000,
             "puerto": "Savona",
             "tipo": "salida",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Itàlia",
             "imo": "9859533",
             "mmsi": "247383300",
@@ -316,19 +316,19 @@
         "proximo_barco": "Abel Matutes"
     },
     "terminales_activas": [
-        "C",
-        "F3",
-        "6212",
-        "6154",
         "2396",
-        "7946",
+        "C",
+        "6154",
         "TC",
-        "H",
-        "8156"
+        "F3",
+        "7946",
+        "8156",
+        "6212",
+        "H"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-05-30T14:40:36.468958",
+        "actualizado": "2026-05-30T12:04:06.454995",
         "frecuencia": "horaria"
     }
 }
