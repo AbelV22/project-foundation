@@ -145,22 +145,6 @@
             "fecha": "2026-05-31"
         },
         {
-            "hora": "16:30",
-            "nombre": "Msc Ghana",
-            "naviera": "MEDITERRANEAN SHIPPING CO",
-            "terminal": "TERMINAL CATALUNYA SA",
-            "terminal_codigo": "6212",
-            "eslora": 260.0,
-            "pax_estimados": 3000,
-            "puerto": "Valencia",
-            "tipo": "llegada",
-            "estado": "Iniciada",
-            "bandera": "Libèria",
-            "imo": "9974503",
-            "mmsi": "636025251",
-            "fecha": "2026-05-31"
-        },
-        {
             "hora": "18:00",
             "nombre": "Cape Tainaro",
             "naviera": "MEDITERRANEAN SHIPPING CO",
@@ -420,29 +404,29 @@
         }
     ],
     "resumen": {
-        "total_cruceros": 17,
-        "total_llegadas": 11,
+        "total_cruceros": 16,
+        "total_llegadas": 10,
         "total_salidas": 15,
-        "pax_estimados_hoy": 20500,
-        "proximo_desembarco": "16:30",
-        "proximo_barco": "Msc Ghana"
+        "pax_estimados_hoy": 17500,
+        "proximo_desembarco": "18:00",
+        "proximo_barco": "Cape Tainaro"
     },
     "terminales_activas": [
-        "F2",
-        "S",
-        "6212",
-        "H",
-        "E",
-        "TC",
-        "8156",
-        "B",
         "F3",
+        "7946",
+        "TC",
+        "B",
+        "F2",
+        "E",
+        "8156",
+        "S",
         "A",
-        "7946"
+        "H",
+        "6212"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-05-31T16:08:25.104292",
+        "actualizado": "2026-05-31T14:44:38.387455",
         "frecuencia": "horaria"
     }
 }
