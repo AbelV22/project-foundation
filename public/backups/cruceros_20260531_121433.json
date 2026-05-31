@@ -227,22 +227,6 @@
             "fecha": "2026-05-31"
         },
         {
-            "hora": "12:22",
-            "nombre": "Msc Oak F",
-            "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
-            "terminal": "TERMINAL CATALUNYA SA",
-            "terminal_codigo": "6212",
-            "eslora": 0,
-            "pax_estimados": 500,
-            "puerto": "Alger (Algiers)",
-            "tipo": "salida",
-            "estado": "Finalitzada",
-            "bandera": "Libèria",
-            "imo": "9373917",
-            "mmsi": "636016702",
-            "fecha": "2026-05-31"
-        },
-        {
             "hora": "14:00",
             "nombre": "Cma Cgm Laguna",
             "naviera": "CMA CGM IBERICA SAU",
@@ -404,29 +388,29 @@
         }
     ],
     "resumen": {
-        "total_cruceros": 16,
+        "total_cruceros": 15,
         "total_llegadas": 10,
-        "total_salidas": 15,
+        "total_salidas": 14,
         "pax_estimados_hoy": 17500,
         "proximo_desembarco": "18:00",
         "proximo_barco": "Cape Tainaro"
     },
     "terminales_activas": [
-        "F2",
-        "6212",
-        "E",
         "A",
-        "S",
+        "TC",
+        "6212",
         "B",
-        "F3",
-        "7946",
         "8156",
-        "H",
-        "TC"
+        "S",
+        "7946",
+        "E",
+        "F3",
+        "F2",
+        "H"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-05-31T12:14:33.005705",
+        "actualizado": "2026-05-31T10:57:44.981379",
         "frecuencia": "horaria"
     }
 }
