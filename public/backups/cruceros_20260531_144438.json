@@ -179,6 +179,22 @@
             "fecha": "2026-05-31"
         },
         {
+            "hora": "09:00",
+            "nombre": "Msc Simona",
+            "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
+            "terminal": "TERMINAL CATALUNYA SA",
+            "terminal_codigo": "6212",
+            "eslora": 366.0,
+            "pax_estimados": 6500,
+            "puerto": "Sines",
+            "tipo": "salida",
+            "estado": "Iniciada",
+            "bandera": "Libèria",
+            "imo": "9962615",
+            "mmsi": "636024187",
+            "fecha": "2026-05-31"
+        },
+        {
             "hora": "10:00",
             "nombre": "Sti Clapham",
             "naviera": "ALFASHIP MARITIME SERVICES SL ",
@@ -256,22 +272,6 @@
             "bandera": "Itàlia",
             "imo": "9859600",
             "mmsi": "247384100",
-            "fecha": "2026-05-31"
-        },
-        {
-            "hora": "14:51",
-            "nombre": "Msc Simona",
-            "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
-            "terminal": "TERMINAL CATALUNYA SA",
-            "terminal_codigo": "6212",
-            "eslora": 366.0,
-            "pax_estimados": 6500,
-            "puerto": "Sines",
-            "tipo": "salida",
-            "estado": "Finalitzada",
-            "bandera": "Libèria",
-            "imo": "9962615",
-            "mmsi": "636024187",
             "fecha": "2026-05-31"
         },
         {
@@ -412,21 +412,21 @@
         "proximo_barco": "Cape Tainaro"
     },
     "terminales_activas": [
+        "F2",
+        "6212",
+        "E",
+        "A",
+        "S",
+        "B",
         "F3",
         "7946",
-        "TC",
-        "B",
-        "F2",
-        "E",
         "8156",
-        "S",
-        "A",
         "H",
-        "6212"
+        "TC"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-05-31T14:44:38.387455",
+        "actualizado": "2026-05-31T12:14:33.005705",
         "frecuencia": "horaria"
     }
 }
