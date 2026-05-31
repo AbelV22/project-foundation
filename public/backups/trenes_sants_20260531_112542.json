@@ -100,7 +100,7 @@
             "hora": "11:52",
             "origen": "Madrid Puerta de Atocha Almudena Grandes",
             "tren": "IRYO 06281",
-            "via": "-"
+            "via": "6"
         },
         {
             "hora": "12:06",
@@ -113,6 +113,12 @@
             "origen": "Alacant / Alicante Terminal",
             "tren": "EUROMED 01092",
             "via": "-"
+        },
+        {
+            "hora": "12:20",
+            "origen": "Alacant / Alicante Terminal",
+            "tren": "EUROMED 01092",
+            "via": "5"
         },
         {
             "hora": "12:36",
@@ -130,12 +136,18 @@
             "hora": "13:04",
             "origen": "Madrid Puerta de Atocha Almudena Grandes",
             "tren": "AVE 03093",
-            "via": "-"
+            "via": "5"
         },
         {
             "hora": "13:09",
             "origen": "Tafalla",
             "tren": "ALVIA 00533",
+            "via": "-"
+        },
+        {
+            "hora": "13:14",
+            "origen": "Sevilla Santa Justa",
+            "tren": "IRYO 06011",
             "via": "-"
         },
         {
@@ -172,7 +184,7 @@
             "hora": "14:50",
             "origen": "Alacant / Alicante Terminal",
             "tren": "EUROMED 01112",
-            "via": "4"
+            "via": "-"
         },
         {
             "hora": "14:54",
@@ -190,13 +202,13 @@
             "hora": "15:39",
             "origen": "Madrid Puerta de Atocha Almudena Grandes",
             "tren": "IRYO 06121",
-            "via": "2"
+            "via": "-"
         },
         {
             "hora": "15:50",
             "origen": "Figueres-Vilafant",
             "tren": "AVE 03162",
-            "via": "1"
+            "via": "-"
         },
         {
             "hora": "16:09",
@@ -470,8 +482,8 @@
         }
     ],
     "meta": {
-        "update_time": "11:25",
-        "updated_at": "2026-05-31T11:25:42.498161",
-        "total": 78
+        "update_time": "09:40",
+        "updated_at": "2026-05-31T09:40:48.457275",
+        "total": 80
     }
 }
