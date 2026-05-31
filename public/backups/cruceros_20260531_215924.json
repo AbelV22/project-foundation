@@ -161,7 +161,7 @@
             "fecha": "2026-05-31"
         },
         {
-            "hora": "21:12",
+            "hora": "18:00",
             "nombre": "Cape Tainaro",
             "naviera": "MEDITERRANEAN SHIPPING CO",
             "terminal": "TERMINAL CATALUNYA SA",
@@ -170,7 +170,7 @@
             "pax_estimados": 4500,
             "puerto": "Fos-sur-Mer",
             "tipo": "llegada",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Malta",
             "imo": "9706205",
             "mmsi": "249982000",
@@ -403,7 +403,7 @@
             "fecha": "2026-05-31"
         },
         {
-            "hora": "21:25",
+            "hora": "21:15",
             "nombre": "Abel Matutes",
             "naviera": "BALEARIA EUROLINEAS MARITIMAS SA ",
             "terminal": "LEPANT/TRUCK CENTER",
@@ -412,7 +412,7 @@
             "pax_estimados": 1000,
             "puerto": "Alcudia",
             "tipo": "salida",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Espanya",
             "imo": "9441130",
             "mmsi": "224402000",
@@ -428,21 +428,21 @@
         "proximo_barco": null
     },
     "terminales_activas": [
-        "A",
-        "F3",
-        "H",
-        "E",
-        "6212",
-        "TC",
         "8156",
+        "H",
         "S",
-        "F2",
+        "F3",
+        "A",
+        "7946",
         "B",
-        "7946"
+        "TC",
+        "6212",
+        "F2",
+        "E"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-05-31T21:59:24.444175",
+        "actualizado": "2026-05-31T20:07:38.157959",
         "frecuencia": "horaria"
     }
 }
