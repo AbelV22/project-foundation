@@ -10,7 +10,7 @@
             "pax_estimados": 500,
             "puerto": "Nice",
             "tipo": "llegada",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Malta",
             "imo": "9884136",
             "mmsi": "249457000",
@@ -30,6 +30,22 @@
             "bandera": "Libèria",
             "imo": "9301471",
             "mmsi": "636024876",
+            "fecha": "2026-06-01"
+        },
+        {
+            "hora": "06:00",
+            "nombre": "Msc Sarah V",
+            "naviera": "MEDITERRANEAN SHIPPING CO",
+            "terminal": "TERMINAL CATALUNYA SA",
+            "terminal_codigo": "6212",
+            "eslora": 294.0,
+            "pax_estimados": 3000,
+            "puerto": "Fos-sur-Mer",
+            "tipo": "llegada",
+            "estado": "Sol·licitada",
+            "bandera": "Libèria",
+            "imo": "9181675",
+            "mmsi": "636018320",
             "fecha": "2026-06-01"
         },
         {
@@ -58,7 +74,7 @@
             "pax_estimados": 1000,
             "puerto": "Toulon",
             "tipo": "llegada",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Illes Marshall",
             "imo": "9200938",
             "mmsi": "538001665",
@@ -106,14 +122,14 @@
             "pax_estimados": 2000,
             "puerto": "Savona",
             "tipo": "llegada",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Itàlia",
             "imo": "9859569",
             "mmsi": "247383600",
             "fecha": "2026-06-01"
         },
         {
-            "hora": "13:17",
+            "hora": "12:00",
             "nombre": "Msc Cotonou Viii",
             "naviera": "MEDITERRANEAN SHIPPING CO",
             "terminal": "TERMINAL CATALUNYA SA",
@@ -122,7 +138,7 @@
             "pax_estimados": 500,
             "puerto": "Anvers",
             "tipo": "llegada",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Libèria",
             "imo": "9983671",
             "mmsi": "636024194",
@@ -138,7 +154,7 @@
             "pax_estimados": 3000,
             "puerto": "Tanger Med",
             "tipo": "llegada",
-            "estado": "Autoritzada",
+            "estado": "Confirmada",
             "bandera": "Panamà",
             "imo": "9998509",
             "mmsi": "352006233",
@@ -195,7 +211,7 @@
             "fecha": "2026-06-01"
         },
         {
-            "hora": "11:44",
+            "hora": "14:00",
             "nombre": "Eco Savona",
             "naviera": "GRIMALDI LOGISTICA ESPAÑA SL",
             "terminal": "GRIMALDI TERMINAL BARCELONA SL",
@@ -204,14 +220,14 @@
             "pax_estimados": 2000,
             "puerto": "Valencia",
             "tipo": "salida",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Itàlia",
             "imo": "9859569",
             "mmsi": "247383600",
             "fecha": "2026-06-01"
         },
         {
-            "hora": "16:53",
+            "hora": "17:00",
             "nombre": "Celebrity Xcel",
             "naviera": "BALEARES CONSIGNATARIOS SLU",
             "terminal": "Terminal A (WTC)",
@@ -220,14 +236,14 @@
             "pax_estimados": 500,
             "puerto": "Tangier",
             "tipo": "salida",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Malta",
             "imo": "9884136",
             "mmsi": "249457000",
             "fecha": "2026-06-01"
         },
         {
-            "hora": "17:08",
+            "hora": "17:00",
             "nombre": "Nautica",
             "naviera": "INTERCRUISES PORT OPERATIONS SPAIN SLU",
             "terminal": "Terminal Sud",
@@ -236,7 +252,7 @@
             "pax_estimados": 1000,
             "puerto": "Villefranche-sur-Mer",
             "tipo": "salida",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Illes Marshall",
             "imo": "9200938",
             "mmsi": "538001665",
@@ -272,6 +288,22 @@
             "bandera": "Libèria",
             "imo": "9301471",
             "mmsi": "636024876",
+            "fecha": "2026-06-01"
+        },
+        {
+            "hora": "20:00",
+            "nombre": "Msc Sarah V",
+            "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
+            "terminal": "TERMINAL CATALUNYA SA",
+            "terminal_codigo": "6212",
+            "eslora": 294.0,
+            "pax_estimados": 3000,
+            "puerto": "Valencia",
+            "tipo": "salida",
+            "estado": "Sol·licitada",
+            "bandera": "Libèria",
+            "imo": "9181675",
+            "mmsi": "636018320",
             "fecha": "2026-06-01"
         },
         {
@@ -324,26 +356,26 @@
         }
     ],
     "resumen": {
-        "total_cruceros": 13,
-        "total_llegadas": 9,
-        "total_salidas": 11,
-        "pax_estimados_hoy": 13500,
-        "proximo_desembarco": "20:00",
-        "proximo_barco": "Hmm Sage"
+        "total_cruceros": 14,
+        "total_llegadas": 10,
+        "total_salidas": 12,
+        "pax_estimados_hoy": 16500,
+        "proximo_desembarco": "12:00",
+        "proximo_barco": "Msc Cotonou Viii"
     },
     "terminales_activas": [
-        "F2",
-        "S",
         "7083",
         "A",
-        "6212",
+        "S",
+        "F2",
         "8156",
         "F3",
+        "6212",
         "E"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-06-01T16:37:33.846297",
+        "actualizado": "2026-06-01T10:19:58.584504",
         "frecuencia": "horaria"
     }
 }
