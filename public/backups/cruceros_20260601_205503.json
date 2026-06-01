@@ -33,6 +33,22 @@
             "fecha": "2026-06-01"
         },
         {
+            "hora": "06:00",
+            "nombre": "Msc Tian Iii",
+            "naviera": "MEDITERRANEAN SHIPPING CO",
+            "terminal": "TERMINAL CATALUNYA SA",
+            "terminal_codigo": "6212",
+            "eslora": 0,
+            "pax_estimados": 500,
+            "puerto": "Fos-sur-Mer",
+            "tipo": "llegada",
+            "estado": "Autoritzada",
+            "bandera": "Portugal",
+            "imo": "9359715",
+            "mmsi": "255917251",
+            "fecha": "2026-06-01"
+        },
+        {
             "hora": "06:35",
             "nombre": "Nautica",
             "naviera": "OCEANIA CRUISES INC",
@@ -74,7 +90,7 @@
             "pax_estimados": 4500,
             "puerto": "Marseille",
             "tipo": "llegada",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Itàlia",
             "imo": "9781889",
             "mmsi": "247391900",
@@ -113,7 +129,7 @@
             "fecha": "2026-06-01"
         },
         {
-            "hora": "20:53",
+            "hora": "20:00",
             "nombre": "Hmm Sage",
             "naviera": "HYUNDAI MERCHANT MAR",
             "terminal": "APM TERMINALS BARCELONA, S.L.U.",
@@ -122,30 +138,30 @@
             "pax_estimados": 3000,
             "puerto": "Tanger Med",
             "tipo": "llegada",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Panamà",
             "imo": "9998509",
             "mmsi": "352006233",
             "fecha": "2026-06-01"
-        },
-        {
-            "hora": "21:00",
-            "nombre": "Msc Tian Iii",
-            "naviera": "MEDITERRANEAN SHIPPING CO",
-            "terminal": "TERMINAL CATALUNYA SA",
-            "terminal_codigo": "6212",
-            "eslora": 0,
-            "pax_estimados": 500,
-            "puerto": "Fos-sur-Mer",
-            "tipo": "llegada",
-            "estado": "Iniciada",
-            "bandera": "Portugal",
-            "imo": "9359715",
-            "mmsi": "255917251",
-            "fecha": "2026-06-01"
         }
     ],
     "salidas": [
+        {
+            "hora": "09:00",
+            "nombre": "Cape Tainaro",
+            "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
+            "terminal": "TERMINAL CATALUNYA SA",
+            "terminal_codigo": "6212",
+            "eslora": 330.0,
+            "pax_estimados": 4500,
+            "puerto": "Valencia",
+            "tipo": "salida",
+            "estado": "Iniciada",
+            "bandera": "Malta",
+            "imo": "9706205",
+            "mmsi": "249982000",
+            "fecha": "2026-06-01"
+        },
         {
             "hora": "09:15",
             "nombre": "Msc Ghana",
@@ -227,23 +243,7 @@
             "fecha": "2026-06-01"
         },
         {
-            "hora": "17:28",
-            "nombre": "Cape Tainaro",
-            "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
-            "terminal": "TERMINAL CATALUNYA SA",
-            "terminal_codigo": "6212",
-            "eslora": 330.0,
-            "pax_estimados": 4500,
-            "puerto": "Valencia",
-            "tipo": "salida",
-            "estado": "Finalitzada",
-            "bandera": "Malta",
-            "imo": "9706205",
-            "mmsi": "249982000",
-            "fecha": "2026-06-01"
-        },
-        {
-            "hora": "18:38",
+            "hora": "18:00",
             "nombre": "Costa Smeralda",
             "naviera": "NOATUM MARITIME SPAIN SAU",
             "terminal": "Terminal E (Adossat)",
@@ -252,7 +252,7 @@
             "pax_estimados": 4500,
             "puerto": "Marseille",
             "tipo": "salida",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Itàlia",
             "imo": "9781889",
             "mmsi": "247391900",
@@ -275,7 +275,7 @@
             "fecha": "2026-06-01"
         },
         {
-            "hora": "21:02",
+            "hora": "21:00",
             "nombre": "Msc Tian Iii",
             "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
             "terminal": "TERMINAL CATALUNYA SA",
@@ -284,7 +284,7 @@
             "pax_estimados": 500,
             "puerto": "Valencia",
             "tipo": "salida",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Portugal",
             "imo": "9359715",
             "mmsi": "255917251",
@@ -328,22 +328,22 @@
         "total_llegadas": 9,
         "total_salidas": 11,
         "pax_estimados_hoy": 13500,
-        "proximo_desembarco": "21:00",
-        "proximo_barco": "Msc Tian Iii"
+        "proximo_desembarco": "20:00",
+        "proximo_barco": "Hmm Sage"
     },
     "terminales_activas": [
+        "F2",
         "S",
         "7083",
-        "6212",
         "A",
-        "F3",
-        "F2",
+        "6212",
         "8156",
+        "F3",
         "E"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-06-01T20:55:03.801953",
+        "actualizado": "2026-06-01T16:37:33.846297",
         "frecuencia": "horaria"
     }
 }
