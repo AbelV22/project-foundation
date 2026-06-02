@@ -113,7 +113,7 @@
             "fecha": "2026-06-02"
         },
         {
-            "hora": "20:22",
+            "hora": "20:00",
             "nombre": "Cruise Barcelona",
             "naviera": "GRIMALDI EUROMED SPA",
             "terminal": "TERMINAL F3",
@@ -122,7 +122,7 @@
             "pax_estimados": 500,
             "puerto": "Porto Torres",
             "tipo": "llegada",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Itàlia",
             "imo": "9351488",
             "mmsi": "247243600",
@@ -268,7 +268,7 @@
             "pax_estimados": 500,
             "puerto": "Civitavecchia",
             "tipo": "salida",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Itàlia",
             "imo": "9351488",
             "mmsi": "247243600",
@@ -280,20 +280,20 @@
         "total_llegadas": 8,
         "total_salidas": 9,
         "pax_estimados_hoy": 8500,
-        "proximo_desembarco": null,
-        "proximo_barco": null
+        "proximo_desembarco": "20:00",
+        "proximo_barco": "Cruise Barcelona"
     },
     "terminales_activas": [
-        "7083",
         "6212",
-        "H",
         "S",
         "F3",
-        "8156"
+        "8156",
+        "7083",
+        "H"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-06-02T21:47:25.984063",
+        "actualizado": "2026-06-02T18:38:43.456614",
         "frecuencia": "horaria"
     }
 }
