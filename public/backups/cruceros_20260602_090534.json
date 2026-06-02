@@ -1,23 +1,7 @@
 {
     "llegadas": [
         {
-            "hora": "05:49",
-            "nombre": "Azamara Quest",
-            "naviera": "AZAMARA CRUISES",
-            "terminal": "Terminal Sud",
-            "terminal_codigo": "S",
-            "eslora": 181.0,
-            "pax_estimados": 1000,
-            "puerto": "Mahon Menorca",
-            "tipo": "llegada",
-            "estado": "Iniciada",
-            "bandera": "Illes Marshall",
-            "imo": "9210218",
-            "mmsi": "538012044",
-            "fecha": "2026-06-02"
-        },
-        {
-            "hora": "05:53",
+            "hora": "00:15",
             "nombre": "Msc Tianshan",
             "naviera": "MEDITERRANEAN SHIPPING CO",
             "terminal": "TERMINAL CATALUNYA SA",
@@ -26,10 +10,26 @@
             "pax_estimados": 500,
             "puerto": "Genoa",
             "tipo": "llegada",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Libèria",
             "imo": "9305477",
             "mmsi": "636020501",
+            "fecha": "2026-06-02"
+        },
+        {
+            "hora": "05:15",
+            "nombre": "Azamara Quest",
+            "naviera": "AZAMARA CRUISES",
+            "terminal": "Terminal Sud",
+            "terminal_codigo": "S",
+            "eslora": 181.0,
+            "pax_estimados": 1000,
+            "puerto": "Mahon Menorca",
+            "tipo": "llegada",
+            "estado": "Autoritzada",
+            "bandera": "Illes Marshall",
+            "imo": "9210218",
+            "mmsi": "538012044",
             "fecha": "2026-06-02"
         },
         {
@@ -81,7 +81,7 @@
             "fecha": "2026-06-02"
         },
         {
-            "hora": "07:42",
+            "hora": "07:00",
             "nombre": "Msc Meraviglia",
             "naviera": "MSC CRUISES S.A.",
             "terminal": "ADOSSAT/TERMINAL H",
@@ -90,7 +90,7 @@
             "pax_estimados": 500,
             "puerto": "Marseille",
             "tipo": "llegada",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Malta",
             "imo": "9760512",
             "mmsi": "249973000",
@@ -115,7 +115,7 @@
     ],
     "salidas": [
         {
-            "hora": "04:01",
+            "hora": "02:00",
             "nombre": "Msc Cotonou Viii",
             "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
             "terminal": "TERMINAL CATALUNYA SA",
@@ -124,26 +124,10 @@
             "pax_estimados": 500,
             "puerto": "King Abdullah City",
             "tipo": "salida",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Libèria",
             "imo": "9983671",
             "mmsi": "636024194",
-            "fecha": "2026-06-02"
-        },
-        {
-            "hora": "08:46",
-            "nombre": "Msc Tian Iii",
-            "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
-            "terminal": "TERMINAL CATALUNYA SA",
-            "terminal_codigo": "6212",
-            "eslora": 0,
-            "pax_estimados": 500,
-            "puerto": "Valencia",
-            "tipo": "salida",
-            "estado": "Finalitzada",
-            "bandera": "Portugal",
-            "imo": "9359715",
-            "mmsi": "255917251",
             "fecha": "2026-06-02"
         },
         {
@@ -188,7 +172,7 @@
             "pax_estimados": 1000,
             "puerto": "Valencia",
             "tipo": "salida",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Illes Marshall",
             "imo": "9210218",
             "mmsi": "538012044",
@@ -204,7 +188,7 @@
             "pax_estimados": 500,
             "puerto": "La Goulette Nord (Halqueloued)",
             "tipo": "salida",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Malta",
             "imo": "9760512",
             "mmsi": "249973000",
@@ -220,7 +204,7 @@
             "pax_estimados": 500,
             "puerto": "Valencia",
             "tipo": "salida",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Libèria",
             "imo": "9305477",
             "mmsi": "636020501",
@@ -260,24 +244,24 @@
         }
     ],
     "resumen": {
-        "total_cruceros": 10,
+        "total_cruceros": 9,
         "total_llegadas": 7,
-        "total_salidas": 9,
+        "total_salidas": 8,
         "pax_estimados_hoy": 8000,
-        "proximo_desembarco": "20:30",
-        "proximo_barco": "Cruise Barcelona"
+        "proximo_desembarco": null,
+        "proximo_barco": null
     },
     "terminales_activas": [
-        "F3",
-        "8156",
         "6212",
-        "S",
+        "F3",
+        "H",
         "7083",
-        "H"
+        "S",
+        "8156"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-06-02T09:05:34.498861",
+        "actualizado": "2026-06-01T23:02:00.738426",
         "frecuencia": "horaria"
     }
 }
