@@ -90,7 +90,7 @@
             "pax_estimados": 2000,
             "puerto": "Valencia",
             "tipo": "llegada",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Itàlia",
             "imo": "9859569",
             "mmsi": "247383600",
@@ -113,7 +113,7 @@
             "fecha": "2026-06-03"
         },
         {
-            "hora": "19:50",
+            "hora": "20:00",
             "nombre": "Cruise Roma",
             "naviera": "GRIMALDI EUROMED SPA",
             "terminal": "TERMINAL F3",
@@ -122,7 +122,7 @@
             "pax_estimados": 500,
             "puerto": "Civitavecchia",
             "tipo": "llegada",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Itàlia",
             "imo": "9351476",
             "mmsi": "247219400",
@@ -160,6 +160,22 @@
             "bandera": "Itàlia",
             "imo": "9351488",
             "mmsi": "247243600",
+            "fecha": "2026-06-03"
+        },
+        {
+            "hora": "02:00",
+            "nombre": "Msc Sarah V",
+            "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
+            "terminal": "TERMINAL CATALUNYA SA",
+            "terminal_codigo": "6212",
+            "eslora": 294.0,
+            "pax_estimados": 3000,
+            "puerto": "Valencia",
+            "tipo": "salida",
+            "estado": "Iniciada",
+            "bandera": "Libèria",
+            "imo": "9181675",
+            "mmsi": "636018320",
             "fecha": "2026-06-03"
         },
         {
@@ -227,23 +243,7 @@
             "fecha": "2026-06-03"
         },
         {
-            "hora": "17:39",
-            "nombre": "Msc Sarah V",
-            "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
-            "terminal": "TERMINAL CATALUNYA SA",
-            "terminal_codigo": "6212",
-            "eslora": 294.0,
-            "pax_estimados": 3000,
-            "puerto": "Valencia",
-            "tipo": "salida",
-            "estado": "Finalitzada",
-            "bandera": "Libèria",
-            "imo": "9181675",
-            "mmsi": "636018320",
-            "fecha": "2026-06-03"
-        },
-        {
-            "hora": "18:48",
+            "hora": "20:00",
             "nombre": "Eco Savona",
             "naviera": "GRIMALDI LOGISTICA ESPAÑA SL",
             "terminal": "GRIMALDI TERMINAL BARCELONA SL",
@@ -252,7 +252,7 @@
             "pax_estimados": 2000,
             "puerto": "Savona",
             "tipo": "salida",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Itàlia",
             "imo": "9859569",
             "mmsi": "247383600",
@@ -284,7 +284,7 @@
             "pax_estimados": 500,
             "puerto": "Civitavecchia",
             "tipo": "salida",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Itàlia",
             "imo": "9351476",
             "mmsi": "247219400",
@@ -296,19 +296,19 @@
         "total_llegadas": 9,
         "total_salidas": 9,
         "pax_estimados_hoy": 14500,
-        "proximo_desembarco": "23:30",
-        "proximo_barco": "One Meishan"
+        "proximo_desembarco": "20:00",
+        "proximo_barco": "Cruise Roma"
     },
     "terminales_activas": [
-        "8156",
         "F3",
-        "0010",
+        "8156",
+        "6212",
         "A",
-        "6212"
+        "0010"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-06-03T20:17:35.673380",
+        "actualizado": "2026-06-03T15:27:01.999477",
         "frecuencia": "horaria"
     }
 }
