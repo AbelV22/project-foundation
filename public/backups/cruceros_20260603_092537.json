@@ -1,7 +1,7 @@
 {
     "llegadas": [
         {
-            "hora": "04:05",
+            "hora": "01:00",
             "nombre": "Henning Maersk",
             "naviera": "MAERSK TANKERS HANDY",
             "terminal": "EXOLUM CORPORATION, SA",
@@ -10,7 +10,7 @@
             "pax_estimados": 1000,
             "puerto": "El Dekheila",
             "tipo": "llegada",
-            "estado": "Iniciada",
+            "estado": "Fondeig Previ",
             "bandera": "Dinamarca",
             "imo": "9389526",
             "mmsi": "219277000",
@@ -50,6 +50,22 @@
         },
         {
             "hora": "06:00",
+            "nombre": "Msc Luanda Viii",
+            "naviera": "MEDITERRANEAN SHIPPING CO",
+            "terminal": "TERMINAL CATALUNYA SA",
+            "terminal_codigo": "6212",
+            "eslora": 0,
+            "pax_estimados": 500,
+            "puerto": "Fos-sur-Mer",
+            "tipo": "llegada",
+            "estado": "Autoritzada",
+            "bandera": "Libèria",
+            "imo": "9301471",
+            "mmsi": "636024876",
+            "fecha": "2026-06-03"
+        },
+        {
+            "hora": "06:00",
             "nombre": "Msc Ira Ii",
             "naviera": "MEDITERRANEAN SHIPPING CO",
             "terminal": "TERMINAL CATALUNYA SA",
@@ -65,7 +81,7 @@
             "fecha": "2026-06-03"
         },
         {
-            "hora": "07:29",
+            "hora": "07:00",
             "nombre": "Eco Valencia",
             "naviera": "GRIMALDI EUROMED SPA",
             "terminal": "GRIMALDI TERMINAL BARCELONA SL",
@@ -74,14 +90,14 @@
             "pax_estimados": 2000,
             "puerto": "Savona",
             "tipo": "llegada",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Itàlia",
             "imo": "9859533",
             "mmsi": "247383300",
             "fecha": "2026-06-03"
         },
         {
-            "hora": "07:51",
+            "hora": "07:00",
             "nombre": "Silver Shadow",
             "naviera": "SILVERSEA CRUISES",
             "terminal": "Terminal A (WTC)",
@@ -90,26 +106,10 @@
             "pax_estimados": 1000,
             "puerto": "Palma de Mallorca",
             "tipo": "llegada",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Bahames",
             "imo": "9192167",
             "mmsi": "308628000",
-            "fecha": "2026-06-03"
-        },
-        {
-            "hora": "07:59",
-            "nombre": "Msc Luanda Viii",
-            "naviera": "MEDITERRANEAN SHIPPING CO",
-            "terminal": "TERMINAL CATALUNYA SA",
-            "terminal_codigo": "6212",
-            "eslora": 0,
-            "pax_estimados": 500,
-            "puerto": "Fos-sur-Mer",
-            "tipo": "llegada",
-            "estado": "Iniciada",
-            "bandera": "Libèria",
-            "imo": "9301471",
-            "mmsi": "636024876",
             "fecha": "2026-06-03"
         },
         {
@@ -211,6 +211,22 @@
             "fecha": "2026-06-03"
         },
         {
+            "hora": "00:59",
+            "nombre": "Henning Maersk",
+            "naviera": "ERHARDT SHIPPING SERVICES SL",
+            "terminal": "",
+            "terminal_codigo": "",
+            "eslora": 180.0,
+            "pax_estimados": 1000,
+            "puerto": "Lavera",
+            "tipo": "salida",
+            "estado": "Fondeig Previ",
+            "bandera": "Dinamarca",
+            "imo": "9389526",
+            "mmsi": "219277000",
+            "fecha": "2026-06-03"
+        },
+        {
             "hora": "02:00",
             "nombre": "Msc Sarah V",
             "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
@@ -224,38 +240,6 @@
             "bandera": "Libèria",
             "imo": "9181675",
             "mmsi": "636018320",
-            "fecha": "2026-06-03"
-        },
-        {
-            "hora": "02:04",
-            "nombre": "Msc Tianshan",
-            "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
-            "terminal": "TERMINAL CATALUNYA SA",
-            "terminal_codigo": "6212",
-            "eslora": 0,
-            "pax_estimados": 500,
-            "puerto": "Valencia",
-            "tipo": "salida",
-            "estado": "Finalitzada",
-            "bandera": "Libèria",
-            "imo": "9305477",
-            "mmsi": "636020501",
-            "fecha": "2026-06-03"
-        },
-        {
-            "hora": "04:04",
-            "nombre": "Henning Maersk",
-            "naviera": "ERHARDT SHIPPING SERVICES SL",
-            "terminal": "",
-            "terminal_codigo": "",
-            "eslora": 180.0,
-            "pax_estimados": 1000,
-            "puerto": "Lavera",
-            "tipo": "salida",
-            "estado": "Iniciada",
-            "bandera": "Dinamarca",
-            "imo": "9389526",
-            "mmsi": "219277000",
             "fecha": "2026-06-03"
         },
         {
@@ -284,7 +268,7 @@
             "pax_estimados": 2000,
             "puerto": "Valencia",
             "tipo": "salida",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Itàlia",
             "imo": "9859533",
             "mmsi": "247383300",
@@ -364,7 +348,7 @@
             "pax_estimados": 1000,
             "puerto": "Palamos",
             "tipo": "salida",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Bahames",
             "imo": "9192167",
             "mmsi": "308628000",
@@ -388,24 +372,24 @@
         }
     ],
     "resumen": {
-        "total_cruceros": 15,
+        "total_cruceros": 14,
         "total_llegadas": 12,
-        "total_salidas": 12,
+        "total_salidas": 11,
         "pax_estimados_hoy": 16500,
-        "proximo_desembarco": "11:30",
-        "proximo_barco": "Msc Caterina"
+        "proximo_desembarco": "01:00",
+        "proximo_barco": "Henning Maersk"
     },
     "terminales_activas": [
-        "0010",
-        "F3",
+        "8156",
         "A",
+        "F3",
         "7332",
         "6212",
-        "8156"
+        "0010"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-06-03T09:25:37.159947",
+        "actualizado": "2026-06-03T00:27:06.225284",
         "frecuencia": "horaria"
     }
 }
