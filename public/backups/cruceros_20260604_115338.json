@@ -129,7 +129,7 @@
             "fecha": "2026-06-04"
         },
         {
-            "hora": "10:03",
+            "hora": "08:28",
             "nombre": "Sti Modest",
             "naviera": "SCORPIO COMMERCIAL MANAGEMENT",
             "terminal": "",
@@ -138,14 +138,14 @@
             "pax_estimados": 1000,
             "puerto": "Genoa",
             "tipo": "llegada",
-            "estado": "Fondeig Previ",
+            "estado": "Sol·licitada",
             "bandera": "Illes Marshall",
             "imo": "9833577",
             "mmsi": "538010468",
             "fecha": "2026-06-04"
         },
         {
-            "hora": "10:06",
+            "hora": "08:30",
             "nombre": "Sti Modest",
             "naviera": "SCORPIO COMMERCIAL MANAGEMENT",
             "terminal": "DECAL ESPAÑA SA",
@@ -154,7 +154,7 @@
             "pax_estimados": 1000,
             "puerto": "Genoa",
             "tipo": "llegada",
-            "estado": "Fondeig Previ",
+            "estado": "Sol·licitada",
             "bandera": "Illes Marshall",
             "imo": "9833577",
             "mmsi": "538010468",
@@ -224,6 +224,22 @@
             "bandera": "Illes Marshall",
             "imo": "9752151",
             "mmsi": "538007871",
+            "fecha": "2026-06-04"
+        },
+        {
+            "hora": "08:29",
+            "nombre": "Sti Modest",
+            "naviera": "ITALMAR 3000 SL",
+            "terminal": "",
+            "terminal_codigo": "",
+            "eslora": 183.0,
+            "pax_estimados": 1000,
+            "puerto": "Desconegut",
+            "tipo": "salida",
+            "estado": "Sol·licitada",
+            "bandera": "Illes Marshall",
+            "imo": "9833577",
+            "mmsi": "538010468",
             "fecha": "2026-06-04"
         },
         {
@@ -320,22 +336,6 @@
             "bandera": "Illes Marshall",
             "imo": "9696577",
             "mmsi": "538005407",
-            "fecha": "2026-06-04"
-        },
-        {
-            "hora": "10:05",
-            "nombre": "Sti Modest",
-            "naviera": "ITALMAR 3000 SL",
-            "terminal": "",
-            "terminal_codigo": "",
-            "eslora": 183.0,
-            "pax_estimados": 1000,
-            "puerto": "Desconegut",
-            "tipo": "salida",
-            "estado": "Fondeig Previ",
-            "bandera": "Illes Marshall",
-            "imo": "9833577",
-            "mmsi": "538010468",
             "fecha": "2026-06-04"
         },
         {
@@ -445,20 +445,20 @@
     },
     "terminales_activas": [
         "6037",
-        "6154",
-        "A",
-        "F2",
-        "0010",
-        "H",
         "7946",
+        "F2",
+        "6154",
         "172133",
         "6212",
+        "0010",
         "6995",
+        "H",
+        "A",
         "F3"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-06-04T11:53:38.317292",
+        "actualizado": "2026-06-04T08:48:04.659919",
         "frecuencia": "horaria"
     }
 }
