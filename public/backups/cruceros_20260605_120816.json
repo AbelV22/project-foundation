@@ -49,6 +49,22 @@
             "fecha": "2026-06-05"
         },
         {
+            "hora": "06:00",
+            "nombre": "Msc Virginia",
+            "naviera": "MEDITERRANEAN SHIPPING CO",
+            "terminal": "TERMINAL CATALUNYA SA",
+            "terminal_codigo": "6212",
+            "eslora": 335.0,
+            "pax_estimados": 4500,
+            "puerto": "Genoa",
+            "tipo": "llegada",
+            "estado": "Sol·licitada",
+            "bandera": "Libèria",
+            "imo": "9908059",
+            "mmsi": "636021366",
+            "fecha": "2026-06-05"
+        },
+        {
             "hora": "07:22",
             "nombre": "Msc World Europa",
             "naviera": "MSC CRUISES S.A.",
@@ -97,7 +113,7 @@
             "fecha": "2026-06-05"
         },
         {
-            "hora": "10:08",
+            "hora": "13:58",
             "nombre": "Htm Grenadier",
             "naviera": "HERCULES SHIPPING",
             "terminal": "",
@@ -106,7 +122,7 @@
             "pax_estimados": 1000,
             "puerto": "Malta Freeport Distripark",
             "tipo": "llegada",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Malta",
             "imo": "9587829",
             "mmsi": "249703000",
@@ -122,7 +138,7 @@
             "pax_estimados": 1000,
             "puerto": "Malta Freeport Distripark",
             "tipo": "llegada",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Malta",
             "imo": "9587829",
             "mmsi": "249703000",
@@ -142,6 +158,22 @@
             "bandera": "Libèria",
             "imo": "9231092",
             "mmsi": "636025342",
+            "fecha": "2026-06-05"
+        },
+        {
+            "hora": "18:45",
+            "nombre": "Abel Matutes",
+            "naviera": "EUROLINEAS MARITIMAS S.A",
+            "terminal": "BALEARIA EUROLINEAS MARITIMAS SA ",
+            "terminal_codigo": "7332",
+            "eslora": 190.0,
+            "pax_estimados": 1000,
+            "puerto": "Alcudia",
+            "tipo": "llegada",
+            "estado": "Confirmada",
+            "bandera": "Espanya",
+            "imo": "9441130",
+            "mmsi": "224402000",
             "fecha": "2026-06-05"
         },
         {
@@ -268,7 +300,7 @@
             "pax_estimados": 1000,
             "puerto": "Malta Freeport Distripark",
             "tipo": "salida",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Malta",
             "imo": "9587829",
             "mmsi": "249703000",
@@ -339,6 +371,38 @@
             "fecha": "2026-06-05"
         },
         {
+            "hora": "20:00",
+            "nombre": "Msc Virginia",
+            "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
+            "terminal": "TERMINAL CATALUNYA SA",
+            "terminal_codigo": "6212",
+            "eslora": 335.0,
+            "pax_estimados": 4500,
+            "puerto": "Valencia",
+            "tipo": "salida",
+            "estado": "Sol·licitada",
+            "bandera": "Libèria",
+            "imo": "9908059",
+            "mmsi": "636021366",
+            "fecha": "2026-06-05"
+        },
+        {
+            "hora": "21:15",
+            "nombre": "Abel Matutes",
+            "naviera": "BALEARIA EUROLINEAS MARITIMAS SA ",
+            "terminal": "BALEARIA EUROLINEAS MARITIMAS SA ",
+            "terminal_codigo": "7332",
+            "eslora": 190.0,
+            "pax_estimados": 1000,
+            "puerto": "Alcudia",
+            "tipo": "salida",
+            "estado": "Confirmada",
+            "bandera": "Espanya",
+            "imo": "9441130",
+            "mmsi": "224402000",
+            "fecha": "2026-06-05"
+        },
+        {
             "hora": "22:30",
             "nombre": "Ciudad De Granada",
             "naviera": "GRIMALDI LOGISTICA ESPAÑA SL",
@@ -356,27 +420,28 @@
         }
     ],
     "resumen": {
-        "total_cruceros": 13,
-        "total_llegadas": 12,
-        "total_salidas": 10,
-        "pax_estimados_hoy": 15000,
-        "proximo_desembarco": "14:00",
-        "proximo_barco": "Htm Grenadier"
+        "total_cruceros": 15,
+        "total_llegadas": 14,
+        "total_salidas": 12,
+        "pax_estimados_hoy": 20500,
+        "proximo_desembarco": "09:09",
+        "proximo_barco": "Msc Rapallo"
     },
     "terminales_activas": [
-        "F3",
-        "H",
-        "6995",
+        "6154",
         "F2",
         "6212",
         "D",
-        "6154",
+        "H",
+        "F3",
+        "6037",
+        "6995",
         "8156",
-        "6037"
+        "7332"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-06-05T12:08:16.241072",
+        "actualizado": "2026-06-05T08:42:53.423643",
         "frecuencia": "horaria"
     }
 }
