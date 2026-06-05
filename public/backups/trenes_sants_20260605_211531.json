@@ -254,6 +254,12 @@
         },
         {
             "hora": "21:32",
+            "origen": "Paris Gare de Lyon",
+            "tren": "TGV INOUI 09715",
+            "via": "-"
+        },
+        {
+            "hora": "21:32",
             "origen": "",
             "tren": "AVE 09744",
             "via": "-"
@@ -262,6 +268,12 @@
             "hora": "21:35",
             "origen": "Madrid Puerta de Atocha Almudena Grandes",
             "tren": "IRYO 06181",
+            "via": "2"
+        },
+        {
+            "hora": "21:40",
+            "origen": "Vigo Urzaiz",
+            "tren": "ALVIA 00620",
             "via": "-"
         },
         {
@@ -271,10 +283,16 @@
             "via": "-"
         },
         {
+            "hora": "21:59",
+            "origen": "Madrid Puerta de Atocha Almudena Grandes",
+            "tren": "AVE 03191",
+            "via": "-"
+        },
+        {
             "hora": "22:04",
             "origen": "Alacant / Alicante Terminal",
             "tren": "EUROMED 01192",
-            "via": "-"
+            "via": "3"
         },
         {
             "hora": "22:13",
@@ -298,7 +316,7 @@
             "hora": "23:20",
             "origen": "Madrid Puerta de Atocha Almudena Grandes",
             "tren": "AVE 03309",
-            "via": "-"
+            "via": "4"
         },
         {
             "hora": "23:28",
@@ -326,8 +344,8 @@
         }
     ],
     "meta": {
-        "update_time": "21:15",
-        "updated_at": "2026-06-05T21:15:31.840231",
-        "total": 54
+        "update_time": "19:28",
+        "updated_at": "2026-06-05T19:28:40.437623",
+        "total": 57
     }
 }
