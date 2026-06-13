@@ -65,7 +65,7 @@
             "fecha": "2026-06-13"
         },
         {
-            "hora": "07:02",
+            "hora": "07:00",
             "nombre": "Eco Livorno",
             "naviera": "GRIMALDI EUROMED SPA",
             "terminal": "GRIMALDI TERMINAL BARCELONA SL",
@@ -74,14 +74,14 @@
             "pax_estimados": 2000,
             "puerto": "Valencia",
             "tipo": "llegada",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Itàlia",
             "imo": "9859557",
             "mmsi": "247383500",
             "fecha": "2026-06-13"
         },
         {
-            "hora": "07:30",
+            "hora": "07:00",
             "nombre": "Msc Grandiosa",
             "naviera": "MSC CRUISES S.A.",
             "terminal": "ADOSSAT/TERMINAL H",
@@ -90,7 +90,7 @@
             "pax_estimados": 4500,
             "puerto": "Palma de Mallorca",
             "tipo": "llegada",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Malta",
             "imo": "9803613",
             "mmsi": "215325000",
@@ -195,7 +195,7 @@
     ],
     "salidas": [
         {
-            "hora": "00:39",
+            "hora": "00:30",
             "nombre": "Cruise Roma",
             "naviera": "GRIMALDI LOGISTICA ESPAÑA SL",
             "terminal": "TERMINAL F3",
@@ -204,7 +204,7 @@
             "pax_estimados": 3000,
             "puerto": "Porto Torres",
             "tipo": "salida",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Itàlia",
             "imo": "9351476",
             "mmsi": "247219400",
@@ -236,7 +236,7 @@
             "pax_estimados": 2000,
             "puerto": "Savona",
             "tipo": "salida",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Itàlia",
             "imo": "9859557",
             "mmsi": "247383500",
@@ -268,7 +268,7 @@
             "pax_estimados": 4500,
             "puerto": "Cannes",
             "tipo": "salida",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Malta",
             "imo": "9803613",
             "mmsi": "215325000",
@@ -392,22 +392,22 @@
         "total_llegadas": 12,
         "total_salidas": 12,
         "pax_estimados_hoy": 21500,
-        "proximo_desembarco": "18:00",
-        "proximo_barco": "Msc Niovi Viii"
+        "proximo_desembarco": "06:00",
+        "proximo_barco": "Msc Madison Ii"
     },
     "terminales_activas": [
-        "6037",
+        "F1",
+        "F3",
+        "7083",
         "8156",
         "6212",
-        "H",
-        "7083",
+        "6037",
         "6995",
-        "F3",
-        "F1"
+        "H"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-06-13T08:20:30.449681",
+        "actualizado": "2026-06-13T00:19:50.278490",
         "frecuencia": "horaria"
     }
 }
