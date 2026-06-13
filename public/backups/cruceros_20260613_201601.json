@@ -145,7 +145,7 @@
             "fecha": "2026-06-13"
         },
         {
-            "hora": "19:55",
+            "hora": "19:30",
             "nombre": "Visborg",
             "naviera": "EUROLINEAS MARITIMAS S.A",
             "terminal": "TERMINAL F1",
@@ -154,7 +154,7 @@
             "pax_estimados": 1000,
             "puerto": "Palma de Mallorca",
             "tipo": "llegada",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Malta",
             "imo": "9223784",
             "mmsi": "229455000",
@@ -202,7 +202,7 @@
             "pax_estimados": 1000,
             "puerto": "Palma de Mallorca",
             "tipo": "llegada",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Malta",
             "imo": "9223784",
             "mmsi": "229455000",
@@ -380,7 +380,7 @@
             "pax_estimados": 1000,
             "puerto": "Palma de Mallorca",
             "tipo": "salida",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Malta",
             "imo": "9223784",
             "mmsi": "229455000",
@@ -408,22 +408,22 @@
         "total_llegadas": 13,
         "total_salidas": 12,
         "pax_estimados_hoy": 22500,
-        "proximo_desembarco": "22:30",
-        "proximo_barco": "Cruise Barcelona"
+        "proximo_desembarco": "18:48",
+        "proximo_barco": "Abel Matutes"
     },
     "terminales_activas": [
-        "6995",
-        "7083",
-        "F3",
         "8156",
         "H",
-        "F1",
+        "7083",
         "6212",
+        "F3",
+        "6995",
+        "F1",
         "6037"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-06-13T20:16:01.630188",
+        "actualizado": "2026-06-13T18:08:00.045301",
         "frecuencia": "horaria"
     }
 }
