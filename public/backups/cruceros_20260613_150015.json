@@ -97,22 +97,6 @@
             "fecha": "2026-06-13"
         },
         {
-            "hora": "12:16",
-            "nombre": "Marguerite A",
-            "naviera": "ARKAS CONTAINER TRANSPORT SA",
-            "terminal": "APM TERMINALS BARCELONA, S.L.U.",
-            "terminal_codigo": "7083",
-            "eslora": 184.0,
-            "pax_estimados": 1000,
-            "puerto": "Valencia",
-            "tipo": "llegada",
-            "estado": "Iniciada",
-            "bandera": "Malta",
-            "imo": "9305893",
-            "mmsi": "215416000",
-            "fecha": "2026-06-13"
-        },
-        {
             "hora": "18:00",
             "nombre": "Msc Niovi Viii",
             "naviera": "MEDITERRANEAN SHIPPING CO",
@@ -268,7 +252,7 @@
             "pax_estimados": 1000,
             "puerto": "Fos-sur-Mer",
             "tipo": "salida",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Malta",
             "imo": "9305893",
             "mmsi": "215416000",
@@ -405,25 +389,25 @@
     ],
     "resumen": {
         "total_cruceros": 15,
-        "total_llegadas": 13,
+        "total_llegadas": 12,
         "total_salidas": 12,
-        "pax_estimados_hoy": 22500,
+        "pax_estimados_hoy": 21500,
         "proximo_desembarco": "18:00",
         "proximo_barco": "Msc Niovi Viii"
     },
     "terminales_activas": [
-        "7083",
-        "F3",
+        "8156",
+        "6995",
+        "6212",
         "6037",
         "H",
-        "F1",
-        "6212",
-        "6995",
-        "8156"
+        "F3",
+        "7083",
+        "F1"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-06-13T15:00:15.352559",
+        "actualizado": "2026-06-13T11:14:13.624931",
         "frecuencia": "horaria"
     }
 }
