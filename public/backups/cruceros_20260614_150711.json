@@ -241,7 +241,7 @@
             "fecha": "2026-06-14"
         },
         {
-            "hora": "14:12",
+            "hora": "14:00",
             "nombre": "Gnv Aurora",
             "naviera": "GRANDI NAVI VELOCI",
             "terminal": "TERMINAL F2",
@@ -250,26 +250,10 @@
             "pax_estimados": 2000,
             "puerto": "Genoa",
             "tipo": "llegada",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Itàlia",
             "imo": "9980069",
             "mmsi": "247530300",
-            "fecha": "2026-06-14"
-        },
-        {
-            "hora": "15:24",
-            "nombre": "Msc Cedar Ii",
-            "naviera": "MEDITERRANEAN SHIPPING CO",
-            "terminal": "TERMINAL CATALUNYA SA",
-            "terminal_codigo": "6212",
-            "eslora": 0,
-            "pax_estimados": 500,
-            "puerto": "Oran",
-            "tipo": "llegada",
-            "estado": "Iniciada",
-            "bandera": "Libèria",
-            "imo": "9231092",
-            "mmsi": "636025342",
             "fecha": "2026-06-14"
         },
         {
@@ -483,7 +467,7 @@
             "fecha": "2026-06-14"
         },
         {
-            "hora": "13:20",
+            "hora": "14:00",
             "nombre": "Eco Savona",
             "naviera": "GRIMALDI LOGISTICA ESPAÑA SL",
             "terminal": "GRIMALDI TERMINAL BARCELONA SL",
@@ -492,7 +476,7 @@
             "pax_estimados": 2000,
             "puerto": "Valencia",
             "tipo": "salida",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Itàlia",
             "imo": "9859569",
             "mmsi": "247383600",
@@ -572,7 +556,7 @@
             "pax_estimados": 2000,
             "puerto": "Tanger Med",
             "tipo": "salida",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Itàlia",
             "imo": "9980069",
             "mmsi": "247530300",
@@ -740,31 +724,31 @@
         }
     ],
     "resumen": {
-        "total_cruceros": 26,
-        "total_llegadas": 23,
+        "total_cruceros": 25,
+        "total_llegadas": 22,
         "total_salidas": 23,
-        "pax_estimados_hoy": 56000,
-        "proximo_desembarco": "15:24",
-        "proximo_barco": "Msc Cedar Ii"
+        "pax_estimados_hoy": 55500,
+        "proximo_desembarco": "11:46",
+        "proximo_barco": "Hulda Maersk"
     },
     "terminales_activas": [
-        "F3",
-        "7083",
-        "H",
-        "B",
-        "A",
-        "172133",
-        "8156",
-        "E",
-        "F1",
         "6212",
-        "S",
+        "8156",
         "F2",
-        "6995"
+        "F3",
+        "E",
+        "H",
+        "A",
+        "F1",
+        "172133",
+        "B",
+        "S",
+        "6995",
+        "7083"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-06-14T15:07:11.570359",
+        "actualizado": "2026-06-14T11:30:07.830097",
         "frecuencia": "horaria"
     }
 }
