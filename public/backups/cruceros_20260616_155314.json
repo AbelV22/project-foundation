@@ -1,6 +1,22 @@
 {
     "llegadas": [
         {
+            "hora": "00:00",
+            "nombre": "Msc Rifaya",
+            "naviera": "MEDITERRANEAN SHIPPING CO",
+            "terminal": "TERMINAL CATALUNYA SA",
+            "terminal_codigo": "6212",
+            "eslora": 0,
+            "pax_estimados": 500,
+            "puerto": "Valencia",
+            "tipo": "llegada",
+            "estado": "Autoritzada",
+            "bandera": "Libèria",
+            "imo": "9767388",
+            "mmsi": "636017685",
+            "fecha": "2026-06-16"
+        },
+        {
             "hora": "00:45",
             "nombre": "Msc Amihan F",
             "naviera": "MEDITERRANEAN SHIPPING CO",
@@ -74,7 +90,7 @@
             "pax_estimados": 2000,
             "puerto": "Valencia",
             "tipo": "llegada",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Itàlia",
             "imo": "9859569",
             "mmsi": "247383600",
@@ -129,19 +145,19 @@
             "fecha": "2026-06-16"
         },
         {
-            "hora": "11:17",
-            "nombre": "Cma Cgm Big Sur",
-            "naviera": "CMA CGM",
+            "hora": "12:00",
+            "nombre": "Msc Washington",
+            "naviera": "MEDITERRANEAN SHIPPING CO",
             "terminal": "TERMINAL CATALUNYA SA",
             "terminal_codigo": "6212",
-            "eslora": 366.0,
-            "pax_estimados": 6500,
-            "puerto": "Valencia",
+            "eslora": 335.0,
+            "pax_estimados": 4500,
+            "puerto": "Genoa",
             "tipo": "llegada",
-            "estado": "Iniciada",
-            "bandera": "França",
-            "imo": "9938169",
-            "mmsi": "228459900",
+            "estado": "Confirmada",
+            "bandera": "Libèria",
+            "imo": "9908047",
+            "mmsi": "636021365",
             "fecha": "2026-06-16"
         },
         {
@@ -174,22 +190,6 @@
             "bandera": "Portugal",
             "imo": "9619385",
             "mmsi": "255805572",
-            "fecha": "2026-06-16"
-        },
-        {
-            "hora": "16:42",
-            "nombre": "Hulda Maersk",
-            "naviera": "MAERSK",
-            "terminal": "MEROIL SA",
-            "terminal_codigo": "6995",
-            "eslora": 180.0,
-            "pax_estimados": 1000,
-            "puerto": "Lavera",
-            "tipo": "llegada",
-            "estado": "Iniciada",
-            "bandera": "Dinamarca",
-            "imo": "9399363",
-            "mmsi": "219278000",
             "fecha": "2026-06-16"
         },
         {
@@ -255,22 +255,6 @@
             "imo": "9441130",
             "mmsi": "224402000",
             "fecha": "2026-06-16"
-        },
-        {
-            "hora": "19:30",
-            "nombre": "Visborg",
-            "naviera": "EUROLINEAS MARITIMAS S.A",
-            "terminal": "TERMINAL F1",
-            "terminal_codigo": "F1",
-            "eslora": 196.0,
-            "pax_estimados": 1000,
-            "puerto": "Palma de Mallorca",
-            "tipo": "llegada",
-            "estado": "Autoritzada",
-            "bandera": "Malta",
-            "imo": "9223784",
-            "mmsi": "229455000",
-            "fecha": "2026-06-16"
         }
     ],
     "salidas": [
@@ -307,23 +291,7 @@
             "fecha": "2026-06-16"
         },
         {
-            "hora": "11:16",
-            "nombre": "Cma Cgm Big Sur",
-            "naviera": "CMA CGM IBERICA SAU",
-            "terminal": "",
-            "terminal_codigo": "",
-            "eslora": 366.0,
-            "pax_estimados": 6500,
-            "puerto": "Fos-sur-Mer",
-            "tipo": "salida",
-            "estado": "Iniciada",
-            "bandera": "França",
-            "imo": "9938169",
-            "mmsi": "228459900",
-            "fecha": "2026-06-16"
-        },
-        {
-            "hora": "12:03",
+            "hora": "12:00",
             "nombre": "Eco Savona",
             "naviera": "GRIMALDI LOGISTICA ESPAÑA SL",
             "terminal": "GRIMALDI TERMINAL BARCELONA SL",
@@ -332,42 +300,10 @@
             "pax_estimados": 2000,
             "puerto": "Livorno",
             "tipo": "salida",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Itàlia",
             "imo": "9859569",
             "mmsi": "247383600",
-            "fecha": "2026-06-16"
-        },
-        {
-            "hora": "12:53",
-            "nombre": "Msc Radiant Iii",
-            "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
-            "terminal": "TERMINAL CATALUNYA SA",
-            "terminal_codigo": "6212",
-            "eslora": 208.0,
-            "pax_estimados": 2000,
-            "puerto": "Alger (Algiers)",
-            "tipo": "salida",
-            "estado": "Finalitzada",
-            "bandera": "Libèria",
-            "imo": "9235402",
-            "mmsi": "636016943",
-            "fecha": "2026-06-16"
-        },
-        {
-            "hora": "16:41",
-            "nombre": "Hulda Maersk",
-            "naviera": "ALFASHIP MARITIME SERVICES SL ",
-            "terminal": "",
-            "terminal_codigo": "",
-            "eslora": 180.0,
-            "pax_estimados": 1000,
-            "puerto": "Desconegut",
-            "tipo": "salida",
-            "estado": "Iniciada",
-            "bandera": "Dinamarca",
-            "imo": "9399363",
-            "mmsi": "219278000",
             "fecha": "2026-06-16"
         },
         {
@@ -476,7 +412,7 @@
             "pax_estimados": 6500,
             "puerto": "Fos-sur-Mer",
             "tipo": "salida",
-            "estado": "Iniciada",
+            "estado": "Fondeig Previ",
             "bandera": "França",
             "imo": "9938169",
             "mmsi": "228459900",
@@ -545,50 +481,34 @@
             "imo": "9217125",
             "mmsi": "224600000",
             "fecha": "2026-06-16"
-        },
-        {
-            "hora": "22:15",
-            "nombre": "Visborg",
-            "naviera": "BALEARIA EUROLINEAS MARITIMAS SA ",
-            "terminal": "TERMINAL F1",
-            "terminal_codigo": "F1",
-            "eslora": 196.0,
-            "pax_estimados": 1000,
-            "puerto": "Palma de Mallorca",
-            "tipo": "salida",
-            "estado": "Autoritzada",
-            "bandera": "Malta",
-            "imo": "9223784",
-            "mmsi": "229455000",
-            "fecha": "2026-06-16"
         }
     ],
     "resumen": {
         "total_cruceros": 20,
-        "total_llegadas": 17,
-        "total_salidas": 18,
-        "pax_estimados_hoy": 33500,
-        "proximo_desembarco": "16:42",
-        "proximo_barco": "Hulda Maersk"
+        "total_llegadas": 16,
+        "total_salidas": 14,
+        "pax_estimados_hoy": 30000,
+        "proximo_desembarco": "12:00",
+        "proximo_barco": "Msc Washington"
     },
     "terminales_activas": [
-        "8156",
-        "F2",
+        "F1",
         "6995",
+        "B",
+        "S",
+        "F2",
         "E",
+        "0010",
+        "F3",
         "7083",
+        "6212",
         "D",
         "H",
-        "F3",
-        "6212",
-        "F1",
-        "S",
-        "B",
-        "0010"
+        "8156"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-06-16T15:53:14.389983",
+        "actualizado": "2026-06-16T10:07:13.789761",
         "frecuencia": "horaria"
     }
 }
