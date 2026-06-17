@@ -145,7 +145,7 @@
             "fecha": "2026-06-17"
         },
         {
-            "hora": "17:34",
+            "hora": "17:15",
             "nombre": "Cruise Roma",
             "naviera": "GRIMALDI EUROMED SPA",
             "terminal": "TERMINAL F3",
@@ -154,7 +154,7 @@
             "pax_estimados": 3000,
             "puerto": "Civitavecchia",
             "tipo": "llegada",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Itàlia",
             "imo": "9351476",
             "mmsi": "247219400",
@@ -348,7 +348,7 @@
             "pax_estimados": 1000,
             "puerto": "Alcudia",
             "tipo": "salida",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Espanya",
             "imo": "9441130",
             "mmsi": "224402000",
@@ -364,7 +364,7 @@
             "pax_estimados": 3000,
             "puerto": "Civitavecchia",
             "tipo": "salida",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Itàlia",
             "imo": "9351476",
             "mmsi": "247219400",
@@ -408,21 +408,21 @@
         "total_llegadas": 13,
         "total_salidas": 12,
         "pax_estimados_hoy": 29000,
-        "proximo_desembarco": "18:45",
-        "proximo_barco": "Abel Matutes"
+        "proximo_desembarco": "17:15",
+        "proximo_barco": "Cruise Roma"
     },
     "terminales_activas": [
-        "TC",
         "8156",
-        "6212",
-        "F2",
         "7083",
-        "F1",
-        "F3"
+        "6212",
+        "TC",
+        "F2",
+        "F3",
+        "F1"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-06-17T17:48:51.403954",
+        "actualizado": "2026-06-17T14:25:24.274460",
         "frecuencia": "horaria"
     }
 }
