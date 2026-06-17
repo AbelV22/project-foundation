@@ -1,23 +1,7 @@
 {
     "llegadas": [
         {
-            "hora": "01:23",
-            "nombre": "Msc Nitya B",
-            "naviera": "MEDITERRANEAN SHIPPING CO",
-            "terminal": "TERMINAL CATALUNYA SA",
-            "terminal_codigo": "6212",
-            "eslora": 330.0,
-            "pax_estimados": 4500,
-            "puerto": "Fos-sur-Mer",
-            "tipo": "llegada",
-            "estado": "Iniciada",
-            "bandera": "Portugal",
-            "imo": "9778117",
-            "mmsi": "255806029",
-            "fecha": "2026-06-17"
-        },
-        {
-            "hora": "01:31",
+            "hora": "01:00",
             "nombre": "Eco Livorno",
             "naviera": "GRIMALDI EUROMED SPA",
             "terminal": "GRIMALDI TERMINAL BARCELONA SL",
@@ -26,7 +10,7 @@
             "pax_estimados": 2000,
             "puerto": "Savona",
             "tipo": "llegada",
-            "estado": "Finalitzada",
+            "estado": "Autoritzada",
             "bandera": "Itàlia",
             "imo": "9859557",
             "mmsi": "247383500",
@@ -82,6 +66,22 @@
         },
         {
             "hora": "06:00",
+            "nombre": "Msc Washington",
+            "naviera": "MEDITERRANEAN SHIPPING CO",
+            "terminal": "TERMINAL CATALUNYA SA",
+            "terminal_codigo": "6212",
+            "eslora": 335.0,
+            "pax_estimados": 4500,
+            "puerto": "Valencia",
+            "tipo": "llegada",
+            "estado": "Autoritzada",
+            "bandera": "Libèria",
+            "imo": "9908047",
+            "mmsi": "636021365",
+            "fecha": "2026-06-17"
+        },
+        {
+            "hora": "06:00",
             "nombre": "Msc Eras Ii",
             "naviera": "MEDITERRANEAN SHIPPING CO",
             "terminal": "TERMINAL CATALUNYA SA",
@@ -113,7 +113,7 @@
             "fecha": "2026-06-17"
         },
         {
-            "hora": "07:22",
+            "hora": "07:00",
             "nombre": "Eco Valencia",
             "naviera": "GRIMALDI EUROMED SPA",
             "terminal": "GRIMALDI TERMINAL BARCELONA SL",
@@ -122,14 +122,14 @@
             "pax_estimados": 2000,
             "puerto": "Valencia",
             "tipo": "llegada",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Itàlia",
             "imo": "9859533",
             "mmsi": "247383300",
             "fecha": "2026-06-17"
         },
         {
-            "hora": "08:26",
+            "hora": "08:30",
             "nombre": "Gnv Aurora",
             "naviera": "GRANDI NAVI VELOCI",
             "terminal": "TERMINAL F2",
@@ -138,26 +138,10 @@
             "pax_estimados": 2000,
             "puerto": "Tanger Med",
             "tipo": "llegada",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Itàlia",
             "imo": "9980069",
             "mmsi": "247530300",
-            "fecha": "2026-06-17"
-        },
-        {
-            "hora": "08:30",
-            "nombre": "Msc Washington",
-            "naviera": "MEDITERRANEAN SHIPPING CO",
-            "terminal": "TERMINAL CATALUNYA SA",
-            "terminal_codigo": "6212",
-            "eslora": 335.0,
-            "pax_estimados": 4500,
-            "puerto": "Valencia",
-            "tipo": "llegada",
-            "estado": "Iniciada",
-            "bandera": "Libèria",
-            "imo": "9908047",
-            "mmsi": "636021365",
             "fecha": "2026-06-17"
         },
         {
@@ -211,7 +195,7 @@
     ],
     "salidas": [
         {
-            "hora": "00:57",
+            "hora": "02:00",
             "nombre": "Shekou Star",
             "naviera": "HAPAG LLOYD SPAIN SL",
             "terminal": "APM TERMINALS BARCELONA, S.L.U.",
@@ -220,14 +204,14 @@
             "pax_estimados": 3000,
             "puerto": "Tanger Med",
             "tipo": "salida",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Illes Marshall",
             "imo": "9322322",
             "mmsi": "538010796",
             "fecha": "2026-06-17"
         },
         {
-            "hora": "04:15",
+            "hora": "05:00",
             "nombre": "Eco Livorno",
             "naviera": "GRIMALDI LOGISTICA ESPAÑA SL",
             "terminal": "GRIMALDI TERMINAL BARCELONA SL",
@@ -236,7 +220,7 @@
             "pax_estimados": 2000,
             "puerto": "Valencia",
             "tipo": "salida",
-            "estado": "Finalitzada",
+            "estado": "Autoritzada",
             "bandera": "Itàlia",
             "imo": "9859557",
             "mmsi": "247383500",
@@ -252,7 +236,7 @@
             "pax_estimados": 2000,
             "puerto": "Genoa",
             "tipo": "salida",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Itàlia",
             "imo": "9980069",
             "mmsi": "247530300",
@@ -268,7 +252,7 @@
             "pax_estimados": 2000,
             "puerto": "Savona",
             "tipo": "salida",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Itàlia",
             "imo": "9859533",
             "mmsi": "247383300",
@@ -300,7 +284,7 @@
             "pax_estimados": 4500,
             "puerto": "Valencia",
             "tipo": "salida",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Portugal",
             "imo": "9778117",
             "mmsi": "255806029",
@@ -421,23 +405,23 @@
     ],
     "resumen": {
         "total_cruceros": 15,
-        "total_llegadas": 13,
+        "total_llegadas": 12,
         "total_salidas": 13,
-        "pax_estimados_hoy": 28500,
-        "proximo_desembarco": "18:00",
-        "proximo_barco": "Cruise Roma"
+        "pax_estimados_hoy": 24000,
+        "proximo_desembarco": "01:00",
+        "proximo_barco": "Eco Livorno"
     },
     "terminales_activas": [
-        "6212",
-        "7332",
-        "F2",
         "8156",
+        "7332",
+        "6212",
+        "F2",
         "7083",
         "F3"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-06-17T09:50:22.782764",
+        "actualizado": "2026-06-17T00:16:25.536403",
         "frecuencia": "horaria"
     }
 }
