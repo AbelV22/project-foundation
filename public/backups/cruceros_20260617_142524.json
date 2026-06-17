@@ -50,6 +50,22 @@
         },
         {
             "hora": "06:00",
+            "nombre": "Msc Katalin Ii",
+            "naviera": "MEDITERRANEAN SHIPPING CO",
+            "terminal": "TERMINAL CATALUNYA SA",
+            "terminal_codigo": "6212",
+            "eslora": 0,
+            "pax_estimados": 500,
+            "puerto": "Valencia",
+            "tipo": "llegada",
+            "estado": "Sol·licitada",
+            "bandera": "Libèria",
+            "imo": "9232656",
+            "mmsi": "636017244",
+            "fecha": "2026-06-17"
+        },
+        {
+            "hora": "06:00",
             "nombre": "Msc Yuvika V",
             "naviera": "MEDITERRANEAN SHIPPING CO",
             "terminal": "TERMINAL CATALUNYA SA",
@@ -97,7 +113,7 @@
             "fecha": "2026-06-17"
         },
         {
-            "hora": "07:27",
+            "hora": "07:22",
             "nombre": "Eco Valencia",
             "naviera": "GRIMALDI EUROMED SPA",
             "terminal": "GRIMALDI TERMINAL BARCELONA SL",
@@ -106,7 +122,7 @@
             "pax_estimados": 2000,
             "puerto": "Valencia",
             "tipo": "llegada",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Itàlia",
             "imo": "9859533",
             "mmsi": "247383300",
@@ -122,7 +138,7 @@
             "pax_estimados": 2000,
             "puerto": "Tanger Med",
             "tipo": "llegada",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Itàlia",
             "imo": "9980069",
             "mmsi": "247530300",
@@ -145,7 +161,7 @@
             "fecha": "2026-06-17"
         },
         {
-            "hora": "17:15",
+            "hora": "18:00",
             "nombre": "Cruise Roma",
             "naviera": "GRIMALDI EUROMED SPA",
             "terminal": "TERMINAL F3",
@@ -164,13 +180,13 @@
             "hora": "18:45",
             "nombre": "Abel Matutes",
             "naviera": "EUROLINEAS MARITIMAS S.A",
-            "terminal": "LEPANT/TRUCK CENTER",
-            "terminal_codigo": "TC",
+            "terminal": "BALEARIA EUROLINEAS MARITIMAS SA ",
+            "terminal_codigo": "7332",
             "eslora": 190.0,
             "pax_estimados": 1000,
             "puerto": "Alcudia",
             "tipo": "llegada",
-            "estado": "Autoritzada",
+            "estado": "Confirmada",
             "bandera": "Espanya",
             "imo": "9441130",
             "mmsi": "224402000",
@@ -191,27 +207,11 @@
             "imo": "9217125",
             "mmsi": "224600000",
             "fecha": "2026-06-17"
-        },
-        {
-            "hora": "19:30",
-            "nombre": "Visborg",
-            "naviera": "EUROLINEAS MARITIMAS S.A",
-            "terminal": "TERMINAL F1",
-            "terminal_codigo": "F1",
-            "eslora": 196.0,
-            "pax_estimados": 1000,
-            "puerto": "Palma de Mallorca",
-            "tipo": "llegada",
-            "estado": "Autoritzada",
-            "bandera": "Malta",
-            "imo": "9223784",
-            "mmsi": "229455000",
-            "fecha": "2026-06-17"
         }
     ],
     "salidas": [
         {
-            "hora": "01:26",
+            "hora": "00:57",
             "nombre": "Shekou Star",
             "naviera": "HAPAG LLOYD SPAIN SL",
             "terminal": "APM TERMINALS BARCELONA, S.L.U.",
@@ -243,7 +243,7 @@
             "fecha": "2026-06-17"
         },
         {
-            "hora": "11:48",
+            "hora": "11:30",
             "nombre": "Gnv Aurora",
             "naviera": "TRANSCOMA BALEARES SA",
             "terminal": "TERMINAL F2",
@@ -252,14 +252,14 @@
             "pax_estimados": 2000,
             "puerto": "Genoa",
             "tipo": "salida",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Itàlia",
             "imo": "9980069",
             "mmsi": "247530300",
             "fecha": "2026-06-17"
         },
         {
-            "hora": "13:45",
+            "hora": "13:00",
             "nombre": "Eco Valencia",
             "naviera": "GRIMALDI LOGISTICA ESPAÑA SL",
             "terminal": "GRIMALDI TERMINAL BARCELONA SL",
@@ -268,10 +268,26 @@
             "pax_estimados": 2000,
             "puerto": "Savona",
             "tipo": "salida",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Itàlia",
             "imo": "9859533",
             "mmsi": "247383300",
+            "fecha": "2026-06-17"
+        },
+        {
+            "hora": "13:45",
+            "nombre": "Msc Amihan F",
+            "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
+            "terminal": "TERMINAL CATALUNYA SA",
+            "terminal_codigo": "6212",
+            "eslora": 0,
+            "pax_estimados": 500,
+            "puerto": "Alger (Algiers)",
+            "tipo": "salida",
+            "estado": "Confirmada",
+            "bandera": "Libèria",
+            "imo": "9449687",
+            "mmsi": "636021438",
             "fecha": "2026-06-17"
         },
         {
@@ -288,6 +304,22 @@
             "bandera": "Portugal",
             "imo": "9778117",
             "mmsi": "255806029",
+            "fecha": "2026-06-17"
+        },
+        {
+            "hora": "20:00",
+            "nombre": "Msc Katalin Ii",
+            "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
+            "terminal": "TERMINAL CATALUNYA SA",
+            "terminal_codigo": "6212",
+            "eslora": 0,
+            "pax_estimados": 500,
+            "puerto": "Bejaia (ex Bougie)",
+            "tipo": "salida",
+            "estado": "Sol·licitada",
+            "bandera": "Libèria",
+            "imo": "9232656",
+            "mmsi": "636017244",
             "fecha": "2026-06-17"
         },
         {
@@ -342,13 +374,13 @@
             "hora": "21:15",
             "nombre": "Abel Matutes",
             "naviera": "BALEARIA EUROLINEAS MARITIMAS SA ",
-            "terminal": "LEPANT/TRUCK CENTER",
-            "terminal_codigo": "TC",
+            "terminal": "BALEARIA EUROLINEAS MARITIMAS SA ",
+            "terminal_codigo": "7332",
             "eslora": 190.0,
             "pax_estimados": 1000,
             "puerto": "Alcudia",
             "tipo": "salida",
-            "estado": "Autoritzada",
+            "estado": "Confirmada",
             "bandera": "Espanya",
             "imo": "9441130",
             "mmsi": "224402000",
@@ -371,22 +403,6 @@
             "fecha": "2026-06-17"
         },
         {
-            "hora": "22:15",
-            "nombre": "Visborg",
-            "naviera": "BALEARIA EUROLINEAS MARITIMAS SA ",
-            "terminal": "TERMINAL F1",
-            "terminal_codigo": "F1",
-            "eslora": 196.0,
-            "pax_estimados": 1000,
-            "puerto": "Palma de Mallorca",
-            "tipo": "salida",
-            "estado": "Autoritzada",
-            "bandera": "Malta",
-            "imo": "9223784",
-            "mmsi": "229455000",
-            "fecha": "2026-06-17"
-        },
-        {
             "hora": "22:30",
             "nombre": "Ciudad De Granada",
             "naviera": "GRIMALDI LOGISTICA ESPAÑA SL",
@@ -404,25 +420,24 @@
         }
     ],
     "resumen": {
-        "total_cruceros": 14,
+        "total_cruceros": 15,
         "total_llegadas": 13,
-        "total_salidas": 12,
-        "pax_estimados_hoy": 29000,
-        "proximo_desembarco": "17:15",
+        "total_salidas": 13,
+        "pax_estimados_hoy": 28500,
+        "proximo_desembarco": "18:00",
         "proximo_barco": "Cruise Roma"
     },
     "terminales_activas": [
+        "6212",
+        "7332",
+        "F2",
         "8156",
         "7083",
-        "6212",
-        "TC",
-        "F2",
-        "F3",
-        "F1"
+        "F3"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-06-17T14:25:24.274460",
+        "actualizado": "2026-06-17T09:50:22.782764",
         "frecuencia": "horaria"
     }
 }
