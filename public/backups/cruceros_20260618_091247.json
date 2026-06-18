@@ -1,7 +1,7 @@
 {
     "llegadas": [
         {
-            "hora": "01:32",
+            "hora": "00:30",
             "nombre": "Eco Adriatica",
             "naviera": "GRIMALDI EUROMED SPA",
             "terminal": "GRIMALDI TERMINAL BARCELONA SL",
@@ -10,10 +10,26 @@
             "pax_estimados": 2000,
             "puerto": "Savona",
             "tipo": "llegada",
-            "estado": "Finalitzada",
+            "estado": "Autoritzada",
             "bandera": "Itàlia",
             "imo": "9859600",
             "mmsi": "247384100",
+            "fecha": "2026-06-18"
+        },
+        {
+            "hora": "05:00",
+            "nombre": "Seasalvia",
+            "naviera": "THENAMARIS SHIPS MANAGEMENT",
+            "terminal": "EXOLUM CORPORATION, SA",
+            "terminal_codigo": "0010",
+            "eslora": 183.0,
+            "pax_estimados": 1000,
+            "puerto": "Tarragona",
+            "tipo": "llegada",
+            "estado": "Sol·licitada",
+            "bandera": "Malta",
+            "imo": "9629550",
+            "mmsi": "229319000",
             "fecha": "2026-06-18"
         },
         {
@@ -65,7 +81,7 @@
             "fecha": "2026-06-18"
         },
         {
-            "hora": "08:21",
+            "hora": "08:00",
             "nombre": "Msc Seaview",
             "naviera": "MSC CRUISES S.A.",
             "terminal": "ADOSSAT/TERMINAL H",
@@ -74,7 +90,7 @@
             "pax_estimados": 500,
             "puerto": "Ibiza",
             "tipo": "llegada",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Malta",
             "imo": "9745378",
             "mmsi": "248717000",
@@ -211,23 +227,7 @@
     ],
     "salidas": [
         {
-            "hora": "03:12",
-            "nombre": "Cma Cgm Big Sur",
-            "naviera": "CMA CGM IBERICA SAU",
-            "terminal": "TERMINAL CATALUNYA SA",
-            "terminal_codigo": "6212",
-            "eslora": 366.0,
-            "pax_estimados": 6500,
-            "puerto": "Fos-sur-Mer",
-            "tipo": "salida",
-            "estado": "Finalitzada",
-            "bandera": "França",
-            "imo": "9938169",
-            "mmsi": "228459900",
-            "fecha": "2026-06-18"
-        },
-        {
-            "hora": "04:49",
+            "hora": "05:00",
             "nombre": "Eco Adriatica",
             "naviera": "GRIMALDI LOGISTICA ESPAÑA SL",
             "terminal": "GRIMALDI TERMINAL BARCELONA SL",
@@ -236,7 +236,7 @@
             "pax_estimados": 2000,
             "puerto": "Valencia",
             "tipo": "salida",
-            "estado": "Finalitzada",
+            "estado": "Autoritzada",
             "bandera": "Itàlia",
             "imo": "9859600",
             "mmsi": "247384100",
@@ -284,7 +284,7 @@
             "pax_estimados": 500,
             "puerto": "Marseille",
             "tipo": "salida",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Malta",
             "imo": "9745378",
             "mmsi": "248717000",
@@ -405,26 +405,26 @@
     ],
     "resumen": {
         "total_cruceros": 16,
-        "total_llegadas": 13,
-        "total_salidas": 12,
-        "pax_estimados_hoy": 18500,
-        "proximo_desembarco": "13:00",
-        "proximo_barco": "Eco Livorno"
+        "total_llegadas": 14,
+        "total_salidas": 11,
+        "pax_estimados_hoy": 19500,
+        "proximo_desembarco": "00:30",
+        "proximo_barco": "Eco Adriatica"
     },
     "terminales_activas": [
-        "6154",
-        "F3",
-        "F2",
         "8156",
+        "F3",
         "H",
-        "6212",
         "2396",
+        "F2",
+        "6212",
+        "6154",
         "0010",
         "7585"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-06-18T09:12:47.835760",
+        "actualizado": "2026-06-18T00:15:55.961103",
         "frecuencia": "horaria"
     }
 }
