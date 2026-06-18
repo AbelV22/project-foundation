@@ -97,7 +97,7 @@
             "fecha": "2026-06-18"
         },
         {
-            "hora": "17:35",
+            "hora": "17:15",
             "nombre": "Cruise Barcelona",
             "naviera": "GRIMALDI EUROMED SPA",
             "terminal": "TERMINAL F3",
@@ -106,7 +106,7 @@
             "pax_estimados": 500,
             "puerto": "Civitavecchia",
             "tipo": "llegada",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Itàlia",
             "imo": "9351488",
             "mmsi": "247243600",
@@ -122,7 +122,7 @@
             "pax_estimados": 500,
             "puerto": "Valencia",
             "tipo": "llegada",
-            "estado": "Autoritzada",
+            "estado": "Confirmada",
             "bandera": "Libèria",
             "imo": "9232656",
             "mmsi": "636017244",
@@ -154,14 +154,14 @@
             "pax_estimados": 500,
             "puerto": "Oran",
             "tipo": "llegada",
-            "estado": "Autoritzada",
+            "estado": "Confirmada",
             "bandera": "Libèria",
             "imo": "9231119",
             "mmsi": "636021596",
             "fecha": "2026-06-18"
         },
         {
-            "hora": "18:57",
+            "hora": "18:30",
             "nombre": "Ciudad De Granada",
             "naviera": "TRASMED GLE S.L.",
             "terminal": "TERMINAL F2",
@@ -170,7 +170,7 @@
             "pax_estimados": 1000,
             "puerto": "Mahon Menorca",
             "tipo": "llegada",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Espanya",
             "imo": "9217125",
             "mmsi": "224600000",
@@ -190,22 +190,6 @@
             "bandera": "Malta",
             "imo": "9223784",
             "mmsi": "229455000",
-            "fecha": "2026-06-18"
-        },
-        {
-            "hora": "20:00",
-            "nombre": "One Meishan",
-            "naviera": "OCEAN NETWORK EXPRESS PTE LTD",
-            "terminal": "TERMINAL CATALUNYA SA",
-            "terminal_codigo": "6212",
-            "eslora": 366.0,
-            "pax_estimados": 6500,
-            "puerto": "Fos-sur-Mer",
-            "tipo": "llegada",
-            "estado": "Autoritzada",
-            "bandera": "Japó",
-            "imo": "9805465",
-            "mmsi": "431989000",
             "fecha": "2026-06-18"
         }
     ],
@@ -256,22 +240,6 @@
             "bandera": "Libèria",
             "imo": "9908047",
             "mmsi": "636021365",
-            "fecha": "2026-06-18"
-        },
-        {
-            "hora": "15:18",
-            "nombre": "Jadrana",
-            "naviera": "MARTICO SL",
-            "terminal": "TERMINAL CATALUNYA SA",
-            "terminal_codigo": "6212",
-            "eslora": 255.0,
-            "pax_estimados": 3000,
-            "puerto": "Koper",
-            "tipo": "salida",
-            "estado": "Finalitzada",
-            "bandera": "Portugal",
-            "imo": "9619385",
-            "mmsi": "255805572",
             "fecha": "2026-06-18"
         },
         {
@@ -372,6 +340,22 @@
         },
         {
             "hora": "22:00",
+            "nombre": "Jadrana",
+            "naviera": "MARTICO SL",
+            "terminal": "TERMINAL CATALUNYA SA",
+            "terminal_codigo": "6212",
+            "eslora": 255.0,
+            "pax_estimados": 3000,
+            "puerto": "Koper",
+            "tipo": "salida",
+            "estado": "Iniciada",
+            "bandera": "Portugal",
+            "imo": "9619385",
+            "mmsi": "255805572",
+            "fecha": "2026-06-18"
+        },
+        {
+            "hora": "22:00",
             "nombre": "Ciudad De Granada",
             "naviera": "GRIMALDI LOGISTICA ESPAÑA SL",
             "terminal": "TERMINAL F2",
@@ -380,7 +364,7 @@
             "pax_estimados": 1000,
             "puerto": "Ibiza",
             "tipo": "salida",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Espanya",
             "imo": "9217125",
             "mmsi": "224600000",
@@ -396,7 +380,7 @@
             "pax_estimados": 500,
             "puerto": "Porto Torres",
             "tipo": "salida",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Itàlia",
             "imo": "9351488",
             "mmsi": "247243600",
@@ -420,26 +404,26 @@
         }
     ],
     "resumen": {
-        "total_cruceros": 17,
-        "total_llegadas": 13,
+        "total_cruceros": 16,
+        "total_llegadas": 12,
         "total_salidas": 13,
-        "pax_estimados_hoy": 24000,
-        "proximo_desembarco": "18:00",
-        "proximo_barco": "Msc Katalin Ii"
+        "pax_estimados_hoy": 17500,
+        "proximo_desembarco": "17:15",
+        "proximo_barco": "Cruise Barcelona"
     },
     "terminales_activas": [
-        "H",
-        "F2",
-        "6212",
-        "F3",
         "7585",
         "8156",
-        "0010",
-        "F1"
+        "F1",
+        "6212",
+        "H",
+        "F3",
+        "F2",
+        "0010"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-06-18T17:58:25.368155",
+        "actualizado": "2026-06-18T14:09:49.708691",
         "frecuencia": "horaria"
     }
 }
