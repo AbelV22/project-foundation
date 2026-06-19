@@ -26,7 +26,7 @@
             "pax_estimados": 3000,
             "puerto": "Valencia",
             "tipo": "llegada",
-            "estado": "Autoritzada",
+            "estado": "Confirmada",
             "bandera": "Israel",
             "imo": "9231808",
             "mmsi": "428002000",
@@ -78,6 +78,22 @@
             "bandera": "Malta",
             "imo": "9629550",
             "mmsi": "229319000",
+            "fecha": "2026-06-19"
+        },
+        {
+            "hora": "06:00",
+            "nombre": "Msc Sixin",
+            "naviera": "MEDITERRANEAN SHIPPING CO",
+            "terminal": "TERMINAL CATALUNYA SA",
+            "terminal_codigo": "6212",
+            "eslora": 0,
+            "pax_estimados": 500,
+            "puerto": "Valencia",
+            "tipo": "llegada",
+            "estado": "Sol·licitada",
+            "bandera": "Panamà",
+            "imo": "9839301",
+            "mmsi": "370711000",
             "fecha": "2026-06-19"
         },
         {
@@ -145,7 +161,7 @@
             "fecha": "2026-06-19"
         },
         {
-            "hora": "10:01",
+            "hora": "10:00",
             "nombre": "Zim Pacific",
             "naviera": "ZIM INTEGRATED SHIPPING SERV.",
             "terminal": "TERMINAL CATALUNYA SA",
@@ -170,7 +186,7 @@
             "pax_estimados": 2000,
             "puerto": "Genoa",
             "tipo": "llegada",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Itàlia",
             "imo": "9980069",
             "mmsi": "247530300",
@@ -190,6 +206,22 @@
             "bandera": "Itàlia",
             "imo": "9435454",
             "mmsi": "247265800",
+            "fecha": "2026-06-19"
+        },
+        {
+            "hora": "18:45",
+            "nombre": "Abel Matutes",
+            "naviera": "EUROLINEAS MARITIMAS S.A",
+            "terminal": "BALEARIA EUROLINEAS MARITIMAS SA ",
+            "terminal_codigo": "7332",
+            "eslora": 190.0,
+            "pax_estimados": 1000,
+            "puerto": "Alcudia",
+            "tipo": "llegada",
+            "estado": "Confirmada",
+            "bandera": "Espanya",
+            "imo": "9441130",
+            "mmsi": "224402000",
             "fecha": "2026-06-19"
         },
         {
@@ -223,9 +255,41 @@
             "imo": "9351476",
             "mmsi": "247219400",
             "fecha": "2026-06-19"
+        },
+        {
+            "hora": "20:30",
+            "nombre": "Msc Manzanillo V",
+            "naviera": "MEDITERRANEAN SHIPPING CO",
+            "terminal": "TERMINAL CATALUNYA SA",
+            "terminal_codigo": "6212",
+            "eslora": 0,
+            "pax_estimados": 500,
+            "puerto": "La Spezia",
+            "tipo": "llegada",
+            "estado": "Sol·licitada",
+            "bandera": "Portugal",
+            "imo": "9289960",
+            "mmsi": "255792000",
+            "fecha": "2026-06-19"
         }
     ],
     "salidas": [
+        {
+            "hora": "02:00",
+            "nombre": "Msc Katalin Ii",
+            "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
+            "terminal": "TERMINAL CATALUNYA SA",
+            "terminal_codigo": "6212",
+            "eslora": 0,
+            "pax_estimados": 500,
+            "puerto": "Bejaia (ex Bougie)",
+            "tipo": "salida",
+            "estado": "Autoritzada",
+            "bandera": "Libèria",
+            "imo": "9232656",
+            "mmsi": "636017244",
+            "fecha": "2026-06-19"
+        },
         {
             "hora": "02:19",
             "nombre": "Msc Washington",
@@ -259,7 +323,7 @@
             "fecha": "2026-06-19"
         },
         {
-            "hora": "10:00",
+            "hora": "09:59",
             "nombre": "Zim Pacific",
             "naviera": "A PEREZ Y CIA SL",
             "terminal": "",
@@ -275,7 +339,7 @@
             "fecha": "2026-06-19"
         },
         {
-            "hora": "14:19",
+            "hora": "14:00",
             "nombre": "Gnv Aurora",
             "naviera": "TRANSCOMA BALEARES SA",
             "terminal": "TERMINAL F2",
@@ -284,7 +348,7 @@
             "pax_estimados": 2000,
             "puerto": "Tanger Med",
             "tipo": "salida",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Itàlia",
             "imo": "9980069",
             "mmsi": "247530300",
@@ -355,6 +419,38 @@
             "fecha": "2026-06-19"
         },
         {
+            "hora": "20:00",
+            "nombre": "Msc Sixin",
+            "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
+            "terminal": "TERMINAL CATALUNYA SA",
+            "terminal_codigo": "6212",
+            "eslora": 0,
+            "pax_estimados": 500,
+            "puerto": "Fos-sur-Mer",
+            "tipo": "salida",
+            "estado": "Sol·licitada",
+            "bandera": "Panamà",
+            "imo": "9839301",
+            "mmsi": "370711000",
+            "fecha": "2026-06-19"
+        },
+        {
+            "hora": "21:30",
+            "nombre": "Abel Matutes",
+            "naviera": "BALEARIA EUROLINEAS MARITIMAS SA ",
+            "terminal": "BALEARIA EUROLINEAS MARITIMAS SA ",
+            "terminal_codigo": "7332",
+            "eslora": 190.0,
+            "pax_estimados": 1000,
+            "puerto": "Alcudia",
+            "tipo": "salida",
+            "estado": "Confirmada",
+            "bandera": "Espanya",
+            "imo": "9441130",
+            "mmsi": "224402000",
+            "fecha": "2026-06-19"
+        },
+        {
             "hora": "23:00",
             "nombre": "Gnv Sealand",
             "naviera": "TRANSCOMA BALEARES SA",
@@ -369,45 +465,30 @@
             "imo": "9435454",
             "mmsi": "247265800",
             "fecha": "2026-06-19"
-        },
-        {
-            "hora": "23:30",
-            "nombre": "Cruise Roma",
-            "naviera": "GRIMALDI LOGISTICA ESPAÑA SL",
-            "terminal": "TERMINAL F3",
-            "terminal_codigo": "F3",
-            "eslora": 0,
-            "pax_estimados": 500,
-            "puerto": "Porto Torres",
-            "tipo": "salida",
-            "estado": "Autoritzada",
-            "bandera": "Itàlia",
-            "imo": "9351476",
-            "mmsi": "247219400",
-            "fecha": "2026-06-19"
         }
     ],
     "resumen": {
-        "total_cruceros": 12,
-        "total_llegadas": 14,
-        "total_salidas": 10,
-        "pax_estimados_hoy": 28000,
-        "proximo_desembarco": "15:01",
-        "proximo_barco": "Gnv Sealand"
+        "total_cruceros": 16,
+        "total_llegadas": 17,
+        "total_salidas": 12,
+        "pax_estimados_hoy": 30000,
+        "proximo_desembarco": "10:00",
+        "proximo_barco": "Zim Pacific"
     },
     "terminales_activas": [
-        "F2",
-        "6212",
         "H",
-        "7585",
-        "D",
-        "0010",
+        "7332",
         "F3",
-        "8156"
+        "8156",
+        "0010",
+        "D",
+        "F2",
+        "7585",
+        "6212"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-06-19T14:12:14.806709",
+        "actualizado": "2026-06-19T09:27:41.738401",
         "frecuencia": "horaria"
     }
 }
