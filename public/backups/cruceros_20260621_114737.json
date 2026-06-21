@@ -227,22 +227,6 @@
             "fecha": "2026-06-21"
         },
         {
-            "hora": "10:41",
-            "nombre": "One Meishan",
-            "naviera": "OCEAN NETWORK EXPRESS SPAIN SA",
-            "terminal": "TERMINAL CATALUNYA SA",
-            "terminal_codigo": "6212",
-            "eslora": 366.0,
-            "pax_estimados": 6500,
-            "puerto": "Singapore",
-            "tipo": "salida",
-            "estado": "Finalitzada",
-            "bandera": "Japó",
-            "imo": "9805465",
-            "mmsi": "431989000",
-            "fecha": "2026-06-21"
-        },
-        {
             "hora": "11:00",
             "nombre": "Msc Valdivia Ii",
             "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
@@ -436,28 +420,28 @@
         }
     ],
     "resumen": {
-        "total_cruceros": 17,
+        "total_cruceros": 16,
         "total_llegadas": 12,
-        "total_salidas": 15,
+        "total_salidas": 14,
         "pax_estimados_hoy": 18500,
-        "proximo_desembarco": "19:00",
-        "proximo_barco": "Abel Matutes"
+        "proximo_desembarco": "11:00",
+        "proximo_barco": "Elandra Oak"
     },
     "terminales_activas": [
-        "A",
-        "B",
-        "7585",
         "S",
-        "F3",
-        "TC",
         "6212",
+        "F3",
+        "A",
+        "TC",
+        "B",
         "E",
-        "H",
-        "7946"
+        "7585",
+        "7946",
+        "H"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-06-21T11:47:37.291826",
+        "actualizado": "2026-06-21T08:56:51.123948",
         "frecuencia": "horaria"
     }
 }
