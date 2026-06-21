@@ -4,19 +4,19 @@
             "hora": "06:25",
             "origen": "Figueres-Vilafant",
             "tren": "AVE 03302",
-            "via": "4"
+            "via": "-"
         },
         {
             "hora": "07:15",
             "origen": "Figueres-Vilafant",
             "tren": "AVE 03662",
-            "via": "1"
+            "via": "-"
         },
         {
             "hora": "08:04",
             "origen": "Figueres-Vilafant",
             "tren": "EUROMED 01081",
-            "via": "2"
+            "via": "-"
         },
         {
             "hora": "08:50",
@@ -376,7 +376,7 @@
             "hora": "22:50",
             "origen": "Sevilla Santa Justa",
             "tren": "IRYO 06015",
-            "via": "-"
+            "via": "3"
         },
         {
             "hora": "22:59",
@@ -388,6 +388,12 @@
             "hora": "23:20",
             "origen": "Madrid Puerta de Atocha Almudena Grandes",
             "tren": "AVE 03309",
+            "via": "5"
+        },
+        {
+            "hora": "23:25",
+            "origen": "Alacant / Alicante Terminal",
+            "tren": "INTERCITY 01402",
             "via": "-"
         },
         {
@@ -397,15 +403,27 @@
             "via": "-"
         },
         {
+            "hora": "23:34",
+            "origen": "Vigo Urzaiz",
+            "tren": "ALVIA 00621",
+            "via": "-"
+        },
+        {
+            "hora": "23:39",
+            "origen": "Madrid Puerta de Atocha Almudena Grandes",
+            "tren": "IRYO 06201",
+            "via": "-"
+        },
+        {
             "hora": "23:47",
             "origen": "Madrid Puerta de Atocha Almudena Grandes",
             "tren": "AVE 03201",
-            "via": "-"
+            "via": "1"
         }
     ],
     "meta": {
-        "update_time": "22:58",
-        "updated_at": "2026-06-21T22:58:29.601596",
-        "total": 67
+        "update_time": "21:04",
+        "updated_at": "2026-06-21T21:04:48.902484",
+        "total": 70
     }
 }
