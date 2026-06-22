@@ -5,12 +5,12 @@
         "delta_value": 0,
         "delta_percent": 0.0,
         "direction": "up",
-        "volume": 44,
-        "volatility": 4719,
+        "volume": 46,
+        "volatility": 5546,
         "volatility_7d_pct": 0.0,
         "tendencia_7d_pct": 0.0,
         "tendencia_14d_pct": 0.0,
-        "soporte": 157000,
+        "soporte": 155920,
         "resistencia": 180000,
         "sources_count": 2
     },
@@ -106,7 +106,8 @@
             "2026-06-18",
             "2026-06-19",
             "2026-06-20",
-            "2026-06-21"
+            "2026-06-21",
+            "2026-06-22"
         ],
         "history_prices": [
             166147,
@@ -167,6 +168,7 @@
             170000,
             169331,
             169331,
+            170000,
             170000,
             170000,
             170000,
@@ -292,6 +294,7 @@
             170000,
             170000,
             170000,
+            170000,
             170000
         ],
         "history_sma_14": [
@@ -366,6 +369,7 @@
             169904,
             169904,
             169952,
+            170000,
             170000,
             170000,
             170000,
@@ -478,25 +482,62 @@
             170000,
             170000,
             170000,
+            170000,
             170000
         ],
         "price_by_day_descanso": {
-            "JUEVES IMPAR": 168000,
-            "JUEVES PAR": 165853,
-            "LUNES IMPAR": 169093,
+            "JUEVES IMPAR": 167500,
+            "JUEVES PAR": 170000,
+            "LUNES IMPAR": 170000,
             "LUNES PAR": 170000,
-            "MARTES IMPAR": 170000,
-            "MARTES PAR": 167000,
-            "MIERCOLES IMPAR": 171250,
-            "MIERCOLES PAR": 175000,
-            "VIERNES IMPAR": 171167,
-            "VIERNES PAR": 171644
+            "MARTES IMPAR": 168924,
+            "MARTES PAR": 166132,
+            "MIERCOLES IMPAR": 170000,
+            "MIERCOLES PAR": 173750,
+            "VIERNES IMPAR": 165653,
+            "VIERNES PAR": 164042
         }
     },
     "market_depth": {
         "cheapest_offers": [
             {
-                "id": 207510797,
+                "id": 909011998,
+                "fuente": "SOLANO",
+                "referencia": "6f40e4d1",
+                "dia": "VIERNES PAR",
+                "modelo": "TOYOTA PRIUS",
+                "precio_total": 180000,
+                "valor_coche": 24080,
+                "precio_neto": 155920,
+                "url": "https://asesoriasolano.es/comprar-licencias/",
+                "raw": "Ref:  | 39083 | DIA DE FIESTA:  | VIERNS PAR | LICENCIA TAXI EN VENTA BARCELONA | LICENCIA TAXI EN VENTA BARCELONA-VIERNES PAR-TOYOTA PRIUS PLUS-MATRI..."
+            },
+            {
+                "id": 169611203,
+                "fuente": "STAC",
+                "referencia": "1001",
+                "dia": "VIERNES PAR",
+                "modelo": "SIN COCHE",
+                "precio_total": 157000,
+                "valor_coche": 0,
+                "precio_neto": 157000,
+                "url": "https://bolsadelicenciasstac.cat",
+                "raw": "Referencia: 1001 VIERNES PAR |  | Se vende licencia sin vehículo. Disponibilidad: De inmediato | Precio: 157000€ | + INFORMACIÓN"
+            },
+            {
+                "id": 553247426,
+                "fuente": "SOLANO",
+                "referencia": "fab14b31",
+                "dia": "JUEVES PAR",
+                "modelo": "SEAT",
+                "precio_total": 165000,
+                "valor_coche": 5454,
+                "precio_neto": 159546,
+                "url": "https://asesoriasolano.es/comprar-licencias/",
+                "raw": "Ref:  | 39079 | DIA DE FIESTA:  | JUEVES PAR | LICENCIA TAXI EN VENTA BARCELONA | LICENCIA TAXI EN VENTA BARCELONA-JUEVES PAR-SEAT LEÓN G.N.C -DE MAYO..."
+            },
+            {
+                "id": 680858158,
                 "fuente": "STAC",
                 "referencia": "939",
                 "dia": "VIERNES IMPAR",
@@ -508,19 +549,7 @@
                 "raw": "Referencia: 939 VIERNES IMPAR |  | Se vende licencia sin vehículo. Disponibilidad: De inmediato | Precio: 160000€ | + INFORMACIÓN"
             },
             {
-                "id": 960567917,
-                "fuente": "SOLANO",
-                "referencia": "cbf51fed",
-                "dia": "JUEVES IMPAR",
-                "modelo": "DACIA JOGGER",
-                "precio_total": 170000,
-                "valor_coche": 9330,
-                "precio_neto": 160670,
-                "url": "https://asesoriasolano.es/comprar-licencias/",
-                "raw": "Ref:  | 39034 | DIA DE FIESTA:  | JUEVES IMPAR | LICENCIA DE TAXI EN VENTA BARCELONA | LICENCIA DE TAXI EN VENTA – DIA DE FIESTA JUEVES IMPAR CON DACI..."
-            },
-            {
-                "id": 588423596,
+                "id": 735404346,
                 "fuente": "STAC",
                 "referencia": "999",
                 "dia": "JUEVES IMPAR",
@@ -530,35 +559,47 @@
                 "precio_neto": 161466,
                 "url": "https://bolsadelicenciasstac.cat",
                 "raw": "Referencia: 999 JUEVES IMPAR |  | Se vende licencia con vehículo Toyota Prius Plus Híbrido, cambio automático con 7 años de antigüedad y 307000km. Dis..."
-            },
-            {
-                "id": 669948204,
-                "fuente": "SOLANO",
-                "referencia": "1001d2e2",
-                "dia": "JUEVES PAR",
-                "modelo": "DACIA JOGGER",
-                "precio_total": 174000,
-                "valor_coche": 12294,
-                "precio_neto": 161706,
-                "url": "https://asesoriasolano.es/comprar-licencias/",
-                "raw": "Ref:  | 38984 | DIA DE FIESTA:  | JUEVES | LICENCIA DE TAXI EN VENTA BARCELONA | LICENCIA DE TAXI EN VENTA – DIA DE FIESTA JUEVES PAR CON VEHÍCULO DAC..."
-            },
-            {
-                "id": 457470842,
-                "fuente": "SOLANO",
-                "referencia": "939afc24",
-                "dia": "LUNES IMPAR",
-                "modelo": "DESCONOCIDO",
-                "precio_total": 168000,
-                "valor_coche": 5220,
-                "precio_neto": 162780,
-                "url": "https://asesoriasolano.es/comprar-licencias/",
-                "raw": "Ref:  | 39040 | DIA DE FIESTA:  | LUNES IMPAR | LICENCIA DE TAXI SOLA EN VENTA BARCELONA | LICENCIA DE TAXI SOLA EN VENTA – DIA DE FIESTA LUNES IMPAR ..."
             }
         ],
         "all_offers": [
             {
-                "id": 207510797,
+                "id": 909011998,
+                "fuente": "SOLANO",
+                "referencia": "6f40e4d1",
+                "dia": "VIERNES PAR",
+                "modelo": "TOYOTA PRIUS",
+                "precio_total": 180000,
+                "valor_coche": 24080,
+                "precio_neto": 155920,
+                "url": "https://asesoriasolano.es/comprar-licencias/",
+                "raw": "Ref:  | 39083 | DIA DE FIESTA:  | VIERNS PAR | LICENCIA TAXI EN VENTA BARCELONA | LICENCIA TAXI EN VENTA BARCELONA-VIERNES PAR-TOYOTA PRIUS PLUS-MATRI..."
+            },
+            {
+                "id": 169611203,
+                "fuente": "STAC",
+                "referencia": "1001",
+                "dia": "VIERNES PAR",
+                "modelo": "SIN COCHE",
+                "precio_total": 157000,
+                "valor_coche": 0,
+                "precio_neto": 157000,
+                "url": "https://bolsadelicenciasstac.cat",
+                "raw": "Referencia: 1001 VIERNES PAR |  | Se vende licencia sin vehículo. Disponibilidad: De inmediato | Precio: 157000€ | + INFORMACIÓN"
+            },
+            {
+                "id": 553247426,
+                "fuente": "SOLANO",
+                "referencia": "fab14b31",
+                "dia": "JUEVES PAR",
+                "modelo": "SEAT",
+                "precio_total": 165000,
+                "valor_coche": 5454,
+                "precio_neto": 159546,
+                "url": "https://asesoriasolano.es/comprar-licencias/",
+                "raw": "Ref:  | 39079 | DIA DE FIESTA:  | JUEVES PAR | LICENCIA TAXI EN VENTA BARCELONA | LICENCIA TAXI EN VENTA BARCELONA-JUEVES PAR-SEAT LEÓN G.N.C -DE MAYO..."
+            },
+            {
+                "id": 680858158,
                 "fuente": "STAC",
                 "referencia": "939",
                 "dia": "VIERNES IMPAR",
@@ -570,19 +611,7 @@
                 "raw": "Referencia: 939 VIERNES IMPAR |  | Se vende licencia sin vehículo. Disponibilidad: De inmediato | Precio: 160000€ | + INFORMACIÓN"
             },
             {
-                "id": 960567917,
-                "fuente": "SOLANO",
-                "referencia": "cbf51fed",
-                "dia": "JUEVES IMPAR",
-                "modelo": "DACIA JOGGER",
-                "precio_total": 170000,
-                "valor_coche": 9330,
-                "precio_neto": 160670,
-                "url": "https://asesoriasolano.es/comprar-licencias/",
-                "raw": "Ref:  | 39034 | DIA DE FIESTA:  | JUEVES IMPAR | LICENCIA DE TAXI EN VENTA BARCELONA | LICENCIA DE TAXI EN VENTA – DIA DE FIESTA JUEVES IMPAR CON DACI..."
-            },
-            {
-                "id": 588423596,
+                "id": 735404346,
                 "fuente": "STAC",
                 "referencia": "999",
                 "dia": "JUEVES IMPAR",
@@ -594,43 +623,43 @@
                 "raw": "Referencia: 999 JUEVES IMPAR |  | Se vende licencia con vehículo Toyota Prius Plus Híbrido, cambio automático con 7 años de antigüedad y 307000km. Dis..."
             },
             {
-                "id": 669948204,
+                "id": 538797733,
                 "fuente": "SOLANO",
-                "referencia": "1001d2e2",
-                "dia": "JUEVES PAR",
-                "modelo": "DACIA JOGGER",
-                "precio_total": 174000,
-                "valor_coche": 12294,
-                "precio_neto": 161706,
-                "url": "https://asesoriasolano.es/comprar-licencias/",
-                "raw": "Ref:  | 38984 | DIA DE FIESTA:  | JUEVES | LICENCIA DE TAXI EN VENTA BARCELONA | LICENCIA DE TAXI EN VENTA – DIA DE FIESTA JUEVES PAR CON VEHÍCULO DAC..."
-            },
-            {
-                "id": 457470842,
-                "fuente": "SOLANO",
-                "referencia": "939afc24",
-                "dia": "LUNES IMPAR",
-                "modelo": "DESCONOCIDO",
-                "precio_total": 168000,
-                "valor_coche": 5220,
-                "precio_neto": 162780,
-                "url": "https://asesoriasolano.es/comprar-licencias/",
-                "raw": "Ref:  | 39040 | DIA DE FIESTA:  | LUNES IMPAR | LICENCIA DE TAXI SOLA EN VENTA BARCELONA | LICENCIA DE TAXI SOLA EN VENTA – DIA DE FIESTA LUNES IMPAR ..."
-            },
-            {
-                "id": 278187738,
-                "fuente": "SOLANO",
-                "referencia": "a38343c5",
+                "referencia": "ea327d9b",
                 "dia": "MIERCOLES IMPAR",
-                "modelo": "TESLA",
-                "precio_total": 187000,
-                "valor_coche": 24044,
-                "precio_neto": 162956,
+                "modelo": "SIN COCHE",
+                "precio_total": 163000,
+                "valor_coche": 0,
+                "precio_neto": 163000,
                 "url": "https://asesoriasolano.es/comprar-licencias/",
-                "raw": "Ref:  | 38977 | DIA DE FIESTA:  | MIERCOLES IMPAR | LICENCIA DE TAXI EN VENTA BARCELONA | LICENCIA DE TAXI EN VENTA – DIA DE FIESTA MIÉRCOLES IMPAR CO..."
+                "raw": "Ref:  | 39090 | DIA DE FIESTA:  | MIERCOLES IMPAR | LICENCIA TAXI EN VENTA BARCELONA | LICENCIA TAXI EN VENTA BARCELONA-MIERCOLES IMPAR-SIN COCHE (inc..."
             },
             {
-                "id": 689634459,
+                "id": 788518165,
+                "fuente": "SOLANO",
+                "referencia": "258bcb1b",
+                "dia": "MARTES PAR",
+                "modelo": "SEAT",
+                "precio_total": 172000,
+                "valor_coche": 7694,
+                "precio_neto": 164306,
+                "url": "https://asesoriasolano.es/comprar-licencias/",
+                "raw": "Ref:  | 39077 | DIA DE FIESTA:  | MARTES PAR | LICENCIA TAXI EN VENTA BARCELONA | LICENCIA TAXI EN VENTA BARCELONA-MARTES PAR-SEAT LEÓN MANUAL-G.N.C-M..."
+            },
+            {
+                "id": 399314300,
+                "fuente": "STAC",
+                "referencia": "975",
+                "dia": "MARTES IMPAR",
+                "modelo": "SIN COCHE",
+                "precio_total": 165000,
+                "valor_coche": 0,
+                "precio_neto": 165000,
+                "url": "https://bolsadelicenciasstac.cat",
+                "raw": "Referencia: 975 MARTES IMPAR |  | Se vende licencia sin vehículo. Disponibilidad: De inmediato | Precio: 165000€ | + INFORMACIÓN"
+            },
+            {
+                "id": 136810720,
                 "fuente": "STAC",
                 "referencia": "965",
                 "dia": "JUEVES IMPAR",
@@ -642,7 +671,7 @@
                 "raw": "Referencia: 965 JUEVES IMPAR |  | Se vende licencia sin vehículo. Disponibilidad: A partir de finales de JULIO | Precio: 165000€ | + INFORMACIÓN"
             },
             {
-                "id": 927332003,
+                "id": 520478425,
                 "fuente": "STAC",
                 "referencia": "1007",
                 "dia": "MARTES PAR",
@@ -654,19 +683,31 @@
                 "raw": "Referencia: 1007 MARTES PAR |  | Se vende licencia con vehículo Seat Leon Gasolina/GLP con 7 años de antigüedad y 219000km. Disponibilidad: A partir d..."
             },
             {
-                "id": 286282035,
-                "fuente": "STAC",
-                "referencia": "1005",
-                "dia": "MARTES PAR",
-                "modelo": "SIN COCHE",
-                "precio_total": 167000,
-                "valor_coche": 0,
-                "precio_neto": 167000,
-                "url": "https://bolsadelicenciasstac.cat",
-                "raw": "Referencia: 1005 MARTES PAR |  | Se vende licencia sin vehículo. Disponibilidad: De inmediato | Precio: 167000€ | RESERVADA"
+                "id": 185126576,
+                "fuente": "SOLANO",
+                "referencia": "c00f5efb",
+                "dia": "VIERNES IMPAR",
+                "modelo": "TOYOTA COROLLA",
+                "precio_total": 183000,
+                "valor_coche": 17347,
+                "precio_neto": 165653,
+                "url": "https://asesoriasolano.es/comprar-licencias/",
+                "raw": "Ref:  | 39086 | DIA DE FIESTA:  | VIERNES IMPAR | LICENCI A TAXI EN VENTA BERCALONA- | LICENCIA TAXI EN VENTA BARCELONA-VIERNES IMPAR-TOYOTA COROLLA S..."
             },
             {
-                "id": 77411709,
+                "id": 318835852,
+                "fuente": "SOLANO",
+                "referencia": "ed44c3de",
+                "dia": "JUEVES IMPAR",
+                "modelo": "KIA",
+                "precio_total": 178000,
+                "valor_coche": 11416,
+                "precio_neto": 166584,
+                "url": "https://asesoriasolano.es/comprar-licencias/",
+                "raw": "Ref:  | 39096 | DIA DE FIESTA:  | JUEVES IMPAR | LICENCIA TAXI EN VENTA BARCELONA | LICENCIA TAXI EN VENTA BARCELONA-JUEVES IMPAR-KIA CEED TOURER HIBR..."
+            },
+            {
+                "id": 290436550,
                 "fuente": "STAC",
                 "referencia": "966",
                 "dia": "JUEVES IMPAR",
@@ -678,7 +719,19 @@
                 "raw": "Referencia: 966 JUEVES IMPAR |  | Se vende licencia sin vehículo. Disponibilidad: De inmediato | Precio: 167000€ | + INFORMACIÓN"
             },
             {
-                "id": 889297266,
+                "id": 474878753,
+                "fuente": "STAC",
+                "referencia": "1005",
+                "dia": "MARTES PAR",
+                "modelo": "SIN COCHE",
+                "precio_total": 167000,
+                "valor_coche": 0,
+                "precio_neto": 167000,
+                "url": "https://bolsadelicenciasstac.cat",
+                "raw": "Referencia: 1005 MARTES PAR |  | Se vende licencia sin vehículo. Disponibilidad: De inmediato | Precio: 167000€ | RESERVADA"
+            },
+            {
+                "id": 982189614,
                 "fuente": "STAC",
                 "referencia": "951",
                 "dia": "LUNES IMPAR",
@@ -690,7 +743,7 @@
                 "raw": "Referencia: 951 LUNES IMPAR |  | Se vende licencia con vehículo Dacia Jogger Híbrido, cambio automático con 1 años de antigüedad y 45000km. Disponibil..."
             },
             {
-                "id": 229084525,
+                "id": 797787720,
                 "fuente": "STAC",
                 "referencia": "970",
                 "dia": "MARTES IMPAR",
@@ -702,7 +755,7 @@
                 "raw": "Referencia: 970 MARTES IMPAR |  | Se vende licencia con vehículo Dacia Jogger Gasolina/GLP y cambio MANUAL con 3 años de antigüedad y 67000km. Disponi..."
             },
             {
-                "id": 720135528,
+                "id": 68547897,
                 "fuente": "STAC",
                 "referencia": "980",
                 "dia": "JUEVES IMPAR",
@@ -714,19 +767,19 @@
                 "raw": "Referencia: 980 JUEVES IMPAR |  | Se vende licencia sin vehículo. Disponibilidad: De inmediato | Precio: 168000€ | + INFORMACIÓN"
             },
             {
-                "id": 804939291,
+                "id": 702324494,
                 "fuente": "SOLANO",
-                "referencia": "581a87d0",
-                "dia": "JUEVES IMPAR",
-                "modelo": "KIA",
-                "precio_total": 178000,
-                "valor_coche": 9846,
-                "precio_neto": 168154,
+                "referencia": "4040e05a",
+                "dia": "LUNES IMPAR",
+                "modelo": "DACIA",
+                "precio_total": 183000,
+                "valor_coche": 14938,
+                "precio_neto": 168062,
                 "url": "https://asesoriasolano.es/comprar-licencias/",
-                "raw": "Ref:  | 39018 | DIA DE FIESTA:  | JUEVES IMPAR | LICENCIA DE TAXI EN VENTA BARCELONA | LICENCIA DE TAXI EN VENTA – DIA DE FIESTA JUEVES IMPAR CON VEHÍ..."
+                "raw": "Ref:  | 39088 | DIA DE FIESTA:  | LUNES IMPAR | LICENCIA TAXI EN VENTA BARCELONA | LICENCIA TAXI EN VENTA BARCELONA-LUNES IMPAR-DACIA JOGER HIBRIDO AU..."
             },
             {
-                "id": 183428768,
+                "id": 595676000,
                 "fuente": "SOLANO",
                 "referencia": "2cae1cd5",
                 "dia": "LUNES IMPAR",
@@ -738,139 +791,7 @@
                 "raw": "Ref:  | 39050 | DIA DE FIESTA:  | LUNES IMPAR | LICENCIA DE TAXI EN VENTA BARCELONA | LICENCIA DE TAXI EN VENTA – DIA DE FIESTA LUNES IMPAR CON DACIA ..."
             },
             {
-                "id": 417373663,
-                "fuente": "SOLANO",
-                "referencia": "135776e7",
-                "dia": "LUNES IMPAR",
-                "modelo": "TOYOTA COROLLA",
-                "precio_total": 192000,
-                "valor_coche": 22907,
-                "precio_neto": 169093,
-                "url": "https://asesoriasolano.es/comprar-licencias/",
-                "raw": "Ref:  | 39014 | DIA DE FIESTA:  | LUNES IMPAR | LICENCIA DE TAXI EN VENTA BARCELONA | LICENCIA DE TAXI EN VENTA – DIA DE FIESTA LUNES IMPAR CON TOYOTA..."
-            },
-            {
-                "id": 167822173,
-                "fuente": "STAC",
-                "referencia": "988",
-                "dia": "MIERCOLES IMPAR",
-                "modelo": "SIN COCHE",
-                "precio_total": 170000,
-                "valor_coche": 0,
-                "precio_neto": 170000,
-                "url": "https://bolsadelicenciasstac.cat",
-                "raw": "Referencia: 988 MIÉRCOLES IMPAR |  | Se vende licencia sin vehículo. Disponibilidad: De inmediato | Precio: 170000€ | + INFORMACIÓN"
-            },
-            {
-                "id": 675684895,
-                "fuente": "STAC",
-                "referencia": "991",
-                "dia": "LUNES PAR",
-                "modelo": "SIN COCHE",
-                "precio_total": 170000,
-                "valor_coche": 0,
-                "precio_neto": 170000,
-                "url": "https://bolsadelicenciasstac.cat",
-                "raw": "Referencia: 991 LUNES PAR |  | Se vende licencia sin vehículo. Disponibilidad: A partir de principios de SEPTIEMBRE | Precio: 170000€ | + INFORMACIÓN"
-            },
-            {
-                "id": 212722633,
-                "fuente": "STAC",
-                "referencia": "997",
-                "dia": "JUEVES PAR",
-                "modelo": "SIN COCHE",
-                "precio_total": 170000,
-                "valor_coche": 0,
-                "precio_neto": 170000,
-                "url": "https://bolsadelicenciasstac.cat",
-                "raw": "Referencia: 997 JUEVES PAR |  | Se vende licencia sin vehículo. Disponibilidad: De inmediato | Precio: 170000€ | + INFORMACIÓN"
-            },
-            {
-                "id": 953059085,
-                "fuente": "STAC",
-                "referencia": "1002",
-                "dia": "MIERCOLES PAR",
-                "modelo": "SIN COCHE",
-                "precio_total": 170000,
-                "valor_coche": 0,
-                "precio_neto": 170000,
-                "url": "https://bolsadelicenciasstac.cat",
-                "raw": "Referencia: 1002 MIÉRCOLES PAR |  | Se vende licencia sin vehículo. Disponibilidad: De inmediato | Precio: 170000€ | + INFORMACIÓN"
-            },
-            {
-                "id": 202480468,
-                "fuente": "STAC",
-                "referencia": "970",
-                "dia": "MARTES IMPAR",
-                "modelo": "SIN COCHE",
-                "precio_total": 170000,
-                "valor_coche": 0,
-                "precio_neto": 170000,
-                "url": "https://bolsadelicenciasstac.cat",
-                "raw": "Referencia: 970/2 MARTES IMPAR |  | Se vende licencia sin vehículo. Disponibilidad: De inmediato | Precio: 170000€ | + INFORMACIÓN"
-            },
-            {
-                "id": 666324553,
-                "fuente": "STAC",
-                "referencia": "981",
-                "dia": "JUEVES IMPAR",
-                "modelo": "SIN COCHE",
-                "precio_total": 170000,
-                "valor_coche": 0,
-                "precio_neto": 170000,
-                "url": "https://bolsadelicenciasstac.cat",
-                "raw": "Referencia: 981 JUEVES IMPAR |  | Se vende licencia sin vehículo. Disponibilidad: De inmediato | Precio: 170000€ | + INFORMACIÓN"
-            },
-            {
-                "id": 877459787,
-                "fuente": "STAC",
-                "referencia": "975",
-                "dia": "MARTES IMPAR",
-                "modelo": "SIN COCHE",
-                "precio_total": 170000,
-                "valor_coche": 0,
-                "precio_neto": 170000,
-                "url": "https://bolsadelicenciasstac.cat",
-                "raw": "Referencia: 975 MARTES IMPAR |  | Se vende licencia sin vehículo. Disponibilidad: De inmediato | Precio: 170000€ | + INFORMACIÓN"
-            },
-            {
-                "id": 997352634,
-                "fuente": "STAC",
-                "referencia": "967",
-                "dia": "MIERCOLES IMPAR",
-                "modelo": "SIN COCHE",
-                "precio_total": 170000,
-                "valor_coche": 0,
-                "precio_neto": 170000,
-                "url": "https://bolsadelicenciasstac.cat",
-                "raw": "Referencia: 967 MIÉRCOLES IMPAR |  | Se vende licencia sin vehículo. Disponibilidad: A partir de OCTUBRE | Precio: 170000€ | + INFORMACIÓN"
-            },
-            {
-                "id": 287316137,
-                "fuente": "STAC",
-                "referencia": "952",
-                "dia": "JUEVES IMPAR",
-                "modelo": "DACIA",
-                "precio_total": 173000,
-                "valor_coche": 3000,
-                "precio_neto": 170000,
-                "url": "https://bolsadelicenciasstac.cat",
-                "raw": "Referencia: 952 JUEVES IMPAR |  | Se vende licencia con vehículo Dacia Lodgy con 8 años de antigüedad y 415000km. Disponibilidad: De inmediato | Preci..."
-            },
-            {
-                "id": 234076341,
-                "fuente": "STAC",
-                "referencia": "952",
-                "dia": "JUEVES IMPAR",
-                "modelo": "SIN COCHE",
-                "precio_total": 170000,
-                "valor_coche": 0,
-                "precio_neto": 170000,
-                "url": "https://bolsadelicenciasstac.cat",
-                "raw": "Referencia: 952/2 JUEVES IMPAR |  | Se vende licencia sin vehículo. Disponibilidad: De inmediato | Precio: 170000€ | + INFORMACIÓN"
-            },
-            {
-                "id": 8954635,
+                "id": 762816057,
                 "fuente": "STAC",
                 "referencia": "1008",
                 "dia": "LUNES IMPAR",
@@ -882,7 +803,31 @@
                 "raw": "Referencia: 1008 LUNES IMPAR |  | Se vende licencia sin vehículo. Disponibilidad: De inmediato | Precio: 170000€ | + INFORMACIÓN"
             },
             {
-                "id": 253380779,
+                "id": 16206004,
+                "fuente": "STAC",
+                "referencia": "997",
+                "dia": "JUEVES PAR",
+                "modelo": "SIN COCHE",
+                "precio_total": 170000,
+                "valor_coche": 0,
+                "precio_neto": 170000,
+                "url": "https://bolsadelicenciasstac.cat",
+                "raw": "Referencia: 997 JUEVES PAR |  | Se vende licencia sin vehículo. Disponibilidad: De inmediato | Precio: 170000€ | + INFORMACIÓN"
+            },
+            {
+                "id": 25492524,
+                "fuente": "STAC",
+                "referencia": "1002",
+                "dia": "MIERCOLES PAR",
+                "modelo": "SIN COCHE",
+                "precio_total": 170000,
+                "valor_coche": 0,
+                "precio_neto": 170000,
+                "url": "https://bolsadelicenciasstac.cat",
+                "raw": "Referencia: 1002 MIÉRCOLES PAR |  | Se vende licencia sin vehículo. Disponibilidad: De inmediato | Precio: 170000€ | + INFORMACIÓN"
+            },
+            {
+                "id": 807377257,
                 "fuente": "STAC",
                 "referencia": "1004",
                 "dia": "MARTES PAR",
@@ -894,7 +839,103 @@
                 "raw": "Referencia: 1004 MARTES PAR |  | Se vende licencia sin vehículo. Disponibilidad: A partir del 12 de septiembre | Precio: 170000€ | + INFORMACIÓN"
             },
             {
-                "id": 528655254,
+                "id": 622818090,
+                "fuente": "STAC",
+                "referencia": "990",
+                "dia": "MIERCOLES IMPAR",
+                "modelo": "SIN COCHE",
+                "precio_total": 170000,
+                "valor_coche": 0,
+                "precio_neto": 170000,
+                "url": "https://bolsadelicenciasstac.cat",
+                "raw": "Referencia: 990 MIÉRCOLES IMPAR |  | Se vende licencia sin vehículo. Disponibilidad: De inmediato | Precio: 170000€ | + INFORMACIÓN"
+            },
+            {
+                "id": 312957559,
+                "fuente": "STAC",
+                "referencia": "952",
+                "dia": "JUEVES IMPAR",
+                "modelo": "SIN COCHE",
+                "precio_total": 170000,
+                "valor_coche": 0,
+                "precio_neto": 170000,
+                "url": "https://bolsadelicenciasstac.cat",
+                "raw": "Referencia: 952/2 JUEVES IMPAR |  | Se vende licencia sin vehículo. Disponibilidad: De inmediato | Precio: 170000€ | + INFORMACIÓN"
+            },
+            {
+                "id": 852935030,
+                "fuente": "STAC",
+                "referencia": "967",
+                "dia": "MIERCOLES IMPAR",
+                "modelo": "SIN COCHE",
+                "precio_total": 170000,
+                "valor_coche": 0,
+                "precio_neto": 170000,
+                "url": "https://bolsadelicenciasstac.cat",
+                "raw": "Referencia: 967 MIÉRCOLES IMPAR |  | Se vende licencia sin vehículo. Disponibilidad: A partir de OCTUBRE | Precio: 170000€ | + INFORMACIÓN"
+            },
+            {
+                "id": 789679302,
+                "fuente": "STAC",
+                "referencia": "981",
+                "dia": "JUEVES IMPAR",
+                "modelo": "SIN COCHE",
+                "precio_total": 170000,
+                "valor_coche": 0,
+                "precio_neto": 170000,
+                "url": "https://bolsadelicenciasstac.cat",
+                "raw": "Referencia: 981 JUEVES IMPAR |  | Se vende licencia sin vehículo. Disponibilidad: De inmediato | Precio: 170000€ | + INFORMACIÓN"
+            },
+            {
+                "id": 326394331,
+                "fuente": "STAC",
+                "referencia": "952",
+                "dia": "JUEVES IMPAR",
+                "modelo": "DACIA",
+                "precio_total": 173000,
+                "valor_coche": 3000,
+                "precio_neto": 170000,
+                "url": "https://bolsadelicenciasstac.cat",
+                "raw": "Referencia: 952 JUEVES IMPAR |  | Se vende licencia con vehículo Dacia Lodgy con 8 años de antigüedad y 415000km. Disponibilidad: De inmediato | Preci..."
+            },
+            {
+                "id": 351771032,
+                "fuente": "STAC",
+                "referencia": "970",
+                "dia": "MARTES IMPAR",
+                "modelo": "SIN COCHE",
+                "precio_total": 170000,
+                "valor_coche": 0,
+                "precio_neto": 170000,
+                "url": "https://bolsadelicenciasstac.cat",
+                "raw": "Referencia: 970/2 MARTES IMPAR |  | Se vende licencia sin vehículo. Disponibilidad: De inmediato | Precio: 170000€ | + INFORMACIÓN"
+            },
+            {
+                "id": 609291083,
+                "fuente": "STAC",
+                "referencia": "991",
+                "dia": "LUNES PAR",
+                "modelo": "SIN COCHE",
+                "precio_total": 170000,
+                "valor_coche": 0,
+                "precio_neto": 170000,
+                "url": "https://bolsadelicenciasstac.cat",
+                "raw": "Referencia: 991 LUNES PAR |  | Se vende licencia sin vehículo. Disponibilidad: A partir de principios de SEPTIEMBRE | Precio: 170000€ | + INFORMACIÓN"
+            },
+            {
+                "id": 523493761,
+                "fuente": "STAC",
+                "referencia": "988",
+                "dia": "MIERCOLES IMPAR",
+                "modelo": "SIN COCHE",
+                "precio_total": 170000,
+                "valor_coche": 0,
+                "precio_neto": 170000,
+                "url": "https://bolsadelicenciasstac.cat",
+                "raw": "Referencia: 988 MIÉRCOLES IMPAR |  | Se vende licencia sin vehículo. Disponibilidad: De inmediato | Precio: 170000€ | + INFORMACIÓN"
+            },
+            {
+                "id": 875137194,
                 "fuente": "STAC",
                 "referencia": "1010",
                 "dia": "LUNES PAR",
@@ -906,7 +947,7 @@
                 "raw": "Referencia: 1010 LUNES PAR |  | Se vende licencia sin vehículo. Disponibilidad: De inmediato | Precio: 170000€ | + INFORMACIÓN"
             },
             {
-                "id": 920531058,
+                "id": 581390566,
                 "fuente": "STAC",
                 "referencia": "1003",
                 "dia": "VIERNES PAR",
@@ -918,19 +959,7 @@
                 "raw": "Referencia: 1003 VIERNES PAR |  | Se vende licencia con vehículo TOYOTA COROLLA SEDAN Híbrido, cambio automático con 4 años de antigüedad y 260000km. ..."
             },
             {
-                "id": 532341435,
-                "fuente": "SOLANO",
-                "referencia": "f344cb44",
-                "dia": "VIERNES IMPAR",
-                "modelo": "VOLKSWAGEN CADDY",
-                "precio_total": 185000,
-                "valor_coche": 13833,
-                "precio_neto": 171167,
-                "url": "https://asesoriasolano.es/comprar-licencias/",
-                "raw": "Ref:  | 39047 | DIA DE FIESTA:  | VIERNES IMPAR | LICENCIA DE TAXI PMR EN VENTA BARCELONA | LICENCIA DE TAXI EN VENTA – DIA DE FIESTA VIERNES IMPAR CO..."
-            },
-            {
-                "id": 1201128,
+                "id": 105684517,
                 "fuente": "STAC",
                 "referencia": "982",
                 "dia": "LUNES IMPAR",
@@ -942,7 +971,7 @@
                 "raw": "Referencia: 982 LUNES IMPAR |  | Se vende licencia sin vehículo. Disponibilidad: De inmediato | Precio: 172000€ | + INFORMACIÓN"
             },
             {
-                "id": 4414404,
+                "id": 407631473,
                 "fuente": "STAC",
                 "referencia": "985",
                 "dia": "VIERNES PAR",
@@ -954,7 +983,7 @@
                 "raw": "Referencia: 985 VIERNES PAR |  | Se vende licencia con vehículo Toyota Prius Plus Híbrido, cambio automático con 7 años de antigüedad y 160000km. Disp..."
             },
             {
-                "id": 255463599,
+                "id": 855248334,
                 "fuente": "STAC",
                 "referencia": "996",
                 "dia": "MIERCOLES PAR",
@@ -966,19 +995,7 @@
                 "raw": "Referencia: 996 MIÉRCOLES PAR |  | Se vende licencia sin vehículo. Disponibilidad: A partir de NOVIEMBRE | Precio: 172500€ | + INFORMACIÓN"
             },
             {
-                "id": 954872875,
-                "fuente": "STAC",
-                "referencia": "990",
-                "dia": "MIERCOLES IMPAR",
-                "modelo": "SIN COCHE",
-                "precio_total": 172500,
-                "valor_coche": 0,
-                "precio_neto": 172500,
-                "url": "https://bolsadelicenciasstac.cat",
-                "raw": "Referencia: 990 MIÉRCOLES IMPAR |  | Se vende licencia sin vehículo. Disponibilidad: De inmediato | Precio: 172500€ | + INFORMACIÓN"
-            },
-            {
-                "id": 527870180,
+                "id": 15901391,
                 "fuente": "STAC",
                 "referencia": "962",
                 "dia": "MIERCOLES IMPAR",
@@ -990,7 +1007,7 @@
                 "raw": "Referencia: 962 MIÉRCOLES IMPAR |  | Se vende licencia con vehículo Dacia Jogger Gasolina/GLP i cambio manual con 3 años de antigüedad y 170000km. Dis..."
             },
             {
-                "id": 756222945,
+                "id": 376639913,
                 "fuente": "STAC",
                 "referencia": "989",
                 "dia": "MIERCOLES PAR",
@@ -1002,7 +1019,7 @@
                 "raw": "Referencia: 989 MIÉRCOLES PAR |  | Se vende licencia sin vehículo. Disponibilidad: De inmediato | Precio: 175000€ | + INFORMACIÓN"
             },
             {
-                "id": 786906800,
+                "id": 355100403,
                 "fuente": "STAC",
                 "referencia": "992",
                 "dia": "VIERNES IMPAR",
@@ -1014,7 +1031,7 @@
                 "raw": "Referencia: 992 VIERNES IMPAR |  | Se vende licencia con vehículo VOLKSWAGEN CADDY TDI 122CV cambio AUTOMÁTICO Adaptada PMR con 3.5 años de antigüedad..."
             },
             {
-                "id": 250033405,
+                "id": 67042048,
                 "fuente": "STAC",
                 "referencia": "1009",
                 "dia": "LUNES PAR",
@@ -1026,7 +1043,7 @@
                 "raw": "Referencia: 1009 LUNES PAR |  | Se vende licencia con vehículo TOYOTA COROLLA SEDAN Híbrido, cambio automático con 1.5 años de antigüedad y 55000km. D..."
             },
             {
-                "id": 471060542,
+                "id": 196621860,
                 "fuente": "STAC",
                 "referencia": "956",
                 "dia": "MARTES IMPAR",
@@ -1038,7 +1055,7 @@
                 "raw": "Referencia: 956 MARTES IMPAR |  | Se vende licencia con vehículo TOYOTA COROLLA SEDAN con 2 años de antigüedad y 113000km. Disponibilidad: De inmediat..."
             },
             {
-                "id": 582076378,
+                "id": 507455193,
                 "fuente": "STAC",
                 "referencia": "1006",
                 "dia": "MIERCOLES PAR",
@@ -1050,7 +1067,7 @@
                 "raw": "Referencia: 1006 MIERCOLES PAR |  | Se vende licencia con vehículo TOYOTA COROLLA SEDAN Híbrido, cambio automático con 3 años de antigüedad y 250000km..."
             },
             {
-                "id": 793200709,
+                "id": 923482375,
                 "fuente": "STAC",
                 "referencia": "993",
                 "dia": "MIERCOLES IMPAR",
@@ -1062,19 +1079,31 @@
                 "raw": "Referencia: 993 MIERCOLES IMPAR |  | Se vende licencia con vehículo TOYOTA COROLLA SEDAN con 4 años de antigüedad y 221000km. Disponibilidad: De inmed..."
             },
             {
-                "id": 797605108,
+                "id": 968635224,
                 "fuente": "SOLANO",
-                "referencia": "04d07e01",
-                "dia": "MIERCOLES PAR",
-                "modelo": "TOYOTA COROLLA",
-                "precio_total": 188000,
-                "valor_coche": 9069,
-                "precio_neto": 178931,
+                "referencia": "0bb6110b",
+                "dia": "JUEVES PAR",
+                "modelo": "DESCONOCIDO",
+                "precio_total": 182000,
+                "valor_coche": 3000,
+                "precio_neto": 179000,
                 "url": "https://asesoriasolano.es/comprar-licencias/",
-                "raw": "Ref:  | 39042 | DIA DE FIESTA:  | MIERCOLES PAR | LICENCIA DE TXI EN VENTA BARCELONA | LICENCIA DE TAXI EN VETA – DIA DE FIESTA MIERCOLES PAR CON TOYO..."
+                "raw": "Ref:  | 39081 | DIA DE FIESTA:  | JUEVES PAR | LICENCIA TAXI EN VENTA BARCELONA | LICENCIA TAXI EN VENTA BARCELONA-JUEVES PAR-MERCEDEZ BENZ V220 D-7 P..."
             },
             {
-                "id": 765847282,
+                "id": 664880527,
+                "fuente": "SOLANO",
+                "referencia": "31785af1",
+                "dia": "LUNES IMPAR",
+                "modelo": "TOYOTA PRIUS",
+                "precio_total": 186000,
+                "valor_coche": 6185,
+                "precio_neto": 179815,
+                "url": "https://asesoriasolano.es/comprar-licencias/",
+                "raw": "Ref:  | 39075 | DIA DE FIESTA:  | LUNES IMPAR | LICENCIA TAXI EN VENTA BARCELONA | LICENCIA TAXI EN VENTA BARCELONA-LUNES IMPAR-TOYOTA PRIUS PLUS DE F..."
+            },
+            {
+                "id": 494713713,
                 "fuente": "STAC",
                 "referencia": "734",
                 "dia": "LUNES IMPAR",
@@ -1089,27 +1118,27 @@
     },
     "analysis": {
         "mejor_dia_comprar": {
-            "dia": "JUEVES PAR",
-            "precio_mediano": 165853
+            "dia": "VIERNES PAR",
+            "precio_mediano": 164042
         },
         "por_fuente": [
             {
                 "fuente": "SOLANO",
-                "ofertas": 9,
-                "mediana": 168154.0,
-                "minimo": 160670,
-                "maximo": 178931
+                "ofertas": 10,
+                "mediana": 166118.5,
+                "minimo": 155920,
+                "maximo": 179815
             },
             {
                 "fuente": "STAC",
-                "ofertas": 35,
+                "ofertas": 36,
                 "mediana": 170000.0,
-                "minimo": 160000,
+                "minimo": 157000,
                 "maximo": 180000
             }
         ],
-        "outliers_eliminados": 5
+        "outliers_eliminados": 3
     },
-    "updated_at": "21/06/2026 15:12",
+    "updated_at": "22/06/2026 12:42",
     "version": "2.0"
 }
