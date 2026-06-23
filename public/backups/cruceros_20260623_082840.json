@@ -1,22 +1,6 @@
 {
     "llegadas": [
         {
-            "hora": "01:05",
-            "nombre": "Msc Arica",
-            "naviera": "MEDITERRANEAN SHIPPING CO",
-            "terminal": "TERMINAL CATALUNYA SA",
-            "terminal_codigo": "6212",
-            "eslora": 0,
-            "pax_estimados": 500,
-            "puerto": "Genoa",
-            "tipo": "llegada",
-            "estado": "Iniciada",
-            "bandera": "Libèria",
-            "imo": "9619452",
-            "mmsi": "636019582",
-            "fecha": "2026-06-23"
-        },
-        {
             "hora": "06:00",
             "nombre": "Msc Kayley",
             "naviera": "MEDITERRANEAN SHIPPING CO",
@@ -49,7 +33,7 @@
             "fecha": "2026-06-23"
         },
         {
-            "hora": "07:33",
+            "hora": "07:00",
             "nombre": "Eco Valencia",
             "naviera": "GRIMALDI EUROMED SPA",
             "terminal": "GRIMALDI TERMINAL BARCELONA SL",
@@ -58,14 +42,14 @@
             "pax_estimados": 2000,
             "puerto": "Valencia",
             "tipo": "llegada",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Itàlia",
             "imo": "9859533",
             "mmsi": "247383300",
             "fecha": "2026-06-23"
         },
         {
-            "hora": "07:43",
+            "hora": "07:00",
             "nombre": "Msc Meraviglia",
             "naviera": "MSC CRUISES S.A.",
             "terminal": "ADOSSAT/TERMINAL H",
@@ -74,30 +58,14 @@
             "pax_estimados": 500,
             "puerto": "Marseille",
             "tipo": "llegada",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Malta",
             "imo": "9760512",
             "mmsi": "249973000",
             "fecha": "2026-06-23"
         },
         {
-            "hora": "08:38",
-            "nombre": "Sti Modest",
-            "naviera": "SCORPIO COMMERCIAL MANAGEMENT",
-            "terminal": "",
-            "terminal_codigo": "",
-            "eslora": 183.0,
-            "pax_estimados": 1000,
-            "puerto": "Genoa",
-            "tipo": "llegada",
-            "estado": "Fondeig Previ",
-            "bandera": "Illes Marshall",
-            "imo": "9833577",
-            "mmsi": "538010468",
-            "fecha": "2026-06-23"
-        },
-        {
-            "hora": "08:41",
+            "hora": "08:00",
             "nombre": "Sti Modest",
             "naviera": "SCORPIO COMMERCIAL MANAGEMENT",
             "terminal": "DECAL ESPAÑA SA",
@@ -106,7 +74,7 @@
             "pax_estimados": 1000,
             "puerto": "Genoa",
             "tipo": "llegada",
-            "estado": "Fondeig Previ",
+            "estado": "Sol·licitada",
             "bandera": "Illes Marshall",
             "imo": "9833577",
             "mmsi": "538010468",
@@ -195,7 +163,7 @@
     ],
     "salidas": [
         {
-            "hora": "01:07",
+            "hora": "01:00",
             "nombre": "Msc Arica",
             "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
             "terminal": "TERMINAL CATALUNYA SA",
@@ -204,7 +172,7 @@
             "pax_estimados": 500,
             "puerto": "Valencia",
             "tipo": "salida",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Libèria",
             "imo": "9619452",
             "mmsi": "636019582",
@@ -224,22 +192,6 @@
             "bandera": "Libèria",
             "imo": "9373498",
             "mmsi": "636024337",
-            "fecha": "2026-06-23"
-        },
-        {
-            "hora": "08:40",
-            "nombre": "Sti Modest",
-            "naviera": "ITALMAR 3000 SL",
-            "terminal": "",
-            "terminal_codigo": "",
-            "eslora": 183.0,
-            "pax_estimados": 1000,
-            "puerto": "Genoa",
-            "tipo": "salida",
-            "estado": "Fondeig Previ",
-            "bandera": "Illes Marshall",
-            "imo": "9833577",
-            "mmsi": "538010468",
             "fecha": "2026-06-23"
         },
         {
@@ -268,7 +220,7 @@
             "pax_estimados": 2000,
             "puerto": "Livorno",
             "tipo": "salida",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Itàlia",
             "imo": "9859533",
             "mmsi": "247383300",
@@ -284,7 +236,7 @@
             "pax_estimados": 500,
             "puerto": "La Goulette Nord (Halqueloued)",
             "tipo": "salida",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Malta",
             "imo": "9760512",
             "mmsi": "249973000",
@@ -389,24 +341,24 @@
     ],
     "resumen": {
         "total_cruceros": 14,
-        "total_llegadas": 12,
-        "total_salidas": 12,
-        "pax_estimados_hoy": 14500,
-        "proximo_desembarco": "08:38",
-        "proximo_barco": "Sti Modest"
+        "total_llegadas": 10,
+        "total_salidas": 11,
+        "pax_estimados_hoy": 13000,
+        "proximo_desembarco": "06:00",
+        "proximo_barco": "Msc Kayley"
     },
     "terminales_activas": [
         "8156",
-        "6995",
         "6037",
+        "6212",
+        "F3",
         "F2",
         "H",
-        "F3",
-        "6212"
+        "6995"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-06-23T08:28:40.614944",
+        "actualizado": "2026-06-23T00:06:13.407472",
         "frecuencia": "horaria"
     }
 }
