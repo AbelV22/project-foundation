@@ -161,22 +161,6 @@
             "fecha": "2026-06-23"
         },
         {
-            "hora": "18:15",
-            "nombre": "Cruise Barcelona",
-            "naviera": "GRIMALDI EUROMED SPA",
-            "terminal": "TERMINAL F3",
-            "terminal_codigo": "F3",
-            "eslora": 0,
-            "pax_estimados": 500,
-            "puerto": "Civitavecchia",
-            "tipo": "llegada",
-            "estado": "Autoritzada",
-            "bandera": "Itàlia",
-            "imo": "9351488",
-            "mmsi": "247243600",
-            "fecha": "2026-06-23"
-        },
-        {
             "hora": "18:40",
             "nombre": "Gnv Sealand",
             "naviera": "GRANDI NAVI VELOCI",
@@ -190,6 +174,22 @@
             "bandera": "Itàlia",
             "imo": "9435454",
             "mmsi": "247265800",
+            "fecha": "2026-06-23"
+        },
+        {
+            "hora": "19:00",
+            "nombre": "Cruise Barcelona",
+            "naviera": "GRIMALDI EUROMED SPA",
+            "terminal": "TERMINAL F3",
+            "terminal_codigo": "F3",
+            "eslora": 0,
+            "pax_estimados": 500,
+            "puerto": "Civitavecchia",
+            "tipo": "llegada",
+            "estado": "Autoritzada",
+            "bandera": "Itàlia",
+            "imo": "9351488",
+            "mmsi": "247243600",
             "fecha": "2026-06-23"
         }
     ],
@@ -208,6 +208,22 @@
             "bandera": "Libèria",
             "imo": "9619452",
             "mmsi": "636019582",
+            "fecha": "2026-06-23"
+        },
+        {
+            "hora": "02:00",
+            "nombre": "Msc Wolf Ii",
+            "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
+            "terminal": "TERMINAL CATALUNYA SA",
+            "terminal_codigo": "6212",
+            "eslora": 0,
+            "pax_estimados": 500,
+            "puerto": "Valencia",
+            "tipo": "salida",
+            "estado": "Confirmada",
+            "bandera": "Libèria",
+            "imo": "9373498",
+            "mmsi": "636024337",
             "fecha": "2026-06-23"
         },
         {
@@ -240,22 +256,6 @@
             "bandera": "Illes Marshall",
             "imo": "9509449",
             "mmsi": "538006775",
-            "fecha": "2026-06-23"
-        },
-        {
-            "hora": "11:34",
-            "nombre": "Msc Rifaya",
-            "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
-            "terminal": "TERMINAL CATALUNYA SA",
-            "terminal_codigo": "6212",
-            "eslora": 400.0,
-            "pax_estimados": 6500,
-            "puerto": "Fos-sur-Mer",
-            "tipo": "salida",
-            "estado": "Finalitzada",
-            "bandera": "Libèria",
-            "imo": "9767388",
-            "mmsi": "636017685",
             "fecha": "2026-06-23"
         },
         {
@@ -392,21 +392,21 @@
         "total_llegadas": 12,
         "total_salidas": 12,
         "pax_estimados_hoy": 14500,
-        "proximo_desembarco": "12:30",
-        "proximo_barco": "Msc Manzanillo V"
+        "proximo_desembarco": "08:38",
+        "proximo_barco": "Sti Modest"
     },
     "terminales_activas": [
-        "6212",
-        "6995",
         "8156",
-        "H",
+        "6995",
         "6037",
         "F2",
-        "F3"
+        "H",
+        "F3",
+        "6212"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-06-23T12:07:52.261208",
+        "actualizado": "2026-06-23T08:28:40.614944",
         "frecuencia": "horaria"
     }
 }
