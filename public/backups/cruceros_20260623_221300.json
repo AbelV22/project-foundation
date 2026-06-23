@@ -145,6 +145,22 @@
             "fecha": "2026-06-23"
         },
         {
+            "hora": "18:01",
+            "nombre": "Msc Valdivia Ii",
+            "naviera": "MEDITERRANEAN SHIPPING CO",
+            "terminal": "TERMINAL CATALUNYA SA",
+            "terminal_codigo": "6212",
+            "eslora": 0,
+            "pax_estimados": 500,
+            "puerto": "Sines",
+            "tipo": "llegada",
+            "estado": "Fondeig Previ",
+            "bandera": "Portugal",
+            "imo": "9333395",
+            "mmsi": "255806256",
+            "fecha": "2026-06-23"
+        },
+        {
             "hora": "18:03",
             "nombre": "Merito",
             "naviera": "MEDITERRANEAN SHIPPING CO",
@@ -170,7 +186,7 @@
             "pax_estimados": 500,
             "puerto": "Ibiza",
             "tipo": "llegada",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Itàlia",
             "imo": "9435454",
             "mmsi": "247265800",
@@ -190,22 +206,6 @@
             "bandera": "Itàlia",
             "imo": "9351488",
             "mmsi": "247243600",
-            "fecha": "2026-06-23"
-        },
-        {
-            "hora": "21:53",
-            "nombre": "Msc Valdivia Ii",
-            "naviera": "MEDITERRANEAN SHIPPING CO",
-            "terminal": "TERMINAL CATALUNYA SA",
-            "terminal_codigo": "6212",
-            "eslora": 0,
-            "pax_estimados": 500,
-            "puerto": "Sines",
-            "tipo": "llegada",
-            "estado": "Iniciada",
-            "bandera": "Portugal",
-            "imo": "9333395",
-            "mmsi": "255806256",
             "fecha": "2026-06-23"
         }
     ],
@@ -291,6 +291,22 @@
             "fecha": "2026-06-23"
         },
         {
+            "hora": "18:00",
+            "nombre": "Msc Valdivia Ii",
+            "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
+            "terminal": "",
+            "terminal_codigo": "",
+            "eslora": 0,
+            "pax_estimados": 500,
+            "puerto": "Bejaia (ex Bougie)",
+            "tipo": "salida",
+            "estado": "Fondeig Previ",
+            "bandera": "Portugal",
+            "imo": "9333395",
+            "mmsi": "255806256",
+            "fecha": "2026-06-23"
+        },
+        {
             "hora": "18:02",
             "nombre": "Merito",
             "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
@@ -371,7 +387,7 @@
             "fecha": "2026-06-23"
         },
         {
-            "hora": "20:58",
+            "hora": "20:15",
             "nombre": "Msc Laurence",
             "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
             "terminal": "TERMINAL CATALUNYA SA",
@@ -380,30 +396,14 @@
             "pax_estimados": 500,
             "puerto": "King Abdullah City",
             "tipo": "salida",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Panamà",
             "imo": "9467419",
             "mmsi": "371582000",
             "fecha": "2026-06-23"
         },
         {
-            "hora": "21:52",
-            "nombre": "Msc Valdivia Ii",
-            "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
-            "terminal": "",
-            "terminal_codigo": "",
-            "eslora": 0,
-            "pax_estimados": 500,
-            "puerto": "Bejaia (ex Bougie)",
-            "tipo": "salida",
-            "estado": "Iniciada",
-            "bandera": "Portugal",
-            "imo": "9333395",
-            "mmsi": "255806256",
-            "fecha": "2026-06-23"
-        },
-        {
-            "hora": "22:03",
+            "hora": "21:45",
             "nombre": "Gnv Sealand",
             "naviera": "TRANSCOMA BALEARES SA",
             "terminal": "TERMINAL F2",
@@ -412,7 +412,7 @@
             "pax_estimados": 500,
             "puerto": "Mahon Menorca",
             "tipo": "salida",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Itàlia",
             "imo": "9435454",
             "mmsi": "247265800",
@@ -440,21 +440,21 @@
         "total_llegadas": 13,
         "total_salidas": 14,
         "pax_estimados_hoy": 16000,
-        "proximo_desembarco": null,
-        "proximo_barco": null
+        "proximo_desembarco": "19:12",
+        "proximo_barco": "Cruise Barcelona"
     },
     "terminales_activas": [
-        "H",
-        "F2",
-        "6995",
-        "F3",
+        "6212",
         "8156",
+        "H",
         "6037",
-        "6212"
+        "F3",
+        "6995",
+        "F2"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-06-23T22:13:00.209157",
+        "actualizado": "2026-06-23T19:08:28.939165",
         "frecuencia": "horaria"
     }
 }
