@@ -1,7 +1,7 @@
 {
     "llegadas": [
         {
-            "hora": "05:44",
+            "hora": "05:00",
             "nombre": "Norwegian Viva",
             "naviera": "NORWEGIAN CRUISE LINE",
             "terminal": "Terminal C (Sant Bertran)",
@@ -10,7 +10,7 @@
             "pax_estimados": 500,
             "puerto": "Marseille",
             "tipo": "llegada",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Bahames",
             "imo": "9823998",
             "mmsi": "311001127",
@@ -33,7 +33,7 @@
             "fecha": "2026-06-24"
         },
         {
-            "hora": "07:45",
+            "hora": "07:30",
             "nombre": "Gnv Aurora",
             "naviera": "GRANDI NAVI VELOCI",
             "terminal": "TERMINAL F2",
@@ -42,7 +42,7 @@
             "pax_estimados": 2000,
             "puerto": "Genoa",
             "tipo": "llegada",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Itàlia",
             "imo": "9980069",
             "mmsi": "247530300",
@@ -140,7 +140,7 @@
             "pax_estimados": 2000,
             "puerto": "Tanger Med",
             "tipo": "salida",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Itàlia",
             "imo": "9980069",
             "mmsi": "247530300",
@@ -156,7 +156,7 @@
             "pax_estimados": 500,
             "puerto": "Villefranche-sur-Mer",
             "tipo": "salida",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Bahames",
             "imo": "9823998",
             "mmsi": "311001127",
@@ -248,21 +248,21 @@
         "total_llegadas": 8,
         "total_salidas": 7,
         "pax_estimados_hoy": 9500,
-        "proximo_desembarco": "13:00",
-        "proximo_barco": "Eco Livorno"
+        "proximo_desembarco": null,
+        "proximo_barco": null
     },
     "terminales_activas": [
         "6212",
-        "F3",
-        "B",
-        "F2",
-        "C",
+        "6995",
         "8156",
-        "6995"
+        "B",
+        "F3",
+        "F2",
+        "C"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-06-24T08:21:02.794424",
+        "actualizado": "2026-06-23T23:57:23.324028",
         "frecuencia": "horaria"
     }
 }
