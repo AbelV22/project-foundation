@@ -138,7 +138,7 @@
             "pax_estimados": 500,
             "puerto": "Civitavecchia",
             "tipo": "llegada",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Itàlia",
             "imo": "9351488",
             "mmsi": "247243600",
@@ -154,7 +154,7 @@
             "pax_estimados": 1000,
             "puerto": "Mahon Menorca",
             "tipo": "llegada",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Espanya",
             "imo": "9506289",
             "mmsi": "225416000",
@@ -170,26 +170,10 @@
             "pax_estimados": 500,
             "puerto": "Ibiza",
             "tipo": "llegada",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Itàlia",
             "imo": "9435454",
             "mmsi": "247265800",
-            "fecha": "2026-06-25"
-        },
-        {
-            "hora": "22:58",
-            "nombre": "Zim Asia",
-            "naviera": "ZIM INTEGRATED SHIPPING SERV.",
-            "terminal": "",
-            "terminal_codigo": "",
-            "eslora": 260.0,
-            "pax_estimados": 3000,
-            "puerto": "Valencia",
-            "tipo": "llegada",
-            "estado": "Confirmada",
-            "bandera": "Libèria",
-            "imo": "9464716",
-            "mmsi": "636021664",
             "fecha": "2026-06-25"
         },
         {
@@ -355,7 +339,7 @@
             "fecha": "2026-06-25"
         },
         {
-            "hora": "20:52",
+            "hora": "20:30",
             "nombre": "Cruise Barcelona",
             "naviera": "GRIMALDI LOGISTICA ESPAÑA SL",
             "terminal": "TERMINAL F3",
@@ -364,14 +348,14 @@
             "pax_estimados": 500,
             "puerto": "Porto Torres",
             "tipo": "salida",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Itàlia",
             "imo": "9351488",
             "mmsi": "247243600",
             "fecha": "2026-06-25"
         },
         {
-            "hora": "21:56",
+            "hora": "21:45",
             "nombre": "Gnv Sealand",
             "naviera": "TRANSCOMA BALEARES SA",
             "terminal": "TERMINAL F2",
@@ -380,14 +364,14 @@
             "pax_estimados": 500,
             "puerto": "Mahon Menorca",
             "tipo": "salida",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Itàlia",
             "imo": "9435454",
             "mmsi": "247265800",
             "fecha": "2026-06-25"
         },
         {
-            "hora": "22:20",
+            "hora": "22:30",
             "nombre": "Ciudad De Barcelona",
             "naviera": "GRIMALDI LOGISTICA ESPAÑA SL",
             "terminal": "TERMINAL F2",
@@ -396,50 +380,34 @@
             "pax_estimados": 1000,
             "puerto": "Mahon Menorca",
             "tipo": "salida",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Espanya",
             "imo": "9506289",
             "mmsi": "225416000",
-            "fecha": "2026-06-25"
-        },
-        {
-            "hora": "22:59",
-            "nombre": "Zim Asia",
-            "naviera": "A PEREZ Y CIA SL",
-            "terminal": "",
-            "terminal_codigo": "",
-            "eslora": 260.0,
-            "pax_estimados": 3000,
-            "puerto": "Damietta",
-            "tipo": "salida",
-            "estado": "Confirmada",
-            "bandera": "Libèria",
-            "imo": "9464716",
-            "mmsi": "636021664",
             "fecha": "2026-06-25"
         }
     ],
     "resumen": {
         "total_cruceros": 14,
-        "total_llegadas": 13,
-        "total_salidas": 13,
-        "pax_estimados_hoy": 22500,
-        "proximo_desembarco": "22:58",
-        "proximo_barco": "Zim Asia"
+        "total_llegadas": 12,
+        "total_salidas": 12,
+        "pax_estimados_hoy": 19500,
+        "proximo_desembarco": "19:12",
+        "proximo_barco": "Gnv Sealand"
     },
     "terminales_activas": [
-        "6037",
-        "B",
-        "F3",
-        "8156",
         "F2",
-        "2398",
+        "B",
         "H",
-        "6212"
+        "F3",
+        "6212",
+        "2398",
+        "6037",
+        "8156"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-06-25T22:21:13.040485",
+        "actualizado": "2026-06-25T19:04:28.902475",
         "frecuencia": "horaria"
     }
 }
