@@ -1,7 +1,7 @@
 {
     "llegadas": [
         {
-            "hora": "01:31",
+            "hora": "01:00",
             "nombre": "Eco Savona",
             "naviera": "GRIMALDI EUROMED SPA",
             "terminal": "GRIMALDI TERMINAL BARCELONA SL",
@@ -10,7 +10,7 @@
             "pax_estimados": 2000,
             "puerto": "Savona",
             "tipo": "llegada",
-            "estado": "Finalitzada",
+            "estado": "Autoritzada",
             "bandera": "Itàlia",
             "imo": "9859569",
             "mmsi": "247383600",
@@ -49,7 +49,7 @@
             "fecha": "2026-06-25"
         },
         {
-            "hora": "08:14",
+            "hora": "08:00",
             "nombre": "Msc Seaview",
             "naviera": "MSC CRUISES S.A.",
             "terminal": "ADOSSAT/TERMINAL H",
@@ -58,14 +58,14 @@
             "pax_estimados": 4500,
             "puerto": "Ibiza",
             "tipo": "llegada",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Malta",
             "imo": "9745378",
             "mmsi": "248717000",
             "fecha": "2026-06-25"
         },
         {
-            "hora": "08:48",
+            "hora": "09:00",
             "nombre": "Marella Explorer",
             "naviera": "MARELLA CRUISES LTD",
             "terminal": "Terminal B (Maremagnum)",
@@ -74,7 +74,7 @@
             "pax_estimados": 500,
             "puerto": "Toulon",
             "tipo": "llegada",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Malta",
             "imo": "9106297",
             "mmsi": "249051000",
@@ -129,22 +129,6 @@
             "fecha": "2026-06-25"
         },
         {
-            "hora": "18:00",
-            "nombre": "Zim Asia",
-            "naviera": "ZIM INTEGRATED SHIPPING SERV.",
-            "terminal": "TERMINAL CATALUNYA SA",
-            "terminal_codigo": "6212",
-            "eslora": 260.0,
-            "pax_estimados": 3000,
-            "puerto": "Valencia",
-            "tipo": "llegada",
-            "estado": "Confirmada",
-            "bandera": "Libèria",
-            "imo": "9464716",
-            "mmsi": "636021664",
-            "fecha": "2026-06-25"
-        },
-        {
             "hora": "18:40",
             "nombre": "Gnv Sealand",
             "naviera": "GRANDI NAVI VELOCI",
@@ -163,7 +147,7 @@
     ],
     "salidas": [
         {
-            "hora": "07:21",
+            "hora": "05:00",
             "nombre": "Eco Savona",
             "naviera": "GRIMALDI LOGISTICA ESPAÑA SL",
             "terminal": "GRIMALDI TERMINAL BARCELONA SL",
@@ -172,7 +156,7 @@
             "pax_estimados": 2000,
             "puerto": "Valencia",
             "tipo": "salida",
-            "estado": "Finalitzada",
+            "estado": "Autoritzada",
             "bandera": "Itàlia",
             "imo": "9859569",
             "mmsi": "247383600",
@@ -204,7 +188,7 @@
             "pax_estimados": 500,
             "puerto": "Valencia",
             "tipo": "salida",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Malta",
             "imo": "9106297",
             "mmsi": "249051000",
@@ -220,7 +204,7 @@
             "pax_estimados": 4500,
             "puerto": "Marseille",
             "tipo": "salida",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Malta",
             "imo": "9745378",
             "mmsi": "248717000",
@@ -324,25 +308,25 @@
         }
     ],
     "resumen": {
-        "total_cruceros": 12,
-        "total_llegadas": 10,
+        "total_cruceros": 11,
+        "total_llegadas": 9,
         "total_salidas": 10,
-        "pax_estimados_hoy": 17500,
-        "proximo_desembarco": "08:48",
-        "proximo_barco": "Marella Explorer"
+        "pax_estimados_hoy": 14500,
+        "proximo_desembarco": "01:00",
+        "proximo_barco": "Eco Savona"
     },
     "terminales_activas": [
         "F3",
         "8156",
-        "6212",
-        "F2",
         "H",
         "2398",
-        "B"
+        "B",
+        "F2",
+        "6212"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-06-25T08:22:34.935804",
+        "actualizado": "2026-06-25T00:13:33.065178",
         "frecuencia": "horaria"
     }
 }
