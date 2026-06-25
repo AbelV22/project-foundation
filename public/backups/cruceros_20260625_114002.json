@@ -81,23 +81,7 @@
             "fecha": "2026-06-25"
         },
         {
-            "hora": "09:41",
-            "nombre": "Sti Modest",
-            "naviera": "SCORPIO COMMERCIAL MANAGEMENT",
-            "terminal": "DECAL ESPAÑA SA",
-            "terminal_codigo": "6037",
-            "eslora": 183.0,
-            "pax_estimados": 1000,
-            "puerto": "Genoa",
-            "tipo": "llegada",
-            "estado": "Fondeig Previ",
-            "bandera": "Illes Marshall",
-            "imo": "9833577",
-            "mmsi": "538010468",
-            "fecha": "2026-06-25"
-        },
-        {
-            "hora": "12:41",
+            "hora": "12:00",
             "nombre": "Stena Shipper",
             "naviera": "COTUNAV",
             "terminal": "TERMINAL PORT NOU SA",
@@ -106,7 +90,7 @@
             "pax_estimados": 1000,
             "puerto": "Marseille",
             "tipo": "llegada",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Dinamarca",
             "imo": "9503639",
             "mmsi": "219034351",
@@ -145,6 +129,22 @@
             "fecha": "2026-06-25"
         },
         {
+            "hora": "18:00",
+            "nombre": "Zim Asia",
+            "naviera": "ZIM INTEGRATED SHIPPING SERV.",
+            "terminal": "TERMINAL CATALUNYA SA",
+            "terminal_codigo": "6212",
+            "eslora": 260.0,
+            "pax_estimados": 3000,
+            "puerto": "Valencia",
+            "tipo": "llegada",
+            "estado": "Confirmada",
+            "bandera": "Libèria",
+            "imo": "9464716",
+            "mmsi": "636021664",
+            "fecha": "2026-06-25"
+        },
+        {
             "hora": "18:40",
             "nombre": "Gnv Sealand",
             "naviera": "GRANDI NAVI VELOCI",
@@ -158,22 +158,6 @@
             "bandera": "Itàlia",
             "imo": "9435454",
             "mmsi": "247265800",
-            "fecha": "2026-06-25"
-        },
-        {
-            "hora": "23:00",
-            "nombre": "Zim Asia",
-            "naviera": "ZIM INTEGRATED SHIPPING SERV.",
-            "terminal": "TERMINAL CATALUNYA SA",
-            "terminal_codigo": "6212",
-            "eslora": 260.0,
-            "pax_estimados": 3000,
-            "puerto": "Valencia",
-            "tipo": "llegada",
-            "estado": "Confirmada",
-            "bandera": "Libèria",
-            "imo": "9464716",
-            "mmsi": "636021664",
             "fecha": "2026-06-25"
         }
     ],
@@ -192,22 +176,6 @@
             "bandera": "Itàlia",
             "imo": "9859569",
             "mmsi": "247383600",
-            "fecha": "2026-06-25"
-        },
-        {
-            "hora": "09:40",
-            "nombre": "Sti Modest",
-            "naviera": "ITALMAR 3000 SL",
-            "terminal": "",
-            "terminal_codigo": "",
-            "eslora": 183.0,
-            "pax_estimados": 1000,
-            "puerto": "Genoa",
-            "tipo": "salida",
-            "estado": "Fondeig Previ",
-            "bandera": "Illes Marshall",
-            "imo": "9833577",
-            "mmsi": "538010468",
             "fecha": "2026-06-25"
         },
         {
@@ -268,7 +236,7 @@
             "pax_estimados": 1000,
             "puerto": "Rades/Tunis",
             "tipo": "salida",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Dinamarca",
             "imo": "9503639",
             "mmsi": "219034351",
@@ -356,26 +324,25 @@
         }
     ],
     "resumen": {
-        "total_cruceros": 13,
-        "total_llegadas": 11,
-        "total_salidas": 11,
-        "pax_estimados_hoy": 18500,
-        "proximo_desembarco": "12:41",
-        "proximo_barco": "Stena Shipper"
+        "total_cruceros": 12,
+        "total_llegadas": 10,
+        "total_salidas": 10,
+        "pax_estimados_hoy": 17500,
+        "proximo_desembarco": "08:48",
+        "proximo_barco": "Marella Explorer"
     },
     "terminales_activas": [
         "F3",
-        "2398",
-        "H",
-        "6037",
         "8156",
+        "6212",
         "F2",
-        "B",
-        "6212"
+        "H",
+        "2398",
+        "B"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-06-25T11:40:02.538525",
+        "actualizado": "2026-06-25T08:22:34.935804",
         "frecuencia": "horaria"
     }
 }
