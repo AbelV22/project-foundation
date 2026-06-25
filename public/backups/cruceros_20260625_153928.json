@@ -145,22 +145,6 @@
             "fecha": "2026-06-25"
         },
         {
-            "hora": "18:30",
-            "nombre": "Ciudad De Barcelona",
-            "naviera": "TRASMED GLE S.L.",
-            "terminal": "TERMINAL F2",
-            "terminal_codigo": "F2",
-            "eslora": 176.0,
-            "pax_estimados": 1000,
-            "puerto": "Mahon Menorca",
-            "tipo": "llegada",
-            "estado": "Autoritzada",
-            "bandera": "Espanya",
-            "imo": "9506289",
-            "mmsi": "225416000",
-            "fecha": "2026-06-25"
-        },
-        {
             "hora": "18:40",
             "nombre": "Gnv Sealand",
             "naviera": "GRANDI NAVI VELOCI",
@@ -369,45 +353,29 @@
             "imo": "9435454",
             "mmsi": "247265800",
             "fecha": "2026-06-25"
-        },
-        {
-            "hora": "22:30",
-            "nombre": "Ciudad De Barcelona",
-            "naviera": "GRIMALDI LOGISTICA ESPAÑA SL",
-            "terminal": "TERMINAL F2",
-            "terminal_codigo": "F2",
-            "eslora": 176.0,
-            "pax_estimados": 1000,
-            "puerto": "Mahon Menorca",
-            "tipo": "salida",
-            "estado": "Autoritzada",
-            "bandera": "Espanya",
-            "imo": "9506289",
-            "mmsi": "225416000",
-            "fecha": "2026-06-25"
         }
     ],
     "resumen": {
-        "total_cruceros": 14,
-        "total_llegadas": 12,
-        "total_salidas": 12,
-        "pax_estimados_hoy": 19500,
-        "proximo_desembarco": "17:00",
-        "proximo_barco": "Cruise Barcelona"
+        "total_cruceros": 13,
+        "total_llegadas": 11,
+        "total_salidas": 11,
+        "pax_estimados_hoy": 18500,
+        "proximo_desembarco": "12:41",
+        "proximo_barco": "Stena Shipper"
     },
     "terminales_activas": [
-        "8156",
         "F3",
-        "B",
-        "H",
-        "6212",
         "2398",
+        "H",
         "6037",
-        "F2"
+        "8156",
+        "F2",
+        "B",
+        "6212"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-06-25T15:39:28.606057",
+        "actualizado": "2026-06-25T11:40:02.538525",
         "frecuencia": "horaria"
     }
 }
