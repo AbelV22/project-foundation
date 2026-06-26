@@ -1,13 +1,13 @@
 {
     "ticker": {
-        "current_price": 166106,
+        "current_price": 166494,
         "median_today": 165618,
-        "delta_value": -3894,
-        "delta_percent": -2.29,
-        "direction": "down",
+        "delta_value": 876,
+        "delta_percent": 0.53,
+        "direction": "up",
         "volume": 10,
         "volatility": 3770,
-        "volatility_7d_pct": 0.91,
+        "volatility_7d_pct": 1.17,
         "tendencia_7d_pct": -2.58,
         "tendencia_14d_pct": -2.58,
         "soporte": 155920,
@@ -110,7 +110,8 @@
             "2026-06-22",
             "2026-06-23",
             "2026-06-24",
-            "2026-06-25"
+            "2026-06-25",
+            "2026-06-26"
         ],
         "history_prices": [
             166147,
@@ -207,6 +208,7 @@
             170000,
             170000,
             170000,
+            165618,
             165618
         ],
         "history_sma_7": [
@@ -304,7 +306,8 @@
             170000,
             170000,
             170000,
-            169374
+            169374,
+            168748
         ],
         "history_sma_14": [
             166147,
@@ -401,7 +404,8 @@
             170000,
             170000,
             170000,
-            169687
+            169687,
+            169374
         ],
         "history_sma_30": [
             166147,
@@ -498,7 +502,8 @@
             170000,
             170000,
             170000,
-            169853
+            169853,
+            169707
         ],
         "price_by_day_descanso": {
             "JUEVES IMPAR": 164792,
@@ -513,7 +518,7 @@
     "market_depth": {
         "cheapest_offers": [
             {
-                "id": 862076137,
+                "id": 87992804,
                 "fuente": "SOLANO",
                 "referencia": "e725add8",
                 "dia": "VIERNES IMPAR",
@@ -525,9 +530,9 @@
                 "raw": "Ref:  | 39131 | DIA DE FIESTA:  | VIERNES IMPAR | LICENCIA TAXI EN VENTA BARCELONA | LICENCIA TAXI EN VENTA BARCELONA-VIERNES IMPAR-TOYOTA COROLLA TOU..."
             },
             {
-                "id": 303377359,
+                "id": 526788723,
                 "fuente": "SOLANO",
-                "referencia": "0de1bad1",
+                "referencia": "03b65979",
                 "dia": "JUEVES PAR",
                 "modelo": "TOYOTA PRIUS",
                 "precio_total": 172000,
@@ -537,7 +542,7 @@
                 "raw": "Ref:  | 39129 | DIA DE FIESTA:  | JUEVES PAR | LICENCIA TAXI EN VENTA BARCELONA | LICENCIA TAXI EN VENTA BARCELONA-JUEVES PAR-TOYOTA PRIUS PLUS DE MAR..."
             },
             {
-                "id": 226461570,
+                "id": 820221598,
                 "fuente": "SOLANO",
                 "referencia": "ea327d9b",
                 "dia": "MIERCOLES IMPAR",
@@ -549,7 +554,7 @@
                 "raw": "Ref:  | 39090 | DIA DE FIESTA:  | MIERCOLES IMPAR | LICENCIA TAXI EN VENTA BARCELONA | LICENCIA TAXI EN VENTA BARCELONA-MIERCOLES IMPAR-SIN COCHE (inc..."
             },
             {
-                "id": 26843930,
+                "id": 815036702,
                 "fuente": "SOLANO",
                 "referencia": "aab8dbcb",
                 "dia": "JUEVES IMPAR",
@@ -561,7 +566,7 @@
                 "raw": "Ref:  | 39127 | DIA DE FIESTA:  | JUEVES IMPAR | LICENCIA TAXI EN VENTA BARCELONA | LICENCIA TAXI EN VENTA BARCELONA-JUEVES IMPAR-TOYOTA RAV 4 HIBRIDO..."
             },
             {
-                "id": 861509944,
+                "id": 438316672,
                 "fuente": "SOLANO",
                 "referencia": "0d733227",
                 "dia": "JUEVES IMPAR",
@@ -575,7 +580,7 @@
         ],
         "all_offers": [
             {
-                "id": 862076137,
+                "id": 87992804,
                 "fuente": "SOLANO",
                 "referencia": "e725add8",
                 "dia": "VIERNES IMPAR",
@@ -587,9 +592,9 @@
                 "raw": "Ref:  | 39131 | DIA DE FIESTA:  | VIERNES IMPAR | LICENCIA TAXI EN VENTA BARCELONA | LICENCIA TAXI EN VENTA BARCELONA-VIERNES IMPAR-TOYOTA COROLLA TOU..."
             },
             {
-                "id": 303377359,
+                "id": 526788723,
                 "fuente": "SOLANO",
-                "referencia": "0de1bad1",
+                "referencia": "03b65979",
                 "dia": "JUEVES PAR",
                 "modelo": "TOYOTA PRIUS",
                 "precio_total": 172000,
@@ -599,7 +604,7 @@
                 "raw": "Ref:  | 39129 | DIA DE FIESTA:  | JUEVES PAR | LICENCIA TAXI EN VENTA BARCELONA | LICENCIA TAXI EN VENTA BARCELONA-JUEVES PAR-TOYOTA PRIUS PLUS DE MAR..."
             },
             {
-                "id": 226461570,
+                "id": 820221598,
                 "fuente": "SOLANO",
                 "referencia": "ea327d9b",
                 "dia": "MIERCOLES IMPAR",
@@ -611,7 +616,7 @@
                 "raw": "Ref:  | 39090 | DIA DE FIESTA:  | MIERCOLES IMPAR | LICENCIA TAXI EN VENTA BARCELONA | LICENCIA TAXI EN VENTA BARCELONA-MIERCOLES IMPAR-SIN COCHE (inc..."
             },
             {
-                "id": 26843930,
+                "id": 815036702,
                 "fuente": "SOLANO",
                 "referencia": "aab8dbcb",
                 "dia": "JUEVES IMPAR",
@@ -623,7 +628,7 @@
                 "raw": "Ref:  | 39127 | DIA DE FIESTA:  | JUEVES IMPAR | LICENCIA TAXI EN VENTA BARCELONA | LICENCIA TAXI EN VENTA BARCELONA-JUEVES IMPAR-TOYOTA RAV 4 HIBRIDO..."
             },
             {
-                "id": 861509944,
+                "id": 438316672,
                 "fuente": "SOLANO",
                 "referencia": "0d733227",
                 "dia": "JUEVES IMPAR",
@@ -635,7 +640,7 @@
                 "raw": "Ref:  | 39096 | DIA DE FIESTA:  | JUEVES IMPAR | LICENCIA TAXI EN VENTA BARCELONA | LICENCIA TAXI EN VENTA BARCELONA-JUEVES IMPAR-KIA CEED TOURER HIBR..."
             },
             {
-                "id": 307609978,
+                "id": 804203653,
                 "fuente": "SOLANO",
                 "referencia": "c00f5efb",
                 "dia": "VIERNES IMPAR",
@@ -647,7 +652,7 @@
                 "raw": "Ref:  | 39086 | DIA DE FIESTA:  | VIERNES IMPAR | LICENCI A TAXI EN VENTA BERCALONA- | LICENCIA TAXI EN VENTA BARCELONA-VIERNES IMPAR-TOYOTA COROLLA S..."
             },
             {
-                "id": 278099242,
+                "id": 721492203,
                 "fuente": "SOLANO",
                 "referencia": "6fea5fa4",
                 "dia": "MARTES IMPAR",
@@ -659,7 +664,7 @@
                 "raw": "Ref:  | 39116 | DIA DE FIESTA:  | MARTES IMPAR | LICENCIA TAXI EN VENTA BARCELONA | LICENCIA TAXI EN VENTA BARCELONA-SIN COCHE-MARTES IMPAR | Precio: ..."
             },
             {
-                "id": 834902745,
+                "id": 969683114,
                 "fuente": "SOLANO",
                 "referencia": "4040e05a",
                 "dia": "LUNES IMPAR",
@@ -671,7 +676,7 @@
                 "raw": "Ref:  | 39088 | DIA DE FIESTA:  | LUNES IMPAR | LICENCIA TAXI EN VENTA BARCELONA | LICENCIA TAXI EN VENTA BARCELONA-LUNES IMPAR-DACIA JOGER HIBRIDO AU..."
             },
             {
-                "id": 575095866,
+                "id": 583119105,
                 "fuente": "SOLANO",
                 "referencia": "97304ef1",
                 "dia": "MIERCOLES PAR",
@@ -683,7 +688,7 @@
                 "raw": "Ref:  | 39125 | DIA DE FIESTA:  | MIERCOLES PAR | LICENCIA TAXI EN VENTA BERCALONA | LICENCIA TAXI EN VENTA BARCELONA-MIERCOLES PAR-TOYOTA COROLLA SED..."
             },
             {
-                "id": 303934108,
+                "id": 405345867,
                 "fuente": "SOLANO",
                 "referencia": "6bf781b7",
                 "dia": "LUNES IMPAR",
@@ -712,6 +717,6 @@
         ],
         "outliers_eliminados": 0
     },
-    "updated_at": "25/06/2026 15:41",
+    "updated_at": "26/06/2026 10:18",
     "version": "2.0"
 }
