@@ -161,6 +161,22 @@
             "fecha": "2026-06-26"
         },
         {
+            "hora": "19:15",
+            "nombre": "Cruise Roma",
+            "naviera": "GRIMALDI EUROMED SPA",
+            "terminal": "TERMINAL F3",
+            "terminal_codigo": "F3",
+            "eslora": 254.0,
+            "pax_estimados": 3000,
+            "puerto": "Porto Torres",
+            "tipo": "llegada",
+            "estado": "Autoritzada",
+            "bandera": "Itàlia",
+            "imo": "9351476",
+            "mmsi": "247219400",
+            "fecha": "2026-06-26"
+        },
+        {
             "hora": "19:16",
             "nombre": "Gnv Sealand",
             "naviera": "GRANDI NAVI VELOCI",
@@ -174,22 +190,6 @@
             "bandera": "Itàlia",
             "imo": "9435454",
             "mmsi": "247265800",
-            "fecha": "2026-06-26"
-        },
-        {
-            "hora": "20:38",
-            "nombre": "Cruise Roma",
-            "naviera": "GRIMALDI EUROMED SPA",
-            "terminal": "TERMINAL F3",
-            "terminal_codigo": "F3",
-            "eslora": 254.0,
-            "pax_estimados": 3000,
-            "puerto": "Porto Torres",
-            "tipo": "llegada",
-            "estado": "Iniciada",
-            "bandera": "Itàlia",
-            "imo": "9351476",
-            "mmsi": "247219400",
             "fecha": "2026-06-26"
         },
         {
@@ -444,7 +444,7 @@
             "pax_estimados": 3000,
             "puerto": "Porto Torres",
             "tipo": "salida",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Itàlia",
             "imo": "9351476",
             "mmsi": "247219400",
@@ -472,23 +472,23 @@
         "total_llegadas": 13,
         "total_salidas": 16,
         "pax_estimados_hoy": 25000,
-        "proximo_desembarco": "22:15",
-        "proximo_barco": "Gnv Aurora"
+        "proximo_desembarco": "19:15",
+        "proximo_barco": "Cruise Roma"
     },
     "terminales_activas": [
         "0010",
-        "F2",
         "H",
-        "2398",
+        "6212",
         "D",
-        "6037",
+        "2398",
+        "F2",
         "8156",
         "F3",
-        "6212"
+        "6037"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-06-26T20:46:13.770271",
+        "actualizado": "2026-06-26T18:51:07.847341",
         "frecuencia": "horaria"
     }
 }
