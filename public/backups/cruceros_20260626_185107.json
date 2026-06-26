@@ -58,7 +58,7 @@
             "pax_estimados": 4500,
             "puerto": "Marseille",
             "tipo": "llegada",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Itàlia",
             "imo": "9781877",
             "mmsi": "247435300",
@@ -122,7 +122,7 @@
             "pax_estimados": 500,
             "puerto": "Malta (Valetta)",
             "tipo": "llegada",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Malta",
             "imo": "9837420",
             "mmsi": "256070000",
@@ -145,7 +145,7 @@
             "fecha": "2026-06-26"
         },
         {
-            "hora": "18:28",
+            "hora": "18:15",
             "nombre": "Ciudad De Palma",
             "naviera": "TRASMED GLE S.L.",
             "terminal": "TERMINAL F2",
@@ -154,10 +154,26 @@
             "pax_estimados": 1000,
             "puerto": "Palma de Mallorca",
             "tipo": "llegada",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Espanya",
             "imo": "9349772",
             "mmsi": "224588000",
+            "fecha": "2026-06-26"
+        },
+        {
+            "hora": "18:15",
+            "nombre": "Gnv Sealand",
+            "naviera": "GRANDI NAVI VELOCI",
+            "terminal": "TERMINAL F2",
+            "terminal_codigo": "F2",
+            "eslora": 0,
+            "pax_estimados": 500,
+            "puerto": "Mahon Menorca",
+            "tipo": "llegada",
+            "estado": "Autoritzada",
+            "bandera": "Itàlia",
+            "imo": "9435454",
+            "mmsi": "247265800",
             "fecha": "2026-06-26"
         },
         {
@@ -174,22 +190,6 @@
             "bandera": "Itàlia",
             "imo": "9351476",
             "mmsi": "247219400",
-            "fecha": "2026-06-26"
-        },
-        {
-            "hora": "19:16",
-            "nombre": "Gnv Sealand",
-            "naviera": "GRANDI NAVI VELOCI",
-            "terminal": "TERMINAL F2",
-            "terminal_codigo": "F2",
-            "eslora": 0,
-            "pax_estimados": 500,
-            "puerto": "Mahon Menorca",
-            "tipo": "llegada",
-            "estado": "Iniciada",
-            "bandera": "Itàlia",
-            "imo": "9435454",
-            "mmsi": "247265800",
             "fecha": "2026-06-26"
         },
         {
@@ -323,23 +323,7 @@
             "fecha": "2026-06-26"
         },
         {
-            "hora": "18:12",
-            "nombre": "Msc World Europa",
-            "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
-            "terminal": "ADOSSAT/TERMINAL H",
-            "terminal_codigo": "H",
-            "eslora": 0,
-            "pax_estimados": 500,
-            "puerto": "Marseille",
-            "tipo": "salida",
-            "estado": "Finalitzada",
-            "bandera": "Malta",
-            "imo": "9837420",
-            "mmsi": "256070000",
-            "fecha": "2026-06-26"
-        },
-        {
-            "hora": "18:13",
+            "hora": "18:00",
             "nombre": "Aidacosma",
             "naviera": "NOATUM MARITIME SPAIN SAU",
             "terminal": "Terminal D (Adossat)",
@@ -348,10 +332,26 @@
             "pax_estimados": 4500,
             "puerto": "Palma de Mallorca",
             "tipo": "salida",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Itàlia",
             "imo": "9781877",
             "mmsi": "247435300",
+            "fecha": "2026-06-26"
+        },
+        {
+            "hora": "18:00",
+            "nombre": "Msc World Europa",
+            "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
+            "terminal": "ADOSSAT/TERMINAL H",
+            "terminal_codigo": "H",
+            "eslora": 0,
+            "pax_estimados": 500,
+            "puerto": "Marseille",
+            "tipo": "salida",
+            "estado": "Iniciada",
+            "bandera": "Malta",
+            "imo": "9837420",
+            "mmsi": "256070000",
             "fecha": "2026-06-26"
         },
         {
@@ -412,7 +412,7 @@
             "pax_estimados": 500,
             "puerto": "Ibiza",
             "tipo": "salida",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Itàlia",
             "imo": "9435454",
             "mmsi": "247265800",
@@ -428,7 +428,7 @@
             "pax_estimados": 1000,
             "puerto": "Palma de Mallorca",
             "tipo": "salida",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Espanya",
             "imo": "9349772",
             "mmsi": "224588000",
@@ -472,23 +472,23 @@
         "total_llegadas": 13,
         "total_salidas": 16,
         "pax_estimados_hoy": 25000,
-        "proximo_desembarco": "19:15",
-        "proximo_barco": "Cruise Roma"
+        "proximo_desembarco": "18:15",
+        "proximo_barco": "Ciudad De Palma"
     },
     "terminales_activas": [
-        "0010",
-        "H",
         "6212",
-        "D",
-        "2398",
         "F2",
+        "2398",
         "8156",
+        "6037",
         "F3",
-        "6037"
+        "H",
+        "D",
+        "0010"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-06-26T18:51:07.847341",
+        "actualizado": "2026-06-26T15:23:49.948904",
         "frecuencia": "horaria"
     }
 }
