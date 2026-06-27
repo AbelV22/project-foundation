@@ -1,6 +1,22 @@
 {
     "llegadas": [
         {
+            "hora": "00:01",
+            "nombre": "Merito",
+            "naviera": "MEDITERRANEAN SHIPPING CO",
+            "terminal": "TERMINAL CATALUNYA SA",
+            "terminal_codigo": "6212",
+            "eslora": 150.0,
+            "pax_estimados": 1000,
+            "puerto": "Fos-sur-Mer",
+            "tipo": "llegada",
+            "estado": "Fondeig Previ",
+            "bandera": "Malta",
+            "imo": "9167942",
+            "mmsi": "249096000",
+            "fecha": "2026-06-27"
+        },
+        {
             "hora": "04:37",
             "nombre": "Celebrity Xcel",
             "naviera": "CELEBRITY CRUISES",
@@ -74,7 +90,7 @@
             "pax_estimados": 2000,
             "puerto": "Valencia",
             "tipo": "llegada",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Itàlia",
             "imo": "9859569",
             "mmsi": "247383600",
@@ -145,22 +161,6 @@
             "fecha": "2026-06-27"
         },
         {
-            "hora": "13:58",
-            "nombre": "Merito",
-            "naviera": "MEDITERRANEAN SHIPPING CO",
-            "terminal": "TERMINAL CATALUNYA SA",
-            "terminal_codigo": "6212",
-            "eslora": 150.0,
-            "pax_estimados": 1000,
-            "puerto": "Fos-sur-Mer",
-            "tipo": "llegada",
-            "estado": "Iniciada",
-            "bandera": "Malta",
-            "imo": "9167942",
-            "mmsi": "249096000",
-            "fecha": "2026-06-27"
-        },
-        {
             "hora": "18:15",
             "nombre": "Msc Kayley",
             "naviera": "MEDITERRANEAN SHIPPING CO",
@@ -208,6 +208,22 @@
             "bandera": "Portugal",
             "imo": "9619385",
             "mmsi": "255805572",
+            "fecha": "2026-06-27"
+        },
+        {
+            "hora": "00:00",
+            "nombre": "Merito",
+            "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
+            "terminal": "",
+            "terminal_codigo": "",
+            "eslora": 150.0,
+            "pax_estimados": 1000,
+            "puerto": "Alger (Algiers)",
+            "tipo": "salida",
+            "estado": "Fondeig Previ",
+            "bandera": "Malta",
+            "imo": "9167942",
+            "mmsi": "249096000",
             "fecha": "2026-06-27"
         },
         {
@@ -291,22 +307,6 @@
             "fecha": "2026-06-27"
         },
         {
-            "hora": "13:57",
-            "nombre": "Merito",
-            "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
-            "terminal": "",
-            "terminal_codigo": "",
-            "eslora": 150.0,
-            "pax_estimados": 1000,
-            "puerto": "Alger (Algiers)",
-            "tipo": "salida",
-            "estado": "Iniciada",
-            "bandera": "Malta",
-            "imo": "9167942",
-            "mmsi": "249096000",
-            "fecha": "2026-06-27"
-        },
-        {
             "hora": "14:00",
             "nombre": "Zim Asia",
             "naviera": "A PEREZ Y CIA SL",
@@ -332,14 +332,14 @@
             "pax_estimados": 1000,
             "puerto": "Alger (Algiers)",
             "tipo": "salida",
-            "estado": "Iniciada",
+            "estado": "Fondeig Previ",
             "bandera": "Malta",
             "imo": "9167942",
             "mmsi": "249096000",
             "fecha": "2026-06-27"
         },
         {
-            "hora": "14:08",
+            "hora": "14:00",
             "nombre": "Eco Savona",
             "naviera": "GRIMALDI LOGISTICA ESPAÑA SL",
             "terminal": "GRIMALDI TERMINAL BARCELONA SL",
@@ -348,7 +348,7 @@
             "pax_estimados": 2000,
             "puerto": "Savona",
             "tipo": "salida",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Itàlia",
             "imo": "9859569",
             "mmsi": "247383600",
@@ -456,23 +456,23 @@
         "total_llegadas": 12,
         "total_salidas": 16,
         "pax_estimados_hoy": 21000,
-        "proximo_desembarco": "18:15",
-        "proximo_barco": "Msc Kayley"
+        "proximo_desembarco": "12:28",
+        "proximo_barco": "Zim Asia"
     },
     "terminales_activas": [
-        "0010",
-        "7585",
-        "8156",
         "E",
-        "F3",
-        "F2",
         "B",
         "H",
+        "8156",
+        "F2",
+        "7585",
+        "F3",
+        "0010",
         "6212"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-06-27T14:41:23.435964",
+        "actualizado": "2026-06-27T12:10:34.875510",
         "frecuencia": "horaria"
     }
 }
