@@ -145,22 +145,6 @@
             "fecha": "2026-06-27"
         },
         {
-            "hora": "12:28",
-            "nombre": "Zim Asia",
-            "naviera": "ZIM INTEGRATED SHIPPING SERV.",
-            "terminal": "TERMINAL CATALUNYA SA",
-            "terminal_codigo": "6212",
-            "eslora": 260.0,
-            "pax_estimados": 3000,
-            "puerto": "Valencia",
-            "tipo": "llegada",
-            "estado": "Iniciada",
-            "bandera": "Libèria",
-            "imo": "9464716",
-            "mmsi": "636021664",
-            "fecha": "2026-06-27"
-        },
-        {
             "hora": "18:15",
             "nombre": "Msc Kayley",
             "naviera": "MEDITERRANEAN SHIPPING CO",
@@ -291,22 +275,6 @@
             "fecha": "2026-06-27"
         },
         {
-            "hora": "12:27",
-            "nombre": "Zim Asia",
-            "naviera": "A PEREZ Y CIA SL",
-            "terminal": "",
-            "terminal_codigo": "",
-            "eslora": 260.0,
-            "pax_estimados": 3000,
-            "puerto": "Damietta",
-            "tipo": "salida",
-            "estado": "Iniciada",
-            "bandera": "Libèria",
-            "imo": "9464716",
-            "mmsi": "636021664",
-            "fecha": "2026-06-27"
-        },
-        {
             "hora": "14:00",
             "nombre": "Zim Asia",
             "naviera": "A PEREZ Y CIA SL",
@@ -316,7 +284,7 @@
             "pax_estimados": 3000,
             "puerto": "Damietta",
             "tipo": "salida",
-            "estado": "Iniciada",
+            "estado": "Fondeig Previ",
             "bandera": "Libèria",
             "imo": "9464716",
             "mmsi": "636021664",
@@ -453,26 +421,26 @@
     ],
     "resumen": {
         "total_cruceros": 16,
-        "total_llegadas": 12,
-        "total_salidas": 16,
-        "pax_estimados_hoy": 21000,
-        "proximo_desembarco": "12:28",
-        "proximo_barco": "Zim Asia"
+        "total_llegadas": 11,
+        "total_salidas": 15,
+        "pax_estimados_hoy": 18000,
+        "proximo_desembarco": "18:15",
+        "proximo_barco": "Msc Kayley"
     },
     "terminales_activas": [
         "E",
-        "B",
-        "H",
-        "8156",
-        "F2",
         "7585",
         "F3",
         "0010",
+        "B",
+        "8156",
+        "F2",
+        "H",
         "6212"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-06-27T12:10:34.875510",
+        "actualizado": "2026-06-27T10:57:25.861213",
         "frecuencia": "horaria"
     }
 }
