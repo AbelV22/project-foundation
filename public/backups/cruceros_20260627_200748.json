@@ -26,7 +26,7 @@
             "pax_estimados": 500,
             "puerto": "Messina",
             "tipo": "llegada",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Bermuda",
             "imo": "9863118",
             "mmsi": "310841000",
@@ -177,7 +177,7 @@
             "fecha": "2026-06-27"
         },
         {
-            "hora": "20:49",
+            "hora": "20:45",
             "nombre": "Cruise Barcelona",
             "naviera": "GRIMALDI EUROMED SPA",
             "terminal": "TERMINAL F3",
@@ -186,7 +186,7 @@
             "pax_estimados": 500,
             "puerto": "Porto Torres",
             "tipo": "llegada",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Itàlia",
             "imo": "9351488",
             "mmsi": "247243600",
@@ -355,6 +355,22 @@
             "fecha": "2026-06-27"
         },
         {
+            "hora": "17:00",
+            "nombre": "Sun Princess",
+            "naviera": "OCEAN PORTS & SHIPPING SL",
+            "terminal": "Terminal E (Adossat)",
+            "terminal_codigo": "E",
+            "eslora": 0,
+            "pax_estimados": 500,
+            "puerto": "Palma de Mallorca",
+            "tipo": "salida",
+            "estado": "Iniciada",
+            "bandera": "Bermuda",
+            "imo": "9863118",
+            "mmsi": "310841000",
+            "fecha": "2026-06-27"
+        },
+        {
             "hora": "17:16",
             "nombre": "Msc Grandiosa",
             "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
@@ -384,22 +400,6 @@
             "bandera": "Malta",
             "imo": "9884136",
             "mmsi": "249457000",
-            "fecha": "2026-06-27"
-        },
-        {
-            "hora": "18:55",
-            "nombre": "Sun Princess",
-            "naviera": "OCEAN PORTS & SHIPPING SL",
-            "terminal": "Terminal E (Adossat)",
-            "terminal_codigo": "E",
-            "eslora": 0,
-            "pax_estimados": 500,
-            "puerto": "Palma de Mallorca",
-            "tipo": "salida",
-            "estado": "Finalitzada",
-            "bandera": "Bermuda",
-            "imo": "9863118",
-            "mmsi": "310841000",
             "fecha": "2026-06-27"
         },
         {
@@ -456,23 +456,23 @@
         "total_llegadas": 12,
         "total_salidas": 16,
         "pax_estimados_hoy": 21000,
-        "proximo_desembarco": "20:49",
-        "proximo_barco": "Cruise Barcelona"
+        "proximo_desembarco": "18:15",
+        "proximo_barco": "Msc Kayley"
     },
     "terminales_activas": [
-        "6212",
-        "8156",
         "B",
         "F3",
-        "7585",
-        "E",
-        "0010",
+        "8156",
         "H",
-        "F2"
+        "6212",
+        "7585",
+        "0010",
+        "F2",
+        "E"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-06-27T20:07:48.749281",
+        "actualizado": "2026-06-27T18:03:00.408251",
         "frecuencia": "horaria"
     }
 }
