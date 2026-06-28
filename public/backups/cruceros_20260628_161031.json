@@ -26,7 +26,7 @@
             "pax_estimados": 6500,
             "puerto": "Genoa",
             "tipo": "llegada",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Libèria",
             "imo": "9927299",
             "mmsi": "636022442",
@@ -291,6 +291,22 @@
             "fecha": "2026-06-28"
         },
         {
+            "hora": "10:15",
+            "nombre": "Msc Kayley",
+            "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
+            "terminal": "TERMINAL CATALUNYA SA",
+            "terminal_codigo": "6212",
+            "eslora": 366.0,
+            "pax_estimados": 6500,
+            "puerto": "Valencia",
+            "tipo": "salida",
+            "estado": "Iniciada",
+            "bandera": "Libèria",
+            "imo": "9927299",
+            "mmsi": "636022442",
+            "fecha": "2026-06-28"
+        },
+        {
             "hora": "13:34",
             "nombre": "Eco Livorno",
             "naviera": "GRIMALDI LOGISTICA ESPAÑA SL",
@@ -304,22 +320,6 @@
             "bandera": "Itàlia",
             "imo": "9859557",
             "mmsi": "247383500",
-            "fecha": "2026-06-28"
-        },
-        {
-            "hora": "15:25",
-            "nombre": "Msc Kayley",
-            "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
-            "terminal": "TERMINAL CATALUNYA SA",
-            "terminal_codigo": "6212",
-            "eslora": 366.0,
-            "pax_estimados": 6500,
-            "puerto": "Valencia",
-            "tipo": "salida",
-            "estado": "Finalitzada",
-            "bandera": "Libèria",
-            "imo": "9927299",
-            "mmsi": "636022442",
             "fecha": "2026-06-28"
         },
         {
@@ -424,22 +424,22 @@
         "total_llegadas": 13,
         "total_salidas": 13,
         "pax_estimados_hoy": 28000,
-        "proximo_desembarco": "22:45",
-        "proximo_barco": "Cruise Roma"
+        "proximo_desembarco": "15:12",
+        "proximo_barco": "Gnv Aurora"
     },
     "terminales_activas": [
-        "6212",
-        "B",
-        "F3",
         "E",
-        "H",
-        "F2",
+        "B",
         "A",
-        "8156"
+        "H",
+        "F3",
+        "F2",
+        "8156",
+        "6212"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-06-28T16:10:31.627742",
+        "actualizado": "2026-06-28T14:48:47.032956",
         "frecuencia": "horaria"
     }
 }
