@@ -129,6 +129,22 @@
             "fecha": "2026-06-28"
         },
         {
+            "hora": "13:00",
+            "nombre": "Msc Yuxin",
+            "naviera": "MEDITERRANEAN SHIPPING CO",
+            "terminal": "TERMINAL CATALUNYA SA",
+            "terminal_codigo": "6212",
+            "eslora": 0,
+            "pax_estimados": 500,
+            "puerto": "Djen-Djen",
+            "tipo": "llegada",
+            "estado": "Autoritzada",
+            "bandera": "Libèria",
+            "imo": "9966946",
+            "mmsi": "636023314",
+            "fecha": "2026-06-28"
+        },
+        {
             "hora": "13:45",
             "nombre": "Msc Oriane",
             "naviera": "MEDITERRANEAN SHIPPING CO",
@@ -174,22 +190,6 @@
             "bandera": "Libèria",
             "imo": "9755933",
             "mmsi": "636017433",
-            "fecha": "2026-06-28"
-        },
-        {
-            "hora": "21:21",
-            "nombre": "Msc Yuxin",
-            "naviera": "MEDITERRANEAN SHIPPING CO",
-            "terminal": "TERMINAL CATALUNYA SA",
-            "terminal_codigo": "6212",
-            "eslora": 0,
-            "pax_estimados": 500,
-            "puerto": "Djen-Djen",
-            "tipo": "llegada",
-            "estado": "Iniciada",
-            "bandera": "Libèria",
-            "imo": "9966946",
-            "mmsi": "636023314",
             "fecha": "2026-06-28"
         },
         {
@@ -428,18 +428,18 @@
         "proximo_barco": "Cruise Roma"
     },
     "terminales_activas": [
-        "F3",
-        "8156",
-        "H",
-        "A",
         "F2",
-        "E",
         "B",
-        "6212"
+        "H",
+        "8156",
+        "6212",
+        "F3",
+        "A",
+        "E"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-06-28T22:02:02.946706",
+        "actualizado": "2026-06-28T20:13:40.928742",
         "frecuencia": "horaria"
     }
 }
