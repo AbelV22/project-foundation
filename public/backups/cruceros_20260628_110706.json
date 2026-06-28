@@ -113,22 +113,6 @@
             "fecha": "2026-06-28"
         },
         {
-            "hora": "09:07",
-            "nombre": "Jadrana",
-            "naviera": "TAILWIND SHIPPING LINES",
-            "terminal": "TERMINAL CATALUNYA SA",
-            "terminal_codigo": "6212",
-            "eslora": 255.0,
-            "pax_estimados": 3000,
-            "puerto": "Koper",
-            "tipo": "llegada",
-            "estado": "Iniciada",
-            "bandera": "Portugal",
-            "imo": "9619385",
-            "mmsi": "255805572",
-            "fecha": "2026-06-28"
-        },
-        {
             "hora": "13:00",
             "nombre": "Msc Yuxin",
             "naviera": "MEDITERRANEAN SHIPPING CO",
@@ -240,38 +224,6 @@
             "bandera": "Malta",
             "imo": "9167942",
             "mmsi": "249096000",
-            "fecha": "2026-06-28"
-        },
-        {
-            "hora": "09:09",
-            "nombre": "Jadrana",
-            "naviera": "MARTICO SL",
-            "terminal": "TERMINAL CATALUNYA SA",
-            "terminal_codigo": "6212",
-            "eslora": 255.0,
-            "pax_estimados": 3000,
-            "puerto": "Port Kelang",
-            "tipo": "salida",
-            "estado": "Iniciada",
-            "bandera": "Portugal",
-            "imo": "9619385",
-            "mmsi": "255805572",
-            "fecha": "2026-06-28"
-        },
-        {
-            "hora": "09:14",
-            "nombre": "Msc Sixin",
-            "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
-            "terminal": "TERMINAL CATALUNYA SA",
-            "terminal_codigo": "6212",
-            "eslora": 0,
-            "pax_estimados": 500,
-            "puerto": "Fos-sur-Mer",
-            "tipo": "salida",
-            "estado": "Finalitzada",
-            "bandera": "Panamà",
-            "imo": "9839301",
-            "mmsi": "370711000",
             "fecha": "2026-06-28"
         },
         {
@@ -404,26 +356,26 @@
         }
     ],
     "resumen": {
-        "total_cruceros": 16,
-        "total_llegadas": 13,
-        "total_salidas": 12,
-        "pax_estimados_hoy": 28000,
+        "total_cruceros": 14,
+        "total_llegadas": 12,
+        "total_salidas": 10,
+        "pax_estimados_hoy": 25000,
         "proximo_desembarco": "13:00",
         "proximo_barco": "Msc Yuxin"
     },
     "terminales_activas": [
-        "E",
-        "F2",
-        "8156",
-        "A",
-        "B",
         "6212",
+        "A",
         "F3",
-        "H"
+        "8156",
+        "F2",
+        "H",
+        "B",
+        "E"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-06-28T11:07:06.145939",
+        "actualizado": "2026-06-28T08:21:00.427951",
         "frecuencia": "horaria"
     }
 }
