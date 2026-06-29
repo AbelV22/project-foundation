@@ -17,6 +17,22 @@
             "fecha": "2026-06-29"
         },
         {
+            "hora": "06:00",
+            "nombre": "Msc Amihan F",
+            "naviera": "MEDITERRANEAN SHIPPING CO",
+            "terminal": "TERMINAL CATALUNYA SA",
+            "terminal_codigo": "6212",
+            "eslora": 0,
+            "pax_estimados": 500,
+            "puerto": "Fos-sur-Mer",
+            "tipo": "llegada",
+            "estado": "Sol·licitada",
+            "bandera": "Libèria",
+            "imo": "9449687",
+            "mmsi": "636021438",
+            "fecha": "2026-06-29"
+        },
+        {
             "hora": "06:41",
             "nombre": "Gnv Sealand",
             "naviera": "GRANDI NAVI VELOCI",
@@ -42,7 +58,7 @@
             "pax_estimados": 4500,
             "puerto": "Marseille",
             "tipo": "llegada",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Itàlia",
             "imo": "9781889",
             "mmsi": "247391900",
@@ -113,7 +129,7 @@
             "fecha": "2026-06-29"
         },
         {
-            "hora": "17:53",
+            "hora": "16:31",
             "nombre": "Gnv Sealand",
             "naviera": "GRANDI NAVI VELOCI",
             "terminal": "TERMINAL F2",
@@ -129,23 +145,7 @@
             "fecha": "2026-06-29"
         },
         {
-            "hora": "18:38",
-            "nombre": "Abel Matutes",
-            "naviera": "EUROLINEAS MARITIMAS S.A",
-            "terminal": "LEPANT/TRUCK CENTER",
-            "terminal_codigo": "TC",
-            "eslora": 190.0,
-            "pax_estimados": 1000,
-            "puerto": "Palma de Mallorca",
-            "tipo": "llegada",
-            "estado": "Iniciada",
-            "bandera": "Espanya",
-            "imo": "9441130",
-            "mmsi": "224402000",
-            "fecha": "2026-06-29"
-        },
-        {
-            "hora": "18:45",
+            "hora": "18:15",
             "nombre": "Ciudad De Palma",
             "naviera": "TRASMED GLE S.L.",
             "terminal": "TERMINAL F2",
@@ -154,10 +154,26 @@
             "pax_estimados": 1000,
             "puerto": "Palma de Mallorca",
             "tipo": "llegada",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Espanya",
             "imo": "9349772",
             "mmsi": "224588000",
+            "fecha": "2026-06-29"
+        },
+        {
+            "hora": "19:30",
+            "nombre": "Abel Matutes",
+            "naviera": "EUROLINEAS MARITIMAS S.A",
+            "terminal": "LEPANT/TRUCK CENTER",
+            "terminal_codigo": "TC",
+            "eslora": 190.0,
+            "pax_estimados": 1000,
+            "puerto": "Palma de Mallorca",
+            "tipo": "llegada",
+            "estado": "Autoritzada",
+            "bandera": "Espanya",
+            "imo": "9441130",
+            "mmsi": "224402000",
             "fecha": "2026-06-29"
         },
         {
@@ -186,7 +202,7 @@
             "pax_estimados": 1000,
             "puerto": "Porto Foxi (Sarroch)",
             "tipo": "llegada",
-            "estado": "Autoritzada",
+            "estado": "Confirmada",
             "bandera": "Grècia",
             "imo": "9644225",
             "mmsi": "241281000",
@@ -259,23 +275,7 @@
             "fecha": "2026-06-29"
         },
         {
-            "hora": "17:20",
-            "nombre": "Costa Smeralda",
-            "naviera": "NOATUM MARITIME SPAIN SAU",
-            "terminal": "Terminal E (Adossat)",
-            "terminal_codigo": "E",
-            "eslora": 337.0,
-            "pax_estimados": 4500,
-            "puerto": "Ibiza",
-            "tipo": "salida",
-            "estado": "Finalitzada",
-            "bandera": "Itàlia",
-            "imo": "9781889",
-            "mmsi": "247391900",
-            "fecha": "2026-06-29"
-        },
-        {
-            "hora": "17:52",
+            "hora": "16:30",
             "nombre": "Gnv Sealand",
             "naviera": "TRANSCOMA BALEARES SA",
             "terminal": "GRIMALDI TERMINAL BARCELONA SL",
@@ -288,6 +288,38 @@
             "bandera": "Itàlia",
             "imo": "9435454",
             "mmsi": "247265800",
+            "fecha": "2026-06-29"
+        },
+        {
+            "hora": "17:00",
+            "nombre": "Costa Smeralda",
+            "naviera": "NOATUM MARITIME SPAIN SAU",
+            "terminal": "Terminal E (Adossat)",
+            "terminal_codigo": "E",
+            "eslora": 337.0,
+            "pax_estimados": 4500,
+            "puerto": "Ibiza",
+            "tipo": "salida",
+            "estado": "Iniciada",
+            "bandera": "Itàlia",
+            "imo": "9781889",
+            "mmsi": "247391900",
+            "fecha": "2026-06-29"
+        },
+        {
+            "hora": "20:00",
+            "nombre": "Msc Amihan F",
+            "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
+            "terminal": "TERMINAL CATALUNYA SA",
+            "terminal_codigo": "6212",
+            "eslora": 0,
+            "pax_estimados": 500,
+            "puerto": "Alger (Algiers)",
+            "tipo": "salida",
+            "estado": "Sol·licitada",
+            "bandera": "Libèria",
+            "imo": "9449687",
+            "mmsi": "636021438",
             "fecha": "2026-06-29"
         },
         {
@@ -332,7 +364,7 @@
             "pax_estimados": 1000,
             "puerto": "Alcudia",
             "tipo": "salida",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Espanya",
             "imo": "9441130",
             "mmsi": "224402000",
@@ -380,7 +412,7 @@
             "pax_estimados": 1000,
             "puerto": "Palma de Mallorca",
             "tipo": "salida",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Espanya",
             "imo": "9349772",
             "mmsi": "224588000",
@@ -388,27 +420,27 @@
         }
     ],
     "resumen": {
-        "total_cruceros": 11,
-        "total_llegadas": 12,
-        "total_salidas": 12,
-        "pax_estimados_hoy": 16500,
-        "proximo_desembarco": "17:53",
+        "total_cruceros": 12,
+        "total_llegadas": 13,
+        "total_salidas": 13,
+        "pax_estimados_hoy": 17000,
+        "proximo_desembarco": "16:31",
         "proximo_barco": "Gnv Sealand"
     },
     "terminales_activas": [
-        "6037",
-        "F3",
-        "8156",
-        "F2",
-        "E",
         "F1",
+        "8156",
+        "TC",
+        "F2",
         "6995",
+        "F3",
         "6212",
-        "TC"
+        "6037",
+        "E"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-06-29T17:36:19.465042",
+        "actualizado": "2026-06-29T14:47:20.215513",
         "frecuencia": "horaria"
     }
 }
