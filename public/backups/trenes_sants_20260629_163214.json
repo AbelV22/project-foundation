@@ -88,7 +88,7 @@
             "hora": "11:24",
             "origen": "Madrid Puerta de Atocha Almudena Grandes",
             "tren": "IRYO 06081",
-            "via": "-"
+            "via": "2"
         },
         {
             "hora": "11:44",
@@ -100,7 +100,7 @@
             "hora": "11:52",
             "origen": "Madrid Puerta de Atocha Almudena Grandes",
             "tren": "IRYO 06281",
-            "via": "-"
+            "via": "3"
         },
         {
             "hora": "12:06",
@@ -112,7 +112,7 @@
             "hora": "12:12",
             "origen": "Alacant / Alicante Terminal",
             "tren": "EUROMED 01092",
-            "via": "-"
+            "via": "1"
         },
         {
             "hora": "12:36",
@@ -247,10 +247,16 @@
             "via": "-"
         },
         {
+            "hora": "18:19",
+            "origen": "València Estació del Nord",
+            "tren": "EUROMED 01152",
+            "via": "-"
+        },
+        {
             "hora": "18:30",
             "origen": "Figueres-Vilafant",
             "tren": "AVE 03192",
-            "via": "5"
+            "via": "-"
         },
         {
             "hora": "18:54",
@@ -268,13 +274,13 @@
             "hora": "19:00",
             "origen": "Alacant / Alicante Terminal",
             "tren": "EUROMED 01162",
-            "via": "2"
+            "via": "-"
         },
         {
             "hora": "19:14",
             "origen": "Madrid Puerta de Atocha Almudena Grandes",
             "tren": "AVE 03305",
-            "via": "5"
+            "via": "-"
         },
         {
             "hora": "19:23",
@@ -298,13 +304,13 @@
             "hora": "19:44",
             "origen": "Madrid Puerta de Atocha Almudena Grandes",
             "tren": "AVE 03163",
-            "via": "4"
+            "via": "-"
         },
         {
             "hora": "19:59",
             "origen": "Madrid Puerta de Atocha Almudena Grandes",
             "tren": "AVE 03171",
-            "via": "4"
+            "via": "-"
         },
         {
             "hora": "20:33",
@@ -328,12 +334,6 @@
             "hora": "20:57",
             "origen": "València Estació del Nord",
             "tren": "INTERCITY 11464",
-            "via": "-"
-        },
-        {
-            "hora": "20:57",
-            "origen": "València Estació del Nord",
-            "tren": "INTERCITY 00460",
             "via": "-"
         },
         {
@@ -422,8 +422,8 @@
         }
     ],
     "meta": {
-        "update_time": "16:32",
-        "updated_at": "2026-06-29T16:32:14.799806",
+        "update_time": "08:47",
+        "updated_at": "2026-06-29T08:47:55.929393",
         "total": 70
     }
 }
