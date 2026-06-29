@@ -26,7 +26,7 @@
             "pax_estimados": 500,
             "puerto": "Ibiza",
             "tipo": "llegada",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Itàlia",
             "imo": "9435454",
             "mmsi": "247265800",
@@ -74,7 +74,7 @@
             "pax_estimados": 500,
             "puerto": "Ibiza",
             "tipo": "llegada",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Itàlia",
             "imo": "9435454",
             "mmsi": "247265800",
@@ -106,7 +106,7 @@
             "pax_estimados": 500,
             "puerto": "Ibiza",
             "tipo": "llegada",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Itàlia",
             "imo": "9435454",
             "mmsi": "247265800",
@@ -177,22 +177,6 @@
             "fecha": "2026-06-29"
         },
         {
-            "hora": "22:58",
-            "nombre": "Happy Lady",
-            "naviera": "EASTERN MEDITERRANEAN MARITIME",
-            "terminal": "",
-            "terminal_codigo": "",
-            "eslora": 183.0,
-            "pax_estimados": 1000,
-            "puerto": "Porto Foxi (Sarroch)",
-            "tipo": "llegada",
-            "estado": "Autoritzada",
-            "bandera": "Grècia",
-            "imo": "9644225",
-            "mmsi": "241281000",
-            "fecha": "2026-06-29"
-        },
-        {
             "hora": "23:00",
             "nombre": "Happy Lady",
             "naviera": "EASTERN MEDITERRANEAN MARITIME",
@@ -252,7 +236,7 @@
             "pax_estimados": 500,
             "puerto": "Ibiza",
             "tipo": "salida",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Itàlia",
             "imo": "9435454",
             "mmsi": "247265800",
@@ -284,7 +268,7 @@
             "pax_estimados": 500,
             "puerto": "Ibiza",
             "tipo": "salida",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Itàlia",
             "imo": "9435454",
             "mmsi": "247265800",
@@ -355,6 +339,22 @@
             "fecha": "2026-06-29"
         },
         {
+            "hora": "21:45",
+            "nombre": "Gnv Sealand",
+            "naviera": "TRANSCOMA BALEARES SA",
+            "terminal": "TERMINAL F2",
+            "terminal_codigo": "F2",
+            "eslora": 0,
+            "pax_estimados": 500,
+            "puerto": "Ibiza",
+            "tipo": "salida",
+            "estado": "Iniciada",
+            "bandera": "Itàlia",
+            "imo": "9435454",
+            "mmsi": "247265800",
+            "fecha": "2026-06-29"
+        },
+        {
             "hora": "22:00",
             "nombre": "Denia Ciutat Creativa",
             "naviera": "BALEARIA EUROLINEAS MARITIMAS SA ",
@@ -368,22 +368,6 @@
             "bandera": "Xipre",
             "imo": "9019054",
             "mmsi": "210133000",
-            "fecha": "2026-06-29"
-        },
-        {
-            "hora": "22:20",
-            "nombre": "Gnv Sealand",
-            "naviera": "TRANSCOMA BALEARES SA",
-            "terminal": "TERMINAL F2",
-            "terminal_codigo": "F2",
-            "eslora": 0,
-            "pax_estimados": 500,
-            "puerto": "Ibiza",
-            "tipo": "salida",
-            "estado": "Finalitzada",
-            "bandera": "Itàlia",
-            "imo": "9435454",
-            "mmsi": "247265800",
             "fecha": "2026-06-29"
         },
         {
@@ -401,46 +385,30 @@
             "imo": "9349772",
             "mmsi": "224588000",
             "fecha": "2026-06-29"
-        },
-        {
-            "hora": "22:59",
-            "nombre": "Happy Lady",
-            "naviera": "ALFASHIP MARITIME SERVICES SL ",
-            "terminal": "",
-            "terminal_codigo": "",
-            "eslora": 183.0,
-            "pax_estimados": 1000,
-            "puerto": "Porto Foxi (Sarroch)",
-            "tipo": "salida",
-            "estado": "Autoritzada",
-            "bandera": "Grècia",
-            "imo": "9644225",
-            "mmsi": "241281000",
-            "fecha": "2026-06-29"
         }
     ],
     "resumen": {
         "total_cruceros": 11,
-        "total_llegadas": 13,
-        "total_salidas": 13,
-        "pax_estimados_hoy": 17500,
-        "proximo_desembarco": "22:58",
-        "proximo_barco": "Happy Lady"
+        "total_llegadas": 12,
+        "total_salidas": 12,
+        "pax_estimados_hoy": 16500,
+        "proximo_desembarco": "21:28",
+        "proximo_barco": "Msc Ghana"
     },
     "terminales_activas": [
         "8156",
-        "6995",
-        "F1",
+        "6037",
         "F2",
-        "E",
-        "TC",
+        "6995",
         "6212",
         "F3",
-        "6037"
+        "F1",
+        "E",
+        "TC"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-06-29T22:08:02.107933",
+        "actualizado": "2026-06-29T20:48:37.675648",
         "frecuencia": "horaria"
     }
 }
