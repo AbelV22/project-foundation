@@ -10,7 +10,7 @@
             "pax_estimados": 500,
             "puerto": "Porto Torres",
             "tipo": "llegada",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Itàlia",
             "imo": "9351476",
             "mmsi": "247219400",
@@ -62,6 +62,22 @@
             "bandera": "Illes Marshall",
             "imo": "9833577",
             "mmsi": "538010468",
+            "fecha": "2026-06-29"
+        },
+        {
+            "hora": "12:00",
+            "nombre": "Msc Ghana",
+            "naviera": "MEDITERRANEAN SHIPPING CO",
+            "terminal": "TERMINAL CATALUNYA SA",
+            "terminal_codigo": "6212",
+            "eslora": 260.0,
+            "pax_estimados": 3000,
+            "puerto": "Valencia",
+            "tipo": "llegada",
+            "estado": "Autoritzada",
+            "bandera": "Libèria",
+            "imo": "9974503",
+            "mmsi": "636025251",
             "fecha": "2026-06-29"
         },
         {
@@ -145,7 +161,7 @@
             "fecha": "2026-06-29"
         },
         {
-            "hora": "19:44",
+            "hora": "20:00",
             "nombre": "Denia Ciutat Creativa",
             "naviera": "EUROLINEAS MARITIMAS S.A",
             "terminal": "TERMINAL F1",
@@ -154,26 +170,10 @@
             "pax_estimados": 1000,
             "puerto": "Ibiza",
             "tipo": "llegada",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Xipre",
             "imo": "9019054",
             "mmsi": "210133000",
-            "fecha": "2026-06-29"
-        },
-        {
-            "hora": "21:28",
-            "nombre": "Msc Ghana",
-            "naviera": "MEDITERRANEAN SHIPPING CO",
-            "terminal": "TERMINAL CATALUNYA SA",
-            "terminal_codigo": "6212",
-            "eslora": 260.0,
-            "pax_estimados": 3000,
-            "puerto": "Valencia",
-            "tipo": "llegada",
-            "estado": "Iniciada",
-            "bandera": "Libèria",
-            "imo": "9974503",
-            "mmsi": "636025251",
             "fecha": "2026-06-29"
         },
         {
@@ -243,6 +243,22 @@
             "fecha": "2026-06-29"
         },
         {
+            "hora": "14:15",
+            "nombre": "Msc Yuxin",
+            "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
+            "terminal": "TERMINAL CATALUNYA SA",
+            "terminal_codigo": "6212",
+            "eslora": 0,
+            "pax_estimados": 500,
+            "puerto": "Bejaia (ex Bougie)",
+            "tipo": "salida",
+            "estado": "Iniciada",
+            "bandera": "Libèria",
+            "imo": "9966946",
+            "mmsi": "636023314",
+            "fecha": "2026-06-29"
+        },
+        {
             "hora": "17:20",
             "nombre": "Costa Smeralda",
             "naviera": "NOATUM MARITIME SPAIN SAU",
@@ -275,22 +291,6 @@
             "fecha": "2026-06-29"
         },
         {
-            "hora": "19:31",
-            "nombre": "Msc Yuxin",
-            "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
-            "terminal": "TERMINAL CATALUNYA SA",
-            "terminal_codigo": "6212",
-            "eslora": 0,
-            "pax_estimados": 500,
-            "puerto": "Bejaia (ex Bougie)",
-            "tipo": "salida",
-            "estado": "Finalitzada",
-            "bandera": "Libèria",
-            "imo": "9966946",
-            "mmsi": "636023314",
-            "fecha": "2026-06-29"
-        },
-        {
             "hora": "20:00",
             "nombre": "Eco Adriatica",
             "naviera": "GRIMALDI LOGISTICA ESPAÑA SL",
@@ -307,7 +307,7 @@
             "fecha": "2026-06-29"
         },
         {
-            "hora": "21:24",
+            "hora": "21:00",
             "nombre": "Cruise Roma",
             "naviera": "GRIMALDI LOGISTICA ESPAÑA SL",
             "terminal": "TERMINAL F3",
@@ -316,7 +316,7 @@
             "pax_estimados": 500,
             "puerto": "Porto Torres",
             "tipo": "salida",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Itàlia",
             "imo": "9351476",
             "mmsi": "247219400",
@@ -364,7 +364,7 @@
             "pax_estimados": 1000,
             "puerto": "Ibiza",
             "tipo": "salida",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Xipre",
             "imo": "9019054",
             "mmsi": "210133000",
@@ -392,23 +392,23 @@
         "total_llegadas": 12,
         "total_salidas": 12,
         "pax_estimados_hoy": 16500,
-        "proximo_desembarco": "21:28",
-        "proximo_barco": "Msc Ghana"
+        "proximo_desembarco": "17:53",
+        "proximo_barco": "Gnv Sealand"
     },
     "terminales_activas": [
-        "8156",
         "6037",
+        "F3",
+        "8156",
         "F2",
+        "E",
+        "F1",
         "6995",
         "6212",
-        "F3",
-        "F1",
-        "E",
         "TC"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-06-29T20:48:37.675648",
+        "actualizado": "2026-06-29T17:36:19.465042",
         "frecuencia": "horaria"
     }
 }
