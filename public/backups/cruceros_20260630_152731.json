@@ -10,7 +10,7 @@
             "pax_estimados": 6500,
             "puerto": "Valencia",
             "tipo": "llegada",
-            "estado": "Autoritzada",
+            "estado": "Confirmada",
             "bandera": "Libèria",
             "imo": "9987275",
             "mmsi": "636024420",
@@ -58,7 +58,7 @@
             "pax_estimados": 500,
             "puerto": "Fos-sur-Mer",
             "tipo": "llegada",
-            "estado": "Confirmada",
+            "estado": "Sol·licitada",
             "bandera": "Panamà",
             "imo": "9372482",
             "mmsi": "353289000",
@@ -195,22 +195,6 @@
             "fecha": "2026-06-30"
         },
         {
-            "hora": "15:16",
-            "nombre": "Msc Diana",
-            "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
-            "terminal": "TERMINAL CATALUNYA SA",
-            "terminal_codigo": "6212",
-            "eslora": 0,
-            "pax_estimados": 500,
-            "puerto": "Fos-sur-Mer",
-            "tipo": "salida",
-            "estado": "Finalitzada",
-            "bandera": "Libèria",
-            "imo": "9755933",
-            "mmsi": "636017433",
-            "fecha": "2026-06-30"
-        },
-        {
             "hora": "18:00",
             "nombre": "Msc Meraviglia",
             "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
@@ -236,7 +220,7 @@
             "pax_estimados": 6500,
             "puerto": "Gioia Tauro",
             "tipo": "salida",
-            "estado": "Autoritzada",
+            "estado": "Confirmada",
             "bandera": "Libèria",
             "imo": "9987275",
             "mmsi": "636024420",
@@ -340,25 +324,25 @@
         }
     ],
     "resumen": {
-        "total_cruceros": 12,
+        "total_cruceros": 11,
         "total_llegadas": 10,
-        "total_salidas": 11,
+        "total_salidas": 10,
         "pax_estimados_hoy": 14500,
         "proximo_desembarco": "18:15",
         "proximo_barco": "Msc Oriane"
     },
     "terminales_activas": [
+        "8156",
+        "6212",
         "F2",
+        "F3",
         "F1",
         "H",
-        "TC",
-        "F3",
-        "6212",
-        "8156"
+        "TC"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-06-30T15:27:31.334578",
+        "actualizado": "2026-06-30T11:44:26.270283",
         "frecuencia": "horaria"
     }
 }
