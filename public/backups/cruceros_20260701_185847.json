@@ -193,7 +193,7 @@
             "fecha": "2026-07-01"
         },
         {
-            "hora": "18:39",
+            "hora": "18:15",
             "nombre": "Gnv Sealand",
             "naviera": "GRANDI NAVI VELOCI",
             "terminal": "TERMINAL F2",
@@ -202,14 +202,14 @@
             "pax_estimados": 500,
             "puerto": "Mahon Menorca",
             "tipo": "llegada",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Itàlia",
             "imo": "9435454",
             "mmsi": "247265800",
             "fecha": "2026-07-01"
         },
         {
-            "hora": "19:15",
+            "hora": "19:00",
             "nombre": "Abel Matutes",
             "naviera": "EUROLINEAS MARITIMAS S.A",
             "terminal": "TERMINAL F1",
@@ -218,14 +218,14 @@
             "pax_estimados": 1000,
             "puerto": "Alcudia",
             "tipo": "llegada",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Espanya",
             "imo": "9441130",
             "mmsi": "224402000",
             "fecha": "2026-07-01"
         },
         {
-            "hora": "19:25",
+            "hora": "19:00",
             "nombre": "Ciudad De Granada",
             "naviera": "TRASMED GLE S.L.",
             "terminal": "TERMINAL F2",
@@ -234,7 +234,7 @@
             "pax_estimados": 1000,
             "puerto": "Ibiza",
             "tipo": "llegada",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Espanya",
             "imo": "9217125",
             "mmsi": "224600000",
@@ -460,7 +460,7 @@
             "pax_estimados": 1000,
             "puerto": "Alcudia",
             "tipo": "salida",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Espanya",
             "imo": "9441130",
             "mmsi": "224402000",
@@ -492,7 +492,7 @@
             "pax_estimados": 500,
             "puerto": "Ibiza",
             "tipo": "salida",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Itàlia",
             "imo": "9435454",
             "mmsi": "247265800",
@@ -508,7 +508,7 @@
             "pax_estimados": 1000,
             "puerto": "Ibiza",
             "tipo": "salida",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Xipre",
             "imo": "9019054",
             "mmsi": "210133000",
@@ -524,7 +524,7 @@
             "pax_estimados": 1000,
             "puerto": "Mahon Menorca",
             "tipo": "salida",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Espanya",
             "imo": "9217125",
             "mmsi": "224600000",
@@ -536,22 +536,22 @@
         "total_llegadas": 17,
         "total_salidas": 16,
         "pax_estimados_hoy": 26000,
-        "proximo_desembarco": "19:15",
-        "proximo_barco": "Abel Matutes"
+        "proximo_desembarco": "16:19",
+        "proximo_barco": "Msc Oriane"
     },
     "terminales_activas": [
+        "0010",
+        "F3",
+        "6995",
+        "7946",
+        "8156",
         "F2",
         "6212",
-        "F1",
-        "F3",
-        "8156",
-        "7946",
-        "6995",
-        "0010"
+        "F1"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-07-01T18:58:47.801149",
+        "actualizado": "2026-07-01T15:41:51.145188",
         "frecuencia": "horaria"
     }
 }
