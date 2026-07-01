@@ -218,7 +218,7 @@
             "pax_estimados": 1000,
             "puerto": "Alcudia",
             "tipo": "llegada",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Espanya",
             "imo": "9441130",
             "mmsi": "224402000",
@@ -250,14 +250,14 @@
             "pax_estimados": 1000,
             "puerto": "Ibiza",
             "tipo": "llegada",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Xipre",
             "imo": "9019054",
             "mmsi": "210133000",
             "fecha": "2026-07-01"
         },
         {
-            "hora": "22:03",
+            "hora": "21:00",
             "nombre": "Cruise Roma",
             "naviera": "GRIMALDI EUROMED SPA",
             "terminal": "TERMINAL F3",
@@ -266,7 +266,7 @@
             "pax_estimados": 3000,
             "puerto": "Porto Torres",
             "tipo": "llegada",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Itàlia",
             "imo": "9351476",
             "mmsi": "247219400",
@@ -451,6 +451,38 @@
             "fecha": "2026-07-01"
         },
         {
+            "hora": "21:30",
+            "nombre": "Abel Matutes",
+            "naviera": "BALEARIA EUROLINEAS MARITIMAS SA ",
+            "terminal": "TERMINAL F1",
+            "terminal_codigo": "F1",
+            "eslora": 190.0,
+            "pax_estimados": 1000,
+            "puerto": "Alcudia",
+            "tipo": "salida",
+            "estado": "Iniciada",
+            "bandera": "Espanya",
+            "imo": "9441130",
+            "mmsi": "224402000",
+            "fecha": "2026-07-01"
+        },
+        {
+            "hora": "21:30",
+            "nombre": "Cruise Roma",
+            "naviera": "GRIMALDI LOGISTICA ESPAÑA SL",
+            "terminal": "TERMINAL F3",
+            "terminal_codigo": "F3",
+            "eslora": 254.0,
+            "pax_estimados": 3000,
+            "puerto": "Porto Torres",
+            "tipo": "salida",
+            "estado": "Autoritzada",
+            "bandera": "Itàlia",
+            "imo": "9351476",
+            "mmsi": "247219400",
+            "fecha": "2026-07-01"
+        },
+        {
             "hora": "21:45",
             "nombre": "Gnv Sealand",
             "naviera": "TRANSCOMA BALEARES SA",
@@ -467,35 +499,19 @@
             "fecha": "2026-07-01"
         },
         {
-            "hora": "22:05",
-            "nombre": "Abel Matutes",
+            "hora": "22:00",
+            "nombre": "Denia Ciutat Creativa",
             "naviera": "BALEARIA EUROLINEAS MARITIMAS SA ",
             "terminal": "TERMINAL F1",
             "terminal_codigo": "F1",
-            "eslora": 190.0,
+            "eslora": 150.0,
             "pax_estimados": 1000,
-            "puerto": "Alcudia",
-            "tipo": "salida",
-            "estado": "Finalitzada",
-            "bandera": "Espanya",
-            "imo": "9441130",
-            "mmsi": "224402000",
-            "fecha": "2026-07-01"
-        },
-        {
-            "hora": "22:05",
-            "nombre": "Cruise Roma",
-            "naviera": "GRIMALDI LOGISTICA ESPAÑA SL",
-            "terminal": "TERMINAL F3",
-            "terminal_codigo": "F3",
-            "eslora": 254.0,
-            "pax_estimados": 3000,
-            "puerto": "Porto Torres",
+            "puerto": "Ibiza",
             "tipo": "salida",
             "estado": "Iniciada",
-            "bandera": "Itàlia",
-            "imo": "9351476",
-            "mmsi": "247219400",
+            "bandera": "Xipre",
+            "imo": "9019054",
+            "mmsi": "210133000",
             "fecha": "2026-07-01"
         },
         {
@@ -513,22 +529,6 @@
             "imo": "9217125",
             "mmsi": "224600000",
             "fecha": "2026-07-01"
-        },
-        {
-            "hora": "22:33",
-            "nombre": "Denia Ciutat Creativa",
-            "naviera": "BALEARIA EUROLINEAS MARITIMAS SA ",
-            "terminal": "TERMINAL F1",
-            "terminal_codigo": "F1",
-            "eslora": 150.0,
-            "pax_estimados": 1000,
-            "puerto": "Ibiza",
-            "tipo": "salida",
-            "estado": "Finalitzada",
-            "bandera": "Xipre",
-            "imo": "9019054",
-            "mmsi": "210133000",
-            "fecha": "2026-07-01"
         }
     ],
     "resumen": {
@@ -536,22 +536,22 @@
         "total_llegadas": 17,
         "total_salidas": 16,
         "pax_estimados_hoy": 26000,
-        "proximo_desembarco": null,
-        "proximo_barco": null
+        "proximo_desembarco": "21:00",
+        "proximo_barco": "Cruise Roma"
     },
     "terminales_activas": [
-        "6212",
+        "8156",
         "F2",
-        "7946",
         "6995",
-        "F1",
-        "0010",
+        "7946",
         "F3",
-        "8156"
+        "6212",
+        "0010",
+        "F1"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-07-01T22:17:05.391905",
+        "actualizado": "2026-07-01T20:51:46.216993",
         "frecuencia": "horaria"
     }
 }
