@@ -98,6 +98,22 @@
         },
         {
             "hora": "06:00",
+            "nombre": "Msc Madison Ii",
+            "naviera": "MEDITERRANEAN SHIPPING CO",
+            "terminal": "TERMINAL CATALUNYA SA",
+            "terminal_codigo": "6212",
+            "eslora": 0,
+            "pax_estimados": 500,
+            "puerto": "Oran",
+            "tipo": "llegada",
+            "estado": "Sol·licitada",
+            "bandera": "Libèria",
+            "imo": "9231119",
+            "mmsi": "636021596",
+            "fecha": "2026-07-01"
+        },
+        {
+            "hora": "06:00",
             "nombre": "Msc Rita V",
             "naviera": "MEDITERRANEAN SHIPPING CO",
             "terminal": "TERMINAL CATALUNYA SA",
@@ -110,22 +126,6 @@
             "bandera": "Libèria",
             "imo": "9313929",
             "mmsi": "636025832",
-            "fecha": "2026-07-01"
-        },
-        {
-            "hora": "07:30",
-            "nombre": "Eco Adriatica",
-            "naviera": "GRIMALDI EUROMED SPA",
-            "terminal": "GRIMALDI TERMINAL BARCELONA SL",
-            "terminal_codigo": "8156",
-            "eslora": 238.0,
-            "pax_estimados": 2000,
-            "puerto": "Valencia",
-            "tipo": "llegada",
-            "estado": "Iniciada",
-            "bandera": "Itàlia",
-            "imo": "9859600",
-            "mmsi": "247384100",
             "fecha": "2026-07-01"
         },
         {
@@ -145,6 +145,22 @@
             "fecha": "2026-07-01"
         },
         {
+            "hora": "08:03",
+            "nombre": "Eco Adriatica",
+            "naviera": "GRIMALDI EUROMED SPA",
+            "terminal": "GRIMALDI TERMINAL BARCELONA SL",
+            "terminal_codigo": "8156",
+            "eslora": 238.0,
+            "pax_estimados": 2000,
+            "puerto": "Valencia",
+            "tipo": "llegada",
+            "estado": "Iniciada",
+            "bandera": "Itàlia",
+            "imo": "9859600",
+            "mmsi": "247384100",
+            "fecha": "2026-07-01"
+        },
+        {
             "hora": "08:13",
             "nombre": "Gnv Aurora",
             "naviera": "GRANDI NAVI VELOCI",
@@ -154,7 +170,7 @@
             "pax_estimados": 2000,
             "puerto": "Tanger Med",
             "tipo": "llegada",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Itàlia",
             "imo": "9980069",
             "mmsi": "247530300",
@@ -177,19 +193,19 @@
             "fecha": "2026-07-01"
         },
         {
-            "hora": "12:15",
-            "nombre": "Msc Oriane",
-            "naviera": "MEDITERRANEAN SHIPPING CO",
-            "terminal": "TERMINAL CATALUNYA SA",
-            "terminal_codigo": "6212",
-            "eslora": 0,
-            "pax_estimados": 500,
-            "puerto": "Fos-sur-Mer",
+            "hora": "18:00",
+            "nombre": "Cruise Roma",
+            "naviera": "GRIMALDI EUROMED SPA",
+            "terminal": "TERMINAL F3",
+            "terminal_codigo": "F3",
+            "eslora": 254.0,
+            "pax_estimados": 3000,
+            "puerto": "Porto Torres",
             "tipo": "llegada",
             "estado": "Autoritzada",
-            "bandera": "Panamà",
-            "imo": "9372482",
-            "mmsi": "353289000",
+            "bandera": "Itàlia",
+            "imo": "9351476",
+            "mmsi": "247219400",
             "fecha": "2026-07-01"
         },
         {
@@ -255,22 +271,6 @@
             "imo": "9019054",
             "mmsi": "210133000",
             "fecha": "2026-07-01"
-        },
-        {
-            "hora": "21:00",
-            "nombre": "Cruise Roma",
-            "naviera": "GRIMALDI EUROMED SPA",
-            "terminal": "TERMINAL F3",
-            "terminal_codigo": "F3",
-            "eslora": 254.0,
-            "pax_estimados": 3000,
-            "puerto": "Porto Torres",
-            "tipo": "llegada",
-            "estado": "Autoritzada",
-            "bandera": "Itàlia",
-            "imo": "9351476",
-            "mmsi": "247219400",
-            "fecha": "2026-07-01"
         }
     ],
     "salidas": [
@@ -323,6 +323,22 @@
             "fecha": "2026-07-01"
         },
         {
+            "hora": "08:15",
+            "nombre": "Msc Oriane",
+            "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
+            "terminal": "TERMINAL CATALUNYA SA",
+            "terminal_codigo": "6212",
+            "eslora": 0,
+            "pax_estimados": 500,
+            "puerto": "Valencia",
+            "tipo": "salida",
+            "estado": "Autoritzada",
+            "bandera": "Panamà",
+            "imo": "9372482",
+            "mmsi": "353289000",
+            "fecha": "2026-07-01"
+        },
+        {
             "hora": "09:04",
             "nombre": "Gnv Cristal",
             "naviera": "TRANSCOMA BALEARES SA",
@@ -339,7 +355,7 @@
             "fecha": "2026-07-01"
         },
         {
-            "hora": "12:12",
+            "hora": "12:00",
             "nombre": "Gnv Aurora",
             "naviera": "TRANSCOMA BALEARES SA",
             "terminal": "TERMINAL F2",
@@ -348,7 +364,7 @@
             "pax_estimados": 2000,
             "puerto": "Genoa",
             "tipo": "salida",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Itàlia",
             "imo": "9980069",
             "mmsi": "247530300",
@@ -432,6 +448,22 @@
             "bandera": "Libèria",
             "imo": "9667928",
             "mmsi": "636023538",
+            "fecha": "2026-07-01"
+        },
+        {
+            "hora": "20:00",
+            "nombre": "Msc Madison Ii",
+            "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
+            "terminal": "TERMINAL CATALUNYA SA",
+            "terminal_codigo": "6212",
+            "eslora": 0,
+            "pax_estimados": 500,
+            "puerto": "Oran",
+            "tipo": "salida",
+            "estado": "Sol·licitada",
+            "bandera": "Libèria",
+            "imo": "9231119",
+            "mmsi": "636021596",
             "fecha": "2026-07-01"
         },
         {
@@ -532,26 +564,26 @@
         }
     ],
     "resumen": {
-        "total_cruceros": 17,
+        "total_cruceros": 18,
         "total_llegadas": 17,
-        "total_salidas": 16,
+        "total_salidas": 18,
         "pax_estimados_hoy": 26000,
-        "proximo_desembarco": "12:15",
-        "proximo_barco": "Msc Oriane"
+        "proximo_desembarco": "11:45",
+        "proximo_barco": "Gnv Virgo"
     },
     "terminales_activas": [
-        "F1",
-        "8156",
-        "6995",
         "7946",
         "0010",
-        "F2",
+        "8156",
+        "F1",
+        "6212",
         "F3",
-        "6212"
+        "6995",
+        "F2"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-07-01T12:07:48.421593",
+        "actualizado": "2026-07-01T08:49:19.590097",
         "frecuencia": "horaria"
     }
 }
