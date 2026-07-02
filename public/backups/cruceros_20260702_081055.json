@@ -1,7 +1,7 @@
 {
     "llegadas": [
         {
-            "hora": "02:56",
+            "hora": "01:00",
             "nombre": "Eco Valencia",
             "naviera": "GRIMALDI EUROMED SPA",
             "terminal": "GRIMALDI TERMINAL BARCELONA SL",
@@ -10,7 +10,7 @@
             "pax_estimados": 2000,
             "puerto": "Savona",
             "tipo": "llegada",
-            "estado": "Finalitzada",
+            "estado": "Autoritzada",
             "bandera": "Itàlia",
             "imo": "9859533",
             "mmsi": "247383300",
@@ -33,7 +33,7 @@
             "fecha": "2026-07-02"
         },
         {
-            "hora": "08:49",
+            "hora": "08:00",
             "nombre": "Msc Seaview",
             "naviera": "MSC CRUISES S.A.",
             "terminal": "ADOSSAT/TERMINAL H",
@@ -42,7 +42,7 @@
             "pax_estimados": 4500,
             "puerto": "Ibiza",
             "tipo": "llegada",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Malta",
             "imo": "9745378",
             "mmsi": "248717000",
@@ -195,23 +195,7 @@
             "fecha": "2026-07-02"
         },
         {
-            "hora": "01:09",
-            "nombre": "Cruise Roma",
-            "naviera": "GRIMALDI LOGISTICA ESPAÑA SL",
-            "terminal": "TERMINAL F3",
-            "terminal_codigo": "F3",
-            "eslora": 254.0,
-            "pax_estimados": 3000,
-            "puerto": "Porto Torres",
-            "tipo": "salida",
-            "estado": "Finalitzada",
-            "bandera": "Itàlia",
-            "imo": "9351476",
-            "mmsi": "247219400",
-            "fecha": "2026-07-02"
-        },
-        {
-            "hora": "05:28",
+            "hora": "05:00",
             "nombre": "Eco Valencia",
             "naviera": "GRIMALDI LOGISTICA ESPAÑA SL",
             "terminal": "GRIMALDI TERMINAL BARCELONA SL",
@@ -220,14 +204,14 @@
             "pax_estimados": 2000,
             "puerto": "Valencia",
             "tipo": "salida",
-            "estado": "Finalitzada",
+            "estado": "Autoritzada",
             "bandera": "Itàlia",
             "imo": "9859533",
             "mmsi": "247383300",
             "fecha": "2026-07-02"
         },
         {
-            "hora": "06:59",
+            "hora": "06:00",
             "nombre": "Msc Oriane",
             "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
             "terminal": "TERMINAL CATALUNYA SA",
@@ -236,7 +220,7 @@
             "pax_estimados": 500,
             "puerto": "Valencia",
             "tipo": "salida",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Panamà",
             "imo": "9372482",
             "mmsi": "353289000",
@@ -268,7 +252,7 @@
             "pax_estimados": 4500,
             "puerto": "Marseille",
             "tipo": "salida",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Malta",
             "imo": "9745378",
             "mmsi": "248717000",
@@ -388,26 +372,26 @@
         }
     ],
     "resumen": {
-        "total_cruceros": 15,
+        "total_cruceros": 14,
         "total_llegadas": 11,
-        "total_salidas": 13,
+        "total_salidas": 12,
         "pax_estimados_hoy": 15500,
-        "proximo_desembarco": "08:49",
-        "proximo_barco": "Msc Seaview"
+        "proximo_desembarco": "01:00",
+        "proximo_barco": "Eco Valencia"
     },
     "terminales_activas": [
-        "6212",
         "F3",
-        "F1",
-        "6154",
         "8156",
+        "F1",
+        "H",
+        "6212",
         "F2",
         "6995",
-        "H"
+        "6154"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-07-02T08:10:55.388871",
+        "actualizado": "2026-07-02T00:06:44.036475",
         "frecuencia": "horaria"
     }
 }
