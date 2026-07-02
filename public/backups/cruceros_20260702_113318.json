@@ -1,7 +1,7 @@
 {
     "llegadas": [
         {
-            "hora": "02:21",
+            "hora": "02:56",
             "nombre": "Eco Valencia",
             "naviera": "GRIMALDI EUROMED SPA",
             "terminal": "GRIMALDI TERMINAL BARCELONA SL",
@@ -49,23 +49,23 @@
             "fecha": "2026-07-02"
         },
         {
-            "hora": "11:19",
-            "nombre": "Neptune Avra",
-            "naviera": "NEPTUNE LINES SHIPPING",
-            "terminal": "",
-            "terminal_codigo": "",
-            "eslora": 155.0,
-            "pax_estimados": 1000,
-            "puerto": "Fos-sur-Mer",
+            "hora": "13:00",
+            "nombre": "Eco Savona",
+            "naviera": "GRIMALDI EUROMED SPA",
+            "terminal": "GRIMALDI TERMINAL BARCELONA SL",
+            "terminal_codigo": "8156",
+            "eslora": 238.0,
+            "pax_estimados": 2000,
+            "puerto": "Valencia",
             "tipo": "llegada",
-            "estado": "Fondeig Previ",
-            "bandera": "Illes Marshall",
-            "imo": "8807155",
-            "mmsi": "538009923",
+            "estado": "Autoritzada",
+            "bandera": "Itàlia",
+            "imo": "9859569",
+            "mmsi": "247383600",
             "fecha": "2026-07-02"
         },
         {
-            "hora": "16:15",
+            "hora": "17:00",
             "nombre": "Cruise Barcelona",
             "naviera": "GRIMALDI EUROMED SPA",
             "terminal": "TERMINAL F3",
@@ -81,19 +81,19 @@
             "fecha": "2026-07-02"
         },
         {
-            "hora": "16:30",
-            "nombre": "Eco Savona",
-            "naviera": "GRIMALDI EUROMED SPA",
-            "terminal": "GRIMALDI TERMINAL BARCELONA SL",
-            "terminal_codigo": "8156",
-            "eslora": 238.0,
-            "pax_estimados": 2000,
-            "puerto": "Valencia",
+            "hora": "18:00",
+            "nombre": "Msc Katalin Ii",
+            "naviera": "MEDITERRANEAN SHIPPING CO",
+            "terminal": "TERMINAL CATALUNYA SA",
+            "terminal_codigo": "6212",
+            "eslora": 0,
+            "pax_estimados": 500,
+            "puerto": "Djen-Djen",
             "tipo": "llegada",
-            "estado": "Autoritzada",
-            "bandera": "Itàlia",
-            "imo": "9859569",
-            "mmsi": "247383600",
+            "estado": "Confirmada",
+            "bandera": "Libèria",
+            "imo": "9232656",
+            "mmsi": "636017244",
             "fecha": "2026-07-02"
         },
         {
@@ -161,19 +161,19 @@
             "fecha": "2026-07-02"
         },
         {
-            "hora": "21:00",
-            "nombre": "Panda 006",
-            "naviera": "TAILWIND SHIPPING LINES",
+            "hora": "20:00",
+            "nombre": "Msc Cadiz",
+            "naviera": "MEDITERRANEAN SHIPPING CO",
             "terminal": "TERMINAL CATALUNYA SA",
             "terminal_codigo": "6212",
-            "eslora": 276.0,
-            "pax_estimados": 3000,
-            "puerto": "Port Kelang",
+            "eslora": 0,
+            "pax_estimados": 500,
+            "puerto": "Valencia",
             "tipo": "llegada",
             "estado": "Sol·licitada",
-            "bandera": "Libèria",
-            "imo": "9677026",
-            "mmsi": "636015872",
+            "bandera": "Alemanya",
+            "imo": "9480203",
+            "mmsi": "218847000",
             "fecha": "2026-07-02"
         }
     ],
@@ -211,7 +211,7 @@
             "fecha": "2026-07-02"
         },
         {
-            "hora": "05:53",
+            "hora": "05:28",
             "nombre": "Eco Valencia",
             "naviera": "GRIMALDI LOGISTICA ESPAÑA SL",
             "terminal": "GRIMALDI TERMINAL BARCELONA SL",
@@ -240,22 +240,6 @@
             "bandera": "Panamà",
             "imo": "9372482",
             "mmsi": "353289000",
-            "fecha": "2026-07-02"
-        },
-        {
-            "hora": "10:07",
-            "nombre": "Sti Modest",
-            "naviera": "ITALMAR 3000 SL",
-            "terminal": "DECAL ESPAÑA SA",
-            "terminal_codigo": "6037",
-            "eslora": 183.0,
-            "pax_estimados": 1000,
-            "puerto": "Genoa",
-            "tipo": "salida",
-            "estado": "Finalitzada",
-            "bandera": "Illes Marshall",
-            "imo": "9833577",
-            "mmsi": "538010468",
             "fecha": "2026-07-02"
         },
         {
@@ -288,6 +272,22 @@
             "bandera": "Malta",
             "imo": "9745378",
             "mmsi": "248717000",
+            "fecha": "2026-07-02"
+        },
+        {
+            "hora": "20:00",
+            "nombre": "Eco Savona",
+            "naviera": "GRIMALDI LOGISTICA ESPAÑA SL",
+            "terminal": "GRIMALDI TERMINAL BARCELONA SL",
+            "terminal_codigo": "8156",
+            "eslora": 238.0,
+            "pax_estimados": 2000,
+            "puerto": "Savona",
+            "tipo": "salida",
+            "estado": "Autoritzada",
+            "bandera": "Itàlia",
+            "imo": "9859569",
+            "mmsi": "247383600",
             "fecha": "2026-07-02"
         },
         {
@@ -388,27 +388,26 @@
         }
     ],
     "resumen": {
-        "total_cruceros": 16,
+        "total_cruceros": 15,
         "total_llegadas": 11,
         "total_salidas": 13,
-        "pax_estimados_hoy": 18500,
-        "proximo_desembarco": "16:15",
-        "proximo_barco": "Cruise Barcelona"
+        "pax_estimados_hoy": 15500,
+        "proximo_desembarco": "08:49",
+        "proximo_barco": "Msc Seaview"
     },
     "terminales_activas": [
-        "H",
-        "6995",
-        "8156",
-        "6037",
+        "6212",
+        "F3",
         "F1",
         "6154",
-        "F3",
+        "8156",
         "F2",
-        "6212"
+        "6995",
+        "H"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-07-02T11:33:18.284340",
+        "actualizado": "2026-07-02T08:10:55.388871",
         "frecuencia": "horaria"
     }
 }
