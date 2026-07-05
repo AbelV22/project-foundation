@@ -58,7 +58,7 @@
             "pax_estimados": 500,
             "puerto": "Napoli",
             "tipo": "llegada",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Bahames",
             "imo": "9682875",
             "mmsi": "311000396",
@@ -106,7 +106,7 @@
             "pax_estimados": 1000,
             "puerto": "Agadir",
             "tipo": "llegada",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Bahames",
             "imo": "9064126",
             "mmsi": "311050600",
@@ -161,7 +161,7 @@
             "fecha": "2026-07-05"
         },
         {
-            "hora": "18:24",
+            "hora": "18:15",
             "nombre": "Gnv Sealand",
             "naviera": "GRANDI NAVI VELOCI",
             "terminal": "TERMINAL F2",
@@ -170,7 +170,7 @@
             "pax_estimados": 500,
             "puerto": "Mahon Menorca",
             "tipo": "llegada",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Itàlia",
             "imo": "9435454",
             "mmsi": "247265800",
@@ -275,6 +275,22 @@
             "fecha": "2026-07-05"
         },
         {
+            "hora": "17:00",
+            "nombre": "Harmony Of The Seas",
+            "naviera": "BALEARES CONSIGNATARIOS SLU",
+            "terminal": "Terminal B (Maremagnum)",
+            "terminal_codigo": "B",
+            "eslora": 0,
+            "pax_estimados": 500,
+            "puerto": "Palma de Mallorca",
+            "tipo": "salida",
+            "estado": "Iniciada",
+            "bandera": "Bahames",
+            "imo": "9682875",
+            "mmsi": "311000396",
+            "fecha": "2026-07-05"
+        },
+        {
             "hora": "17:30",
             "nombre": "Gnv Virgo",
             "naviera": "TRANSCOMA BALEARES SA",
@@ -291,38 +307,6 @@
             "fecha": "2026-07-05"
         },
         {
-            "hora": "17:40",
-            "nombre": "Seven Seas Navigator",
-            "naviera": "INTERCRUISES PORT OPERATIONS SPAIN SLU",
-            "terminal": "Terminal D (Adossat)",
-            "terminal_codigo": "D",
-            "eslora": 172.0,
-            "pax_estimados": 1000,
-            "puerto": "Malaga",
-            "tipo": "salida",
-            "estado": "Finalitzada",
-            "bandera": "Bahames",
-            "imo": "9064126",
-            "mmsi": "311050600",
-            "fecha": "2026-07-05"
-        },
-        {
-            "hora": "17:46",
-            "nombre": "Harmony Of The Seas",
-            "naviera": "BALEARES CONSIGNATARIOS SLU",
-            "terminal": "Terminal B (Maremagnum)",
-            "terminal_codigo": "B",
-            "eslora": 0,
-            "pax_estimados": 500,
-            "puerto": "Palma de Mallorca",
-            "tipo": "salida",
-            "estado": "Finalitzada",
-            "bandera": "Bahames",
-            "imo": "9682875",
-            "mmsi": "311000396",
-            "fecha": "2026-07-05"
-        },
-        {
             "hora": "18:00",
             "nombre": "Costa Toscana",
             "naviera": "NOATUM MARITIME SPAIN SAU",
@@ -336,6 +320,22 @@
             "bandera": "Itàlia",
             "imo": "9781891",
             "mmsi": "247431200",
+            "fecha": "2026-07-05"
+        },
+        {
+            "hora": "18:00",
+            "nombre": "Seven Seas Navigator",
+            "naviera": "INTERCRUISES PORT OPERATIONS SPAIN SLU",
+            "terminal": "Terminal D (Adossat)",
+            "terminal_codigo": "D",
+            "eslora": 172.0,
+            "pax_estimados": 1000,
+            "puerto": "Malaga",
+            "tipo": "salida",
+            "estado": "Iniciada",
+            "bandera": "Bahames",
+            "imo": "9064126",
+            "mmsi": "311050600",
             "fecha": "2026-07-05"
         },
         {
@@ -424,23 +424,23 @@
         "total_llegadas": 13,
         "total_salidas": 13,
         "pax_estimados_hoy": 22000,
-        "proximo_desembarco": "18:24",
+        "proximo_desembarco": "18:15",
         "proximo_barco": "Gnv Sealand"
     },
     "terminales_activas": [
-        "F2",
-        "A",
-        "D",
-        "6212",
-        "E",
-        "B",
-        "H",
         "F3",
+        "E",
+        "H",
+        "B",
+        "A",
+        "6212",
+        "F2",
+        "D",
         "6154"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-07-05T18:03:05.105769",
+        "actualizado": "2026-07-05T16:08:45.705182",
         "frecuencia": "horaria"
     }
 }
