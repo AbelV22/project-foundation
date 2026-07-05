@@ -122,7 +122,7 @@
             "pax_estimados": 4500,
             "puerto": "Marseille",
             "tipo": "llegada",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Itàlia",
             "imo": "9781891",
             "mmsi": "247431200",
@@ -138,7 +138,7 @@
             "pax_estimados": 4500,
             "puerto": "Malta (Valetta)",
             "tipo": "llegada",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Panamà",
             "imo": "9359806",
             "mmsi": "357698000",
@@ -154,7 +154,7 @@
             "pax_estimados": 2000,
             "puerto": "Genoa",
             "tipo": "llegada",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Itàlia",
             "imo": "9980057",
             "mmsi": "247529200",
@@ -177,7 +177,7 @@
             "fecha": "2026-07-05"
         },
         {
-            "hora": "19:28",
+            "hora": "19:30",
             "nombre": "Ciudad De Palma",
             "naviera": "TRASMED GLE S.L.",
             "terminal": "TERMINAL F2",
@@ -186,7 +186,7 @@
             "pax_estimados": 1000,
             "puerto": "Palma de Mallorca",
             "tipo": "llegada",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Espanya",
             "imo": "9349772",
             "mmsi": "224588000",
@@ -275,6 +275,22 @@
             "fecha": "2026-07-05"
         },
         {
+            "hora": "17:30",
+            "nombre": "Gnv Virgo",
+            "naviera": "TRANSCOMA BALEARES SA",
+            "terminal": "TERMINAL F2",
+            "terminal_codigo": "F2",
+            "eslora": 218.0,
+            "pax_estimados": 2000,
+            "puerto": "Tanger Med",
+            "tipo": "salida",
+            "estado": "Iniciada",
+            "bandera": "Itàlia",
+            "imo": "9980057",
+            "mmsi": "247529200",
+            "fecha": "2026-07-05"
+        },
+        {
             "hora": "17:40",
             "nombre": "Seven Seas Navigator",
             "naviera": "INTERCRUISES PORT OPERATIONS SPAIN SLU",
@@ -307,39 +323,7 @@
             "fecha": "2026-07-05"
         },
         {
-            "hora": "18:45",
-            "nombre": "Msc Splendida",
-            "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
-            "terminal": "ADOSSAT/TERMINAL H",
-            "terminal_codigo": "H",
-            "eslora": 333.0,
-            "pax_estimados": 4500,
-            "puerto": "Marseille",
-            "tipo": "salida",
-            "estado": "Finalitzada",
-            "bandera": "Panamà",
-            "imo": "9359806",
-            "mmsi": "357698000",
-            "fecha": "2026-07-05"
-        },
-        {
-            "hora": "18:48",
-            "nombre": "Gnv Virgo",
-            "naviera": "TRANSCOMA BALEARES SA",
-            "terminal": "TERMINAL F2",
-            "terminal_codigo": "F2",
-            "eslora": 218.0,
-            "pax_estimados": 2000,
-            "puerto": "Tanger Med",
-            "tipo": "salida",
-            "estado": "Finalitzada",
-            "bandera": "Itàlia",
-            "imo": "9980057",
-            "mmsi": "247529200",
-            "fecha": "2026-07-05"
-        },
-        {
-            "hora": "18:50",
+            "hora": "18:00",
             "nombre": "Costa Toscana",
             "naviera": "NOATUM MARITIME SPAIN SAU",
             "terminal": "Terminal E (Adossat)",
@@ -348,10 +332,26 @@
             "pax_estimados": 4500,
             "puerto": "Cagliari",
             "tipo": "salida",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Itàlia",
             "imo": "9781891",
             "mmsi": "247431200",
+            "fecha": "2026-07-05"
+        },
+        {
+            "hora": "18:00",
+            "nombre": "Msc Splendida",
+            "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
+            "terminal": "ADOSSAT/TERMINAL H",
+            "terminal_codigo": "H",
+            "eslora": 333.0,
+            "pax_estimados": 4500,
+            "puerto": "Marseille",
+            "tipo": "salida",
+            "estado": "Iniciada",
+            "bandera": "Panamà",
+            "imo": "9359806",
+            "mmsi": "357698000",
             "fecha": "2026-07-05"
         },
         {
@@ -412,7 +412,7 @@
             "pax_estimados": 1000,
             "puerto": "Palma de Mallorca",
             "tipo": "salida",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Espanya",
             "imo": "9349772",
             "mmsi": "224588000",
@@ -424,23 +424,23 @@
         "total_llegadas": 13,
         "total_salidas": 13,
         "pax_estimados_hoy": 22000,
-        "proximo_desembarco": "22:45",
-        "proximo_barco": "Cruise Roma"
+        "proximo_desembarco": "18:24",
+        "proximo_barco": "Gnv Sealand"
     },
     "terminales_activas": [
-        "6212",
-        "6154",
         "F2",
-        "F3",
+        "A",
+        "D",
+        "6212",
         "E",
         "B",
         "H",
-        "A",
-        "D"
+        "F3",
+        "6154"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-07-05T20:13:54.896151",
+        "actualizado": "2026-07-05T18:03:05.105769",
         "frecuencia": "horaria"
     }
 }
