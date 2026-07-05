@@ -42,7 +42,7 @@
             "pax_estimados": 500,
             "puerto": "Oran",
             "tipo": "llegada",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Libèria",
             "imo": "9373917",
             "mmsi": "636016702",
@@ -186,7 +186,7 @@
             "pax_estimados": 1000,
             "puerto": "Palma de Mallorca",
             "tipo": "llegada",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Espanya",
             "imo": "9349772",
             "mmsi": "224588000",
@@ -387,7 +387,7 @@
             "fecha": "2026-07-05"
         },
         {
-            "hora": "20:49",
+            "hora": "21:00",
             "nombre": "Msc Oak F",
             "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
             "terminal": "TERMINAL CATALUNYA SA",
@@ -396,14 +396,14 @@
             "pax_estimados": 500,
             "puerto": "Valencia",
             "tipo": "salida",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Libèria",
             "imo": "9373917",
             "mmsi": "636016702",
             "fecha": "2026-07-05"
         },
         {
-            "hora": "22:32",
+            "hora": "22:30",
             "nombre": "Ciudad De Palma",
             "naviera": "GRIMALDI LOGISTICA ESPAÑA SL",
             "terminal": "TERMINAL F2",
@@ -412,7 +412,7 @@
             "pax_estimados": 1000,
             "puerto": "Palma de Mallorca",
             "tipo": "salida",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Espanya",
             "imo": "9349772",
             "mmsi": "224588000",
@@ -429,18 +429,18 @@
     },
     "terminales_activas": [
         "6212",
-        "D",
-        "A",
-        "H",
         "6154",
-        "E",
         "F2",
+        "F3",
+        "E",
         "B",
-        "F3"
+        "H",
+        "A",
+        "D"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-07-05T22:01:48.173910",
+        "actualizado": "2026-07-05T20:13:54.896151",
         "frecuencia": "horaria"
     }
 }
