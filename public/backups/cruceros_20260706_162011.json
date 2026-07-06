@@ -49,6 +49,22 @@
             "fecha": "2026-07-06"
         },
         {
+            "hora": "06:00",
+            "nombre": "Msc Tomoko",
+            "naviera": "MEDITERRANEAN SHIPPING CO",
+            "terminal": "TERMINAL CATALUNYA SA",
+            "terminal_codigo": "6212",
+            "eslora": 0,
+            "pax_estimados": 500,
+            "puerto": "Fos-sur-Mer",
+            "tipo": "llegada",
+            "estado": "Sol·licitada",
+            "bandera": "Panamà",
+            "imo": "9309461",
+            "mmsi": "354315000",
+            "fecha": "2026-07-06"
+        },
+        {
             "hora": "06:08",
             "nombre": "Disney Dream",
             "naviera": "DISNEY CRUISE LINE",
@@ -403,6 +419,22 @@
             "fecha": "2026-07-06"
         },
         {
+            "hora": "20:00",
+            "nombre": "Msc Tomoko",
+            "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
+            "terminal": "TERMINAL CATALUNYA SA",
+            "terminal_codigo": "6212",
+            "eslora": 0,
+            "pax_estimados": 500,
+            "puerto": "Valencia",
+            "tipo": "salida",
+            "estado": "Sol·licitada",
+            "bandera": "Panamà",
+            "imo": "9309461",
+            "mmsi": "354315000",
+            "fecha": "2026-07-06"
+        },
+        {
             "hora": "21:00",
             "nombre": "Cruise Roma",
             "naviera": "GRIMALDI LOGISTICA ESPAÑA SL",
@@ -484,26 +516,26 @@
         }
     ],
     "resumen": {
-        "total_cruceros": 15,
-        "total_llegadas": 13,
-        "total_salidas": 17,
-        "pax_estimados_hoy": 27500,
+        "total_cruceros": 16,
+        "total_llegadas": 14,
+        "total_salidas": 18,
+        "pax_estimados_hoy": 28000,
         "proximo_desembarco": "18:15",
         "proximo_barco": "Ciudad De Palma"
     },
     "terminales_activas": [
-        "6995",
         "F3",
-        "6212",
+        "6995",
         "E",
         "F1",
         "C",
+        "F2",
         "8156",
-        "F2"
+        "6212"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-07-06T16:20:11.180031",
+        "actualizado": "2026-07-06T12:55:32.799722",
         "frecuencia": "horaria"
     }
 }
