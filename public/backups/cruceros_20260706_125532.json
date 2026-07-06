@@ -138,7 +138,7 @@
             "pax_estimados": 2000,
             "puerto": "Tanger Med",
             "tipo": "llegada",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Itàlia",
             "imo": "9980069",
             "mmsi": "247530300",
@@ -177,7 +177,7 @@
             "fecha": "2026-07-06"
         },
         {
-            "hora": "10:41",
+            "hora": "11:01",
             "nombre": "Gnv Sealand",
             "naviera": "GRANDI NAVI VELOCI",
             "terminal": "TERMINAL F2",
@@ -206,6 +206,22 @@
             "bandera": "Espanya",
             "imo": "9349772",
             "mmsi": "224588000",
+            "fecha": "2026-07-06"
+        },
+        {
+            "hora": "19:00",
+            "nombre": "Abel Matutes",
+            "naviera": "EUROLINEAS MARITIMAS S.A",
+            "terminal": "BALEARIA EUROLINEAS MARITIMAS SA ",
+            "terminal_codigo": "7332",
+            "eslora": 190.0,
+            "pax_estimados": 1000,
+            "puerto": "Alcudia",
+            "tipo": "llegada",
+            "estado": "Confirmada",
+            "bandera": "Espanya",
+            "imo": "9441130",
+            "mmsi": "224402000",
             "fecha": "2026-07-06"
         },
         {
@@ -307,7 +323,7 @@
             "fecha": "2026-07-06"
         },
         {
-            "hora": "10:03",
+            "hora": "10:00",
             "nombre": "Gnv Aurora",
             "naviera": "TRANSCOMA BALEARES SA",
             "terminal": "TERMINAL F2",
@@ -316,14 +332,14 @@
             "pax_estimados": 2000,
             "puerto": "Genoa",
             "tipo": "salida",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Itàlia",
             "imo": "9980069",
             "mmsi": "247530300",
             "fecha": "2026-07-06"
         },
         {
-            "hora": "10:40",
+            "hora": "11:00",
             "nombre": "Gnv Sealand",
             "naviera": "TRANSCOMA BALEARES SA",
             "terminal": "",
@@ -451,6 +467,22 @@
             "fecha": "2026-07-06"
         },
         {
+            "hora": "21:30",
+            "nombre": "Abel Matutes",
+            "naviera": "BALEARIA EUROLINEAS MARITIMAS SA ",
+            "terminal": "BALEARIA EUROLINEAS MARITIMAS SA ",
+            "terminal_codigo": "7332",
+            "eslora": 190.0,
+            "pax_estimados": 1000,
+            "puerto": "Alcudia",
+            "tipo": "salida",
+            "estado": "Confirmada",
+            "bandera": "Espanya",
+            "imo": "9441130",
+            "mmsi": "224402000",
+            "fecha": "2026-07-06"
+        },
+        {
             "hora": "21:45",
             "nombre": "Gnv Sealand",
             "naviera": "TRANSCOMA BALEARES SA",
@@ -516,26 +548,27 @@
         }
     ],
     "resumen": {
-        "total_cruceros": 16,
-        "total_llegadas": 14,
-        "total_salidas": 18,
-        "pax_estimados_hoy": 28000,
-        "proximo_desembarco": "18:15",
-        "proximo_barco": "Ciudad De Palma"
+        "total_cruceros": 17,
+        "total_llegadas": 15,
+        "total_salidas": 19,
+        "pax_estimados_hoy": 29000,
+        "proximo_desembarco": "11:01",
+        "proximo_barco": "Gnv Sealand"
     },
     "terminales_activas": [
         "F3",
+        "C",
+        "6212",
+        "F1",
+        "8156",
+        "F2",
         "6995",
         "E",
-        "F1",
-        "C",
-        "F2",
-        "8156",
-        "6212"
+        "7332"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-07-06T12:55:32.799722",
+        "actualizado": "2026-07-06T09:00:03.447304",
         "frecuencia": "horaria"
     }
 }
