@@ -18,6 +18,22 @@
         },
         {
             "hora": "06:00",
+            "nombre": "Msc Mirja",
+            "naviera": "MEDITERRANEAN SHIPPING CO",
+            "terminal": "TERMINAL CATALUNYA SA",
+            "terminal_codigo": "6212",
+            "eslora": 0,
+            "pax_estimados": 500,
+            "puerto": "Valencia",
+            "tipo": "llegada",
+            "estado": "Sol·licitada",
+            "bandera": "Libèria",
+            "imo": "9762338",
+            "mmsi": "636017516",
+            "fecha": "2026-07-06"
+        },
+        {
+            "hora": "06:00",
             "nombre": "Msc Rita V",
             "naviera": "MEDITERRANEAN SHIPPING CO",
             "terminal": "TERMINAL CATALUNYA SA",
@@ -42,7 +58,7 @@
             "pax_estimados": 4500,
             "puerto": "Malta (Valetta)",
             "tipo": "llegada",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Bahames",
             "imo": "9434254",
             "mmsi": "311042900",
@@ -90,7 +106,7 @@
             "pax_estimados": 4500,
             "puerto": "Savona",
             "tipo": "llegada",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Itàlia",
             "imo": "9781889",
             "mmsi": "247391900",
@@ -138,7 +154,7 @@
             "pax_estimados": 2000,
             "puerto": "Savona",
             "tipo": "llegada",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Itàlia",
             "imo": "9859569",
             "mmsi": "247383600",
@@ -161,7 +177,7 @@
             "fecha": "2026-07-06"
         },
         {
-            "hora": "18:27",
+            "hora": "18:15",
             "nombre": "Ciudad De Palma",
             "naviera": "TRASMED GLE S.L.",
             "terminal": "TERMINAL F2",
@@ -170,14 +186,14 @@
             "pax_estimados": 1000,
             "puerto": "Palma de Mallorca",
             "tipo": "llegada",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Espanya",
             "imo": "9349772",
             "mmsi": "224588000",
             "fecha": "2026-07-06"
         },
         {
-            "hora": "19:37",
+            "hora": "20:00",
             "nombre": "Denia Ciutat Creativa",
             "naviera": "EUROLINEAS MARITIMAS S.A",
             "terminal": "TERMINAL F1",
@@ -186,7 +202,7 @@
             "pax_estimados": 1000,
             "puerto": "Ibiza",
             "tipo": "llegada",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Xipre",
             "imo": "9019054",
             "mmsi": "210133000",
@@ -307,7 +323,7 @@
             "fecha": "2026-07-06"
         },
         {
-            "hora": "16:50",
+            "hora": "14:00",
             "nombre": "Eco Savona",
             "naviera": "GRIMALDI LOGISTICA ESPAÑA SL",
             "terminal": "GRIMALDI TERMINAL BARCELONA SL",
@@ -316,14 +332,14 @@
             "pax_estimados": 2000,
             "puerto": "Valencia",
             "tipo": "salida",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Itàlia",
             "imo": "9859569",
             "mmsi": "247383600",
             "fecha": "2026-07-06"
         },
         {
-            "hora": "17:32",
+            "hora": "17:00",
             "nombre": "Costa Smeralda",
             "naviera": "NOATUM MARITIME SPAIN SAU",
             "terminal": "Terminal E (Adossat)",
@@ -332,14 +348,14 @@
             "pax_estimados": 4500,
             "puerto": "Marseille",
             "tipo": "salida",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Itàlia",
             "imo": "9781889",
             "mmsi": "247391900",
             "fecha": "2026-07-06"
         },
         {
-            "hora": "17:38",
+            "hora": "17:00",
             "nombre": "Disney Dream",
             "naviera": "INTERCRUISES PORT OPERATIONS SPAIN SLU",
             "terminal": "Terminal C (Sant Bertran)",
@@ -348,10 +364,26 @@
             "pax_estimados": 4500,
             "puerto": "Livorno",
             "tipo": "salida",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Bahames",
             "imo": "9434254",
             "mmsi": "311042900",
+            "fecha": "2026-07-06"
+        },
+        {
+            "hora": "20:00",
+            "nombre": "Msc Mirja",
+            "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
+            "terminal": "TERMINAL CATALUNYA SA",
+            "terminal_codigo": "6212",
+            "eslora": 0,
+            "pax_estimados": 500,
+            "puerto": "Fos-sur-Mer",
+            "tipo": "salida",
+            "estado": "Sol·licitada",
+            "bandera": "Libèria",
+            "imo": "9762338",
+            "mmsi": "636017516",
             "fecha": "2026-07-06"
         },
         {
@@ -412,7 +444,7 @@
             "pax_estimados": 1000,
             "puerto": "Ibiza",
             "tipo": "salida",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Xipre",
             "imo": "9019054",
             "mmsi": "210133000",
@@ -444,7 +476,7 @@
             "pax_estimados": 1000,
             "puerto": "Palma de Mallorca",
             "tipo": "salida",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Espanya",
             "imo": "9349772",
             "mmsi": "224588000",
@@ -452,26 +484,26 @@
         }
     ],
     "resumen": {
-        "total_cruceros": 14,
-        "total_llegadas": 12,
-        "total_salidas": 16,
-        "pax_estimados_hoy": 27000,
-        "proximo_desembarco": "19:37",
-        "proximo_barco": "Denia Ciutat Creativa"
+        "total_cruceros": 15,
+        "total_llegadas": 13,
+        "total_salidas": 17,
+        "pax_estimados_hoy": 27500,
+        "proximo_desembarco": "18:15",
+        "proximo_barco": "Ciudad De Palma"
     },
     "terminales_activas": [
         "6995",
         "F3",
+        "6212",
         "E",
         "F1",
-        "6212",
-        "F2",
+        "C",
         "8156",
-        "C"
+        "F2"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-07-06T18:54:23.980708",
+        "actualizado": "2026-07-06T16:20:11.180031",
         "frecuencia": "horaria"
     }
 }
