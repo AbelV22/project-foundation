@@ -1,7 +1,39 @@
 {
     "llegadas": [
         {
-            "hora": "07:25",
+            "hora": "00:00",
+            "nombre": "Mayaro",
+            "naviera": "MOL GLOBAL SHIP MANAGEMENT PTE",
+            "terminal": "RECEPTORA DE LIQUIDOS SA",
+            "terminal_codigo": "2252",
+            "eslora": 175.0,
+            "pax_estimados": 1000,
+            "puerto": "Genoa",
+            "tipo": "llegada",
+            "estado": "Sol·licitada",
+            "bandera": "Japó",
+            "imo": "9733703",
+            "mmsi": "431228000",
+            "fecha": "2026-07-07"
+        },
+        {
+            "hora": "06:00",
+            "nombre": "Msc Monterey V",
+            "naviera": "MEDITERRANEAN SHIPPING CO",
+            "terminal": "TERMINAL CATALUNYA SA",
+            "terminal_codigo": "6212",
+            "eslora": 0,
+            "pax_estimados": 500,
+            "puerto": "Valencia",
+            "tipo": "llegada",
+            "estado": "Autoritzada",
+            "bandera": "Portugal",
+            "imo": "9349796",
+            "mmsi": "255915882",
+            "fecha": "2026-07-07"
+        },
+        {
+            "hora": "07:21",
             "nombre": "Eco Adriatica",
             "naviera": "GRIMALDI EUROMED SPA",
             "terminal": "GRIMALDI TERMINAL BARCELONA SL",
@@ -10,7 +42,7 @@
             "pax_estimados": 2000,
             "puerto": "Valencia",
             "tipo": "llegada",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Itàlia",
             "imo": "9859600",
             "mmsi": "247384100",
@@ -33,8 +65,8 @@
             "fecha": "2026-07-07"
         },
         {
-            "hora": "10:05",
-            "nombre": "Msc Monterey V",
+            "hora": "18:00",
+            "nombre": "Msc Mirja",
             "naviera": "MEDITERRANEAN SHIPPING CO",
             "terminal": "TERMINAL CATALUNYA SA",
             "terminal_codigo": "6212",
@@ -42,26 +74,10 @@
             "pax_estimados": 500,
             "puerto": "Valencia",
             "tipo": "llegada",
-            "estado": "Iniciada",
-            "bandera": "Portugal",
-            "imo": "9349796",
-            "mmsi": "255915882",
-            "fecha": "2026-07-07"
-        },
-        {
-            "hora": "18:15",
-            "nombre": "Cruise Barcelona",
-            "naviera": "GRIMALDI EUROMED SPA",
-            "terminal": "TERMINAL F3",
-            "terminal_codigo": "F3",
-            "eslora": 0,
-            "pax_estimados": 500,
-            "puerto": "Porto Torres",
-            "tipo": "llegada",
-            "estado": "Autoritzada",
-            "bandera": "Itàlia",
-            "imo": "9351488",
-            "mmsi": "247243600",
+            "estado": "Confirmada",
+            "bandera": "Libèria",
+            "imo": "9762338",
+            "mmsi": "636017516",
             "fecha": "2026-07-07"
         },
         {
@@ -81,25 +97,25 @@
             "fecha": "2026-07-07"
         },
         {
-            "hora": "23:00",
-            "nombre": "Mayaro",
-            "naviera": "MOL GLOBAL SHIP MANAGEMENT PTE",
-            "terminal": "MILADERTO SL",
-            "terminal_codigo": "199896",
-            "eslora": 175.0,
-            "pax_estimados": 1000,
-            "puerto": "Genoa",
+            "hora": "19:30",
+            "nombre": "Cruise Barcelona",
+            "naviera": "GRIMALDI EUROMED SPA",
+            "terminal": "TERMINAL F3",
+            "terminal_codigo": "F3",
+            "eslora": 0,
+            "pax_estimados": 500,
+            "puerto": "Porto Torres",
             "tipo": "llegada",
             "estado": "Autoritzada",
-            "bandera": "Japó",
-            "imo": "9733703",
-            "mmsi": "431228000",
+            "bandera": "Itàlia",
+            "imo": "9351488",
+            "mmsi": "247243600",
             "fecha": "2026-07-07"
         }
     ],
     "salidas": [
         {
-            "hora": "11:10",
+            "hora": "12:00",
             "nombre": "Eco Adriatica",
             "naviera": "GRIMALDI LOGISTICA ESPAÑA SL",
             "terminal": "GRIMALDI TERMINAL BARCELONA SL",
@@ -108,7 +124,7 @@
             "pax_estimados": 2000,
             "puerto": "Livorno",
             "tipo": "salida",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Itàlia",
             "imo": "9859600",
             "mmsi": "247384100",
@@ -164,24 +180,24 @@
         }
     ],
     "resumen": {
-        "total_cruceros": 6,
-        "total_llegadas": 6,
+        "total_cruceros": 7,
+        "total_llegadas": 7,
         "total_salidas": 4,
-        "pax_estimados_hoy": 5000,
-        "proximo_desembarco": "18:15",
-        "proximo_barco": "Cruise Barcelona"
+        "pax_estimados_hoy": 5500,
+        "proximo_desembarco": "18:00",
+        "proximo_barco": "Msc Mirja"
     },
     "terminales_activas": [
         "6212",
-        "F2",
-        "8156",
-        "199896",
+        "2252",
         "F3",
-        "H"
+        "H",
+        "F2",
+        "8156"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-07-07T11:50:34.816814",
+        "actualizado": "2026-07-07T08:22:43.015626",
         "frecuencia": "horaria"
     }
 }
