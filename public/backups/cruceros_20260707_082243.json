@@ -33,7 +33,7 @@
             "fecha": "2026-07-07"
         },
         {
-            "hora": "07:21",
+            "hora": "07:00",
             "nombre": "Eco Adriatica",
             "naviera": "GRIMALDI EUROMED SPA",
             "terminal": "GRIMALDI TERMINAL BARCELONA SL",
@@ -42,14 +42,14 @@
             "pax_estimados": 2000,
             "puerto": "Valencia",
             "tipo": "llegada",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Itàlia",
             "imo": "9859600",
             "mmsi": "247384100",
             "fecha": "2026-07-07"
         },
         {
-            "hora": "07:49",
+            "hora": "07:00",
             "nombre": "Msc Meraviglia",
             "naviera": "MSC CRUISES S.A.",
             "terminal": "ADOSSAT/TERMINAL H",
@@ -58,7 +58,7 @@
             "pax_estimados": 500,
             "puerto": "Marseille",
             "tipo": "llegada",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Malta",
             "imo": "9760512",
             "mmsi": "249973000",
@@ -124,7 +124,7 @@
             "pax_estimados": 2000,
             "puerto": "Livorno",
             "tipo": "salida",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Itàlia",
             "imo": "9859600",
             "mmsi": "247384100",
@@ -140,7 +140,7 @@
             "pax_estimados": 500,
             "puerto": "La Goulette Nord (Halqueloued)",
             "tipo": "salida",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Malta",
             "imo": "9760512",
             "mmsi": "249973000",
@@ -184,20 +184,20 @@
         "total_llegadas": 7,
         "total_salidas": 4,
         "pax_estimados_hoy": 5500,
-        "proximo_desembarco": "18:00",
-        "proximo_barco": "Msc Mirja"
+        "proximo_desembarco": "06:00",
+        "proximo_barco": "Msc Monterey V"
     },
     "terminales_activas": [
-        "6212",
-        "2252",
-        "F3",
         "H",
+        "8156",
+        "6212",
         "F2",
-        "8156"
+        "F3",
+        "2252"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-07-07T08:22:43.015626",
+        "actualizado": "2026-07-07T00:07:49.951701",
         "frecuencia": "horaria"
     }
 }
