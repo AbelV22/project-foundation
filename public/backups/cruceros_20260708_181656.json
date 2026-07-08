@@ -106,7 +106,7 @@
             "pax_estimados": 500,
             "puerto": "Malaga",
             "tipo": "llegada",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Malta",
             "imo": "9862669",
             "mmsi": "249712000",
@@ -177,7 +177,7 @@
             "fecha": "2026-07-08"
         },
         {
-            "hora": "17:25",
+            "hora": "17:15",
             "nombre": "Cruise Roma",
             "naviera": "GRIMALDI EUROMED SPA",
             "terminal": "TERMINAL F3",
@@ -186,7 +186,7 @@
             "pax_estimados": 500,
             "puerto": "Civitavecchia",
             "tipo": "llegada",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Itàlia",
             "imo": "9351476",
             "mmsi": "247219400",
@@ -355,7 +355,7 @@
             "fecha": "2026-07-08"
         },
         {
-            "hora": "18:06",
+            "hora": "18:00",
             "nombre": "Mein Schiff Flow",
             "naviera": "INTERCRUISES PORT OPERATIONS SPAIN SLU",
             "terminal": "Terminal A (WTC)",
@@ -364,7 +364,7 @@
             "pax_estimados": 500,
             "puerto": "Palma de Mallorca",
             "tipo": "salida",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Malta",
             "imo": "9862669",
             "mmsi": "249712000",
@@ -412,7 +412,7 @@
             "pax_estimados": 500,
             "puerto": "Civitavecchia",
             "tipo": "salida",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Itàlia",
             "imo": "9351476",
             "mmsi": "247219400",
@@ -488,23 +488,23 @@
         "total_llegadas": 15,
         "total_salidas": 15,
         "pax_estimados_hoy": 18500,
-        "proximo_desembarco": "19:00",
-        "proximo_barco": "Ciudad De Granada"
+        "proximo_desembarco": "17:15",
+        "proximo_barco": "Cruise Roma"
     },
     "terminales_activas": [
-        "F2",
-        "2398",
-        "A",
         "F3",
-        "6995",
+        "F2",
         "6212",
+        "199896",
         "8156",
+        "A",
+        "6995",
         "TC",
-        "199896"
+        "2398"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-07-08T18:16:56.580818",
+        "actualizado": "2026-07-08T15:21:40.169000",
         "frecuencia": "horaria"
     }
 }
