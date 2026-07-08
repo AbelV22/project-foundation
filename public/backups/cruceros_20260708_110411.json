@@ -98,6 +98,22 @@
         },
         {
             "hora": "06:00",
+            "nombre": "Msc Sabrina",
+            "naviera": "MEDITERRANEAN SHIPPING CO",
+            "terminal": "TERMINAL CATALUNYA SA",
+            "terminal_codigo": "6212",
+            "eslora": 335.0,
+            "pax_estimados": 4500,
+            "puerto": "Valencia",
+            "tipo": "llegada",
+            "estado": "Sol·licitada",
+            "bandera": "Libèria",
+            "imo": "9979022",
+            "mmsi": "636026001",
+            "fecha": "2026-07-08"
+        },
+        {
+            "hora": "06:00",
             "nombre": "Merito",
             "naviera": "MEDITERRANEAN SHIPPING CO",
             "terminal": "TERMINAL CATALUNYA SA",
@@ -170,7 +186,7 @@
             "pax_estimados": 2000,
             "puerto": "Genoa",
             "tipo": "llegada",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Itàlia",
             "imo": "9980069",
             "mmsi": "247530300",
@@ -226,6 +242,22 @@
         },
         {
             "hora": "19:00",
+            "nombre": "Abel Matutes",
+            "naviera": "EUROLINEAS MARITIMAS S.A",
+            "terminal": "BALEARIA EUROLINEAS MARITIMAS SA ",
+            "terminal_codigo": "7332",
+            "eslora": 190.0,
+            "pax_estimados": 1000,
+            "puerto": "Alcudia",
+            "tipo": "llegada",
+            "estado": "Confirmada",
+            "bandera": "Espanya",
+            "imo": "9441130",
+            "mmsi": "224402000",
+            "fecha": "2026-07-08"
+        },
+        {
+            "hora": "19:00",
             "nombre": "Ciudad De Granada",
             "naviera": "TRASMED GLE S.L.",
             "terminal": "TERMINAL F2",
@@ -238,22 +270,6 @@
             "bandera": "Espanya",
             "imo": "9217125",
             "mmsi": "224600000",
-            "fecha": "2026-07-08"
-        },
-        {
-            "hora": "19:00",
-            "nombre": "Abel Matutes",
-            "naviera": "EUROLINEAS MARITIMAS S.A",
-            "terminal": "LEPANT/TRUCK CENTER",
-            "terminal_codigo": "TC",
-            "eslora": 190.0,
-            "pax_estimados": 1000,
-            "puerto": "Alcudia",
-            "tipo": "llegada",
-            "estado": "Autoritzada",
-            "bandera": "Espanya",
-            "imo": "9441130",
-            "mmsi": "224402000",
             "fecha": "2026-07-08"
         }
     ],
@@ -307,7 +323,7 @@
             "fecha": "2026-07-08"
         },
         {
-            "hora": "10:46",
+            "hora": "10:30",
             "nombre": "Gnv Aurora",
             "naviera": "TRANSCOMA BALEARES SA",
             "terminal": "TERMINAL F2",
@@ -316,7 +332,7 @@
             "pax_estimados": 2000,
             "puerto": "Tanger Med",
             "tipo": "salida",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Itàlia",
             "imo": "9980069",
             "mmsi": "247530300",
@@ -420,6 +436,22 @@
         },
         {
             "hora": "20:00",
+            "nombre": "Msc Sabrina",
+            "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
+            "terminal": "TERMINAL CATALUNYA SA",
+            "terminal_codigo": "6212",
+            "eslora": 335.0,
+            "pax_estimados": 4500,
+            "puerto": "Livorno",
+            "tipo": "salida",
+            "estado": "Sol·licitada",
+            "bandera": "Libèria",
+            "imo": "9979022",
+            "mmsi": "636026001",
+            "fecha": "2026-07-08"
+        },
+        {
+            "hora": "20:00",
             "nombre": "Merito",
             "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
             "terminal": "TERMINAL CATALUNYA SA",
@@ -436,6 +468,22 @@
         },
         {
             "hora": "21:30",
+            "nombre": "Abel Matutes",
+            "naviera": "BALEARIA EUROLINEAS MARITIMAS SA ",
+            "terminal": "BALEARIA EUROLINEAS MARITIMAS SA ",
+            "terminal_codigo": "7332",
+            "eslora": 190.0,
+            "pax_estimados": 1000,
+            "puerto": "Alcudia",
+            "tipo": "salida",
+            "estado": "Confirmada",
+            "bandera": "Espanya",
+            "imo": "9441130",
+            "mmsi": "224402000",
+            "fecha": "2026-07-08"
+        },
+        {
+            "hora": "21:30",
             "nombre": "Cruise Roma",
             "naviera": "GRIMALDI LOGISTICA ESPAÑA SL",
             "terminal": "TERMINAL F3",
@@ -448,22 +496,6 @@
             "bandera": "Itàlia",
             "imo": "9351476",
             "mmsi": "247219400",
-            "fecha": "2026-07-08"
-        },
-        {
-            "hora": "21:30",
-            "nombre": "Abel Matutes",
-            "naviera": "BALEARIA EUROLINEAS MARITIMAS SA ",
-            "terminal": "LEPANT/TRUCK CENTER",
-            "terminal_codigo": "TC",
-            "eslora": 190.0,
-            "pax_estimados": 1000,
-            "puerto": "Alcudia",
-            "tipo": "salida",
-            "estado": "Autoritzada",
-            "bandera": "Espanya",
-            "imo": "9441130",
-            "mmsi": "224402000",
             "fecha": "2026-07-08"
         },
         {
@@ -516,28 +548,28 @@
         }
     ],
     "resumen": {
-        "total_cruceros": 18,
-        "total_llegadas": 16,
-        "total_salidas": 16,
-        "pax_estimados_hoy": 23000,
-        "proximo_desembarco": "18:00",
-        "proximo_barco": "Cruise Roma"
+        "total_cruceros": 19,
+        "total_llegadas": 17,
+        "total_salidas": 17,
+        "pax_estimados_hoy": 27500,
+        "proximo_desembarco": "07:37",
+        "proximo_barco": "Eco Savona"
     },
     "terminales_activas": [
-        "199896",
-        "A",
-        "6995",
-        "6154",
-        "2398",
-        "F3",
-        "TC",
+        "8156",
         "6212",
+        "199896",
+        "F3",
+        "6154",
         "F2",
-        "8156"
+        "7332",
+        "6995",
+        "A",
+        "2398"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-07-08T11:04:11.217363",
+        "actualizado": "2026-07-08T07:28:55.344177",
         "frecuencia": "horaria"
     }
 }
