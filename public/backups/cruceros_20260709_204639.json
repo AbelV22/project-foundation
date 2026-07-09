@@ -90,7 +90,7 @@
             "pax_estimados": 1000,
             "puerto": "Palma de Mallorca",
             "tipo": "llegada",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Bahames",
             "imo": "9192167",
             "mmsi": "308628000",
@@ -154,7 +154,7 @@
             "pax_estimados": 500,
             "puerto": "Civitavecchia",
             "tipo": "llegada",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Itàlia",
             "imo": "9351488",
             "mmsi": "247243600",
@@ -339,7 +339,7 @@
             "fecha": "2026-07-09"
         },
         {
-            "hora": "20:42",
+            "hora": "20:30",
             "nombre": "Silver Shadow",
             "naviera": "INTERCRUISES PORT OPERATIONS SPAIN SLU",
             "terminal": "Terminal B (Maremagnum)",
@@ -348,14 +348,14 @@
             "pax_estimados": 1000,
             "puerto": "Palamos",
             "tipo": "salida",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Bahames",
             "imo": "9192167",
             "mmsi": "308628000",
             "fecha": "2026-07-09"
         },
         {
-            "hora": "20:58",
+            "hora": "20:30",
             "nombre": "Cruise Barcelona",
             "naviera": "GRIMALDI LOGISTICA ESPAÑA SL",
             "terminal": "TERMINAL F3",
@@ -364,7 +364,7 @@
             "pax_estimados": 500,
             "puerto": "Porto Torres",
             "tipo": "salida",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Itàlia",
             "imo": "9351488",
             "mmsi": "247243600",
@@ -408,24 +408,24 @@
         "total_llegadas": 13,
         "total_salidas": 12,
         "pax_estimados_hoy": 17000,
-        "proximo_desembarco": null,
-        "proximo_barco": null
+        "proximo_desembarco": "18:52",
+        "proximo_barco": "Gnv Sealand"
     },
     "terminales_activas": [
         "A",
-        "F3",
-        "B",
-        "199896",
-        "8156",
         "6154",
-        "6212",
-        "S",
         "H",
-        "F2"
+        "B",
+        "8156",
+        "6212",
+        "F3",
+        "F2",
+        "S",
+        "199896"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-07-09T20:46:39.144942",
+        "actualizado": "2026-07-09T18:50:03.200603",
         "frecuencia": "horaria"
     }
 }
