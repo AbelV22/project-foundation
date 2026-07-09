@@ -1,6 +1,22 @@
 {
     "llegadas": [
         {
+            "hora": "01:00",
+            "nombre": "Cma Cgm Harmony",
+            "naviera": "CMA CGM",
+            "terminal": "APM TERMINALS BARCELONA, S.L.U.",
+            "terminal_codigo": "7083",
+            "eslora": 0,
+            "pax_estimados": 500,
+            "puerto": "Marseille",
+            "tipo": "llegada",
+            "estado": "Sol·licitada",
+            "bandera": "Malta",
+            "imo": "9952828",
+            "mmsi": "256849000",
+            "fecha": "2026-07-09"
+        },
+        {
             "hora": "01:29",
             "nombre": "Eco Livorno",
             "naviera": "GRIMALDI EUROMED SPA",
@@ -129,7 +145,7 @@
             "fecha": "2026-07-09"
         },
         {
-            "hora": "14:51",
+            "hora": "14:00",
             "nombre": "Super-Fast Baleares",
             "naviera": "UNITED GLOBAL RORO FZCO",
             "terminal": "AUTOTERMINAL SA",
@@ -138,7 +154,7 @@
             "pax_estimados": 2000,
             "puerto": "Djen-Djen",
             "tipo": "llegada",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Illes Marshall",
             "imo": "9398527",
             "mmsi": "538011224",
@@ -404,28 +420,29 @@
         }
     ],
     "resumen": {
-        "total_cruceros": 14,
-        "total_llegadas": 13,
+        "total_cruceros": 15,
+        "total_llegadas": 14,
         "total_salidas": 12,
-        "pax_estimados_hoy": 17000,
-        "proximo_desembarco": "16:30",
-        "proximo_barco": "Cruise Barcelona"
+        "pax_estimados_hoy": 17500,
+        "proximo_desembarco": "12:36",
+        "proximo_barco": "Mayaro"
     },
     "terminales_activas": [
+        "B",
         "F2",
-        "H",
         "A",
-        "6212",
-        "S",
         "F3",
-        "8156",
+        "7083",
         "199896",
+        "8156",
+        "H",
+        "6212",
         "6154",
-        "B"
+        "S"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-07-09T15:55:40.692573",
+        "actualizado": "2026-07-09T11:57:37.471361",
         "frecuencia": "horaria"
     }
 }
