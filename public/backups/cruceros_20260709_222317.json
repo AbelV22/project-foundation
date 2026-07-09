@@ -186,7 +186,7 @@
             "pax_estimados": 500,
             "puerto": "Ibiza",
             "tipo": "llegada",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Itàlia",
             "imo": "9435454",
             "mmsi": "247265800",
@@ -202,7 +202,7 @@
             "pax_estimados": 1000,
             "puerto": "Mahon Menorca",
             "tipo": "llegada",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Espanya",
             "imo": "9217125",
             "mmsi": "224600000",
@@ -371,7 +371,7 @@
             "fecha": "2026-07-09"
         },
         {
-            "hora": "22:11",
+            "hora": "21:45",
             "nombre": "Gnv Sealand",
             "naviera": "TRANSCOMA BALEARES SA",
             "terminal": "TERMINAL F2",
@@ -380,14 +380,14 @@
             "pax_estimados": 500,
             "puerto": "Mahon Menorca",
             "tipo": "salida",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Itàlia",
             "imo": "9435454",
             "mmsi": "247265800",
             "fecha": "2026-07-09"
         },
         {
-            "hora": "22:19",
+            "hora": "22:00",
             "nombre": "Ciudad De Granada",
             "naviera": "GRIMALDI LOGISTICA ESPAÑA SL",
             "terminal": "TERMINAL F2",
@@ -396,7 +396,7 @@
             "pax_estimados": 1000,
             "puerto": "Ibiza",
             "tipo": "salida",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Espanya",
             "imo": "9217125",
             "mmsi": "224600000",
@@ -412,20 +412,20 @@
         "proximo_barco": null
     },
     "terminales_activas": [
-        "8156",
-        "F2",
-        "6154",
-        "F3",
-        "H",
-        "6212",
-        "B",
         "A",
+        "F3",
+        "B",
         "199896",
-        "S"
+        "8156",
+        "6154",
+        "6212",
+        "S",
+        "H",
+        "F2"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-07-09T22:23:17.922024",
+        "actualizado": "2026-07-09T20:46:39.144942",
         "frecuencia": "horaria"
     }
 }
