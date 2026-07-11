@@ -4,6 +4,18 @@
             "hora": "06:25",
             "origen": "Figueres-Vilafant",
             "tren": "AVE 03302",
+            "via": "6"
+        },
+        {
+            "hora": "08:50",
+            "origen": "Figueres-Vilafant",
+            "tren": "AVE 03092",
+            "via": "2"
+        },
+        {
+            "hora": "09:39",
+            "origen": "València Estació del Nord",
+            "tren": "EUROMED 01072",
             "via": "-"
         },
         {
@@ -25,6 +37,12 @@
             "via": "-"
         },
         {
+            "hora": "10:24",
+            "origen": "Madrid Puerta de Atocha Almudena Grandes",
+            "tren": "IRYO 06071",
+            "via": "-"
+        },
+        {
             "hora": "11:11",
             "origen": "Madrid Puerta de Atocha Almudena Grandes",
             "tren": "AVE 03073",
@@ -34,7 +52,7 @@
             "hora": "11:24",
             "origen": "Madrid Puerta de Atocha Almudena Grandes",
             "tren": "IRYO 06081",
-            "via": "1"
+            "via": "-"
         },
         {
             "hora": "11:44",
@@ -46,7 +64,7 @@
             "hora": "11:52",
             "origen": "Madrid Puerta de Atocha Almudena Grandes",
             "tren": "IRYO 06281",
-            "via": "4"
+            "via": "-"
         },
         {
             "hora": "11:59",
@@ -64,7 +82,7 @@
             "hora": "12:12",
             "origen": "Alacant / Alicante Terminal",
             "tren": "EUROMED 01092",
-            "via": "6"
+            "via": "-"
         },
         {
             "hora": "12:36",
@@ -82,7 +100,7 @@
             "hora": "13:04",
             "origen": "Madrid Puerta de Atocha Almudena Grandes",
             "tren": "AVE 03093",
-            "via": "3"
+            "via": "-"
         },
         {
             "hora": "13:09",
@@ -247,30 +265,6 @@
             "via": "-"
         },
         {
-            "hora": "19:50",
-            "origen": "Madrid Puerta de Atocha Almudena Grandes",
-            "tren": "AVE 03163",
-            "via": "-"
-        },
-        {
-            "hora": "19:59",
-            "origen": "Madrid Puerta de Atocha Almudena Grandes",
-            "tren": "AVE 03171",
-            "via": "-"
-        },
-        {
-            "hora": "20:02",
-            "origen": "Pamplona / Iruña",
-            "tren": "INTERCITY 00563",
-            "via": "-"
-        },
-        {
-            "hora": "20:33",
-            "origen": "Figueres-Vilafant",
-            "tren": "AVE 34292",
-            "via": "-"
-        },
-        {
             "hora": "20:42",
             "origen": "Madrid Puerta de Atocha Almudena Grandes",
             "tren": "IRYO 06171",
@@ -289,21 +283,9 @@
             "via": "-"
         },
         {
-            "hora": "20:59",
-            "origen": "Madrid Puerta de Atocha Almudena Grandes",
-            "tren": "AVE 03181",
-            "via": "-"
-        },
-        {
             "hora": "21:11",
             "origen": "Madrid Puerta de Atocha Almudena Grandes",
             "tren": "AVE 03173",
-            "via": "-"
-        },
-        {
-            "hora": "21:15",
-            "origen": "València Estació del Nord",
-            "tren": "EUROMED 01182",
             "via": "-"
         },
         {
@@ -319,21 +301,9 @@
             "via": "-"
         },
         {
-            "hora": "21:44",
-            "origen": "Madrid Puerta de Atocha Almudena Grandes",
-            "tren": "IRYO 06181",
-            "via": "-"
-        },
-        {
             "hora": "21:49",
             "origen": "Madrid Puerta de Atocha Almudena Grandes",
             "tren": "AVE 03183",
-            "via": "-"
-        },
-        {
-            "hora": "21:59",
-            "origen": "Madrid Puerta de Atocha Almudena Grandes",
-            "tren": "AVE 03191",
             "via": "-"
         },
         {
@@ -386,8 +356,8 @@
         }
     ],
     "meta": {
-        "update_time": "09:14",
-        "updated_at": "2026-07-11T09:14:50.448589",
-        "total": 64
+        "update_time": "23:46",
+        "updated_at": "2026-07-10T23:46:02.042127",
+        "total": 59
     }
 }
