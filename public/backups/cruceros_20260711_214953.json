@@ -97,6 +97,22 @@
             "fecha": "2026-07-11"
         },
         {
+            "hora": "10:00",
+            "nombre": "Ever Vigorous",
+            "naviera": "OSM Ship Management GmbH",
+            "terminal": "RECEPTORA DE LIQUIDOS SA",
+            "terminal_codigo": "2252",
+            "eslora": 170.0,
+            "pax_estimados": 1000,
+            "puerto": "Santa Marta",
+            "tipo": "llegada",
+            "estado": "Iniciada",
+            "bandera": "Libèria",
+            "imo": "9294288",
+            "mmsi": "636023607",
+            "fecha": "2026-07-11"
+        },
+        {
             "hora": "11:01",
             "nombre": "Msc Marie Leslie",
             "naviera": "MEDITERRANEAN SHIPPING CO",
@@ -138,7 +154,7 @@
             "pax_estimados": 500,
             "puerto": "Ibiza",
             "tipo": "llegada",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Itàlia",
             "imo": "9435454",
             "mmsi": "247265800",
@@ -191,25 +207,25 @@
             "imo": "9952828",
             "mmsi": "256849000",
             "fecha": "2026-07-11"
-        },
+        }
+    ],
+    "salidas": [
         {
-            "hora": "22:43",
+            "hora": "09:59",
             "nombre": "Ever Vigorous",
-            "naviera": "OSM Ship Management GmbH",
-            "terminal": "RECEPTORA DE LIQUIDOS SA",
-            "terminal_codigo": "2252",
+            "naviera": "ALFASHIP MARITIME SERVICES SL ",
+            "terminal": "",
+            "terminal_codigo": "",
             "eslora": 170.0,
             "pax_estimados": 1000,
-            "puerto": "Santa Marta",
-            "tipo": "llegada",
+            "puerto": "Jose Terminal",
+            "tipo": "salida",
             "estado": "Iniciada",
             "bandera": "Libèria",
             "imo": "9294288",
             "mmsi": "636023607",
             "fecha": "2026-07-11"
-        }
-    ],
-    "salidas": [
+        },
         {
             "hora": "13:38",
             "nombre": "Eco Livorno",
@@ -291,7 +307,7 @@
             "fecha": "2026-07-11"
         },
         {
-            "hora": "21:47",
+            "hora": "21:45",
             "nombre": "Gnv Sealand",
             "naviera": "TRANSCOMA BALEARES SA",
             "terminal": "TERMINAL F2",
@@ -300,26 +316,10 @@
             "pax_estimados": 500,
             "puerto": "Mahon Menorca",
             "tipo": "salida",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Itàlia",
             "imo": "9435454",
             "mmsi": "247265800",
-            "fecha": "2026-07-11"
-        },
-        {
-            "hora": "22:42",
-            "nombre": "Ever Vigorous",
-            "naviera": "ALFASHIP MARITIME SERVICES SL ",
-            "terminal": "",
-            "terminal_codigo": "",
-            "eslora": 170.0,
-            "pax_estimados": 1000,
-            "puerto": "Jose Terminal",
-            "tipo": "salida",
-            "estado": "Iniciada",
-            "bandera": "Libèria",
-            "imo": "9294288",
-            "mmsi": "636023607",
             "fecha": "2026-07-11"
         }
     ],
@@ -328,22 +328,22 @@
         "total_llegadas": 13,
         "total_salidas": 7,
         "pax_estimados_hoy": 10500,
-        "proximo_desembarco": "22:43",
-        "proximo_barco": "Ever Vigorous"
+        "proximo_desembarco": "20:37",
+        "proximo_barco": "Cruise Barcelona"
     },
     "terminales_activas": [
+        "2252",
+        "H",
+        "6212",
+        "A",
         "F3",
         "F2",
-        "6212",
-        "2252",
-        "8156",
-        "A",
         "7083",
-        "H"
+        "8156"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-07-11T21:49:53.069874",
+        "actualizado": "2026-07-11T20:05:13.838751",
         "frecuencia": "horaria"
     }
 }
