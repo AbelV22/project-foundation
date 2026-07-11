@@ -17,7 +17,7 @@
             "fecha": "2026-07-11"
         },
         {
-            "hora": "04:44",
+            "hora": "04:00",
             "nombre": "Celebrity Xcel",
             "naviera": "CELEBRITY CRUISES",
             "terminal": "Terminal A (WTC)",
@@ -26,10 +26,26 @@
             "pax_estimados": 500,
             "puerto": "Napoli",
             "tipo": "llegada",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Malta",
             "imo": "9884136",
             "mmsi": "249457000",
+            "fecha": "2026-07-11"
+        },
+        {
+            "hora": "06:00",
+            "nombre": "Msc Cedar Ii",
+            "naviera": "MEDITERRANEAN SHIPPING CO",
+            "terminal": "TERMINAL CATALUNYA SA",
+            "terminal_codigo": "6212",
+            "eslora": 0,
+            "pax_estimados": 500,
+            "puerto": "Oran",
+            "tipo": "llegada",
+            "estado": "Autoritzada",
+            "bandera": "Libèria",
+            "imo": "9231092",
+            "mmsi": "636025342",
             "fecha": "2026-07-11"
         },
         {
@@ -65,23 +81,7 @@
             "fecha": "2026-07-11"
         },
         {
-            "hora": "06:47",
-            "nombre": "Msc Cedar Ii",
-            "naviera": "MEDITERRANEAN SHIPPING CO",
-            "terminal": "TERMINAL CATALUNYA SA",
-            "terminal_codigo": "6212",
-            "eslora": 0,
-            "pax_estimados": 500,
-            "puerto": "Oran",
-            "tipo": "llegada",
-            "estado": "Iniciada",
-            "bandera": "Libèria",
-            "imo": "9231092",
-            "mmsi": "636025342",
-            "fecha": "2026-07-11"
-        },
-        {
-            "hora": "07:25",
+            "hora": "07:00",
             "nombre": "Eco Livorno",
             "naviera": "GRIMALDI EUROMED SPA",
             "terminal": "GRIMALDI TERMINAL BARCELONA SL",
@@ -90,14 +90,14 @@
             "pax_estimados": 2000,
             "puerto": "Valencia",
             "tipo": "llegada",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Itàlia",
             "imo": "9859557",
             "mmsi": "247383500",
             "fecha": "2026-07-11"
         },
         {
-            "hora": "07:30",
+            "hora": "07:00",
             "nombre": "Msc Grandiosa",
             "naviera": "MSC CRUISES S.A.",
             "terminal": "ADOSSAT/TERMINAL H",
@@ -106,26 +106,10 @@
             "pax_estimados": 500,
             "puerto": "Palma de Mallorca",
             "tipo": "llegada",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Malta",
             "imo": "9803613",
             "mmsi": "215325000",
-            "fecha": "2026-07-11"
-        },
-        {
-            "hora": "09:58",
-            "nombre": "Ever Vigorous",
-            "naviera": "OSM Ship Management GmbH",
-            "terminal": "",
-            "terminal_codigo": "",
-            "eslora": 170.0,
-            "pax_estimados": 1000,
-            "puerto": "Santa Marta",
-            "tipo": "llegada",
-            "estado": "Autoritzada",
-            "bandera": "Libèria",
-            "imo": "9294288",
-            "mmsi": "636023607",
             "fecha": "2026-07-11"
         },
         {
@@ -227,22 +211,6 @@
             "fecha": "2026-07-11"
         },
         {
-            "hora": "09:59",
-            "nombre": "Ever Vigorous",
-            "naviera": "ALFASHIP MARITIME SERVICES SL ",
-            "terminal": "",
-            "terminal_codigo": "",
-            "eslora": 170.0,
-            "pax_estimados": 1000,
-            "puerto": "Jose Terminal",
-            "tipo": "salida",
-            "estado": "Autoritzada",
-            "bandera": "Libèria",
-            "imo": "9294288",
-            "mmsi": "636023607",
-            "fecha": "2026-07-11"
-        },
-        {
             "hora": "14:00",
             "nombre": "Eco Livorno",
             "naviera": "GRIMALDI LOGISTICA ESPAÑA SL",
@@ -252,7 +220,7 @@
             "pax_estimados": 2000,
             "puerto": "Savona",
             "tipo": "salida",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Itàlia",
             "imo": "9859557",
             "mmsi": "247383500",
@@ -268,7 +236,7 @@
             "pax_estimados": 500,
             "puerto": "Malta (Valetta)",
             "tipo": "salida",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Malta",
             "imo": "9884136",
             "mmsi": "249457000",
@@ -284,7 +252,7 @@
             "pax_estimados": 500,
             "puerto": "Cannes",
             "tipo": "salida",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Malta",
             "imo": "9803613",
             "mmsi": "215325000",
@@ -325,25 +293,25 @@
     ],
     "resumen": {
         "total_cruceros": 13,
-        "total_llegadas": 13,
-        "total_salidas": 7,
-        "pax_estimados_hoy": 10500,
-        "proximo_desembarco": "07:25",
-        "proximo_barco": "Eco Livorno"
+        "total_llegadas": 12,
+        "total_salidas": 6,
+        "pax_estimados_hoy": 9500,
+        "proximo_desembarco": null,
+        "proximo_barco": null
     },
     "terminales_activas": [
+        "7083",
+        "8156",
+        "2252",
+        "6212",
+        "H",
         "A",
         "F3",
-        "8156",
-        "H",
-        "6212",
-        "F2",
-        "2252",
-        "7083"
+        "F2"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-07-11T07:11:01.247960",
+        "actualizado": "2026-07-10T23:57:23.174424",
         "frecuencia": "horaria"
     }
 }
