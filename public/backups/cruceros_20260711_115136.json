@@ -34,6 +34,22 @@
         },
         {
             "hora": "06:00",
+            "nombre": "Msc Marie Leslie",
+            "naviera": "MEDITERRANEAN SHIPPING CO",
+            "terminal": "TERMINAL CATALUNYA SA",
+            "terminal_codigo": "6212",
+            "eslora": 0,
+            "pax_estimados": 500,
+            "puerto": "Aliaga",
+            "tipo": "llegada",
+            "estado": "Autoritzada",
+            "bandera": "Libèria",
+            "imo": "9968310",
+            "mmsi": "636025346",
+            "fecha": "2026-07-11"
+        },
+        {
+            "hora": "06:00",
             "nombre": "Msc Tomoko",
             "naviera": "MEDITERRANEAN SHIPPING CO",
             "terminal": "TERMINAL CATALUNYA SA",
@@ -142,22 +158,6 @@
             "bandera": "Malta",
             "imo": "9952828",
             "mmsi": "256849000",
-            "fecha": "2026-07-11"
-        },
-        {
-            "hora": "11:01",
-            "nombre": "Msc Marie Leslie",
-            "naviera": "MEDITERRANEAN SHIPPING CO",
-            "terminal": "TERMINAL CATALUNYA SA",
-            "terminal_codigo": "6212",
-            "eslora": 0,
-            "pax_estimados": 500,
-            "puerto": "Aliaga",
-            "tipo": "llegada",
-            "estado": "Iniciada",
-            "bandera": "Libèria",
-            "imo": "9968310",
-            "mmsi": "636025346",
             "fecha": "2026-07-11"
         },
         {
@@ -328,22 +328,22 @@
         "total_llegadas": 13,
         "total_salidas": 7,
         "pax_estimados_hoy": 10500,
-        "proximo_desembarco": "13:00",
-        "proximo_barco": "Eco Savona"
+        "proximo_desembarco": "11:00",
+        "proximo_barco": "Cma Cgm Harmony"
     },
     "terminales_activas": [
+        "F3",
         "2252",
+        "F2",
         "6212",
+        "H",
         "A",
         "7083",
-        "F3",
-        "H",
-        "F2",
         "8156"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-07-11T11:51:36.944963",
+        "actualizado": "2026-07-11T10:14:21.386956",
         "frecuencia": "horaria"
     }
 }
