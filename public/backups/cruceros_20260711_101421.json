@@ -122,7 +122,7 @@
             "pax_estimados": 1000,
             "puerto": "Santa Marta",
             "tipo": "llegada",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Libèria",
             "imo": "9294288",
             "mmsi": "636023607",
@@ -138,7 +138,7 @@
             "pax_estimados": 1000,
             "puerto": "Santa Marta",
             "tipo": "llegada",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Libèria",
             "imo": "9294288",
             "mmsi": "636023607",
@@ -236,7 +236,7 @@
             "pax_estimados": 1000,
             "puerto": "Jose Terminal",
             "tipo": "salida",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Libèria",
             "imo": "9294288",
             "mmsi": "636023607",
@@ -328,22 +328,22 @@
         "total_llegadas": 13,
         "total_salidas": 7,
         "pax_estimados_hoy": 10500,
-        "proximo_desembarco": "11:00",
-        "proximo_barco": "Cma Cgm Harmony"
+        "proximo_desembarco": "07:25",
+        "proximo_barco": "Eco Livorno"
     },
     "terminales_activas": [
-        "F3",
-        "2252",
-        "F2",
-        "6212",
-        "H",
         "A",
-        "7083",
-        "8156"
+        "F3",
+        "8156",
+        "H",
+        "6212",
+        "F2",
+        "2252",
+        "7083"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-07-11T10:14:21.386956",
+        "actualizado": "2026-07-11T07:11:01.247960",
         "frecuencia": "horaria"
     }
 }
