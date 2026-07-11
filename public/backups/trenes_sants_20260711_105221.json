@@ -34,13 +34,19 @@
             "hora": "11:24",
             "origen": "Madrid Puerta de Atocha Almudena Grandes",
             "tren": "IRYO 06081",
+            "via": "1"
+        },
+        {
+            "hora": "11:44",
+            "origen": "Madrid Puerta de Atocha Almudena Grandes",
+            "tren": "AVE 03083",
             "via": "-"
         },
         {
             "hora": "11:52",
             "origen": "Madrid Puerta de Atocha Almudena Grandes",
             "tren": "IRYO 06281",
-            "via": "-"
+            "via": "4"
         },
         {
             "hora": "11:59",
@@ -49,10 +55,16 @@
             "via": "-"
         },
         {
+            "hora": "12:06",
+            "origen": "Madrid Puerta de Atocha Almudena Grandes",
+            "tren": "AVE 03091",
+            "via": "-"
+        },
+        {
             "hora": "12:12",
             "origen": "Alacant / Alicante Terminal",
             "tren": "EUROMED 01092",
-            "via": "-"
+            "via": "6"
         },
         {
             "hora": "12:36",
@@ -88,7 +100,7 @@
             "hora": "13:36",
             "origen": "Paris Gare de Lyon",
             "tren": "TGV INOUI 09711",
-            "via": "4"
+            "via": "-"
         },
         {
             "hora": "13:44",
@@ -112,7 +124,7 @@
             "hora": "14:50",
             "origen": "Alacant / Alicante Terminal",
             "tren": "EUROMED 01112",
-            "via": "4"
+            "via": "-"
         },
         {
             "hora": "14:54",
@@ -331,12 +343,6 @@
             "via": "-"
         },
         {
-            "hora": "22:10",
-            "origen": "València Estació del Nord",
-            "tren": "INTERCITY 01382",
-            "via": "-"
-        },
-        {
             "hora": "22:13",
             "origen": "Bilbao Intermodal Abando-Indalecio Prieto.",
             "tren": "ALVIA 00437",
@@ -367,12 +373,6 @@
             "via": "-"
         },
         {
-            "hora": "23:25",
-            "origen": "Alacant / Alicante Terminal",
-            "tren": "INTERCITY 01402",
-            "via": "-"
-        },
-        {
             "hora": "23:28",
             "origen": "Madrid Puerta de Atocha Almudena Grandes",
             "tren": "OUIGO 06425",
@@ -383,17 +383,11 @@
             "origen": "Vigo Urzaiz",
             "tren": "ALVIA 00621",
             "via": "-"
-        },
-        {
-            "hora": "23:39",
-            "origen": "Madrid Puerta de Atocha Almudena Grandes",
-            "tren": "IRYO 06201",
-            "via": "-"
         }
     ],
     "meta": {
-        "update_time": "10:52",
-        "updated_at": "2026-07-11T10:52:21.204218",
-        "total": 65
+        "update_time": "09:14",
+        "updated_at": "2026-07-11T09:14:50.448589",
+        "total": 64
     }
 }
