@@ -97,6 +97,22 @@
             "fecha": "2026-07-12"
         },
         {
+            "hora": "14:00",
+            "nombre": "Hmm Lime",
+            "naviera": "HYUNDAI MERCHANT MAR",
+            "terminal": "APM TERMINALS BARCELONA, S.L.U.",
+            "terminal_codigo": "7083",
+            "eslora": 274.0,
+            "pax_estimados": 3000,
+            "puerto": "Valencia",
+            "tipo": "llegada",
+            "estado": "Autoritzada",
+            "bandera": "Panamà",
+            "imo": "9998511",
+            "mmsi": "352006289",
+            "fecha": "2026-07-12"
+        },
+        {
             "hora": "15:00",
             "nombre": "Gnv Aurora",
             "naviera": "GRANDI NAVI VELOCI",
@@ -110,22 +126,6 @@
             "bandera": "Itàlia",
             "imo": "9980069",
             "mmsi": "247530300",
-            "fecha": "2026-07-12"
-        },
-        {
-            "hora": "16:46",
-            "nombre": "Hmm Lime",
-            "naviera": "HYUNDAI MERCHANT MAR",
-            "terminal": "APM TERMINALS BARCELONA, S.L.U.",
-            "terminal_codigo": "7083",
-            "eslora": 274.0,
-            "pax_estimados": 3000,
-            "puerto": "Valencia",
-            "tipo": "llegada",
-            "estado": "Iniciada",
-            "bandera": "Panamà",
-            "imo": "9998511",
-            "mmsi": "352006289",
             "fecha": "2026-07-12"
         },
         {
@@ -408,24 +408,24 @@
         "total_llegadas": 11,
         "total_salidas": 14,
         "pax_estimados_hoy": 15500,
-        "proximo_desembarco": "16:46",
-        "proximo_barco": "Hmm Lime"
+        "proximo_desembarco": "15:00",
+        "proximo_barco": "Gnv Aurora"
     },
     "terminales_activas": [
-        "0010",
-        "F2",
-        "7083",
-        "6212",
-        "TC",
-        "B",
-        "H",
         "A",
+        "H",
         "F3",
+        "7083",
+        "TC",
+        "6212",
+        "0010",
+        "B",
+        "F2",
         "E"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-07-12T15:59:41.705195",
+        "actualizado": "2026-07-12T14:25:40.013741",
         "frecuencia": "horaria"
     }
 }
