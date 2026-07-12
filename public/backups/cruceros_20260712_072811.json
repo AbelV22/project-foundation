@@ -17,7 +17,7 @@
             "fecha": "2026-07-12"
         },
         {
-            "hora": "04:13",
+            "hora": "04:00",
             "nombre": "Harmony Of The Seas",
             "naviera": "ROYAL CARIBBEAN CRUISES LTD.",
             "terminal": "Terminal B (Maremagnum)",
@@ -26,14 +26,14 @@
             "pax_estimados": 500,
             "puerto": "Napoli",
             "tipo": "llegada",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Bahames",
             "imo": "9682875",
             "mmsi": "311000396",
             "fecha": "2026-07-12"
         },
         {
-            "hora": "05:50",
+            "hora": "05:00",
             "nombre": "Norwegian Epic",
             "naviera": "NORWEGIAN CRUISE LINE",
             "terminal": "Terminal A (WTC)",
@@ -42,14 +42,14 @@
             "pax_estimados": 500,
             "puerto": "Marseille",
             "tipo": "llegada",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Bahames",
             "imo": "9410569",
             "mmsi": "311018500",
             "fecha": "2026-07-12"
         },
         {
-            "hora": "07:25",
+            "hora": "06:48",
             "nombre": "Costa Toscana",
             "naviera": "COSTA CROCIERE, S.P.A.",
             "terminal": "Terminal E (Adossat)",
@@ -58,14 +58,14 @@
             "pax_estimados": 4500,
             "puerto": "Marseille",
             "tipo": "llegada",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Itàlia",
             "imo": "9781891",
             "mmsi": "247431200",
             "fecha": "2026-07-12"
         },
         {
-            "hora": "07:36",
+            "hora": "07:00",
             "nombre": "Msc Splendida",
             "naviera": "MSC CRUISES S.A.",
             "terminal": "ADOSSAT/TERMINAL H",
@@ -74,7 +74,7 @@
             "pax_estimados": 500,
             "puerto": "Malta (Valetta)",
             "tipo": "llegada",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Panamà",
             "imo": "9359806",
             "mmsi": "357698000",
@@ -195,7 +195,7 @@
             "fecha": "2026-07-12"
         },
         {
-            "hora": "00:31",
+            "hora": "00:30",
             "nombre": "Cruise Barcelona",
             "naviera": "GRIMALDI LOGISTICA ESPAÑA SL",
             "terminal": "TERMINAL F3",
@@ -204,10 +204,26 @@
             "pax_estimados": 500,
             "puerto": "Porto Torres",
             "tipo": "salida",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Itàlia",
             "imo": "9351488",
             "mmsi": "247243600",
+            "fecha": "2026-07-12"
+        },
+        {
+            "hora": "01:00",
+            "nombre": "Msc Cedar Ii",
+            "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
+            "terminal": "TERMINAL CATALUNYA SA",
+            "terminal_codigo": "6212",
+            "eslora": 0,
+            "pax_estimados": 500,
+            "puerto": "Valencia",
+            "tipo": "salida",
+            "estado": "Iniciada",
+            "bandera": "Libèria",
+            "imo": "9231092",
+            "mmsi": "636025342",
             "fecha": "2026-07-12"
         },
         {
@@ -240,22 +256,6 @@
             "bandera": "Illes Marshall",
             "imo": "9696589",
             "mmsi": "538005408",
-            "fecha": "2026-07-12"
-        },
-        {
-            "hora": "05:51",
-            "nombre": "Msc Cedar Ii",
-            "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
-            "terminal": "TERMINAL CATALUNYA SA",
-            "terminal_codigo": "6212",
-            "eslora": 0,
-            "pax_estimados": 500,
-            "puerto": "Valencia",
-            "tipo": "salida",
-            "estado": "Finalitzada",
-            "bandera": "Libèria",
-            "imo": "9231092",
-            "mmsi": "636025342",
             "fecha": "2026-07-12"
         },
         {
@@ -316,7 +316,7 @@
             "pax_estimados": 500,
             "puerto": "Palma de Mallorca",
             "tipo": "salida",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Bahames",
             "imo": "9682875",
             "mmsi": "311000396",
@@ -332,7 +332,7 @@
             "pax_estimados": 500,
             "puerto": "Marseille",
             "tipo": "salida",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Bahames",
             "imo": "9410569",
             "mmsi": "311018500",
@@ -364,7 +364,7 @@
             "pax_estimados": 4500,
             "puerto": "Cagliari",
             "tipo": "salida",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Itàlia",
             "imo": "9781891",
             "mmsi": "247431200",
@@ -380,7 +380,7 @@
             "pax_estimados": 500,
             "puerto": "Marseille",
             "tipo": "salida",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Panamà",
             "imo": "9359806",
             "mmsi": "357698000",
@@ -408,24 +408,24 @@
         "total_llegadas": 11,
         "total_salidas": 14,
         "pax_estimados_hoy": 15500,
-        "proximo_desembarco": "07:36",
-        "proximo_barco": "Msc Splendida"
+        "proximo_desembarco": null,
+        "proximo_barco": null
     },
     "terminales_activas": [
-        "7083",
-        "7332",
-        "F3",
-        "0010",
-        "H",
-        "E",
         "6212",
+        "H",
         "F2",
+        "F3",
         "A",
-        "B"
+        "7083",
+        "B",
+        "7332",
+        "0010",
+        "E"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-07-12T07:28:11.594706",
+        "actualizado": "2026-07-11T23:54:37.839299",
         "frecuencia": "horaria"
     }
 }
