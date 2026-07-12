@@ -26,7 +26,7 @@
             "pax_estimados": 500,
             "puerto": "Marseille",
             "tipo": "llegada",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Bahames",
             "imo": "9410569",
             "mmsi": "311018500",
@@ -58,7 +58,7 @@
             "pax_estimados": 500,
             "puerto": "Malta (Valetta)",
             "tipo": "llegada",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Panamà",
             "imo": "9359806",
             "mmsi": "357698000",
@@ -129,23 +129,7 @@
             "fecha": "2026-07-12"
         },
         {
-            "hora": "18:37",
-            "nombre": "Abel Matutes",
-            "naviera": "EUROLINEAS MARITIMAS S.A",
-            "terminal": "LEPANT/TRUCK CENTER",
-            "terminal_codigo": "TC",
-            "eslora": 190.0,
-            "pax_estimados": 1000,
-            "puerto": "Alcudia",
-            "tipo": "llegada",
-            "estado": "Iniciada",
-            "bandera": "Espanya",
-            "imo": "9441130",
-            "mmsi": "224402000",
-            "fecha": "2026-07-12"
-        },
-        {
-            "hora": "18:39",
+            "hora": "18:15",
             "nombre": "Gnv Sealand",
             "naviera": "GRANDI NAVI VELOCI",
             "terminal": "TERMINAL F2",
@@ -154,10 +138,26 @@
             "pax_estimados": 500,
             "puerto": "Mahon Menorca",
             "tipo": "llegada",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Itàlia",
             "imo": "9435454",
             "mmsi": "247265800",
+            "fecha": "2026-07-12"
+        },
+        {
+            "hora": "19:00",
+            "nombre": "Abel Matutes",
+            "naviera": "EUROLINEAS MARITIMAS S.A",
+            "terminal": "LEPANT/TRUCK CENTER",
+            "terminal_codigo": "TC",
+            "eslora": 190.0,
+            "pax_estimados": 1000,
+            "puerto": "Alcudia",
+            "tipo": "llegada",
+            "estado": "Autoritzada",
+            "bandera": "Espanya",
+            "imo": "9441130",
+            "mmsi": "224402000",
             "fecha": "2026-07-12"
         },
         {
@@ -243,6 +243,22 @@
             "fecha": "2026-07-12"
         },
         {
+            "hora": "12:00",
+            "nombre": "Msc Marie Leslie",
+            "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
+            "terminal": "TERMINAL CATALUNYA SA",
+            "terminal_codigo": "6212",
+            "eslora": 0,
+            "pax_estimados": 500,
+            "puerto": "Colombo",
+            "tipo": "salida",
+            "estado": "Iniciada",
+            "bandera": "Libèria",
+            "imo": "9968310",
+            "mmsi": "636025346",
+            "fecha": "2026-07-12"
+        },
+        {
             "hora": "12:57",
             "nombre": "Cma Cgm Harmony",
             "naviera": "CMA CGM IBERICA SAU",
@@ -291,22 +307,6 @@
             "fecha": "2026-07-12"
         },
         {
-            "hora": "16:15",
-            "nombre": "Msc Marie Leslie",
-            "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
-            "terminal": "TERMINAL CATALUNYA SA",
-            "terminal_codigo": "6212",
-            "eslora": 0,
-            "pax_estimados": 500,
-            "puerto": "Colombo",
-            "tipo": "salida",
-            "estado": "Finalitzada",
-            "bandera": "Libèria",
-            "imo": "9968310",
-            "mmsi": "636025346",
-            "fecha": "2026-07-12"
-        },
-        {
             "hora": "17:00",
             "nombre": "Harmony Of The Seas",
             "naviera": "BALEARES CONSIGNATARIOS SLU",
@@ -320,6 +320,22 @@
             "bandera": "Bahames",
             "imo": "9682875",
             "mmsi": "311000396",
+            "fecha": "2026-07-12"
+        },
+        {
+            "hora": "17:00",
+            "nombre": "Norwegian Epic",
+            "naviera": "INTERCRUISES PORT OPERATIONS SPAIN SLU",
+            "terminal": "Terminal A (WTC)",
+            "terminal_codigo": "A",
+            "eslora": 0,
+            "pax_estimados": 500,
+            "puerto": "Marseille",
+            "tipo": "salida",
+            "estado": "Iniciada",
+            "bandera": "Bahames",
+            "imo": "9410569",
+            "mmsi": "311018500",
             "fecha": "2026-07-12"
         },
         {
@@ -339,22 +355,6 @@
             "fecha": "2026-07-12"
         },
         {
-            "hora": "17:42",
-            "nombre": "Norwegian Epic",
-            "naviera": "INTERCRUISES PORT OPERATIONS SPAIN SLU",
-            "terminal": "Terminal A (WTC)",
-            "terminal_codigo": "A",
-            "eslora": 0,
-            "pax_estimados": 500,
-            "puerto": "Marseille",
-            "tipo": "salida",
-            "estado": "Finalitzada",
-            "bandera": "Bahames",
-            "imo": "9410569",
-            "mmsi": "311018500",
-            "fecha": "2026-07-12"
-        },
-        {
             "hora": "18:00",
             "nombre": "Costa Toscana",
             "naviera": "NOATUM MARITIME SPAIN SAU",
@@ -371,7 +371,7 @@
             "fecha": "2026-07-12"
         },
         {
-            "hora": "18:30",
+            "hora": "18:00",
             "nombre": "Msc Splendida",
             "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
             "terminal": "ADOSSAT/TERMINAL H",
@@ -380,7 +380,7 @@
             "pax_estimados": 500,
             "puerto": "Marseille",
             "tipo": "salida",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Panamà",
             "imo": "9359806",
             "mmsi": "357698000",
@@ -396,7 +396,7 @@
             "pax_estimados": 1000,
             "puerto": "Alcudia",
             "tipo": "salida",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Espanya",
             "imo": "9441130",
             "mmsi": "224402000",
@@ -408,24 +408,24 @@
         "total_llegadas": 11,
         "total_salidas": 14,
         "pax_estimados_hoy": 15500,
-        "proximo_desembarco": "18:37",
-        "proximo_barco": "Abel Matutes"
+        "proximo_desembarco": "16:46",
+        "proximo_barco": "Hmm Lime"
     },
     "terminales_activas": [
-        "E",
-        "6212",
-        "B",
-        "A",
-        "F2",
-        "F3",
         "0010",
-        "H",
+        "F2",
         "7083",
-        "TC"
+        "6212",
+        "TC",
+        "B",
+        "H",
+        "A",
+        "F3",
+        "E"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-07-12T17:57:32.716641",
+        "actualizado": "2026-07-12T15:59:41.705195",
         "frecuencia": "horaria"
     }
 }
