@@ -1,22 +1,6 @@
 {
     "llegadas": [
         {
-            "hora": "02:01",
-            "nombre": "Sti Poplar",
-            "naviera": "SCORPIO MARINE MANAGEMENT INDIA",
-            "terminal": "",
-            "terminal_codigo": "",
-            "eslora": 184.0,
-            "pax_estimados": 1000,
-            "puerto": "Port Said",
-            "tipo": "llegada",
-            "estado": "Iniciada",
-            "bandera": "Illes Marshall",
-            "imo": "9696589",
-            "mmsi": "538005408",
-            "fecha": "2026-07-12"
-        },
-        {
             "hora": "04:13",
             "nombre": "Harmony Of The Seas",
             "naviera": "ROYAL CARIBBEAN CRUISES LTD.",
@@ -26,7 +10,7 @@
             "pax_estimados": 500,
             "puerto": "Napoli",
             "tipo": "llegada",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Bahames",
             "imo": "9682875",
             "mmsi": "311000396",
@@ -58,7 +42,7 @@
             "pax_estimados": 4500,
             "puerto": "Marseille",
             "tipo": "llegada",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Itàlia",
             "imo": "9781891",
             "mmsi": "247431200",
@@ -90,7 +74,7 @@
             "pax_estimados": 500,
             "puerto": "Alger (Algiers)",
             "tipo": "llegada",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Libèria",
             "imo": "9966946",
             "mmsi": "636023314",
@@ -243,22 +227,6 @@
             "fecha": "2026-07-12"
         },
         {
-            "hora": "02:02",
-            "nombre": "Sti Poplar",
-            "naviera": "ALFASHIP MARITIME SERVICES SL ",
-            "terminal": "",
-            "terminal_codigo": "",
-            "eslora": 184.0,
-            "pax_estimados": 1000,
-            "puerto": "Algeciras",
-            "tipo": "salida",
-            "estado": "Iniciada",
-            "bandera": "Illes Marshall",
-            "imo": "9696589",
-            "mmsi": "538005408",
-            "fecha": "2026-07-12"
-        },
-        {
             "hora": "05:51",
             "nombre": "Msc Cedar Ii",
             "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
@@ -288,6 +256,22 @@
             "bandera": "Malta",
             "imo": "9952828",
             "mmsi": "256849000",
+            "fecha": "2026-07-12"
+        },
+        {
+            "hora": "14:00",
+            "nombre": "Msc Yuxin",
+            "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
+            "terminal": "TERMINAL CATALUNYA SA",
+            "terminal_codigo": "6212",
+            "eslora": 0,
+            "pax_estimados": 500,
+            "puerto": "Alger (Algiers)",
+            "tipo": "salida",
+            "estado": "Iniciada",
+            "bandera": "Libèria",
+            "imo": "9966946",
+            "mmsi": "636023314",
             "fecha": "2026-07-12"
         },
         {
@@ -323,6 +307,22 @@
             "fecha": "2026-07-12"
         },
         {
+            "hora": "17:00",
+            "nombre": "Harmony Of The Seas",
+            "naviera": "BALEARES CONSIGNATARIOS SLU",
+            "terminal": "Terminal B (Maremagnum)",
+            "terminal_codigo": "B",
+            "eslora": 0,
+            "pax_estimados": 500,
+            "puerto": "Palma de Mallorca",
+            "tipo": "salida",
+            "estado": "Iniciada",
+            "bandera": "Bahames",
+            "imo": "9682875",
+            "mmsi": "311000396",
+            "fecha": "2026-07-12"
+        },
+        {
             "hora": "17:30",
             "nombre": "Gnv Aurora",
             "naviera": "TRANSCOMA BALEARES SA",
@@ -355,6 +355,22 @@
             "fecha": "2026-07-12"
         },
         {
+            "hora": "18:00",
+            "nombre": "Costa Toscana",
+            "naviera": "NOATUM MARITIME SPAIN SAU",
+            "terminal": "Terminal E (Adossat)",
+            "terminal_codigo": "E",
+            "eslora": 337.0,
+            "pax_estimados": 4500,
+            "puerto": "Cagliari",
+            "tipo": "salida",
+            "estado": "Iniciada",
+            "bandera": "Itàlia",
+            "imo": "9781891",
+            "mmsi": "247431200",
+            "fecha": "2026-07-12"
+        },
+        {
             "hora": "18:30",
             "nombre": "Msc Splendida",
             "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
@@ -368,54 +384,6 @@
             "bandera": "Panamà",
             "imo": "9359806",
             "mmsi": "357698000",
-            "fecha": "2026-07-12"
-        },
-        {
-            "hora": "18:38",
-            "nombre": "Costa Toscana",
-            "naviera": "NOATUM MARITIME SPAIN SAU",
-            "terminal": "Terminal E (Adossat)",
-            "terminal_codigo": "E",
-            "eslora": 337.0,
-            "pax_estimados": 4500,
-            "puerto": "Cagliari",
-            "tipo": "salida",
-            "estado": "Finalitzada",
-            "bandera": "Itàlia",
-            "imo": "9781891",
-            "mmsi": "247431200",
-            "fecha": "2026-07-12"
-        },
-        {
-            "hora": "19:24",
-            "nombre": "Harmony Of The Seas",
-            "naviera": "BALEARES CONSIGNATARIOS SLU",
-            "terminal": "Terminal B (Maremagnum)",
-            "terminal_codigo": "B",
-            "eslora": 0,
-            "pax_estimados": 500,
-            "puerto": "Palma de Mallorca",
-            "tipo": "salida",
-            "estado": "Finalitzada",
-            "bandera": "Bahames",
-            "imo": "9682875",
-            "mmsi": "311000396",
-            "fecha": "2026-07-12"
-        },
-        {
-            "hora": "19:54",
-            "nombre": "Msc Yuxin",
-            "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
-            "terminal": "TERMINAL CATALUNYA SA",
-            "terminal_codigo": "6212",
-            "eslora": 0,
-            "pax_estimados": 500,
-            "puerto": "Alger (Algiers)",
-            "tipo": "salida",
-            "estado": "Finalitzada",
-            "bandera": "Libèria",
-            "imo": "9966946",
-            "mmsi": "636023314",
             "fecha": "2026-07-12"
         },
         {
@@ -437,27 +405,27 @@
     ],
     "resumen": {
         "total_cruceros": 18,
-        "total_llegadas": 12,
-        "total_salidas": 15,
-        "pax_estimados_hoy": 16500,
-        "proximo_desembarco": "22:45",
-        "proximo_barco": "Cruise Roma"
+        "total_llegadas": 11,
+        "total_salidas": 14,
+        "pax_estimados_hoy": 15500,
+        "proximo_desembarco": "18:37",
+        "proximo_barco": "Abel Matutes"
     },
     "terminales_activas": [
-        "A",
-        "F3",
-        "H",
-        "TC",
-        "F2",
-        "7083",
-        "0010",
-        "B",
+        "E",
         "6212",
-        "E"
+        "B",
+        "A",
+        "F2",
+        "F3",
+        "0010",
+        "H",
+        "7083",
+        "TC"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-07-12T20:05:38.000897",
+        "actualizado": "2026-07-12T17:57:32.716641",
         "frecuencia": "horaria"
     }
 }
