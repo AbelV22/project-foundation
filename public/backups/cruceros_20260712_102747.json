@@ -1,6 +1,22 @@
 {
     "llegadas": [
         {
+            "hora": "00:00",
+            "nombre": "Msc Yuxin",
+            "naviera": "MEDITERRANEAN SHIPPING CO",
+            "terminal": "TERMINAL CATALUNYA SA",
+            "terminal_codigo": "6212",
+            "eslora": 0,
+            "pax_estimados": 500,
+            "puerto": "Alger (Algiers)",
+            "tipo": "llegada",
+            "estado": "Autoritzada",
+            "bandera": "Libèria",
+            "imo": "9966946",
+            "mmsi": "636023314",
+            "fecha": "2026-07-12"
+        },
+        {
             "hora": "04:13",
             "nombre": "Harmony Of The Seas",
             "naviera": "ROYAL CARIBBEAN CRUISES LTD.",
@@ -62,22 +78,6 @@
             "bandera": "Panamà",
             "imo": "9359806",
             "mmsi": "357698000",
-            "fecha": "2026-07-12"
-        },
-        {
-            "hora": "09:12",
-            "nombre": "Msc Yuxin",
-            "naviera": "MEDITERRANEAN SHIPPING CO",
-            "terminal": "TERMINAL CATALUNYA SA",
-            "terminal_codigo": "6212",
-            "eslora": 0,
-            "pax_estimados": 500,
-            "puerto": "Alger (Algiers)",
-            "tipo": "llegada",
-            "estado": "Iniciada",
-            "bandera": "Libèria",
-            "imo": "9966946",
-            "mmsi": "636023314",
             "fecha": "2026-07-12"
         },
         {
@@ -300,7 +300,7 @@
             "pax_estimados": 500,
             "puerto": "Alger (Algiers)",
             "tipo": "salida",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Libèria",
             "imo": "9966946",
             "mmsi": "636023314",
@@ -408,24 +408,24 @@
         "total_llegadas": 11,
         "total_salidas": 14,
         "pax_estimados_hoy": 15500,
-        "proximo_desembarco": "12:00",
-        "proximo_barco": "Msc Radiant Iii"
+        "proximo_desembarco": "07:36",
+        "proximo_barco": "Msc Splendida"
     },
     "terminales_activas": [
-        "A",
-        "7332",
         "7083",
-        "B",
-        "F2",
+        "7332",
         "F3",
         "0010",
-        "6212",
         "H",
-        "E"
+        "E",
+        "6212",
+        "F2",
+        "A",
+        "B"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-07-12T10:27:47.701364",
+        "actualizado": "2026-07-12T07:28:11.594706",
         "frecuencia": "horaria"
     }
 }
