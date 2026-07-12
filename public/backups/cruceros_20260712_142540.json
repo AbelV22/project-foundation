@@ -81,7 +81,7 @@
             "fecha": "2026-07-12"
         },
         {
-            "hora": "13:47",
+            "hora": "12:00",
             "nombre": "Msc Radiant Iii",
             "naviera": "MEDITERRANEAN SHIPPING CO",
             "terminal": "TERMINAL CATALUNYA SA",
@@ -90,7 +90,7 @@
             "pax_estimados": 2000,
             "puerto": "Algeciras",
             "tipo": "llegada",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Libèria",
             "imo": "9235402",
             "mmsi": "636016943",
@@ -211,6 +211,22 @@
             "fecha": "2026-07-12"
         },
         {
+            "hora": "01:00",
+            "nombre": "Msc Tomoko",
+            "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
+            "terminal": "TERMINAL CATALUNYA SA",
+            "terminal_codigo": "6212",
+            "eslora": 0,
+            "pax_estimados": 500,
+            "puerto": "Valencia",
+            "tipo": "salida",
+            "estado": "Iniciada",
+            "bandera": "Panamà",
+            "imo": "9309461",
+            "mmsi": "354315000",
+            "fecha": "2026-07-12"
+        },
+        {
             "hora": "02:00",
             "nombre": "Sti Poplar",
             "naviera": "ALFASHIP MARITIME SERVICES SL ",
@@ -259,7 +275,7 @@
             "fecha": "2026-07-12"
         },
         {
-            "hora": "12:57",
+            "hora": "12:00",
             "nombre": "Cma Cgm Harmony",
             "naviera": "CMA CGM IBERICA SAU",
             "terminal": "APM TERMINALS BARCELONA, S.L.U.",
@@ -268,7 +284,7 @@
             "pax_estimados": 500,
             "puerto": "Tanger Med",
             "tipo": "salida",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Malta",
             "imo": "9952828",
             "mmsi": "256849000",
@@ -288,22 +304,6 @@
             "bandera": "Libèria",
             "imo": "9966946",
             "mmsi": "636023314",
-            "fecha": "2026-07-12"
-        },
-        {
-            "hora": "14:16",
-            "nombre": "Msc Tomoko",
-            "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
-            "terminal": "TERMINAL CATALUNYA SA",
-            "terminal_codigo": "6212",
-            "eslora": 0,
-            "pax_estimados": 500,
-            "puerto": "Valencia",
-            "tipo": "salida",
-            "estado": "Finalitzada",
-            "bandera": "Panamà",
-            "imo": "9309461",
-            "mmsi": "354315000",
             "fecha": "2026-07-12"
         },
         {
@@ -408,24 +408,24 @@
         "total_llegadas": 11,
         "total_salidas": 14,
         "pax_estimados_hoy": 15500,
-        "proximo_desembarco": "15:00",
-        "proximo_barco": "Gnv Aurora"
+        "proximo_desembarco": "12:00",
+        "proximo_barco": "Msc Radiant Iii"
     },
     "terminales_activas": [
+        "B",
+        "7083",
+        "6212",
         "A",
+        "F2",
         "H",
         "F3",
-        "7083",
         "TC",
-        "6212",
-        "0010",
-        "B",
-        "F2",
-        "E"
+        "E",
+        "0010"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-07-12T14:25:40.013741",
+        "actualizado": "2026-07-12T11:59:44.964064",
         "frecuencia": "horaria"
     }
 }
