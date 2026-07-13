@@ -223,22 +223,6 @@
             "imo": "9019054",
             "mmsi": "210133000",
             "fecha": "2026-07-13"
-        },
-        {
-            "hora": "20:48",
-            "nombre": "Msc Amalfi",
-            "naviera": "MEDITERRANEAN SHIPPING CO",
-            "terminal": "",
-            "terminal_codigo": "",
-            "eslora": 0,
-            "pax_estimados": 500,
-            "puerto": "Valencia",
-            "tipo": "llegada",
-            "estado": "Fondeig Previ",
-            "bandera": "Malta",
-            "imo": "9605279",
-            "mmsi": "229626000",
-            "fecha": "2026-07-13"
         }
     ],
     "salidas": [
@@ -516,28 +500,28 @@
         }
     ],
     "resumen": {
-        "total_cruceros": 18,
-        "total_llegadas": 15,
+        "total_cruceros": 17,
+        "total_llegadas": 14,
         "total_salidas": 17,
-        "pax_estimados_hoy": 22500,
-        "proximo_desembarco": "20:48",
-        "proximo_barco": "Msc Amalfi"
+        "pax_estimados_hoy": 22000,
+        "proximo_desembarco": "19:29",
+        "proximo_barco": "Denia Ciutat Creativa"
     },
     "terminales_activas": [
+        "TC",
         "6212",
+        "F3",
+        "F2",
+        "8156",
+        "2252",
+        "F1",
         "C",
         "E",
-        "TC",
-        "F1",
-        "8156",
-        "F2",
-        "2252",
-        "F3",
         "7083"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-07-13T20:14:40.486484",
+        "actualizado": "2026-07-13T18:43:27.917355",
         "frecuencia": "horaria"
     }
 }
