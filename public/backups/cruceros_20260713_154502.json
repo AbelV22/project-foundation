@@ -26,7 +26,7 @@
             "pax_estimados": 4500,
             "puerto": "Livorno",
             "tipo": "llegada",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Panamà",
             "imo": "9339284",
             "mmsi": "352871000",
@@ -161,7 +161,7 @@
             "fecha": "2026-07-13"
         },
         {
-            "hora": "14:00",
+            "hora": "14:30",
             "nombre": "Gnv Sealand",
             "naviera": "GRANDI NAVI VELOCI",
             "terminal": "TERMINAL F2",
@@ -339,7 +339,23 @@
             "fecha": "2026-07-13"
         },
         {
-            "hora": "13:59",
+            "hora": "13:00",
+            "nombre": "Msc Candice",
+            "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
+            "terminal": "TERMINAL CATALUNYA SA",
+            "terminal_codigo": "6212",
+            "eslora": 337.0,
+            "pax_estimados": 4500,
+            "puerto": "Valencia",
+            "tipo": "salida",
+            "estado": "Iniciada",
+            "bandera": "Panamà",
+            "imo": "9339284",
+            "mmsi": "352871000",
+            "fecha": "2026-07-13"
+        },
+        {
+            "hora": "14:29",
             "nombre": "Gnv Sealand",
             "naviera": "TRANSCOMA BALEARES SA",
             "terminal": "",
@@ -352,22 +368,6 @@
             "bandera": "Itàlia",
             "imo": "9435454",
             "mmsi": "247265800",
-            "fecha": "2026-07-13"
-        },
-        {
-            "hora": "14:15",
-            "nombre": "Msc Candice",
-            "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
-            "terminal": "TERMINAL CATALUNYA SA",
-            "terminal_codigo": "6212",
-            "eslora": 337.0,
-            "pax_estimados": 4500,
-            "puerto": "Valencia",
-            "tipo": "salida",
-            "estado": "Finalitzada",
-            "bandera": "Panamà",
-            "imo": "9339284",
-            "mmsi": "352871000",
             "fecha": "2026-07-13"
         },
         {
@@ -504,24 +504,24 @@
         "total_llegadas": 14,
         "total_salidas": 17,
         "pax_estimados_hoy": 22000,
-        "proximo_desembarco": "18:15",
-        "proximo_barco": "Ciudad De Palma"
+        "proximo_desembarco": "14:30",
+        "proximo_barco": "Gnv Sealand"
     },
     "terminales_activas": [
-        "TC",
-        "2252",
-        "F3",
         "F2",
-        "C",
-        "F1",
+        "TC",
         "7083",
-        "8156",
         "6212",
-        "E"
+        "8156",
+        "F3",
+        "E",
+        "C",
+        "2252",
+        "F1"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-07-13T15:45:02.810154",
+        "actualizado": "2026-07-13T12:05:28.819976",
         "frecuencia": "horaria"
     }
 }
