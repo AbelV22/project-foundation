@@ -33,6 +33,22 @@
             "fecha": "2026-07-14"
         },
         {
+            "hora": "07:00",
+            "nombre": "Elyssa",
+            "naviera": "COTUNAV",
+            "terminal": "TERMINAL PORT NOU SA",
+            "terminal_codigo": "2398",
+            "eslora": 193.0,
+            "pax_estimados": 1000,
+            "puerto": "Marseille",
+            "tipo": "llegada",
+            "estado": "Autoritzada",
+            "bandera": "Tunísia",
+            "imo": "9208007",
+            "mmsi": "672704000",
+            "fecha": "2026-07-14"
+        },
+        {
             "hora": "07:40",
             "nombre": "Msc Meraviglia",
             "naviera": "MSC CRUISES S.A.",
@@ -46,22 +62,6 @@
             "bandera": "Malta",
             "imo": "9760512",
             "mmsi": "249973000",
-            "fecha": "2026-07-14"
-        },
-        {
-            "hora": "11:00",
-            "nombre": "Elyssa",
-            "naviera": "COTUNAV",
-            "terminal": "TERMINAL PORT NOU SA",
-            "terminal_codigo": "2398",
-            "eslora": 193.0,
-            "pax_estimados": 1000,
-            "puerto": "Marseille",
-            "tipo": "llegada",
-            "estado": "Autoritzada",
-            "bandera": "Tunísia",
-            "imo": "9208007",
-            "mmsi": "672704000",
             "fecha": "2026-07-14"
         },
         {
@@ -211,6 +211,22 @@
             "fecha": "2026-07-14"
         },
         {
+            "hora": "19:00",
+            "nombre": "Elyssa",
+            "naviera": "ROMEU Y CIA SA",
+            "terminal": "TERMINAL PORT NOU SA",
+            "terminal_codigo": "2398",
+            "eslora": 193.0,
+            "pax_estimados": 1000,
+            "puerto": "Rades/Tunis",
+            "tipo": "salida",
+            "estado": "Autoritzada",
+            "bandera": "Tunísia",
+            "imo": "9208007",
+            "mmsi": "672704000",
+            "fecha": "2026-07-14"
+        },
+        {
             "hora": "21:30",
             "nombre": "Abel Matutes",
             "naviera": "BALEARIA EUROLINEAS MARITIMAS SA ",
@@ -294,23 +310,23 @@
     "resumen": {
         "total_cruceros": 10,
         "total_llegadas": 10,
-        "total_salidas": 8,
+        "total_salidas": 9,
         "pax_estimados_hoy": 11000,
-        "proximo_desembarco": "11:00",
-        "proximo_barco": "Elyssa"
+        "proximo_desembarco": "07:40",
+        "proximo_barco": "Msc Meraviglia"
     },
     "terminales_activas": [
-        "8156",
-        "6212",
-        "2398",
+        "F3",
         "F2",
+        "6212",
+        "8156",
         "H",
-        "F1",
-        "F3"
+        "2398",
+        "F1"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-07-14T10:46:04.255208",
+        "actualizado": "2026-07-14T07:10:04.419773",
         "frecuencia": "horaria"
     }
 }
