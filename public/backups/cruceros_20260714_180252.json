@@ -42,7 +42,7 @@
             "pax_estimados": 500,
             "puerto": "Marseille",
             "tipo": "llegada",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Malta",
             "imo": "9760512",
             "mmsi": "249973000",
@@ -65,7 +65,7 @@
             "fecha": "2026-07-14"
         },
         {
-            "hora": "18:28",
+            "hora": "18:15",
             "nombre": "Ciudad De Palma",
             "naviera": "TRASMED GLE S.L.",
             "terminal": "TERMINAL F2",
@@ -74,10 +74,26 @@
             "pax_estimados": 1000,
             "puerto": "Palma de Mallorca",
             "tipo": "llegada",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Espanya",
             "imo": "9349772",
             "mmsi": "224588000",
+            "fecha": "2026-07-14"
+        },
+        {
+            "hora": "18:30",
+            "nombre": "Ciudad De Barcelona",
+            "naviera": "TRASMED GLE S.L.",
+            "terminal": "TERMINAL F2",
+            "terminal_codigo": "F2",
+            "eslora": 176.0,
+            "pax_estimados": 1000,
+            "puerto": "Mahon Menorca",
+            "tipo": "llegada",
+            "estado": "Autoritzada",
+            "bandera": "Espanya",
+            "imo": "9506289",
+            "mmsi": "225416000",
             "fecha": "2026-07-14"
         },
         {
@@ -94,22 +110,6 @@
             "bandera": "Itàlia",
             "imo": "9435454",
             "mmsi": "247265800",
-            "fecha": "2026-07-14"
-        },
-        {
-            "hora": "18:49",
-            "nombre": "Ciudad De Barcelona",
-            "naviera": "TRASMED GLE S.L.",
-            "terminal": "TERMINAL F2",
-            "terminal_codigo": "F2",
-            "eslora": 176.0,
-            "pax_estimados": 1000,
-            "puerto": "Mahon Menorca",
-            "tipo": "llegada",
-            "estado": "Iniciada",
-            "bandera": "Espanya",
-            "imo": "9506289",
-            "mmsi": "225416000",
             "fecha": "2026-07-14"
         },
         {
@@ -163,7 +163,7 @@
             "fecha": "2026-07-14"
         },
         {
-            "hora": "18:22",
+            "hora": "18:00",
             "nombre": "Msc Meraviglia",
             "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
             "terminal": "ADOSSAT/TERMINAL H",
@@ -172,7 +172,7 @@
             "pax_estimados": 500,
             "puerto": "La Goulette Nord (Halqueloued)",
             "tipo": "salida",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Malta",
             "imo": "9760512",
             "mmsi": "249973000",
@@ -220,7 +220,7 @@
             "pax_estimados": 1000,
             "puerto": "Ibiza",
             "tipo": "salida",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Espanya",
             "imo": "9506289",
             "mmsi": "225416000",
@@ -236,7 +236,7 @@
             "pax_estimados": 1000,
             "puerto": "Palma de Mallorca",
             "tipo": "salida",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Espanya",
             "imo": "9349772",
             "mmsi": "224588000",
@@ -264,21 +264,21 @@
         "total_llegadas": 9,
         "total_salidas": 7,
         "pax_estimados_hoy": 10500,
-        "proximo_desembarco": "18:28",
+        "proximo_desembarco": "18:15",
         "proximo_barco": "Ciudad De Palma"
     },
     "terminales_activas": [
-        "F3",
+        "8156",
         "F1",
-        "6212",
-        "2398",
-        "H",
+        "F3",
         "F2",
-        "8156"
+        "H",
+        "6212",
+        "2398"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-07-14T18:02:52.831540",
+        "actualizado": "2026-07-14T16:14:31.953951",
         "frecuencia": "horaria"
     }
 }
