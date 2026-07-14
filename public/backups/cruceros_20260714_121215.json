@@ -26,7 +26,7 @@
             "pax_estimados": 2000,
             "puerto": "Valencia",
             "tipo": "llegada",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Itàlia",
             "imo": "9859569",
             "mmsi": "247383600",
@@ -49,7 +49,7 @@
             "fecha": "2026-07-14"
         },
         {
-            "hora": "11:59",
+            "hora": "11:00",
             "nombre": "Elyssa",
             "naviera": "COTUNAV",
             "terminal": "TERMINAL PORT NOU SA",
@@ -58,7 +58,7 @@
             "pax_estimados": 1000,
             "puerto": "Marseille",
             "tipo": "llegada",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Tunísia",
             "imo": "9208007",
             "mmsi": "672704000",
@@ -172,7 +172,7 @@
             "pax_estimados": 2000,
             "puerto": "Livorno",
             "tipo": "salida",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Itàlia",
             "imo": "9859569",
             "mmsi": "247383600",
@@ -296,21 +296,21 @@
         "total_llegadas": 10,
         "total_salidas": 8,
         "pax_estimados_hoy": 11000,
-        "proximo_desembarco": "18:00",
-        "proximo_barco": "Msc Amalfi"
+        "proximo_desembarco": "11:00",
+        "proximo_barco": "Elyssa"
     },
     "terminales_activas": [
-        "H",
         "8156",
-        "F3",
+        "6212",
         "2398",
-        "F1",
         "F2",
-        "6212"
+        "H",
+        "F1",
+        "F3"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-07-14T12:12:15.702713",
+        "actualizado": "2026-07-14T10:46:04.255208",
         "frecuencia": "horaria"
     }
 }
