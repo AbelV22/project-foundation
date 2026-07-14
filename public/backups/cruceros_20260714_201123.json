@@ -81,6 +81,22 @@
             "fecha": "2026-07-14"
         },
         {
+            "hora": "18:40",
+            "nombre": "Gnv Sealand",
+            "naviera": "GRANDI NAVI VELOCI",
+            "terminal": "TERMINAL F2",
+            "terminal_codigo": "F2",
+            "eslora": 0,
+            "pax_estimados": 500,
+            "puerto": "Ibiza",
+            "tipo": "llegada",
+            "estado": "Autoritzada",
+            "bandera": "Itàlia",
+            "imo": "9435454",
+            "mmsi": "247265800",
+            "fecha": "2026-07-14"
+        },
+        {
             "hora": "18:49",
             "nombre": "Ciudad De Barcelona",
             "naviera": "TRASMED GLE S.L.",
@@ -97,7 +113,7 @@
             "fecha": "2026-07-14"
         },
         {
-            "hora": "19:01",
+            "hora": "19:00",
             "nombre": "Abel Matutes",
             "naviera": "EUROLINEAS MARITIMAS S.A",
             "terminal": "TERMINAL F1",
@@ -106,30 +122,14 @@
             "pax_estimados": 1000,
             "puerto": "Alcudia",
             "tipo": "llegada",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Espanya",
             "imo": "9441130",
             "mmsi": "224402000",
             "fecha": "2026-07-14"
         },
         {
-            "hora": "19:43",
-            "nombre": "Gnv Sealand",
-            "naviera": "GRANDI NAVI VELOCI",
-            "terminal": "TERMINAL F2",
-            "terminal_codigo": "F2",
-            "eslora": 0,
-            "pax_estimados": 500,
-            "puerto": "Ibiza",
-            "tipo": "llegada",
-            "estado": "Iniciada",
-            "bandera": "Itàlia",
-            "imo": "9435454",
-            "mmsi": "247265800",
-            "fecha": "2026-07-14"
-        },
-        {
-            "hora": "19:52",
+            "hora": "19:00",
             "nombre": "Cruise Barcelona",
             "naviera": "GRIMALDI EUROMED SPA",
             "terminal": "TERMINAL F3",
@@ -138,7 +138,7 @@
             "pax_estimados": 500,
             "puerto": "Porto Torres",
             "tipo": "llegada",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Itàlia",
             "imo": "9351488",
             "mmsi": "247243600",
@@ -188,7 +188,7 @@
             "pax_estimados": 1000,
             "puerto": "Alcudia",
             "tipo": "salida",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Espanya",
             "imo": "9441130",
             "mmsi": "224402000",
@@ -204,7 +204,7 @@
             "pax_estimados": 500,
             "puerto": "Mahon Menorca",
             "tipo": "salida",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Itàlia",
             "imo": "9435454",
             "mmsi": "247265800",
@@ -252,7 +252,7 @@
             "pax_estimados": 500,
             "puerto": "Civitavecchia",
             "tipo": "salida",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Itàlia",
             "imo": "9351488",
             "mmsi": "247243600",
@@ -264,21 +264,21 @@
         "total_llegadas": 9,
         "total_salidas": 7,
         "pax_estimados_hoy": 10500,
-        "proximo_desembarco": null,
-        "proximo_barco": null
+        "proximo_desembarco": "18:28",
+        "proximo_barco": "Ciudad De Palma"
     },
     "terminales_activas": [
-        "H",
-        "8156",
-        "2398",
-        "6212",
+        "F3",
         "F1",
+        "6212",
+        "2398",
+        "H",
         "F2",
-        "F3"
+        "8156"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-07-14T20:11:23.282428",
+        "actualizado": "2026-07-14T18:02:52.831540",
         "frecuencia": "horaria"
     }
 }
