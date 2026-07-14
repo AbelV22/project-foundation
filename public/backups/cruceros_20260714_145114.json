@@ -65,6 +65,22 @@
             "fecha": "2026-07-14"
         },
         {
+            "hora": "18:00",
+            "nombre": "Msc Amalfi",
+            "naviera": "MEDITERRANEAN SHIPPING CO",
+            "terminal": "TERMINAL CATALUNYA SA",
+            "terminal_codigo": "6212",
+            "eslora": 0,
+            "pax_estimados": 500,
+            "puerto": "Valencia",
+            "tipo": "llegada",
+            "estado": "Fondeig Previ",
+            "bandera": "Malta",
+            "imo": "9605279",
+            "mmsi": "229626000",
+            "fecha": "2026-07-14"
+        },
+        {
             "hora": "18:15",
             "nombre": "Ciudad De Palma",
             "naviera": "TRASMED GLE S.L.",
@@ -160,6 +176,22 @@
             "bandera": "Itàlia",
             "imo": "9859569",
             "mmsi": "247383600",
+            "fecha": "2026-07-14"
+        },
+        {
+            "hora": "17:59",
+            "nombre": "Msc Amalfi",
+            "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
+            "terminal": "",
+            "terminal_codigo": "",
+            "eslora": 0,
+            "pax_estimados": 500,
+            "puerto": "Livorno",
+            "tipo": "salida",
+            "estado": "Fondeig Previ",
+            "bandera": "Malta",
+            "imo": "9605279",
+            "mmsi": "229626000",
             "fecha": "2026-07-14"
         },
         {
@@ -260,25 +292,25 @@
         }
     ],
     "resumen": {
-        "total_cruceros": 9,
-        "total_llegadas": 9,
-        "total_salidas": 7,
-        "pax_estimados_hoy": 10500,
-        "proximo_desembarco": "18:15",
-        "proximo_barco": "Ciudad De Palma"
+        "total_cruceros": 10,
+        "total_llegadas": 10,
+        "total_salidas": 8,
+        "pax_estimados_hoy": 11000,
+        "proximo_desembarco": "18:00",
+        "proximo_barco": "Msc Amalfi"
     },
     "terminales_activas": [
+        "H",
         "8156",
         "F3",
-        "F2",
-        "6212",
         "2398",
         "F1",
-        "H"
+        "F2",
+        "6212"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-07-14T14:51:14.407352",
+        "actualizado": "2026-07-14T12:12:15.702713",
         "frecuencia": "horaria"
     }
 }
