@@ -74,7 +74,7 @@
             "pax_estimados": 2000,
             "puerto": "Valencia",
             "tipo": "llegada",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Itàlia",
             "imo": "9859533",
             "mmsi": "247383300",
@@ -106,7 +106,7 @@
             "pax_estimados": 2000,
             "puerto": "Tanger Med",
             "tipo": "llegada",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Itàlia",
             "imo": "9980069",
             "mmsi": "247530300",
@@ -170,7 +170,7 @@
             "pax_estimados": 500,
             "puerto": "Valencia",
             "tipo": "llegada",
-            "estado": "Autoritzada",
+            "estado": "Confirmada",
             "bandera": "Portugal",
             "imo": "9770737",
             "mmsi": "255805869",
@@ -339,7 +339,7 @@
             "fecha": "2026-07-15"
         },
         {
-            "hora": "12:48",
+            "hora": "13:00",
             "nombre": "Eco Valencia",
             "naviera": "GRIMALDI LOGISTICA ESPAÑA SL",
             "terminal": "GRIMALDI TERMINAL BARCELONA SL",
@@ -348,14 +348,14 @@
             "pax_estimados": 2000,
             "puerto": "Livorno",
             "tipo": "salida",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Itàlia",
             "imo": "9859533",
             "mmsi": "247383300",
             "fecha": "2026-07-15"
         },
         {
-            "hora": "14:25",
+            "hora": "13:30",
             "nombre": "Gnv Aurora",
             "naviera": "TRANSCOMA BALEARES SA",
             "terminal": "TERMINAL F2",
@@ -364,7 +364,7 @@
             "pax_estimados": 2000,
             "puerto": "Genoa",
             "tipo": "salida",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Itàlia",
             "imo": "9980069",
             "mmsi": "247530300",
@@ -508,17 +508,17 @@
         "proximo_barco": "Cruise Roma"
     },
     "terminales_activas": [
-        "TC",
-        "S",
         "2398",
-        "8156",
         "F2",
+        "F3",
         "6212",
-        "F3"
+        "S",
+        "TC",
+        "8156"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-07-15T14:49:54.531751",
+        "actualizado": "2026-07-15T12:14:23.731650",
         "frecuencia": "horaria"
     }
 }
