@@ -227,6 +227,22 @@
     ],
     "salidas": [
         {
+            "hora": "00:00",
+            "nombre": "Msc Sandra",
+            "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
+            "terminal": "TERMINAL CATALUNYA SA",
+            "terminal_codigo": "6212",
+            "eslora": 274.0,
+            "pax_estimados": 3000,
+            "puerto": "La Spezia",
+            "tipo": "salida",
+            "estado": "Sol·licitada",
+            "bandera": "Panamà",
+            "imo": "9203954",
+            "mmsi": "355305000",
+            "fecha": "2026-07-15"
+        },
+        {
             "hora": "00:18",
             "nombre": "Elyssa",
             "naviera": "ROMEU Y CIA SA",
@@ -500,25 +516,25 @@
         }
     ],
     "resumen": {
-        "total_cruceros": 17,
+        "total_cruceros": 18,
         "total_llegadas": 14,
-        "total_salidas": 17,
+        "total_salidas": 18,
         "pax_estimados_hoy": 18000,
-        "proximo_desembarco": "18:00",
-        "proximo_barco": "Cruise Roma"
+        "proximo_desembarco": "11:35",
+        "proximo_barco": "Gnv Aurora"
     },
     "terminales_activas": [
-        "2398",
-        "F2",
-        "F3",
-        "6212",
         "S",
         "TC",
-        "8156"
+        "8156",
+        "6212",
+        "F3",
+        "2398",
+        "F2"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-07-15T12:14:23.731650",
+        "actualizado": "2026-07-15T10:49:14.203283",
         "frecuencia": "horaria"
     }
 }
