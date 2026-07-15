@@ -122,7 +122,7 @@
             "pax_estimados": 3000,
             "puerto": "Civitavecchia",
             "tipo": "llegada",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Itàlia",
             "imo": "9351476",
             "mmsi": "247219400",
@@ -404,6 +404,22 @@
         },
         {
             "hora": "21:30",
+            "nombre": "Cruise Roma",
+            "naviera": "GRIMALDI LOGISTICA ESPAÑA SL",
+            "terminal": "TERMINAL F3",
+            "terminal_codigo": "F3",
+            "eslora": 254.0,
+            "pax_estimados": 3000,
+            "puerto": "Civitavecchia",
+            "tipo": "salida",
+            "estado": "Iniciada",
+            "bandera": "Itàlia",
+            "imo": "9351476",
+            "mmsi": "247219400",
+            "fecha": "2026-07-15"
+        },
+        {
+            "hora": "21:30",
             "nombre": "Abel Matutes",
             "naviera": "BALEARIA EUROLINEAS MARITIMAS SA ",
             "terminal": "LEPANT/TRUCK CENTER",
@@ -416,22 +432,6 @@
             "bandera": "Espanya",
             "imo": "9441130",
             "mmsi": "224402000",
-            "fecha": "2026-07-15"
-        },
-        {
-            "hora": "21:43",
-            "nombre": "Cruise Roma",
-            "naviera": "GRIMALDI LOGISTICA ESPAÑA SL",
-            "terminal": "TERMINAL F3",
-            "terminal_codigo": "F3",
-            "eslora": 254.0,
-            "pax_estimados": 3000,
-            "puerto": "Civitavecchia",
-            "tipo": "salida",
-            "estado": "Finalitzada",
-            "bandera": "Itàlia",
-            "imo": "9351476",
-            "mmsi": "247219400",
             "fecha": "2026-07-15"
         },
         {
@@ -467,7 +467,7 @@
             "fecha": "2026-07-15"
         },
         {
-            "hora": "22:37",
+            "hora": "22:30",
             "nombre": "Ciudad De Palma",
             "naviera": "GRIMALDI LOGISTICA ESPAÑA SL",
             "terminal": "TERMINAL F2",
@@ -476,7 +476,7 @@
             "pax_estimados": 1000,
             "puerto": "Palma de Mallorca",
             "tipo": "salida",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Espanya",
             "imo": "9349772",
             "mmsi": "224588000",
@@ -504,21 +504,21 @@
         "total_llegadas": 14,
         "total_salidas": 17,
         "pax_estimados_hoy": 18000,
-        "proximo_desembarco": null,
-        "proximo_barco": null
+        "proximo_desembarco": "20:19",
+        "proximo_barco": "Gnv Sealand"
     },
     "terminales_activas": [
-        "F2",
-        "2398",
-        "8156",
-        "S",
         "6212",
+        "F2",
+        "S",
+        "8156",
+        "TC",
         "F3",
-        "TC"
+        "2398"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-07-15T22:00:18.119331",
+        "actualizado": "2026-07-15T20:08:15.314520",
         "frecuencia": "horaria"
     }
 }
