@@ -42,7 +42,7 @@
             "pax_estimados": 1000,
             "puerto": "Marseille",
             "tipo": "llegada",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Illes Marshall",
             "imo": "9200938",
             "mmsi": "538001665",
@@ -113,7 +113,7 @@
             "fecha": "2026-07-15"
         },
         {
-            "hora": "17:24",
+            "hora": "18:00",
             "nombre": "Cruise Roma",
             "naviera": "GRIMALDI EUROMED SPA",
             "terminal": "TERMINAL F3",
@@ -122,10 +122,26 @@
             "pax_estimados": 3000,
             "puerto": "Civitavecchia",
             "tipo": "llegada",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Itàlia",
             "imo": "9351476",
             "mmsi": "247219400",
+            "fecha": "2026-07-15"
+        },
+        {
+            "hora": "18:15",
+            "nombre": "Ciudad De Palma",
+            "naviera": "TRASMED GLE S.L.",
+            "terminal": "TERMINAL F2",
+            "terminal_codigo": "F2",
+            "eslora": 186.0,
+            "pax_estimados": 1000,
+            "puerto": "Palma de Mallorca",
+            "tipo": "llegada",
+            "estado": "Autoritzada",
+            "bandera": "Espanya",
+            "imo": "9349772",
+            "mmsi": "224588000",
             "fecha": "2026-07-15"
         },
         {
@@ -142,22 +158,6 @@
             "bandera": "Itàlia",
             "imo": "9435454",
             "mmsi": "247265800",
-            "fecha": "2026-07-15"
-        },
-        {
-            "hora": "18:28",
-            "nombre": "Ciudad De Palma",
-            "naviera": "TRASMED GLE S.L.",
-            "terminal": "TERMINAL F2",
-            "terminal_codigo": "F2",
-            "eslora": 186.0,
-            "pax_estimados": 1000,
-            "puerto": "Palma de Mallorca",
-            "tipo": "llegada",
-            "estado": "Iniciada",
-            "bandera": "Espanya",
-            "imo": "9349772",
-            "mmsi": "224588000",
             "fecha": "2026-07-15"
         },
         {
@@ -371,7 +371,7 @@
             "fecha": "2026-07-15"
         },
         {
-            "hora": "17:41",
+            "hora": "17:00",
             "nombre": "Nautica",
             "naviera": "INTERCRUISES PORT OPERATIONS SPAIN SLU",
             "terminal": "Terminal Sud",
@@ -380,7 +380,7 @@
             "pax_estimados": 1000,
             "puerto": "Palma de Mallorca",
             "tipo": "salida",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Illes Marshall",
             "imo": "9200938",
             "mmsi": "538001665",
@@ -412,7 +412,7 @@
             "pax_estimados": 3000,
             "puerto": "Civitavecchia",
             "tipo": "salida",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Itàlia",
             "imo": "9351476",
             "mmsi": "247219400",
@@ -476,7 +476,7 @@
             "pax_estimados": 1000,
             "puerto": "Palma de Mallorca",
             "tipo": "salida",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Espanya",
             "imo": "9349772",
             "mmsi": "224588000",
@@ -504,21 +504,21 @@
         "total_llegadas": 14,
         "total_salidas": 17,
         "pax_estimados_hoy": 18000,
-        "proximo_desembarco": "18:15",
-        "proximo_barco": "Gnv Sealand"
+        "proximo_desembarco": "18:00",
+        "proximo_barco": "Cruise Roma"
     },
     "terminales_activas": [
-        "F3",
-        "6212",
-        "8156",
         "S",
+        "8156",
+        "F3",
         "TC",
+        "6212",
         "F2",
         "2398"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-07-15T18:06:59.468124",
+        "actualizado": "2026-07-15T16:21:23.039910",
         "frecuencia": "horaria"
     }
 }
