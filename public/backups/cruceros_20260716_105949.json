@@ -34,6 +34,22 @@
         },
         {
             "hora": "06:00",
+            "nombre": "Msc Amihan F",
+            "naviera": "MEDITERRANEAN SHIPPING CO",
+            "terminal": "TERMINAL CATALUNYA SA",
+            "terminal_codigo": "6212",
+            "eslora": 0,
+            "pax_estimados": 500,
+            "puerto": "Fos-sur-Mer",
+            "tipo": "llegada",
+            "estado": "Autoritzada",
+            "bandera": "Libèria",
+            "imo": "9449687",
+            "mmsi": "636021438",
+            "fecha": "2026-07-16"
+        },
+        {
+            "hora": "06:00",
             "nombre": "Msc Yuxin",
             "naviera": "MEDITERRANEAN SHIPPING CO",
             "terminal": "TERMINAL CATALUNYA SA",
@@ -65,39 +81,7 @@
             "fecha": "2026-07-16"
         },
         {
-            "hora": "08:27",
-            "nombre": "Msc Seaview",
-            "naviera": "MSC CRUISES S.A.",
-            "terminal": "ADOSSAT/TERMINAL H",
-            "terminal_codigo": "H",
-            "eslora": 323.0,
-            "pax_estimados": 4500,
-            "puerto": "Ibiza",
-            "tipo": "llegada",
-            "estado": "Iniciada",
-            "bandera": "Malta",
-            "imo": "9745378",
-            "mmsi": "248717000",
-            "fecha": "2026-07-16"
-        },
-        {
-            "hora": "08:40",
-            "nombre": "Msc Amihan F",
-            "naviera": "MEDITERRANEAN SHIPPING CO",
-            "terminal": "TERMINAL CATALUNYA SA",
-            "terminal_codigo": "6212",
-            "eslora": 0,
-            "pax_estimados": 500,
-            "puerto": "Fos-sur-Mer",
-            "tipo": "llegada",
-            "estado": "Iniciada",
-            "bandera": "Libèria",
-            "imo": "9449687",
-            "mmsi": "636021438",
-            "fecha": "2026-07-16"
-        },
-        {
-            "hora": "10:16",
+            "hora": "08:00",
             "nombre": "Eco Adriatica",
             "naviera": "GRIMALDI EUROMED SPA",
             "terminal": "GRIMALDI TERMINAL BARCELONA SL",
@@ -106,10 +90,26 @@
             "pax_estimados": 2000,
             "puerto": "Valencia",
             "tipo": "llegada",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Itàlia",
             "imo": "9859600",
             "mmsi": "247384100",
+            "fecha": "2026-07-16"
+        },
+        {
+            "hora": "08:00",
+            "nombre": "Msc Seaview",
+            "naviera": "MSC CRUISES S.A.",
+            "terminal": "ADOSSAT/TERMINAL H",
+            "terminal_codigo": "H",
+            "eslora": 323.0,
+            "pax_estimados": 4500,
+            "puerto": "Ibiza",
+            "tipo": "llegada",
+            "estado": "Autoritzada",
+            "bandera": "Malta",
+            "imo": "9745378",
+            "mmsi": "248717000",
             "fecha": "2026-07-16"
         },
         {
@@ -252,7 +252,7 @@
             "pax_estimados": 2000,
             "puerto": "Savona",
             "tipo": "salida",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Itàlia",
             "imo": "9859600",
             "mmsi": "247384100",
@@ -316,7 +316,7 @@
             "pax_estimados": 4500,
             "puerto": "Marseille",
             "tipo": "salida",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Malta",
             "imo": "9745378",
             "mmsi": "248717000",
@@ -348,7 +348,7 @@
             "pax_estimados": 500,
             "puerto": "Alger (Algiers)",
             "tipo": "salida",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Libèria",
             "imo": "9449687",
             "mmsi": "636021438",
@@ -472,21 +472,21 @@
         "total_llegadas": 14,
         "total_salidas": 15,
         "pax_estimados_hoy": 22500,
-        "proximo_desembarco": "17:00",
-        "proximo_barco": "Cruise Barcelona"
+        "proximo_desembarco": "08:00",
+        "proximo_barco": "Eco Adriatica"
     },
     "terminales_activas": [
         "F3",
-        "6212",
-        "A",
-        "F2",
-        "8156",
         "F1",
-        "H"
+        "6212",
+        "H",
+        "8156",
+        "A",
+        "F2"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-07-16T10:59:49.830034",
+        "actualizado": "2026-07-16T07:22:00.049103",
         "frecuencia": "horaria"
     }
 }
