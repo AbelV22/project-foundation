@@ -26,7 +26,7 @@
             "pax_estimados": 500,
             "puerto": "Malaga",
             "tipo": "llegada",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Malta",
             "imo": "9372456",
             "mmsi": "249667000",
@@ -129,7 +129,7 @@
             "fecha": "2026-07-16"
         },
         {
-            "hora": "16:32",
+            "hora": "17:00",
             "nombre": "Cruise Barcelona",
             "naviera": "GRIMALDI EUROMED SPA",
             "terminal": "TERMINAL F3",
@@ -138,14 +138,14 @@
             "pax_estimados": 500,
             "puerto": "Civitavecchia",
             "tipo": "llegada",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Itàlia",
             "imo": "9351488",
             "mmsi": "247243600",
             "fecha": "2026-07-16"
         },
         {
-            "hora": "18:28",
+            "hora": "18:15",
             "nombre": "Ciudad De Palma",
             "naviera": "TRASMED GLE S.L.",
             "terminal": "TERMINAL F2",
@@ -154,7 +154,7 @@
             "pax_estimados": 1000,
             "puerto": "Palma de Mallorca",
             "tipo": "llegada",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Espanya",
             "imo": "9349772",
             "mmsi": "224588000",
@@ -174,22 +174,6 @@
             "bandera": "Itàlia",
             "imo": "9435454",
             "mmsi": "247265800",
-            "fecha": "2026-07-16"
-        },
-        {
-            "hora": "18:51",
-            "nombre": "Ciudad De Granada",
-            "naviera": "TRASMED GLE S.L.",
-            "terminal": "TERMINAL F2",
-            "terminal_codigo": "F2",
-            "eslora": 172.0,
-            "pax_estimados": 1000,
-            "puerto": "Mahon Menorca",
-            "tipo": "llegada",
-            "estado": "Iniciada",
-            "bandera": "Espanya",
-            "imo": "9217125",
-            "mmsi": "224600000",
             "fecha": "2026-07-16"
         },
         {
@@ -222,6 +206,22 @@
             "bandera": "Espanya",
             "imo": "9441130",
             "mmsi": "224402000",
+            "fecha": "2026-07-16"
+        },
+        {
+            "hora": "19:00",
+            "nombre": "Ciudad De Granada",
+            "naviera": "TRASMED GLE S.L.",
+            "terminal": "TERMINAL F2",
+            "terminal_codigo": "F2",
+            "eslora": 172.0,
+            "pax_estimados": 1000,
+            "puerto": "Mahon Menorca",
+            "tipo": "llegada",
+            "estado": "Autoritzada",
+            "bandera": "Espanya",
+            "imo": "9217125",
+            "mmsi": "224600000",
             "fecha": "2026-07-16"
         }
     ],
@@ -307,7 +307,7 @@
             "fecha": "2026-07-16"
         },
         {
-            "hora": "17:17",
+            "hora": "17:00",
             "nombre": "Celebrity Equinox",
             "naviera": "BALEARES CONSIGNATARIOS SLU",
             "terminal": "Terminal A (WTC)",
@@ -316,7 +316,7 @@
             "pax_estimados": 500,
             "puerto": "Cannes",
             "tipo": "salida",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Malta",
             "imo": "9372456",
             "mmsi": "249667000",
@@ -396,7 +396,7 @@
             "pax_estimados": 500,
             "puerto": "Porto Torres",
             "tipo": "salida",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Itàlia",
             "imo": "9351488",
             "mmsi": "247243600",
@@ -460,7 +460,7 @@
             "pax_estimados": 1000,
             "puerto": "Ibiza",
             "tipo": "salida",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Espanya",
             "imo": "9217125",
             "mmsi": "224600000",
@@ -476,7 +476,7 @@
             "pax_estimados": 1000,
             "puerto": "Palma de Mallorca",
             "tipo": "salida",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Espanya",
             "imo": "9349772",
             "mmsi": "224588000",
@@ -488,22 +488,22 @@
         "total_llegadas": 14,
         "total_salidas": 16,
         "pax_estimados_hoy": 22500,
-        "proximo_desembarco": "18:28",
-        "proximo_barco": "Ciudad De Palma"
+        "proximo_desembarco": "17:00",
+        "proximo_barco": "Cruise Barcelona"
     },
     "terminales_activas": [
-        "8156",
-        "F2",
         "A",
+        "F3",
+        "F2",
+        "F1",
+        "2252",
         "6212",
         "H",
-        "2252",
-        "F3",
-        "F1"
+        "8156"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-07-16T18:06:01.173353",
+        "actualizado": "2026-07-16T15:01:44.400454",
         "frecuencia": "horaria"
     }
 }
