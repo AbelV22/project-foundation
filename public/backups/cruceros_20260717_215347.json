@@ -218,7 +218,7 @@
             "pax_estimados": 500,
             "puerto": "Mahon Menorca",
             "tipo": "llegada",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Itàlia",
             "imo": "9435454",
             "mmsi": "247265800",
@@ -451,7 +451,7 @@
             "fecha": "2026-07-17"
         },
         {
-            "hora": "22:08",
+            "hora": "21:45",
             "nombre": "Gnv Sealand",
             "naviera": "TRANSCOMA BALEARES SA",
             "terminal": "TERMINAL F2",
@@ -460,7 +460,7 @@
             "pax_estimados": 500,
             "puerto": "Ibiza",
             "tipo": "salida",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Itàlia",
             "imo": "9435454",
             "mmsi": "247265800",
@@ -556,20 +556,20 @@
         "proximo_barco": "Gnv Virgo"
     },
     "terminales_activas": [
-        "6995",
-        "F2",
         "8156",
-        "H",
         "6212",
         "F1",
+        "F2",
+        "7946",
+        "6995",
         "D",
-        "F3",
+        "H",
         "199896",
-        "7946"
+        "F3"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-07-17T21:53:47.441441",
+        "actualizado": "2026-07-17T20:05:11.710069",
         "frecuencia": "horaria"
     }
 }
