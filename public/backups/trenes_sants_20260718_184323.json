@@ -67,12 +67,6 @@
             "via": "-"
         },
         {
-            "hora": "13:04",
-            "origen": "Madrid Puerta de Atocha Almudena Grandes",
-            "tren": "AVE 03093",
-            "via": "-"
-        },
-        {
             "hora": "13:09",
             "origen": "Donostia / San Sebastián",
             "tren": "ALVIA 00533",
@@ -178,7 +172,7 @@
             "hora": "18:13",
             "origen": "Málaga María Zambrano",
             "tren": "IRYO 06021",
-            "via": "-"
+            "via": "3"
         },
         {
             "hora": "18:19",
@@ -190,7 +184,7 @@
             "hora": "18:30",
             "origen": "Figueres-Vilafant",
             "tren": "AVE 03192",
-            "via": "-"
+            "via": "1"
         },
         {
             "hora": "18:59",
@@ -202,7 +196,7 @@
             "hora": "19:14",
             "origen": "Madrid Puerta de Atocha Almudena Grandes",
             "tren": "AVE 03305",
-            "via": "-"
+            "via": "4"
         },
         {
             "hora": "19:23",
@@ -221,6 +215,12 @@
             "origen": "Madrid Puerta de Atocha Almudena Grandes",
             "tren": "IRYO 06161",
             "via": "-"
+        },
+        {
+            "hora": "19:44",
+            "origen": "Madrid Puerta de Atocha Almudena Grandes",
+            "tren": "AVE 03163",
+            "via": "4"
         },
         {
             "hora": "19:50",
@@ -250,7 +250,7 @@
             "hora": "20:42",
             "origen": "Madrid Puerta de Atocha Almudena Grandes",
             "tren": "IRYO 06171",
-            "via": "3"
+            "via": "-"
         },
         {
             "hora": "20:51",
@@ -316,7 +316,7 @@
             "hora": "22:04",
             "origen": "Alacant / Alicante Terminal",
             "tren": "EUROMED 01192",
-            "via": "4"
+            "via": "-"
         },
         {
             "hora": "22:10",
@@ -352,7 +352,7 @@
             "hora": "23:20",
             "origen": "Madrid Puerta de Atocha Almudena Grandes",
             "tren": "AVE 03309",
-            "via": "4"
+            "via": "-"
         },
         {
             "hora": "23:25",
@@ -386,8 +386,8 @@
         }
     ],
     "meta": {
-        "update_time": "18:43",
-        "updated_at": "2026-07-18T18:43:23.429115",
+        "update_time": "15:43",
+        "updated_at": "2026-07-18T15:43:02.950426",
         "total": 64
     }
 }
