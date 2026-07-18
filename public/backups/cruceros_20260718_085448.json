@@ -65,7 +65,7 @@
             "fecha": "2026-07-18"
         },
         {
-            "hora": "08:42",
+            "hora": "07:45",
             "nombre": "Aidastella",
             "naviera": "AIDA CRUISES",
             "terminal": "Terminal D (Adossat)",
@@ -74,7 +74,7 @@
             "pax_estimados": 500,
             "puerto": "Valencia",
             "tipo": "llegada",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Itàlia",
             "imo": "9601132",
             "mmsi": "247322800",
@@ -220,7 +220,7 @@
             "pax_estimados": 500,
             "puerto": "Palma de Mallorca",
             "tipo": "salida",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Itàlia",
             "imo": "9601132",
             "mmsi": "247322800",
@@ -280,22 +280,22 @@
         "total_llegadas": 8,
         "total_salidas": 9,
         "pax_estimados_hoy": 7000,
-        "proximo_desembarco": "13:00",
-        "proximo_barco": "Eco Valencia"
+        "proximo_desembarco": "07:02",
+        "proximo_barco": "Eco Livorno"
     },
     "terminales_activas": [
-        "F2",
-        "A",
-        "H",
-        "6212",
         "D",
+        "6212",
         "E",
         "F3",
-        "8156"
+        "8156",
+        "A",
+        "F2",
+        "H"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-07-18T08:54:48.057684",
+        "actualizado": "2026-07-18T07:00:17.639282",
         "frecuencia": "horaria"
     }
 }
