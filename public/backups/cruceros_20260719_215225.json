@@ -170,7 +170,7 @@
             "pax_estimados": 1000,
             "puerto": "Alcudia",
             "tipo": "llegada",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Espanya",
             "imo": "9441130",
             "mmsi": "224402000",
@@ -190,22 +190,6 @@
             "bandera": "Itàlia",
             "imo": "9435454",
             "mmsi": "247265800",
-            "fecha": "2026-07-19"
-        },
-        {
-            "hora": "22:17",
-            "nombre": "High Freedom",
-            "naviera": "D'AMICO TANKERS LTD",
-            "terminal": "",
-            "terminal_codigo": "",
-            "eslora": 183.0,
-            "pax_estimados": 1000,
-            "puerto": "Vassiliki Leykadas                 ",
-            "tipo": "llegada",
-            "estado": "Iniciada",
-            "bandera": "Libèria",
-            "imo": "9674713",
-            "mmsi": "636022700",
             "fecha": "2026-07-19"
         },
         {
@@ -371,7 +355,7 @@
             "fecha": "2026-07-19"
         },
         {
-            "hora": "21:21",
+            "hora": "21:30",
             "nombre": "Abel Matutes",
             "naviera": "BALEARIA EUROLINEAS MARITIMAS SA ",
             "terminal": "LEPANT/TRUCK CENTER",
@@ -380,7 +364,7 @@
             "pax_estimados": 1000,
             "puerto": "Alcudia",
             "tipo": "salida",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Espanya",
             "imo": "9441130",
             "mmsi": "224402000",
@@ -404,29 +388,29 @@
         }
     ],
     "resumen": {
-        "total_cruceros": 16,
-        "total_llegadas": 14,
+        "total_cruceros": 15,
+        "total_llegadas": 13,
         "total_salidas": 11,
-        "pax_estimados_hoy": 23500,
-        "proximo_desembarco": "22:17",
-        "proximo_barco": "High Freedom"
+        "pax_estimados_hoy": 22500,
+        "proximo_desembarco": "22:45",
+        "proximo_barco": "Cruise Roma"
     },
     "terminales_activas": [
-        "B",
-        "F2",
-        "H",
-        "TC",
-        "S",
         "A",
-        "6212",
+        "F2",
+        "TC",
         "E",
         "F3",
-        "0010",
-        "2256"
+        "6212",
+        "H",
+        "B",
+        "2256",
+        "S",
+        "0010"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-07-19T21:52:25.983236",
+        "actualizado": "2026-07-19T20:06:56.706841",
         "frecuencia": "horaria"
     }
 }
