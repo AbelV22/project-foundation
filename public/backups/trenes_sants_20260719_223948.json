@@ -169,12 +169,6 @@
             "via": "-"
         },
         {
-            "hora": "14:54",
-            "origen": "Málaga María Zambrano",
-            "tren": "AVE 03993",
-            "via": "-"
-        },
-        {
             "hora": "15:11",
             "origen": "Madrid Puerta de Atocha Almudena Grandes",
             "tren": "AVE 03113",
@@ -370,6 +364,18 @@
             "hora": "22:04",
             "origen": "Alacant / Alicante Terminal",
             "tren": "EUROMED 01192",
+            "via": "1"
+        },
+        {
+            "hora": "22:10",
+            "origen": "València Estació del Nord",
+            "tren": "INTERCITY 01382",
+            "via": "-"
+        },
+        {
+            "hora": "22:13",
+            "origen": "Bilbao Intermodal Abando-Indalecio Prieto.",
+            "tren": "ALVIA 00437",
             "via": "-"
         },
         {
@@ -400,6 +406,12 @@
             "hora": "23:20",
             "origen": "Madrid Puerta de Atocha Almudena Grandes",
             "tren": "AVE 03309",
+            "via": "1"
+        },
+        {
+            "hora": "23:25",
+            "origen": "Alacant / Alicante Terminal",
+            "tren": "INTERCITY 01402",
             "via": "-"
         },
         {
@@ -409,15 +421,27 @@
             "via": "-"
         },
         {
+            "hora": "23:34",
+            "origen": "Vigo Urzaiz",
+            "tren": "ALVIA 00621",
+            "via": "-"
+        },
+        {
+            "hora": "23:39",
+            "origen": "Madrid Puerta de Atocha Almudena Grandes",
+            "tren": "IRYO 06201",
+            "via": "-"
+        },
+        {
             "hora": "23:47",
             "origen": "Madrid Puerta de Atocha Almudena Grandes",
             "tren": "AVE 03201",
-            "via": "-"
+            "via": "4"
         }
     ],
     "meta": {
-        "update_time": "22:39",
-        "updated_at": "2026-07-19T22:39:48.046620",
-        "total": 69
+        "update_time": "20:00",
+        "updated_at": "2026-07-19T20:00:55.987256",
+        "total": 73
     }
 }
