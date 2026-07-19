@@ -42,7 +42,7 @@
             "pax_estimados": 500,
             "puerto": "Palma de Mallorca",
             "tipo": "llegada",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Bahames",
             "imo": "9195169",
             "mmsi": "311307000",
@@ -243,7 +243,7 @@
             "fecha": "2026-07-19"
         },
         {
-            "hora": "16:12",
+            "hora": "16:00",
             "nombre": "Norwegian Dawn",
             "naviera": "INTERCRUISES PORT OPERATIONS SPAIN SLU",
             "terminal": "Terminal A (WTC)",
@@ -252,7 +252,7 @@
             "pax_estimados": 500,
             "puerto": "Palma de Mallorca",
             "tipo": "salida",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Bahames",
             "imo": "9195169",
             "mmsi": "311307000",
@@ -392,25 +392,25 @@
         "total_llegadas": 13,
         "total_salidas": 11,
         "pax_estimados_hoy": 22500,
-        "proximo_desembarco": "18:15",
-        "proximo_barco": "Gnv Sealand"
+        "proximo_desembarco": "14:59",
+        "proximo_barco": "Gnv Virgo"
     },
     "terminales_activas": [
-        "6212",
-        "2256",
-        "A",
-        "F2",
-        "TC",
-        "S",
-        "B",
-        "F3",
         "E",
+        "S",
+        "A",
+        "6212",
         "H",
-        "0010"
+        "0010",
+        "F2",
+        "F3",
+        "2256",
+        "B",
+        "TC"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-07-19T15:57:44.601978",
+        "actualizado": "2026-07-19T14:23:15.839598",
         "frecuencia": "horaria"
     }
 }
