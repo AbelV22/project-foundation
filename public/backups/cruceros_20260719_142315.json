@@ -145,7 +145,7 @@
             "fecha": "2026-07-19"
         },
         {
-            "hora": "14:59",
+            "hora": "15:00",
             "nombre": "Gnv Virgo",
             "naviera": "GRANDI NAVI VELOCI",
             "terminal": "TERMINAL F2",
@@ -154,7 +154,7 @@
             "pax_estimados": 2000,
             "puerto": "Genoa",
             "tipo": "llegada",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Itàlia",
             "imo": "9980057",
             "mmsi": "247529200",
@@ -284,7 +284,7 @@
             "pax_estimados": 2000,
             "puerto": "Tanger Med",
             "tipo": "salida",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Itàlia",
             "imo": "9980057",
             "mmsi": "247529200",
@@ -392,25 +392,25 @@
         "total_llegadas": 13,
         "total_salidas": 11,
         "pax_estimados_hoy": 22500,
-        "proximo_desembarco": "14:59",
+        "proximo_desembarco": "15:00",
         "proximo_barco": "Gnv Virgo"
     },
     "terminales_activas": [
-        "E",
-        "S",
-        "A",
-        "6212",
-        "H",
         "0010",
-        "F2",
-        "F3",
+        "A",
+        "H",
         "2256",
         "B",
-        "TC"
+        "TC",
+        "F3",
+        "S",
+        "6212",
+        "F2",
+        "E"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-07-19T14:23:15.839598",
+        "actualizado": "2026-07-19T11:57:59.413286",
         "frecuencia": "horaria"
     }
 }
