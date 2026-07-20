@@ -1,6 +1,12 @@
 {
     "trenes": [
         {
+            "hora": "06:25",
+            "origen": "Figueres-Vilafant",
+            "tren": "AVE 03302",
+            "via": "-"
+        },
+        {
             "hora": "07:15",
             "origen": "Figueres-Vilafant",
             "tren": "AVE 03662",
@@ -256,7 +262,7 @@
             "hora": "19:00",
             "origen": "Alacant / Alicante Terminal",
             "tren": "EUROMED 01162",
-            "via": "-"
+            "via": "1"
         },
         {
             "hora": "19:14",
@@ -286,19 +292,19 @@
             "hora": "19:44",
             "origen": "Madrid Puerta de Atocha Almudena Grandes",
             "tren": "AVE 03163",
-            "via": "-"
+            "via": "5"
         },
         {
             "hora": "19:59",
             "origen": "Madrid Puerta de Atocha Almudena Grandes",
             "tren": "AVE 03171",
-            "via": "-"
+            "via": "2"
         },
         {
             "hora": "20:33",
             "origen": "Figueres-Vilafant",
             "tren": "AVE 03292",
-            "via": "-"
+            "via": "6"
         },
         {
             "hora": "20:42",
@@ -358,13 +364,13 @@
             "hora": "21:59",
             "origen": "Madrid Puerta de Atocha Almudena Grandes",
             "tren": "AVE 03191",
-            "via": "2"
+            "via": "-"
         },
         {
             "hora": "22:04",
             "origen": "Alacant / Alicante Terminal",
             "tren": "EUROMED 01192",
-            "via": "1"
+            "via": "-"
         },
         {
             "hora": "22:13",
@@ -394,7 +400,7 @@
             "hora": "23:20",
             "origen": "Madrid Puerta de Atocha Almudena Grandes",
             "tren": "AVE 03309",
-            "via": "1"
+            "via": "-"
         },
         {
             "hora": "23:28",
@@ -406,12 +412,12 @@
             "hora": "23:47",
             "origen": "Madrid Puerta de Atocha Almudena Grandes",
             "tren": "AVE 03201",
-            "via": "4"
+            "via": "-"
         }
     ],
     "meta": {
-        "update_time": "19:22",
-        "updated_at": "2026-07-20T19:22:23.691915",
-        "total": 68
+        "update_time": "17:16",
+        "updated_at": "2026-07-20T17:16:26.611178",
+        "total": 69
     }
 }
