@@ -129,22 +129,6 @@
             "fecha": "2026-07-24"
         },
         {
-            "hora": "18:30",
-            "nombre": "Cruise Roma",
-            "naviera": "GRIMALDI EUROMED SPA",
-            "terminal": "TERMINAL F3",
-            "terminal_codigo": "F3",
-            "eslora": 0,
-            "pax_estimados": 500,
-            "puerto": "Porto Torres",
-            "tipo": "llegada",
-            "estado": "Autoritzada",
-            "bandera": "Itàlia",
-            "imo": "9351476",
-            "mmsi": "247219400",
-            "fecha": "2026-07-24"
-        },
-        {
             "hora": "19:00",
             "nombre": "Ciudad De Granada",
             "naviera": "TRASMED GLE S.L.",
@@ -158,6 +142,22 @@
             "bandera": "Espanya",
             "imo": "9217125",
             "mmsi": "224600000",
+            "fecha": "2026-07-24"
+        },
+        {
+            "hora": "19:15",
+            "nombre": "Cruise Roma",
+            "naviera": "GRIMALDI EUROMED SPA",
+            "terminal": "TERMINAL F3",
+            "terminal_codigo": "F3",
+            "eslora": 0,
+            "pax_estimados": 500,
+            "puerto": "Porto Torres",
+            "tipo": "llegada",
+            "estado": "Autoritzada",
+            "bandera": "Itàlia",
+            "imo": "9351476",
+            "mmsi": "247219400",
             "fecha": "2026-07-24"
         },
         {
@@ -408,23 +408,23 @@
         "total_llegadas": 12,
         "total_salidas": 13,
         "pax_estimados_hoy": 18000,
-        "proximo_desembarco": "12:15",
-        "proximo_barco": "Gnv Virgo"
+        "proximo_desembarco": "07:39",
+        "proximo_barco": "Moon Star"
     },
     "terminales_activas": [
-        "H",
-        "7946",
-        "8156",
+        "F2",
+        "6995",
         "6037",
+        "8156",
         "6212",
         "F3",
-        "D",
-        "F2",
-        "6995"
+        "7946",
+        "H",
+        "D"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-07-24T11:02:53.731567",
+        "actualizado": "2026-07-24T07:30:14.529661",
         "frecuencia": "horaria"
     }
 }
