@@ -106,7 +106,7 @@
             "pax_estimados": 2000,
             "puerto": "Genoa",
             "tipo": "llegada",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Itàlia",
             "imo": "9980057",
             "mmsi": "247529200",
@@ -259,7 +259,7 @@
             "fecha": "2026-07-24"
         },
         {
-            "hora": "16:21",
+            "hora": "15:15",
             "nombre": "Gnv Virgo",
             "naviera": "TRANSCOMA BALEARES SA",
             "terminal": "TERMINAL F2",
@@ -268,7 +268,7 @@
             "pax_estimados": 2000,
             "puerto": "Tanger Med",
             "tipo": "salida",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Itàlia",
             "imo": "9980057",
             "mmsi": "247529200",
@@ -413,18 +413,18 @@
     },
     "terminales_activas": [
         "F2",
-        "8156",
-        "6212",
-        "D",
         "F3",
-        "H",
-        "6037",
         "6995",
-        "7946"
+        "7946",
+        "6212",
+        "8156",
+        "D",
+        "6037",
+        "H"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-07-24T16:41:53.035232",
+        "actualizado": "2026-07-24T14:54:10.418083",
         "frecuencia": "horaria"
     }
 }
