@@ -161,7 +161,7 @@
             "fecha": "2026-07-25"
         },
         {
-            "hora": "20:50",
+            "hora": "20:45",
             "nombre": "Cruise Barcelona",
             "naviera": "GRIMALDI EUROMED SPA",
             "terminal": "TERMINAL F3",
@@ -170,7 +170,7 @@
             "pax_estimados": 500,
             "puerto": "Porto Torres",
             "tipo": "llegada",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Itàlia",
             "imo": "9351488",
             "mmsi": "247243600",
@@ -360,22 +360,22 @@
         "total_llegadas": 11,
         "total_salidas": 11,
         "pax_estimados_hoy": 11500,
-        "proximo_desembarco": "20:50",
-        "proximo_barco": "Cruise Barcelona"
+        "proximo_desembarco": "18:59",
+        "proximo_barco": "Gnv Sealand"
     },
     "terminales_activas": [
-        "F2",
-        "F3",
-        "6212",
-        "8156",
-        "7946",
         "H",
         "B",
-        "6995"
+        "F3",
+        "7946",
+        "8156",
+        "6995",
+        "F2",
+        "6212"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-07-25T20:10:07.932317",
+        "actualizado": "2026-07-25T17:57:55.033740",
         "frecuencia": "horaria"
     }
 }
