@@ -129,7 +129,7 @@
             "fecha": "2026-07-25"
         },
         {
-            "hora": "16:31",
+            "hora": "14:30",
             "nombre": "Ciudad De Granada",
             "naviera": "TRASMED GLE S.L.",
             "terminal": "TERMINAL F2",
@@ -138,7 +138,7 @@
             "pax_estimados": 1000,
             "puerto": "Mahon Menorca",
             "tipo": "llegada",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Espanya",
             "imo": "9217125",
             "mmsi": "224600000",
@@ -243,7 +243,7 @@
             "fecha": "2026-07-25"
         },
         {
-            "hora": "16:33",
+            "hora": "16:00",
             "nombre": "Ciudad De Granada",
             "naviera": "GRIMALDI LOGISTICA ESPAÑA SL",
             "terminal": "TERMINAL F2",
@@ -252,7 +252,7 @@
             "pax_estimados": 1000,
             "puerto": "Mahon Menorca",
             "tipo": "salida",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Espanya",
             "imo": "9217125",
             "mmsi": "224600000",
@@ -360,22 +360,22 @@
         "total_llegadas": 11,
         "total_salidas": 11,
         "pax_estimados_hoy": 11500,
-        "proximo_desembarco": "16:31",
-        "proximo_barco": "Ciudad De Granada"
+        "proximo_desembarco": "18:40",
+        "proximo_barco": "Gnv Sealand"
     },
     "terminales_activas": [
-        "F3",
-        "6995",
-        "7946",
-        "6212",
         "H",
         "B",
-        "8156",
-        "F2"
+        "6212",
+        "F2",
+        "7946",
+        "6995",
+        "F3",
+        "8156"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-07-25T16:03:46.058084",
+        "actualizado": "2026-07-25T14:37:10.393410",
         "frecuencia": "horaria"
     }
 }
