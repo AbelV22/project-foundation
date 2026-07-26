@@ -1,22 +1,6 @@
 {
     "llegadas": [
         {
-            "hora": "00:18",
-            "nombre": "Stallion",
-            "naviera": "SYNERGY MARINE PTE LTD",
-            "terminal": "DECAL ESPAÑA SA",
-            "terminal_codigo": "6037",
-            "eslora": 183.0,
-            "pax_estimados": 1000,
-            "puerto": "Houston",
-            "tipo": "llegada",
-            "estado": "Iniciada",
-            "bandera": "Illes Marshall",
-            "imo": "9692129",
-            "mmsi": "538012282",
-            "fecha": "2026-07-26"
-        },
-        {
             "hora": "01:01",
             "nombre": "Msc Oak F",
             "naviera": "MEDITERRANEAN SHIPPING CO",
@@ -97,6 +81,22 @@
             "fecha": "2026-07-26"
         },
         {
+            "hora": "06:30",
+            "nombre": "Ciudad De Granada",
+            "naviera": "TRASMED GLE S.L.",
+            "terminal": "TERMINAL F2",
+            "terminal_codigo": "F2",
+            "eslora": 172.0,
+            "pax_estimados": 1000,
+            "puerto": "Mahon Menorca",
+            "tipo": "llegada",
+            "estado": "Autoritzada",
+            "bandera": "Espanya",
+            "imo": "9217125",
+            "mmsi": "224600000",
+            "fecha": "2026-07-26"
+        },
+        {
             "hora": "07:30",
             "nombre": "Costa Toscana",
             "naviera": "COSTA CROCIERE, S.P.A.",
@@ -158,22 +158,6 @@
             "bandera": "Illes Marshall",
             "imo": "9719757",
             "mmsi": "538005788",
-            "fecha": "2026-07-26"
-        },
-        {
-            "hora": "09:13",
-            "nombre": "Ciudad De Granada",
-            "naviera": "TRASMED GLE S.L.",
-            "terminal": "TERMINAL F2",
-            "terminal_codigo": "F2",
-            "eslora": 172.0,
-            "pax_estimados": 1000,
-            "puerto": "Mahon Menorca",
-            "tipo": "llegada",
-            "estado": "Finalitzada",
-            "bandera": "Espanya",
-            "imo": "9217125",
-            "mmsi": "224600000",
             "fecha": "2026-07-26"
         },
         {
@@ -275,22 +259,6 @@
     ],
     "salidas": [
         {
-            "hora": "00:17",
-            "nombre": "Stallion",
-            "naviera": "ALFASHIP MARITIME SERVICES SL ",
-            "terminal": "",
-            "terminal_codigo": "",
-            "eslora": 183.0,
-            "pax_estimados": 1000,
-            "puerto": "Augusta",
-            "tipo": "salida",
-            "estado": "Iniciada",
-            "bandera": "Illes Marshall",
-            "imo": "9692129",
-            "mmsi": "538012282",
-            "fecha": "2026-07-26"
-        },
-        {
             "hora": "00:32",
             "nombre": "Cruise Barcelona",
             "naviera": "GRIMALDI LOGISTICA ESPAÑA SL",
@@ -339,6 +307,22 @@
             "fecha": "2026-07-26"
         },
         {
+            "hora": "02:00",
+            "nombre": "Msc Tianjin",
+            "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
+            "terminal": "TERMINAL CATALUNYA SA",
+            "terminal_codigo": "6212",
+            "eslora": 323.0,
+            "pax_estimados": 4500,
+            "puerto": "Valencia",
+            "tipo": "salida",
+            "estado": "Iniciada",
+            "bandera": "Libèria",
+            "imo": "9285471",
+            "mmsi": "636019332",
+            "fecha": "2026-07-26"
+        },
+        {
             "hora": "02:50",
             "nombre": "Msc Jiani",
             "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
@@ -355,19 +339,19 @@
             "fecha": "2026-07-26"
         },
         {
-            "hora": "08:46",
-            "nombre": "Msc Tianjin",
-            "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
-            "terminal": "TERMINAL CATALUNYA SA",
-            "terminal_codigo": "6212",
-            "eslora": 323.0,
-            "pax_estimados": 4500,
-            "puerto": "Valencia",
+            "hora": "08:00",
+            "nombre": "Ciudad De Granada",
+            "naviera": "GRIMALDI LOGISTICA ESPAÑA SL",
+            "terminal": "TERMINAL F2",
+            "terminal_codigo": "F2",
+            "eslora": 172.0,
+            "pax_estimados": 1000,
+            "puerto": "Mahon Menorca",
             "tipo": "salida",
-            "estado": "Finalitzada",
-            "bandera": "Libèria",
-            "imo": "9285471",
-            "mmsi": "636019332",
+            "estado": "Autoritzada",
+            "bandera": "Espanya",
+            "imo": "9217125",
+            "mmsi": "224600000",
             "fecha": "2026-07-26"
         },
         {
@@ -384,22 +368,6 @@
             "bandera": "Illes Marshall",
             "imo": "9719757",
             "mmsi": "538005788",
-            "fecha": "2026-07-26"
-        },
-        {
-            "hora": "10:30",
-            "nombre": "Ciudad De Granada",
-            "naviera": "GRIMALDI LOGISTICA ESPAÑA SL",
-            "terminal": "TERMINAL F2",
-            "terminal_codigo": "F2",
-            "eslora": 172.0,
-            "pax_estimados": 1000,
-            "puerto": "Mahon Menorca",
-            "tipo": "salida",
-            "estado": "Finalitzada",
-            "bandera": "Espanya",
-            "imo": "9217125",
-            "mmsi": "224600000",
             "fecha": "2026-07-26"
         },
         {
@@ -545,47 +513,31 @@
             "imo": "9441130",
             "mmsi": "224402000",
             "fecha": "2026-07-26"
-        },
-        {
-            "hora": "23:00",
-            "nombre": "Stallion",
-            "naviera": "ALFASHIP MARITIME SERVICES SL ",
-            "terminal": "DECAL ESPAÑA SA",
-            "terminal_codigo": "6037",
-            "eslora": 183.0,
-            "pax_estimados": 1000,
-            "puerto": "Augusta",
-            "tipo": "salida",
-            "estado": "Iniciada",
-            "bandera": "Illes Marshall",
-            "imo": "9692129",
-            "mmsi": "538012282",
-            "fecha": "2026-07-26"
         }
     ],
     "resumen": {
-        "total_cruceros": 18,
-        "total_llegadas": 17,
-        "total_salidas": 18,
-        "pax_estimados_hoy": 17000,
-        "proximo_desembarco": "15:00",
-        "proximo_barco": "Gnv Aurora"
+        "total_cruceros": 17,
+        "total_llegadas": 16,
+        "total_salidas": 16,
+        "pax_estimados_hoy": 16000,
+        "proximo_desembarco": "07:37",
+        "proximo_barco": "Msc Splendida"
     },
     "terminales_activas": [
-        "6037",
-        "A",
-        "H",
-        "E",
-        "TC",
-        "F2",
-        "6212",
         "B",
+        "6037",
+        "TC",
         "7585",
-        "F3"
+        "6212",
+        "F2",
+        "E",
+        "F3",
+        "A",
+        "H"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-07-26T10:43:58.812317",
+        "actualizado": "2026-07-26T07:34:49.492389",
         "frecuencia": "horaria"
     }
 }
