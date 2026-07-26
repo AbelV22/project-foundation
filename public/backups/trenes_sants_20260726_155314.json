@@ -112,7 +112,7 @@
             "hora": "13:04",
             "origen": "Madrid Puerta de Atocha Almudena Grandes",
             "tren": "AVE 03093",
-            "via": "-"
+            "via": "5"
         },
         {
             "hora": "13:09",
@@ -130,7 +130,7 @@
             "hora": "13:36",
             "origen": "Paris Gare de Lyon",
             "tren": "TGV INOUI 09711",
-            "via": "-"
+            "via": "5"
         },
         {
             "hora": "13:44",
@@ -205,6 +205,12 @@
             "via": "-"
         },
         {
+            "hora": "16:59",
+            "origen": "Madrid Puerta de Atocha Almudena Grandes",
+            "tren": "AVE 03141",
+            "via": "-"
+        },
+        {
             "hora": "17:49",
             "origen": "Madrid Puerta de Atocha Almudena Grandes",
             "tren": "AVE 03143",
@@ -220,7 +226,7 @@
             "hora": "18:13",
             "origen": "Málaga María Zambrano",
             "tren": "IRYO 06021",
-            "via": "2"
+            "via": "-"
         },
         {
             "hora": "18:19",
@@ -232,7 +238,7 @@
             "hora": "18:30",
             "origen": "Figueres-Vilafant",
             "tren": "AVE 03192",
-            "via": "1"
+            "via": "-"
         },
         {
             "hora": "19:00",
@@ -244,7 +250,7 @@
             "hora": "19:14",
             "origen": "Madrid Puerta de Atocha Almudena Grandes",
             "tren": "AVE 03305",
-            "via": "4"
+            "via": "-"
         },
         {
             "hora": "19:23",
@@ -334,12 +340,6 @@
             "hora": "21:32",
             "origen": "Paris Gare de Lyon",
             "tren": "TGV INOUI 09715",
-            "via": "-"
-        },
-        {
-            "hora": "21:40",
-            "origen": "Vigo Urzaiz",
-            "tren": "ALVIA 00620",
             "via": "-"
         },
         {
@@ -434,8 +434,8 @@
         }
     ],
     "meta": {
-        "update_time": "15:53",
-        "updated_at": "2026-07-26T15:53:14.375239",
+        "update_time": "10:27",
+        "updated_at": "2026-07-26T10:27:22.388550",
         "total": 72
     }
 }
