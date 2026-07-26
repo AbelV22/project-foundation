@@ -177,7 +177,7 @@
             "fecha": "2026-07-26"
         },
         {
-            "hora": "15:32",
+            "hora": "15:00",
             "nombre": "Gnv Aurora",
             "naviera": "GRANDI NAVI VELOCI",
             "terminal": "TERMINAL F2",
@@ -186,7 +186,7 @@
             "pax_estimados": 2000,
             "puerto": "Genoa",
             "tipo": "llegada",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Itàlia",
             "imo": "9980069",
             "mmsi": "247530300",
@@ -403,22 +403,6 @@
             "fecha": "2026-07-26"
         },
         {
-            "hora": "13:04",
-            "nombre": "High Freedom",
-            "naviera": "IBERICA MARITIMA BARCELONA SA",
-            "terminal": "TRADEBE PORT SERVICES SL",
-            "terminal_codigo": "7946",
-            "eslora": 183.0,
-            "pax_estimados": 1000,
-            "puerto": "Mohammedia",
-            "tipo": "salida",
-            "estado": "Finalitzada",
-            "bandera": "Libèria",
-            "imo": "9674713",
-            "mmsi": "636022700",
-            "fecha": "2026-07-26"
-        },
-        {
             "hora": "17:00",
             "nombre": "Harmony Of The Seas",
             "naviera": "BALEARES CONSIGNATARIOS SLU",
@@ -460,7 +444,7 @@
             "pax_estimados": 2000,
             "puerto": "Tanger Med",
             "tipo": "salida",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Itàlia",
             "imo": "9980069",
             "mmsi": "247530300",
@@ -580,29 +564,28 @@
         }
     ],
     "resumen": {
-        "total_cruceros": 19,
+        "total_cruceros": 18,
         "total_llegadas": 17,
-        "total_salidas": 19,
+        "total_salidas": 18,
         "pax_estimados_hoy": 17000,
-        "proximo_desembarco": "15:32",
+        "proximo_desembarco": "15:00",
         "proximo_barco": "Gnv Aurora"
     },
     "terminales_activas": [
+        "7585",
         "A",
         "B",
-        "7585",
-        "6212",
-        "E",
-        "7946",
-        "F3",
-        "6037",
         "F2",
         "H",
-        "TC"
+        "E",
+        "TC",
+        "F3",
+        "6037",
+        "6212"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-07-26T14:28:13.628737",
+        "actualizado": "2026-07-26T12:02:34.571642",
         "frecuencia": "horaria"
     }
 }
