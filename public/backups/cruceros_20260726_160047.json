@@ -323,6 +323,22 @@
             "fecha": "2026-07-26"
         },
         {
+            "hora": "02:00",
+            "nombre": "Msc Madison Ii",
+            "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
+            "terminal": "TERMINAL CATALUNYA SA",
+            "terminal_codigo": "6212",
+            "eslora": 0,
+            "pax_estimados": 500,
+            "puerto": "Casablanca",
+            "tipo": "salida",
+            "estado": "Iniciada",
+            "bandera": "Libèria",
+            "imo": "9231119",
+            "mmsi": "636021596",
+            "fecha": "2026-07-26"
+        },
+        {
             "hora": "02:50",
             "nombre": "Msc Jiani",
             "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
@@ -400,22 +416,6 @@
             "bandera": "Libèria",
             "imo": "9674713",
             "mmsi": "636022700",
-            "fecha": "2026-07-26"
-        },
-        {
-            "hora": "16:02",
-            "nombre": "Msc Madison Ii",
-            "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
-            "terminal": "TERMINAL CATALUNYA SA",
-            "terminal_codigo": "6212",
-            "eslora": 0,
-            "pax_estimados": 500,
-            "puerto": "Casablanca",
-            "tipo": "salida",
-            "estado": "Finalitzada",
-            "bandera": "Libèria",
-            "imo": "9231119",
-            "mmsi": "636021596",
             "fecha": "2026-07-26"
         },
         {
@@ -584,25 +584,25 @@
         "total_llegadas": 17,
         "total_salidas": 19,
         "pax_estimados_hoy": 17000,
-        "proximo_desembarco": "18:15",
-        "proximo_barco": "Gnv Sealand"
+        "proximo_desembarco": "15:32",
+        "proximo_barco": "Gnv Aurora"
     },
     "terminales_activas": [
-        "F2",
-        "F3",
         "A",
+        "B",
         "7585",
-        "H",
         "6212",
-        "6037",
-        "7946",
-        "TC",
         "E",
-        "B"
+        "7946",
+        "F3",
+        "6037",
+        "F2",
+        "H",
+        "TC"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-07-26T16:00:47.064928",
+        "actualizado": "2026-07-26T14:28:13.628737",
         "frecuencia": "horaria"
     }
 }
