@@ -193,6 +193,22 @@
             "fecha": "2026-07-26"
         },
         {
+            "hora": "18:15",
+            "nombre": "Gnv Sealand",
+            "naviera": "GRANDI NAVI VELOCI",
+            "terminal": "TERMINAL F2",
+            "terminal_codigo": "F2",
+            "eslora": 0,
+            "pax_estimados": 500,
+            "puerto": "Mahon Menorca",
+            "tipo": "llegada",
+            "estado": "Autoritzada",
+            "bandera": "Itàlia",
+            "imo": "9435454",
+            "mmsi": "247265800",
+            "fecha": "2026-07-26"
+        },
+        {
             "hora": "18:40",
             "nombre": "Abel Matutes",
             "naviera": "EUROLINEAS MARITIMAS S.A",
@@ -202,7 +218,7 @@
             "pax_estimados": 1000,
             "puerto": "Alcudia",
             "tipo": "llegada",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Espanya",
             "imo": "9441130",
             "mmsi": "224402000",
@@ -222,22 +238,6 @@
             "bandera": "Libèria",
             "imo": "9373917",
             "mmsi": "636016702",
-            "fecha": "2026-07-26"
-        },
-        {
-            "hora": "22:18",
-            "nombre": "Gnv Sealand",
-            "naviera": "GRANDI NAVI VELOCI",
-            "terminal": "TERMINAL F2",
-            "terminal_codigo": "F2",
-            "eslora": 0,
-            "pax_estimados": 500,
-            "puerto": "Mahon Menorca",
-            "tipo": "llegada",
-            "estado": "Iniciada",
-            "bandera": "Itàlia",
-            "imo": "9435454",
-            "mmsi": "247265800",
             "fecha": "2026-07-26"
         },
         {
@@ -547,7 +547,7 @@
             "fecha": "2026-07-26"
         },
         {
-            "hora": "21:49",
+            "hora": "21:30",
             "nombre": "Abel Matutes",
             "naviera": "BALEARIA EUROLINEAS MARITIMAS SA ",
             "terminal": "LEPANT/TRUCK CENTER",
@@ -556,7 +556,7 @@
             "pax_estimados": 1000,
             "puerto": "Alcudia",
             "tipo": "salida",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Espanya",
             "imo": "9441130",
             "mmsi": "224402000",
@@ -584,25 +584,25 @@
         "total_llegadas": 17,
         "total_salidas": 19,
         "pax_estimados_hoy": 17000,
-        "proximo_desembarco": "22:18",
-        "proximo_barco": "Gnv Sealand"
+        "proximo_desembarco": "22:30",
+        "proximo_barco": "Ciudad De Granada"
     },
     "terminales_activas": [
-        "TC",
-        "A",
-        "E",
-        "F2",
-        "B",
-        "7585",
-        "7946",
         "F3",
+        "F2",
         "6212",
+        "B",
+        "E",
+        "7585",
+        "6037",
+        "7946",
+        "A",
         "H",
-        "6037"
+        "TC"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-07-26T21:59:19.394168",
+        "actualizado": "2026-07-26T20:09:23.366386",
         "frecuencia": "horaria"
     }
 }
