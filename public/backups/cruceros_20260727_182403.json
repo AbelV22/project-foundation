@@ -74,7 +74,7 @@
             "pax_estimados": 3000,
             "puerto": "Valencia",
             "tipo": "llegada",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Bermuda",
             "imo": "9320556",
             "mmsi": "310624000",
@@ -90,7 +90,7 @@
             "pax_estimados": 4500,
             "puerto": "Marseille",
             "tipo": "llegada",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Itàlia",
             "imo": "9781889",
             "mmsi": "247391900",
@@ -161,7 +161,7 @@
             "fecha": "2026-07-27"
         },
         {
-            "hora": "19:34",
+            "hora": "19:00",
             "nombre": "Denia Ciutat Creativa",
             "naviera": "EUROLINEAS MARITIMAS S.A",
             "terminal": "TERMINAL F1",
@@ -170,7 +170,7 @@
             "pax_estimados": 1000,
             "puerto": "Ibiza",
             "tipo": "llegada",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Xipre",
             "imo": "9019054",
             "mmsi": "210133000",
@@ -323,7 +323,7 @@
             "fecha": "2026-07-27"
         },
         {
-            "hora": "17:17",
+            "hora": "17:00",
             "nombre": "Costa Smeralda",
             "naviera": "NOATUM MARITIME SPAIN SAU",
             "terminal": "Terminal E (Adossat)",
@@ -332,14 +332,14 @@
             "pax_estimados": 4500,
             "puerto": "Ibiza",
             "tipo": "salida",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Itàlia",
             "imo": "9781889",
             "mmsi": "247391900",
             "fecha": "2026-07-27"
         },
         {
-            "hora": "17:48",
+            "hora": "17:30",
             "nombre": "Queen Victoria",
             "naviera": "NOATUM MARITIME SPAIN SAU",
             "terminal": "Terminal D (Adossat)",
@@ -348,7 +348,7 @@
             "pax_estimados": 3000,
             "puerto": "Messina",
             "tipo": "salida",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Bermuda",
             "imo": "9320556",
             "mmsi": "310624000",
@@ -428,7 +428,7 @@
             "pax_estimados": 1000,
             "puerto": "Ibiza",
             "tipo": "salida",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Xipre",
             "imo": "9019054",
             "mmsi": "210133000",
@@ -460,21 +460,21 @@
         "proximo_barco": "Ciudad De Granada"
     },
     "terminales_activas": [
-        "7946",
-        "D",
-        "F2",
-        "6212",
-        "8156",
-        "E",
         "6995",
         "6037",
         "F1",
         "F3",
-        "7585"
+        "F2",
+        "7585",
+        "7946",
+        "6212",
+        "E",
+        "D",
+        "8156"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-07-27T18:24:03.459114",
+        "actualizado": "2026-07-27T15:41:26.018128",
         "frecuencia": "horaria"
     }
 }
