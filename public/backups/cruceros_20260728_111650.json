@@ -129,7 +129,23 @@
             "fecha": "2026-07-28"
         },
         {
-            "hora": "09:59",
+            "hora": "09:58",
+            "nombre": "Cielo Di Houston",
+            "naviera": "TRAFIGURA MARITIME LOGISTICS",
+            "terminal": "",
+            "terminal_codigo": "",
+            "eslora": 228.0,
+            "pax_estimados": 2000,
+            "puerto": "El Suweis (= Suez)",
+            "tipo": "llegada",
+            "estado": "Autoritzada",
+            "bandera": "Libèria",
+            "imo": "9791860",
+            "mmsi": "636018642",
+            "fecha": "2026-07-28"
+        },
+        {
+            "hora": "10:00",
             "nombre": "Cielo Di Houston",
             "naviera": "TRAFIGURA MARITIME LOGISTICS",
             "terminal": "EXOLUM CORPORATION, SA",
@@ -138,26 +154,10 @@
             "pax_estimados": 2000,
             "puerto": "El Suweis (= Suez)",
             "tipo": "llegada",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Libèria",
             "imo": "9791860",
             "mmsi": "636018642",
-            "fecha": "2026-07-28"
-        },
-        {
-            "hora": "11:58",
-            "nombre": "Htm Grenadier",
-            "naviera": "HERCULES SHIPPING",
-            "terminal": "",
-            "terminal_codigo": "",
-            "eslora": 184.0,
-            "pax_estimados": 1000,
-            "puerto": "Gibraltar",
-            "tipo": "llegada",
-            "estado": "Autoritzada",
-            "bandera": "Malta",
-            "imo": "9587829",
-            "mmsi": "249703000",
             "fecha": "2026-07-28"
         },
         {
@@ -241,22 +241,6 @@
             "fecha": "2026-07-28"
         },
         {
-            "hora": "18:30",
-            "nombre": "Cruise Barcelona",
-            "naviera": "GRIMALDI EUROMED SPA",
-            "terminal": "TERMINAL F3",
-            "terminal_codigo": "F3",
-            "eslora": 0,
-            "pax_estimados": 500,
-            "puerto": "Porto Torres",
-            "tipo": "llegada",
-            "estado": "Autoritzada",
-            "bandera": "Itàlia",
-            "imo": "9351488",
-            "mmsi": "247243600",
-            "fecha": "2026-07-28"
-        },
-        {
             "hora": "18:40",
             "nombre": "Gnv Sealand",
             "naviera": "GRANDI NAVI VELOCI",
@@ -287,6 +271,22 @@
             "imo": "9441130",
             "mmsi": "224402000",
             "fecha": "2026-07-28"
+        },
+        {
+            "hora": "19:00",
+            "nombre": "Cruise Barcelona",
+            "naviera": "GRIMALDI EUROMED SPA",
+            "terminal": "TERMINAL F3",
+            "terminal_codigo": "F3",
+            "eslora": 0,
+            "pax_estimados": 500,
+            "puerto": "Porto Torres",
+            "tipo": "llegada",
+            "estado": "Autoritzada",
+            "bandera": "Itàlia",
+            "imo": "9351488",
+            "mmsi": "247243600",
+            "fecha": "2026-07-28"
         }
     ],
     "salidas": [
@@ -307,19 +307,19 @@
             "fecha": "2026-07-28"
         },
         {
-            "hora": "11:59",
-            "nombre": "Htm Grenadier",
-            "naviera": "NEXT MARITIME SL",
+            "hora": "09:59",
+            "nombre": "Cielo Di Houston",
+            "naviera": "ALFASHIP MARITIME SERVICES SL ",
             "terminal": "",
             "terminal_codigo": "",
-            "eslora": 184.0,
-            "pax_estimados": 1000,
+            "eslora": 228.0,
+            "pax_estimados": 2000,
             "puerto": "Cartagena",
             "tipo": "salida",
             "estado": "Autoritzada",
-            "bandera": "Malta",
-            "imo": "9587829",
-            "mmsi": "249703000",
+            "bandera": "Libèria",
+            "imo": "9791860",
+            "mmsi": "636018642",
             "fecha": "2026-07-28"
         },
         {
@@ -519,27 +519,27 @@
         "total_cruceros": 17,
         "total_llegadas": 18,
         "total_salidas": 14,
-        "pax_estimados_hoy": 15500,
-        "proximo_desembarco": "11:58",
-        "proximo_barco": "Htm Grenadier"
+        "pax_estimados_hoy": 16500,
+        "proximo_desembarco": "07:39",
+        "proximo_barco": "Msc Meraviglia"
     },
     "terminales_activas": [
-        "0010",
-        "F3",
-        "H",
-        "6995",
-        "7946",
-        "6212",
-        "6037",
-        "F2",
         "B",
-        "8156",
+        "0010",
+        "F2",
+        "7946",
         "F1",
-        "D"
+        "F3",
+        "6037",
+        "6212",
+        "8156",
+        "D",
+        "6995",
+        "H"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-07-28T11:16:50.442041",
+        "actualizado": "2026-07-28T07:37:41.713058",
         "frecuencia": "horaria"
     }
 }
