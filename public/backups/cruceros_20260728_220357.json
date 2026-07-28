@@ -250,7 +250,7 @@
             "pax_estimados": 1000,
             "puerto": "Alcudia",
             "tipo": "llegada",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Espanya",
             "imo": "9441130",
             "mmsi": "224402000",
@@ -266,7 +266,7 @@
             "pax_estimados": 500,
             "puerto": "Ibiza",
             "tipo": "llegada",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Itàlia",
             "imo": "9435454",
             "mmsi": "247265800",
@@ -451,7 +451,7 @@
             "fecha": "2026-07-28"
         },
         {
-            "hora": "21:52",
+            "hora": "21:30",
             "nombre": "Abel Matutes",
             "naviera": "BALEARIA EUROLINEAS MARITIMAS SA ",
             "terminal": "TERMINAL F1",
@@ -460,10 +460,26 @@
             "pax_estimados": 1000,
             "puerto": "Alcudia",
             "tipo": "salida",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Espanya",
             "imo": "9441130",
             "mmsi": "224402000",
+            "fecha": "2026-07-28"
+        },
+        {
+            "hora": "21:45",
+            "nombre": "Gnv Sealand",
+            "naviera": "TRANSCOMA BALEARES SA",
+            "terminal": "TERMINAL F2",
+            "terminal_codigo": "F2",
+            "eslora": 0,
+            "pax_estimados": 500,
+            "puerto": "Mahon Menorca",
+            "tipo": "salida",
+            "estado": "Iniciada",
+            "bandera": "Itàlia",
+            "imo": "9435454",
+            "mmsi": "247265800",
             "fecha": "2026-07-28"
         },
         {
@@ -499,22 +515,6 @@
             "fecha": "2026-07-28"
         },
         {
-            "hora": "22:22",
-            "nombre": "Gnv Sealand",
-            "naviera": "TRANSCOMA BALEARES SA",
-            "terminal": "TERMINAL F2",
-            "terminal_codigo": "F2",
-            "eslora": 0,
-            "pax_estimados": 500,
-            "puerto": "Mahon Menorca",
-            "tipo": "salida",
-            "estado": "Finalitzada",
-            "bandera": "Itàlia",
-            "imo": "9435454",
-            "mmsi": "247265800",
-            "fecha": "2026-07-28"
-        },
-        {
             "hora": "22:30",
             "nombre": "Cruise Barcelona",
             "naviera": "GRIMALDI LOGISTICA ESPAÑA SL",
@@ -540,22 +540,22 @@
         "proximo_barco": null
     },
     "terminales_activas": [
-        "H",
-        "F2",
+        "F3",
+        "B",
         "6995",
+        "8156",
         "7946",
         "F1",
-        "F3",
+        "H",
         "0010",
         "6037",
-        "6212",
-        "8156",
         "D",
-        "B"
+        "F2",
+        "6212"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-07-28T22:03:57.061997",
+        "actualizado": "2026-07-28T20:15:43.471910",
         "frecuencia": "horaria"
     }
 }
