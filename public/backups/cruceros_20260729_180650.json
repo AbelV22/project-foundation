@@ -33,6 +33,22 @@
             "fecha": "2026-07-29"
         },
         {
+            "hora": "06:00",
+            "nombre": "Msc Alexandra",
+            "naviera": "MEDITERRANEAN SHIPPING CO",
+            "terminal": "TERMINAL CATALUNYA SA",
+            "terminal_codigo": "6212",
+            "eslora": 0,
+            "pax_estimados": 500,
+            "puerto": "Valencia",
+            "tipo": "llegada",
+            "estado": "Autoritzada",
+            "bandera": "Panamà",
+            "imo": "9461374",
+            "mmsi": "371753000",
+            "fecha": "2026-07-29"
+        },
+        {
             "hora": "06:14",
             "nombre": "Msc Mombasa",
             "naviera": "MEDITERRANEAN SHIPPING CO",
@@ -145,23 +161,7 @@
             "fecha": "2026-07-29"
         },
         {
-            "hora": "17:05",
-            "nombre": "Msc Alexandra",
-            "naviera": "MEDITERRANEAN SHIPPING CO",
-            "terminal": "TERMINAL CATALUNYA SA",
-            "terminal_codigo": "6212",
-            "eslora": 0,
-            "pax_estimados": 500,
-            "puerto": "Valencia",
-            "tipo": "llegada",
-            "estado": "Iniciada",
-            "bandera": "Panamà",
-            "imo": "9461374",
-            "mmsi": "371753000",
-            "fecha": "2026-07-29"
-        },
-        {
-            "hora": "18:41",
+            "hora": "18:15",
             "nombre": "Gnv Sealand",
             "naviera": "GRANDI NAVI VELOCI",
             "terminal": "TERMINAL F2",
@@ -170,7 +170,7 @@
             "pax_estimados": 500,
             "puerto": "Mahon Menorca",
             "tipo": "llegada",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Itàlia",
             "imo": "9435454",
             "mmsi": "247265800",
@@ -193,7 +193,7 @@
             "fecha": "2026-07-29"
         },
         {
-            "hora": "18:59",
+            "hora": "19:00",
             "nombre": "Abel Matutes",
             "naviera": "EUROLINEAS MARITIMAS S.A",
             "terminal": "TERMINAL F1",
@@ -202,7 +202,7 @@
             "pax_estimados": 1000,
             "puerto": "Alcudia",
             "tipo": "llegada",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Espanya",
             "imo": "9441130",
             "mmsi": "224402000",
@@ -364,7 +364,7 @@
             "pax_estimados": 1000,
             "puerto": "Alcudia",
             "tipo": "salida",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Espanya",
             "imo": "9441130",
             "mmsi": "224402000",
@@ -396,7 +396,7 @@
             "pax_estimados": 500,
             "puerto": "Ibiza",
             "tipo": "salida",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Itàlia",
             "imo": "9435454",
             "mmsi": "247265800",
@@ -424,20 +424,20 @@
         "total_llegadas": 14,
         "total_salidas": 12,
         "pax_estimados_hoy": 23000,
-        "proximo_desembarco": "18:41",
+        "proximo_desembarco": "18:15",
         "proximo_barco": "Gnv Sealand"
     },
     "terminales_activas": [
+        "7946",
+        "6212",
+        "F1",
         "F3",
         "F2",
-        "6212",
-        "8156",
-        "7946",
-        "F1"
+        "8156"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-07-29T18:06:50.127608",
+        "actualizado": "2026-07-29T15:08:08.718233",
         "frecuencia": "horaria"
     }
 }
