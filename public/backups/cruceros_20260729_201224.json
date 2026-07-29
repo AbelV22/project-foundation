@@ -42,7 +42,7 @@
             "pax_estimados": 500,
             "puerto": "Fos-sur-Mer",
             "tipo": "llegada",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Libèria",
             "imo": "9967275",
             "mmsi": "636023024",
@@ -138,7 +138,7 @@
             "pax_estimados": 2000,
             "puerto": "Valencia",
             "tipo": "llegada",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Itàlia",
             "imo": "9859569",
             "mmsi": "247383600",
@@ -209,7 +209,7 @@
             "fecha": "2026-07-29"
         },
         {
-            "hora": "19:19",
+            "hora": "19:00",
             "nombre": "Ciudad De Barcelona",
             "naviera": "TRASMED GLE S.L.",
             "terminal": "TERMINAL F2",
@@ -218,7 +218,7 @@
             "pax_estimados": 1000,
             "puerto": "Ibiza",
             "tipo": "llegada",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Espanya",
             "imo": "9506289",
             "mmsi": "225416000",
@@ -275,6 +275,22 @@
             "fecha": "2026-07-29"
         },
         {
+            "hora": "08:30",
+            "nombre": "Msc Mombasa",
+            "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
+            "terminal": "TERMINAL CATALUNYA SA",
+            "terminal_codigo": "6212",
+            "eslora": 0,
+            "pax_estimados": 500,
+            "puerto": "Valencia",
+            "tipo": "salida",
+            "estado": "Iniciada",
+            "bandera": "Libèria",
+            "imo": "9967275",
+            "mmsi": "636023024",
+            "fecha": "2026-07-29"
+        },
+        {
             "hora": "09:28",
             "nombre": "Gnv Virgo",
             "naviera": "TRANSCOMA BALEARES SA",
@@ -307,22 +323,6 @@
             "fecha": "2026-07-29"
         },
         {
-            "hora": "19:59",
-            "nombre": "Msc Mombasa",
-            "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
-            "terminal": "TERMINAL CATALUNYA SA",
-            "terminal_codigo": "6212",
-            "eslora": 0,
-            "pax_estimados": 500,
-            "puerto": "Valencia",
-            "tipo": "salida",
-            "estado": "Finalitzada",
-            "bandera": "Libèria",
-            "imo": "9967275",
-            "mmsi": "636023024",
-            "fecha": "2026-07-29"
-        },
-        {
             "hora": "20:00",
             "nombre": "Msc Yuxin",
             "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
@@ -339,7 +339,7 @@
             "fecha": "2026-07-29"
         },
         {
-            "hora": "20:18",
+            "hora": "20:00",
             "nombre": "Eco Savona",
             "naviera": "GRIMALDI LOGISTICA ESPAÑA SL",
             "terminal": "GRIMALDI TERMINAL BARCELONA SL",
@@ -348,7 +348,7 @@
             "pax_estimados": 2000,
             "puerto": "Savona",
             "tipo": "salida",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Itàlia",
             "imo": "9859569",
             "mmsi": "247383600",
@@ -412,7 +412,7 @@
             "pax_estimados": 1000,
             "puerto": "Mahon Menorca",
             "tipo": "salida",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Espanya",
             "imo": "9506289",
             "mmsi": "225416000",
@@ -424,20 +424,20 @@
         "total_llegadas": 14,
         "total_salidas": 12,
         "pax_estimados_hoy": 23000,
-        "proximo_desembarco": null,
-        "proximo_barco": null
+        "proximo_desembarco": "18:41",
+        "proximo_barco": "Gnv Sealand"
     },
     "terminales_activas": [
-        "8156",
-        "7946",
-        "F1",
+        "F3",
         "F2",
         "6212",
-        "F3"
+        "8156",
+        "7946",
+        "F1"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-07-29T20:12:24.561408",
+        "actualizado": "2026-07-29T18:06:50.127608",
         "frecuencia": "horaria"
     }
 }
