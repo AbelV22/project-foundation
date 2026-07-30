@@ -145,22 +145,6 @@
             "fecha": "2026-07-30"
         },
         {
-            "hora": "16:15",
-            "nombre": "Cruise Barcelona",
-            "naviera": "GRIMALDI EUROMED SPA",
-            "terminal": "TERMINAL F3",
-            "terminal_codigo": "F3",
-            "eslora": 0,
-            "pax_estimados": 500,
-            "puerto": "Civitavecchia",
-            "tipo": "llegada",
-            "estado": "Autoritzada",
-            "bandera": "Itàlia",
-            "imo": "9351488",
-            "mmsi": "247243600",
-            "fecha": "2026-07-30"
-        },
-        {
             "hora": "17:00",
             "nombre": "Lng Port-Harcourt Ii",
             "naviera": "NIGERIA LNG LTD.",
@@ -174,6 +158,22 @@
             "bandera": "Bermuda",
             "imo": "9690157",
             "mmsi": "310719000",
+            "fecha": "2026-07-30"
+        },
+        {
+            "hora": "17:00",
+            "nombre": "Cruise Barcelona",
+            "naviera": "GRIMALDI EUROMED SPA",
+            "terminal": "TERMINAL F3",
+            "terminal_codigo": "F3",
+            "eslora": 0,
+            "pax_estimados": 500,
+            "puerto": "Civitavecchia",
+            "tipo": "llegada",
+            "estado": "Autoritzada",
+            "bandera": "Itàlia",
+            "imo": "9351488",
+            "mmsi": "247243600",
             "fecha": "2026-07-30"
         },
         {
@@ -206,6 +206,22 @@
             "bandera": "Itàlia",
             "imo": "9435454",
             "mmsi": "247265800",
+            "fecha": "2026-07-30"
+        },
+        {
+            "hora": "19:00",
+            "nombre": "Abel Matutes",
+            "naviera": "EUROLINEAS MARITIMAS S.A",
+            "terminal": "BALEARIA EUROLINEAS MARITIMAS SA ",
+            "terminal_codigo": "7332",
+            "eslora": 190.0,
+            "pax_estimados": 1000,
+            "puerto": "Alcudia",
+            "tipo": "llegada",
+            "estado": "Confirmada",
+            "bandera": "Espanya",
+            "imo": "9441130",
+            "mmsi": "224402000",
             "fecha": "2026-07-30"
         },
         {
@@ -403,6 +419,22 @@
             "fecha": "2026-07-30"
         },
         {
+            "hora": "21:30",
+            "nombre": "Abel Matutes",
+            "naviera": "BALEARIA EUROLINEAS MARITIMAS SA ",
+            "terminal": "BALEARIA EUROLINEAS MARITIMAS SA ",
+            "terminal_codigo": "7332",
+            "eslora": 190.0,
+            "pax_estimados": 1000,
+            "puerto": "Alcudia",
+            "tipo": "salida",
+            "estado": "Confirmada",
+            "bandera": "Espanya",
+            "imo": "9441130",
+            "mmsi": "224402000",
+            "fecha": "2026-07-30"
+        },
+        {
             "hora": "21:45",
             "nombre": "Gnv Sealand",
             "naviera": "TRANSCOMA BALEARES SA",
@@ -452,27 +484,28 @@
         }
     ],
     "resumen": {
-        "total_cruceros": 17,
-        "total_llegadas": 14,
-        "total_salidas": 14,
-        "pax_estimados_hoy": 20500,
-        "proximo_desembarco": "11:30",
-        "proximo_barco": "Msc Giusy"
+        "total_cruceros": 18,
+        "total_llegadas": 15,
+        "total_salidas": 15,
+        "pax_estimados_hoy": 21500,
+        "proximo_desembarco": "07:58",
+        "proximo_barco": "Eco Adriatica"
     },
     "terminales_activas": [
-        "2398",
+        "F3",
         "8192",
-        "6212",
+        "2398",
+        "F2",
         "H",
         "F1",
-        "8156",
-        "F3",
         "6037",
-        "F2"
+        "8156",
+        "7332",
+        "6212"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-07-30T11:07:27.633617",
+        "actualizado": "2026-07-30T07:33:20.516931",
         "frecuencia": "horaria"
     }
 }
