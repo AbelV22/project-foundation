@@ -18,6 +18,22 @@
         },
         {
             "hora": "06:00",
+            "nombre": "Msc Eleni",
+            "naviera": "MEDITERRANEAN SHIPPING CO",
+            "terminal": "TERMINAL CATALUNYA SA",
+            "terminal_codigo": "6212",
+            "eslora": 0,
+            "pax_estimados": 500,
+            "puerto": "Valencia",
+            "tipo": "llegada",
+            "estado": "Sol·licitada",
+            "bandera": "Panamà",
+            "imo": "9278143",
+            "mmsi": "357067000",
+            "fecha": "2026-07-30"
+        },
+        {
+            "hora": "06:00",
             "nombre": "Msc Gianna Iii",
             "naviera": "MEDITERRANEAN SHIPPING CO",
             "terminal": "TERMINAL CATALUNYA SA",
@@ -49,7 +65,7 @@
             "fecha": "2026-07-30"
         },
         {
-            "hora": "07:45",
+            "hora": "07:58",
             "nombre": "Eco Adriatica",
             "naviera": "GRIMALDI EUROMED SPA",
             "terminal": "GRIMALDI TERMINAL BARCELONA SL",
@@ -97,6 +113,22 @@
             "fecha": "2026-07-30"
         },
         {
+            "hora": "11:30",
+            "nombre": "Msc Giusy",
+            "naviera": "MEDITERRANEAN SHIPPING CO",
+            "terminal": "TERMINAL CATALUNYA SA",
+            "terminal_codigo": "6212",
+            "eslora": 0,
+            "pax_estimados": 500,
+            "puerto": "Valencia",
+            "tipo": "llegada",
+            "estado": "Confirmada",
+            "bandera": "Libèria",
+            "imo": "9947134",
+            "mmsi": "636023268",
+            "fecha": "2026-07-30"
+        },
+        {
             "hora": "15:30",
             "nombre": "One Solidarity",
             "naviera": "OCEAN NETWORK EXPRESS PTE LTD",
@@ -106,7 +138,7 @@
             "pax_estimados": 4500,
             "puerto": "Valencia",
             "tipo": "llegada",
-            "estado": "Autoritzada",
+            "estado": "Confirmada",
             "bandera": "Singapur",
             "imo": "1023059",
             "mmsi": "563316500",
@@ -308,6 +340,22 @@
         },
         {
             "hora": "20:00",
+            "nombre": "Msc Eleni",
+            "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
+            "terminal": "TERMINAL CATALUNYA SA",
+            "terminal_codigo": "6212",
+            "eslora": 0,
+            "pax_estimados": 500,
+            "puerto": "Sines",
+            "tipo": "salida",
+            "estado": "Sol·licitada",
+            "bandera": "Panamà",
+            "imo": "9278143",
+            "mmsi": "357067000",
+            "fecha": "2026-07-30"
+        },
+        {
+            "hora": "20:00",
             "nombre": "Msc Gianna Iii",
             "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
             "terminal": "TERMINAL CATALUNYA SA",
@@ -357,7 +405,7 @@
         {
             "hora": "21:45",
             "nombre": "Gnv Sealand",
-            "naviera": "TRANSPORTES Y CONSIGNACIONES MARITIMAS BALEARES",
+            "naviera": "TRANSCOMA BALEARES SA",
             "terminal": "TERMINAL F2",
             "terminal_codigo": "F2",
             "eslora": 0,
@@ -404,27 +452,27 @@
         }
     ],
     "resumen": {
-        "total_cruceros": 15,
-        "total_llegadas": 12,
-        "total_salidas": 13,
-        "pax_estimados_hoy": 19500,
-        "proximo_desembarco": "15:30",
-        "proximo_barco": "One Solidarity"
+        "total_cruceros": 17,
+        "total_llegadas": 14,
+        "total_salidas": 14,
+        "pax_estimados_hoy": 20500,
+        "proximo_desembarco": "11:30",
+        "proximo_barco": "Msc Giusy"
     },
     "terminales_activas": [
+        "2398",
         "8192",
         "6212",
-        "F3",
-        "2398",
-        "6037",
         "H",
         "F1",
-        "F2",
-        "8156"
+        "8156",
+        "F3",
+        "6037",
+        "F2"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-07-30T15:09:52.341384",
+        "actualizado": "2026-07-30T11:07:27.633617",
         "frecuencia": "horaria"
     }
 }
