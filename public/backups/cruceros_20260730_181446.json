@@ -58,7 +58,7 @@
             "pax_estimados": 2000,
             "puerto": "Savona",
             "tipo": "llegada",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Itàlia",
             "imo": "9859600",
             "mmsi": "247384100",
@@ -74,7 +74,7 @@
             "pax_estimados": 1000,
             "puerto": "Sagunto",
             "tipo": "llegada",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Tunísia",
             "imo": "9207998",
             "mmsi": "672747000",
@@ -113,7 +113,7 @@
             "fecha": "2026-07-30"
         },
         {
-            "hora": "16:59",
+            "hora": "16:15",
             "nombre": "Cruise Barcelona",
             "naviera": "GRIMALDI EUROMED SPA",
             "terminal": "TERMINAL F3",
@@ -122,7 +122,7 @@
             "pax_estimados": 500,
             "puerto": "Civitavecchia",
             "tipo": "llegada",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Itàlia",
             "imo": "9351488",
             "mmsi": "247243600",
@@ -145,7 +145,7 @@
             "fecha": "2026-07-30"
         },
         {
-            "hora": "18:33",
+            "hora": "18:15",
             "nombre": "Ciudad De Palma",
             "naviera": "TRASMED GLE S.L.",
             "terminal": "TERMINAL F2",
@@ -154,7 +154,7 @@
             "pax_estimados": 1000,
             "puerto": "Palma de Mallorca",
             "tipo": "llegada",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Espanya",
             "imo": "9349772",
             "mmsi": "224588000",
@@ -259,7 +259,7 @@
             "fecha": "2026-07-30"
         },
         {
-            "hora": "15:40",
+            "hora": "14:00",
             "nombre": "Eco Adriatica",
             "naviera": "GRIMALDI LOGISTICA ESPAÑA SL",
             "terminal": "GRIMALDI TERMINAL BARCELONA SL",
@@ -268,14 +268,14 @@
             "pax_estimados": 2000,
             "puerto": "Valencia",
             "tipo": "salida",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Itàlia",
             "imo": "9859600",
             "mmsi": "247384100",
             "fecha": "2026-07-30"
         },
         {
-            "hora": "15:52",
+            "hora": "15:00",
             "nombre": "Amilcar",
             "naviera": "ROMEU Y CIA SA",
             "terminal": "TERMINAL PORT NOU SA",
@@ -284,7 +284,7 @@
             "pax_estimados": 1000,
             "puerto": "Rades/Tunis",
             "tipo": "salida",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Tunísia",
             "imo": "9207998",
             "mmsi": "672747000",
@@ -348,7 +348,7 @@
             "pax_estimados": 500,
             "puerto": "Porto Torres",
             "tipo": "salida",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Itàlia",
             "imo": "9351488",
             "mmsi": "247243600",
@@ -396,7 +396,7 @@
             "pax_estimados": 1000,
             "puerto": "Ibiza",
             "tipo": "salida",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Espanya",
             "imo": "9349772",
             "mmsi": "224588000",
@@ -408,23 +408,23 @@
         "total_llegadas": 12,
         "total_salidas": 13,
         "pax_estimados_hoy": 19500,
-        "proximo_desembarco": "18:33",
-        "proximo_barco": "Ciudad De Palma"
+        "proximo_desembarco": "15:30",
+        "proximo_barco": "One Solidarity"
     },
     "terminales_activas": [
-        "8156",
+        "8192",
+        "6212",
+        "F3",
         "2398",
         "6037",
+        "H",
         "F1",
-        "F3",
-        "8192",
         "F2",
-        "6212",
-        "H"
+        "8156"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-07-30T18:14:46.378545",
+        "actualizado": "2026-07-30T15:09:52.341384",
         "frecuencia": "horaria"
     }
 }
