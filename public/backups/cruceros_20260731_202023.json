@@ -209,23 +209,7 @@
             "fecha": "2026-07-31"
         },
         {
-            "hora": "19:17",
-            "nombre": "Ciudad De Granada",
-            "naviera": "TRASMED GLE S.L.",
-            "terminal": "TERMINAL F2",
-            "terminal_codigo": "F2",
-            "eslora": 172.0,
-            "pax_estimados": 1000,
-            "puerto": "Ibiza",
-            "tipo": "llegada",
-            "estado": "Iniciada",
-            "bandera": "Espanya",
-            "imo": "9217125",
-            "mmsi": "224600000",
-            "fecha": "2026-07-31"
-        },
-        {
-            "hora": "19:37",
+            "hora": "19:00",
             "nombre": "Abel Matutes",
             "naviera": "EUROLINEAS MARITIMAS S.A",
             "terminal": "TERMINAL F1",
@@ -234,10 +218,26 @@
             "pax_estimados": 1000,
             "puerto": "Alcudia",
             "tipo": "llegada",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Espanya",
             "imo": "9441130",
             "mmsi": "224402000",
+            "fecha": "2026-07-31"
+        },
+        {
+            "hora": "19:00",
+            "nombre": "Ciudad De Granada",
+            "naviera": "TRASMED GLE S.L.",
+            "terminal": "TERMINAL F2",
+            "terminal_codigo": "F2",
+            "eslora": 172.0,
+            "pax_estimados": 1000,
+            "puerto": "Ibiza",
+            "tipo": "llegada",
+            "estado": "Autoritzada",
+            "bandera": "Espanya",
+            "imo": "9217125",
+            "mmsi": "224600000",
             "fecha": "2026-07-31"
         },
         {
@@ -492,7 +492,7 @@
             "pax_estimados": 1000,
             "puerto": "Palma de Mallorca",
             "tipo": "salida",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Espanya",
             "imo": "9441130",
             "mmsi": "224402000",
@@ -524,7 +524,7 @@
             "pax_estimados": 1000,
             "puerto": "Mahon Menorca",
             "tipo": "salida",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Espanya",
             "imo": "9217125",
             "mmsi": "224600000",
@@ -536,25 +536,25 @@
         "total_llegadas": 16,
         "total_salidas": 17,
         "pax_estimados_hoy": 27500,
-        "proximo_desembarco": "23:00",
-        "proximo_barco": "Cruise Roma"
+        "proximo_desembarco": "18:39",
+        "proximo_barco": "Gnv Sealand"
     },
     "terminales_activas": [
-        "7946",
         "0010",
-        "E",
-        "8156",
-        "F1",
-        "6212",
-        "6995",
-        "H",
         "F3",
+        "6212",
+        "H",
+        "7946",
         "F2",
-        "8192"
+        "8192",
+        "6995",
+        "8156",
+        "E",
+        "F1"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-07-31T20:20:23.787394",
+        "actualizado": "2026-07-31T18:20:54.481146",
         "frecuencia": "horaria"
     }
 }
