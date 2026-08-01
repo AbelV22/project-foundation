@@ -193,7 +193,7 @@
             "fecha": "2026-08-01"
         },
         {
-            "hora": "14:53",
+            "hora": "14:30",
             "nombre": "Ciudad De Granada",
             "naviera": "TRASMED GLE S.L.",
             "terminal": "TERMINAL F2",
@@ -202,7 +202,7 @@
             "pax_estimados": 1000,
             "puerto": "Mahon Menorca",
             "tipo": "llegada",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Espanya",
             "imo": "9217125",
             "mmsi": "224600000",
@@ -396,7 +396,7 @@
             "pax_estimados": 1000,
             "puerto": "Mahon Menorca",
             "tipo": "salida",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Espanya",
             "imo": "9217125",
             "mmsi": "224600000",
@@ -552,25 +552,25 @@
         "total_llegadas": 16,
         "total_salidas": 18,
         "pax_estimados_hoy": 24000,
-        "proximo_desembarco": "14:53",
-        "proximo_barco": "Ciudad De Granada"
+        "proximo_desembarco": "13:00",
+        "proximo_barco": "Eco Adriatica"
     },
     "terminales_activas": [
-        "H",
-        "A",
-        "B",
-        "7259",
-        "0010",
-        "6212",
-        "8192",
         "F2",
-        "8156",
+        "A",
+        "7259",
         "F3",
-        "S"
+        "8192",
+        "0010",
+        "S",
+        "B",
+        "H",
+        "6212",
+        "8156"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-08-01T14:25:29.497517",
+        "actualizado": "2026-08-01T12:01:51.116638",
         "frecuencia": "horaria"
     }
 }
