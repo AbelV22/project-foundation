@@ -138,7 +138,7 @@
             "pax_estimados": 500,
             "puerto": "Palma de Mallorca",
             "tipo": "llegada",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Malta",
             "imo": "9803613",
             "mmsi": "215325000",
@@ -209,7 +209,7 @@
             "fecha": "2026-08-01"
         },
         {
-            "hora": "18:58",
+            "hora": "18:40",
             "nombre": "Gnv Sealand",
             "naviera": "GRANDI NAVI VELOCI",
             "terminal": "TERMINAL F2",
@@ -218,7 +218,7 @@
             "pax_estimados": 500,
             "puerto": "Ibiza",
             "tipo": "llegada",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Itàlia",
             "imo": "9435454",
             "mmsi": "247265800",
@@ -451,7 +451,7 @@
             "fecha": "2026-08-01"
         },
         {
-            "hora": "17:22",
+            "hora": "17:00",
             "nombre": "Msc Grandiosa",
             "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
             "terminal": "Terminal A (WTC)",
@@ -460,7 +460,7 @@
             "pax_estimados": 500,
             "puerto": "Cannes",
             "tipo": "salida",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Malta",
             "imo": "9803613",
             "mmsi": "215325000",
@@ -540,7 +540,7 @@
             "pax_estimados": 500,
             "puerto": "Mahon Menorca",
             "tipo": "salida",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Itàlia",
             "imo": "9435454",
             "mmsi": "247265800",
@@ -552,25 +552,25 @@
         "total_llegadas": 16,
         "total_salidas": 18,
         "pax_estimados_hoy": 24000,
-        "proximo_desembarco": "18:58",
+        "proximo_desembarco": "18:40",
         "proximo_barco": "Gnv Sealand"
     },
     "terminales_activas": [
-        "7259",
-        "6212",
-        "8192",
         "A",
+        "H",
         "S",
-        "F2",
-        "B",
+        "8192",
+        "7259",
         "0010",
-        "8156",
         "F3",
-        "H"
+        "F2",
+        "6212",
+        "B",
+        "8156"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-08-01T17:59:56.021562",
+        "actualizado": "2026-08-01T15:59:59.904645",
         "frecuencia": "horaria"
     }
 }
