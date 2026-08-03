@@ -307,22 +307,6 @@
             "fecha": "2026-08-03"
         },
         {
-            "hora": "19:50",
-            "nombre": "Explora Iii",
-            "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
-            "terminal": "ADOSSAT/TERMINAL H",
-            "terminal_codigo": "H",
-            "eslora": 268.0,
-            "pax_estimados": 3000,
-            "puerto": "Palma de Mallorca",
-            "tipo": "salida",
-            "estado": "Finalitzada",
-            "bandera": "Malta",
-            "imo": "9869899",
-            "mmsi": "248098000",
-            "fecha": "2026-08-03"
-        },
-        {
             "hora": "20:00",
             "nombre": "Merito",
             "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
@@ -339,7 +323,7 @@
             "fecha": "2026-08-03"
         },
         {
-            "hora": "20:24",
+            "hora": "20:00",
             "nombre": "Shekou Star",
             "naviera": "HAPAG LLOYD SPAIN SL",
             "terminal": "APM TERMINALS BARCELONA, S.L.U.",
@@ -348,10 +332,26 @@
             "pax_estimados": 3000,
             "puerto": "Izmit",
             "tipo": "salida",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Illes Marshall",
             "imo": "9322322",
             "mmsi": "538010796",
+            "fecha": "2026-08-03"
+        },
+        {
+            "hora": "20:00",
+            "nombre": "Explora Iii",
+            "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
+            "terminal": "ADOSSAT/TERMINAL H",
+            "terminal_codigo": "H",
+            "eslora": 268.0,
+            "pax_estimados": 3000,
+            "puerto": "Palma de Mallorca",
+            "tipo": "salida",
+            "estado": "Iniciada",
+            "bandera": "Malta",
+            "imo": "9869899",
+            "mmsi": "248098000",
             "fecha": "2026-08-03"
         },
         {
@@ -440,24 +440,24 @@
         "total_llegadas": 14,
         "total_salidas": 13,
         "pax_estimados_hoy": 19500,
-        "proximo_desembarco": "23:00",
-        "proximo_barco": "Sirtaki"
+        "proximo_desembarco": "19:23",
+        "proximo_barco": "Ciudad De Granada"
     },
     "terminales_activas": [
-        "6037",
-        "H",
-        "F3",
-        "F2",
-        "7083",
-        "6212",
         "E",
         "8156",
+        "F1",
+        "H",
+        "F3",
         "TC",
-        "F1"
+        "6212",
+        "7083",
+        "F2",
+        "6037"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-08-03T20:26:17.834079",
+        "actualizado": "2026-08-03T18:50:22.337684",
         "frecuencia": "horaria"
     }
 }
