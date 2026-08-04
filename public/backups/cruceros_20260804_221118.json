@@ -138,7 +138,7 @@
             "pax_estimados": 500,
             "puerto": "Ibiza",
             "tipo": "llegada",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Itàlia",
             "imo": "9435454",
             "mmsi": "247265800",
@@ -243,7 +243,7 @@
             "fecha": "2026-08-04"
         },
         {
-            "hora": "21:55",
+            "hora": "21:45",
             "nombre": "Gnv Sealand",
             "naviera": "TRANSPORTES Y CONSIGNACIONES MARITIMAS BALEARES",
             "terminal": "TERMINAL F2",
@@ -252,7 +252,7 @@
             "pax_estimados": 500,
             "puerto": "Mahon Menorca",
             "tipo": "salida",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Itàlia",
             "imo": "9435454",
             "mmsi": "247265800",
@@ -316,19 +316,19 @@
         "proximo_barco": null
     },
     "terminales_activas": [
+        "8156",
         "F2",
         "H",
-        "F1",
-        "8156",
         "6212",
-        "7083",
+        "8192",
         "6037",
+        "7083",
         "F3",
-        "8192"
+        "F1"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-08-04T22:11:18.334169",
+        "actualizado": "2026-08-04T20:23:32.378805",
         "frecuencia": "horaria"
     }
 }
