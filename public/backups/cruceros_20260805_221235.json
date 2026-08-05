@@ -154,7 +154,7 @@
             "pax_estimados": 3000,
             "puerto": "Civitavecchia",
             "tipo": "llegada",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Itàlia",
             "imo": "9351476",
             "mmsi": "247219400",
@@ -467,6 +467,22 @@
             "fecha": "2026-08-05"
         },
         {
+            "hora": "21:30",
+            "nombre": "Cruise Roma",
+            "naviera": "GRIMALDI LOGISTICA ESPAÑA SL",
+            "terminal": "TERMINAL F3",
+            "terminal_codigo": "F3",
+            "eslora": 254.0,
+            "pax_estimados": 3000,
+            "puerto": "Civitavecchia",
+            "tipo": "salida",
+            "estado": "Iniciada",
+            "bandera": "Itàlia",
+            "imo": "9351476",
+            "mmsi": "247219400",
+            "fecha": "2026-08-05"
+        },
+        {
             "hora": "21:45",
             "nombre": "Gnv Sealand",
             "naviera": "TRANSPORTES Y CONSIGNACIONES MARITIMAS BALEARES",
@@ -480,22 +496,6 @@
             "bandera": "Itàlia",
             "imo": "9435454",
             "mmsi": "247265800",
-            "fecha": "2026-08-05"
-        },
-        {
-            "hora": "22:17",
-            "nombre": "Cruise Roma",
-            "naviera": "GRIMALDI LOGISTICA ESPAÑA SL",
-            "terminal": "TERMINAL F3",
-            "terminal_codigo": "F3",
-            "eslora": 254.0,
-            "pax_estimados": 3000,
-            "puerto": "Civitavecchia",
-            "tipo": "salida",
-            "estado": "Finalitzada",
-            "bandera": "Itàlia",
-            "imo": "9351476",
-            "mmsi": "247219400",
             "fecha": "2026-08-05"
         },
         {
@@ -520,24 +520,24 @@
         "total_llegadas": 14,
         "total_salidas": 18,
         "pax_estimados_hoy": 24000,
-        "proximo_desembarco": null,
-        "proximo_barco": null
+        "proximo_desembarco": "20:41",
+        "proximo_barco": "Gnv Sealand"
     },
     "terminales_activas": [
-        "6212",
-        "8192",
-        "A",
-        "7083",
-        "F3",
-        "F2",
         "8156",
         "6995",
+        "7083",
+        "F2",
+        "7946",
+        "F3",
         "F1",
-        "7946"
+        "6212",
+        "A",
+        "8192"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-08-05T22:12:35.937487",
+        "actualizado": "2026-08-05T20:26:05.678548",
         "frecuencia": "horaria"
     }
 }
