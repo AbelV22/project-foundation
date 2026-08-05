@@ -49,7 +49,7 @@
             "fecha": "2026-08-05"
         },
         {
-            "hora": "07:37",
+            "hora": "07:28",
             "nombre": "Golden Horizon",
             "naviera": "DAMPSKIBSSELSKABET NORDEN AS",
             "terminal": "",
@@ -58,14 +58,14 @@
             "pax_estimados": 1000,
             "puerto": "Malta (Valetta)",
             "tipo": "llegada",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Libèria",
             "imo": "9443865",
             "mmsi": "636025998",
             "fecha": "2026-08-05"
         },
         {
-            "hora": "07:39",
+            "hora": "07:30",
             "nombre": "Golden Horizon",
             "naviera": "DAMPSKIBSSELSKABET NORDEN AS",
             "terminal": "TRADEBE PORT SERVICES SL",
@@ -74,14 +74,14 @@
             "pax_estimados": 1000,
             "puerto": "Malta (Valetta)",
             "tipo": "llegada",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Libèria",
             "imo": "9443865",
             "mmsi": "636025998",
             "fecha": "2026-08-05"
         },
         {
-            "hora": "07:41",
+            "hora": "07:32",
             "nombre": "Golden Horizon",
             "naviera": "DAMPSKIBSSELSKABET NORDEN AS",
             "terminal": "MEROIL SA",
@@ -90,7 +90,7 @@
             "pax_estimados": 1000,
             "puerto": "Malta (Valetta)",
             "tipo": "llegada",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Libèria",
             "imo": "9443865",
             "mmsi": "636025998",
@@ -194,22 +194,6 @@
         },
         {
             "hora": "18:15",
-            "nombre": "Ciudad De Palma",
-            "naviera": "TRASMED GLE S.L.",
-            "terminal": "TERMINAL F2",
-            "terminal_codigo": "F2",
-            "eslora": 186.0,
-            "pax_estimados": 1000,
-            "puerto": "Palma de Mallorca",
-            "tipo": "llegada",
-            "estado": "Autoritzada",
-            "bandera": "Espanya",
-            "imo": "9349772",
-            "mmsi": "224588000",
-            "fecha": "2026-08-05"
-        },
-        {
-            "hora": "18:15",
             "nombre": "Gnv Sealand",
             "naviera": "GRANDI NAVI VELOCI",
             "terminal": "TERMINAL F2",
@@ -240,6 +224,22 @@
             "bandera": "Espanya",
             "imo": "9217125",
             "mmsi": "224600000",
+            "fecha": "2026-08-05"
+        },
+        {
+            "hora": "01:00",
+            "nombre": "Msc Firenze",
+            "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
+            "terminal": "TERMINAL CATALUNYA SA",
+            "terminal_codigo": "6212",
+            "eslora": 335.0,
+            "pax_estimados": 4500,
+            "puerto": "Valencia",
+            "tipo": "salida",
+            "estado": "Iniciada",
+            "bandera": "Libèria",
+            "imo": "9978987",
+            "mmsi": "636025763",
             "fecha": "2026-08-05"
         },
         {
@@ -291,7 +291,7 @@
             "fecha": "2026-08-05"
         },
         {
-            "hora": "07:38",
+            "hora": "07:29",
             "nombre": "Golden Horizon",
             "naviera": "IBERICA MARITIMA BARCELONA SA",
             "terminal": "",
@@ -300,14 +300,14 @@
             "pax_estimados": 1000,
             "puerto": "Nouadhibou",
             "tipo": "salida",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Libèria",
             "imo": "9443865",
             "mmsi": "636025998",
             "fecha": "2026-08-05"
         },
         {
-            "hora": "07:40",
+            "hora": "07:31",
             "nombre": "Golden Horizon",
             "naviera": "IBERICA MARITIMA BARCELONA SA",
             "terminal": "TRADEBE PORT SERVICES SL",
@@ -316,7 +316,7 @@
             "pax_estimados": 1000,
             "puerto": "Nouadhibou",
             "tipo": "salida",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Libèria",
             "imo": "9443865",
             "mmsi": "636025998",
@@ -336,22 +336,6 @@
             "bandera": "Illes Marshall",
             "imo": "9637492",
             "mmsi": "538005350",
-            "fecha": "2026-08-05"
-        },
-        {
-            "hora": "10:20",
-            "nombre": "Msc Firenze",
-            "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
-            "terminal": "TERMINAL CATALUNYA SA",
-            "terminal_codigo": "6212",
-            "eslora": 335.0,
-            "pax_estimados": 4500,
-            "puerto": "Valencia",
-            "tipo": "salida",
-            "estado": "Finalitzada",
-            "bandera": "Libèria",
-            "imo": "9978987",
-            "mmsi": "636025763",
             "fecha": "2026-08-05"
         },
         {
@@ -465,47 +449,31 @@
             "imo": "9435454",
             "mmsi": "247265800",
             "fecha": "2026-08-05"
-        },
-        {
-            "hora": "22:30",
-            "nombre": "Ciudad De Palma",
-            "naviera": "GRIMALDI LOGISTICA ESPAÑA SL",
-            "terminal": "TERMINAL F2",
-            "terminal_codigo": "F2",
-            "eslora": 186.0,
-            "pax_estimados": 1000,
-            "puerto": "Palma de Mallorca",
-            "tipo": "salida",
-            "estado": "Autoritzada",
-            "bandera": "Espanya",
-            "imo": "9349772",
-            "mmsi": "224588000",
-            "fecha": "2026-08-05"
         }
     ],
     "resumen": {
-        "total_cruceros": 17,
-        "total_llegadas": 14,
-        "total_salidas": 16,
-        "pax_estimados_hoy": 22500,
-        "proximo_desembarco": "12:00",
-        "proximo_barco": "Kate"
+        "total_cruceros": 16,
+        "total_llegadas": 13,
+        "total_salidas": 15,
+        "pax_estimados_hoy": 21500,
+        "proximo_desembarco": "07:55",
+        "proximo_barco": "Gnv Aurora"
     },
     "terminales_activas": [
-        "8156",
+        "7946",
+        "6212",
         "6995",
+        "7083",
+        "8156",
+        "8192",
         "7259",
         "F2",
-        "6212",
         "A",
-        "7083",
-        "7946",
-        "F3",
-        "8192"
+        "F3"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-08-05T11:20:30.751595",
+        "actualizado": "2026-08-05T07:37:58.673070",
         "frecuencia": "horaria"
     }
 }
