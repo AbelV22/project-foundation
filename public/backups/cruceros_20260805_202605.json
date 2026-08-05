@@ -138,7 +138,7 @@
             "pax_estimados": 2000,
             "puerto": "Valencia",
             "tipo": "llegada",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Itàlia",
             "imo": "9859569",
             "mmsi": "247383600",
@@ -177,6 +177,22 @@
             "fecha": "2026-08-05"
         },
         {
+            "hora": "18:15",
+            "nombre": "Gnv Sealand",
+            "naviera": "GRANDI NAVI VELOCI",
+            "terminal": "TERMINAL F2",
+            "terminal_codigo": "F2",
+            "eslora": 0,
+            "pax_estimados": 500,
+            "puerto": "Mahon Menorca",
+            "tipo": "llegada",
+            "estado": "Autoritzada",
+            "bandera": "Itàlia",
+            "imo": "9435454",
+            "mmsi": "247265800",
+            "fecha": "2026-08-05"
+        },
+        {
             "hora": "18:32",
             "nombre": "Ciudad De Palma",
             "naviera": "TRASMED GLE S.L.",
@@ -193,7 +209,7 @@
             "fecha": "2026-08-05"
         },
         {
-            "hora": "20:25",
+            "hora": "19:00",
             "nombre": "Abel Matutes",
             "naviera": "EUROLINEAS MARITIMAS S.A",
             "terminal": "TERMINAL F1",
@@ -202,26 +218,10 @@
             "pax_estimados": 1000,
             "puerto": "Alcudia",
             "tipo": "llegada",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Espanya",
             "imo": "9441130",
             "mmsi": "224402000",
-            "fecha": "2026-08-05"
-        },
-        {
-            "hora": "20:41",
-            "nombre": "Gnv Sealand",
-            "naviera": "GRANDI NAVI VELOCI",
-            "terminal": "TERMINAL F2",
-            "terminal_codigo": "F2",
-            "eslora": 0,
-            "pax_estimados": 500,
-            "puerto": "Mahon Menorca",
-            "tipo": "llegada",
-            "estado": "Iniciada",
-            "bandera": "Itàlia",
-            "imo": "9435454",
-            "mmsi": "247265800",
             "fecha": "2026-08-05"
         }
     ],
@@ -403,22 +403,6 @@
             "fecha": "2026-08-05"
         },
         {
-            "hora": "19:19",
-            "nombre": "Msc Mette",
-            "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
-            "terminal": "TERMINAL CATALUNYA SA",
-            "terminal_codigo": "6212",
-            "eslora": 0,
-            "pax_estimados": 500,
-            "puerto": "Fos-sur-Mer",
-            "tipo": "salida",
-            "estado": "Finalitzada",
-            "bandera": "Libèria",
-            "imo": "9936630",
-            "mmsi": "636023084",
-            "fecha": "2026-08-05"
-        },
-        {
             "hora": "20:00",
             "nombre": "Msc Aurora",
             "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
@@ -435,7 +419,7 @@
             "fecha": "2026-08-05"
         },
         {
-            "hora": "20:49",
+            "hora": "20:00",
             "nombre": "Eco Savona",
             "naviera": "GRIMALDI LOGISTICA ESPAÑA SL",
             "terminal": "GRIMALDI TERMINAL BARCELONA SL",
@@ -444,7 +428,7 @@
             "pax_estimados": 2000,
             "puerto": "Savona",
             "tipo": "salida",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Itàlia",
             "imo": "9859569",
             "mmsi": "247383600",
@@ -460,7 +444,7 @@
             "pax_estimados": 1000,
             "puerto": "Alcudia",
             "tipo": "salida",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Espanya",
             "imo": "9441130",
             "mmsi": "224402000",
@@ -492,7 +476,7 @@
             "pax_estimados": 500,
             "puerto": "Ibiza",
             "tipo": "salida",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Itàlia",
             "imo": "9435454",
             "mmsi": "247265800",
@@ -516,28 +500,28 @@
         }
     ],
     "resumen": {
-        "total_cruceros": 18,
+        "total_cruceros": 17,
         "total_llegadas": 14,
-        "total_salidas": 18,
+        "total_salidas": 17,
         "pax_estimados_hoy": 24000,
-        "proximo_desembarco": "20:41",
-        "proximo_barco": "Gnv Sealand"
+        "proximo_desembarco": "18:32",
+        "proximo_barco": "Ciudad De Palma"
     },
     "terminales_activas": [
-        "8156",
-        "6995",
-        "7083",
-        "F2",
-        "7946",
-        "F3",
         "F1",
-        "6212",
         "A",
-        "8192"
+        "F3",
+        "6212",
+        "7946",
+        "8192",
+        "8156",
+        "F2",
+        "7083",
+        "6995"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-08-05T20:26:05.678548",
+        "actualizado": "2026-08-05T18:21:09.112907",
         "frecuencia": "horaria"
     }
 }
