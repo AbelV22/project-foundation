@@ -1,22 +1,6 @@
 {
     "llegadas": [
         {
-            "hora": "01:30",
-            "nombre": "Gnv Cristal",
-            "naviera": "GRANDI NAVI VELOCI",
-            "terminal": "TERMINAL F2",
-            "terminal_codigo": "F2",
-            "eslora": 161.0,
-            "pax_estimados": 1000,
-            "puerto": "Civitavecchia",
-            "tipo": "llegada",
-            "estado": "Finalitzada",
-            "bandera": "Itàlia",
-            "imo": "8712518",
-            "mmsi": "247163900",
-            "fecha": "2026-08-12"
-        },
-        {
             "hora": "06:00",
             "nombre": "Msc Alexandra",
             "naviera": "MEDITERRANEAN SHIPPING CO",
@@ -42,14 +26,14 @@
             "pax_estimados": 2000,
             "puerto": "Genoa",
             "tipo": "llegada",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Itàlia",
             "imo": "9980057",
             "mmsi": "247529200",
             "fecha": "2026-08-12"
         },
         {
-            "hora": "08:09",
+            "hora": "07:45",
             "nombre": "Gnv Aurora",
             "naviera": "GRANDI NAVI VELOCI",
             "terminal": "TERMINAL F2",
@@ -58,14 +42,14 @@
             "pax_estimados": 2000,
             "puerto": "Genoa",
             "tipo": "llegada",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Itàlia",
             "imo": "9980069",
             "mmsi": "247530300",
             "fecha": "2026-08-12"
         },
         {
-            "hora": "09:08",
+            "hora": "13:00",
             "nombre": "Msc Madison Ii",
             "naviera": "MEDITERRANEAN SHIPPING CO",
             "terminal": "TERMINAL CATALUNYA SA",
@@ -74,7 +58,7 @@
             "pax_estimados": 500,
             "puerto": "Alger (Algiers)",
             "tipo": "llegada",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Libèria",
             "imo": "9231119",
             "mmsi": "636021596",
@@ -129,7 +113,7 @@
             "fecha": "2026-08-12"
         },
         {
-            "hora": "19:30",
+            "hora": "20:15",
             "nombre": "Cruise Roma",
             "naviera": "GRIMALDI EUROMED SPA",
             "terminal": "TERMINAL F3",
@@ -147,7 +131,7 @@
     ],
     "salidas": [
         {
-            "hora": "01:55",
+            "hora": "00:00",
             "nombre": "Gnv Cristal",
             "naviera": "TRANSPORTES Y CONSIGNACIONES MARITIMAS BALEARES",
             "terminal": "TERMINAL F2",
@@ -156,7 +140,7 @@
             "pax_estimados": 1000,
             "puerto": "Tanger Med",
             "tipo": "salida",
-            "estado": "Finalitzada",
+            "estado": "Autoritzada",
             "bandera": "Itàlia",
             "imo": "8712518",
             "mmsi": "247163900",
@@ -179,7 +163,7 @@
             "fecha": "2026-08-12"
         },
         {
-            "hora": "10:29",
+            "hora": "10:30",
             "nombre": "Gnv Virgo",
             "naviera": "TRANSPORTES Y CONSIGNACIONES MARITIMAS BALEARES",
             "terminal": "TERMINAL F2",
@@ -188,7 +172,7 @@
             "pax_estimados": 2000,
             "puerto": "Tanger Med",
             "tipo": "salida",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Itàlia",
             "imo": "9980057",
             "mmsi": "247529200",
@@ -204,7 +188,7 @@
             "pax_estimados": 2000,
             "puerto": "Tanger Med",
             "tipo": "salida",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Itàlia",
             "imo": "9980069",
             "mmsi": "247530300",
@@ -236,7 +220,7 @@
             "pax_estimados": 500,
             "puerto": "Livorno",
             "tipo": "salida",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Libèria",
             "imo": "9975583",
             "mmsi": "636024895",
@@ -325,23 +309,23 @@
     ],
     "resumen": {
         "total_cruceros": 13,
-        "total_llegadas": 9,
+        "total_llegadas": 8,
         "total_salidas": 11,
-        "pax_estimados_hoy": 9500,
-        "proximo_desembarco": "14:00",
-        "proximo_barco": "Eco Savona"
+        "pax_estimados_hoy": 8500,
+        "proximo_desembarco": "13:00",
+        "proximo_barco": "Msc Madison Ii"
     },
     "terminales_activas": [
+        "7259",
+        "6212",
         "6995",
         "8156",
         "F3",
-        "7259",
-        "6212",
         "F2"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-08-12T10:05:32.829741",
+        "actualizado": "2026-08-12T08:16:46.892032",
         "frecuencia": "horaria"
     }
 }
