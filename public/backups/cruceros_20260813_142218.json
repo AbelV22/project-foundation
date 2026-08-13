@@ -65,7 +65,23 @@
             "fecha": "2026-08-13"
         },
         {
-            "hora": "07:30",
+            "hora": "06:00",
+            "nombre": "Msc Levante F",
+            "naviera": "MEDITERRANEAN SHIPPING CO",
+            "terminal": "TERMINAL CATALUNYA SA",
+            "terminal_codigo": "6212",
+            "eslora": 0,
+            "pax_estimados": 500,
+            "puerto": "Valencia",
+            "tipo": "llegada",
+            "estado": "Autoritzada",
+            "bandera": "Panamà",
+            "imo": "9330264",
+            "mmsi": "352898711",
+            "fecha": "2026-08-13"
+        },
+        {
+            "hora": "07:24",
             "nombre": "Eco Adriatica",
             "naviera": "GRIMALDI EUROMED SPA",
             "terminal": "GRIMALDI TERMINAL BARCELONA SL",
@@ -78,6 +94,22 @@
             "bandera": "Itàlia",
             "imo": "9859600",
             "mmsi": "247384100",
+            "fecha": "2026-08-13"
+        },
+        {
+            "hora": "08:00",
+            "nombre": "Msc Seaview",
+            "naviera": "MSC CRUISES S.A.",
+            "terminal": "ADOSSAT/TERMINAL H",
+            "terminal_codigo": "H",
+            "eslora": 0,
+            "pax_estimados": 500,
+            "puerto": "Ibiza",
+            "tipo": "llegada",
+            "estado": "Autoritzada",
+            "bandera": "Malta",
+            "imo": "9745378",
+            "mmsi": "248717000",
             "fecha": "2026-08-13"
         },
         {
@@ -94,54 +126,6 @@
             "bandera": "Tunísia",
             "imo": "9208007",
             "mmsi": "672704000",
-            "fecha": "2026-08-13"
-        },
-        {
-            "hora": "08:45",
-            "nombre": "Msc Seaview",
-            "naviera": "MSC CRUISES S.A.",
-            "terminal": "ADOSSAT/TERMINAL H",
-            "terminal_codigo": "H",
-            "eslora": 0,
-            "pax_estimados": 500,
-            "puerto": "Ibiza",
-            "tipo": "llegada",
-            "estado": "Iniciada",
-            "bandera": "Malta",
-            "imo": "9745378",
-            "mmsi": "248717000",
-            "fecha": "2026-08-13"
-        },
-        {
-            "hora": "13:25",
-            "nombre": "Msc Levante F",
-            "naviera": "MEDITERRANEAN SHIPPING CO",
-            "terminal": "TERMINAL CATALUNYA SA",
-            "terminal_codigo": "6212",
-            "eslora": 0,
-            "pax_estimados": 500,
-            "puerto": "Valencia",
-            "tipo": "llegada",
-            "estado": "Iniciada",
-            "bandera": "Panamà",
-            "imo": "9330264",
-            "mmsi": "352898711",
-            "fecha": "2026-08-13"
-        },
-        {
-            "hora": "14:52",
-            "nombre": "Sirtaki",
-            "naviera": "SPRING MARINE MANAGEMENT S.A.",
-            "terminal": "DECAL ESPAÑA SA",
-            "terminal_codigo": "6037",
-            "eslora": 183.0,
-            "pax_estimados": 1000,
-            "puerto": "Corpus Christi",
-            "tipo": "llegada",
-            "estado": "Iniciada",
-            "bandera": "Illes Marshall",
-            "imo": "9369887",
-            "mmsi": "538003440",
             "fecha": "2026-08-13"
         },
         {
@@ -236,7 +220,7 @@
             "pax_estimados": 500,
             "puerto": "Oran",
             "tipo": "salida",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Panamà",
             "imo": "9330264",
             "mmsi": "352898711",
@@ -256,22 +240,6 @@
             "bandera": "Itàlia",
             "imo": "9859600",
             "mmsi": "247384100",
-            "fecha": "2026-08-13"
-        },
-        {
-            "hora": "14:51",
-            "nombre": "Sirtaki",
-            "naviera": "IBERICA MARITIMA BARCELONA SA",
-            "terminal": "",
-            "terminal_codigo": "",
-            "eslora": 183.0,
-            "pax_estimados": 1000,
-            "puerto": "Piraeus",
-            "tipo": "salida",
-            "estado": "Iniciada",
-            "bandera": "Illes Marshall",
-            "imo": "9369887",
-            "mmsi": "538003440",
             "fecha": "2026-08-13"
         },
         {
@@ -316,7 +284,7 @@
             "pax_estimados": 500,
             "puerto": "Marseille",
             "tipo": "salida",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Malta",
             "imo": "9745378",
             "mmsi": "248717000",
@@ -404,26 +372,25 @@
         }
     ],
     "resumen": {
-        "total_cruceros": 13,
-        "total_llegadas": 12,
-        "total_salidas": 13,
-        "pax_estimados_hoy": 10000,
-        "proximo_desembarco": "14:52",
-        "proximo_barco": "Sirtaki"
+        "total_cruceros": 12,
+        "total_llegadas": 11,
+        "total_salidas": 12,
+        "pax_estimados_hoy": 9000,
+        "proximo_desembarco": "18:30",
+        "proximo_barco": "Ciudad De Granada"
     },
     "terminales_activas": [
-        "F2",
         "S",
-        "8156",
-        "6212",
+        "H",
+        "F2",
         "F3",
-        "6037",
+        "6212",
         "2398",
-        "H"
+        "8156"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-08-13T14:22:18.277661",
+        "actualizado": "2026-08-13T11:45:34.730768",
         "frecuencia": "horaria"
     }
 }
