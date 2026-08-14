@@ -4,13 +4,13 @@
             "hora": "06:25",
             "origen": "Figueres-Vilafant",
             "tren": "AVE 03302",
-            "via": "1"
+            "via": "-"
         },
         {
             "hora": "08:50",
             "origen": "Figueres-Vilafant",
             "tren": "AVE 03092",
-            "via": "1"
+            "via": "-"
         },
         {
             "hora": "09:39",
@@ -298,30 +298,42 @@
             "hora": "22:59",
             "origen": "Sevilla Santa Justa",
             "tren": "AVE 03941",
-            "via": "-"
+            "via": "1"
         },
         {
             "hora": "22:59",
             "origen": "Málaga María Zambrano",
             "tren": "AVE 03991",
-            "via": "-"
+            "via": "1"
         },
         {
             "hora": "23:20",
             "origen": "Madrid Puerta de Atocha Almudena Grandes",
             "tren": "AVE 03309",
-            "via": "-"
+            "via": "5"
         },
         {
             "hora": "23:28",
             "origen": "Málaga María Zambrano",
             "tren": "OUIGO 06425",
-            "via": "-"
+            "via": "6"
+        },
+        {
+            "hora": "23:39",
+            "origen": "Madrid Puerta de Atocha Almudena Grandes",
+            "tren": "IRYO 06201",
+            "via": "3"
+        },
+        {
+            "hora": "23:47",
+            "origen": "Madrid Puerta de Atocha Almudena Grandes",
+            "tren": "AVE 03201",
+            "via": "1"
         }
     ],
     "meta": {
-        "update_time": "22:10",
-        "updated_at": "2026-08-14T22:10:55.312139",
-        "total": 53
+        "update_time": "21:14",
+        "updated_at": "2026-08-14T21:14:26.938993",
+        "total": 55
     }
 }
