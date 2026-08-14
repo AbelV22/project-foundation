@@ -223,12 +223,6 @@
             "via": "-"
         },
         {
-            "hora": "19:44",
-            "origen": "Madrid Puerta de Atocha Almudena Grandes",
-            "tren": "AVE 03163",
-            "via": "-"
-        },
-        {
             "hora": "20:42",
             "origen": "Madrid Puerta de Atocha Almudena Grandes",
             "tren": "IRYO 06171",
@@ -277,6 +271,12 @@
             "via": "-"
         },
         {
+            "hora": "21:59",
+            "origen": "Madrid Puerta de Atocha Almudena Grandes",
+            "tren": "AVE 03191",
+            "via": "5"
+        },
+        {
             "hora": "22:04",
             "origen": "Alacant / Alicante Terminal",
             "tren": "EUROMED 01192",
@@ -286,13 +286,13 @@
             "hora": "22:13",
             "origen": "Bilbao Intermodal Abando-Indalecio Prieto.",
             "tren": "ALVIA 00536",
-            "via": "-"
+            "via": "1"
         },
         {
             "hora": "22:50",
             "origen": "Sevilla Santa Justa",
             "tren": "IRYO 06015",
-            "via": "-"
+            "via": "3"
         },
         {
             "hora": "22:59",
@@ -332,8 +332,8 @@
         }
     ],
     "meta": {
-        "update_time": "21:14",
-        "updated_at": "2026-08-14T21:14:26.938993",
+        "update_time": "20:20",
+        "updated_at": "2026-08-14T20:20:17.062507",
         "total": 55
     }
 }
