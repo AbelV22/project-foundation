@@ -58,7 +58,7 @@
             "pax_estimados": 2000,
             "puerto": "Valencia",
             "tipo": "llegada",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Itàlia",
             "imo": "9859569",
             "mmsi": "247383600",
@@ -81,7 +81,7 @@
             "fecha": "2026-08-19"
         },
         {
-            "hora": "14:19",
+            "hora": "12:00",
             "nombre": "Msc Celestino Maresca",
             "naviera": "MEDITERRANEAN SHIPPING CO",
             "terminal": "TERMINAL CATALUNYA SA",
@@ -90,7 +90,7 @@
             "pax_estimados": 6500,
             "puerto": "Valencia",
             "tipo": "llegada",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Libèria",
             "imo": "9930040",
             "mmsi": "636022516",
@@ -243,7 +243,7 @@
             "fecha": "2026-08-19"
         },
         {
-            "hora": "12:41",
+            "hora": "13:00",
             "nombre": "Eco Savona",
             "naviera": "GRIMALDI LOGISTICA ESPAÑA SL",
             "terminal": "GRIMALDI TERMINAL BARCELONA SL",
@@ -252,7 +252,7 @@
             "pax_estimados": 2000,
             "puerto": "Savona",
             "tipo": "salida",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Itàlia",
             "imo": "9859569",
             "mmsi": "247383600",
@@ -408,24 +408,24 @@
         "total_llegadas": 11,
         "total_salidas": 14,
         "pax_estimados_hoy": 20500,
-        "proximo_desembarco": "14:19",
+        "proximo_desembarco": "12:00",
         "proximo_barco": "Msc Celestino Maresca"
     },
     "terminales_activas": [
-        "A",
-        "6212",
-        "F3",
-        "B",
+        "F2",
         "199896",
-        "TC",
         "8156",
-        "6995",
+        "B",
+        "TC",
+        "F3",
         "2396",
-        "F2"
+        "6212",
+        "6995",
+        "A"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-08-19T13:42:55.033251",
+        "actualizado": "2026-08-19T11:24:24.260277",
         "frecuencia": "horaria"
     }
 }
