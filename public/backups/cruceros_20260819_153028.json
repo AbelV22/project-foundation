@@ -10,7 +10,7 @@
             "pax_estimados": 1000,
             "puerto": "Livorno",
             "tipo": "llegada",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Illes Marshall",
             "imo": "8807155",
             "mmsi": "538009923",
@@ -259,7 +259,7 @@
             "fecha": "2026-08-19"
         },
         {
-            "hora": "15:05",
+            "hora": "14:00",
             "nombre": "Neptune Avra",
             "naviera": "NEPTUNE BARCELONA SA",
             "terminal": "SETRAM",
@@ -268,7 +268,7 @@
             "pax_estimados": 1000,
             "puerto": "Port-la-Nouvelle",
             "tipo": "salida",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Illes Marshall",
             "imo": "8807155",
             "mmsi": "538009923",
@@ -408,24 +408,24 @@
         "total_llegadas": 11,
         "total_salidas": 14,
         "pax_estimados_hoy": 20500,
-        "proximo_desembarco": "18:15",
-        "proximo_barco": "Ciudad De Palma"
+        "proximo_desembarco": "14:19",
+        "proximo_barco": "Msc Celestino Maresca"
     },
     "terminales_activas": [
-        "6995",
-        "F2",
-        "199896",
-        "B",
-        "8156",
-        "2396",
-        "F3",
-        "TC",
+        "A",
         "6212",
-        "A"
+        "F3",
+        "B",
+        "199896",
+        "TC",
+        "8156",
+        "6995",
+        "2396",
+        "F2"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-08-19T15:30:28.149097",
+        "actualizado": "2026-08-19T13:42:55.033251",
         "frecuencia": "horaria"
     }
 }
