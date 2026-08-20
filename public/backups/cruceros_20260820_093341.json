@@ -17,7 +17,7 @@
             "fecha": "2026-08-20"
         },
         {
-            "hora": "02:36",
+            "hora": "01:00",
             "nombre": "Eco Adriatica",
             "naviera": "GRIMALDI EUROMED SPA",
             "terminal": "GRIMALDI TERMINAL BARCELONA SL",
@@ -26,7 +26,7 @@
             "pax_estimados": 2000,
             "puerto": "Savona",
             "tipo": "llegada",
-            "estado": "Finalitzada",
+            "estado": "Autoritzada",
             "bandera": "Itàlia",
             "imo": "9859600",
             "mmsi": "247384100",
@@ -113,22 +113,6 @@
             "fecha": "2026-08-20"
         },
         {
-            "hora": "11:58",
-            "nombre": "Sea Navigator",
-            "naviera": "PANTHEON TANKERS MANAGEMENT LTD",
-            "terminal": "",
-            "terminal_codigo": "",
-            "eslora": 0,
-            "pax_estimados": 500,
-            "puerto": "Genoa",
-            "tipo": "llegada",
-            "estado": "Confirmada",
-            "bandera": "Illes Marshall",
-            "imo": "9724594",
-            "mmsi": "538010130",
-            "fecha": "2026-08-20"
-        },
-        {
             "hora": "12:00",
             "nombre": "Sea Navigator",
             "naviera": "PANTHEON TANKERS MANAGEMENT LTD",
@@ -174,6 +158,22 @@
             "bandera": "Portugal",
             "imo": "9702077",
             "mmsi": "255806497",
+            "fecha": "2026-08-20"
+        },
+        {
+            "hora": "14:15",
+            "nombre": "Msc Sweden Vi",
+            "naviera": "MEDITERRANEAN SHIPPING CO",
+            "terminal": "TERMINAL CATALUNYA SA",
+            "terminal_codigo": "6212",
+            "eslora": 0,
+            "pax_estimados": 500,
+            "puerto": "Valencia",
+            "tipo": "llegada",
+            "estado": "Sol·licitada",
+            "bandera": "Libèria",
+            "imo": "9231262",
+            "mmsi": "636018242",
             "fecha": "2026-08-20"
         },
         {
@@ -291,7 +291,7 @@
             "fecha": "2026-08-20"
         },
         {
-            "hora": "05:44",
+            "hora": "05:00",
             "nombre": "Eco Adriatica",
             "naviera": "GRIMALDI LOGISTICA ESPAÑA SL",
             "terminal": "GRIMALDI TERMINAL BARCELONA SL",
@@ -300,7 +300,7 @@
             "pax_estimados": 2000,
             "puerto": "Valencia",
             "tipo": "salida",
-            "estado": "Finalitzada",
+            "estado": "Autoritzada",
             "bandera": "Itàlia",
             "imo": "9859600",
             "mmsi": "247384100",
@@ -320,22 +320,6 @@
             "bandera": "Illes Marshall",
             "imo": "9322322",
             "mmsi": "538010796",
-            "fecha": "2026-08-20"
-        },
-        {
-            "hora": "11:59",
-            "nombre": "Sea Navigator",
-            "naviera": "ERHARDT SHIPPING SERVICES SL",
-            "terminal": "",
-            "terminal_codigo": "",
-            "eslora": 0,
-            "pax_estimados": 500,
-            "puerto": "Genoa",
-            "tipo": "salida",
-            "estado": "Confirmada",
-            "bandera": "Illes Marshall",
-            "imo": "9724594",
-            "mmsi": "538010130",
             "fecha": "2026-08-20"
         },
         {
@@ -516,28 +500,28 @@
         }
     ],
     "resumen": {
-        "total_cruceros": 17,
+        "total_cruceros": 18,
         "total_llegadas": 17,
-        "total_salidas": 15,
+        "total_salidas": 14,
         "pax_estimados_hoy": 21000,
-        "proximo_desembarco": "11:58",
-        "proximo_barco": "Sea Navigator"
+        "proximo_desembarco": "08:48",
+        "proximo_barco": "Msc Seaview"
     },
     "terminales_activas": [
         "F3",
-        "F1",
-        "H",
-        "A",
-        "7083",
-        "F2",
-        "2398",
-        "8156",
         "6212",
-        "6037"
+        "F1",
+        "8156",
+        "A",
+        "2398",
+        "F2",
+        "7083",
+        "6037",
+        "H"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-08-20T09:33:41.705675",
+        "actualizado": "2026-08-20T07:39:41.481533",
         "frecuencia": "horaria"
     }
 }
