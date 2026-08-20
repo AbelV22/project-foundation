@@ -161,7 +161,7 @@
             "fecha": "2026-08-20"
         },
         {
-            "hora": "16:09",
+            "hora": "14:00",
             "nombre": "Msc Meline",
             "naviera": "MEDITERRANEAN SHIPPING CO",
             "terminal": "TERMINAL CATALUNYA SA",
@@ -170,7 +170,7 @@
             "pax_estimados": 500,
             "puerto": "Valencia",
             "tipo": "llegada",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Portugal",
             "imo": "9702077",
             "mmsi": "255806497",
@@ -520,24 +520,24 @@
         "total_llegadas": 17,
         "total_salidas": 15,
         "pax_estimados_hoy": 21000,
-        "proximo_desembarco": "16:09",
+        "proximo_desembarco": "14:00",
         "proximo_barco": "Msc Meline"
     },
     "terminales_activas": [
-        "A",
-        "8156",
         "6037",
-        "2398",
+        "A",
+        "F1",
+        "F2",
+        "7083",
+        "8156",
+        "6212",
         "F3",
         "H",
-        "F1",
-        "7083",
-        "F2",
-        "6212"
+        "2398"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-08-20T15:32:53.722219",
+        "actualizado": "2026-08-20T13:45:12.519741",
         "frecuencia": "horaria"
     }
 }
