@@ -145,7 +145,7 @@
             "fecha": "2026-08-20"
         },
         {
-            "hora": "13:42",
+            "hora": "12:30",
             "nombre": "Msc Mattina",
             "naviera": "MEDITERRANEAN SHIPPING CO",
             "terminal": "TERMINAL CATALUNYA SA",
@@ -154,7 +154,7 @@
             "pax_estimados": 500,
             "puerto": "Fos-sur-Mer",
             "tipo": "llegada",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Libèria",
             "imo": "9315915",
             "mmsi": "636020783",
@@ -520,24 +520,24 @@
         "total_llegadas": 17,
         "total_salidas": 15,
         "pax_estimados_hoy": 21000,
-        "proximo_desembarco": "14:00",
-        "proximo_barco": "Msc Meline"
+        "proximo_desembarco": "11:58",
+        "proximo_barco": "Sea Navigator"
     },
     "terminales_activas": [
-        "6037",
-        "A",
-        "F1",
+        "6212",
         "F2",
         "7083",
         "8156",
-        "6212",
         "F3",
-        "H",
-        "2398"
+        "2398",
+        "F1",
+        "A",
+        "6037",
+        "H"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-08-20T13:45:12.519741",
+        "actualizado": "2026-08-20T11:25:09.700743",
         "frecuencia": "horaria"
     }
 }
