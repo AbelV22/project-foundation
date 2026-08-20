@@ -90,7 +90,7 @@
             "pax_estimados": 1000,
             "puerto": "Marseille",
             "tipo": "llegada",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Tunísia",
             "imo": "9207998",
             "mmsi": "672747000",
@@ -177,7 +177,7 @@
             "fecha": "2026-08-20"
         },
         {
-            "hora": "18:28",
+            "hora": "18:15",
             "nombre": "Ciudad De Palma",
             "naviera": "TRASMED GLE S.L.",
             "terminal": "TERMINAL F2",
@@ -186,10 +186,26 @@
             "pax_estimados": 1000,
             "puerto": "Palma de Mallorca",
             "tipo": "llegada",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Espanya",
             "imo": "9349772",
             "mmsi": "224588000",
+            "fecha": "2026-08-20"
+        },
+        {
+            "hora": "18:30",
+            "nombre": "Ciudad De Barcelona",
+            "naviera": "TRASMED GLE S.L.",
+            "terminal": "TERMINAL F2",
+            "terminal_codigo": "F2",
+            "eslora": 176.0,
+            "pax_estimados": 1000,
+            "puerto": "Mahon Menorca",
+            "tipo": "llegada",
+            "estado": "Autoritzada",
+            "bandera": "Espanya",
+            "imo": "9506289",
+            "mmsi": "225416000",
             "fecha": "2026-08-20"
         },
         {
@@ -209,7 +225,7 @@
             "fecha": "2026-08-20"
         },
         {
-            "hora": "18:43",
+            "hora": "18:40",
             "nombre": "Gnv Sealand",
             "naviera": "GRANDI NAVI VELOCI",
             "terminal": "TERMINAL F2",
@@ -218,26 +234,10 @@
             "pax_estimados": 500,
             "puerto": "Ibiza",
             "tipo": "llegada",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Itàlia",
             "imo": "9435454",
             "mmsi": "247265800",
-            "fecha": "2026-08-20"
-        },
-        {
-            "hora": "18:57",
-            "nombre": "Ciudad De Barcelona",
-            "naviera": "TRASMED GLE S.L.",
-            "terminal": "TERMINAL F2",
-            "terminal_codigo": "F2",
-            "eslora": 176.0,
-            "pax_estimados": 1000,
-            "puerto": "Mahon Menorca",
-            "tipo": "llegada",
-            "estado": "Iniciada",
-            "bandera": "Espanya",
-            "imo": "9506289",
-            "mmsi": "225416000",
             "fecha": "2026-08-20"
         },
         {
@@ -339,7 +339,7 @@
             "fecha": "2026-08-20"
         },
         {
-            "hora": "16:54",
+            "hora": "15:00",
             "nombre": "Amilcar",
             "naviera": "ROMEU Y CIA SA",
             "terminal": "TERMINAL PORT NOU SA",
@@ -348,7 +348,7 @@
             "pax_estimados": 1000,
             "puerto": "Rades/Tunis",
             "tipo": "salida",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Tunísia",
             "imo": "9207998",
             "mmsi": "672747000",
@@ -444,7 +444,7 @@
             "pax_estimados": 500,
             "puerto": "Mahon Menorca",
             "tipo": "salida",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Itàlia",
             "imo": "9435454",
             "mmsi": "247265800",
@@ -476,7 +476,7 @@
             "pax_estimados": 1000,
             "puerto": "Ibiza",
             "tipo": "salida",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Espanya",
             "imo": "9506289",
             "mmsi": "225416000",
@@ -508,7 +508,7 @@
             "pax_estimados": 1000,
             "puerto": "Palma de Mallorca",
             "tipo": "salida",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Espanya",
             "imo": "9349772",
             "mmsi": "224588000",
@@ -520,24 +520,24 @@
         "total_llegadas": 17,
         "total_salidas": 15,
         "pax_estimados_hoy": 21000,
-        "proximo_desembarco": "18:28",
-        "proximo_barco": "Ciudad De Palma"
+        "proximo_desembarco": "16:09",
+        "proximo_barco": "Msc Meline"
     },
     "terminales_activas": [
-        "7083",
-        "F1",
+        "A",
+        "8156",
         "6037",
         "2398",
-        "6212",
-        "F2",
-        "8156",
         "F3",
         "H",
-        "A"
+        "F1",
+        "7083",
+        "F2",
+        "6212"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-08-20T17:27:58.424694",
+        "actualizado": "2026-08-20T15:32:53.722219",
         "frecuencia": "horaria"
     }
 }
