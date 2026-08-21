@@ -67,12 +67,6 @@
             "via": "-"
         },
         {
-            "hora": "11:59",
-            "origen": "Madrid Puerta de Atocha Almudena Grandes",
-            "tren": "AVE 03083",
-            "via": "-"
-        },
-        {
             "hora": "12:06",
             "origen": "Madrid Puerta de Atocha Almudena Grandes",
             "tren": "AVE 03091",
@@ -124,12 +118,6 @@
             "hora": "13:44",
             "origen": "Madrid Puerta de Atocha Almudena Grandes",
             "tren": "AVE 03303",
-            "via": "-"
-        },
-        {
-            "hora": "14:32",
-            "origen": "Paris Gare de Lyon",
-            "tren": "TGV INOUI 09713",
             "via": "-"
         },
         {
@@ -193,21 +181,9 @@
             "via": "-"
         },
         {
-            "hora": "17:49",
-            "origen": "Madrid Puerta de Atocha Almudena Grandes",
-            "tren": "AVE 03143",
-            "via": "-"
-        },
-        {
             "hora": "18:13",
             "origen": "Málaga María Zambrano",
             "tren": "IRYO 06021",
-            "via": "-"
-        },
-        {
-            "hora": "18:19",
-            "origen": "València Estació del Nord",
-            "tren": "EUROMED 01152",
             "via": "-"
         },
         {
@@ -247,12 +223,6 @@
             "via": "-"
         },
         {
-            "hora": "19:50",
-            "origen": "Madrid Puerta de Atocha Almudena Grandes",
-            "tren": "AVE 03163",
-            "via": "-"
-        },
-        {
             "hora": "20:42",
             "origen": "Madrid Puerta de Atocha Almudena Grandes",
             "tren": "IRYO 06171",
@@ -262,7 +232,7 @@
             "hora": "20:51",
             "origen": "Córdoba Julio Anguita",
             "tren": "ALVIA 00694",
-            "via": "-"
+            "via": "5"
         },
         {
             "hora": "20:57",
@@ -280,13 +250,19 @@
             "hora": "21:32",
             "origen": "Paris Gare de Lyon",
             "tren": "TGV INOUI 09715",
-            "via": "-"
+            "via": "1"
         },
         {
             "hora": "21:40",
             "origen": "Vigo Urzaiz",
             "tren": "ALVIA 00620",
-            "via": "-"
+            "via": "5"
+        },
+        {
+            "hora": "21:44",
+            "origen": "Madrid Puerta de Atocha Almudena Grandes",
+            "tren": "IRYO 06181",
+            "via": "4"
         },
         {
             "hora": "21:44",
@@ -298,54 +274,66 @@
             "hora": "21:49",
             "origen": "Madrid Puerta de Atocha Almudena Grandes",
             "tren": "AVE 03183",
-            "via": "-"
+            "via": "6"
+        },
+        {
+            "hora": "21:59",
+            "origen": "Madrid Puerta de Atocha Almudena Grandes",
+            "tren": "AVE 03191",
+            "via": "5"
         },
         {
             "hora": "22:04",
             "origen": "Alacant / Alicante Terminal",
             "tren": "EUROMED 01192",
-            "via": "-"
+            "via": "2"
         },
         {
             "hora": "22:13",
             "origen": "Bilbao Intermodal Abando-Indalecio Prieto.",
             "tren": "ALVIA 00536",
-            "via": "-"
+            "via": "1"
         },
         {
             "hora": "22:50",
             "origen": "Sevilla Santa Justa",
             "tren": "IRYO 06015",
-            "via": "-"
+            "via": "3"
         },
         {
             "hora": "22:59",
             "origen": "Sevilla Santa Justa",
             "tren": "AVE 03941",
-            "via": "-"
+            "via": "1"
         },
         {
             "hora": "22:59",
             "origen": "Málaga María Zambrano",
             "tren": "AVE 03991",
-            "via": "-"
+            "via": "1"
         },
         {
             "hora": "23:20",
             "origen": "Madrid Puerta de Atocha Almudena Grandes",
             "tren": "AVE 03309",
-            "via": "-"
+            "via": "4"
         },
         {
             "hora": "23:28",
             "origen": "Málaga María Zambrano",
             "tren": "OUIGO 06425",
-            "via": "-"
+            "via": "6"
+        },
+        {
+            "hora": "23:47",
+            "origen": "Madrid Puerta de Atocha Almudena Grandes",
+            "tren": "AVE 03201",
+            "via": "1"
         }
     ],
     "meta": {
-        "update_time": "23:13",
-        "updated_at": "2026-08-21T23:13:07.429144",
-        "total": 57
+        "update_time": "19:18",
+        "updated_at": "2026-08-21T19:18:24.573236",
+        "total": 55
     }
 }
