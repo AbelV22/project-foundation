@@ -1,7 +1,7 @@
 {
     "llegadas": [
         {
-            "hora": "04:57",
+            "hora": "02:15",
             "nombre": "Msc Sweden Vi",
             "naviera": "MEDITERRANEAN SHIPPING CO",
             "terminal": "TERMINAL CATALUNYA SA",
@@ -10,14 +10,14 @@
             "pax_estimados": 500,
             "puerto": "Valencia",
             "tipo": "llegada",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Libèria",
             "imo": "9231262",
             "mmsi": "636018242",
             "fecha": "2026-08-21"
         },
         {
-            "hora": "05:22",
+            "hora": "04:45",
             "nombre": "Aidacosma",
             "naviera": "AIDA CRUISES",
             "terminal": "Terminal E (Adossat)",
@@ -26,7 +26,7 @@
             "pax_estimados": 4500,
             "puerto": "Marseille",
             "tipo": "llegada",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Itàlia",
             "imo": "9781877",
             "mmsi": "247435300",
@@ -65,22 +65,6 @@
             "fecha": "2026-08-21"
         },
         {
-            "hora": "06:25",
-            "nombre": "Crystal Serenity",
-            "naviera": "CRYSTAL CRUISES INC",
-            "terminal": "Terminal A (WTC)",
-            "terminal_codigo": "A",
-            "eslora": 250.0,
-            "pax_estimados": 3000,
-            "puerto": "Valencia",
-            "tipo": "llegada",
-            "estado": "Iniciada",
-            "bandera": "Bahames",
-            "imo": "9243667",
-            "mmsi": "311536000",
-            "fecha": "2026-08-21"
-        },
-        {
             "hora": "06:30",
             "nombre": "Msc World Europa",
             "naviera": "MSC CRUISES S.A.",
@@ -94,6 +78,22 @@
             "bandera": "Malta",
             "imo": "9837420",
             "mmsi": "256070000",
+            "fecha": "2026-08-21"
+        },
+        {
+            "hora": "07:00",
+            "nombre": "Crystal Serenity",
+            "naviera": "CRYSTAL CRUISES INC",
+            "terminal": "Terminal A (WTC)",
+            "terminal_codigo": "A",
+            "eslora": 250.0,
+            "pax_estimados": 3000,
+            "puerto": "Valencia",
+            "tipo": "llegada",
+            "estado": "Autoritzada",
+            "bandera": "Bahames",
+            "imo": "9243667",
+            "mmsi": "311536000",
             "fecha": "2026-08-21"
         },
         {
@@ -243,23 +243,7 @@
     ],
     "salidas": [
         {
-            "hora": "01:33",
-            "nombre": "Shekou Star",
-            "naviera": "HAPAG LLOYD SPAIN SL",
-            "terminal": "APM TERMINALS BARCELONA, S.L.U.",
-            "terminal_codigo": "7083",
-            "eslora": 260.0,
-            "pax_estimados": 3000,
-            "puerto": "Tanger Med",
-            "tipo": "salida",
-            "estado": "Finalitzada",
-            "bandera": "Illes Marshall",
-            "imo": "9322322",
-            "mmsi": "538010796",
-            "fecha": "2026-08-21"
-        },
-        {
-            "hora": "02:57",
+            "hora": "00:45",
             "nombre": "Msc Mattina",
             "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
             "terminal": "TERMINAL CATALUNYA SA",
@@ -268,7 +252,7 @@
             "pax_estimados": 500,
             "puerto": "Valencia",
             "tipo": "salida",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Libèria",
             "imo": "9315915",
             "mmsi": "636020783",
@@ -284,7 +268,7 @@
             "pax_estimados": 500,
             "puerto": "Livorno",
             "tipo": "salida",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Libèria",
             "imo": "9231262",
             "mmsi": "636018242",
@@ -348,7 +332,7 @@
             "pax_estimados": 4500,
             "puerto": "Palma de Mallorca",
             "tipo": "salida",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Itàlia",
             "imo": "9781877",
             "mmsi": "247435300",
@@ -428,7 +412,7 @@
             "pax_estimados": 3000,
             "puerto": "Marseille",
             "tipo": "salida",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Bahames",
             "imo": "9243667",
             "mmsi": "311536000",
@@ -516,28 +500,27 @@
         }
     ],
     "resumen": {
-        "total_cruceros": 18,
+        "total_cruceros": 17,
         "total_llegadas": 15,
-        "total_salidas": 17,
+        "total_salidas": 16,
         "pax_estimados_hoy": 24000,
-        "proximo_desembarco": "06:00",
-        "proximo_barco": "Msc Madison Ii"
+        "proximo_desembarco": null,
+        "proximo_barco": null
     },
     "terminales_activas": [
-        "6212",
-        "8156",
-        "H",
-        "F3",
-        "E",
-        "F1",
         "7259",
+        "6212",
         "F2",
+        "H",
+        "8156",
         "A",
-        "7083"
+        "F1",
+        "E",
+        "F3"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-08-21T05:31:28.667267",
+        "actualizado": "2026-08-20T23:24:41.152241",
         "frecuencia": "horaria"
     }
 }
