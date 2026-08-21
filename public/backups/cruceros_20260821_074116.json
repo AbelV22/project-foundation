@@ -81,7 +81,7 @@
             "fecha": "2026-08-21"
         },
         {
-            "hora": "07:39",
+            "hora": "06:30",
             "nombre": "Msc World Europa",
             "naviera": "MSC CRUISES S.A.",
             "terminal": "ADOSSAT/TERMINAL H",
@@ -90,7 +90,7 @@
             "pax_estimados": 500,
             "puerto": "Malta (Valetta)",
             "tipo": "llegada",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Malta",
             "imo": "9837420",
             "mmsi": "256070000",
@@ -275,22 +275,6 @@
             "fecha": "2026-08-21"
         },
         {
-            "hora": "08:11",
-            "nombre": "Jy River",
-            "naviera": "ALFASHIP MARITIME SERVICES SL ",
-            "terminal": "ERGRANSA SA",
-            "terminal_codigo": "2256",
-            "eslora": 229.0,
-            "pax_estimados": 2000,
-            "puerto": "Desconegut",
-            "tipo": "salida",
-            "estado": "Finalitzada",
-            "bandera": "Libèria",
-            "imo": "9845269",
-            "mmsi": "636019110",
-            "fecha": "2026-08-21"
-        },
-        {
             "hora": "12:30",
             "nombre": "Msc Sweden Vi",
             "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
@@ -380,7 +364,7 @@
             "pax_estimados": 500,
             "puerto": "Marseille",
             "tipo": "salida",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Malta",
             "imo": "9837420",
             "mmsi": "256070000",
@@ -532,29 +516,28 @@
         }
     ],
     "resumen": {
-        "total_cruceros": 19,
+        "total_cruceros": 18,
         "total_llegadas": 15,
-        "total_salidas": 18,
+        "total_salidas": 17,
         "pax_estimados_hoy": 24000,
-        "proximo_desembarco": "08:00",
-        "proximo_barco": "Eco Adriatica"
+        "proximo_desembarco": "06:00",
+        "proximo_barco": "Msc Madison Ii"
     },
     "terminales_activas": [
-        "A",
-        "E",
-        "F2",
-        "2256",
-        "F3",
-        "H",
-        "F1",
         "6212",
-        "7083",
         "8156",
-        "7259"
+        "H",
+        "F3",
+        "E",
+        "F1",
+        "7259",
+        "F2",
+        "A",
+        "7083"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-08-21T07:41:16.661352",
+        "actualizado": "2026-08-21T05:31:28.667267",
         "frecuencia": "horaria"
     }
 }
