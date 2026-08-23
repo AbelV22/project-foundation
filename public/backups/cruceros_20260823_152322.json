@@ -145,7 +145,7 @@
             "fecha": "2026-08-23"
         },
         {
-            "hora": "15:07",
+            "hora": "15:00",
             "nombre": "Gnv Aurora",
             "naviera": "GRANDI NAVI VELOCI",
             "terminal": "TERMINAL F2",
@@ -154,7 +154,7 @@
             "pax_estimados": 2000,
             "puerto": "Genoa",
             "tipo": "llegada",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Itàlia",
             "imo": "9980069",
             "mmsi": "247530300",
@@ -364,7 +364,7 @@
             "pax_estimados": 2000,
             "puerto": "Tanger Med",
             "tipo": "salida",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Itàlia",
             "imo": "9980069",
             "mmsi": "247530300",
@@ -456,23 +456,23 @@
         "total_llegadas": 16,
         "total_salidas": 12,
         "pax_estimados_hoy": 37500,
-        "proximo_desembarco": "18:00",
-        "proximo_barco": "Zim Pacific"
+        "proximo_desembarco": "15:00",
+        "proximo_barco": "Gnv Aurora"
     },
     "terminales_activas": [
-        "H",
-        "E",
-        "A",
-        "TC",
-        "F2",
-        "F3",
+        "7083",
         "6212",
+        "TC",
+        "A",
+        "E",
+        "F3",
+        "F2",
         "7259",
-        "7083"
+        "H"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-08-23T15:23:22.951138",
+        "actualizado": "2026-08-23T13:32:27.791476",
         "frecuencia": "horaria"
     }
 }
