@@ -10,7 +10,7 @@
             "pax_estimados": 4500,
             "puerto": "Marseille",
             "tipo": "llegada",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Bahames",
             "imo": "9410569",
             "mmsi": "311018500",
@@ -154,7 +154,7 @@
             "pax_estimados": 2000,
             "puerto": "Genoa",
             "tipo": "llegada",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Itàlia",
             "imo": "9980069",
             "mmsi": "247530300",
@@ -339,7 +339,7 @@
             "fecha": "2026-08-23"
         },
         {
-            "hora": "16:43",
+            "hora": "17:00",
             "nombre": "Norwegian Epic",
             "naviera": "INTERCRUISES PORT OPERATIONS SPAIN SLU",
             "terminal": "Terminal A (WTC)",
@@ -348,14 +348,14 @@
             "pax_estimados": 4500,
             "puerto": "Marseille",
             "tipo": "salida",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Bahames",
             "imo": "9410569",
             "mmsi": "311018500",
             "fecha": "2026-08-23"
         },
         {
-            "hora": "17:39",
+            "hora": "17:30",
             "nombre": "Gnv Aurora",
             "naviera": "TRANSPORTES Y CONSIGNACIONES MARITIMAS BALEARES",
             "terminal": "TERMINAL F2",
@@ -364,7 +364,7 @@
             "pax_estimados": 2000,
             "puerto": "Tanger Med",
             "tipo": "salida",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Itàlia",
             "imo": "9980069",
             "mmsi": "247530300",
@@ -460,19 +460,19 @@
         "proximo_barco": "Zim Pacific"
     },
     "terminales_activas": [
-        "7083",
+        "H",
         "E",
+        "A",
+        "TC",
+        "F2",
         "F3",
         "6212",
-        "TC",
         "7259",
-        "F2",
-        "H",
-        "A"
+        "7083"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-08-23T17:20:29.894053",
+        "actualizado": "2026-08-23T15:23:22.951138",
         "frecuencia": "horaria"
     }
 }
