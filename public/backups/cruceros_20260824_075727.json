@@ -1,6 +1,22 @@
 {
     "llegadas": [
         {
+            "hora": "06:00",
+            "nombre": "Gnv Sealand",
+            "naviera": "GRANDI NAVI VELOCI",
+            "terminal": "",
+            "terminal_codigo": "",
+            "eslora": 0,
+            "pax_estimados": 500,
+            "puerto": "Mahon Menorca",
+            "tipo": "llegada",
+            "estado": "Iniciada",
+            "bandera": "Itàlia",
+            "imo": "9435454",
+            "mmsi": "247265800",
+            "fecha": "2026-08-24"
+        },
+        {
             "hora": "06:11",
             "nombre": "Silver Ray",
             "naviera": "SILVERSEA CRUISES",
@@ -33,7 +49,7 @@
             "fecha": "2026-08-24"
         },
         {
-            "hora": "07:11",
+            "hora": "06:30",
             "nombre": "Costa Smeralda",
             "naviera": "COSTA CROCIERE, S.P.A.",
             "terminal": "Terminal E (Adossat)",
@@ -42,30 +58,14 @@
             "pax_estimados": 4500,
             "puerto": "Savona",
             "tipo": "llegada",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Itàlia",
             "imo": "9781889",
             "mmsi": "247391900",
             "fecha": "2026-08-24"
         },
         {
-            "hora": "07:19",
-            "nombre": "Gnv Sealand",
-            "naviera": "GRANDI NAVI VELOCI",
-            "terminal": "",
-            "terminal_codigo": "",
-            "eslora": 0,
-            "pax_estimados": 500,
-            "puerto": "Mahon Menorca",
-            "tipo": "llegada",
-            "estado": "Iniciada",
-            "bandera": "Itàlia",
-            "imo": "9435454",
-            "mmsi": "247265800",
-            "fecha": "2026-08-24"
-        },
-        {
-            "hora": "07:23",
+            "hora": "07:00",
             "nombre": "Gnv Virgo",
             "naviera": "GRANDI NAVI VELOCI",
             "terminal": "TERMINAL F2",
@@ -74,7 +74,7 @@
             "pax_estimados": 2000,
             "puerto": "Tanger Med",
             "tipo": "llegada",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Itàlia",
             "imo": "9980057",
             "mmsi": "247529200",
@@ -307,7 +307,7 @@
             "fecha": "2026-08-24"
         },
         {
-            "hora": "07:18",
+            "hora": "05:59",
             "nombre": "Gnv Sealand",
             "naviera": "TRANSPORTES Y CONSIGNACIONES MARITIMAS BALEARES",
             "terminal": "TERMINAL F2",
@@ -332,7 +332,7 @@
             "pax_estimados": 2000,
             "puerto": "Genoa",
             "tipo": "salida",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Itàlia",
             "imo": "9980057",
             "mmsi": "247529200",
@@ -348,7 +348,7 @@
             "pax_estimados": 4500,
             "puerto": "Marseille",
             "tipo": "salida",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Itàlia",
             "imo": "9781889",
             "mmsi": "247391900",
@@ -536,26 +536,26 @@
         "total_llegadas": 16,
         "total_salidas": 17,
         "pax_estimados_hoy": 27000,
-        "proximo_desembarco": "08:15",
-        "proximo_barco": "Msc Sandra"
+        "proximo_desembarco": "06:00",
+        "proximo_barco": "Gnv Sealand"
     },
     "terminales_activas": [
-        "F3",
-        "F1",
-        "F2",
         "6212",
-        "E",
-        "8156",
+        "F1",
         "B",
-        "A",
+        "F3",
+        "7332",
         "2256",
         "7083",
-        "7332",
-        "S"
+        "F2",
+        "S",
+        "8156",
+        "A",
+        "E"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-08-24T07:57:27.570227",
+        "actualizado": "2026-08-24T05:37:12.780850",
         "frecuencia": "horaria"
     }
 }
