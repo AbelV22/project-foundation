@@ -1,6 +1,22 @@
 {
     "llegadas": [
         {
+            "hora": "05:45",
+            "nombre": "Silver Ray",
+            "naviera": "SILVERSEA CRUISES",
+            "terminal": "Terminal A (WTC)",
+            "terminal_codigo": "A",
+            "eslora": 244.0,
+            "pax_estimados": 2000,
+            "puerto": "Marseille",
+            "tipo": "llegada",
+            "estado": "Autoritzada",
+            "bandera": "Bahames",
+            "imo": "9886225",
+            "mmsi": "311001496",
+            "fecha": "2026-08-24"
+        },
+        {
             "hora": "06:00",
             "nombre": "Gnv Sealand",
             "naviera": "GRANDI NAVI VELOCI",
@@ -14,38 +30,6 @@
             "bandera": "Itàlia",
             "imo": "9435454",
             "mmsi": "247265800",
-            "fecha": "2026-08-24"
-        },
-        {
-            "hora": "06:11",
-            "nombre": "Silver Ray",
-            "naviera": "SILVERSEA CRUISES",
-            "terminal": "Terminal A (WTC)",
-            "terminal_codigo": "A",
-            "eslora": 244.0,
-            "pax_estimados": 2000,
-            "puerto": "Marseille",
-            "tipo": "llegada",
-            "estado": "Iniciada",
-            "bandera": "Bahames",
-            "imo": "9886225",
-            "mmsi": "311001496",
-            "fecha": "2026-08-24"
-        },
-        {
-            "hora": "06:21",
-            "nombre": "Seven Seas Navigator",
-            "naviera": "REGENT SEVEN SEAS CRUISES INC",
-            "terminal": "Terminal Sud",
-            "terminal_codigo": "S",
-            "eslora": 172.0,
-            "pax_estimados": 1000,
-            "puerto": "Malaga",
-            "tipo": "llegada",
-            "estado": "Iniciada",
-            "bandera": "Bahames",
-            "imo": "9064126",
-            "mmsi": "311050600",
             "fecha": "2026-08-24"
         },
         {
@@ -78,6 +62,22 @@
             "bandera": "Itàlia",
             "imo": "9980057",
             "mmsi": "247529200",
+            "fecha": "2026-08-24"
+        },
+        {
+            "hora": "07:00",
+            "nombre": "Seven Seas Navigator",
+            "naviera": "REGENT SEVEN SEAS CRUISES INC",
+            "terminal": "Terminal Sud",
+            "terminal_codigo": "S",
+            "eslora": 172.0,
+            "pax_estimados": 1000,
+            "puerto": "Malaga",
+            "tipo": "llegada",
+            "estado": "Autoritzada",
+            "bandera": "Bahames",
+            "imo": "9064126",
+            "mmsi": "311050600",
             "fecha": "2026-08-24"
         },
         {
@@ -259,7 +259,7 @@
     ],
     "salidas": [
         {
-            "hora": "00:48",
+            "hora": "00:30",
             "nombre": "Ciudad De Granada",
             "naviera": "GRIMALDI LOGISTICA ESPAÑA SL",
             "terminal": "TERMINAL F2",
@@ -268,26 +268,10 @@
             "pax_estimados": 1000,
             "puerto": "Mahon Menorca",
             "tipo": "salida",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Espanya",
             "imo": "9217125",
             "mmsi": "224600000",
-            "fecha": "2026-08-24"
-        },
-        {
-            "hora": "00:51",
-            "nombre": "Hmm Leaf",
-            "naviera": "MARITIME AGENCY HMM SPAIN SL",
-            "terminal": "APM TERMINALS BARCELONA, S.L.U.",
-            "terminal_codigo": "7083",
-            "eslora": 282.0,
-            "pax_estimados": 3000,
-            "puerto": "Genoa",
-            "tipo": "salida",
-            "estado": "Finalitzada",
-            "bandera": "Panamà",
-            "imo": "1015959",
-            "mmsi": "352005740",
             "fecha": "2026-08-24"
         },
         {
@@ -304,6 +288,22 @@
             "bandera": "Panamà",
             "imo": "9181651",
             "mmsi": "354505000",
+            "fecha": "2026-08-24"
+        },
+        {
+            "hora": "02:00",
+            "nombre": "Hmm Leaf",
+            "naviera": "MARITIME AGENCY HMM SPAIN SL",
+            "terminal": "APM TERMINALS BARCELONA, S.L.U.",
+            "terminal_codigo": "7083",
+            "eslora": 282.0,
+            "pax_estimados": 3000,
+            "puerto": "Genoa",
+            "tipo": "salida",
+            "estado": "Iniciada",
+            "bandera": "Panamà",
+            "imo": "1015959",
+            "mmsi": "352005740",
             "fecha": "2026-08-24"
         },
         {
@@ -364,7 +364,7 @@
             "pax_estimados": 2000,
             "puerto": "Marseille",
             "tipo": "salida",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Bahames",
             "imo": "9886225",
             "mmsi": "311001496",
@@ -380,7 +380,7 @@
             "pax_estimados": 1000,
             "puerto": "Genoa",
             "tipo": "salida",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Bahames",
             "imo": "9064126",
             "mmsi": "311050600",
@@ -536,26 +536,26 @@
         "total_llegadas": 16,
         "total_salidas": 17,
         "pax_estimados_hoy": 27000,
-        "proximo_desembarco": "06:00",
-        "proximo_barco": "Gnv Sealand"
+        "proximo_desembarco": null,
+        "proximo_barco": null
     },
     "terminales_activas": [
         "6212",
         "F1",
-        "B",
-        "F3",
-        "7332",
         "2256",
-        "7083",
+        "B",
         "F2",
-        "S",
-        "8156",
         "A",
-        "E"
+        "8156",
+        "E",
+        "7083",
+        "S",
+        "7332",
+        "F3"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-08-24T05:37:12.780850",
+        "actualizado": "2026-08-23T23:20:15.840155",
         "frecuencia": "horaria"
     }
 }
