@@ -97,23 +97,7 @@
             "fecha": "2026-08-24"
         },
         {
-            "hora": "09:34",
-            "nombre": "Zim Pacific",
-            "naviera": "ZIM INTEGRATED SHIPPING SERV.",
-            "terminal": "TERMINAL CATALUNYA SA",
-            "terminal_codigo": "6212",
-            "eslora": 262.0,
-            "pax_estimados": 3000,
-            "puerto": "Genoa",
-            "tipo": "llegada",
-            "estado": "Iniciada",
-            "bandera": "Libèria",
-            "imo": "9440837",
-            "mmsi": "636021362",
-            "fecha": "2026-08-24"
-        },
-        {
-            "hora": "10:55",
+            "hora": "09:45",
             "nombre": "Marella Discovery 2",
             "naviera": "MARELLA CRUISES LTD",
             "terminal": "Terminal B (Maremagnum)",
@@ -122,7 +106,7 @@
             "pax_estimados": 3000,
             "puerto": "Saint-Raphael",
             "tipo": "llegada",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Bahames",
             "imo": "9070620",
             "mmsi": "311378000",
@@ -412,7 +396,7 @@
             "pax_estimados": 3000,
             "puerto": "Palma de Mallorca",
             "tipo": "salida",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Bahames",
             "imo": "9070620",
             "mmsi": "311378000",
@@ -548,30 +532,30 @@
         }
     ],
     "resumen": {
-        "total_cruceros": 19,
-        "total_llegadas": 17,
+        "total_cruceros": 18,
+        "total_llegadas": 16,
         "total_salidas": 17,
-        "pax_estimados_hoy": 30000,
-        "proximo_desembarco": "10:55",
-        "proximo_barco": "Marella Discovery 2"
+        "pax_estimados_hoy": 27000,
+        "proximo_desembarco": "08:15",
+        "proximo_barco": "Msc Sandra"
     },
     "terminales_activas": [
-        "2256",
-        "E",
-        "B",
-        "8156",
         "F3",
-        "S",
-        "A",
-        "6212",
-        "F2",
         "F1",
+        "F2",
+        "6212",
+        "E",
+        "8156",
+        "B",
+        "A",
+        "2256",
+        "7083",
         "7332",
-        "7083"
+        "S"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-08-24T09:46:14.489356",
+        "actualizado": "2026-08-24T07:57:27.570227",
         "frecuencia": "horaria"
     }
 }
