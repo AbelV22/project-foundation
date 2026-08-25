@@ -65,6 +65,38 @@
             "fecha": "2026-08-25"
         },
         {
+            "hora": "18:30",
+            "nombre": "Ciudad De Granada",
+            "naviera": "TRASMED GLE S.L.",
+            "terminal": "TERMINAL F2",
+            "terminal_codigo": "F2",
+            "eslora": 172.0,
+            "pax_estimados": 1000,
+            "puerto": "Mahon Menorca",
+            "tipo": "llegada",
+            "estado": "Autoritzada",
+            "bandera": "Espanya",
+            "imo": "9217125",
+            "mmsi": "224600000",
+            "fecha": "2026-08-25"
+        },
+        {
+            "hora": "18:30",
+            "nombre": "Cruise Barcelona",
+            "naviera": "GRIMALDI EUROMED SPA",
+            "terminal": "TERMINAL F3",
+            "terminal_codigo": "F3",
+            "eslora": 0,
+            "pax_estimados": 500,
+            "puerto": "Porto Torres",
+            "tipo": "llegada",
+            "estado": "Autoritzada",
+            "bandera": "Itàlia",
+            "imo": "9351488",
+            "mmsi": "247243600",
+            "fecha": "2026-08-25"
+        },
+        {
             "hora": "18:32",
             "nombre": "Ciudad De Palma",
             "naviera": "TRASMED GLE S.L.",
@@ -97,23 +129,7 @@
             "fecha": "2026-08-25"
         },
         {
-            "hora": "19:03",
-            "nombre": "Ciudad De Granada",
-            "naviera": "TRASMED GLE S.L.",
-            "terminal": "TERMINAL F2",
-            "terminal_codigo": "F2",
-            "eslora": 172.0,
-            "pax_estimados": 1000,
-            "puerto": "Mahon Menorca",
-            "tipo": "llegada",
-            "estado": "Iniciada",
-            "bandera": "Espanya",
-            "imo": "9217125",
-            "mmsi": "224600000",
-            "fecha": "2026-08-25"
-        },
-        {
-            "hora": "19:29",
+            "hora": "19:00",
             "nombre": "Abel Matutes",
             "naviera": "EUROLINEAS MARITIMAS S.A",
             "terminal": "TERMINAL F1",
@@ -122,26 +138,10 @@
             "pax_estimados": 1000,
             "puerto": "Alcudia",
             "tipo": "llegada",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Espanya",
             "imo": "9441130",
             "mmsi": "224402000",
-            "fecha": "2026-08-25"
-        },
-        {
-            "hora": "19:54",
-            "nombre": "Cruise Barcelona",
-            "naviera": "GRIMALDI EUROMED SPA",
-            "terminal": "TERMINAL F3",
-            "terminal_codigo": "F3",
-            "eslora": 0,
-            "pax_estimados": 500,
-            "puerto": "Porto Torres",
-            "tipo": "llegada",
-            "estado": "Iniciada",
-            "bandera": "Itàlia",
-            "imo": "9351488",
-            "mmsi": "247243600",
             "fecha": "2026-08-25"
         },
         {
@@ -268,7 +268,7 @@
             "pax_estimados": 1000,
             "puerto": "Alcudia",
             "tipo": "salida",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Espanya",
             "imo": "9441130",
             "mmsi": "224402000",
@@ -300,7 +300,7 @@
             "pax_estimados": 1000,
             "puerto": "Ibiza",
             "tipo": "salida",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Espanya",
             "imo": "9217125",
             "mmsi": "224600000",
@@ -332,7 +332,7 @@
             "pax_estimados": 500,
             "puerto": "Porto Torres",
             "tipo": "salida",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Itàlia",
             "imo": "9351488",
             "mmsi": "247243600",
@@ -344,20 +344,20 @@
         "total_llegadas": 10,
         "total_salidas": 11,
         "pax_estimados_hoy": 11500,
-        "proximo_desembarco": "19:54",
-        "proximo_barco": "Cruise Barcelona"
+        "proximo_desembarco": "18:30",
+        "proximo_barco": "Ciudad De Granada"
     },
     "terminales_activas": [
-        "F3",
-        "6212",
         "6037",
         "H",
         "F1",
+        "F3",
+        "6212",
         "F2"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-08-25T19:31:12.836230",
+        "actualizado": "2026-08-25T17:31:01.509929",
         "frecuencia": "horaria"
     }
 }
