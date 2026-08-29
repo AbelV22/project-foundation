@@ -154,7 +154,7 @@
             "pax_estimados": 500,
             "puerto": "Ibiza",
             "tipo": "llegada",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Itàlia",
             "imo": "9435454",
             "mmsi": "247265800",
@@ -170,14 +170,14 @@
             "pax_estimados": 1000,
             "puerto": "Palma de Mallorca",
             "tipo": "llegada",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Espanya",
             "imo": "9441130",
             "mmsi": "224402000",
             "fecha": "2026-08-29"
         },
         {
-            "hora": "21:01",
+            "hora": "22:30",
             "nombre": "Cruise Barcelona",
             "naviera": "GRIMALDI EUROMED SPA",
             "terminal": "TERMINAL F3",
@@ -186,26 +186,10 @@
             "pax_estimados": 500,
             "puerto": "Porto Torres",
             "tipo": "llegada",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Itàlia",
             "imo": "9351488",
             "mmsi": "247243600",
-            "fecha": "2026-08-29"
-        },
-        {
-            "hora": "22:24",
-            "nombre": "Msc Radiant Iii",
-            "naviera": "MEDITERRANEAN SHIPPING CO",
-            "terminal": "TERMINAL CATALUNYA SA",
-            "terminal_codigo": "6212",
-            "eslora": 208.0,
-            "pax_estimados": 2000,
-            "puerto": "La Spezia",
-            "tipo": "llegada",
-            "estado": "Iniciada",
-            "bandera": "Libèria",
-            "imo": "9235402",
-            "mmsi": "636016943",
             "fecha": "2026-08-29"
         }
     ],
@@ -387,7 +371,7 @@
             "fecha": "2026-08-29"
         },
         {
-            "hora": "21:14",
+            "hora": "21:30",
             "nombre": "Abel Matutes",
             "naviera": "BALEARIA EUROLINEAS MARITIMAS SA ",
             "terminal": "TERMINAL F1",
@@ -396,14 +380,14 @@
             "pax_estimados": 1000,
             "puerto": "Alcudia",
             "tipo": "salida",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Espanya",
             "imo": "9441130",
             "mmsi": "224402000",
             "fecha": "2026-08-29"
         },
         {
-            "hora": "21:46",
+            "hora": "21:45",
             "nombre": "Gnv Sealand",
             "naviera": "TRANSPORTES Y CONSIGNACIONES MARITIMAS BALEARES",
             "terminal": "TERMINAL F2",
@@ -412,7 +396,7 @@
             "pax_estimados": 500,
             "puerto": "Mahon Menorca",
             "tipo": "salida",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Itàlia",
             "imo": "9435454",
             "mmsi": "247265800",
@@ -420,29 +404,29 @@
         }
     ],
     "resumen": {
-        "total_cruceros": 15,
-        "total_llegadas": 13,
+        "total_cruceros": 14,
+        "total_llegadas": 12,
         "total_salidas": 13,
-        "pax_estimados_hoy": 15000,
-        "proximo_desembarco": null,
-        "proximo_barco": null
+        "pax_estimados_hoy": 13000,
+        "proximo_desembarco": "19:51",
+        "proximo_barco": "Abel Matutes"
     },
     "terminales_activas": [
+        "6212",
         "F1",
-        "2256",
-        "A",
-        "E",
-        "D",
-        "H",
+        "F2",
         "199896",
         "B",
         "F3",
-        "F2",
-        "6212"
+        "E",
+        "H",
+        "2256",
+        "A",
+        "D"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-08-29T22:59:52.446331",
+        "actualizado": "2026-08-29T19:39:57.089595",
         "frecuencia": "horaria"
     }
 }
