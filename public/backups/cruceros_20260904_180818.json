@@ -81,7 +81,7 @@
             "fecha": "2026-09-04"
         },
         {
-            "hora": "17:02",
+            "hora": "17:00",
             "nombre": "Gnv Aurora",
             "naviera": "GRANDI NAVI VELOCI",
             "terminal": "TERMINAL F2",
@@ -90,26 +90,10 @@
             "pax_estimados": 2000,
             "puerto": "Tanger Med",
             "tipo": "llegada",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Itàlia",
             "imo": "9980069",
             "mmsi": "247530300",
-            "fecha": "2026-09-04"
-        },
-        {
-            "hora": "17:51",
-            "nombre": "Gnv Sealand",
-            "naviera": "GRANDI NAVI VELOCI",
-            "terminal": "TERMINAL F2",
-            "terminal_codigo": "F2",
-            "eslora": 0,
-            "pax_estimados": 500,
-            "puerto": "Mahon Menorca",
-            "tipo": "llegada",
-            "estado": "Iniciada",
-            "bandera": "Itàlia",
-            "imo": "9435454",
-            "mmsi": "247265800",
             "fecha": "2026-09-04"
         },
         {
@@ -142,6 +126,22 @@
             "bandera": "Espanya",
             "imo": "9349772",
             "mmsi": "224588000",
+            "fecha": "2026-09-04"
+        },
+        {
+            "hora": "18:15",
+            "nombre": "Gnv Sealand",
+            "naviera": "GRANDI NAVI VELOCI",
+            "terminal": "TERMINAL F2",
+            "terminal_codigo": "F2",
+            "eslora": 0,
+            "pax_estimados": 500,
+            "puerto": "Mahon Menorca",
+            "tipo": "llegada",
+            "estado": "Autoritzada",
+            "bandera": "Itàlia",
+            "imo": "9435454",
+            "mmsi": "247265800",
             "fecha": "2026-09-04"
         },
         {
@@ -243,7 +243,7 @@
             "fecha": "2026-09-04"
         },
         {
-            "hora": "16:08",
+            "hora": "17:00",
             "nombre": "Msc Agamemnon Viii",
             "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
             "terminal": "TERMINAL CATALUNYA SA",
@@ -252,7 +252,7 @@
             "pax_estimados": 500,
             "puerto": "Valencia",
             "tipo": "salida",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Portugal",
             "imo": "9315381",
             "mmsi": "255803260",
@@ -284,7 +284,7 @@
             "pax_estimados": 2000,
             "puerto": "Genoa",
             "tipo": "salida",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Itàlia",
             "imo": "9980069",
             "mmsi": "247530300",
@@ -323,6 +323,22 @@
             "fecha": "2026-09-04"
         },
         {
+            "hora": "20:00",
+            "nombre": "Eco Savona",
+            "naviera": "GRIMALDI LOGISTICA ESPAÑA SL",
+            "terminal": "GRIMALDI TERMINAL BARCELONA SL",
+            "terminal_codigo": "8156",
+            "eslora": 238.0,
+            "pax_estimados": 2000,
+            "puerto": "Savona",
+            "tipo": "salida",
+            "estado": "Iniciada",
+            "bandera": "Itàlia",
+            "imo": "9859569",
+            "mmsi": "247383600",
+            "fecha": "2026-09-04"
+        },
+        {
             "hora": "21:45",
             "nombre": "Gnv Sealand",
             "naviera": "TRANSPORTES Y CONSIGNACIONES MARITIMAS BALEARES",
@@ -332,7 +348,7 @@
             "pax_estimados": 500,
             "puerto": "Ibiza",
             "tipo": "salida",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Itàlia",
             "imo": "9435454",
             "mmsi": "247265800",
@@ -401,22 +417,6 @@
             "imo": "9349772",
             "mmsi": "224588000",
             "fecha": "2026-09-04"
-        },
-        {
-            "hora": "23:59",
-            "nombre": "Eco Savona",
-            "naviera": "GRIMALDI LOGISTICA ESPAÑA SL",
-            "terminal": "GRIMALDI TERMINAL BARCELONA SL",
-            "terminal_codigo": "8156",
-            "eslora": 238.0,
-            "pax_estimados": 2000,
-            "puerto": "Savona",
-            "tipo": "salida",
-            "estado": "Iniciada",
-            "bandera": "Itàlia",
-            "imo": "9859569",
-            "mmsi": "247383600",
-            "fecha": "2026-09-04"
         }
     ],
     "resumen": {
@@ -424,21 +424,21 @@
         "total_llegadas": 12,
         "total_salidas": 14,
         "pax_estimados_hoy": 20500,
-        "proximo_desembarco": "18:15",
-        "proximo_barco": "Ciudad De Palma"
+        "proximo_desembarco": "17:00",
+        "proximo_barco": "Gnv Aurora"
     },
     "terminales_activas": [
+        "H",
+        "E",
+        "6212",
         "F2",
         "F3",
-        "6212",
-        "8156",
         "F1",
-        "H",
-        "E"
+        "8156"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-09-04T18:08:18.194901",
+        "actualizado": "2026-09-04T14:49:15.540047",
         "frecuencia": "horaria"
     }
 }
