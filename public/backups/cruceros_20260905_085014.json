@@ -17,7 +17,7 @@
             "fecha": "2026-09-05"
         },
         {
-            "hora": "04:42",
+            "hora": "04:00",
             "nombre": "Celebrity Xcel",
             "naviera": "CELEBRITY CRUISES",
             "terminal": "Terminal B (Maremagnum)",
@@ -26,14 +26,14 @@
             "pax_estimados": 500,
             "puerto": "Napoli",
             "tipo": "llegada",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Malta",
             "imo": "9884136",
             "mmsi": "249457000",
             "fecha": "2026-09-05"
         },
         {
-            "hora": "06:05",
+            "hora": "05:45",
             "nombre": "Silver Ray",
             "naviera": "SILVERSEA CRUISES",
             "terminal": "Terminal A (WTC)",
@@ -42,7 +42,7 @@
             "pax_estimados": 2000,
             "puerto": "Valencia",
             "tipo": "llegada",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Bahames",
             "imo": "9886225",
             "mmsi": "311001496",
@@ -65,7 +65,7 @@
             "fecha": "2026-09-05"
         },
         {
-            "hora": "07:39",
+            "hora": "07:00",
             "nombre": "Msc Grandiosa",
             "naviera": "MSC CRUISES S.A.",
             "terminal": "ADOSSAT/TERMINAL H",
@@ -74,7 +74,7 @@
             "pax_estimados": 4500,
             "puerto": "Palma de Mallorca",
             "tipo": "llegada",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Malta",
             "imo": "9803613",
             "mmsi": "215325000",
@@ -204,7 +204,7 @@
             "pax_estimados": 500,
             "puerto": "Malta (Valetta)",
             "tipo": "salida",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Malta",
             "imo": "9884136",
             "mmsi": "249457000",
@@ -220,7 +220,7 @@
             "pax_estimados": 4500,
             "puerto": "Cannes",
             "tipo": "salida",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Malta",
             "imo": "9803613",
             "mmsi": "215325000",
@@ -236,7 +236,7 @@
             "pax_estimados": 2000,
             "puerto": "Gibraltar",
             "tipo": "salida",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Bahames",
             "imo": "9886225",
             "mmsi": "311001496",
@@ -296,23 +296,23 @@
         "total_llegadas": 9,
         "total_salidas": 9,
         "pax_estimados_hoy": 19000,
-        "proximo_desembarco": "14:30",
-        "proximo_barco": "Ciudad De Granada"
+        "proximo_desembarco": "04:00",
+        "proximo_barco": "Celebrity Xcel"
     },
     "terminales_activas": [
-        "7332",
-        "F3",
-        "F2",
         "6212",
-        "H",
-        "B",
-        "8156",
+        "F2",
         "2256",
+        "B",
+        "7332",
+        "8156",
+        "H",
+        "F3",
         "A"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-09-05T08:50:14.024145",
+        "actualizado": "2026-09-05T00:37:50.556087",
         "frecuencia": "horaria"
     }
 }
