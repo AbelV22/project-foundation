@@ -42,7 +42,7 @@
             "pax_estimados": 2000,
             "puerto": "Valencia",
             "tipo": "llegada",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Bahames",
             "imo": "9886225",
             "mmsi": "311001496",
@@ -113,7 +113,7 @@
             "fecha": "2026-09-05"
         },
         {
-            "hora": "19:30",
+            "hora": "20:00",
             "nombre": "Abel Matutes",
             "naviera": "EUROLINEAS MARITIMAS S.A",
             "terminal": "LEPANT/TRUCK CENTER",
@@ -122,14 +122,14 @@
             "pax_estimados": 1000,
             "puerto": "Palma de Mallorca",
             "tipo": "llegada",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Espanya",
             "imo": "9441130",
             "mmsi": "224402000",
             "fecha": "2026-09-05"
         },
         {
-            "hora": "20:57",
+            "hora": "22:30",
             "nombre": "Cruise Barcelona",
             "naviera": "GRIMALDI EUROMED SPA",
             "terminal": "TERMINAL F3",
@@ -138,7 +138,7 @@
             "pax_estimados": 500,
             "puerto": "Porto Torres",
             "tipo": "llegada",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Itàlia",
             "imo": "9351488",
             "mmsi": "247243600",
@@ -243,7 +243,7 @@
             "fecha": "2026-09-05"
         },
         {
-            "hora": "18:25",
+            "hora": "18:00",
             "nombre": "Silver Ray",
             "naviera": "INTERCRUISES PORT OPERATIONS SPAIN SLU",
             "terminal": "Terminal A (WTC)",
@@ -252,7 +252,7 @@
             "pax_estimados": 2000,
             "puerto": "Gibraltar",
             "tipo": "salida",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Bahames",
             "imo": "9886225",
             "mmsi": "311001496",
@@ -284,7 +284,7 @@
             "pax_estimados": 1000,
             "puerto": "Alcudia",
             "tipo": "salida",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Espanya",
             "imo": "9441130",
             "mmsi": "224402000",
@@ -296,23 +296,23 @@
         "total_llegadas": 9,
         "total_salidas": 9,
         "pax_estimados_hoy": 19000,
-        "proximo_desembarco": "20:57",
-        "proximo_barco": "Cruise Barcelona"
+        "proximo_desembarco": "20:00",
+        "proximo_barco": "Abel Matutes"
     },
     "terminales_activas": [
-        "2256",
-        "H",
-        "TC",
-        "8156",
-        "B",
         "F3",
+        "8156",
+        "TC",
         "6212",
-        "F2",
-        "A"
+        "H",
+        "B",
+        "A",
+        "2256",
+        "F2"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-09-05T20:56:57.401596",
+        "actualizado": "2026-09-05T18:47:52.633804",
         "frecuencia": "horaria"
     }
 }
