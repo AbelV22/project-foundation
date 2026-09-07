@@ -13,12 +13,6 @@
             "via": "-"
         },
         {
-            "hora": "08:04",
-            "origen": "Figueres-Vilafant",
-            "tren": "EUROMED 01081",
-            "via": "-"
-        },
-        {
             "hora": "08:50",
             "origen": "Figueres-Vilafant",
             "tren": "AVE 03092",
@@ -112,13 +106,19 @@
             "hora": "12:58",
             "origen": "Madrid Puerta de Atocha Almudena Grandes",
             "tren": "OUIGO 06501",
-            "via": "-"
+            "via": "6"
         },
         {
             "hora": "13:04",
             "origen": "Madrid Puerta de Atocha Almudena Grandes",
             "tren": "AVE 03093",
-            "via": "-"
+            "via": "2"
+        },
+        {
+            "hora": "13:09",
+            "origen": "Pamplona / Iruña",
+            "tren": "ALVIA 00532",
+            "via": "4"
         },
         {
             "hora": "13:09",
@@ -130,43 +130,43 @@
             "hora": "13:21",
             "origen": "Sevilla Santa Justa",
             "tren": "IRYO 06011",
-            "via": "-"
+            "via": "3"
         },
         {
             "hora": "13:44",
             "origen": "Madrid Puerta de Atocha Almudena Grandes",
             "tren": "AVE 03303",
-            "via": "-"
+            "via": "4"
         },
         {
             "hora": "14:32",
             "origen": "Paris Gare de Lyon",
             "tren": "TGV INOUI 09713",
-            "via": "-"
+            "via": "5"
         },
         {
             "hora": "14:39",
             "origen": "Madrid Puerta de Atocha Almudena Grandes",
             "tren": "IRYO 06111",
-            "via": "-"
+            "via": "3"
         },
         {
             "hora": "14:50",
             "origen": "Alacant / Alicante Terminal",
             "tren": "EUROMED 01112",
-            "via": "-"
+            "via": "5"
         },
         {
             "hora": "14:54",
             "origen": "Sevilla Santa Justa",
             "tren": "AVE 03943",
-            "via": "-"
+            "via": "1"
         },
         {
             "hora": "14:54",
             "origen": "Málaga María Zambrano",
             "tren": "AVE 03993",
-            "via": "-"
+            "via": "1"
         },
         {
             "hora": "15:11",
@@ -226,55 +226,55 @@
             "hora": "18:19",
             "origen": "València Estació del Nord",
             "tren": "EUROMED 01152",
-            "via": "5"
+            "via": "-"
         },
         {
             "hora": "18:30",
             "origen": "Figueres-Vilafant",
             "tren": "AVE 03192",
-            "via": "1"
+            "via": "-"
         },
         {
             "hora": "18:54",
             "origen": "Madrid Puerta de Atocha Almudena Grandes",
             "tren": "IRYO 06151",
-            "via": "4"
+            "via": "-"
         },
         {
             "hora": "19:00",
             "origen": "Alacant / Alicante Terminal",
             "tren": "EUROMED 01162",
-            "via": "1"
+            "via": "-"
         },
         {
             "hora": "19:14",
             "origen": "Madrid Puerta de Atocha Almudena Grandes",
             "tren": "AVE 03305",
-            "via": "5"
+            "via": "-"
         },
         {
             "hora": "19:23",
             "origen": "Lyon Part Dieu",
             "tren": "AVE 09742",
-            "via": "2"
+            "via": "-"
         },
         {
             "hora": "19:24",
             "origen": "Madrid Puerta de Atocha Almudena Grandes",
             "tren": "OUIGO 06571",
-            "via": "6"
+            "via": "-"
         },
         {
             "hora": "19:39",
             "origen": "Madrid Puerta de Atocha Almudena Grandes",
             "tren": "IRYO 06161",
-            "via": "3"
+            "via": "-"
         },
         {
             "hora": "19:44",
             "origen": "Madrid Puerta de Atocha Almudena Grandes",
             "tren": "AVE 03163",
-            "via": "4"
+            "via": "-"
         },
         {
             "hora": "20:33",
@@ -392,8 +392,8 @@
         }
     ],
     "meta": {
-        "update_time": "16:10",
-        "updated_at": "2026-09-07T16:10:48.934773",
+        "update_time": "10:55",
+        "updated_at": "2026-09-07T10:55:56.176863",
         "total": 65
     }
 }
