@@ -10,7 +10,7 @@
             "pax_estimados": 1000,
             "puerto": "Ibiza",
             "tipo": "llegada",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Malta",
             "imo": "9823687",
             "mmsi": "215001000",
@@ -130,6 +130,22 @@
         },
         {
             "hora": "18:30",
+            "nombre": "Ciudad De Granada",
+            "naviera": "TRASMED GLE S.L.",
+            "terminal": "TERMINAL F2",
+            "terminal_codigo": "F2",
+            "eslora": 172.0,
+            "pax_estimados": 1000,
+            "puerto": "Mahon Menorca",
+            "tipo": "llegada",
+            "estado": "Autoritzada",
+            "bandera": "Espanya",
+            "imo": "9217125",
+            "mmsi": "224600000",
+            "fecha": "2026-09-08"
+        },
+        {
+            "hora": "18:30",
             "nombre": "Ciudad De Palma",
             "naviera": "TRASMED GLE S.L.",
             "terminal": "TERMINAL F2",
@@ -193,7 +209,7 @@
             "fecha": "2026-09-08"
         },
         {
-            "hora": "19:02",
+            "hora": "19:00",
             "nombre": "Martin I Soler",
             "naviera": "EUROLINEAS MARITIMAS S.A",
             "terminal": "TERMINAL F1",
@@ -202,26 +218,10 @@
             "pax_estimados": 1000,
             "puerto": "Ibiza",
             "tipo": "llegada",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Espanya",
             "imo": "9390367",
             "mmsi": "224637000",
-            "fecha": "2026-09-08"
-        },
-        {
-            "hora": "19:04",
-            "nombre": "Ciudad De Granada",
-            "naviera": "TRASMED GLE S.L.",
-            "terminal": "TERMINAL F2",
-            "terminal_codigo": "F2",
-            "eslora": 172.0,
-            "pax_estimados": 1000,
-            "puerto": "Mahon Menorca",
-            "tipo": "llegada",
-            "estado": "Iniciada",
-            "bandera": "Espanya",
-            "imo": "9217125",
-            "mmsi": "224600000",
             "fecha": "2026-09-08"
         }
     ],
@@ -307,7 +307,7 @@
             "fecha": "2026-09-08"
         },
         {
-            "hora": "19:19",
+            "hora": "19:00",
             "nombre": "Evrima",
             "naviera": "NOATUM MARITIME SPAIN SAU",
             "terminal": "Terminal B (Maremagnum)",
@@ -316,7 +316,7 @@
             "pax_estimados": 1000,
             "puerto": "Monaco",
             "tipo": "salida",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Malta",
             "imo": "9823687",
             "mmsi": "215001000",
@@ -396,7 +396,7 @@
             "pax_estimados": 1000,
             "puerto": "Ibiza",
             "tipo": "salida",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Espanya",
             "imo": "9390367",
             "mmsi": "224637000",
@@ -412,7 +412,7 @@
             "pax_estimados": 1000,
             "puerto": "Ibiza",
             "tipo": "salida",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Espanya",
             "imo": "9217125",
             "mmsi": "224600000",
@@ -440,24 +440,24 @@
         "total_llegadas": 14,
         "total_salidas": 13,
         "pax_estimados_hoy": 14500,
-        "proximo_desembarco": null,
-        "proximo_barco": null
+        "proximo_desembarco": "18:30",
+        "proximo_barco": "Ciudad De Granada"
     },
     "terminales_activas": [
-        "F2",
-        "F3",
-        "7083",
-        "H",
-        "D",
-        "6212",
-        "7259",
-        "8156",
         "B",
-        "F1"
+        "7259",
+        "F2",
+        "7083",
+        "6212",
+        "8156",
+        "D",
+        "F3",
+        "F1",
+        "H"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-09-08T21:35:54.972223",
+        "actualizado": "2026-09-08T18:21:01.237872",
         "frecuencia": "horaria"
     }
 }
