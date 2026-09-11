@@ -17,6 +17,22 @@
             "fecha": "2026-09-11"
         },
         {
+            "hora": "06:00",
+            "nombre": "Msc Delhi Ii",
+            "naviera": "MEDITERRANEAN SHIPPING CO",
+            "terminal": "TERMINAL CATALUNYA SA",
+            "terminal_codigo": "6212",
+            "eslora": 0,
+            "pax_estimados": 500,
+            "puerto": "Fos-sur-Mer",
+            "tipo": "llegada",
+            "estado": "Autoritzada",
+            "bandera": "Libèria",
+            "imo": "9347255",
+            "mmsi": "636016649",
+            "fecha": "2026-09-11"
+        },
+        {
             "hora": "06:26",
             "nombre": "Star Legend",
             "naviera": "WINDSTAR CRUISES LLC",
@@ -65,7 +81,7 @@
             "fecha": "2026-09-11"
         },
         {
-            "hora": "09:20",
+            "hora": "09:15",
             "nombre": "Gnv Aurora",
             "naviera": "GRANDI NAVI VELOCI",
             "terminal": "TERMINAL F2",
@@ -74,26 +90,10 @@
             "pax_estimados": 2000,
             "puerto": "Genoa",
             "tipo": "llegada",
-            "estado": "Finalitzada",
+            "estado": "Autoritzada",
             "bandera": "Itàlia",
             "imo": "9980069",
             "mmsi": "247530300",
-            "fecha": "2026-09-11"
-        },
-        {
-            "hora": "11:54",
-            "nombre": "Msc Delhi Ii",
-            "naviera": "MEDITERRANEAN SHIPPING CO",
-            "terminal": "TERMINAL CATALUNYA SA",
-            "terminal_codigo": "6212",
-            "eslora": 0,
-            "pax_estimados": 500,
-            "puerto": "Fos-sur-Mer",
-            "tipo": "llegada",
-            "estado": "Iniciada",
-            "bandera": "Libèria",
-            "imo": "9347255",
-            "mmsi": "636016649",
             "fecha": "2026-09-11"
         },
         {
@@ -259,7 +259,7 @@
             "fecha": "2026-09-11"
         },
         {
-            "hora": "12:17",
+            "hora": "12:15",
             "nombre": "Gnv Aurora",
             "naviera": "TRANSPORTES Y CONSIGNACIONES MARITIMAS BALEARES",
             "terminal": "TERMINAL F2",
@@ -268,7 +268,7 @@
             "pax_estimados": 2000,
             "puerto": "Tanger Med",
             "tipo": "salida",
-            "estado": "Finalitzada",
+            "estado": "Autoritzada",
             "bandera": "Itàlia",
             "imo": "9980069",
             "mmsi": "247530300",
@@ -284,7 +284,7 @@
             "pax_estimados": 500,
             "puerto": "Alger (Algiers)",
             "tipo": "salida",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Libèria",
             "imo": "9347255",
             "mmsi": "636016649",
@@ -476,18 +476,18 @@
         "proximo_barco": "Gnv Virgo"
     },
     "terminales_activas": [
-        "6212",
-        "F1",
         "E",
-        "F3",
         "F2",
         "S",
+        "6212",
         "8156",
-        "H"
+        "F1",
+        "H",
+        "F3"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-09-11T14:50:57.320774",
+        "actualizado": "2026-09-11T09:22:34.408895",
         "frecuencia": "horaria"
     }
 }
