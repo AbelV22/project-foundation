@@ -4,13 +4,13 @@
             "hora": "06:25",
             "origen": "Figueres-Vilafant",
             "tren": "AVE 03302",
-            "via": "1"
+            "via": "-"
         },
         {
             "hora": "08:50",
             "origen": "Figueres-Vilafant",
             "tren": "AVE 03092",
-            "via": "1"
+            "via": "-"
         },
         {
             "hora": "09:39",
@@ -64,12 +64,6 @@
             "hora": "11:52",
             "origen": "Madrid Puerta de Atocha Almudena Grandes",
             "tren": "IRYO 06281",
-            "via": "-"
-        },
-        {
-            "hora": "11:59",
-            "origen": "Madrid Puerta de Atocha Almudena Grandes",
-            "tren": "AVE 03083",
             "via": "-"
         },
         {
@@ -193,21 +187,9 @@
             "via": "-"
         },
         {
-            "hora": "17:49",
-            "origen": "Madrid Puerta de Atocha Almudena Grandes",
-            "tren": "AVE 03143",
-            "via": "-"
-        },
-        {
             "hora": "18:13",
             "origen": "Málaga María Zambrano",
             "tren": "IRYO 06021",
-            "via": "-"
-        },
-        {
-            "hora": "18:19",
-            "origen": "València Estació del Nord",
-            "tren": "EUROMED 01152",
             "via": "-"
         },
         {
@@ -340,12 +322,24 @@
             "hora": "23:28",
             "origen": "Sevilla Santa Justa",
             "tren": "OUIGO 06415",
-            "via": "-"
+            "via": "6"
+        },
+        {
+            "hora": "23:39",
+            "origen": "Madrid Puerta de Atocha Almudena Grandes",
+            "tren": "IRYO 06201",
+            "via": "3"
+        },
+        {
+            "hora": "23:47",
+            "origen": "Madrid Puerta de Atocha Almudena Grandes",
+            "tren": "AVE 03201",
+            "via": "1"
         }
     ],
     "meta": {
-        "update_time": "23:38",
-        "updated_at": "2026-09-11T23:38:41.569361",
-        "total": 57
+        "update_time": "21:25",
+        "updated_at": "2026-09-11T21:25:20.385146",
+        "total": 56
     }
 }
