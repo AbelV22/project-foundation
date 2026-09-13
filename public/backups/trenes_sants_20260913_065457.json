@@ -4,7 +4,7 @@
             "hora": "06:25",
             "origen": "Figueres-Vilafant",
             "tren": "AVE 03302",
-            "via": "-"
+            "via": "1"
         },
         {
             "hora": "07:15",
@@ -46,12 +46,18 @@
             "hora": "09:45",
             "origen": "Madrid Puerta de Atocha Almudena Grandes",
             "tren": "OUIGO 06471",
-            "via": "6"
+            "via": "-"
         },
         {
             "hora": "09:50",
             "origen": "Madrid Puerta de Atocha Almudena Grandes",
             "tren": "AVE 03063",
+            "via": "-"
+        },
+        {
+            "hora": "09:56",
+            "origen": "Madrid Puerta de Atocha Almudena Grandes",
+            "tren": "AVE 03263",
             "via": "-"
         },
         {
@@ -64,7 +70,7 @@
             "hora": "10:05",
             "origen": "Figueres-Vilafant",
             "tren": "EUROMED 01101",
-            "via": "1"
+            "via": "-"
         },
         {
             "hora": "10:24",
@@ -82,7 +88,7 @@
             "hora": "11:11",
             "origen": "Madrid Puerta de Atocha Almudena Grandes",
             "tren": "AVE 03073",
-            "via": "6"
+            "via": "-"
         },
         {
             "hora": "11:24",
@@ -148,6 +154,12 @@
             "hora": "13:21",
             "origen": "Sevilla Santa Justa",
             "tren": "IRYO 06011",
+            "via": "-"
+        },
+        {
+            "hora": "13:36",
+            "origen": "Paris Gare de Lyon",
+            "tren": "TGV INOUI 09711",
             "via": "-"
         },
         {
@@ -223,21 +235,9 @@
             "via": "-"
         },
         {
-            "hora": "16:59",
-            "origen": "Madrid Puerta de Atocha Almudena Grandes",
-            "tren": "AVE 03141",
-            "via": "-"
-        },
-        {
             "hora": "17:49",
             "origen": "Madrid Puerta de Atocha Almudena Grandes",
             "tren": "AVE 03143",
-            "via": "-"
-        },
-        {
-            "hora": "17:59",
-            "origen": "Figueres-Vilafant",
-            "tren": "EUROMED 01181",
             "via": "-"
         },
         {
@@ -446,8 +446,8 @@
         }
     ],
     "meta": {
-        "update_time": "06:54",
-        "updated_at": "2026-09-13T06:54:57.416466",
+        "update_time": "23:31",
+        "updated_at": "2026-09-12T23:31:31.413640",
         "total": 74
     }
 }
