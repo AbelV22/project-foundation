@@ -81,22 +81,6 @@
             "fecha": "2026-09-13"
         },
         {
-            "hora": "10:51",
-            "nombre": "Ciudad De Palma",
-            "naviera": "TRASMED GLE S.L.",
-            "terminal": "TERMINAL F2",
-            "terminal_codigo": "F2",
-            "eslora": 186.0,
-            "pax_estimados": 1000,
-            "puerto": "Palma de Mallorca",
-            "tipo": "llegada",
-            "estado": "Iniciada",
-            "bandera": "Espanya",
-            "imo": "9349772",
-            "mmsi": "224588000",
-            "fecha": "2026-09-13"
-        },
-        {
             "hora": "11:00",
             "nombre": "Jean Pierre A",
             "naviera": "CMA CGM",
@@ -110,6 +94,22 @@
             "bandera": "Malta",
             "imo": "9379351",
             "mmsi": "215418000",
+            "fecha": "2026-09-13"
+        },
+        {
+            "hora": "11:00",
+            "nombre": "Ciudad De Palma",
+            "naviera": "TRASMED GLE S.L.",
+            "terminal": "TERMINAL F2",
+            "terminal_codigo": "F2",
+            "eslora": 186.0,
+            "pax_estimados": 1000,
+            "puerto": "Palma de Mallorca",
+            "tipo": "llegada",
+            "estado": "Iniciada",
+            "bandera": "Espanya",
+            "imo": "9349772",
+            "mmsi": "224588000",
             "fecha": "2026-09-13"
         },
         {
@@ -259,7 +259,7 @@
             "fecha": "2026-09-13"
         },
         {
-            "hora": "10:50",
+            "hora": "10:59",
             "nombre": "Ciudad De Palma",
             "naviera": "GRIMALDI LOGISTICA ESPAÑA SL",
             "terminal": "TERMINAL F2",
@@ -396,7 +396,7 @@
             "pax_estimados": 1000,
             "puerto": "Casablanca",
             "tipo": "salida",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Malta",
             "imo": "9379351",
             "mmsi": "215418000",
@@ -440,27 +440,27 @@
         "total_llegadas": 12,
         "total_salidas": 15,
         "pax_estimados_hoy": 24500,
-        "proximo_desembarco": "15:00",
-        "proximo_barco": "Gnv Virgo"
+        "proximo_desembarco": "11:00",
+        "proximo_barco": "Jean Pierre A"
     },
     "terminales_activas": [
-        "A",
-        "TC",
-        "6212",
-        "7946",
-        "E",
-        "S",
-        "F2",
-        "F3",
-        "7083",
         "2252",
+        "TC",
+        "S",
+        "7083",
         "8156",
+        "F3",
+        "F2",
+        "F1",
+        "6212",
         "H",
-        "F1"
+        "A",
+        "E",
+        "7946"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-09-13T14:49:07.278428",
+        "actualizado": "2026-09-13T10:00:55.988558",
         "frecuencia": "horaria"
     }
 }
