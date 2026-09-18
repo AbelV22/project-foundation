@@ -1,7 +1,7 @@
 {
     "llegadas": [
         {
-            "hora": "03:27",
+            "hora": "01:00",
             "nombre": "Eco Adriatica",
             "naviera": "GRIMALDI EUROMED SPA",
             "terminal": "GRIMALDI TERMINAL BARCELONA SL",
@@ -10,7 +10,7 @@
             "pax_estimados": 2000,
             "puerto": "Savona",
             "tipo": "llegada",
-            "estado": "Finalitzada",
+            "estado": "Autoritzada",
             "bandera": "Itàlia",
             "imo": "9859600",
             "mmsi": "247384100",
@@ -113,7 +113,7 @@
             "fecha": "2026-09-18"
         },
         {
-            "hora": "19:00",
+            "hora": "19:45",
             "nombre": "Cruise Roma",
             "naviera": "GRIMALDI EUROMED SPA",
             "terminal": "TERMINAL F3",
@@ -179,7 +179,7 @@
             "fecha": "2026-09-18"
         },
         {
-            "hora": "07:45",
+            "hora": "05:00",
             "nombre": "Eco Adriatica",
             "naviera": "GRIMALDI LOGISTICA ESPAÑA SL",
             "terminal": "GRIMALDI TERMINAL BARCELONA SL",
@@ -188,7 +188,7 @@
             "pax_estimados": 2000,
             "puerto": "Valencia",
             "tipo": "salida",
-            "estado": "Finalitzada",
+            "estado": "Autoritzada",
             "bandera": "Itàlia",
             "imo": "9859600",
             "mmsi": "247384100",
@@ -316,20 +316,20 @@
         "proximo_barco": "Gnv Sealand"
     },
     "terminales_activas": [
-        "8156",
-        "H",
         "2398",
-        "6212",
-        "B",
-        "0010",
-        "F1",
         "E",
         "F3",
-        "F2"
+        "B",
+        "H",
+        "8156",
+        "F1",
+        "F2",
+        "6212",
+        "0010"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-09-18T14:47:44.578344",
+        "actualizado": "2026-09-18T09:24:04.876773",
         "frecuencia": "horaria"
     }
 }
