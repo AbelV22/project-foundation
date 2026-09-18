@@ -129,22 +129,6 @@
             "fecha": "2026-09-18"
         },
         {
-            "hora": "19:58",
-            "nombre": "Cspc Sagittarius",
-            "naviera": "COSCO SHIPPING SPECIALIZED CARRIERS",
-            "terminal": "",
-            "terminal_codigo": "",
-            "eslora": 225.0,
-            "pax_estimados": 2000,
-            "puerto": "El Suweis (= Suez)",
-            "tipo": "llegada",
-            "estado": "Autoritzada",
-            "bandera": "Libèria",
-            "imo": "1052000",
-            "mmsi": "636023823",
-            "fecha": "2026-09-18"
-        },
-        {
             "hora": "20:00",
             "nombre": "Cspc Sagittarius",
             "naviera": "COSCO SHIPPING SPECIALIZED CARRIERS",
@@ -154,7 +138,7 @@
             "pax_estimados": 2000,
             "puerto": "El Suweis (= Suez)",
             "tipo": "llegada",
-            "estado": "Autoritzada",
+            "estado": "Sol·licitada",
             "bandera": "Libèria",
             "imo": "1052000",
             "mmsi": "636023823",
@@ -275,22 +259,6 @@
             "fecha": "2026-09-18"
         },
         {
-            "hora": "19:59",
-            "nombre": "Cspc Sagittarius",
-            "naviera": "COSCO SHIPPING LINES SPAIN SA",
-            "terminal": "",
-            "terminal_codigo": "",
-            "eslora": 225.0,
-            "pax_estimados": 2000,
-            "puerto": "Rotterdam",
-            "tipo": "salida",
-            "estado": "Autoritzada",
-            "bandera": "Libèria",
-            "imo": "1052000",
-            "mmsi": "636023823",
-            "fecha": "2026-09-18"
-        },
-        {
             "hora": "21:30",
             "nombre": "Abel Matutes",
             "naviera": "BALEARIA EUROLINEAS MARITIMAS SA ",
@@ -341,27 +309,27 @@
     ],
     "resumen": {
         "total_cruceros": 12,
-        "total_llegadas": 10,
-        "total_salidas": 11,
-        "pax_estimados_hoy": 15500,
+        "total_llegadas": 9,
+        "total_salidas": 10,
+        "pax_estimados_hoy": 13500,
         "proximo_desembarco": "18:15",
         "proximo_barco": "Gnv Sealand"
     },
     "terminales_activas": [
-        "F2",
-        "B",
-        "F3",
-        "2398",
-        "H",
-        "6212",
         "8156",
-        "F1",
+        "H",
+        "2398",
+        "6212",
+        "B",
         "0010",
-        "E"
+        "F1",
+        "E",
+        "F3",
+        "F2"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-09-18T18:05:30.030233",
+        "actualizado": "2026-09-18T14:47:44.578344",
         "frecuencia": "horaria"
     }
 }
