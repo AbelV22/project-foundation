@@ -211,22 +211,6 @@
             "fecha": "2026-09-19"
         },
         {
-            "hora": "19:32",
-            "nombre": "Seven Seas Mariner",
-            "naviera": "INTERCRUISES PORT OPERATIONS SPAIN SLU",
-            "terminal": "Terminal B (Maremagnum)",
-            "terminal_codigo": "B",
-            "eslora": 216.0,
-            "pax_estimados": 2000,
-            "puerto": "Palma de Mallorca",
-            "tipo": "salida",
-            "estado": "Finalitzada",
-            "bandera": "Bahames",
-            "imo": "9210139",
-            "mmsi": "311622000",
-            "fecha": "2026-09-19"
-        },
-        {
             "hora": "20:00",
             "nombre": "Msc Tianjin",
             "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
@@ -241,6 +225,22 @@
             "imo": "9285471",
             "mmsi": "636019332",
             "fecha": "2026-09-19"
+        },
+        {
+            "hora": "20:00",
+            "nombre": "Seven Seas Mariner",
+            "naviera": "INTERCRUISES PORT OPERATIONS SPAIN SLU",
+            "terminal": "Terminal B (Maremagnum)",
+            "terminal_codigo": "B",
+            "eslora": 216.0,
+            "pax_estimados": 2000,
+            "puerto": "Palma de Mallorca",
+            "tipo": "salida",
+            "estado": "Iniciada",
+            "bandera": "Bahames",
+            "imo": "9210139",
+            "mmsi": "311622000",
+            "fecha": "2026-09-19"
         }
     ],
     "resumen": {
@@ -252,17 +252,17 @@
         "proximo_barco": "Cruise Barcelona"
     },
     "terminales_activas": [
-        "8156",
-        "H",
-        "2398",
         "F3",
-        "B",
         "E",
-        "6212"
+        "B",
+        "2398",
+        "H",
+        "6212",
+        "8156"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-09-19T21:18:53.685911",
+        "actualizado": "2026-09-19T17:48:07.434744",
         "frecuencia": "horaria"
     }
 }
