@@ -1,23 +1,7 @@
 {
     "llegadas": [
         {
-            "hora": "02:22",
-            "nombre": "Cspc Sagittarius",
-            "naviera": "COSCO SHIPPING SPECIALIZED CARRIERS",
-            "terminal": "TERMINAL PORT NOU SA",
-            "terminal_codigo": "2398",
-            "eslora": 225.0,
-            "pax_estimados": 2000,
-            "puerto": "El Suweis (= Suez)",
-            "tipo": "llegada",
-            "estado": "Iniciada",
-            "bandera": "Libèria",
-            "imo": "1052000",
-            "mmsi": "636023823",
-            "fecha": "2026-09-19"
-        },
-        {
-            "hora": "05:43",
+            "hora": "05:00",
             "nombre": "Sun Princess",
             "naviera": "PRINCESS CRUISES",
             "terminal": "Terminal E (Adossat)",
@@ -26,7 +10,7 @@
             "pax_estimados": 500,
             "puerto": "Messina",
             "tipo": "llegada",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Bermuda",
             "imo": "9863118",
             "mmsi": "310841000",
@@ -49,23 +33,7 @@
             "fecha": "2026-09-19"
         },
         {
-            "hora": "07:33",
-            "nombre": "Msc Grandiosa",
-            "naviera": "MSC CRUISES S.A.",
-            "terminal": "ADOSSAT/TERMINAL H",
-            "terminal_codigo": "H",
-            "eslora": 0,
-            "pax_estimados": 500,
-            "puerto": "Palma de Mallorca",
-            "tipo": "llegada",
-            "estado": "Iniciada",
-            "bandera": "Malta",
-            "imo": "9803613",
-            "mmsi": "215325000",
-            "fecha": "2026-09-19"
-        },
-        {
-            "hora": "08:12",
+            "hora": "06:00",
             "nombre": "Msc Nitya B",
             "naviera": "MEDITERRANEAN SHIPPING CO",
             "terminal": "TERMINAL CATALUNYA SA",
@@ -74,14 +42,14 @@
             "pax_estimados": 4500,
             "puerto": "Fos-sur-Mer",
             "tipo": "llegada",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Portugal",
             "imo": "9778117",
             "mmsi": "255806029",
             "fecha": "2026-09-19"
         },
         {
-            "hora": "08:38",
+            "hora": "07:00",
             "nombre": "Eco Valencia",
             "naviera": "GRIMALDI EUROMED SPA",
             "terminal": "GRIMALDI TERMINAL BARCELONA SL",
@@ -90,10 +58,26 @@
             "pax_estimados": 2000,
             "puerto": "Valencia",
             "tipo": "llegada",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Itàlia",
             "imo": "9859533",
             "mmsi": "247383300",
+            "fecha": "2026-09-19"
+        },
+        {
+            "hora": "07:00",
+            "nombre": "Msc Grandiosa",
+            "naviera": "MSC CRUISES S.A.",
+            "terminal": "ADOSSAT/TERMINAL H",
+            "terminal_codigo": "H",
+            "eslora": 0,
+            "pax_estimados": 500,
+            "puerto": "Palma de Mallorca",
+            "tipo": "llegada",
+            "estado": "Autoritzada",
+            "bandera": "Malta",
+            "imo": "9803613",
+            "mmsi": "215325000",
             "fecha": "2026-09-19"
         },
         {
@@ -131,22 +115,6 @@
             "fecha": "2026-09-19"
         },
         {
-            "hora": "02:21",
-            "nombre": "Cspc Sagittarius",
-            "naviera": "COSCO SHIPPING LINES SPAIN SA",
-            "terminal": "",
-            "terminal_codigo": "",
-            "eslora": 225.0,
-            "pax_estimados": 2000,
-            "puerto": "Rotterdam",
-            "tipo": "salida",
-            "estado": "Iniciada",
-            "bandera": "Libèria",
-            "imo": "1052000",
-            "mmsi": "636023823",
-            "fecha": "2026-09-19"
-        },
-        {
             "hora": "14:00",
             "nombre": "Eco Valencia",
             "naviera": "GRIMALDI LOGISTICA ESPAÑA SL",
@@ -156,7 +124,7 @@
             "pax_estimados": 2000,
             "puerto": "Savona",
             "tipo": "salida",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Itàlia",
             "imo": "9859533",
             "mmsi": "247383300",
@@ -172,7 +140,7 @@
             "pax_estimados": 500,
             "puerto": "Palma de Mallorca",
             "tipo": "salida",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Bermuda",
             "imo": "9863118",
             "mmsi": "310841000",
@@ -188,7 +156,7 @@
             "pax_estimados": 500,
             "puerto": "Cannes",
             "tipo": "salida",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Malta",
             "imo": "9803613",
             "mmsi": "215325000",
@@ -228,25 +196,24 @@
         }
     ],
     "resumen": {
-        "total_cruceros": 9,
-        "total_llegadas": 7,
-        "total_salidas": 7,
-        "pax_estimados_hoy": 14500,
-        "proximo_desembarco": "21:45",
-        "proximo_barco": "Cruise Barcelona"
+        "total_cruceros": 8,
+        "total_llegadas": 6,
+        "total_salidas": 6,
+        "pax_estimados_hoy": 12500,
+        "proximo_desembarco": "05:00",
+        "proximo_barco": "Sun Princess"
     },
     "terminales_activas": [
-        "B",
-        "2398",
         "H",
-        "8156",
         "6212",
+        "E",
         "F3",
-        "E"
+        "8156",
+        "B"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-09-19T09:12:27.545953",
+        "actualizado": "2026-09-19T00:59:34.425055",
         "frecuencia": "horaria"
     }
 }
