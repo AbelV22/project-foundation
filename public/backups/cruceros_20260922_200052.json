@@ -154,7 +154,7 @@
             "pax_estimados": 500,
             "puerto": "Marseille",
             "tipo": "llegada",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Malta",
             "imo": "9760512",
             "mmsi": "249973000",
@@ -225,7 +225,7 @@
             "fecha": "2026-09-22"
         },
         {
-            "hora": "17:38",
+            "hora": "17:15",
             "nombre": "Cruise Barcelona",
             "naviera": "GRIMALDI EUROMED SPA",
             "terminal": "TERMINAL F3",
@@ -234,7 +234,7 @@
             "pax_estimados": 500,
             "puerto": "Civitavecchia",
             "tipo": "llegada",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Itàlia",
             "imo": "9351488",
             "mmsi": "247243600",
@@ -257,7 +257,7 @@
             "fecha": "2026-09-22"
         },
         {
-            "hora": "18:44",
+            "hora": "18:40",
             "nombre": "Gnv Sealand",
             "naviera": "GRANDI NAVI VELOCI",
             "terminal": "TERMINAL F2",
@@ -266,7 +266,7 @@
             "pax_estimados": 500,
             "puerto": "Ibiza",
             "tipo": "llegada",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Itàlia",
             "imo": "9435454",
             "mmsi": "247265800",
@@ -403,23 +403,7 @@
             "fecha": "2026-09-22"
         },
         {
-            "hora": "15:20",
-            "nombre": "Sunbelt Spirit",
-            "naviera": "NEPTUNE BARCELONA SA",
-            "terminal": "AUTOTERMINAL SA",
-            "terminal_codigo": "6154",
-            "eslora": 212.0,
-            "pax_estimados": 2000,
-            "puerto": "Piraeus",
-            "tipo": "salida",
-            "estado": "Finalitzada",
-            "bandera": "Illes Marshall",
-            "imo": "9233246",
-            "mmsi": "538001657",
-            "fecha": "2026-09-22"
-        },
-        {
-            "hora": "18:09",
+            "hora": "18:00",
             "nombre": "Msc Meraviglia",
             "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
             "terminal": "ADOSSAT/TERMINAL H",
@@ -428,7 +412,7 @@
             "pax_estimados": 500,
             "puerto": "La Goulette Nord (Halqueloued)",
             "tipo": "salida",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Malta",
             "imo": "9760512",
             "mmsi": "249973000",
@@ -492,7 +476,7 @@
             "pax_estimados": 500,
             "puerto": "Civitavecchia",
             "tipo": "salida",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Itàlia",
             "imo": "9351488",
             "mmsi": "247243600",
@@ -508,7 +492,7 @@
             "pax_estimados": 500,
             "puerto": "Mahon Menorca",
             "tipo": "salida",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Itàlia",
             "imo": "9435454",
             "mmsi": "247265800",
@@ -516,28 +500,27 @@
         }
     ],
     "resumen": {
-        "total_cruceros": 18,
+        "total_cruceros": 17,
         "total_llegadas": 17,
-        "total_salidas": 15,
+        "total_salidas": 14,
         "pax_estimados_hoy": 21000,
-        "proximo_desembarco": null,
-        "proximo_barco": null
+        "proximo_desembarco": "17:15",
+        "proximo_barco": "Cruise Barcelona"
     },
     "terminales_activas": [
-        "6212",
-        "H",
-        "7946",
         "F3",
-        "8192",
-        "6154",
-        "6995",
+        "8156",
         "D",
+        "7946",
+        "H",
         "F2",
-        "8156"
+        "8192",
+        "6995",
+        "6212"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-09-22T20:00:52.495355",
+        "actualizado": "2026-09-22T15:25:49.183487",
         "frecuencia": "horaria"
     }
 }
