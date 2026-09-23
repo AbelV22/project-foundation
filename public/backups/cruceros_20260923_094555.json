@@ -17,7 +17,7 @@
             "fecha": "2026-09-23"
         },
         {
-            "hora": "01:02",
+            "hora": "00:30",
             "nombre": "Eco Valencia",
             "naviera": "GRIMALDI EUROMED SPA",
             "terminal": "GRIMALDI TERMINAL BARCELONA SL",
@@ -26,10 +26,26 @@
             "pax_estimados": 2000,
             "puerto": "Savona",
             "tipo": "llegada",
-            "estado": "Finalitzada",
+            "estado": "Autoritzada",
             "bandera": "Itàlia",
             "imo": "9859533",
             "mmsi": "247383300",
+            "fecha": "2026-09-23"
+        },
+        {
+            "hora": "05:30",
+            "nombre": "Scenic Eclipse Ii",
+            "naviera": "PEC OPERATIONS LTD",
+            "terminal": "Terminal C (Sant Bertran)",
+            "terminal_codigo": "C",
+            "eslora": 168.0,
+            "pax_estimados": 1000,
+            "puerto": "Port-Vendres",
+            "tipo": "llegada",
+            "estado": "Autoritzada",
+            "bandera": "Bahames",
+            "imo": "9850460",
+            "mmsi": "311001061",
             "fecha": "2026-09-23"
         },
         {
@@ -49,23 +65,7 @@
             "fecha": "2026-09-23"
         },
         {
-            "hora": "06:17",
-            "nombre": "Scenic Eclipse Ii",
-            "naviera": "PEC OPERATIONS LTD",
-            "terminal": "Terminal C (Sant Bertran)",
-            "terminal_codigo": "C",
-            "eslora": 168.0,
-            "pax_estimados": 1000,
-            "puerto": "Port-Vendres",
-            "tipo": "llegada",
-            "estado": "Iniciada",
-            "bandera": "Bahames",
-            "imo": "9850460",
-            "mmsi": "311001061",
-            "fecha": "2026-09-23"
-        },
-        {
-            "hora": "07:42",
+            "hora": "07:00",
             "nombre": "Eco Savona",
             "naviera": "GRIMALDI EUROMED SPA",
             "terminal": "GRIMALDI TERMINAL BARCELONA SL",
@@ -74,26 +74,10 @@
             "pax_estimados": 2000,
             "puerto": "Valencia",
             "tipo": "llegada",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Itàlia",
             "imo": "9859569",
             "mmsi": "247383600",
-            "fecha": "2026-09-23"
-        },
-        {
-            "hora": "08:55",
-            "nombre": "Msc Banu Iii",
-            "naviera": "MEDITERRANEAN SHIPPING CO",
-            "terminal": "TERMINAL CATALUNYA SA",
-            "terminal_codigo": "6212",
-            "eslora": 0,
-            "pax_estimados": 500,
-            "puerto": "Valencia",
-            "tipo": "llegada",
-            "estado": "Iniciada",
-            "bandera": "Panamà",
-            "imo": "9263332",
-            "mmsi": "372972000",
             "fecha": "2026-09-23"
         },
         {
@@ -195,23 +179,7 @@
             "fecha": "2026-09-23"
         },
         {
-            "hora": "04:07",
-            "nombre": "Msc Niovi Viii",
-            "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
-            "terminal": "TERMINAL CATALUNYA SA",
-            "terminal_codigo": "6212",
-            "eslora": 0,
-            "pax_estimados": 500,
-            "puerto": "Valencia",
-            "tipo": "salida",
-            "estado": "Finalitzada",
-            "bandera": "Libèria",
-            "imo": "9290488",
-            "mmsi": "636022795",
-            "fecha": "2026-09-23"
-        },
-        {
-            "hora": "04:26",
+            "hora": "05:00",
             "nombre": "Eco Valencia",
             "naviera": "GRIMALDI LOGISTICA ESPAÑA SL",
             "terminal": "GRIMALDI TERMINAL BARCELONA SL",
@@ -220,7 +188,7 @@
             "pax_estimados": 2000,
             "puerto": "Valencia",
             "tipo": "salida",
-            "estado": "Finalitzada",
+            "estado": "Autoritzada",
             "bandera": "Itàlia",
             "imo": "9859533",
             "mmsi": "247383300",
@@ -236,7 +204,7 @@
             "pax_estimados": 500,
             "puerto": "Gioia Tauro",
             "tipo": "salida",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Panamà",
             "imo": "9263332",
             "mmsi": "372972000",
@@ -268,7 +236,7 @@
             "pax_estimados": 2000,
             "puerto": "Savona",
             "tipo": "salida",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Itàlia",
             "imo": "9859569",
             "mmsi": "247383600",
@@ -316,7 +284,7 @@
             "pax_estimados": 1000,
             "puerto": "Palma de Mallorca",
             "tipo": "salida",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Bahames",
             "imo": "9850460",
             "mmsi": "311001061",
@@ -404,27 +372,27 @@
         }
     ],
     "resumen": {
-        "total_cruceros": 15,
-        "total_llegadas": 10,
-        "total_salidas": 15,
-        "pax_estimados_hoy": 16500,
-        "proximo_desembarco": "18:00",
-        "proximo_barco": "Cruise Roma"
+        "total_cruceros": 14,
+        "total_llegadas": 9,
+        "total_salidas": 14,
+        "pax_estimados_hoy": 16000,
+        "proximo_desembarco": null,
+        "proximo_barco": null
     },
     "terminales_activas": [
-        "6212",
-        "C",
-        "8156",
-        "6995",
         "F3",
-        "F2",
-        "8192",
+        "6212",
+        "8156",
+        "7332",
         "2398",
-        "7332"
+        "6995",
+        "C",
+        "F2",
+        "8192"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-09-23T09:45:55.680787",
+        "actualizado": "2026-09-22T23:30:20.939689",
         "frecuencia": "horaria"
     }
 }
