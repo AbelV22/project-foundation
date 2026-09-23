@@ -1,6 +1,22 @@
 {
     "llegadas": [
         {
+            "hora": "00:00",
+            "nombre": "Msc Tianjin",
+            "naviera": "MEDITERRANEAN SHIPPING CO",
+            "terminal": "TERMINAL CATALUNYA SA",
+            "terminal_codigo": "6212",
+            "eslora": 323.0,
+            "pax_estimados": 4500,
+            "puerto": "Fos-sur-Mer",
+            "tipo": "llegada",
+            "estado": "Autoritzada",
+            "bandera": "Libèria",
+            "imo": "9285471",
+            "mmsi": "636019332",
+            "fecha": "2026-09-23"
+        },
+        {
             "hora": "01:02",
             "nombre": "Eco Valencia",
             "naviera": "GRIMALDI EUROMED SPA",
@@ -14,6 +30,22 @@
             "bandera": "Itàlia",
             "imo": "9859533",
             "mmsi": "247383300",
+            "fecha": "2026-09-23"
+        },
+        {
+            "hora": "06:00",
+            "nombre": "Amilcar",
+            "naviera": "COTUNAV",
+            "terminal": "TERMINAL PORT NOU SA",
+            "terminal_codigo": "2398",
+            "eslora": 193.0,
+            "pax_estimados": 1000,
+            "puerto": "Rades/Tunis",
+            "tipo": "llegada",
+            "estado": "Autoritzada",
+            "bandera": "Tunísia",
+            "imo": "9207998",
+            "mmsi": "672747000",
             "fecha": "2026-09-23"
         },
         {
@@ -42,7 +74,7 @@
             "pax_estimados": 2000,
             "puerto": "Valencia",
             "tipo": "llegada",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Itàlia",
             "imo": "9859569",
             "mmsi": "247383600",
@@ -62,22 +94,6 @@
             "bandera": "Panamà",
             "imo": "9263332",
             "mmsi": "372972000",
-            "fecha": "2026-09-23"
-        },
-        {
-            "hora": "13:37",
-            "nombre": "Amilcar",
-            "naviera": "COTUNAV",
-            "terminal": "TERMINAL PORT NOU SA",
-            "terminal_codigo": "2398",
-            "eslora": 193.0,
-            "pax_estimados": 1000,
-            "puerto": "Rades/Tunis",
-            "tipo": "llegada",
-            "estado": "Iniciada",
-            "bandera": "Tunísia",
-            "imo": "9207998",
-            "mmsi": "672747000",
             "fecha": "2026-09-23"
         },
         {
@@ -114,18 +130,18 @@
         },
         {
             "hora": "19:00",
-            "nombre": "Martin I Soler",
+            "nombre": "Abel Matutes",
             "naviera": "EUROLINEAS MARITIMAS S.A",
-            "terminal": "TERMINAL F1",
-            "terminal_codigo": "F1",
-            "eslora": 165.0,
+            "terminal": "BALEARIA EUROLINEAS MARITIMAS SA ",
+            "terminal_codigo": "7332",
+            "eslora": 190.0,
             "pax_estimados": 1000,
-            "puerto": "Ibiza",
+            "puerto": "Alcudia",
             "tipo": "llegada",
-            "estado": "Autoritzada",
+            "estado": "Confirmada",
             "bandera": "Espanya",
-            "imo": "9390367",
-            "mmsi": "224637000",
+            "imo": "9441130",
+            "mmsi": "224402000",
             "fecha": "2026-09-23"
         },
         {
@@ -227,7 +243,23 @@
             "fecha": "2026-09-23"
         },
         {
-            "hora": "13:25",
+            "hora": "14:00",
+            "nombre": "Msc Tianjin",
+            "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
+            "terminal": "TERMINAL CATALUNYA SA",
+            "terminal_codigo": "6212",
+            "eslora": 323.0,
+            "pax_estimados": 4500,
+            "puerto": "Valencia",
+            "tipo": "salida",
+            "estado": "Autoritzada",
+            "bandera": "Libèria",
+            "imo": "9285471",
+            "mmsi": "636019332",
+            "fecha": "2026-09-23"
+        },
+        {
+            "hora": "14:00",
             "nombre": "Eco Savona",
             "naviera": "GRIMALDI LOGISTICA ESPAÑA SL",
             "terminal": "GRIMALDI TERMINAL BARCELONA SL",
@@ -236,26 +268,10 @@
             "pax_estimados": 2000,
             "puerto": "Savona",
             "tipo": "salida",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Itàlia",
             "imo": "9859569",
             "mmsi": "247383600",
-            "fecha": "2026-09-23"
-        },
-        {
-            "hora": "14:09",
-            "nombre": "Cspc Sagittarius",
-            "naviera": "COSCO SHIPPING LINES SPAIN SA",
-            "terminal": "TERMINAL PORT NOU SA",
-            "terminal_codigo": "2398",
-            "eslora": 225.0,
-            "pax_estimados": 2000,
-            "puerto": "Rotterdam",
-            "tipo": "salida",
-            "estado": "Finalitzada",
-            "bandera": "Libèria",
-            "imo": "1052000",
-            "mmsi": "636023823",
             "fecha": "2026-09-23"
         },
         {
@@ -268,7 +284,7 @@
             "pax_estimados": 1000,
             "puerto": "Rades/Tunis",
             "tipo": "salida",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Tunísia",
             "imo": "9207998",
             "mmsi": "672747000",
@@ -304,6 +320,22 @@
             "bandera": "Bahames",
             "imo": "9850460",
             "mmsi": "311001061",
+            "fecha": "2026-09-23"
+        },
+        {
+            "hora": "21:30",
+            "nombre": "Abel Matutes",
+            "naviera": "BALEARIA EUROLINEAS MARITIMAS SA ",
+            "terminal": "BALEARIA EUROLINEAS MARITIMAS SA ",
+            "terminal_codigo": "7332",
+            "eslora": 190.0,
+            "pax_estimados": 1000,
+            "puerto": "Alcudia",
+            "tipo": "salida",
+            "estado": "Confirmada",
+            "bandera": "Espanya",
+            "imo": "9441130",
+            "mmsi": "224402000",
             "fecha": "2026-09-23"
         },
         {
@@ -355,22 +387,6 @@
             "fecha": "2026-09-23"
         },
         {
-            "hora": "22:00",
-            "nombre": "Martin I Soler",
-            "naviera": "BALEARIA EUROLINEAS MARITIMAS SA ",
-            "terminal": "TERMINAL F1",
-            "terminal_codigo": "F1",
-            "eslora": 165.0,
-            "pax_estimados": 1000,
-            "puerto": "Ibiza",
-            "tipo": "salida",
-            "estado": "Autoritzada",
-            "bandera": "Espanya",
-            "imo": "9390367",
-            "mmsi": "224637000",
-            "fecha": "2026-09-23"
-        },
-        {
             "hora": "22:30",
             "nombre": "Ciudad De Granada",
             "naviera": "GRIMALDI LOGISTICA ESPAÑA SL",
@@ -389,26 +405,26 @@
     ],
     "resumen": {
         "total_cruceros": 15,
-        "total_llegadas": 9,
+        "total_llegadas": 10,
         "total_salidas": 15,
-        "pax_estimados_hoy": 12000,
+        "pax_estimados_hoy": 16500,
         "proximo_desembarco": "18:00",
         "proximo_barco": "Cruise Roma"
     },
     "terminales_activas": [
-        "F3",
+        "6212",
         "C",
-        "F1",
+        "8156",
+        "6995",
+        "F3",
         "F2",
         "8192",
         "2398",
-        "6212",
-        "8156",
-        "6995"
+        "7332"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-09-23T15:18:49.351216",
+        "actualizado": "2026-09-23T09:45:55.680787",
         "frecuencia": "horaria"
     }
 }
