@@ -1,7 +1,7 @@
 {
     "llegadas": [
         {
-            "hora": "01:54",
+            "hora": "01:00",
             "nombre": "Eco Adriatica",
             "naviera": "GRIMALDI EUROMED SPA",
             "terminal": "GRIMALDI TERMINAL BARCELONA SL",
@@ -10,10 +10,26 @@
             "pax_estimados": 2000,
             "puerto": "Savona",
             "tipo": "llegada",
-            "estado": "Finalitzada",
+            "estado": "Autoritzada",
             "bandera": "Itàlia",
             "imo": "9859600",
             "mmsi": "247384100",
+            "fecha": "2026-09-24"
+        },
+        {
+            "hora": "06:00",
+            "nombre": "Msc Jiani",
+            "naviera": "MEDITERRANEAN SHIPPING CO",
+            "terminal": "TERMINAL CATALUNYA SA",
+            "terminal_codigo": "6212",
+            "eslora": 0,
+            "pax_estimados": 500,
+            "puerto": "Bejaia (ex Bougie)",
+            "tipo": "llegada",
+            "estado": "Autoritzada",
+            "bandera": "Libèria",
+            "imo": "9966934",
+            "mmsi": "636023100",
             "fecha": "2026-09-24"
         },
         {
@@ -33,7 +49,7 @@
             "fecha": "2026-09-24"
         },
         {
-            "hora": "08:35",
+            "hora": "08:00",
             "nombre": "Msc Seaview",
             "naviera": "MSC CRUISES S.A.",
             "terminal": "ADOSSAT/TERMINAL H",
@@ -42,26 +58,10 @@
             "pax_estimados": 500,
             "puerto": "Ibiza",
             "tipo": "llegada",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Malta",
             "imo": "9745378",
             "mmsi": "248717000",
-            "fecha": "2026-09-24"
-        },
-        {
-            "hora": "09:47",
-            "nombre": "Msc Jiani",
-            "naviera": "MEDITERRANEAN SHIPPING CO",
-            "terminal": "TERMINAL CATALUNYA SA",
-            "terminal_codigo": "6212",
-            "eslora": 0,
-            "pax_estimados": 500,
-            "puerto": "Bejaia (ex Bougie)",
-            "tipo": "llegada",
-            "estado": "Iniciada",
-            "bandera": "Libèria",
-            "imo": "9966934",
-            "mmsi": "636023100",
             "fecha": "2026-09-24"
         },
         {
@@ -131,7 +131,7 @@
     ],
     "salidas": [
         {
-            "hora": "04:22",
+            "hora": "05:00",
             "nombre": "Eco Adriatica",
             "naviera": "GRIMALDI LOGISTICA ESPAÑA SL",
             "terminal": "GRIMALDI TERMINAL BARCELONA SL",
@@ -140,7 +140,7 @@
             "pax_estimados": 2000,
             "puerto": "Valencia",
             "tipo": "salida",
-            "estado": "Finalitzada",
+            "estado": "Autoritzada",
             "bandera": "Itàlia",
             "imo": "9859600",
             "mmsi": "247384100",
@@ -156,7 +156,7 @@
             "pax_estimados": 500,
             "puerto": "Marseille",
             "tipo": "salida",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Malta",
             "imo": "9745378",
             "mmsi": "248717000",
@@ -232,20 +232,20 @@
         "total_llegadas": 8,
         "total_salidas": 6,
         "pax_estimados_hoy": 10500,
-        "proximo_desembarco": "09:47",
-        "proximo_barco": "Msc Jiani"
+        "proximo_desembarco": null,
+        "proximo_barco": null
     },
     "terminales_activas": [
-        "F2",
-        "8156",
         "H",
         "F1",
         "F3",
+        "F2",
+        "8156",
         "6212"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-09-24T09:43:29.337598",
+        "actualizado": "2026-09-23T23:26:12.265074",
         "frecuencia": "horaria"
     }
 }
