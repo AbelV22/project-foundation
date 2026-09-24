@@ -17,6 +17,22 @@
             "fecha": "2026-09-24"
         },
         {
+            "hora": "06:00",
+            "nombre": "Msc Tianjin",
+            "naviera": "MEDITERRANEAN SHIPPING CO",
+            "terminal": "TERMINAL CATALUNYA SA",
+            "terminal_codigo": "6212",
+            "eslora": 323.0,
+            "pax_estimados": 4500,
+            "puerto": "Fos-sur-Mer",
+            "tipo": "llegada",
+            "estado": "Autoritzada",
+            "bandera": "Libèria",
+            "imo": "9285471",
+            "mmsi": "636019332",
+            "fecha": "2026-09-24"
+        },
+        {
             "hora": "08:35",
             "nombre": "Msc Seaview",
             "naviera": "MSC CRUISES S.A.",
@@ -46,22 +62,6 @@
             "bandera": "Libèria",
             "imo": "9966934",
             "mmsi": "636023100",
-            "fecha": "2026-09-24"
-        },
-        {
-            "hora": "15:30",
-            "nombre": "Msc Tianjin",
-            "naviera": "MEDITERRANEAN SHIPPING CO",
-            "terminal": "TERMINAL CATALUNYA SA",
-            "terminal_codigo": "6212",
-            "eslora": 323.0,
-            "pax_estimados": 4500,
-            "puerto": "Fos-sur-Mer",
-            "tipo": "llegada",
-            "estado": "Iniciada",
-            "bandera": "Libèria",
-            "imo": "9285471",
-            "mmsi": "636019332",
             "fecha": "2026-09-24"
         },
         {
@@ -147,22 +147,6 @@
             "fecha": "2026-09-24"
         },
         {
-            "hora": "10:42",
-            "nombre": "Cma Cgm Osiris",
-            "naviera": "CMA CGM IBERICA SAU",
-            "terminal": "TERMINAL CATALUNYA SA",
-            "terminal_codigo": "6212",
-            "eslora": 366.0,
-            "pax_estimados": 6500,
-            "puerto": "Fos-sur-Mer",
-            "tipo": "salida",
-            "estado": "Finalitzada",
-            "bandera": "Malta",
-            "imo": "9882504",
-            "mmsi": "229592000",
-            "fecha": "2026-09-24"
-        },
-        {
             "hora": "19:00",
             "nombre": "Msc Seaview",
             "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
@@ -244,24 +228,24 @@
         }
     ],
     "resumen": {
-        "total_cruceros": 9,
+        "total_cruceros": 8,
         "total_llegadas": 8,
-        "total_salidas": 7,
+        "total_salidas": 6,
         "pax_estimados_hoy": 10500,
-        "proximo_desembarco": "18:00",
-        "proximo_barco": "Cruise Barcelona"
+        "proximo_desembarco": "09:47",
+        "proximo_barco": "Msc Jiani"
     },
     "terminales_activas": [
-        "6212",
-        "8156",
-        "F3",
-        "F1",
         "F2",
-        "H"
+        "8156",
+        "H",
+        "F1",
+        "F3",
+        "6212"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-09-24T15:43:04.442857",
+        "actualizado": "2026-09-24T09:43:29.337598",
         "frecuencia": "horaria"
     }
 }
