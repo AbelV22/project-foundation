@@ -58,7 +58,7 @@
             "pax_estimados": 2000,
             "puerto": "Valencia",
             "tipo": "llegada",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Itàlia",
             "imo": "9859533",
             "mmsi": "247383300",
@@ -113,29 +113,13 @@
             "fecha": "2026-09-25"
         },
         {
-            "hora": "19:00",
-            "nombre": "Abel Matutes",
-            "naviera": "EUROLINEAS MARITIMAS S.A",
-            "terminal": "TERMINAL F1",
-            "terminal_codigo": "F1",
-            "eslora": 190.0,
-            "pax_estimados": 1000,
-            "puerto": "Alcudia",
-            "tipo": "llegada",
-            "estado": "Autoritzada",
-            "bandera": "Espanya",
-            "imo": "9441130",
-            "mmsi": "224402000",
-            "fecha": "2026-09-25"
-        },
-        {
             "hora": "19:45",
             "nombre": "Cruise Roma",
             "naviera": "GRIMALDI EUROMED SPA",
             "terminal": "TERMINAL F3",
             "terminal_codigo": "F3",
-            "eslora": 254.0,
-            "pax_estimados": 3000,
+            "eslora": 0,
+            "pax_estimados": 500,
             "puerto": "Porto Torres",
             "tipo": "llegada",
             "estado": "Autoritzada",
@@ -195,7 +179,7 @@
             "fecha": "2026-09-25"
         },
         {
-            "hora": "14:35",
+            "hora": "14:00",
             "nombre": "Eco Valencia",
             "naviera": "GRIMALDI LOGISTICA ESPAÑA SL",
             "terminal": "GRIMALDI TERMINAL BARCELONA SL",
@@ -204,7 +188,7 @@
             "pax_estimados": 2000,
             "puerto": "Savona",
             "tipo": "salida",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Itàlia",
             "imo": "9859533",
             "mmsi": "247383300",
@@ -259,22 +243,6 @@
             "fecha": "2026-09-25"
         },
         {
-            "hora": "21:30",
-            "nombre": "Abel Matutes",
-            "naviera": "BALEARIA EUROLINEAS MARITIMAS SA ",
-            "terminal": "TERMINAL F1",
-            "terminal_codigo": "F1",
-            "eslora": 190.0,
-            "pax_estimados": 1000,
-            "puerto": "Alcudia",
-            "tipo": "salida",
-            "estado": "Autoritzada",
-            "bandera": "Espanya",
-            "imo": "9441130",
-            "mmsi": "224402000",
-            "fecha": "2026-09-25"
-        },
-        {
             "hora": "21:45",
             "nombre": "Gnv Sealand",
             "naviera": "TRANSPORTES Y CONSIGNACIONES MARITIMAS BALEARES",
@@ -296,8 +264,8 @@
             "naviera": "GRIMALDI LOGISTICA ESPAÑA SL",
             "terminal": "TERMINAL F3",
             "terminal_codigo": "F3",
-            "eslora": 254.0,
-            "pax_estimados": 3000,
+            "eslora": 0,
+            "pax_estimados": 500,
             "puerto": "Porto Torres",
             "tipo": "salida",
             "estado": "Autoritzada",
@@ -308,26 +276,25 @@
         }
     ],
     "resumen": {
-        "total_cruceros": 10,
-        "total_llegadas": 9,
-        "total_salidas": 10,
-        "pax_estimados_hoy": 15000,
+        "total_cruceros": 9,
+        "total_llegadas": 8,
+        "total_salidas": 9,
+        "pax_estimados_hoy": 11500,
         "proximo_desembarco": "18:15",
         "proximo_barco": "Gnv Sealand"
     },
     "terminales_activas": [
-        "F1",
-        "6212",
-        "A",
-        "F3",
         "F2",
+        "A",
+        "6212",
         "H",
         "8156",
-        "E"
+        "E",
+        "F3"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-09-25T15:44:16.195557",
+        "actualizado": "2026-09-25T10:00:37.656020",
         "frecuencia": "horaria"
     }
 }
