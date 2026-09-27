@@ -7,9 +7,9 @@
         "direction": "up",
         "volume": 51,
         "volatility": 7582,
-        "volatility_7d_pct": 0.42,
-        "tendencia_7d_pct": -1.2,
-        "tendencia_14d_pct": -1.95,
+        "volatility_7d_pct": 0.11,
+        "tendencia_7d_pct": -0.31,
+        "tendencia_14d_pct": -1.2,
         "soporte": 147676,
         "resistencia": 179409,
         "sources_count": 2
@@ -203,7 +203,8 @@
             "2026-09-23",
             "2026-09-24",
             "2026-09-25",
-            "2026-09-26"
+            "2026-09-26",
+            "2026-09-27"
         ],
         "history_prices": [
             166147,
@@ -389,6 +390,7 @@
             166996,
             166996,
             165513,
+            165000,
             165000,
             165000,
             165000,
@@ -583,7 +585,8 @@
             166032,
             165928,
             165643,
-            165358
+            165358,
+            165073
         ],
         "history_sma_14": [
             166147,
@@ -773,7 +776,8 @@
             166665,
             166473,
             166280,
-            166087
+            166087,
+            165853
         ],
         "history_sma_30": [
             166147,
@@ -963,7 +967,8 @@
             167586,
             167432,
             167290,
-            167156
+            167156,
+            167056
         ],
         "price_by_day_descanso": {
             "JUEVES IMPAR": 165741,
@@ -981,7 +986,7 @@
     "market_depth": {
         "cheapest_offers": [
             {
-                "id": 616066963,
+                "id": 59532306,
                 "fuente": "STAC",
                 "referencia": "1058",
                 "dia": "VIERNES PAR",
@@ -993,7 +998,7 @@
                 "raw": "Referencia: 1058 VIERNES PAR |  | Se vende licencia con vehículo Toyota Prius Plus Híbrido, cambio automático con 5 años de antigüedad y 88000km. Disp..."
             },
             {
-                "id": 587006641,
+                "id": 302072537,
                 "fuente": "SOLANO",
                 "referencia": "d394a7a8",
                 "dia": "JUEVES IMPAR",
@@ -1005,7 +1010,7 @@
                 "raw": "Ref:  | 39352 | DIA DE FIESTA:  | JUEVES IMPAR | LICENCIA TAXI EN VENTA BARCELONA | LICENCIA TAXI EN VENTA BARCELONA-JUEVES IMPAR-SIN COCHE | Precio: ..."
             },
             {
-                "id": 202531193,
+                "id": 240867481,
                 "fuente": "SOLANO",
                 "referencia": "399d91bf",
                 "dia": "VIERNES IMPAR",
@@ -1017,7 +1022,7 @@
                 "raw": "Ref:  | 39356 | DIA DE FIESTA:  | LICENCIA TAXI EN VENTA BARCELONA | LICENCIA TAXI EN VENTA BARCELONA-VIERNES IMPAR SIN COCHE | Precio:  | 149.000 | €..."
             },
             {
-                "id": 614726407,
+                "id": 548058499,
                 "fuente": "SOLANO",
                 "referencia": "deee06d9",
                 "dia": "VIERNES PAR",
@@ -1029,7 +1034,7 @@
                 "raw": "Ref:  | 39358 | DIA DE FIESTA:  | VIERNES PAR | LICENCIA TAXI EN VENTA BARCELONA | LICENCIA TAXI EN VENTA BARCELONA-VIERNES PAR-SIN COCHE | Precio:  |..."
             },
             {
-                "id": 691101518,
+                "id": 828213312,
                 "fuente": "STAC",
                 "referencia": "1056",
                 "dia": "VIERNES IMPAR",
@@ -1043,7 +1048,7 @@
         ],
         "all_offers": [
             {
-                "id": 616066963,
+                "id": 59532306,
                 "fuente": "STAC",
                 "referencia": "1058",
                 "dia": "VIERNES PAR",
@@ -1055,7 +1060,7 @@
                 "raw": "Referencia: 1058 VIERNES PAR |  | Se vende licencia con vehículo Toyota Prius Plus Híbrido, cambio automático con 5 años de antigüedad y 88000km. Disp..."
             },
             {
-                "id": 587006641,
+                "id": 302072537,
                 "fuente": "SOLANO",
                 "referencia": "d394a7a8",
                 "dia": "JUEVES IMPAR",
@@ -1067,7 +1072,7 @@
                 "raw": "Ref:  | 39352 | DIA DE FIESTA:  | JUEVES IMPAR | LICENCIA TAXI EN VENTA BARCELONA | LICENCIA TAXI EN VENTA BARCELONA-JUEVES IMPAR-SIN COCHE | Precio: ..."
             },
             {
-                "id": 202531193,
+                "id": 240867481,
                 "fuente": "SOLANO",
                 "referencia": "399d91bf",
                 "dia": "VIERNES IMPAR",
@@ -1079,7 +1084,7 @@
                 "raw": "Ref:  | 39356 | DIA DE FIESTA:  | LICENCIA TAXI EN VENTA BARCELONA | LICENCIA TAXI EN VENTA BARCELONA-VIERNES IMPAR SIN COCHE | Precio:  | 149.000 | €..."
             },
             {
-                "id": 614726407,
+                "id": 548058499,
                 "fuente": "SOLANO",
                 "referencia": "deee06d9",
                 "dia": "VIERNES PAR",
@@ -1091,7 +1096,7 @@
                 "raw": "Ref:  | 39358 | DIA DE FIESTA:  | VIERNES PAR | LICENCIA TAXI EN VENTA BARCELONA | LICENCIA TAXI EN VENTA BARCELONA-VIERNES PAR-SIN COCHE | Precio:  |..."
             },
             {
-                "id": 691101518,
+                "id": 828213312,
                 "fuente": "STAC",
                 "referencia": "1056",
                 "dia": "VIERNES IMPAR",
@@ -1103,7 +1108,7 @@
                 "raw": "Referencia: 1056 VIERNES IMPAR |  | Se vende licencia con vehículo Dacia Jogger Gasolina/GLP y cambio MANUAL con 3 años de antigüedad y 280000km. Disp..."
             },
             {
-                "id": 160821118,
+                "id": 495909436,
                 "fuente": "STAC",
                 "referencia": "1050",
                 "dia": "JUEVES PAR",
@@ -1115,7 +1120,7 @@
                 "raw": "Referencia: 1050 JUEVES PAR |  | Se vende licencia sin vehículo. Disponibilidad: De inmediato. Incluye todo el equipo (taxímetro Skyglass, módulo y 11..."
             },
             {
-                "id": 735113156,
+                "id": 841231676,
                 "fuente": "STAC",
                 "referencia": "1035",
                 "dia": "VIERNES PAR",
@@ -1127,7 +1132,7 @@
                 "raw": "Referencia: 1035 VIERNES PAR |  | Se vende licencia sin vehículo. Disponibilidad: De inmediato | Precio: 155.000€ | + INFORMACIÓN"
             },
             {
-                "id": 506834674,
+                "id": 354214013,
                 "fuente": "STAC",
                 "referencia": "1051",
                 "dia": "JUEVES PAR",
@@ -1139,7 +1144,7 @@
                 "raw": "Referencia: 1051 JUEVES PAR |  | Se vende licencia sin vehículo. Disponibilidad: De inmediato | Precio: 156.000€ | + INFORMACIÓN"
             },
             {
-                "id": 467090760,
+                "id": 920537380,
                 "fuente": "SOLANO",
                 "referencia": "640a9d40",
                 "dia": "VIERNES IMPAR",
@@ -1151,7 +1156,7 @@
                 "raw": "Ref:  | 39354 | DIA DE FIESTA:  | VIERNES IMPAR | LICENCIA TAXI EN VENTA BARCELONA | LICENCIA TAXI EN VENTA BARCELONA-VIERNES IMPAR-DACIA JOGGER HIBRI..."
             },
             {
-                "id": 370621510,
+                "id": 439084439,
                 "fuente": "STAC",
                 "referencia": "1052",
                 "dia": "VIERNES PAR",
@@ -1163,7 +1168,7 @@
                 "raw": "Referencia: 1052 VIERNES PAR |  | Se vende licencia con vehículo Toyota Prius Plus Híbrido, cambio automático con 5 años de antigüedad y 285000km. Dis..."
             },
             {
-                "id": 721764501,
+                "id": 33576826,
                 "fuente": "STAC",
                 "referencia": "1055",
                 "dia": "VIERNES PAR",
@@ -1175,7 +1180,7 @@
                 "raw": "Referencia: 1055 VIERNES PAR |  | Se vende licencia con vehículo Toyota Prius Plus Híbrido, cambio automático con 7 años de antigüedad y 610000km. Dis..."
             },
             {
-                "id": 726490174,
+                "id": 370658487,
                 "fuente": "STAC",
                 "referencia": "985",
                 "dia": "VIERNES PAR",
@@ -1187,7 +1192,7 @@
                 "raw": "Referencia: 985 VIERNES PAR |  | Se vende licencia con vehículo Toyota Prius Plus Híbrido, cambio automático con 7 años de antigüedad y 160000km. Disp..."
             },
             {
-                "id": 229885004,
+                "id": 209658061,
                 "fuente": "STAC",
                 "referencia": "996",
                 "dia": "MIERCOLES PAR",
@@ -1199,7 +1204,7 @@
                 "raw": "Referencia: 996 MIÉRCOLES PAR |  | Se vende licencia sin vehículo. Disponibilidad: A partir de NOVIEMBRE | Precio: 159.000€ | + INFORMACIÓN"
             },
             {
-                "id": 240383738,
+                "id": 263597625,
                 "fuente": "STAC",
                 "referencia": "1034",
                 "dia": "VIERNES PAR",
@@ -1211,7 +1216,7 @@
                 "raw": "Referencia: 1034 VIERNES PAR |  | Se vende licencia con vehículo TOYOTA COROLLA SEDAN Híbrido, cambio automático con 2 años de antigüedad y 100000km. ..."
             },
             {
-                "id": 237975707,
+                "id": 58531905,
                 "fuente": "STAC",
                 "referencia": "1044",
                 "dia": "LUNES IMPAR",
@@ -1223,7 +1228,7 @@
                 "raw": "Referencia: 1044 LUNES IMPAR |  | Se vende licencia sin vehículo. Disponibilidad: De inmediato | Precio: 160.000€ | + INFORMACIÓN"
             },
             {
-                "id": 801472933,
+                "id": 328872500,
                 "fuente": "STAC",
                 "referencia": "1047",
                 "dia": "MIERCOLES PAR",
@@ -1235,7 +1240,7 @@
                 "raw": "Referencia: 1047 MIÉRCOLES PAR |  | Se vende licencia sin vehículo. Disponibilidad: A partir de DICIEMBRE | Precio: 160.000€ | + INFORMACIÓN"
             },
             {
-                "id": 275261366,
+                "id": 562243076,
                 "fuente": "SOLANO",
                 "referencia": "bda9252e",
                 "dia": "VIERNES IMPAR",
@@ -1247,7 +1252,7 @@
                 "raw": "Ref:  | 39342 | DIA DE FIESTA:  | VIERNES IMPAR | LICENCIA TAXI EN VENTA BARCELONA | LICENCIA TAXI EN VENTA BARCELONA- VIERNES IMPAR-TOYOTA COROLLA TO..."
             },
             {
-                "id": 160356422,
+                "id": 527737742,
                 "fuente": "STAC",
                 "referencia": "1045",
                 "dia": "MARTES IMPAR",
@@ -1259,7 +1264,7 @@
                 "raw": "Referencia: 1045 MARTES IMPAR |  | Se vende licencia con vehículo TOYOTA COROLLA SEDAN Híbrido, cambio automático con 3 años de antigüedad y 105000km...."
             },
             {
-                "id": 643763569,
+                "id": 630435376,
                 "fuente": "STAC",
                 "referencia": "951",
                 "dia": "LUNES IMPAR",
@@ -1271,7 +1276,7 @@
                 "raw": "Referencia: 951 LUNES IMPAR |  | Se vende licencia con vehículo Dacia Jogger Híbrido, cambio automático con 1 años de antigüedad y 45000km. Disponibil..."
             },
             {
-                "id": 453147530,
+                "id": 690015811,
                 "fuente": "STAC",
                 "referencia": "1003",
                 "dia": "VIERNES PAR",
@@ -1283,7 +1288,7 @@
                 "raw": "Referencia: 1003 VIERNES PAR |  | Se vende licencia con vehículo TOYOTA COROLLA SEDAN Híbrido, cambio automático con 4 años de antigüedad y 260000km. ..."
             },
             {
-                "id": 703281836,
+                "id": 231340756,
                 "fuente": "SOLANO",
                 "referencia": "63c37c38",
                 "dia": "JUEVES PAR",
@@ -1295,7 +1300,7 @@
                 "raw": "Ref:  | 39318 | DIA DE FIESTA:  | JUEVES PAR | LICENCIA TAXI EN VENTA BARCELONA | LICENCIA TAXI EN VENTA BARCELONA-JUEVES PAR-OPEL ASTRA HIBRIDO AUTOM..."
             },
             {
-                "id": 703930627,
+                "id": 459140214,
                 "fuente": "STAC",
                 "referencia": "1046",
                 "dia": "MIERCOLES IMPAR",
@@ -1307,7 +1312,7 @@
                 "raw": "Referencia: 1046 MIÉRCOLES IMPAR |  | Se vende licencia con vehículo Dacia Jogger GAS y cambio MANUAL con 2 años de antigüedad y 105000km. Disponibili..."
             },
             {
-                "id": 330258394,
+                "id": 395996309,
                 "fuente": "SOLANO",
                 "referencia": "87549468",
                 "dia": "MIERCOLES IMPAR",
@@ -1319,7 +1324,7 @@
                 "raw": "Ref:  | 39348 | DIA DE FIESTA:  | MIERCOLES IMPAR | LICENCIA TAXI EN VENTA BARCELONA | LICENCIA TAXI EN VENTA BARCELONA-MIERCOLES IMPAR-DACIA JOGGER H..."
             },
             {
-                "id": 620674306,
+                "id": 450804781,
                 "fuente": "STAC",
                 "referencia": "1057",
                 "dia": "VIERNES PAR",
@@ -1331,7 +1336,7 @@
                 "raw": "Referencia: 1057 VIERNES PAR |  | Se vende licencia con vehículo VOLKSWAGEN CADDY 6 plazas (NO renovables) y NO PMR con 7 años de antigüedad y 290000k..."
             },
             {
-                "id": 319239978,
+                "id": 369947887,
                 "fuente": "STAC",
                 "referencia": "1059",
                 "dia": "VIERNES IMPAR",
@@ -1343,7 +1348,7 @@
                 "raw": "Referencia: 1059 VIERNES IMPAR |  | Se vende licencia con vehículo Toyota Corolla Touring Híbrido, cambio automático con 1.5 años de antigüedad y 8800..."
             },
             {
-                "id": 596295257,
+                "id": 692423108,
                 "fuente": "STAC",
                 "referencia": "981",
                 "dia": "JUEVES IMPAR",
@@ -1355,7 +1360,7 @@
                 "raw": "Referencia: 981 JUEVES IMPAR |  | Se vende licencia sin vehículo. Disponibilidad: De inmediato. Incluye 122 | Precio: 165.000€ | + INFORMACIÓN"
             },
             {
-                "id": 723131852,
+                "id": 550939765,
                 "fuente": "STAC",
                 "referencia": "1039",
                 "dia": "JUEVES PAR",
@@ -1367,7 +1372,7 @@
                 "raw": "Referencia: 1039 JUEVES PAR |  | Se vende licencia sin vehículo. Disponibilidad: De inmediato | Precio: 165.000€ | + INFORMACIÓN"
             },
             {
-                "id": 306982659,
+                "id": 67885580,
                 "fuente": "STAC",
                 "referencia": "1015",
                 "dia": "LUNES PAR",
@@ -1379,7 +1384,7 @@
                 "raw": "Referencia: 1015 LUNES PAR |  | Se vende licencia sin vehículo. Disponibilidad: De inmediato. Incluye todo el equipo (taxímetro skyglass, 112, módulo)..."
             },
             {
-                "id": 228407056,
+                "id": 96813478,
                 "fuente": "STAC",
                 "referencia": "1012",
                 "dia": "MARTES PAR",
@@ -1391,7 +1396,7 @@
                 "raw": "Referencia: 1012 MARTES PAR |  | Se vende licencia sin vehículo. Disponibilidad: De inmediato | Precio: 165.000€ | + INFORMACIÓN"
             },
             {
-                "id": 453848824,
+                "id": 165765420,
                 "fuente": "STAC",
                 "referencia": "997",
                 "dia": "JUEVES PAR",
@@ -1403,7 +1408,7 @@
                 "raw": "Referencia: 997 JUEVES PAR |  | Se vende licencia sin vehículo. Disponibilidad: De inmediato | Precio: 165.000€ | + INFORMACIÓN"
             },
             {
-                "id": 648046835,
+                "id": 756957606,
                 "fuente": "STAC",
                 "referencia": "1053",
                 "dia": "JUEVES IMPAR",
@@ -1415,7 +1420,7 @@
                 "raw": "Referencia: 1053 JUEVES IMPAR |  | Se vende licencia con vehículo Toyota Prius Plus Híbrido, cambio automático con 5 años de antigüedad y 510000km. Di..."
             },
             {
-                "id": 923078199,
+                "id": 793825505,
                 "fuente": "STAC",
                 "referencia": "1038",
                 "dia": "JUEVES PAR",
@@ -1427,7 +1432,7 @@
                 "raw": "Referencia: 1038 JUEVES PAR |  | Se vende licencia con vehículo Toyota Prius Plus Híbrido, cambio automático, en perfecto estado con 5 años de antigüe..."
             },
             {
-                "id": 642372818,
+                "id": 634874708,
                 "fuente": "STAC",
                 "referencia": "1028",
                 "dia": "MARTES PAR",
@@ -1439,7 +1444,7 @@
                 "raw": "Referencia: 1028 MARTES PAR |  | Se vende licencia sin vehículo. Disponibilidad: De inmediato | Precio: 166.000€ | + INFORMACIÓN"
             },
             {
-                "id": 653759819,
+                "id": 764305854,
                 "fuente": "STAC",
                 "referencia": "966",
                 "dia": "JUEVES IMPAR",
@@ -1451,7 +1456,7 @@
                 "raw": "Referencia: 966 JUEVES IMPAR |  | Se vende licencia sin vehículo. Disponibilidad: De inmediato | Precio: 167.000€ | + INFORMACIÓN"
             },
             {
-                "id": 540944503,
+                "id": 915370592,
                 "fuente": "STAC",
                 "referencia": "1011",
                 "dia": "MIERCOLES PAR",
@@ -1463,7 +1468,7 @@
                 "raw": "Referencia: 1011 MIÉRCOLES PAR |  | Se vende licencia con vehículo TOYOTA COROLLA SEDAN Híbrido, cambio automático con 2 años de antigüedad y 70000km...."
             },
             {
-                "id": 829198414,
+                "id": 955927588,
                 "fuente": "STAC",
                 "referencia": "980",
                 "dia": "JUEVES IMPAR",
@@ -1475,7 +1480,7 @@
                 "raw": "Referencia: 980 JUEVES IMPAR |  | Se vende licencia sin vehículo. Disponibilidad: De inmediato | Precio: 168.000€ | + INFORMACIÓN"
             },
             {
-                "id": 173497244,
+                "id": 942138308,
                 "fuente": "STAC",
                 "referencia": "1049",
                 "dia": "MARTES IMPAR",
@@ -1487,7 +1492,7 @@
                 "raw": "Referencia: 1049 MARTES IMPAR |  | Se vende licencia con vehículo Dacia Jogger Híbrido, cambio automático con 2 años de antigüedad y 194000km. Disponi..."
             },
             {
-                "id": 366618599,
+                "id": 906242791,
                 "fuente": "STAC",
                 "referencia": "1036",
                 "dia": "VIERNES IMPAR",
@@ -1499,7 +1504,7 @@
                 "raw": "Referencia: 1036 VIERNES IMPAR |  | Se vende licencia con vehículo VOLKSWAGEN CADDY TDI, cambio AUTOMÁTICO, adaptada a PMR con 3 años de antigüedad y ..."
             },
             {
-                "id": 32976076,
+                "id": 818350457,
                 "fuente": "STAC",
                 "referencia": "1025",
                 "dia": "VIERNES IMPAR",
@@ -1511,7 +1516,7 @@
                 "raw": "Referencia: 1025 VIERNES IMPAR |  | Se vende licencia con vehículo TOYOTA COROLLA SEDAN Híbrido, cambio automático con 3 años de antigüedad y 57000km...."
             },
             {
-                "id": 679126072,
+                "id": 616446817,
                 "fuente": "STAC",
                 "referencia": "962",
                 "dia": "MIERCOLES IMPAR",
@@ -1523,7 +1528,7 @@
                 "raw": "Referencia: 962 MIÉRCOLES IMPAR |  | Se vende licencia con vehículo Dacia Jogger Gasolina/GLP i cambio manual con 3 años de antigüedad y 170000km. Dis..."
             },
             {
-                "id": 290960034,
+                "id": 401937191,
                 "fuente": "STAC",
                 "referencia": "988",
                 "dia": "MIERCOLES IMPAR",
@@ -1535,7 +1540,7 @@
                 "raw": "Referencia: 988 MIÉRCOLES IMPAR |  | Se vende licencia sin vehículo. Disponibilidad: De inmediato | Precio: 170.000€ | + INFORMACIÓN"
             },
             {
-                "id": 598470886,
+                "id": 854640630,
                 "fuente": "STAC",
                 "referencia": "1004",
                 "dia": "MARTES PAR",
@@ -1547,7 +1552,7 @@
                 "raw": "Referencia: 1004 MARTES PAR |  | Se vende licencia sin vehículo. Disponibilidad: A partir del 12 de septiembre | Precio: 170.000€ | + INFORMACIÓN"
             },
             {
-                "id": 374303628,
+                "id": 486923539,
                 "fuente": "SOLANO",
                 "referencia": "6379e2af",
                 "dia": "MARTES PAR",
@@ -1559,7 +1564,7 @@
                 "raw": "Ref:  | 39346 | DIA DE FIESTA:  | LICENCIA TAXI EN VENTA BARCELONA | LICENCIA TAXI EN VENTA BARCELONA-MARTES PAR-TOYOTA PRIUS PLUS DE JULIO 21-195.000..."
             },
             {
-                "id": 249657524,
+                "id": 895188862,
                 "fuente": "SOLANO",
                 "referencia": "868b170a",
                 "dia": "MIERCOLES IMPAR",
@@ -1571,7 +1576,7 @@
                 "raw": "Ref:  | 39333 | DIA DE FIESTA:  | MIERCOLES IMPAR | LICENCIA TAXI EN VENTA BERCALONA | LICENCIA TAXI EN VENTA BARCELONA-MIERCOLES IMPAR-TOYOTA COROLLA..."
             },
             {
-                "id": 783829687,
+                "id": 725522431,
                 "fuente": "SOLANO",
                 "referencia": "5b85b7e3",
                 "dia": "MIERCOLES IMPAR",
@@ -1583,7 +1588,7 @@
                 "raw": "Ref:  | 39350 | DIA DE FIESTA:  | MIERCOLES IMPAR | LICENCIA TAXI EN VENTA BARCELONA | LICENCIA TAXI EN VENTA BARCELONA-MIERCOLES IMPAR-TOYOTA COROLLA..."
             },
             {
-                "id": 802683548,
+                "id": 800293309,
                 "fuente": "STAC",
                 "referencia": "1032",
                 "dia": "LUNES IMPAR",
@@ -1595,7 +1600,7 @@
                 "raw": "Referencia: 1032 LUNES IMPAR |  | Se vende licencia con vehículo TOYOTA COROLLA SEDAN Híbrido, cambio automático con 4 años de antigüedad y 260000km. ..."
             },
             {
-                "id": 987133491,
+                "id": 390638135,
                 "fuente": "STAC",
                 "referencia": "993",
                 "dia": "MIERCOLES IMPAR",
@@ -1607,7 +1612,7 @@
                 "raw": "Referencia: 993 MIERCOLES IMPAR |  | Se vende licencia con vehículo TOYOTA COROLLA SEDAN con 4 años de antigüedad y 240000km. Disponibilidad: De inmed..."
             },
             {
-                "id": 448869308,
+                "id": 706705120,
                 "fuente": "STAC",
                 "referencia": "1033",
                 "dia": "MARTES PAR",
@@ -1619,7 +1624,7 @@
                 "raw": "Referencia: 1033 MARTES PAR |  | Se vende licencia con vehículo TOYOTA COROLLA SEDAN Híbrido, cambio automático con 4 años de antigüedad y 290000km. D..."
             },
             {
-                "id": 685767865,
+                "id": 272421746,
                 "fuente": "STAC",
                 "referencia": "992",
                 "dia": "VIERNES IMPAR",
@@ -1631,7 +1636,7 @@
                 "raw": "Referencia: 992 VIERNES IMPAR |  | Se vende licencia con vehículo VOLKSWAGEN CADDY TDI 122CV cambio AUTOMÁTICO Adaptada PMR con 3.5 años de antigüedad..."
             },
             {
-                "id": 3137083,
+                "id": 968070647,
                 "fuente": "STAC",
                 "referencia": "1024",
                 "dia": "LUNES IMPAR",
@@ -1643,7 +1648,7 @@
                 "raw": "Referencia: 1024 LUNES IMPAR |  | Se vende licencia con vehículo TOYOTA COROLLA SEDAN Híbrido, cambio automático con 4 años de antigüedad y 225000km. ..."
             },
             {
-                "id": 48492833,
+                "id": 248455887,
                 "fuente": "STAC",
                 "referencia": "734",
                 "dia": "LUNES IMPAR",
@@ -1679,6 +1684,6 @@
         ],
         "outliers_eliminados": 1
     },
-    "updated_at": "26/09/2026 16:54",
+    "updated_at": "27/09/2026 12:35",
     "version": "2.0"
 }
