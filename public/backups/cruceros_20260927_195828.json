@@ -26,7 +26,7 @@
             "pax_estimados": 500,
             "puerto": "Palma de Mallorca",
             "tipo": "llegada",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Bahames",
             "imo": "9195169",
             "mmsi": "311307000",
@@ -58,7 +58,7 @@
             "pax_estimados": 4500,
             "puerto": "Marseille",
             "tipo": "llegada",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Itàlia",
             "imo": "9781891",
             "mmsi": "247431200",
@@ -74,7 +74,7 @@
             "pax_estimados": 500,
             "puerto": "Malta (Valetta)",
             "tipo": "llegada",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Panamà",
             "imo": "9359806",
             "mmsi": "357698000",
@@ -195,23 +195,7 @@
             "fecha": "2026-09-27"
         },
         {
-            "hora": "16:44",
-            "nombre": "Msc Siena",
-            "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
-            "terminal": "TERMINAL CATALUNYA SA",
-            "terminal_codigo": "6212",
-            "eslora": 366.0,
-            "pax_estimados": 6500,
-            "puerto": "Gioia Tauro",
-            "tipo": "salida",
-            "estado": "Finalitzada",
-            "bandera": "Libèria",
-            "imo": "9987275",
-            "mmsi": "636024420",
-            "fecha": "2026-09-27"
-        },
-        {
-            "hora": "17:32",
+            "hora": "17:00",
             "nombre": "Norwegian Dawn",
             "naviera": "INTERCRUISES PORT OPERATIONS SPAIN SLU",
             "terminal": "Terminal A (WTC)",
@@ -220,30 +204,14 @@
             "pax_estimados": 500,
             "puerto": "Palma de Mallorca",
             "tipo": "salida",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Bahames",
             "imo": "9195169",
             "mmsi": "311307000",
             "fecha": "2026-09-27"
         },
         {
-            "hora": "17:54",
-            "nombre": "Msc Splendida",
-            "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
-            "terminal": "ADOSSAT/TERMINAL H",
-            "terminal_codigo": "H",
-            "eslora": 0,
-            "pax_estimados": 500,
-            "puerto": "Marseille",
-            "tipo": "salida",
-            "estado": "Finalitzada",
-            "bandera": "Panamà",
-            "imo": "9359806",
-            "mmsi": "357698000",
-            "fecha": "2026-09-27"
-        },
-        {
-            "hora": "18:17",
+            "hora": "18:00",
             "nombre": "Costa Toscana",
             "naviera": "NOATUM MARITIME SPAIN SAU",
             "terminal": "Terminal E (Adossat)",
@@ -252,10 +220,26 @@
             "pax_estimados": 4500,
             "puerto": "Cagliari",
             "tipo": "salida",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Itàlia",
             "imo": "9781891",
             "mmsi": "247431200",
+            "fecha": "2026-09-27"
+        },
+        {
+            "hora": "18:00",
+            "nombre": "Msc Splendida",
+            "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
+            "terminal": "ADOSSAT/TERMINAL H",
+            "terminal_codigo": "H",
+            "eslora": 0,
+            "pax_estimados": 500,
+            "puerto": "Marseille",
+            "tipo": "salida",
+            "estado": "Iniciada",
+            "bandera": "Panamà",
+            "imo": "9359806",
+            "mmsi": "357698000",
             "fecha": "2026-09-27"
         },
         {
@@ -292,26 +276,26 @@
         }
     ],
     "resumen": {
-        "total_cruceros": 13,
+        "total_cruceros": 12,
         "total_llegadas": 9,
-        "total_salidas": 9,
+        "total_salidas": 8,
         "pax_estimados_hoy": 16000,
-        "proximo_desembarco": "22:15",
-        "proximo_barco": "Cruise Roma"
+        "proximo_desembarco": "16:00",
+        "proximo_barco": "Zim Asia"
     },
     "terminales_activas": [
-        "F3",
-        "TC",
+        "6212",
         "H",
+        "F3",
+        "E",
+        "TC",
         "F2",
         "7259",
-        "6212",
-        "E",
         "A"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-09-27T19:58:28.551202",
+        "actualizado": "2026-09-27T15:31:43.990641",
         "frecuencia": "horaria"
     }
 }
