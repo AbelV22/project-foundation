@@ -33,6 +33,22 @@
             "fecha": "2026-09-27"
         },
         {
+            "hora": "06:45",
+            "nombre": "Msc Sabrina",
+            "naviera": "MEDITERRANEAN SHIPPING CO",
+            "terminal": "TERMINAL CATALUNYA SA",
+            "terminal_codigo": "6212",
+            "eslora": 335.0,
+            "pax_estimados": 4500,
+            "puerto": "Fos-sur-Mer",
+            "tipo": "llegada",
+            "estado": "Autoritzada",
+            "bandera": "Libèria",
+            "imo": "9979022",
+            "mmsi": "636026001",
+            "fecha": "2026-09-27"
+        },
+        {
             "hora": "07:05",
             "nombre": "Msc Clarita Iii",
             "naviera": "MEDITERRANEAN SHIPPING CO",
@@ -94,22 +110,6 @@
             "bandera": "Illes Marshall",
             "imo": "9489077",
             "mmsi": "538003849",
-            "fecha": "2026-09-27"
-        },
-        {
-            "hora": "13:20",
-            "nombre": "Msc Sabrina",
-            "naviera": "MEDITERRANEAN SHIPPING CO",
-            "terminal": "TERMINAL CATALUNYA SA",
-            "terminal_codigo": "6212",
-            "eslora": 335.0,
-            "pax_estimados": 4500,
-            "puerto": "Fos-sur-Mer",
-            "tipo": "llegada",
-            "estado": "Iniciada",
-            "bandera": "Libèria",
-            "imo": "9979022",
-            "mmsi": "636026001",
             "fecha": "2026-09-27"
         },
         {
@@ -280,22 +280,22 @@
         "total_llegadas": 9,
         "total_salidas": 8,
         "pax_estimados_hoy": 16000,
-        "proximo_desembarco": "16:00",
-        "proximo_barco": "Zim Asia"
+        "proximo_desembarco": "12:00",
+        "proximo_barco": "Sahar"
     },
     "terminales_activas": [
-        "6212",
-        "H",
-        "F3",
-        "E",
-        "TC",
-        "F2",
         "7259",
-        "A"
+        "E",
+        "H",
+        "6212",
+        "A",
+        "F3",
+        "TC",
+        "F2"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-09-27T15:31:43.990641",
+        "actualizado": "2026-09-27T10:22:32.051492",
         "frecuencia": "horaria"
     }
 }
