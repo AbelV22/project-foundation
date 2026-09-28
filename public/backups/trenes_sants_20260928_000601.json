@@ -4,7 +4,7 @@
             "hora": "06:25",
             "origen": "Figueres-Vilafant",
             "tren": "AVE 03302",
-            "via": "4"
+            "via": "-"
         },
         {
             "hora": "07:15",
@@ -358,7 +358,7 @@
             "hora": "21:40",
             "origen": "Vigo Urzaiz",
             "tren": "ALVIA 00620",
-            "via": "-"
+            "via": "2"
         },
         {
             "hora": "21:44",
@@ -415,21 +415,33 @@
             "via": "-"
         },
         {
+            "hora": "23:25",
+            "origen": "Alacant / Alicante Terminal",
+            "tren": "INTERCITY 01402",
+            "via": "4"
+        },
+        {
             "hora": "23:28",
             "origen": "Sevilla Santa Justa",
             "tren": "OUIGO 06415",
             "via": "-"
         },
         {
+            "hora": "23:39",
+            "origen": "Madrid Puerta de Atocha Almudena Grandes",
+            "tren": "IRYO 06201",
+            "via": "3"
+        },
+        {
             "hora": "23:47",
             "origen": "Madrid Puerta de Atocha Almudena Grandes",
             "tren": "AVE 03201",
-            "via": "-"
+            "via": "2"
         }
     ],
     "meta": {
-        "update_time": "00:06",
-        "updated_at": "2026-09-28T00:06:01.326470",
-        "total": 71
+        "update_time": "21:43",
+        "updated_at": "2026-09-27T21:43:30.979982",
+        "total": 73
     }
 }
