@@ -42,7 +42,7 @@
             "pax_estimados": 2000,
             "puerto": "Valencia",
             "tipo": "llegada",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Itàlia",
             "imo": "9859569",
             "mmsi": "247383600",
@@ -65,22 +65,6 @@
             "fecha": "2026-09-29"
         },
         {
-            "hora": "15:58",
-            "nombre": "Msc Vera F",
-            "naviera": "MEDITERRANEAN SHIPPING CO",
-            "terminal": "",
-            "terminal_codigo": "",
-            "eslora": 0,
-            "pax_estimados": 500,
-            "puerto": "Alger (Algiers)",
-            "tipo": "llegada",
-            "estado": "Fondeig Previ",
-            "bandera": "Libèria",
-            "imo": "9235610",
-            "mmsi": "636017570",
-            "fecha": "2026-09-29"
-        },
-        {
             "hora": "18:15",
             "nombre": "Msc Monterey V",
             "naviera": "MEDITERRANEAN SHIPPING CO",
@@ -90,30 +74,14 @@
             "pax_estimados": 500,
             "puerto": "Aliaga",
             "tipo": "llegada",
-            "estado": "Autoritzada",
+            "estado": "Confirmada",
             "bandera": "Portugal",
             "imo": "9349796",
             "mmsi": "255915882",
             "fecha": "2026-09-29"
         },
         {
-            "hora": "18:49",
-            "nombre": "Cruise Barcelona",
-            "naviera": "GRIMALDI EUROMED SPA",
-            "terminal": "TERMINAL F3",
-            "terminal_codigo": "F3",
-            "eslora": 0,
-            "pax_estimados": 500,
-            "puerto": "Civitavecchia",
-            "tipo": "llegada",
-            "estado": "Iniciada",
-            "bandera": "Itàlia",
-            "imo": "9351488",
-            "mmsi": "247243600",
-            "fecha": "2026-09-29"
-        },
-        {
-            "hora": "18:54",
+            "hora": "18:40",
             "nombre": "Gnv Sealand",
             "naviera": "GRANDI NAVI VELOCI",
             "terminal": "TERMINAL F2",
@@ -122,10 +90,26 @@
             "pax_estimados": 500,
             "puerto": "Ibiza",
             "tipo": "llegada",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Itàlia",
             "imo": "9435454",
             "mmsi": "247265800",
+            "fecha": "2026-09-29"
+        },
+        {
+            "hora": "19:00",
+            "nombre": "Cruise Barcelona",
+            "naviera": "GRIMALDI EUROMED SPA",
+            "terminal": "TERMINAL F3",
+            "terminal_codigo": "F3",
+            "eslora": 0,
+            "pax_estimados": 500,
+            "puerto": "Civitavecchia",
+            "tipo": "llegada",
+            "estado": "Autoritzada",
+            "bandera": "Itàlia",
+            "imo": "9351488",
+            "mmsi": "247243600",
             "fecha": "2026-09-29"
         }
     ],
@@ -163,7 +147,7 @@
             "fecha": "2026-09-29"
         },
         {
-            "hora": "11:50",
+            "hora": "14:00",
             "nombre": "Eco Savona",
             "naviera": "GRIMALDI LOGISTICA ESPAÑA SL",
             "terminal": "GRIMALDI TERMINAL BARCELONA SL",
@@ -172,7 +156,7 @@
             "pax_estimados": 2000,
             "puerto": "Savona",
             "tipo": "salida",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Itàlia",
             "imo": "9859569",
             "mmsi": "247383600",
@@ -236,7 +220,7 @@
             "pax_estimados": 500,
             "puerto": "Mahon Menorca",
             "tipo": "salida",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Itàlia",
             "imo": "9435454",
             "mmsi": "247265800",
@@ -252,7 +236,7 @@
             "pax_estimados": 500,
             "puerto": "Civitavecchia",
             "tipo": "salida",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Itàlia",
             "imo": "9351488",
             "mmsi": "247243600",
@@ -260,23 +244,23 @@
         }
     ],
     "resumen": {
-        "total_cruceros": 10,
-        "total_llegadas": 8,
+        "total_cruceros": 9,
+        "total_llegadas": 7,
         "total_salidas": 8,
-        "pax_estimados_hoy": 5500,
-        "proximo_desembarco": "18:49",
-        "proximo_barco": "Cruise Barcelona"
+        "pax_estimados_hoy": 5000,
+        "proximo_desembarco": "18:15",
+        "proximo_barco": "Msc Monterey V"
     },
     "terminales_activas": [
-        "8156",
-        "6212",
         "H",
+        "8156",
+        "F2",
         "F3",
-        "F2"
+        "6212"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-09-29T18:28:08.434212",
+        "actualizado": "2026-09-29T11:09:01.725914",
         "frecuencia": "horaria"
     }
 }
