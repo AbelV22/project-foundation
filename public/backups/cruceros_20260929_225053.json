@@ -58,7 +58,7 @@
             "pax_estimados": 500,
             "puerto": "Marseille",
             "tipo": "llegada",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Malta",
             "imo": "9760512",
             "mmsi": "249973000",
@@ -78,6 +78,22 @@
             "bandera": "Libèria",
             "imo": "9235610",
             "mmsi": "636017570",
+            "fecha": "2026-09-29"
+        },
+        {
+            "hora": "18:15",
+            "nombre": "Msc Monterey V",
+            "naviera": "MEDITERRANEAN SHIPPING CO",
+            "terminal": "TERMINAL CATALUNYA SA",
+            "terminal_codigo": "6212",
+            "eslora": 0,
+            "pax_estimados": 500,
+            "puerto": "Aliaga",
+            "tipo": "llegada",
+            "estado": "Autoritzada",
+            "bandera": "Portugal",
+            "imo": "9349796",
+            "mmsi": "255915882",
             "fecha": "2026-09-29"
         },
         {
@@ -106,26 +122,10 @@
             "pax_estimados": 500,
             "puerto": "Ibiza",
             "tipo": "llegada",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Itàlia",
             "imo": "9435454",
             "mmsi": "247265800",
-            "fecha": "2026-09-29"
-        },
-        {
-            "hora": "21:54",
-            "nombre": "Msc Monterey V",
-            "naviera": "MEDITERRANEAN SHIPPING CO",
-            "terminal": "TERMINAL CATALUNYA SA",
-            "terminal_codigo": "6212",
-            "eslora": 0,
-            "pax_estimados": 500,
-            "puerto": "Aliaga",
-            "tipo": "llegada",
-            "estado": "Iniciada",
-            "bandera": "Portugal",
-            "imo": "9349796",
-            "mmsi": "255915882",
             "fecha": "2026-09-29"
         }
     ],
@@ -179,7 +179,7 @@
             "fecha": "2026-09-29"
         },
         {
-            "hora": "19:24",
+            "hora": "18:00",
             "nombre": "Msc Meraviglia",
             "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
             "terminal": "ADOSSAT/TERMINAL H",
@@ -188,7 +188,7 @@
             "pax_estimados": 500,
             "puerto": "La Goulette Nord (Halqueloued)",
             "tipo": "salida",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Malta",
             "imo": "9760512",
             "mmsi": "249973000",
@@ -227,23 +227,7 @@
             "fecha": "2026-09-29"
         },
         {
-            "hora": "20:08",
-            "nombre": "Msc Vidisha R.",
-            "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
-            "terminal": "TERMINAL CATALUNYA SA",
-            "terminal_codigo": "6212",
-            "eslora": 0,
-            "pax_estimados": 500,
-            "puerto": "Sines",
-            "tipo": "salida",
-            "estado": "Finalitzada",
-            "bandera": "Libèria",
-            "imo": "9227326",
-            "mmsi": "636016437",
-            "fecha": "2026-09-29"
-        },
-        {
-            "hora": "21:49",
+            "hora": "21:45",
             "nombre": "Gnv Sealand",
             "naviera": "TRANSPORTES Y CONSIGNACIONES MARITIMAS BALEARES",
             "terminal": "TERMINAL F2",
@@ -252,7 +236,7 @@
             "pax_estimados": 500,
             "puerto": "Mahon Menorca",
             "tipo": "salida",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Itàlia",
             "imo": "9435454",
             "mmsi": "247265800",
@@ -276,23 +260,23 @@
         }
     ],
     "resumen": {
-        "total_cruceros": 11,
+        "total_cruceros": 10,
         "total_llegadas": 8,
-        "total_salidas": 9,
+        "total_salidas": 8,
         "pax_estimados_hoy": 5500,
-        "proximo_desembarco": null,
-        "proximo_barco": null
+        "proximo_desembarco": "18:49",
+        "proximo_barco": "Cruise Barcelona"
     },
     "terminales_activas": [
         "8156",
-        "F2",
+        "6212",
         "H",
         "F3",
-        "6212"
+        "F2"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-09-29T22:50:53.173067",
+        "actualizado": "2026-09-29T18:28:08.434212",
         "frecuencia": "horaria"
     }
 }
