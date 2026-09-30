@@ -42,7 +42,7 @@
             "pax_estimados": 1000,
             "puerto": "Palma de Mallorca",
             "tipo": "llegada",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Illes Marshall",
             "imo": "9187899",
             "mmsi": "538006842",
@@ -113,7 +113,7 @@
             "fecha": "2026-09-30"
         },
         {
-            "hora": "18:43",
+            "hora": "18:15",
             "nombre": "Gnv Sealand",
             "naviera": "GRANDI NAVI VELOCI",
             "terminal": "TERMINAL F2",
@@ -122,14 +122,14 @@
             "pax_estimados": 500,
             "puerto": "Mahon Menorca",
             "tipo": "llegada",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Itàlia",
             "imo": "9435454",
             "mmsi": "247265800",
             "fecha": "2026-09-30"
         },
         {
-            "hora": "19:19",
+            "hora": "19:00",
             "nombre": "Ciudad De Granada",
             "naviera": "TRASMED GLE S.L.",
             "terminal": "TERMINAL F2",
@@ -138,14 +138,14 @@
             "pax_estimados": 1000,
             "puerto": "Ibiza",
             "tipo": "llegada",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Espanya",
             "imo": "9217125",
             "mmsi": "224600000",
             "fecha": "2026-09-30"
         },
         {
-            "hora": "20:10",
+            "hora": "20:30",
             "nombre": "Cruise Roma",
             "naviera": "GRIMALDI EUROMED SPA",
             "terminal": "TERMINAL F3",
@@ -154,7 +154,7 @@
             "pax_estimados": 500,
             "puerto": "Civitavecchia",
             "tipo": "llegada",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Itàlia",
             "imo": "9351476",
             "mmsi": "247219400",
@@ -243,7 +243,7 @@
             "fecha": "2026-09-30"
         },
         {
-            "hora": "17:02",
+            "hora": "17:00",
             "nombre": "Sirena",
             "naviera": "INTERCRUISES PORT OPERATIONS SPAIN SLU",
             "terminal": "Terminal Sud",
@@ -252,7 +252,7 @@
             "pax_estimados": 1000,
             "puerto": "Palamos",
             "tipo": "salida",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Illes Marshall",
             "imo": "9187899",
             "mmsi": "538006842",
@@ -284,7 +284,7 @@
             "pax_estimados": 500,
             "puerto": "Ibiza",
             "tipo": "salida",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Itàlia",
             "imo": "9435454",
             "mmsi": "247265800",
@@ -300,7 +300,7 @@
             "pax_estimados": 1000,
             "puerto": "Mahon Menorca",
             "tipo": "salida",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Espanya",
             "imo": "9217125",
             "mmsi": "224600000",
@@ -316,7 +316,7 @@
             "pax_estimados": 500,
             "puerto": "Porto Torres",
             "tipo": "salida",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Itàlia",
             "imo": "9351476",
             "mmsi": "247219400",
@@ -328,20 +328,20 @@
         "total_llegadas": 10,
         "total_salidas": 10,
         "pax_estimados_hoy": 9500,
-        "proximo_desembarco": null,
-        "proximo_barco": null
+        "proximo_desembarco": "18:15",
+        "proximo_barco": "Gnv Sealand"
     },
     "terminales_activas": [
         "F3",
-        "7946",
+        "8156",
         "6212",
-        "S",
         "F2",
-        "8156"
+        "7946",
+        "S"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-09-30T21:13:45.256708",
+        "actualizado": "2026-09-30T16:40:51.066137",
         "frecuencia": "horaria"
     }
 }
