@@ -1,6 +1,38 @@
 {
     "llegadas": [
         {
+            "hora": "00:00",
+            "nombre": "Msc Masha 3",
+            "naviera": "MEDITERRANEAN SHIPPING CO",
+            "terminal": "TERMINAL CATALUNYA SA",
+            "terminal_codigo": "6212",
+            "eslora": 0,
+            "pax_estimados": 500,
+            "puerto": "Alger (Algiers)",
+            "tipo": "llegada",
+            "estado": "Autoritzada",
+            "bandera": "Portugal",
+            "imo": "9188219",
+            "mmsi": "255806109",
+            "fecha": "2026-10-03"
+        },
+        {
+            "hora": "01:00",
+            "nombre": "Msc Yuxin",
+            "naviera": "MEDITERRANEAN SHIPPING CO",
+            "terminal": "TERMINAL CATALUNYA SA",
+            "terminal_codigo": "6212",
+            "eslora": 0,
+            "pax_estimados": 500,
+            "puerto": "Bejaia (ex Bougie)",
+            "tipo": "llegada",
+            "estado": "Autoritzada",
+            "bandera": "Libèria",
+            "imo": "9966946",
+            "mmsi": "636023314",
+            "fecha": "2026-10-03"
+        },
+        {
             "hora": "06:13",
             "nombre": "Mein Schiff 6",
             "naviera": "TUI CRUISES GMBH",
@@ -74,26 +106,10 @@
             "pax_estimados": 2000,
             "puerto": "Valencia",
             "tipo": "llegada",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Itàlia",
             "imo": "9859557",
             "mmsi": "247383500",
-            "fecha": "2026-10-03"
-        },
-        {
-            "hora": "10:11",
-            "nombre": "One Fruition",
-            "naviera": "OCEAN NETWORK EXPRESS PTE LTD",
-            "terminal": "TERMINAL CATALUNYA SA",
-            "terminal_codigo": "6212",
-            "eslora": 366.0,
-            "pax_estimados": 6500,
-            "puerto": "Valencia",
-            "tipo": "llegada",
-            "estado": "Iniciada",
-            "bandera": "Singapur",
-            "imo": "9934371",
-            "mmsi": "563290800",
             "fecha": "2026-10-03"
         },
         {
@@ -110,38 +126,6 @@
             "bandera": "Libèria",
             "imo": "9235610",
             "mmsi": "636017570",
-            "fecha": "2026-10-03"
-        },
-        {
-            "hora": "12:05",
-            "nombre": "Msc Masha 3",
-            "naviera": "MEDITERRANEAN SHIPPING CO",
-            "terminal": "TERMINAL CATALUNYA SA",
-            "terminal_codigo": "6212",
-            "eslora": 0,
-            "pax_estimados": 500,
-            "puerto": "Alger (Algiers)",
-            "tipo": "llegada",
-            "estado": "Iniciada",
-            "bandera": "Portugal",
-            "imo": "9188219",
-            "mmsi": "255806109",
-            "fecha": "2026-10-03"
-        },
-        {
-            "hora": "13:42",
-            "nombre": "Msc Yuxin",
-            "naviera": "MEDITERRANEAN SHIPPING CO",
-            "terminal": "TERMINAL CATALUNYA SA",
-            "terminal_codigo": "6212",
-            "eslora": 0,
-            "pax_estimados": 500,
-            "puerto": "Bejaia (ex Bougie)",
-            "tipo": "llegada",
-            "estado": "Iniciada",
-            "bandera": "Libèria",
-            "imo": "9966946",
-            "mmsi": "636023314",
             "fecha": "2026-10-03"
         },
         {
@@ -195,7 +179,7 @@
             "fecha": "2026-10-03"
         },
         {
-            "hora": "08:44",
+            "hora": "08:00",
             "nombre": "Msc Gemma",
             "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
             "terminal": "TERMINAL CATALUNYA SA",
@@ -204,7 +188,7 @@
             "pax_estimados": 500,
             "puerto": "Fos-sur-Mer",
             "tipo": "salida",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Libèria",
             "imo": "9936616",
             "mmsi": "636022603",
@@ -268,14 +252,14 @@
             "pax_estimados": 500,
             "puerto": "Alger (Algiers)",
             "tipo": "salida",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Portugal",
             "imo": "9188219",
             "mmsi": "255806109",
             "fecha": "2026-10-03"
         },
         {
-            "hora": "14:08",
+            "hora": "14:00",
             "nombre": "Eco Livorno",
             "naviera": "GRIMALDI LOGISTICA ESPAÑA SL",
             "terminal": "GRIMALDI TERMINAL BARCELONA SL",
@@ -284,7 +268,7 @@
             "pax_estimados": 2000,
             "puerto": "Savona",
             "tipo": "salida",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Itàlia",
             "imo": "9859557",
             "mmsi": "247383500",
@@ -332,7 +316,7 @@
             "pax_estimados": 500,
             "puerto": "Skikda (ex Philippeville)",
             "tipo": "salida",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Libèria",
             "imo": "9966946",
             "mmsi": "636023314",
@@ -364,7 +348,7 @@
             "pax_estimados": 6500,
             "puerto": "Genoa",
             "tipo": "salida",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Singapur",
             "imo": "9934371",
             "mmsi": "563290800",
@@ -373,25 +357,25 @@
     ],
     "resumen": {
         "total_cruceros": 14,
-        "total_llegadas": 11,
+        "total_llegadas": 10,
         "total_salidas": 12,
-        "pax_estimados_hoy": 17500,
-        "proximo_desembarco": "22:00",
-        "proximo_barco": "Cruise Roma"
+        "pax_estimados_hoy": 11000,
+        "proximo_desembarco": "12:01",
+        "proximo_barco": "Msc Vera F"
     },
     "terminales_activas": [
-        "6154",
-        "7946",
-        "F3",
-        "H",
         "6212",
+        "F3",
+        "6154",
+        "H",
+        "B",
+        "7946",
         "8156",
-        "C",
-        "B"
+        "C"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-10-03T15:03:14.965480",
+        "actualizado": "2026-10-03T10:13:32.057120",
         "frecuencia": "horaria"
     }
 }
