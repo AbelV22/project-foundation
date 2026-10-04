@@ -42,7 +42,7 @@
             "pax_estimados": 500,
             "puerto": "Marseille",
             "tipo": "llegada",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Bahames",
             "imo": "9410569",
             "mmsi": "311018500",
@@ -74,7 +74,7 @@
             "pax_estimados": 500,
             "puerto": "Malta (Valetta)",
             "tipo": "llegada",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Panamà",
             "imo": "9359806",
             "mmsi": "357698000",
@@ -90,7 +90,7 @@
             "pax_estimados": 4500,
             "puerto": "Marseille",
             "tipo": "llegada",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Itàlia",
             "imo": "9781891",
             "mmsi": "247431200",
@@ -291,7 +291,7 @@
             "fecha": "2026-10-04"
         },
         {
-            "hora": "18:03",
+            "hora": "17:00",
             "nombre": "Norwegian Epic",
             "naviera": "INTERCRUISES PORT OPERATIONS SPAIN SLU",
             "terminal": "Terminal A (WTC)",
@@ -300,30 +300,14 @@
             "pax_estimados": 500,
             "puerto": "Marseille",
             "tipo": "salida",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Bahames",
             "imo": "9410569",
             "mmsi": "311018500",
             "fecha": "2026-10-04"
         },
         {
-            "hora": "18:03",
-            "nombre": "Msc Splendida",
-            "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
-            "terminal": "ADOSSAT/TERMINAL H",
-            "terminal_codigo": "H",
-            "eslora": 0,
-            "pax_estimados": 500,
-            "puerto": "Marseille",
-            "tipo": "salida",
-            "estado": "Finalitzada",
-            "bandera": "Panamà",
-            "imo": "9359806",
-            "mmsi": "357698000",
-            "fecha": "2026-10-04"
-        },
-        {
-            "hora": "18:37",
+            "hora": "18:00",
             "nombre": "Costa Toscana",
             "naviera": "NOATUM MARITIME SPAIN SAU",
             "terminal": "Terminal E (Adossat)",
@@ -332,10 +316,26 @@
             "pax_estimados": 4500,
             "puerto": "Cagliari",
             "tipo": "salida",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Itàlia",
             "imo": "9781891",
             "mmsi": "247431200",
+            "fecha": "2026-10-04"
+        },
+        {
+            "hora": "18:00",
+            "nombre": "Msc Splendida",
+            "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
+            "terminal": "ADOSSAT/TERMINAL H",
+            "terminal_codigo": "H",
+            "eslora": 0,
+            "pax_estimados": 500,
+            "puerto": "Marseille",
+            "tipo": "salida",
+            "estado": "Iniciada",
+            "bandera": "Panamà",
+            "imo": "9359806",
+            "mmsi": "357698000",
             "fecha": "2026-10-04"
         },
         {
@@ -376,23 +376,23 @@
         "total_llegadas": 12,
         "total_salidas": 11,
         "pax_estimados_hoy": 21000,
-        "proximo_desembarco": "20:01",
-        "proximo_barco": "Arista"
+        "proximo_desembarco": "16:00",
+        "proximo_barco": "Shekou Star"
     },
     "terminales_activas": [
-        "E",
-        "8156",
         "7083",
-        "172133",
         "6212",
-        "H",
+        "E",
+        "172133",
         "6995",
         "F3",
-        "A"
+        "A",
+        "8156",
+        "H"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-10-04T19:54:30.197271",
+        "actualizado": "2026-10-04T15:41:24.397638",
         "frecuencia": "horaria"
     }
 }
