@@ -1,6 +1,22 @@
 {
     "llegadas": [
         {
+            "hora": "05:00",
+            "nombre": "Norwegian Epic",
+            "naviera": "NORWEGIAN CRUISE LINE",
+            "terminal": "Terminal A (WTC)",
+            "terminal_codigo": "A",
+            "eslora": 0,
+            "pax_estimados": 500,
+            "puerto": "Marseille",
+            "tipo": "llegada",
+            "estado": "Autoritzada",
+            "bandera": "Bahames",
+            "imo": "9410569",
+            "mmsi": "311018500",
+            "fecha": "2026-10-04"
+        },
+        {
             "hora": "06:00",
             "nombre": "Msc Erminia Iii",
             "naviera": "MEDITERRANEAN SHIPPING CO",
@@ -33,19 +49,19 @@
             "fecha": "2026-10-04"
         },
         {
-            "hora": "06:05",
-            "nombre": "Norwegian Epic",
-            "naviera": "NORWEGIAN CRUISE LINE",
-            "terminal": "Terminal A (WTC)",
-            "terminal_codigo": "A",
-            "eslora": 0,
-            "pax_estimados": 500,
+            "hora": "06:48",
+            "nombre": "Costa Toscana",
+            "naviera": "COSTA CROCIERE, S.P.A.",
+            "terminal": "Terminal E (Adossat)",
+            "terminal_codigo": "E",
+            "eslora": 337.0,
+            "pax_estimados": 4500,
             "puerto": "Marseille",
             "tipo": "llegada",
-            "estado": "Iniciada",
-            "bandera": "Bahames",
-            "imo": "9410569",
-            "mmsi": "311018500",
+            "estado": "Autoritzada",
+            "bandera": "Itàlia",
+            "imo": "9781891",
+            "mmsi": "247431200",
             "fecha": "2026-10-04"
         },
         {
@@ -65,7 +81,7 @@
             "fecha": "2026-10-04"
         },
         {
-            "hora": "07:33",
+            "hora": "07:00",
             "nombre": "Msc Splendida",
             "naviera": "MSC CRUISES S.A.",
             "terminal": "ADOSSAT/TERMINAL H",
@@ -74,26 +90,10 @@
             "pax_estimados": 500,
             "puerto": "Malta (Valetta)",
             "tipo": "llegada",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Panamà",
             "imo": "9359806",
             "mmsi": "357698000",
-            "fecha": "2026-10-04"
-        },
-        {
-            "hora": "07:34",
-            "nombre": "Costa Toscana",
-            "naviera": "COSTA CROCIERE, S.P.A.",
-            "terminal": "Terminal E (Adossat)",
-            "terminal_codigo": "E",
-            "eslora": 337.0,
-            "pax_estimados": 4500,
-            "puerto": "Marseille",
-            "tipo": "llegada",
-            "estado": "Iniciada",
-            "bandera": "Itàlia",
-            "imo": "9781891",
-            "mmsi": "247431200",
             "fecha": "2026-10-04"
         },
         {
@@ -110,22 +110,6 @@
             "bandera": "Libèria",
             "imo": "9306237",
             "mmsi": "636019221",
-            "fecha": "2026-10-04"
-        },
-        {
-            "hora": "13:58",
-            "nombre": "Hmm Ocean",
-            "naviera": "HYUNDAI MERCHANT MAR",
-            "terminal": "",
-            "terminal_codigo": "",
-            "eslora": 272.0,
-            "pax_estimados": 3000,
-            "puerto": "Valencia",
-            "tipo": "llegada",
-            "estado": "Autoritzada",
-            "bandera": "Libèria",
-            "imo": "9976587",
-            "mmsi": "636024294",
             "fecha": "2026-10-04"
         },
         {
@@ -195,16 +179,16 @@
     ],
     "salidas": [
         {
-            "hora": "01:38",
+            "hora": "01:30",
             "nombre": "Cruise Roma",
             "naviera": "GRIMALDI LOGISTICA ESPAÑA SL",
             "terminal": "TERMINAL F3",
             "terminal_codigo": "F3",
-            "eslora": 254.0,
-            "pax_estimados": 3000,
+            "eslora": 0,
+            "pax_estimados": 500,
             "puerto": "Civitavecchia",
             "tipo": "salida",
-            "estado": "Finalitzada",
+            "estado": "Iniciada",
             "bandera": "Itàlia",
             "imo": "9351476",
             "mmsi": "247219400",
@@ -275,22 +259,6 @@
             "fecha": "2026-10-04"
         },
         {
-            "hora": "13:59",
-            "nombre": "Hmm Ocean",
-            "naviera": "MARITIME AGENCY HMM SPAIN SL",
-            "terminal": "",
-            "terminal_codigo": "",
-            "eslora": 272.0,
-            "pax_estimados": 3000,
-            "puerto": "Genoa",
-            "tipo": "salida",
-            "estado": "Autoritzada",
-            "bandera": "Libèria",
-            "imo": "9976587",
-            "mmsi": "636024294",
-            "fecha": "2026-10-04"
-        },
-        {
             "hora": "17:00",
             "nombre": "Norwegian Epic",
             "naviera": "INTERCRUISES PORT OPERATIONS SPAIN SLU",
@@ -300,7 +268,7 @@
             "pax_estimados": 500,
             "puerto": "Marseille",
             "tipo": "salida",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Bahames",
             "imo": "9410569",
             "mmsi": "311018500",
@@ -316,7 +284,7 @@
             "pax_estimados": 4500,
             "puerto": "Cagliari",
             "tipo": "salida",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Itàlia",
             "imo": "9781891",
             "mmsi": "247431200",
@@ -332,7 +300,7 @@
             "pax_estimados": 500,
             "puerto": "Marseille",
             "tipo": "salida",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Panamà",
             "imo": "9359806",
             "mmsi": "357698000",
@@ -373,26 +341,26 @@
     ],
     "resumen": {
         "total_cruceros": 15,
-        "total_llegadas": 12,
-        "total_salidas": 11,
-        "pax_estimados_hoy": 21000,
-        "proximo_desembarco": "12:00",
-        "proximo_barco": "Msc Anzio Ii"
+        "total_llegadas": 11,
+        "total_salidas": 10,
+        "pax_estimados_hoy": 18000,
+        "proximo_desembarco": null,
+        "proximo_barco": null
     },
     "terminales_activas": [
-        "172133",
-        "A",
-        "F3",
-        "6212",
-        "E",
         "6995",
-        "8156",
+        "A",
+        "E",
         "7083",
-        "H"
+        "172133",
+        "F3",
+        "H",
+        "6212",
+        "8156"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-10-04T10:55:59.468555",
+        "actualizado": "2026-10-03T23:33:06.749479",
         "frecuencia": "horaria"
     }
 }
