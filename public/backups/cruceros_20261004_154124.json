@@ -26,7 +26,7 @@
             "pax_estimados": 500,
             "puerto": "Valencia",
             "tipo": "llegada",
-            "estado": "Sol·licitada",
+            "estado": "Autoritzada",
             "bandera": "Panamà",
             "imo": "9289104",
             "mmsi": "371059000",
@@ -97,22 +97,6 @@
             "fecha": "2026-10-04"
         },
         {
-            "hora": "11:25",
-            "nombre": "Hmm Ocean",
-            "naviera": "HYUNDAI MERCHANT MAR",
-            "terminal": "",
-            "terminal_codigo": "",
-            "eslora": 272.0,
-            "pax_estimados": 3000,
-            "puerto": "Valencia",
-            "tipo": "llegada",
-            "estado": "Iniciada",
-            "bandera": "Libèria",
-            "imo": "9976587",
-            "mmsi": "636024294",
-            "fecha": "2026-10-04"
-        },
-        {
             "hora": "12:00",
             "nombre": "Msc Anzio Ii",
             "naviera": "MEDITERRANEAN SHIPPING CO",
@@ -129,6 +113,22 @@
             "fecha": "2026-10-04"
         },
         {
+            "hora": "13:58",
+            "nombre": "Hmm Ocean",
+            "naviera": "HYUNDAI MERCHANT MAR",
+            "terminal": "",
+            "terminal_codigo": "",
+            "eslora": 272.0,
+            "pax_estimados": 3000,
+            "puerto": "Valencia",
+            "tipo": "llegada",
+            "estado": "Autoritzada",
+            "bandera": "Libèria",
+            "imo": "9976587",
+            "mmsi": "636024294",
+            "fecha": "2026-10-04"
+        },
+        {
             "hora": "14:00",
             "nombre": "Hmm Ocean",
             "naviera": "HYUNDAI MERCHANT MAR",
@@ -138,7 +138,7 @@
             "pax_estimados": 3000,
             "puerto": "Valencia",
             "tipo": "llegada",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Libèria",
             "imo": "9976587",
             "mmsi": "636024294",
@@ -284,7 +284,7 @@
             "pax_estimados": 3000,
             "puerto": "Genoa",
             "tipo": "salida",
-            "estado": "Iniciada",
+            "estado": "Autoritzada",
             "bandera": "Libèria",
             "imo": "9976587",
             "mmsi": "636024294",
@@ -376,23 +376,23 @@
         "total_llegadas": 12,
         "total_salidas": 11,
         "pax_estimados_hoy": 21000,
-        "proximo_desembarco": "16:00",
-        "proximo_barco": "Shekou Star"
+        "proximo_desembarco": "12:00",
+        "proximo_barco": "Msc Anzio Ii"
     },
     "terminales_activas": [
-        "7083",
+        "172133",
+        "A",
+        "F3",
         "6212",
         "E",
-        "172133",
         "6995",
-        "F3",
-        "A",
         "8156",
+        "7083",
         "H"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-10-04T15:41:24.397638",
+        "actualizado": "2026-10-04T10:55:59.468555",
         "frecuencia": "horaria"
     }
 }
