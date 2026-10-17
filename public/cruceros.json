@@ -33,22 +33,6 @@
             "fecha": "2026-10-17"
         },
         {
-            "hora": "06:00",
-            "nombre": "Msc China",
-            "naviera": "MEDITERRANEAN SHIPPING CO",
-            "terminal": "TERMINAL CATALUNYA SA",
-            "terminal_codigo": "6212",
-            "eslora": 0,
-            "pax_estimados": 500,
-            "puerto": "Valencia",
-            "tipo": "llegada",
-            "estado": "Autoritzada",
-            "bandera": "Libèria",
-            "imo": "9936642",
-            "mmsi": "636023087",
-            "fecha": "2026-10-17"
-        },
-        {
             "hora": "06:26",
             "nombre": "Mein Schiff 6",
             "naviera": "TUI CRUISES GMBH",
@@ -97,6 +81,22 @@
             "fecha": "2026-10-17"
         },
         {
+            "hora": "08:58",
+            "nombre": "Pis Kalimantan",
+            "naviera": "NORDEN",
+            "terminal": "",
+            "terminal_codigo": "",
+            "eslora": 183.0,
+            "pax_estimados": 1000,
+            "puerto": "Lavera",
+            "tipo": "llegada",
+            "estado": "Autoritzada",
+            "bandera": "Panamà",
+            "imo": "9692143",
+            "mmsi": "352003729",
+            "fecha": "2026-10-17"
+        },
+        {
             "hora": "09:00",
             "nombre": "Pis Kalimantan",
             "naviera": "NORDEN",
@@ -110,6 +110,22 @@
             "bandera": "Panamà",
             "imo": "9692143",
             "mmsi": "352003729",
+            "fecha": "2026-10-17"
+        },
+        {
+            "hora": "10:39",
+            "nombre": "Msc China",
+            "naviera": "MEDITERRANEAN SHIPPING CO",
+            "terminal": "TERMINAL CATALUNYA SA",
+            "terminal_codigo": "6212",
+            "eslora": 0,
+            "pax_estimados": 500,
+            "puerto": "Valencia",
+            "tipo": "llegada",
+            "estado": "Iniciada",
+            "bandera": "Libèria",
+            "imo": "9936642",
+            "mmsi": "636023087",
             "fecha": "2026-10-17"
         },
         {
@@ -195,6 +211,38 @@
             "fecha": "2026-10-17"
         },
         {
+            "hora": "08:59",
+            "nombre": "Pis Kalimantan",
+            "naviera": "ALFASHIP MARITIME SERVICES SL ",
+            "terminal": "",
+            "terminal_codigo": "",
+            "eslora": 183.0,
+            "pax_estimados": 1000,
+            "puerto": "Conakry",
+            "tipo": "salida",
+            "estado": "Autoritzada",
+            "bandera": "Panamà",
+            "imo": "9692143",
+            "mmsi": "352003729",
+            "fecha": "2026-10-17"
+        },
+        {
+            "hora": "12:44",
+            "nombre": "Arista",
+            "naviera": "H JOSE M  MASIQUES SA",
+            "terminal": "ELIAN BARCELONA SL",
+            "terminal_codigo": "172133",
+            "eslora": 225.0,
+            "pax_estimados": 2000,
+            "puerto": "Algeciras",
+            "tipo": "salida",
+            "estado": "Finalitzada",
+            "bandera": "Panamà",
+            "imo": "9244831",
+            "mmsi": "352003857",
+            "fecha": "2026-10-17"
+        },
+        {
             "hora": "17:00",
             "nombre": "Costa Fascinosa",
             "naviera": "NOATUM MARITIME SPAIN SAU",
@@ -260,28 +308,29 @@
         }
     ],
     "resumen": {
-        "total_cruceros": 11,
-        "total_llegadas": 11,
-        "total_salidas": 5,
-        "pax_estimados_hoy": 17000,
+        "total_cruceros": 12,
+        "total_llegadas": 12,
+        "total_salidas": 7,
+        "pax_estimados_hoy": 18000,
         "proximo_desembarco": "18:00",
         "proximo_barco": "Merito"
     },
     "terminales_activas": [
-        "H",
         "F1",
-        "E",
-        "F3",
-        "6212",
-        "7946",
         "TC",
-        "B",
+        "F3",
+        "H",
         "D",
-        "0010"
+        "6212",
+        "0010",
+        "B",
+        "172133",
+        "7946",
+        "E"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-10-17T09:01:27.444428",
+        "actualizado": "2026-10-17T14:04:08.469739",
         "frecuencia": "horaria"
     }
 }
