@@ -1,7 +1,7 @@
 {
     "llegadas": [
         {
-            "hora": "01:00",
+            "hora": "00:20",
             "nombre": "Cruise Roma",
             "naviera": "GRIMALDI EUROMED SPA",
             "terminal": "TERMINAL F3",
@@ -10,30 +10,14 @@
             "pax_estimados": 3000,
             "puerto": "Porto Torres",
             "tipo": "llegada",
-            "estado": "Autoritzada",
+            "estado": "Iniciada",
             "bandera": "Itàlia",
             "imo": "9351476",
             "mmsi": "247219400",
             "fecha": "2026-10-23"
         },
         {
-            "hora": "01:45",
-            "nombre": "Msc Meline",
-            "naviera": "MEDITERRANEAN SHIPPING CO",
-            "terminal": "TERMINAL CATALUNYA SA",
-            "terminal_codigo": "6212",
-            "eslora": 0,
-            "pax_estimados": 500,
-            "puerto": "Valencia",
-            "tipo": "llegada",
-            "estado": "Autoritzada",
-            "bandera": "Portugal",
-            "imo": "9702077",
-            "mmsi": "255806497",
-            "fecha": "2026-10-23"
-        },
-        {
-            "hora": "04:00",
+            "hora": "04:50",
             "nombre": "Celebrity Xcel",
             "naviera": "CELEBRITY CRUISES",
             "terminal": "Terminal C (Sant Bertran)",
@@ -42,14 +26,14 @@
             "pax_estimados": 500,
             "puerto": "Palma de Mallorca",
             "tipo": "llegada",
-            "estado": "Autoritzada",
+            "estado": "Iniciada",
             "bandera": "Malta",
             "imo": "9884136",
             "mmsi": "249457000",
             "fecha": "2026-10-23"
         },
         {
-            "hora": "04:45",
+            "hora": "05:20",
             "nombre": "Aidacosma",
             "naviera": "AIDA CRUISES",
             "terminal": "Terminal E (Adossat)",
@@ -58,7 +42,7 @@
             "pax_estimados": 4500,
             "puerto": "Marseille",
             "tipo": "llegada",
-            "estado": "Autoritzada",
+            "estado": "Iniciada",
             "bandera": "Itàlia",
             "imo": "9781877",
             "mmsi": "247435300",
@@ -81,22 +65,6 @@
             "fecha": "2026-10-23"
         },
         {
-            "hora": "06:30",
-            "nombre": "Msc World Europa",
-            "naviera": "MSC CRUISES S.A.",
-            "terminal": "ADOSSAT/TERMINAL H",
-            "terminal_codigo": "H",
-            "eslora": 0,
-            "pax_estimados": 500,
-            "puerto": "Malta (Valetta)",
-            "tipo": "llegada",
-            "estado": "Autoritzada",
-            "bandera": "Malta",
-            "imo": "9837420",
-            "mmsi": "256070000",
-            "fecha": "2026-10-23"
-        },
-        {
             "hora": "07:00",
             "nombre": "Msc Magnifica",
             "naviera": "MSC CRUISES S.A.",
@@ -110,6 +78,38 @@
             "bandera": "Panamà",
             "imo": "9387085",
             "mmsi": "352594000",
+            "fecha": "2026-10-23"
+        },
+        {
+            "hora": "07:22",
+            "nombre": "Msc World Europa",
+            "naviera": "MSC CRUISES S.A.",
+            "terminal": "ADOSSAT/TERMINAL H",
+            "terminal_codigo": "H",
+            "eslora": 0,
+            "pax_estimados": 500,
+            "puerto": "Malta (Valetta)",
+            "tipo": "llegada",
+            "estado": "Iniciada",
+            "bandera": "Malta",
+            "imo": "9837420",
+            "mmsi": "256070000",
+            "fecha": "2026-10-23"
+        },
+        {
+            "hora": "07:59",
+            "nombre": "Msc Meline",
+            "naviera": "MEDITERRANEAN SHIPPING CO",
+            "terminal": "TERMINAL CATALUNYA SA",
+            "terminal_codigo": "6212",
+            "eslora": 0,
+            "pax_estimados": 500,
+            "puerto": "Valencia",
+            "tipo": "llegada",
+            "estado": "Iniciada",
+            "bandera": "Portugal",
+            "imo": "9702077",
+            "mmsi": "255806497",
             "fecha": "2026-10-23"
         },
         {
@@ -211,6 +211,22 @@
     ],
     "salidas": [
         {
+            "hora": "04:51",
+            "nombre": "Msc Erminia Iii",
+            "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
+            "terminal": "TERMINAL CATALUNYA SA",
+            "terminal_codigo": "6212",
+            "eslora": 0,
+            "pax_estimados": 500,
+            "puerto": "Castellon de la Plana",
+            "tipo": "salida",
+            "estado": "Finalitzada",
+            "bandera": "Libèria",
+            "imo": "9246346",
+            "mmsi": "636020454",
+            "fecha": "2026-10-23"
+        },
+        {
             "hora": "17:00",
             "nombre": "Celebrity Xcel",
             "naviera": "BALEARES CONSIGNATARIOS SLU",
@@ -220,7 +236,7 @@
             "pax_estimados": 500,
             "puerto": "Cartagena",
             "tipo": "salida",
-            "estado": "Autoritzada",
+            "estado": "Iniciada",
             "bandera": "Malta",
             "imo": "9884136",
             "mmsi": "249457000",
@@ -236,7 +252,7 @@
             "pax_estimados": 4500,
             "puerto": "Palma de Mallorca",
             "tipo": "salida",
-            "estado": "Autoritzada",
+            "estado": "Iniciada",
             "bandera": "Itàlia",
             "imo": "9781877",
             "mmsi": "247435300",
@@ -252,7 +268,7 @@
             "pax_estimados": 500,
             "puerto": "Marseille",
             "tipo": "salida",
-            "estado": "Autoritzada",
+            "estado": "Iniciada",
             "bandera": "Malta",
             "imo": "9837420",
             "mmsi": "256070000",
@@ -380,7 +396,7 @@
             "pax_estimados": 3000,
             "puerto": "Civitavecchia",
             "tipo": "salida",
-            "estado": "Autoritzada",
+            "estado": "Iniciada",
             "bandera": "Itàlia",
             "imo": "9351476",
             "mmsi": "247219400",
@@ -388,28 +404,28 @@
         }
     ],
     "resumen": {
-        "total_cruceros": 14,
+        "total_cruceros": 15,
         "total_llegadas": 13,
-        "total_salidas": 11,
+        "total_salidas": 12,
         "pax_estimados_hoy": 22000,
-        "proximo_desembarco": null,
-        "proximo_barco": null
+        "proximo_desembarco": "12:30",
+        "proximo_barco": "Costa Fascinosa"
     },
     "terminales_activas": [
-        "C",
-        "F3",
+        "A",
         "6212",
-        "F1",
-        "8156",
         "D",
         "E",
-        "H",
+        "C",
+        "F3",
+        "F1",
         "F2",
-        "A"
+        "H",
+        "8156"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-10-22T23:53:23.845418",
+        "actualizado": "2026-10-23T09:45:16.764648",
         "frecuencia": "horaria"
     }
 }
