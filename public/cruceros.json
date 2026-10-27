@@ -10,7 +10,7 @@
             "pax_estimados": 1000,
             "puerto": "Las Palmas",
             "tipo": "llegada",
-            "estado": "Sol·licitada",
+            "estado": "Autoritzada",
             "bandera": "Illes Marshall",
             "imo": "9637076",
             "mmsi": "538005248",
@@ -30,22 +30,6 @@
             "bandera": "Libèria",
             "imo": "9232773",
             "mmsi": "636018204",
-            "fecha": "2026-10-27"
-        },
-        {
-            "hora": "06:00",
-            "nombre": "Msc Madison Ii",
-            "naviera": "MEDITERRANEAN SHIPPING CO",
-            "terminal": "TERMINAL CATALUNYA SA",
-            "terminal_codigo": "6212",
-            "eslora": 0,
-            "pax_estimados": 500,
-            "puerto": "Alger (Algiers)",
-            "tipo": "llegada",
-            "estado": "Sol·licitada",
-            "bandera": "Libèria",
-            "imo": "9231119",
-            "mmsi": "636021596",
             "fecha": "2026-10-27"
         },
         {
@@ -90,26 +74,10 @@
             "pax_estimados": 2000,
             "puerto": "Valencia",
             "tipo": "llegada",
-            "estado": "Iniciada",
+            "estado": "Finalitzada",
             "bandera": "Itàlia",
             "imo": "9859533",
             "mmsi": "247383300",
-            "fecha": "2026-10-27"
-        },
-        {
-            "hora": "08:00",
-            "nombre": "Msc Yuxin",
-            "naviera": "MEDITERRANEAN SHIPPING CO",
-            "terminal": "TERMINAL CATALUNYA SA",
-            "terminal_codigo": "6212",
-            "eslora": 0,
-            "pax_estimados": 500,
-            "puerto": "La Spezia",
-            "tipo": "llegada",
-            "estado": "Autoritzada",
-            "bandera": "Libèria",
-            "imo": "9966946",
-            "mmsi": "636023314",
             "fecha": "2026-10-27"
         },
         {
@@ -142,6 +110,22 @@
             "bandera": "Panamà",
             "imo": "9387085",
             "mmsi": "352594000",
+            "fecha": "2026-10-27"
+        },
+        {
+            "hora": "13:18",
+            "nombre": "Msc Yuxin",
+            "naviera": "MEDITERRANEAN SHIPPING CO",
+            "terminal": "TERMINAL CATALUNYA SA",
+            "terminal_codigo": "6212",
+            "eslora": 0,
+            "pax_estimados": 500,
+            "puerto": "La Spezia",
+            "tipo": "llegada",
+            "estado": "Iniciada",
+            "bandera": "Libèria",
+            "imo": "9966946",
+            "mmsi": "636023314",
             "fecha": "2026-10-27"
         },
         {
@@ -243,7 +227,7 @@
             "fecha": "2026-10-27"
         },
         {
-            "hora": "11:00",
+            "hora": "12:38",
             "nombre": "Eco Valencia",
             "naviera": "GRIMALDI LOGISTICA ESPAÑA SL",
             "terminal": "GRIMALDI TERMINAL BARCELONA SL",
@@ -252,7 +236,7 @@
             "pax_estimados": 2000,
             "puerto": "Savona",
             "tipo": "salida",
-            "estado": "Iniciada",
+            "estado": "Finalitzada",
             "bandera": "Itàlia",
             "imo": "9859533",
             "mmsi": "247383300",
@@ -356,22 +340,6 @@
         },
         {
             "hora": "20:00",
-            "nombre": "Msc Madison Ii",
-            "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
-            "terminal": "TERMINAL CATALUNYA SA",
-            "terminal_codigo": "6212",
-            "eslora": 0,
-            "pax_estimados": 500,
-            "puerto": "Casablanca",
-            "tipo": "salida",
-            "estado": "Sol·licitada",
-            "bandera": "Libèria",
-            "imo": "9231119",
-            "mmsi": "636021596",
-            "fecha": "2026-10-27"
-        },
-        {
-            "hora": "20:00",
             "nombre": "Msc Richika F",
             "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
             "terminal": "TERMINAL CATALUNYA SA",
@@ -452,28 +420,28 @@
         }
     ],
     "resumen": {
-        "total_cruceros": 17,
-        "total_llegadas": 13,
-        "total_salidas": 15,
-        "pax_estimados_hoy": 10000,
+        "total_cruceros": 16,
+        "total_llegadas": 12,
+        "total_salidas": 14,
+        "pax_estimados_hoy": 9500,
         "proximo_desembarco": "18:10",
         "proximo_barco": "Gnv Cristal"
     },
     "terminales_activas": [
         "E",
-        "6212",
+        "B",
         "8156",
-        "H",
-        "D",
         "2252",
         "F2",
-        "F3",
+        "H",
         "F1",
-        "B"
+        "6212",
+        "F3",
+        "D"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-10-27T10:13:30.080028",
+        "actualizado": "2026-10-27T16:12:38.832296",
         "frecuencia": "horaria"
     }
 }
