@@ -1,22 +1,6 @@
 {
     "llegadas": [
         {
-            "hora": "00:00",
-            "nombre": "Msc Albany",
-            "naviera": "MEDITERRANEAN SHIPPING CO",
-            "terminal": "TERMINAL CATALUNYA SA",
-            "terminal_codigo": "6212",
-            "eslora": 299.0,
-            "pax_estimados": 3000,
-            "puerto": "Valencia",
-            "tipo": "llegada",
-            "estado": "Sol·licitada",
-            "bandera": "Libèria",
-            "imo": "9619438",
-            "mmsi": "636015665",
-            "fecha": "2026-10-28"
-        },
-        {
             "hora": "03:03",
             "nombre": "Ardmore Seavantage",
             "naviera": "CARGILL",
@@ -145,39 +129,7 @@
             "fecha": "2026-10-28"
         },
         {
-            "hora": "12:00",
-            "nombre": "Zeal Lumos",
-            "naviera": "OCEAN NETWORK EXPRESS PTE LTD",
-            "terminal": "TERMINAL CATALUNYA SA",
-            "terminal_codigo": "6212",
-            "eslora": 366.0,
-            "pax_estimados": 6500,
-            "puerto": "Valencia",
-            "tipo": "llegada",
-            "estado": "Sol·licitada",
-            "bandera": "Regne Unit",
-            "imo": "9864241",
-            "mmsi": "232031320",
-            "fecha": "2026-10-28"
-        },
-        {
-            "hora": "12:00",
-            "nombre": "Zim Pacific",
-            "naviera": "ZIM INTEGRATED SHIPPING SERV.",
-            "terminal": "TERMINAL CATALUNYA SA",
-            "terminal_codigo": "6212",
-            "eslora": 262.0,
-            "pax_estimados": 3000,
-            "puerto": "Genoa",
-            "tipo": "llegada",
-            "estado": "Confirmada",
-            "bandera": "Libèria",
-            "imo": "9440837",
-            "mmsi": "636021362",
-            "fecha": "2026-10-28"
-        },
-        {
-            "hora": "13:00",
+            "hora": "12:59",
             "nombre": "Eco Livorno",
             "naviera": "GRIMALDI EUROMED SPA",
             "terminal": "GRIMALDI TERMINAL BARCELONA SL",
@@ -186,10 +138,26 @@
             "pax_estimados": 2000,
             "puerto": "Valencia",
             "tipo": "llegada",
-            "estado": "Autoritzada",
+            "estado": "Iniciada",
             "bandera": "Itàlia",
             "imo": "9859557",
             "mmsi": "247383500",
+            "fecha": "2026-10-28"
+        },
+        {
+            "hora": "13:02",
+            "nombre": "Leonidas Z",
+            "naviera": "CMA CGM",
+            "terminal": "APM TERMINALS BARCELONA, S.L.U.",
+            "terminal_codigo": "7083",
+            "eslora": 186.0,
+            "pax_estimados": 1000,
+            "puerto": "Aliaga",
+            "tipo": "llegada",
+            "estado": "Iniciada",
+            "bandera": "Illes Marshall",
+            "imo": "9963528",
+            "mmsi": "538010119",
             "fecha": "2026-10-28"
         },
         {
@@ -202,7 +170,7 @@
             "pax_estimados": 1000,
             "puerto": "Genoa",
             "tipo": "llegada",
-            "estado": "Confirmada",
+            "estado": "Autoritzada",
             "bandera": "Malta",
             "imo": "9379351",
             "mmsi": "215418000",
@@ -444,7 +412,7 @@
             "pax_estimados": 2000,
             "puerto": "Savona",
             "tipo": "salida",
-            "estado": "Autoritzada",
+            "estado": "Iniciada",
             "bandera": "Itàlia",
             "imo": "9859557",
             "mmsi": "247383500",
@@ -516,27 +484,28 @@
         }
     ],
     "resumen": {
-        "total_cruceros": 19,
-        "total_llegadas": 18,
+        "total_cruceros": 17,
+        "total_llegadas": 16,
         "total_salidas": 14,
-        "pax_estimados_hoy": 26000,
-        "proximo_desembarco": "12:00",
-        "proximo_barco": "Msc Uberty Viii"
+        "pax_estimados_hoy": 14500,
+        "proximo_desembarco": "19:00",
+        "proximo_barco": "Abel Matutes"
     },
     "terminales_activas": [
-        "E",
-        "6212",
         "C",
         "8156",
-        "F1",
-        "F3",
-        "B",
+        "7083",
         "2252",
+        "F1",
+        "6212",
+        "F3",
+        "E",
+        "B",
         "F2"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-10-28T11:00:07.223553",
+        "actualizado": "2026-10-28T17:06:51.727906",
         "frecuencia": "horaria"
     }
 }
