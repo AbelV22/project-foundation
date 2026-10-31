@@ -202,7 +202,7 @@
             "pax_estimados": 2000,
             "puerto": "Valencia",
             "tipo": "llegada",
-            "estado": "Iniciada",
+            "estado": "Finalitzada",
             "bandera": "Itàlia",
             "imo": "9859533",
             "mmsi": "247383300",
@@ -225,7 +225,7 @@
             "fecha": "2026-10-31"
         },
         {
-            "hora": "22:00",
+            "hora": "21:18",
             "nombre": "Cruise Roma",
             "naviera": "GRIMALDI EUROMED SPA",
             "terminal": "TERMINAL F3",
@@ -234,7 +234,7 @@
             "pax_estimados": 500,
             "puerto": "Civitavecchia",
             "tipo": "llegada",
-            "estado": "Autoritzada",
+            "estado": "Iniciada",
             "bandera": "Itàlia",
             "imo": "9351476",
             "mmsi": "247219400",
@@ -467,7 +467,7 @@
             "fecha": "2026-10-31"
         },
         {
-            "hora": "20:00",
+            "hora": "19:33",
             "nombre": "Eco Valencia",
             "naviera": "GRIMALDI LOGISTICA ESPAÑA SL",
             "terminal": "GRIMALDI TERMINAL BARCELONA SL",
@@ -476,7 +476,7 @@
             "pax_estimados": 2000,
             "puerto": "Savona",
             "tipo": "salida",
-            "estado": "Iniciada",
+            "estado": "Finalitzada",
             "bandera": "Itàlia",
             "imo": "9859533",
             "mmsi": "247383300",
@@ -497,34 +497,50 @@
             "imo": "9232773",
             "mmsi": "636018204",
             "fecha": "2026-10-31"
+        },
+        {
+            "hora": "22:05",
+            "nombre": "Zeal Lumos",
+            "naviera": "OCEAN NETWORK EXPRESS SPAIN SA",
+            "terminal": "TERMINAL CATALUNYA SA",
+            "terminal_codigo": "6212",
+            "eslora": 366.0,
+            "pax_estimados": 6500,
+            "puerto": "Genoa",
+            "tipo": "salida",
+            "estado": "Finalitzada",
+            "bandera": "Regne Unit",
+            "imo": "9864241",
+            "mmsi": "232031320",
+            "fecha": "2026-10-31"
         }
     ],
     "resumen": {
-        "total_cruceros": 17,
+        "total_cruceros": 18,
         "total_llegadas": 15,
-        "total_salidas": 16,
+        "total_salidas": 17,
         "pax_estimados_hoy": 16500,
-        "proximo_desembarco": "22:00",
-        "proximo_barco": "Cruise Roma"
+        "proximo_desembarco": null,
+        "proximo_barco": null
     },
     "terminales_activas": [
-        "D",
-        "6995",
-        "8156",
         "7259",
-        "7946",
-        "H",
-        "F3",
-        "6212",
-        "7083",
-        "E",
         "B",
+        "D",
         "C",
-        "A"
+        "6212",
+        "H",
+        "A",
+        "8156",
+        "7083",
+        "7946",
+        "6995",
+        "E",
+        "F3"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-10-31T20:23:51.072934",
+        "actualizado": "2026-10-31T23:57:11.995897",
         "frecuencia": "horaria"
     }
 }
