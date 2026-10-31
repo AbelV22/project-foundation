@@ -161,7 +161,39 @@
             "fecha": "2026-10-31"
         },
         {
-            "hora": "13:00",
+            "hora": "13:05",
+            "nombre": "Msc Olga F",
+            "naviera": "MEDITERRANEAN SHIPPING CO",
+            "terminal": "",
+            "terminal_codigo": "",
+            "eslora": 0,
+            "pax_estimados": 500,
+            "puerto": "Oran",
+            "tipo": "llegada",
+            "estado": "Fondeig Previ",
+            "bandera": "Libèria",
+            "imo": "9336359",
+            "mmsi": "636021017",
+            "fecha": "2026-10-31"
+        },
+        {
+            "hora": "13:08",
+            "nombre": "Msc Olga F",
+            "naviera": "MEDITERRANEAN SHIPPING CO",
+            "terminal": "TERMINAL CATALUNYA SA",
+            "terminal_codigo": "6212",
+            "eslora": 0,
+            "pax_estimados": 500,
+            "puerto": "Oran",
+            "tipo": "llegada",
+            "estado": "Fondeig Previ",
+            "bandera": "Libèria",
+            "imo": "9336359",
+            "mmsi": "636021017",
+            "fecha": "2026-10-31"
+        },
+        {
+            "hora": "14:04",
             "nombre": "Eco Valencia",
             "naviera": "GRIMALDI EUROMED SPA",
             "terminal": "GRIMALDI TERMINAL BARCELONA SL",
@@ -170,7 +202,7 @@
             "pax_estimados": 2000,
             "puerto": "Valencia",
             "tipo": "llegada",
-            "estado": "Autoritzada",
+            "estado": "Iniciada",
             "bandera": "Itàlia",
             "imo": "9859533",
             "mmsi": "247383300",
@@ -275,6 +307,22 @@
             "fecha": "2026-10-31"
         },
         {
+            "hora": "09:44",
+            "nombre": "Diane A",
+            "naviera": "ARKAS SPAIN SA",
+            "terminal": "APM TERMINALS BARCELONA, S.L.U.",
+            "terminal_codigo": "7083",
+            "eslora": 184.0,
+            "pax_estimados": 1000,
+            "puerto": "Fos-sur-Mer",
+            "tipo": "salida",
+            "estado": "Finalitzada",
+            "bandera": "Malta",
+            "imo": "9385532",
+            "mmsi": "229142000",
+            "fecha": "2026-10-31"
+        },
+        {
             "hora": "10:59",
             "nombre": "Rustaq Silver",
             "naviera": "ALFASHIP MARITIME SERVICES SL ",
@@ -288,6 +336,38 @@
             "bandera": "Illes Marshall",
             "imo": "9718753",
             "mmsi": "538006499",
+            "fecha": "2026-10-31"
+        },
+        {
+            "hora": "13:07",
+            "nombre": "Msc Olga F",
+            "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
+            "terminal": "",
+            "terminal_codigo": "",
+            "eslora": 0,
+            "pax_estimados": 500,
+            "puerto": "Valencia",
+            "tipo": "salida",
+            "estado": "Fondeig Previ",
+            "bandera": "Libèria",
+            "imo": "9336359",
+            "mmsi": "636021017",
+            "fecha": "2026-10-31"
+        },
+        {
+            "hora": "13:09",
+            "nombre": "Msc Olga F",
+            "naviera": "MEDITERRANEAN SHIPPING COM ESPAÑA SLU",
+            "terminal": "TERMINAL CATALUNYA SA",
+            "terminal_codigo": "6212",
+            "eslora": 0,
+            "pax_estimados": 500,
+            "puerto": "Valencia",
+            "tipo": "salida",
+            "estado": "Fondeig Previ",
+            "bandera": "Libèria",
+            "imo": "9336359",
+            "mmsi": "636021017",
             "fecha": "2026-10-31"
         },
         {
@@ -396,7 +476,7 @@
             "pax_estimados": 2000,
             "puerto": "Savona",
             "tipo": "salida",
-            "estado": "Autoritzada",
+            "estado": "Iniciada",
             "bandera": "Itàlia",
             "imo": "9859533",
             "mmsi": "247383300",
@@ -420,30 +500,31 @@
         }
     ],
     "resumen": {
-        "total_cruceros": 15,
-        "total_llegadas": 13,
-        "total_salidas": 13,
-        "pax_estimados_hoy": 15500,
-        "proximo_desembarco": "11:00",
-        "proximo_barco": "Rustaq Silver"
+        "total_cruceros": 17,
+        "total_llegadas": 15,
+        "total_salidas": 16,
+        "pax_estimados_hoy": 16500,
+        "proximo_desembarco": "18:00",
+        "proximo_barco": "Catherine C"
     },
     "terminales_activas": [
         "A",
-        "7259",
-        "H",
-        "D",
-        "C",
-        "8156",
-        "F3",
         "B",
-        "6995",
+        "D",
         "7946",
+        "6212",
+        "8156",
+        "C",
         "E",
-        "6212"
+        "7259",
+        "7083",
+        "6995",
+        "H",
+        "F3"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-10-31T10:44:27.941348",
+        "actualizado": "2026-10-31T15:57:10.963089",
         "frecuencia": "horaria"
     }
 }
