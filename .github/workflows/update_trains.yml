@@ -7,6 +7,11 @@ on:
 
 permissions:
   contents: write # Necesario para poder hacer 'git push' del JSON
+  actions: write  # Para relanzarse con workflow_dispatch
+
+concurrency:
+  group: scraper-trenes
+  cancel-in-progress: false
 
 jobs:
   scrape-and-commit:
@@ -36,5 +41,32 @@ jobs:
           git config --global user.name 'GitHub Action Bot'
           git config --global user.email 'action@github.com'
           git add public/trenes_sants.json public/backups/ || true
-          # Solo hace commit si el archivo ha cambiado
-          git diff --quiet && git diff --staged --quiet || (git commit -m "Actualizar horarios trenes Sants" && git push)
+
+          if git diff --staged --quiet; then
+            echo "✅ No hay cambios nuevos en los trenes. Nada que guardar."
+          else
+            git commit -m "Actualizar horarios trenes Sants"
+
+            # Otros bots suben datos a main a la vez: rebase antes del push.
+            git fetch origin main
+            if ! git rebase origin/main; then
+              echo "⚠️ Rebase falló, intentando merge..."
+              git rebase --abort || true
+              git merge origin/main --no-edit -X theirs || true
+            fi
+
+            git push origin main
+          fi
+
+      # GitHub retrasa o se salta los cron de este repo (los vuelos llegaban a
+      # pasar 4-11 h sin actualizarse). Cada ejecución espera y lanza la
+      # siguiente: workflow_dispatch con GITHUB_TOKEN sí crea una ejecución
+      # nueva. El cron de arriba solo hace de red de seguridad si la cadena se
+      # rompe, y el grupo de concurrency evita que haya dos cadenas a la vez.
+      - name: ⏭️ Programar la siguiente ejecución
+        if: always()
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          sleep 2400   # ~40 min + ~10 min de ejecución ≈ cada 50 min
+          gh workflow run update_trains.yml --ref main

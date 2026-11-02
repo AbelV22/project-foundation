@@ -57,7 +57,9 @@ public class LocationTrackingService extends Service {
     public static final int ALARM_REQUEST_CODE = 9003;
 
     public static final long INTERVAL_MS = 60 * 1000;
-    public static final long FASTEST_INTERVAL_MS = 30 * 1000;
+    public static final long FASTEST_INTERVAL_MS = 60 * 1000;
+    // Watchdog alarm: resurrects the service and covers a stalled provider.
+    public static final long ALARM_INTERVAL_MS = 2 * 60 * 1000;
     private static final long FUSED_FALLBACK_TIMEOUT_MS = 15 * 1000;
 
     public static volatile boolean isRunning = false;
@@ -294,6 +296,10 @@ public class LocationTrackingService extends Service {
             }
         }
 
+        // onStartCommand runs again on every resurrection: drop the previous
+        // listeners so they don't pile up and multiply the updates.
+        stopLocationUpdates();
+
         // === ENGINE 1: FusedLocationProviderClient ===
         startFusedLocationUpdates();
 
@@ -511,6 +517,25 @@ public class LocationTrackingService extends Service {
         } else {
             logDebug("fallback_not_needed",
                 "Fused funciona OK. Callbacks:" + locationUpdateCount + " nulls:" + fusedNullCount);
+            // Fused works: the native listeners would only duplicate it.
+            if (nativeLocationListener != null) {
+                locationManager.removeUpdates(nativeLocationListener);
+                nativeLocationListener = null;
+            }
+        }
+    }
+
+    private void stopLocationUpdates() {
+        if (fusedLocationCallback != null) {
+            fusedLocationClient.removeLocationUpdates(fusedLocationCallback);
+            fusedLocationCallback = null;
+        }
+        if (nativeLocationListener != null) {
+            locationManager.removeUpdates(nativeLocationListener);
+            nativeLocationListener = null;
+        }
+        if (fallbackHandler != null) {
+            fallbackHandler.removeCallbacksAndMessages(null);
         }
     }
 
@@ -526,7 +551,7 @@ public class LocationTrackingService extends Service {
             flags |= PendingIntent.FLAG_MUTABLE;
         }
         PendingIntent alarmIntent = PendingIntent.getBroadcast(this, ALARM_REQUEST_CODE, intent, flags);
-        long triggerTime = System.currentTimeMillis() + INTERVAL_MS;
+        long triggerTime = System.currentTimeMillis() + ALARM_INTERVAL_MS;
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             alarmManager.setExactAndAllowWhileIdle(AlarmManager.RTC_WAKEUP, triggerTime, alarmIntent);
@@ -601,6 +626,13 @@ public class LocationTrackingService extends Service {
         }
 
         if (!isTrackingAllowed(context)) {
+            return;
+        }
+
+        // The running service delivered a fix recently: nothing to do.
+        if (isRunning
+                && System.currentTimeMillis() - prefs.getLong("last_update", 0) < ALARM_INTERVAL_MS) {
+            scheduleNextAlarm(context);
             return;
         }
 
@@ -767,7 +799,7 @@ public class LocationTrackingService extends Service {
         PendingIntent pi = PendingIntent.getBroadcast(context, ALARM_REQUEST_CODE, intent, flags);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             am.setExactAndAllowWhileIdle(AlarmManager.RTC_WAKEUP,
-                System.currentTimeMillis() + INTERVAL_MS, pi);
+                System.currentTimeMillis() + ALARM_INTERVAL_MS, pi);
         }
     }
 
@@ -820,15 +852,7 @@ public class LocationTrackingService extends Service {
     @Override
     public void onDestroy() {
         Log.d(TAG, "Service onDestroy");
-        if (fusedLocationCallback != null) {
-            fusedLocationClient.removeLocationUpdates(fusedLocationCallback);
-        }
-        if (nativeLocationListener != null) {
-            locationManager.removeUpdates(nativeLocationListener);
-        }
-        if (fallbackHandler != null) {
-            fallbackHandler.removeCallbacksAndMessages(null);
-        }
+        stopLocationUpdates();
         if (wakeLock != null && wakeLock.isHeld()) {
             wakeLock.release();
         }

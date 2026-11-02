@@ -217,16 +217,12 @@ const sendToGeofence = async (position: GeolocationPosition): Promise<void> => {
     const deviceId = getOrCreateDeviceId();
     
     try {
-        await supabase.functions.invoke('check-geofence', {
-            body: {
-                lat: position.coords.latitude,
-                lng: position.coords.longitude,
-                action: 'register',
-                deviceId,
-                accuracy: position.coords.accuracy,
-                deviceName,
-                isBackground: document.hidden
-            }
+        // @ts-expect-error - RPC not in generated types yet
+        await supabase.rpc('fn_geofence_check', {
+            p_device_id: deviceId,
+            p_lat: position.coords.latitude,
+            p_lng: position.coords.longitude,
+            p_accuracy: position.coords.accuracy ?? 0
         });
     } catch (e) {
         console.error('[LocationDiag] Geofence error:', e);

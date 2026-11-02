@@ -9,9 +9,25 @@ let webWatchId: number | null = null;
 let lastZona: string | null = null;
 let lastCheckTime = 0;
 let lastPosition: { lat: number; lng: number } | null = null;
+let lastCheckedPosition: { lat: number; lng: number } | null = null;
 let lastError: string | null = null;
 let isTestingMode = false;
 let deviceName: string | null = null;
+
+// Adaptive throttle: call edge function less often when state is stable
+const THROTTLE_STABLE_INSIDE_MS = 4 * 60 * 1000; // 4 min when inside a zone and not moving
+const THROTTLE_OUTSIDE_MS = 2 * 60 * 1000;       // 2 min when outside any zone
+const THROTTLE_TRANSITION_MS = 60 * 1000;        // 1 min when zone may be changing
+const MIN_DISTANCE_METERS = 50;                  // Skip if moved less than this
+
+// Rough distance in meters between two lat/lng points (equirectangular approx — fine for <1km)
+const distanceMeters = (a: { lat: number; lng: number }, b: { lat: number; lng: number }): number => {
+    const toRad = (v: number) => (v * Math.PI) / 180;
+    const R = 6371000;
+    const x = (toRad(b.lng) - toRad(a.lng)) * Math.cos(toRad((a.lat + b.lat) / 2));
+    const y = toRad(b.lat) - toRad(a.lat);
+    return Math.sqrt(x * x + y * y) * R;
+};
 
 // Callback for UI updates
 type ZoneCallback = (zona: string | null, error?: string) => void;
@@ -100,37 +116,58 @@ const startWebTracking = (): void => {
  */
 const handlePositionUpdate = async (position: GeolocationPosition): Promise<void> => {
     const now = Date.now();
+    const lat = position.coords.latitude;
+    const lng = position.coords.longitude;
+    const accuracy = position.coords.accuracy;
+    const current = { lat, lng };
 
-    // Throttle to max one check per 60 seconds (1 minute)
-    if (now - lastCheckTime < 60000) {
+    // Adaptive throttle: longer interval when state is stable
+    const throttleMs = lastZona ? THROTTLE_STABLE_INSIDE_MS : THROTTLE_OUTSIDE_MS;
+    const elapsed = now - lastCheckTime;
+
+    if (elapsed < THROTTLE_TRANSITION_MS) {
+        // Hard minimum: never more than 1 call/min
+        return;
+    }
+
+    if (elapsed < throttleMs) {
+        // Before the adaptive threshold, only call if the device has actually moved
+        const moved = lastCheckedPosition ? distanceMeters(lastCheckedPosition, current) : Infinity;
+        if (moved < MIN_DISTANCE_METERS) {
+            lastPosition = current;
+            return;
+        }
+    }
+
+    // In background with a stable zone, skip entirely — nothing will change server-side
+    if (document.hidden && lastZona && lastCheckedPosition &&
+        distanceMeters(lastCheckedPosition, current) < MIN_DISTANCE_METERS) {
+        lastPosition = current;
         return;
     }
 
     lastCheckTime = now;
+    lastCheckedPosition = current;
     lastError = null;
 
-    const lat = position.coords.latitude;
-    const lng = position.coords.longitude;
-    const accuracy = position.coords.accuracy;
-
-    lastPosition = { lat, lng };
+    lastPosition = current;
     console.log(`[AutoLocation] Position: ${lat.toFixed(5)}, ${lng.toFixed(5)} (acc: ${accuracy?.toFixed(0)}m)`);
 
     const deviceId = getOrCreateDeviceId();
 
     try {
-        const { data, error } = await supabase.functions.invoke('check-geofence', {
-            body: {
-                lat,
-                lng,
-                action: 'register',
-                deviceId,
-                previousZona: lastZona,
-                accuracy,
-                deviceName,
-                isBackground: document.hidden
-            }
-        });
+        // Direct RPC instead of the check-geofence Edge Function: same logic,
+        // without spending the plan's Edge Function invocation quota.
+        // @ts-expect-error - RPC not in generated types yet
+        const { data, error } = (await supabase.rpc('fn_geofence_check', {
+            p_device_id: deviceId,
+            p_lat: lat,
+            p_lng: lng,
+            p_accuracy: accuracy ?? 0
+        })) as {
+            data: { success?: boolean; zona?: string; message?: string } | null;
+            error: { message: string } | null;
+        };
 
         if (error) {
             lastError = `Error de geofence: ${error.message}`;

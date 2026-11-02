@@ -26,8 +26,8 @@ def limpiar_nombre_tren(texto_sucio):
     limpio = re.sub(r'^(RF|RI|MD|R\d+|IL)\s*-\s*', '', texto)
     return limpio.strip()
 
-def obtener_trenes():
-    print("🚀 Iniciando Scraper de Trenes Sants (API directa)...")
+def extraer_trenes():
+    """Una pasada con Chrome: carga la página, obtiene el token y lee la API."""
 
     options = Options()
     options.add_argument('--headless')
@@ -55,7 +55,7 @@ def obtener_trenes():
 
         if not auth_token:
             print("❌ No se pudo obtener el token p_p_auth")
-            sys.exit(1)
+            return []
 
         print(f"   Token obtenido: {auth_token}")
 
@@ -167,6 +167,23 @@ def obtener_trenes():
         traceback.print_exc()
     finally:
         driver.quit()
+
+    return datos
+
+def obtener_trenes():
+    print("🚀 Iniciando Scraper de Trenes Sants (API directa)...")
+
+    # ADIF (Akamai) a veces responde a los runners de GitHub con la lista vacía:
+    # se reintenta con un navegador nuevo antes de dar la ejecución por fallida.
+    intentos = 3
+    datos = []
+    for intento in range(1, intentos + 1):
+        datos = extraer_trenes()
+        if datos:
+            break
+        if intento < intentos:
+            print(f"🔁 Intento {intento}/{intentos} sin trenes, reintentando en 45 s...")
+            time.sleep(45)
 
     # 3. DEDUPLICAR + GUARDADO SEGURO
     if datos:

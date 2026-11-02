@@ -8,12 +8,17 @@ on:
   # Botón manual
   workflow_dispatch:
 
+concurrency:
+  group: scraper-vuelos
+  cancel-in-progress: false
+
 jobs:
   run-scraper:
     runs-on: ubuntu-latest
 
     permissions:
       contents: write
+      actions: write   # para relanzarse con workflow_dispatch
 
     steps:
       - name: Checkout del repositorio
@@ -62,3 +67,15 @@ jobs:
             git push origin main
           fi
 
+      # GitHub retrasa o se salta los cron de este repo (los vuelos llegaban a
+      # pasar 4-11 h sin actualizarse). Cada ejecución espera y lanza la
+      # siguiente: workflow_dispatch con GITHUB_TOKEN sí crea una ejecución
+      # nueva. El cron de arriba solo hace de red de seguridad si la cadena se
+      # rompe, y el grupo de concurrency evita que haya dos cadenas a la vez.
+      - name: ⏭️ Programar la siguiente ejecución
+        if: always()
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          sleep 2400   # ~40 min + ~10 min de ejecución ≈ cada 50 min
+          gh workflow run schedule.yml --ref main

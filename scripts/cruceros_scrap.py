@@ -25,14 +25,13 @@ logger = setup_logger('Cruceros_Scraper')
 # =============================================================================
 # CONSTANTS
 # =============================================================================
-# Tipos de barcos que nos interesan (cruceros y ferries de pasajeros)
-CRUISE_TYPES = [
-    "CREUER",           # Crucero en catalán
-    "CRUISE",           # Crucero en inglés
-    "FERRY",            # Ferry de pasajeros
-    "RO-PAX",           # Roll-on/Roll-off con pasajeros
-    "PASSENGER",        # Barco de pasajeros genérico
-]
+# Tipos de barco que nos interesan, tal como los publica el Port (VAIXELLTIPUS,
+# en catalán). El resto (Portacontenidors, Tancs, Car-carrier, Ro-Ro...) son
+# mercancías y no traen pasajeros.
+PASSENGER_TYPES = {
+    "PASSATGE": "crucero",
+    "TRANSBORDADORS": "ferry",
+}
 
 # Terminales de cruceros en Barcelona
 CRUISE_TERMINALS = {
@@ -83,40 +82,25 @@ def fetch_csv_data(url: str) -> Optional[List[Dict]]:
         logger.error(f"Error parsing CSV: {e}")
         return None
 
-def is_cruise_or_ferry(row: Dict) -> bool:
-    """
-    Determina si el barco es un crucero o ferry de pasajeros.
-    """
-    vessel_type = (row.get('VAIXELLTIPUS') or '').upper()
-    vessel_name = (row.get('VAIXELLNOM') or '').upper()
-
-    # Verificar por tipo de barco
-    for cruise_type in CRUISE_TYPES:
-        if cruise_type in vessel_type:
-            return True
-
-    # Nombres típicos de cruceros/ferries
-    cruise_keywords = ['CRUISE', 'CRUISER', 'WONDER', 'HARMONY', 'OASIS',
-                       'SYMPHONY', 'ALLURE', 'NAVIGATOR', 'EXPLORER',
-                       'FERRY', 'TRASMEDITERRANEA', 'BALEARIA', 'GRIMALDI',
-                       'GNV', 'COSTA', 'MSC', 'ROYAL', 'NORWEGIAN', 'CARNIVAL',
-                       'CELEBRITY', 'DISNEY', 'PRINCESS', 'AIDA', 'TUI', 'MEIN SCHIFF']
-
-    for keyword in cruise_keywords:
-        if keyword in vessel_name:
-            return True
-
-    # Verificar por eslora (cruceros suelen ser >150m)
+def parse_metres(value) -> float:
+    """El Port publica las medidas con coma decimal ("293,95")."""
     try:
-        eslora = float(row.get('ESLORA_METRES') or 0)
-        if eslora >= 150:
-            # Podría ser crucero, verificar que no sea carguero
-            if 'CONTAINER' not in vessel_type and 'CARGO' not in vessel_type:
-                return True
-    except:
-        pass
+        return float(str(value or 0).replace(',', '.'))
+    except ValueError:
+        return 0.0
 
-    return False
+def vessel_class(row: Dict) -> Optional[str]:
+    """
+    'crucero' o 'ferry' según VAIXELLTIPUS; None para barcos de mercancías.
+    Clasificar por nombre o eslora colaba portacontenedores (MSC...) y
+    car-carriers (Grimaldi) como cruceros.
+    """
+    vessel_type = (row.get('VAIXELLTIPUS') or '').strip().upper()
+    return PASSENGER_TYPES.get(vessel_type)
+
+def is_cruise_or_ferry(row: Dict) -> bool:
+    """Determina si el barco es un crucero o ferry de pasajeros."""
+    return vessel_class(row) is not None
 
 def parse_cruise_row(row: Dict, is_arrival: bool = True) -> Dict:
     """
@@ -135,10 +119,7 @@ def parse_cruise_row(row: Dict, is_arrival: bool = True) -> Dict:
         hora = hora[:5] if len(hora) >= 5 else hora
 
     # Extraer eslora y estimar pasajeros
-    try:
-        eslora = float(row.get('ESLORA_METRES') or 0)
-    except:
-        eslora = 0
+    eslora = parse_metres(row.get('ESLORA_METRES'))
 
     pax = estimate_passengers(eslora)
 
@@ -167,6 +148,7 @@ def parse_cruise_row(row: Dict, is_arrival: bool = True) -> Dict:
         "pax_estimados": pax,
         "puerto": puerto,
         "tipo": "llegada" if is_arrival else "salida",
+        "clase": vessel_class(row),
         "estado": row.get('ESCALAESTAT', 'Programado'),
         "bandera": row.get('VAIXELLBANDERANOM', 'N/A'),
         "imo": row.get('IMO', ''),

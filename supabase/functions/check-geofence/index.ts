@@ -99,9 +99,9 @@ serve(async (req) => {
       Deno.env.get('SUPABASE_SERVICE_ROLE_KEY') ?? ''
     );
 
-    console.log(`[check-geofence] Procesando evento para ${deviceId} en (${lat}, ${lng})`);
-
-    const { data: rpcResult, error: rpcError } = await supabase.rpc('fn_process_geofence_event', {
+    // fn_geofence_check wraps fn_process_geofence_event with a per-device rate
+    // limit and adds the next_check_s / move_m pacing hints for the app.
+    const { data: rpcResult, error: rpcError } = await supabase.rpc('fn_geofence_check', {
       p_device_id: deviceId,
       p_lat: lat,
       p_lng: lng,
@@ -112,8 +112,6 @@ serve(async (req) => {
       console.error('[check-geofence] RPC Error:', rpcError);
       throw rpcError;
     }
-
-    console.log(`[check-geofence] RPC Result:`, rpcResult);
 
     return new Response(JSON.stringify(rpcResult), {
       headers: { ...corsHeaders, 'Content-Type': 'application/json' }

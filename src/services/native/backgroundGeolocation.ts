@@ -27,8 +27,21 @@ let hasWakeLock = false;
 let hasWifiLock = false;
 let locationCount = 0;
 
-// Configuration
-const MIN_UPDATE_INTERVAL_MS = 60 * 1000; // Minimum 60 seconds (1 minute) between geofence checks
+// Adaptive throttle configuration
+const MIN_UPDATE_INTERVAL_MS = 60 * 1000;              // Hard minimum between geofence checks
+const THROTTLE_STABLE_INSIDE_MS = 4 * 60 * 1000;       // 4 min when inside a zone and not moving
+const THROTTLE_OUTSIDE_MS = 2 * 60 * 1000;             // 2 min when outside any zone
+const MIN_DISTANCE_METERS = 50;                        // Skip if moved less than this
+
+let lastCheckedPosition: { lat: number; lng: number } | null = null;
+
+const distanceMeters = (a: { lat: number; lng: number }, b: { lat: number; lng: number }): number => {
+    const toRad = (v: number) => (v * Math.PI) / 180;
+    const R = 6371000;
+    const x = (toRad(b.lng) - toRad(a.lng)) * Math.cos(toRad((a.lat + b.lat) / 2));
+    const y = toRad(b.lat) - toRad(a.lat);
+    return Math.sqrt(x * x + y * y) * R;
+};
 
 /**
  * Log debug event using REST API (bypasses type system for new table)
@@ -188,11 +201,21 @@ export const initBackgroundGeolocation = async (): Promise<boolean> => {
                         accuracy: location.accuracy
                     };
 
-                    // Throttle geofence checks
+                    // Adaptive throttle: call edge function less often when state is stable
                     const now = Date.now();
-                    if (now - lastUpdateTime >= MIN_UPDATE_INTERVAL_MS) {
+                    const elapsed = now - lastUpdateTime;
+                    const current = { lat: location.latitude, lng: location.longitude };
+                    const throttleMs = lastZona ? THROTTLE_STABLE_INSIDE_MS : THROTTLE_OUTSIDE_MS;
+                    const moved = lastCheckedPosition ? distanceMeters(lastCheckedPosition, current) : Infinity;
+
+                    const shouldCall =
+                        elapsed >= MIN_UPDATE_INTERVAL_MS &&
+                        (elapsed >= throttleMs || moved >= MIN_DISTANCE_METERS);
+
+                    if (shouldCall) {
                         lastUpdateTime = now;
-                        await logDebugEvent('geofence_calling', `Calling check-geofence...`);
+                        lastCheckedPosition = current;
+                        await logDebugEvent('geofence_calling', `Calling check-geofence (moved=${moved.toFixed(0)}m, elapsed=${(elapsed / 1000).toFixed(0)}s)`);
                         await checkGeofenceAndRegister(location.latitude, location.longitude, location.accuracy);
                     }
                 }
@@ -259,18 +282,18 @@ const checkGeofenceAndRegister = async (lat: number, lng: number, accuracy?: num
 
         console.log(`[BackgroundGeo] Checking geofence for ${lat.toFixed(5)}, ${lng.toFixed(5)}`);
 
-        const { data, error } = await supabase.functions.invoke('check-geofence', {
-            body: {
-                lat,
-                lng,
-                action: 'register',
-                deviceId,
-                previousZona: lastZona,
-                accuracy,
-                deviceName,
-                isBackground: true
-            }
-        });
+        // Direct RPC instead of the check-geofence Edge Function: same logic,
+        // without spending the plan's Edge Function invocation quota.
+        // @ts-expect-error - RPC not in generated types yet
+        const { data, error } = (await supabase.rpc('fn_geofence_check', {
+            p_device_id: deviceId,
+            p_lat: lat,
+            p_lng: lng,
+            p_accuracy: accuracy ?? 0
+        })) as {
+            data: { success?: boolean; zona?: string; message?: string } | null;
+            error: { message: string } | null;
+        };
 
         if (error) {
             console.error('[BackgroundGeo] Geofence error:', error);

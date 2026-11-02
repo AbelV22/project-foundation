@@ -34,9 +34,9 @@ IF v_has_session THEN
 ## Geofencing System Architecture
 
 ### Flow
-1. **Frontend** (`AutoLocationService.ts`) → calls Edge Function with lat/lng
-2. **Edge Function** (`check-geofence/index.ts`) → calls RPC `fn_process_geofence_event`
-3. **RPC Function** → handles state machine logic in database
+1. **Clients** (APK ≥ 1.1.6 native service, `AutoLocationService.ts`, `backgroundGeolocation.ts`) → call RPC `fn_geofence_check` directly via PostgREST. Edge Function invocations are capped on the free plan (500k/month); REST calls are not.
+2. **Legacy path**: older APKs still call the Edge Function `check-geofence`, which now just delegates to `fn_geofence_check`.
+3. **`fn_geofence_check`** → per-device rate limit (20 s, table `geofence_rate_limit`), input validation, then `fn_process_geofence_event` (state machine), plus pacing hints `next_check_s` / `move_m` that the APK uses to decide when to send again.
 
 ### Zone Detection
 - Uses PostgreSQL native `polygon` type with `@>` operator
