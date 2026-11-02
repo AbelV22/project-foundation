@@ -5,3 +5,6 @@ verify_jwt = true
 
 [functions.scan-ticket]
 verify_jwt = true
+
+[functions.traffic-sync]
+verify_jwt = false

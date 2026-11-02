@@ -30,6 +30,7 @@ jobs:
       - name: Deploy Edge Functions
         run: |
           supabase functions deploy scan-ticket --yes
+          supabase functions deploy traffic-sync --no-verify-jwt --yes
 
       # check-geofence stays deleted: APKs < 1.1.6 hammered it (~135k
       # invocations/day vs 500k/month on the free plan). The web app and
