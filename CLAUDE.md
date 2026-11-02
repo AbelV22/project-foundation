@@ -35,7 +35,7 @@ IF v_has_session THEN
 
 ### Flow
 1. **Clients** (APK ≥ 1.1.6 native service, `AutoLocationService.ts`, `backgroundGeolocation.ts`) → call RPC `fn_geofence_check` directly via PostgREST. Edge Function invocations are capped on the free plan (500k/month); REST calls are not.
-2. **Legacy path**: older APKs still call the Edge Function `check-geofence`, which now just delegates to `fn_geofence_check`.
+2. **Edge Function `check-geofence` is deleted** (2026-11-02): APKs < 1.1.6 called it ~135k times/day, far over the free plan's 500k invocations/month. Those APKs no longer get zone detection until they update. CI keeps it deleted (`deploy_supabase.yml`); the source stays in `supabase/functions/check-geofence` in case it's ever needed.
 3. **`fn_geofence_check`** → per-device rate limit (20 s, table `geofence_rate_limit`), input validation, then `fn_process_geofence_event` (state machine), plus pacing hints `next_check_s` / `move_m` that the APK uses to decide when to send again.
 
 ### Zone Detection
