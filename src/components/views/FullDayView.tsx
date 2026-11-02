@@ -165,7 +165,7 @@ export function FullDayView({ onBack, onTerminalClick, onViewFlightList }: FullD
     return vuelosActivos
       .filter((v) => {
         if (!isLongHaul(v.origen)) return false;
-        if (haAlterizado(v.estado)) return false;
+        if (haAlterizado(v.estado, v.hora, v.dia_relativo)) return false;
         const [h, m] = (v.hora || "00:00").split(":").map(Number);
         const flightMin = h * 60 + m;
         return flightMin >= currentMinutes - 30 && flightMin <= twoHoursFromNow;
@@ -227,7 +227,7 @@ export function FullDayView({ onBack, onTerminalClick, onViewFlightList }: FullD
     const currentMinutes = currentHour * 60 + now.getMinutes();
     const result = { t1: 0, t2: 0, puente: 0, t2c: 0 };
     vuelosActivos.forEach((v) => {
-      if (haAlterizado(v.estado)) return;
+      if (haAlterizado(v.estado, v.hora, v.dia_relativo)) return;
       const [h, m] = (v.hora || "00:00").split(":").map(Number);
       if (h * 60 + m >= currentMinutes) {
         const type = getTerminalType(v);

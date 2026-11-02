@@ -121,7 +121,7 @@ export function TerminalDetailView({ terminalId, onBack }: TerminalDetailViewPro
   const todayUpcomingCount = useMemo(() => {
     return terminalFlights.filter((v) => {
       if (v.dia_relativo !== 0) return false;
-      if (haAlterizado(v.estado)) return false;
+      if (haAlterizado(v.estado, v.hora, v.dia_relativo)) return false;
       const vueloMin = parseHora(v.hora);
       return vueloMin >= currentMinutes - 30;
     }).length;
@@ -130,7 +130,7 @@ export function TerminalDetailView({ terminalId, onBack }: TerminalDetailViewPro
   // Lista próximos vuelos (hoy restantes + mañana), sin slice aquí
   const upcomingFlights = useMemo(() => {
     return terminalFlights.filter((v) => {
-      if (haAlterizado(v.estado)) return false;
+      if (haAlterizado(v.estado, v.hora, v.dia_relativo)) return false;
       if (v.dia_relativo > 0) return true;
       const vueloMin = parseHora(v.hora);
       return vueloMin >= currentMinutes - 30;

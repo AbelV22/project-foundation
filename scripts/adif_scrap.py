@@ -4,6 +4,7 @@ import time
 import json
 import re
 from datetime import datetime
+from zoneinfo import ZoneInfo
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.chrome.service import Service
@@ -17,6 +18,9 @@ from config import URLS, OUTPUT_FILES, TIMEOUTS, LIMITS, VALIDATION
 
 # --- CONFIGURACIÓN ---
 logger = setup_logger('ADIF_Scraper')
+# Los runners de GitHub van en UTC; las horas de llegada y las que ve el
+# taxista son de Barcelona.
+MADRID = ZoneInfo('Europe/Madrid')
 URL_ADIF = URLS.get('adif', "https://www.adif.es/w/71801-barcelona-sants?pageFromPlid=335")
 OUTPUT_FILE = str(OUTPUT_FILES.get('trenes_sants', os.path.join(os.getcwd(), "public", "trenes_sants.json")))
 
@@ -208,8 +212,8 @@ def obtener_trenes():
         output = {
             "trenes": datos,
             "meta": {
-                "update_time": datetime.now().strftime("%H:%M"),
-                "updated_at": datetime.now().isoformat(),
+                "update_time": datetime.now(MADRID).strftime("%H:%M"),
+                "updated_at": datetime.now(MADRID).isoformat(),
                 "total": len(datos)
             }
         }

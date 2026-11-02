@@ -62,15 +62,27 @@ export function parseHora(hora: string): number {
  *   - "Cinta X"     → luggage on baggage belt
  *
  * Only "En hora", "Programado", "Retrasado" count as upcoming.
+ *
+ * "Sala X" is NOT proof of landing on its own: AENA also shows the assigned
+ * arrival hall on flights that are still in the air (~40% of the remaining
+ * arrivals on a normal afternoon). It only counts as landed once the flight's
+ * time has passed, which needs `hora` and `diaRelativo`.
  */
-export function haAlterizado(estado: string): boolean {
+export function haAlterizado(estado: string, hora?: string, diaRelativo = 0): boolean {
   const s = (estado || "").toLowerCase();
-  return (
+  if (
     s.includes("finalizado") ||
-    s.includes("sala") ||      // "Sala T1_G", "Sala A", "Sala B", etc.
     s.includes("aterri") ||    // "Aterrizado"
     s.includes("cinta")        // "Cinta 3", etc.
-  );
+  ) {
+    return true;
+  }
+  if (s.includes("sala")) {    // "Sala T1_G", "Sala A", "Sala B", etc.
+    if (!hora || diaRelativo > 0) return false;
+    const now = new Date();
+    return parseHora(hora) <= now.getHours() * 60 + now.getMinutes();
+  }
+  return false;
 }
 
 /** Extract individual flight codes from "VLG8245 / IBE5041 / ..." */

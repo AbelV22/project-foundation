@@ -426,39 +426,34 @@ def scrape_garcia_bcn(driver: webdriver.Chrome) -> List[OfertaRaw]:
             driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
             time.sleep(1.5)
 
-        # Buscar en múltiples selectores
-        elementos = []
-        for tag in ['article', 'div', 'li', 'p']:
-            elementos.extend(driver.find_elements(By.TAG_NAME, tag))
-
-        textos_vistos = set()
-
-        for elem in elementos:
+        # Cada licencia es una tarjeta de precios de Divi (.et_pb_pricing_table):
+        # "DÍA PAR/IMPAR" / "180000" / descripción del coche o "SIN VEHICULO".
+        # El precio va sin "€" y la tarjeta no dice "licencia", así que el
+        # filtro genérico por texto las descartaba todas.
+        for card in driver.find_elements(By.CSS_SELECTOR, ".et_pb_pricing_table"):
             try:
-                texto = elem.text
-                if len(texto) < 30 or texto in textos_vistos:
-                    continue
-                textos_vistos.add(texto)
-
-                texto_upper = texto.upper()
-                # Debe contener precio y ser de taxi
-                if "€" not in texto and "PRECIO" not in texto_upper:
-                    continue
-                if "TAXI" not in texto_upper and "LICENCIA" not in texto_upper:
+                lineas = [l.strip() for l in card.text.split("\n") if l.strip()]
+                if len(lineas) < 2 or "NO DISPONIBLE" in card.text.upper():
                     continue
 
-                precio = extraer_precio_texto(texto)
-                if precio and 50000 <= precio <= 600000:
-                    ofertas.append(OfertaRaw(
-                        fuente="GARCIA_BCN",
-                        referencia=extraer_referencia(texto, "GARCIA_BCN"),
-                        raw=texto.replace("\n", " | "),
-                        url="https://asesoriagarciabcn.com/compra-y-venta-de-licencias-de-taxi-en-barcelona/",
-                        precio_detectado=precio,
-                        dia_descanso=extraer_dia_descanso(texto),
-                        modelo_detectado=extraer_modelo(texto)
-                    ))
-            except:
+                dia, precio_txt = lineas[0], lineas[1]
+                descripcion = " ".join(lineas[2:])
+                digitos = re.sub(r"[^\d]", "", precio_txt)
+                precio = int(digitos) if digitos else None
+                if not precio or not (50000 <= precio <= 600000):
+                    continue
+
+                texto = f"LICENCIA TAXI {dia} | {precio} € | {descripcion}"
+                ofertas.append(OfertaRaw(
+                    fuente="GARCIA_BCN",
+                    referencia=extraer_referencia(texto, "GARCIA_BCN"),
+                    raw=texto,
+                    url="https://asesoriagarciabcn.com/compra-y-venta-de-licencias-de-taxi-en-barcelona/",
+                    precio_detectado=precio,
+                    dia_descanso=extraer_dia_descanso(texto),
+                    modelo_detectado=extraer_modelo(texto)
+                ))
+            except Exception:
                 continue
 
     except Exception as e:

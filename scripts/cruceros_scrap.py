@@ -13,6 +13,7 @@ import requests
 import csv
 from io import StringIO
 from datetime import datetime
+from zoneinfo import ZoneInfo
 from typing import List, Dict, Optional
 
 # --- IMPORTS ROBUSTEZ ---
@@ -21,6 +22,9 @@ from config import OUTPUT_FILES, LIMITS, URLS, TIMEOUTS
 
 # --- LOGGER ---
 logger = setup_logger('Cruceros_Scraper')
+# Los runners de GitHub van en UTC; las horas de llegada y las que ve el
+# taxista son de Barcelona.
+MADRID = ZoneInfo('Europe/Madrid')
 
 # =============================================================================
 # CONSTANTS
@@ -210,7 +214,7 @@ def obtener_cruceros() -> Dict:
     total_pax = sum(c['pax_estimados'] for c in llegadas)
 
     # Próximo desembarco (llegada más cercana que aún no ha pasado)
-    now = datetime.now()
+    now = datetime.now(MADRID)
     now_minutes = now.hour * 60 + now.minute
 
     proximo_desembarco = None
@@ -241,7 +245,7 @@ def obtener_cruceros() -> Dict:
         )),
         "metadata": {
             "fuente": "Open Data Port de Barcelona",
-            "actualizado": datetime.now().isoformat(),
+            "actualizado": datetime.now(MADRID).isoformat(),
             "frecuencia": "horaria",
         }
     }
@@ -290,7 +294,7 @@ if __name__ == "__main__":
             "terminales_activas": [],
             "metadata": {
                 "fuente": "Open Data Port de Barcelona",
-                "actualizado": datetime.now().isoformat(),
+                "actualizado": datetime.now(MADRID).isoformat(),
                 "frecuencia": "horaria",
             }
         }
