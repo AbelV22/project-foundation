@@ -15,7 +15,6 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { useExpenses, ExpenseCategory, EXPENSE_SUBCATEGORIES } from "@/hooks/useExpenses";
 import { supabase } from "@/integrations/supabase/client";
-import { getOrCreateDeviceId } from "@/lib/deviceId";
 import { useToast } from "@/hooks/use-toast";
 import {
     Select,
@@ -66,8 +65,10 @@ export function AddExpenseSheet() {
 
     const uploadReceipt = async (base64: string): Promise<string | null> => {
         try {
-            const deviceId = getOrCreateDeviceId();
-            const fileName = `receipts/${deviceId}/${Date.now()}.jpg`;
+            // Storage RLS only allows writes under the user's own folder
+            const { data: { user } } = await supabase.auth.getUser();
+            if (!user) return null;
+            const fileName = `${user.id}/receipts/${Date.now()}.jpg`;
             const base64Data = base64.replace(/^data:image\/\w+;base64,/, '');
             const byteCharacters = atob(base64Data);
             const byteArray = new Uint8Array(byteCharacters.length);
@@ -82,11 +83,8 @@ export function AddExpenseSheet() {
 
             if (uploadError) throw uploadError;
 
-            const { data: urlData } = supabase.storage
-                .from('tickets')
-                .getPublicUrl(fileName);
-
-            return urlData.publicUrl;
+            // Private bucket: store the object path, not a public URL
+            return fileName;
         } catch (err) {
             console.error('[AddExpense] Upload receipt error:', err);
             return null;

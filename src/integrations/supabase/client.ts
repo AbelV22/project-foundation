@@ -8,11 +8,34 @@ const SUPABASE_PUBLISHABLE_KEY = import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY;
 // Import the supabase client like this:
 // import { supabase } from "@/integrations/supabase/client";
 
+// Sends the device's private UUID on PostgREST requests so RLS can scope
+// device-owned rows (smart_alerts, imet_calendar). Only on /rest/v1/: the
+// Edge Functions' CORS config does not allow this header.
+const fetchWithDeviceId: typeof fetch = (input, init) => {
+  const url = typeof input === 'string' ? input : input instanceof URL ? input.href : input.url;
+  if (!url.includes('/rest/v1/')) return fetch(input, init);
+
+  let deviceUuid: string | null = null;
+  try {
+    deviceUuid = localStorage.getItem('itaxi_device_uuid');
+  } catch {
+    // storage unavailable
+  }
+  if (!deviceUuid) return fetch(input, init);
+
+  const headers = new Headers(init?.headers);
+  headers.set('x-device-uuid', deviceUuid);
+  return fetch(input, { ...init, headers });
+};
+
 export const supabase = createClient<Database>(SUPABASE_URL, SUPABASE_PUBLISHABLE_KEY, {
   auth: {
     flowType: 'pkce',
     storage: localStorage,
     persistSession: true,
     autoRefreshToken: true,
-  }
+  },
+  global: {
+    fetch: fetchWithDeviceId,
+  },
 });

@@ -1,4 +1,8 @@
 import "jsr:@supabase/functions-js/edge-runtime.d.ts";
+import { createClient } from 'https://esm.sh/@supabase/supabase-js@2';
+
+// ~6 MB of base64 (≈4.5 MB image). The client compresses before sending.
+const MAX_IMAGE_BASE64_LENGTH = 6 * 1024 * 1024;
 
 const corsHeaders = {
   'Access-Control-Allow-Origin': '*',
@@ -11,12 +15,35 @@ Deno.serve(async (req) => {
   }
 
   try {
+    // Only signed-in users: the publishable key passes verify_jwt, so check
+    // that the token belongs to a real account before spending Gemini quota.
+    const authHeader = req.headers.get('Authorization') ?? '';
+    const supabase = createClient(
+      Deno.env.get('SUPABASE_URL') ?? '',
+      Deno.env.get('SUPABASE_ANON_KEY') ?? '',
+      { global: { headers: { Authorization: authHeader } } }
+    );
+    const { data: { user } } = await supabase.auth.getUser();
+    if (!user) {
+      return new Response(
+        JSON.stringify({ error: 'Debes iniciar sesión para escanear tickets' }),
+        { status: 401, headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
+      );
+    }
+
     const { image_base64 } = await req.json();
 
-    if (!image_base64) {
+    if (!image_base64 || typeof image_base64 !== 'string') {
       return new Response(
         JSON.stringify({ error: 'image_base64 is required' }),
         { status: 400, headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
+      );
+    }
+
+    if (image_base64.length > MAX_IMAGE_BASE64_LENGTH) {
+      return new Response(
+        JSON.stringify({ error: 'Imagen demasiado grande' }),
+        { status: 413, headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
       );
     }
 

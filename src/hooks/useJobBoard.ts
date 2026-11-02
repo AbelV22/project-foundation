@@ -1,6 +1,7 @@
 import { useState, useEffect, useCallback } from 'react';
 import { supabase } from '@/integrations/supabase/client';
 import { getOrCreateDeviceId } from '@/lib/deviceId';
+import { useAuth } from '@/hooks/useAuth';
 
 export type AdType = 'busco_conductor' | 'busco_taxi';
 export type ShiftType = 'morning' | 'afternoon' | 'night' | 'flexible';
@@ -9,6 +10,7 @@ export type AdStatus = 'active' | 'paused' | 'closed';
 export interface JobAd {
     id: string;
     device_id: string;
+    user_id: string | null;
     ad_type: AdType;
     title: string;
     description: string | null;
@@ -52,6 +54,7 @@ export const AD_TYPE_CONFIG = {
 };
 
 export const useJobBoard = () => {
+    const { user } = useAuth();
     const [ads, setAds] = useState<JobAd[]>([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState<string | null>(null);
@@ -131,10 +134,11 @@ export const useJobBoard = () => {
         }
     }, [fetchAds]);
 
+    // Ownership is tied to the account (RLS only lets the owner close an ad)
     const getMyAds = useCallback(() => {
-        const deviceId = getOrCreateDeviceId();
-        return ads.filter(a => a.device_id === deviceId);
-    }, [ads]);
+        if (!user) return [];
+        return ads.filter(a => a.user_id === user.id);
+    }, [ads, user]);
 
     useEffect(() => {
         fetchAds();

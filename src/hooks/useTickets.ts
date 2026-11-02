@@ -212,11 +212,9 @@ export const useTickets = (): UseTicketsResult => {
 
             if (uploadError) throw uploadError;
 
-            const { data: urlData } = supabase.storage
-                .from('tickets')
-                .getPublicUrl(fileName);
-
-            return urlData.publicUrl;
+            // The bucket is private: store the object path, read it later
+            // with createSignedUrl (only the owner can).
+            return fileName;
         } catch (err) {
             console.error('[useTickets] Upload error:', err);
             return null;

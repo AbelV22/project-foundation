@@ -17,8 +17,8 @@ import { LocationDiagnosticsPanel } from "@/components/LocationDiagnosticsPanel"
 import { NativeDebugLogsPanel } from "@/components/NativeDebugLogsPanel";
 import { UserPresenceTimeline } from "@/components/admin/UserPresenceTimeline";
 
-// Admin password verified server-side via Supabase RPC
-// No password stored in the client bundle
+// Admin access: Supabase Auth account listed in public.admin_users.
+// Data access is enforced by RLS (public.is_admin()), not by this screen.
 
 interface RegistroReten {
     id: string;
@@ -63,6 +63,7 @@ interface TrackingCheckLog {
 
 export default function Admin() {
     const [isAuthenticated, setIsAuthenticated] = useState(false);
+    const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [showPassword, setShowPassword] = useState(false);
     const [error, setError] = useState("");
@@ -101,39 +102,45 @@ export default function Admin() {
         setBackgroundStatus(getBackgroundStatus());
     };
 
-    // Check if already authenticated (session storage)
+    const checkIsAdmin = async (): Promise<boolean> => {
+        // @ts-expect-error - RPC not in generated types yet
+        const { data, error: rpcError } = await supabase.rpc('is_admin');
+        return !rpcError && data === true;
+    };
+
+    // Restore an existing admin session
     useEffect(() => {
-        const auth = sessionStorage.getItem("admin_auth");
-        if (auth === "true") {
-            setIsAuthenticated(true);
-        }
+        supabase.auth.getSession().then(async ({ data }) => {
+            if (data.session && await checkIsAdmin()) {
+                setIsAuthenticated(true);
+            }
+        });
     }, []);
 
     const handleLogin = async (e: React.FormEvent) => {
         e.preventDefault();
         setError("");
         try {
-            const { data, error: rpcError } = await supabase.rpc('fn_verify_admin_password', {
-                p_password: password,
-            });
-            if (rpcError) {
-                setError("Error de conexión. Inténtalo de nuevo.");
+            const { error: signInError } = await supabase.auth.signInWithPassword({ email, password });
+            if (signInError) {
+                setError("Email o contraseña incorrectos");
                 return;
             }
-            if (data === true) {
+            if (await checkIsAdmin()) {
                 setIsAuthenticated(true);
-                sessionStorage.setItem("admin_auth", "true");
+                setPassword("");
             } else {
-                setError("Contraseña incorrecta");
+                await supabase.auth.signOut();
+                setError("Esta cuenta no tiene permisos de administrador");
             }
         } catch {
             setError("Error de conexión. Inténtalo de nuevo.");
         }
     };
 
-    const handleLogout = () => {
+    const handleLogout = async () => {
+        await supabase.auth.signOut();
         setIsAuthenticated(false);
-        sessionStorage.removeItem("admin_auth");
         navigate("/");
     };
 
@@ -367,12 +374,21 @@ export default function Admin() {
                     </div>
 
                     <form onSubmit={handleLogin} className="space-y-4">
+                        <input
+                            type="email"
+                            value={email}
+                            onChange={(e) => setEmail(e.target.value)}
+                            placeholder="Email"
+                            autoComplete="username"
+                            className="w-full bg-black/30 border border-white/10 rounded-lg px-4 py-3 text-white placeholder:text-muted-foreground focus:outline-none focus:border-primary"
+                        />
                         <div className="relative">
                             <input
                                 type={showPassword ? "text" : "password"}
                                 value={password}
                                 onChange={(e) => setPassword(e.target.value)}
                                 placeholder="Contraseña"
+                                autoComplete="current-password"
                                 className="w-full bg-black/30 border border-white/10 rounded-lg px-4 py-3 text-white placeholder:text-muted-foreground focus:outline-none focus:border-primary"
                             />
                             <button

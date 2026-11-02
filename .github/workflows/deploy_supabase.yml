@@ -27,8 +27,11 @@ jobs:
         run: supabase link --project-ref $SUPABASE_PROJECT_ID --password $SUPABASE_DB_PASSWORD
 
       - name: Deploy Edge Functions
-        run: supabase functions deploy check-geofence
+        run: |
+          supabase functions deploy check-geofence
+          supabase functions deploy scan-ticket
 
-      - name: Push Database Migrations
-        run: supabase db push || echo "Migrations may have already been applied manually"
-        continue-on-error: true
+      # Migrations are NOT pushed from CI: the remote history diverged from
+      # supabase/migrations (several files were applied manually or never),
+      # and `db push` could replay old data-cleaning migrations. Apply new
+      # migrations explicitly (dashboard SQL editor or Supabase MCP).

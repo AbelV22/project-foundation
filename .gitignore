@@ -27,3 +27,14 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Local Claude Code settings (contained API keys)
+.claude/settings.local.json
+
+# Android signing (never commit)
+*.keystore
+*.jks
+android/keystore.properties
+
+# Local exports with real device locations
+public/mapa-dispositivos.html

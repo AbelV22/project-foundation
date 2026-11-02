@@ -25,54 +25,34 @@ export const useWaitingTimes = (): UseWaitingTimesResult => {
 
     const fetchWaitingTimes = useCallback(async () => {
         try {
-            // Fetch entries from last 2 hours to calculate waiting times
-            const twoHoursAgo = new Date(Date.now() - 2 * 60 * 60 * 1000).toISOString();
-
-            const { data: registros, error: fetchError } = await supabase
-                .from('registros_reten')
-                .select('zona, created_at, exited_at, tipo_zona')
-                .gte('created_at', twoHoursAgo)
-                .neq('tipo_zona', 'TRANSIT') // Exclude brief passes through zones
-                .order('created_at', { ascending: false });
+            // Aggregated server-side (registros_reten is not readable by clients).
+            // The RPC averages completed waits ≥30 min that ended in the last 2h,
+            // excluding TRANSIT and zombie-closed sessions, and returns a null
+            // average when there are fewer than 5 of them.
+            // @ts-expect-error - RPC not in generated types yet
+            const { data, error: fetchError } = await supabase.rpc('fn_get_waiting_times');
 
             if (fetchError) throw fetchError;
+
+            const rows = (data || []) as {
+                zona: string;
+                espera_minutos: number | null;
+                taxistas_activos: number;
+            }[];
 
             // Calculate stats per zone
             const zonas = ['T1', 'T2', 'SANTS', 'PUENTE_AEREO', 'T2C_EASY'];
             const stats: Record<string, WaitingTimeData> = {};
 
             for (const zona of zonas) {
-                const zonaRegistros = (registros || []).filter(r => r.zona === zona);
-                const activos = zonaRegistros.filter(r => !r.exited_at).length;
-
-                // Calculate average waiting time from completed waits (minimum 30 minutes)
-                // Shorter stays are drivers passing through or briefly stopping, not real queue waits
-                const completedWaits = zonaRegistros.filter(r => {
-                    if (!r.exited_at) return false;
-                    const start = new Date(r.created_at).getTime();
-                    const end = new Date(r.exited_at).getTime();
-                    const durationMinutes = (end - start) / 60000;
-                    return durationMinutes >= 30; // Only count genuine queue waits (≥30 min)
-                });
-
-                // Only show real data if we have at least 5 completed waits
-                const hasRealData = completedWaits.length >= 5;
-                let avgWait: number | null = null;
-
-                if (hasRealData) {
-                    const totalWait = completedWaits.reduce((acc, r) => {
-                        const start = new Date(r.created_at).getTime();
-                        const end = new Date(r.exited_at!).getTime();
-                        return acc + (end - start) / 60000; // Convert to minutes
-                    }, 0);
-                    avgWait = Math.round(totalWait / completedWaits.length);
-                }
+                const row = rows.find(r => r.zona === zona);
+                const avgWait = row?.espera_minutos ?? null;
 
                 stats[zona] = {
                     zona,
                     espera_minutos: avgWait,
-                    taxistas_activos: activos,
-                    isRealData: hasRealData,
+                    taxistas_activos: row?.taxistas_activos ?? 0,
+                    isRealData: avgWait !== null,
                 };
 
                 // Also map to lowercase names for compatibility

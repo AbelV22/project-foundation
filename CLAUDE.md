@@ -76,6 +76,8 @@ Only ONE open session per device allowed.
 
 ## Waiting Times Display
 
+Computed server-side in RPC `fn_get_waiting_times()` (clients cannot read `registros_reten`; only admins via `public.is_admin()`).
+
 - Only show real calculated data (no hardcoded defaults)
 - Exclude `TRANSIT` sessions from average calculation
 - Only count genuine queue waits: duration ≥ **30 minutes** (shorter stays = drivers passing through, not real queue)
