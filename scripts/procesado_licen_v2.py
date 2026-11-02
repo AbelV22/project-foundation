@@ -19,6 +19,7 @@ import re
 import os
 import sys
 from datetime import datetime, timedelta
+from zoneinfo import ZoneInfo
 from typing import Optional, Dict, List, Tuple
 
 # --- IMPORTS ROBUSTEZ ---
@@ -27,6 +28,8 @@ from config import OUTPUT_FILES, LIMITS, VALIDATION
 
 # --- LOGGER ---
 logger = setup_logger('Licencia_Procesador_V2')
+# Los runners de GitHub van en UTC; la fecha que ve el usuario es la de Barcelona.
+MADRID = ZoneInfo('Europe/Madrid')
 
 # =============================================================================
 # CONFIGURACIÓN Y CONSTANTES
@@ -357,7 +360,7 @@ def main():
         logger.info(f"📊 Histórico cargado: {len(history_df)} días")
 
     # 5. Calcular métricas del día
-    today_date = datetime.now().strftime("%Y-%m-%d")
+    today_date = datetime.now(MADRID).strftime("%Y-%m-%d")
 
     precio_referencia = calcular_precio_referencia(df, history_df)
 
@@ -466,7 +469,7 @@ def main():
             "por_fuente": por_fuente_list,
             "outliers_eliminados": df_original_len - len(df)
         },
-        "updated_at": datetime.now().strftime("%d/%m/%Y %H:%M"),
+        "updated_at": datetime.now(MADRID).strftime("%d/%m/%Y %H:%M"),
         "version": "2.0"
     }
 
@@ -486,7 +489,7 @@ def main():
 
     # 12. Generar análisis detallado
     analysis_output = {
-        "fecha_generacion": datetime.now().isoformat(),
+        "fecha_generacion": datetime.now(MADRID).isoformat(),
         "resumen": {
             "precio_mercado": precio_referencia,
             "mediana_hoy": int(df['precio_neto'].median()),
