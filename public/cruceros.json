@@ -45,7 +45,7 @@
             "puerto": "Marseille",
             "tipo": "llegada",
             "clase": "crucero",
-            "estado": "Iniciada",
+            "estado": "Finalitzada",
             "bandera": "Bahames",
             "imo": "9195200",
             "mmsi": "311361000",
@@ -171,7 +171,7 @@
             "fecha": "2026-11-02"
         },
         {
-            "hora": "16:30",
+            "hora": "17:08",
             "nombre": "Denia Ciutat Creativa",
             "naviera": "EUROLINEAS MARITIMAS S.A",
             "terminal": "TERMINAL F1",
@@ -188,7 +188,7 @@
             "fecha": "2026-11-02"
         },
         {
-            "hora": "17:15",
+            "hora": "17:29",
             "nombre": "Tenacia",
             "naviera": "GRANDI NAVI VELOCI",
             "terminal": "TERMINAL F2",
@@ -198,7 +198,7 @@
             "puerto": "Palma de Mallorca",
             "tipo": "llegada",
             "clase": "ferry",
-            "estado": "Autoritzada",
+            "estado": "Iniciada",
             "bandera": "Itàlia",
             "imo": "9350707",
             "mmsi": "247230200",
@@ -326,24 +326,7 @@
             "fecha": "2026-11-02"
         },
         {
-            "hora": "16:29",
-            "nombre": "Denia Ciutat Creativa",
-            "naviera": "BALEARIA EUROLINEAS MARITIMAS SA ",
-            "terminal": "LEPANT/TRUCK CENTER",
-            "terminal_codigo": "TC",
-            "eslora": 150.43,
-            "pax_estimados": 1000,
-            "puerto": "Ibiza",
-            "tipo": "salida",
-            "clase": "ferry",
-            "estado": "Iniciada",
-            "bandera": "Xipre",
-            "imo": "9019054",
-            "mmsi": "210133000",
-            "fecha": "2026-11-02"
-        },
-        {
-            "hora": "17:00",
+            "hora": "16:56",
             "nombre": "Brilliance Of The Seas",
             "naviera": "BALEARES CONSIGNATARIOS SLU",
             "terminal": "Terminal B (Maremagnum)",
@@ -353,7 +336,7 @@
             "puerto": "Valencia",
             "tipo": "salida",
             "clase": "crucero",
-            "estado": "Iniciada",
+            "estado": "Finalitzada",
             "bandera": "Bahames",
             "imo": "9195200",
             "mmsi": "311361000",
@@ -374,6 +357,23 @@
             "bandera": "Illes Marshall",
             "imo": "9156462",
             "mmsi": "538001663",
+            "fecha": "2026-11-02"
+        },
+        {
+            "hora": "17:07",
+            "nombre": "Denia Ciutat Creativa",
+            "naviera": "BALEARIA EUROLINEAS MARITIMAS SA ",
+            "terminal": "LEPANT/TRUCK CENTER",
+            "terminal_codigo": "TC",
+            "eslora": 150.43,
+            "pax_estimados": 1000,
+            "puerto": "Ibiza",
+            "tipo": "salida",
+            "clase": "ferry",
+            "estado": "Iniciada",
+            "bandera": "Xipre",
+            "imo": "9019054",
+            "mmsi": "210133000",
             "fecha": "2026-11-02"
         },
         {
@@ -455,7 +455,7 @@
             "puerto": "Palma de Mallorca",
             "tipo": "salida",
             "clase": "ferry",
-            "estado": "Autoritzada",
+            "estado": "Iniciada",
             "bandera": "Itàlia",
             "imo": "9350707",
             "mmsi": "247230200",
@@ -552,22 +552,22 @@
         "total_llegadas": 15,
         "total_salidas": 17,
         "pax_estimados_hoy": 25000,
-        "proximo_desembarco": "18:30",
-        "proximo_barco": "Ciudad De Soller"
+        "proximo_desembarco": null,
+        "proximo_barco": null
     },
     "terminales_activas": [
+        "F1",
         "S",
-        "F2",
         "B",
-        "A",
         "F3",
-        "TC",
+        "F2",
+        "A",
         "E",
-        "F1"
+        "TC"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-11-02T17:48:01.435002",
+        "actualizado": "2026-11-02T19:50:25.906474+01:00",
         "frecuencia": "horaria"
     }
 }
