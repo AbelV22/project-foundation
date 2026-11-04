@@ -1,24 +1,7 @@
 {
     "llegadas": [
         {
-            "hora": "06:30",
-            "nombre": "Star Legend",
-            "naviera": "WINDSTAR CRUISES LLC",
-            "terminal": "Terminal Sud",
-            "terminal_codigo": "S",
-            "eslora": 159.0,
-            "pax_estimados": 1000,
-            "puerto": "Cagliari",
-            "tipo": "llegada",
-            "clase": "crucero",
-            "estado": "Autoritzada",
-            "bandera": "Bahames",
-            "imo": "9008598",
-            "mmsi": "311085000",
-            "fecha": "2026-11-04"
-        },
-        {
-            "hora": "06:30",
+            "hora": "06:17",
             "nombre": "Oosterdam",
             "naviera": "HOLLAND AMERICA LINE",
             "terminal": "Terminal E (Adossat)",
@@ -28,10 +11,27 @@
             "puerto": "Villefranche-sur-Mer",
             "tipo": "llegada",
             "clase": "crucero",
-            "estado": "Autoritzada",
+            "estado": "Iniciada",
             "bandera": "Països Baixos",
             "imo": "9221281",
             "mmsi": "245417000",
+            "fecha": "2026-11-04"
+        },
+        {
+            "hora": "06:58",
+            "nombre": "Star Legend",
+            "naviera": "WINDSTAR CRUISES LLC",
+            "terminal": "Terminal Sud",
+            "terminal_codigo": "S",
+            "eslora": 159.0,
+            "pax_estimados": 1000,
+            "puerto": "Cagliari",
+            "tipo": "llegada",
+            "clase": "crucero",
+            "estado": "Iniciada",
+            "bandera": "Bahames",
+            "imo": "9008598",
+            "mmsi": "311085000",
             "fecha": "2026-11-04"
         },
         {
@@ -104,23 +104,6 @@
         },
         {
             "hora": "19:00",
-            "nombre": "Abel Matutes",
-            "naviera": "EUROLINEAS MARITIMAS S.A",
-            "terminal": "BALEARIA EUROLINEAS MARITIMAS SA ",
-            "terminal_codigo": "7332",
-            "eslora": 190.0,
-            "pax_estimados": 1000,
-            "puerto": "Alcudia",
-            "tipo": "llegada",
-            "clase": "ferry",
-            "estado": "Confirmada",
-            "bandera": "Espanya",
-            "imo": "9441130",
-            "mmsi": "224402000",
-            "fecha": "2026-11-04"
-        },
-        {
-            "hora": "19:00",
             "nombre": "Martin I Soler",
             "naviera": "EUROLINEAS MARITIMAS S.A",
             "terminal": "TERMINAL F1",
@@ -134,6 +117,23 @@
             "bandera": "Espanya",
             "imo": "9390367",
             "mmsi": "224637000",
+            "fecha": "2026-11-04"
+        },
+        {
+            "hora": "19:00",
+            "nombre": "Abel Matutes",
+            "naviera": "EUROLINEAS MARITIMAS S.A",
+            "terminal": "LEPANT/TRUCK CENTER",
+            "terminal_codigo": "TC",
+            "eslora": 190.5,
+            "pax_estimados": 1000,
+            "puerto": "Alcudia",
+            "tipo": "llegada",
+            "clase": "ferry",
+            "estado": "Autoritzada",
+            "bandera": "Espanya",
+            "imo": "9441130",
+            "mmsi": "224402000",
             "fecha": "2026-11-04"
         },
         {
@@ -183,7 +183,7 @@
             "puerto": "Cartagena",
             "tipo": "salida",
             "clase": "crucero",
-            "estado": "Autoritzada",
+            "estado": "Iniciada",
             "bandera": "Països Baixos",
             "imo": "9221281",
             "mmsi": "245417000",
@@ -217,27 +217,10 @@
             "puerto": "Mahon Menorca",
             "tipo": "salida",
             "clase": "crucero",
-            "estado": "Autoritzada",
+            "estado": "Iniciada",
             "bandera": "Bahames",
             "imo": "9008598",
             "mmsi": "311085000",
-            "fecha": "2026-11-04"
-        },
-        {
-            "hora": "21:30",
-            "nombre": "Abel Matutes",
-            "naviera": "BALEARIA EUROLINEAS MARITIMAS SA ",
-            "terminal": "BALEARIA EUROLINEAS MARITIMAS SA ",
-            "terminal_codigo": "7332",
-            "eslora": 190.0,
-            "pax_estimados": 1000,
-            "puerto": "Alcudia",
-            "tipo": "salida",
-            "clase": "ferry",
-            "estado": "Confirmada",
-            "bandera": "Espanya",
-            "imo": "9441130",
-            "mmsi": "224402000",
             "fecha": "2026-11-04"
         },
         {
@@ -255,6 +238,23 @@
             "bandera": "Itàlia",
             "imo": "9350707",
             "mmsi": "247230200",
+            "fecha": "2026-11-04"
+        },
+        {
+            "hora": "21:30",
+            "nombre": "Abel Matutes",
+            "naviera": "BALEARIA EUROLINEAS MARITIMAS SA ",
+            "terminal": "LEPANT/TRUCK CENTER",
+            "terminal_codigo": "TC",
+            "eslora": 190.5,
+            "pax_estimados": 1000,
+            "puerto": "Alcudia",
+            "tipo": "salida",
+            "clase": "ferry",
+            "estado": "Autoritzada",
+            "bandera": "Espanya",
+            "imo": "9441130",
+            "mmsi": "224402000",
             "fecha": "2026-11-04"
         },
         {
@@ -348,20 +348,20 @@
         "total_llegadas": 10,
         "total_salidas": 10,
         "pax_estimados_hoy": 14000,
-        "proximo_desembarco": "06:30",
-        "proximo_barco": "Star Legend"
+        "proximo_desembarco": "17:15",
+        "proximo_barco": "Tenacia"
     },
     "terminales_activas": [
+        "F3",
+        "F2",
         "E",
         "F1",
-        "F3",
-        "S",
-        "7332",
-        "F2"
+        "TC",
+        "S"
     ],
     "metadata": {
         "fuente": "Open Data Port de Barcelona",
-        "actualizado": "2026-11-04T02:03:18.116228+01:00",
+        "actualizado": "2026-11-04T13:48:42.253796+01:00",
         "frecuencia": "horaria"
     }
 }
