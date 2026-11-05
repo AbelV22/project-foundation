@@ -92,3 +92,11 @@ Computed server-side in RPC `fn_get_waiting_times()` (clients cannot read `regis
 Key migrations:
 - `20260127_robust_geofencing.sql` - Initial zone setup
 - `20260130_fix_found_bug.sql` - FOUND variable fix
+
+---
+
+## Traffic Incidents
+
+- Edge Function `traffic-sync` (verify_jwt off, protected by the Vault secret `traffic_sync_secret`) is called every 3 min by the pg_cron job `traffic-sync`. It downloads the Servei Català de Trànsit GML feed and the Ajuntament's TRAMS state + FRASE notices, and replaces each source's rows in `traffic_incidents` via `fn_replace_traffic_incidents`.
+- gencat.cat drops connections from the database's network, so the feeds can't be fetched with pg_net directly.
+- Clients read `traffic_incidents` via PostgREST (`useTrafficIncidents`, `TrafficWidget` on the dashboard).

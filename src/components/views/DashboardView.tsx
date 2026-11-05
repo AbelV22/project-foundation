@@ -8,6 +8,7 @@ import { useNavigate } from "react-router-dom";
 import { getTrackingStatus, forceLocationCheck } from "@/services/location/AutoLocationService";
 import { ProfitWidget } from "@/components/widgets/ProfitWidget";
 import { AppPromoBanner } from "@/components/widgets/AppPromoBanner";
+import { TrafficWidget } from "@/components/widgets/TrafficWidget";
 import { useDemandForecast } from "@/hooks/useDemandForecast";
 import { deduplicateFlights, getTerminalType as getTermType, parseHora as parseH, haAlterizado } from "@/lib/flightUtils";
 import type { VueloRaw } from "@/lib/flightUtils";
@@ -504,6 +505,9 @@ export function DashboardView({ onTerminalClick, onViewAllFlights, onViewAllEven
           )}
         </section>
       )}
+
+      {/* === TRÁFICO - ACCIDENTES Y CORTES === */}
+      <TrafficWidget />
 
       {/* === LIVE DATA WIDGETS - GLASS === */}
       <div className="grid grid-cols-2 gap-2 animate-fade-in-up" style={{ animationDelay: '400ms', animationFillMode: 'backwards' }}>

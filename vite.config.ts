@@ -19,6 +19,9 @@ export default defineConfig(({ mode }) => ({
         skipWaiting: true,
         clientsClaim: true,
         cleanupOutdatedCaches: true,
+        // The main bundle is just over the 2 MiB default; past the limit
+        // workbox fails the build instead of precaching it.
+        maximumFileSizeToCacheInBytes: 3 * 1024 * 1024,
       },
       manifest: {
         name: 'TaxiBot BCN',
