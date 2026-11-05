@@ -10,6 +10,7 @@ Frecuencia: Cada hora
 import sys
 import os
 import requests
+import time
 import csv
 from io import StringIO
 from datetime import datetime
@@ -68,23 +69,27 @@ def estimate_passengers(eslora: float) -> int:
 # =============================================================================
 # DATA FETCHING
 # =============================================================================
-def fetch_csv_data(url: str) -> Optional[List[Dict]]:
+def fetch_csv_data(url: str, intentos: int = 3) -> Optional[List[Dict]]:
     """
     Descarga y parsea CSV desde la API del Port de Barcelona.
+    El servidor del Port a veces no responde: se reintenta antes de rendirse.
     """
-    try:
-        response = requests.get(url, timeout=TIMEOUTS.get('api_request', 60))
-        response.raise_for_status()
-        response.encoding = 'utf-8'
+    for intento in range(1, intentos + 1):
+        try:
+            response = requests.get(url, timeout=TIMEOUTS.get('api_request', 60))
+            response.raise_for_status()
+            response.encoding = 'utf-8'
 
-        reader = csv.DictReader(StringIO(response.text))
-        return list(reader)
-    except requests.RequestException as e:
-        logger.error(f"Error fetching {url}: {e}")
-        return None
-    except Exception as e:
-        logger.error(f"Error parsing CSV: {e}")
-        return None
+            reader = csv.DictReader(StringIO(response.text))
+            return list(reader)
+        except requests.RequestException as e:
+            logger.error(f"Error fetching {url} (intento {intento}/{intentos}): {e}")
+            if intento < intentos:
+                time.sleep(20)
+        except Exception as e:
+            logger.error(f"Error parsing CSV: {e}")
+            return None
+    return None
 
 def parse_metres(value) -> float:
     """El Port publica las medidas con coma decimal ("293,95")."""
@@ -163,7 +168,7 @@ def parse_cruise_row(row: Dict, is_arrival: bool = True) -> Dict:
 # =============================================================================
 # MAIN SCRAPER
 # =============================================================================
-def obtener_cruceros() -> Dict:
+def obtener_cruceros() -> Optional[Dict]:
     """
     Obtiene todos los cruceros del día desde el Open Data del Port de Barcelona.
 
@@ -204,6 +209,11 @@ def obtener_cruceros() -> Dict:
         logger.info(f"   ✅ {len(salidas)} cruceros/ferries en salidas")
     else:
         logger.warning("   ⚠️ No se pudieron obtener salidas")
+
+    # Sin respuesta del Port: no hay datos nuevos, que no es lo mismo que un
+    # día sin barcos. El llamador conserva el último archivo bueno.
+    if arrivals_data is None and departures_data is None:
+        return None
 
     # Ordenar por hora
     llegadas.sort(key=lambda x: x['hora'])
@@ -257,6 +267,10 @@ def obtener_cruceros() -> Dict:
 # =============================================================================
 if __name__ == "__main__":
     cruceros_data = obtener_cruceros()
+
+    if cruceros_data is None:
+        logger.error("❌ El Port de Barcelona no responde. Archivo existente NO modificado.")
+        sys.exit(1)
 
     if cruceros_data and (cruceros_data['llegadas'] or cruceros_data['salidas']):
         # Usar safe_save_json para validar antes de sobrescribir

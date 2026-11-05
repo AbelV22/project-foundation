@@ -9,6 +9,11 @@ on:
 
 permissions:
   contents: write # Necesario para poder hacer 'git push' del JSON
+  actions: write  # Para relanzarse con workflow_dispatch
+
+concurrency:
+  group: scraper-cruceros
+  cancel-in-progress: false
 
 jobs:
   scrape-cruises:
@@ -53,3 +58,14 @@ jobs:
 
             git push origin main
           fi
+
+      # GitHub se salta muchos cron de este repo (los cruceros llegaban a pasar
+      # 8 h sin actualizarse). Cada ejecución espera y lanza la siguiente; el
+      # cron de arriba solo hace de red de seguridad si la cadena se rompe.
+      - name: ⏭️ Programar la siguiente ejecución
+        if: always()
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          sleep 3000   # ~50 min + ejecución ≈ cada hora
+          gh workflow run update_cruises.yml --ref main
