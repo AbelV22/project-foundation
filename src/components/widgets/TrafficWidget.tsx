@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { AlertTriangle, Ban, Car, ChevronDown, Info, MapPin, TrafficCone } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { toast } from "@/hooks/use-toast";
+import { ScrollingText } from "@/components/ui/scrolling-text";
 import { useTrafficIncidents, type TrafficIncident, type TrafficIncidentKind } from "@/hooks/useTrafficIncidents";
 
 const KIND_STYLE: Record<TrafficIncidentKind, { icon: typeof Car; color: string; bg: string; label: string }> = {
@@ -126,12 +127,12 @@ export function TrafficWidget() {
                   <Icon className={cn("h-3.5 w-3.5", style.color)} />
                 </div>
                 <div className="min-w-0 flex-1">
-                  <p className="text-xs font-medium text-foreground leading-snug line-clamp-2">{i.title}</p>
+                  <p className="text-xs font-medium text-foreground leading-snug">{i.title}</p>
                   {i.detail && (
-                    <p className="text-[10px] text-muted-foreground line-clamp-2">{i.detail}</p>
+                    <ScrollingText text={i.detail} className="text-[10px] text-muted-foreground" />
                   )}
                   {since && (
-                    <p className="text-[10px] text-muted-foreground/80 tabular-nums">{since}</p>
+                    <ScrollingText text={since} className="text-[10px] text-muted-foreground/80 tabular-nums" />
                   )}
                 </div>
                 {url && (
