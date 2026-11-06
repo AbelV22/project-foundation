@@ -10,6 +10,7 @@ import {
   aggregateTrainPax,
 } from '@/lib/passengerEstimation';
 import { deduplicateFlights } from '@/lib/flightUtils';
+import { normalizeTrenesResponse } from '@/lib/trainUtils';
 
 // --- TYPES ---
 
@@ -235,9 +236,12 @@ export function useDemandForecast(): DemandForecastResult {
   const { events } = useEvents();
   const { llegadas: cruiseLlegadas, getUpcomingArrivals } = useCruises();
 
-  // Fetch raw transport data
+  // Fetch raw transport data. Kept apart from calculateForecast: that one
+  // depends on flightsData, so fetching inside it made every download
+  // re-create it and re-run its effect, an endless loop of requests.
   const fetchTransportData = useCallback(async () => {
-    const quality = { ...dataQuality };
+    let flightsOk = false;
+    let trainsOk = false;
 
     try {
       const flightsRes = await fetch('/vuelos.json?t=' + Date.now());
@@ -245,7 +249,7 @@ export function useDemandForecast(): DemandForecastResult {
         const data = await flightsRes.json();
         if (Array.isArray(data)) {
           setFlightsData(deduplicateFlights(data));
-          quality.flights = true;
+          flightsOk = true;
         }
       }
     } catch { /* silent */ }
@@ -253,21 +257,21 @@ export function useDemandForecast(): DemandForecastResult {
     try {
       const trainsRes = await fetch('/trenes_sants.json?t=' + Date.now());
       if (trainsRes.ok) {
-        const data = await trainsRes.json();
-        if (Array.isArray(data)) {
-          setTrainsData(data);
-          quality.trains = true;
-        }
+        // The file is { trenes, meta }, not a bare array.
+        const { trenes } = normalizeTrenesResponse(await trainsRes.json());
+        setTrainsData(trenes);
+        trainsOk = trenes.length > 0;
       }
     } catch { /* silent */ }
 
-    quality.weather = !!weather;
-    quality.events = events.length > 0;
-    quality.cruises = cruiseLlegadas.length > 0;
-    quality.waitingTimes = Object.keys(waitingTimes).length > 0;
+    setDataQuality(q => ({ ...q, flights: flightsOk, trains: trainsOk }));
+  }, []);
 
-    setDataQuality(quality);
-  }, [weather, events, cruiseLlegadas, waitingTimes]);
+  useEffect(() => {
+    fetchTransportData();
+    const interval = setInterval(fetchTransportData, 3 * 60 * 1000);
+    return () => clearInterval(interval);
+  }, [fetchTransportData]);
 
   // Weather multiplier
   const weatherMultiplier = useMemo(() => {
@@ -292,9 +296,14 @@ export function useDemandForecast(): DemandForecastResult {
   const upcomingCruises = useMemo(() => getUpcomingArrivals(3), [getUpcomingArrivals]);
 
   // Calculate forecast
-  const calculateForecast = useCallback(async () => {
-    setLoading(true);
-    await fetchTransportData();
+  const calculateForecast = useCallback(() => {
+    setDataQuality(q => ({
+      ...q,
+      weather: !!weather,
+      events: events.length > 0,
+      cruises: cruiseLlegadas.length > 0,
+      waitingTimes: Object.keys(waitingTimes).length > 0,
+    }));
 
     const now = new Date();
     const currentHour = now.getHours();
@@ -575,9 +584,9 @@ export function useDemandForecast(): DemandForecastResult {
     setHourlyForecast(slots);
     setLastUpdate(new Date());
     setLoading(false);
-  }, [flightsData, trainsData, waitingTimes, weatherMultiplier, isRaining, weather, activeEvents, upcomingCruises, fetchTransportData]);
+  }, [flightsData, trainsData, waitingTimes, weatherMultiplier, isRaining, weather, events, cruiseLlegadas, activeEvents, upcomingCruises]);
 
-  // Initial load + auto-refresh every 3 minutes
+  // Recompute whenever the inputs change, and every 3 min as time moves on
   useEffect(() => {
     calculateForecast();
     const interval = setInterval(calculateForecast, 3 * 60 * 1000);
@@ -599,6 +608,7 @@ export function useDemandForecast(): DemandForecastResult {
     loading,
     lastUpdate,
     dataQuality,
-    refresh: calculateForecast,
+    // New data re-runs calculateForecast through its effect.
+    refresh: fetchTransportData,
   };
 }
