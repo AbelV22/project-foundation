@@ -45,6 +45,62 @@ function capitalize(s: string): string {
   return s ? s.charAt(0).toUpperCase() + s.slice(1).toLowerCase() : s
 }
 
+// The SCT feed is in Catalan; the app is in Spanish.
+const DESCRIPCIO_ES: Array<[RegExp, string]> = [
+  [/circulaci[oó] amb retencions/i, 'Retenciones'],
+  [/circulaci[oó] amb congesti[oó]/i, 'Congestión'],
+  [/circulaci[oó] intensa/i, 'Tráfico intenso'],
+  [/circulaci[oó] lenta/i, 'Circulación lenta'],
+  [/cal[cç]ada tallada/i, 'Calzada cortada'],
+  [/cal[cç]ada restringida/i, 'Calzada restringida'],
+  [/desviaments/i, 'con desvíos'],
+]
+
+const CAUSA_ES: Record<string, string> = {
+  'accident': 'Accidente',
+  'avaria': 'Vehículo averiado',
+  'circulació': 'Volumen de tráfico',
+  'retirada de vehicle': 'Retirada de vehículo',
+  'manteniment de ponts': 'Mantenimiento de puentes',
+  'treballs de manteniment': 'Trabajos de mantenimiento',
+  'obres en general': 'Obras',
+  'neteja': 'Limpieza',
+  'esllavissada': 'Desprendimiento',
+  'objectes a la calçada': 'Objetos en la calzada',
+  'incendi': 'Incendio',
+  'meteorologia': 'Meteorología',
+}
+
+function translateDescripcio(text: string): string {
+  let out = text
+  for (const [re, es] of DESCRIPCIO_ES) out = out.replace(re, es)
+  return out.replace(/\.\s*con desvíos/, ' con desvíos')
+}
+
+function translateCausa(causa: string): string {
+  return CAUSA_ES[causa.trim().toLowerCase()] ?? causa
+}
+
+// cap_a mixes the direction with lane status or schedule:
+// "BARCELONA-UN CARRIL TALLAT", "NUS LLOBREGAT", "LLEIDA-HORARI: 8 a 18h".
+function parseCapA(capA: string): { sentido: string | null; extra: string | null } {
+  if (!capA) return { sentido: null, extra: null }
+  const [first, ...rest] = capA.split('-')
+  const looksLikeExtra = (t: string) => /^(horari|un |dos |tres |carril|lateral)/i.test(t.trim())
+  const toEs = (t: string) => t.trim().toLowerCase()
+    .replace(/\bhorari\b/g, 'horario')
+    .replace(/\bcarrils\b/g, 'carriles')
+    .replace(/\btallats?\b/g, (m) => (m.endsWith('s') ? 'cortados' : 'cortado'))
+    .replace(/\boberts?\b/g, (m) => (m.endsWith('s') ? 'abiertos' : 'abierto'))
+    .replace(/\blateral dret\b/g, 'lateral derecho')
+    .replace(/\blateral esquerre\b/g, 'lateral izquierdo')
+  if (looksLikeExtra(first)) return { sentido: null, extra: toEs(capA) }
+  return {
+    sentido: capitalize(first.trim()).replace(/\b\w/g, (c) => c.toUpperCase()),
+    extra: rest.length ? toEs(rest.join('-')) : null,
+  }
+}
+
 // --- Servei Català de Trànsit ------------------------------------------------
 function parseSct(xml: string): Incident[] {
   const items: Incident[] = []
@@ -59,11 +115,12 @@ function parseSct(xml: string): Incident[] {
 
     const causa = tag(f, 'causa')
     const descripcio = tag(f, 'descripcio')
-    const tipusDesc = tag(f, 'descripcio_tipus')
+    const tipus = tag(f, 'tipus')
     const nivell = Number(tag(f, 'nivell')) || 1
 
-    // Roadworks that only narrow the road are constant noise: keep accidents,
-    // closures and queues.
+    // tipus 3 = roadworks: only closures matter, lane restrictions are
+    // constant noise. Everything else (accidents, breakdowns, queues,
+    // weather...) is kept.
     let kind: Incident['kind']
     let severity: number
     if (/^accident/i.test(causa)) {
@@ -72,7 +129,7 @@ function parseSct(xml: string): Incident[] {
     } else if (/tallad/i.test(descripcio)) {
       kind = 'corte'
       severity = 5
-    } else if (/retenci/i.test(tipusDesc)) {
+    } else if (tipus !== '3') {
       kind = 'retencion'
       severity = Math.max(2, Math.min(5, nivell))
     } else {
@@ -83,9 +140,15 @@ function parseSct(xml: string): Incident[] {
     const pkIni = tag(f, 'pk_inici')
     const pkFi = tag(f, 'pk_fi')
     const km = pkIni ? ` km ${pkIni}${pkFi && pkFi !== pkIni ? `–${pkFi}` : ''}` : ''
-    const label = kind === 'accidente' ? 'Accidente' : kind === 'corte' ? 'Corte' : 'Retención'
-    const capA = tag(f, 'cap_a')
+    const causaEs = translateCausa(causa)
+    // Retentions are titled by their cause when it says more than "traffic".
+    const label = kind === 'accidente' ? 'Accidente'
+      : kind === 'corte' ? 'Corte'
+      : causa && !/^circulaci/i.test(causa) ? causaEs
+      : 'Retención'
+    const { sentido, extra } = parseCapA(tag(f, 'cap_a'))
     const fecha = tag(f, 'data')
+    const showCausa = kind === 'corte' && causa
 
     items.push({
       id: `sct:${tag(f, 'identificador')}`,
@@ -93,8 +156,12 @@ function parseSct(xml: string): Incident[] {
       severity,
       road: carretera || null,
       title: `${label} en ${carretera}${km}`,
-      detail: [descripcio, capA ? `Sentido ${capitalize(capA)}` : '', kind !== 'accidente' && causa ? causa : '']
-        .filter(Boolean).join(' · ') || null,
+      detail: [
+        translateDescripcio(descripcio),
+        sentido ? `Sentido ${sentido}` : '',
+        extra ?? '',
+        showCausa ? causaEs : '',
+      ].filter(Boolean).join(' · ') || null,
       lat,
       lng,
       started_at: fecha ? new Date(fecha).toISOString() : null,
@@ -125,9 +192,36 @@ function parseSectionsCsv(csv: string): Section[] {
   return out
 }
 
+// "YYYYMMDDHHMMSS" stamps in Barcelona time, as the TRAMS feed writes them.
+function stampToMs(stamp: string): number {
+  const m = stamp.match(/^(\d{4})(\d{2})(\d{2})(\d{2})(\d{2})(\d{2})$/)
+  return m ? Date.UTC(+m[1], +m[2] - 1, +m[3], +m[4], +m[5], +m[6]) : NaN
+}
+
+function madridNowMs(): number {
+  const parts = new Intl.DateTimeFormat('sv-SE', {
+    timeZone: 'Europe/Madrid', year: 'numeric', month: '2-digit', day: '2-digit',
+    hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false,
+  }).format(new Date())
+  return stampToMs(parts.replace(/\D/g, ''))
+}
+
+const TRAMS_MAX_AGE_MIN = 30
+
 function parseTrams(dat: string, sections: Map<number, Section>): Incident[] {
   const items: Incident[] = []
-  for (const line of dat.split(/\r?\n/)) {
+  const lines = dat.split(/\r?\n/).filter((l) => l.includes('#'))
+
+  // If the Ajuntament stops updating the file, its old closures and jams
+  // would stay on screen forever: drop the source until it's fresh again.
+  const stamp = lines[0]?.split('#')[1] ?? ''
+  const ageMin = (madridNowMs() - stampToMs(stamp)) / 60000
+  if (!(ageMin <= TRAMS_MAX_AGE_MIN)) {
+    console.warn(`[traffic-sync] TRAMS feed is ${Math.round(ageMin)} min old, ignoring it`)
+    return []
+  }
+
+  for (const line of lines) {
     const [id, , estat] = line.trim().split('#')
     // 5 = congestión, 6 = cortado (0 sin datos, 1-4 de muy fluido a muy denso)
     if (estat !== '5' && estat !== '6') continue
@@ -160,10 +254,11 @@ async function parseAvisos(txt: string): Promise<Incident[]> {
     const digest = await crypto.subtle.digest('SHA-1', new TextEncoder().encode(text))
     const hash = Array.from(new Uint8Array(digest)).slice(0, 6).map((b) => b.toString(16).padStart(2, '0')).join('')
     const closed = /tallad|tallat/i.test(text)
+    const queue = !closed && /retenci/i.test(text)
     items.push({
       id: `bcn_avisos:${hash}`,
-      kind: closed ? 'corte' : 'aviso',
-      severity: closed ? 4 : 2,
+      kind: closed ? 'corte' : queue ? 'retencion' : 'aviso',
+      severity: closed ? 4 : queue ? 3 : 2,
       road: null,
       title: text,
       detail: null,

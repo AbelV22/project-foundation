@@ -79,7 +79,7 @@ export function TrafficWidget() {
       <div className="flex items-center justify-between w-full px-1">
         <div className="flex items-center gap-2">
           <TrafficCone className="h-4 w-4 text-amber-400" />
-          <span className="text-xs font-semibold text-muted-foreground uppercase tracking-wider">Tráfico</span>
+          <span className="text-xs font-semibold text-muted-foreground uppercase tracking-wider">Incidentes</span>
           {serious > 0 && (
             <>
               <span className="font-mono text-lg font-bold text-red-400 tabular-nums">{serious}</span>
@@ -92,7 +92,7 @@ export function TrafficWidget() {
 
       {incidents.length === 0 ? (
         <div className="card-glass p-3 text-center">
-          <p className="text-sm text-muted-foreground">Sin incidencias de tráfico en Barcelona</p>
+          <p className="text-sm text-muted-foreground">Sin incidentes de tráfico en Barcelona</p>
         </div>
       ) : (
         <div className="card-glass p-3 space-y-2">

@@ -506,7 +506,7 @@ export function DashboardView({ onTerminalClick, onViewAllFlights, onViewAllEven
         </section>
       )}
 
-      {/* === TRÁFICO - ACCIDENTES Y CORTES === */}
+      {/* === INCIDENTES - ACCIDENTES Y CORTES === */}
       <TrafficWidget />
 
       {/* === LIVE DATA WIDGETS - GLASS === */}
