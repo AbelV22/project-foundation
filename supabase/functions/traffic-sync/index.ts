@@ -253,12 +253,13 @@ async function parseAvisos(txt: string): Promise<Incident[]> {
     seen.add(text)
     const digest = await crypto.subtle.digest('SHA-1', new TextEncoder().encode(text))
     const hash = Array.from(new Uint8Array(digest)).slice(0, 6).map((b) => b.toString(16).padStart(2, '0')).join('')
-    const closed = /tallad|tallat/i.test(text)
-    const queue = !closed && /retenci/i.test(text)
+    const accident = /accident/i.test(text)
+    const closed = !accident && /tallad|tallat/i.test(text)
+    const queue = !accident && !closed && /retenci/i.test(text)
     items.push({
       id: `bcn_avisos:${hash}`,
-      kind: closed ? 'corte' : queue ? 'retencion' : 'aviso',
-      severity: closed ? 4 : queue ? 3 : 2,
+      kind: accident ? 'accidente' : closed ? 'corte' : queue ? 'retencion' : 'aviso',
+      severity: accident ? 4 : closed ? 4 : queue ? 3 : 2,
       road: null,
       title: text,
       detail: null,

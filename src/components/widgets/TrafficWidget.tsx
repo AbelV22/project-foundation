@@ -20,13 +20,22 @@ const SEEN_KEY = "traffic_seen_alerts";
 const isAlertWorthy = (i: TrafficIncident) =>
   i.kind === "accidente" || (i.kind === "corte" && i.source === "sct");
 
-const timeAgo = (iso: string | null): string | null => {
+const hhmm = (d: Date) => d.toLocaleTimeString("es-ES", { hour: "2-digit", minute: "2-digit" });
+
+// When the incident started, so drivers can tell a fresh accident from an
+// old one: "desde 10:43 · hace 22 min" today, "desde 27 may" if older.
+const sinceLabel = (iso: string | null): string | null => {
   if (!iso) return null;
-  const minutes = Math.round((Date.now() - new Date(iso).getTime()) / 60000);
-  if (minutes < 0 || minutes > 24 * 60) return null;
-  if (minutes < 60) return `hace ${minutes} min`;
-  return `hace ${Math.floor(minutes / 60)} h`;
+  const start = new Date(iso);
+  const minutes = Math.round((Date.now() - start.getTime()) / 60000);
+  if (Number.isNaN(minutes) || minutes < 0) return null;
+  if (minutes < 60) return `desde ${hhmm(start)} · hace ${minutes} min`;
+  if (minutes < 24 * 60) return `desde ${hhmm(start)} · hace ${Math.floor(minutes / 60)} h`;
+  return `desde ${start.toLocaleDateString("es-ES", { day: "numeric", month: "short" })}`;
 };
+
+// Sync runs every 3 min; past this the data is shown as stale.
+const STALE_AFTER_MIN = 15;
 
 const mapsUrl = (i: TrafficIncident) =>
   i.lat != null && i.lng != null
@@ -74,6 +83,12 @@ export function TrafficWidget() {
   const serious = incidents.filter((i) => i.kind === "accidente" || i.kind === "corte").length;
   const visible = expanded ? incidents : incidents.slice(0, COLLAPSED_COUNT);
 
+  const lastUpdate = incidents.reduce<Date | null>((latest, i) => {
+    const d = new Date(i.updated_at);
+    return !latest || d > latest ? d : latest;
+  }, null);
+  const stale = lastUpdate ? (Date.now() - lastUpdate.getTime()) / 60000 > STALE_AFTER_MIN : false;
+
   return (
     <section className="space-y-2 animate-fade-in-up" style={{ animationDelay: '350ms', animationFillMode: 'backwards' }}>
       <div className="flex items-center justify-between w-full px-1">
@@ -87,7 +102,11 @@ export function TrafficWidget() {
             </>
           )}
         </div>
-        <span className="text-[9px] text-muted-foreground">SCT · Ajuntament</span>
+        {lastUpdate && (
+          <span className={cn("text-[10px] tabular-nums", stale ? "text-amber-400" : "text-muted-foreground")}>
+            {stale ? "Sin actualizar desde" : "Actualizado"} {hhmm(lastUpdate)}
+          </span>
+        )}
       </div>
 
       {incidents.length === 0 ? (
@@ -100,7 +119,7 @@ export function TrafficWidget() {
             const style = KIND_STYLE[i.kind];
             const Icon = style.icon;
             const url = mapsUrl(i);
-            const ago = timeAgo(i.started_at);
+            const since = sinceLabel(i.started_at);
             return (
               <div key={i.id} className="flex items-start gap-2.5">
                 <div className={cn("flex h-7 w-7 shrink-0 items-center justify-center rounded-lg", style.bg)}>
@@ -108,10 +127,11 @@ export function TrafficWidget() {
                 </div>
                 <div className="min-w-0 flex-1">
                   <p className="text-xs font-medium text-foreground leading-snug line-clamp-2">{i.title}</p>
-                  {(i.detail || ago) && (
-                    <p className="text-[10px] text-muted-foreground truncate">
-                      {[i.detail, ago].filter(Boolean).join(" · ")}
-                    </p>
+                  {i.detail && (
+                    <p className="text-[10px] text-muted-foreground line-clamp-2">{i.detail}</p>
+                  )}
+                  {since && (
+                    <p className="text-[10px] text-muted-foreground/80 tabular-nums">{since}</p>
                   )}
                 </div>
                 {url && (

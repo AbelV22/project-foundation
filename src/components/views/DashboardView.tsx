@@ -202,11 +202,6 @@ export function DashboardView({ onTerminalClick, onViewAllFlights, onViewAllEven
 
   return (
     <div className="space-y-3 pb-16">
-      {/* Header */}
-      <div className="flex items-center px-1 pt-1 animate-slide-down" style={{ animationDelay: '50ms', animationFillMode: 'backwards' }}>
-        <h2 className="text-xl font-display font-bold text-foreground">iTaxi BCN</h2>
-      </div>
-
       {/* App + Telegram promo */}
       <AppPromoBanner />
 
