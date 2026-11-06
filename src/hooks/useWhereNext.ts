@@ -1,6 +1,7 @@
 import { useState, useEffect, useCallback } from 'react';
 import { useWaitingTimes, getZoneWaitingTime, getZoneHasRealData, getZoneTaxistasActivos } from './useWaitingTimes';
 import { deduplicateFlights } from '@/lib/flightUtils';
+import { normalizeTrenesResponse } from '@/lib/trainUtils';
 
 interface ZoneRecommendation {
     zone: string;
@@ -98,7 +99,8 @@ export const useWhereNext = (currentLat?: number, currentLng?: number): UseWhere
             // Fetch FRESH train data  
             const trainsRes = await fetch('/trenes_sants.json?nocache=' + Date.now());
             if (!trainsRes.ok) throw new Error('Failed to fetch trains');
-            trainsData = await trainsRes.json();
+            // The file is { trenes, meta }, not a bare array.
+            trainsData = normalizeTrenesResponse(await trainsRes.json()).trenes;
             console.log('[WhereNext] Loaded trains:', Array.isArray(trainsData) ? trainsData.length : 0);
         } catch (e) {
             console.error('[WhereNext] Train fetch error:', e);
