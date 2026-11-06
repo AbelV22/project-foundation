@@ -14,6 +14,9 @@ export default defineConfig(({ mode }) => ({
     mode === 'development' && componentTagger(),
     VitePWA({
       registerType: 'autoUpdate',
+      // Registered by src/registerServiceWorker.ts, which also reloads the
+      // page when a new version takes over.
+      injectRegister: false,
       includeAssets: ['favicon.ico', 'robots.txt', 'apple-touch-icon.png'],
       workbox: {
         skipWaiting: true,
