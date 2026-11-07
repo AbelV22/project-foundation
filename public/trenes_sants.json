@@ -1,18 +1,6 @@
 {
     "trenes": [
         {
-            "hora": "11:11",
-            "origen": "Madrid Puerta de Atocha Almudena Grandes",
-            "tren": "AVE 03073",
-            "via": "-"
-        },
-        {
-            "hora": "11:24",
-            "origen": "Madrid Puerta de Atocha Almudena Grandes",
-            "tren": "IRYO 06081",
-            "via": "-"
-        },
-        {
             "hora": "11:44",
             "origen": "Madrid Puerta de Atocha Almudena Grandes",
             "tren": "AVE 03083",
@@ -59,11 +47,23 @@
             "origen": "Madrid Puerta de Atocha Almudena Grandes",
             "tren": "AVE 03093",
             "via": "-"
+        },
+        {
+            "hora": "13:09",
+            "origen": "Donostia / San Sebastián",
+            "tren": "ALVIA 00533",
+            "via": "-"
+        },
+        {
+            "hora": "13:21",
+            "origen": "Madrid Puerta de Atocha Almudena Grandes",
+            "tren": "IRYO 06011",
+            "via": "-"
         }
     ],
     "meta": {
-        "update_time": "11:01",
-        "updated_at": "2026-11-07T11:01:09.581935+01:00",
+        "update_time": "11:42",
+        "updated_at": "2026-11-07T11:42:14.804475+01:00",
         "total": 10
     }
 }
